@@ -20,6 +20,8 @@ const I = {
   close: <svg width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>,
   play: <svg width="40" height="40" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>,
   chevDown: <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>,
+  chevL: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>,
+  chevR: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>,
   clock: <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>,
   bulb: <svg width="32" height="32" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M9 21h6M12 3a6 6 0 014 10.5V17H8v-3.5A6 6 0 0112 3z"/></svg>,
   calc: <svg width="32" height="32" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h4M8 18h4"/></svg>,
@@ -45,13 +47,73 @@ const PROCESS = [
   { icon: I.cal, step: "03", title: "Sign, Schedule & Start", sub: "Let's Get to Work, On Your Terms.", text: "When everything is just right, we make it official. We'll finalize the contract, agree on your start date, and get the tools and team in place to bring your space to life.", bullets: ["Sign your proposal with confidence", "Set a clear, confirmed project start date", "Receive a preparation checklist for Day 1", "Stay in the loop with regular updates"] },
 ];
 
+/*
+ * ── PROJECTS ──────────────────────────────────────
+ * How to add your photos:
+ * 1. Put images in public/images/ on GitHub
+ * 2. Uncomment and update the image paths below
+ * 3. Add as many images per project as you want
+ * 4. Alt text helps SEO — include service + city
+ */
 const PROJECTS = [
-  { title: "Bathroom Redesign – Complete", cat: "Bathroom", color: "#4A6A8B" },
-  { title: "Bathroom Vanity Refresh", cat: "Bathroom", color: "#5A7A6B" },
-  { title: "Bath & Shower Remodel", cat: "Bathroom", color: "#6A5A7B" },
-  { title: "Full Home Remodel", cat: "Whole Home", color: "#7B5A4A" },
-  { title: "Basement Finishing", cat: "Basement", color: "#4A5A7B" },
-  { title: "Deck & Patio Build", cat: "Outdoor", color: "#5A7B4A" },
+  {
+    title: "Bathroom Redesign – Complete",
+    cat: "Bathroom",
+    color: "#4A6A8B",
+    desc: "Full gut renovation with modern tile, frameless glass shower, and custom vanity.",
+    images: [
+      // { src: "/images/bathroom-redesign-1.webp", alt: "Completed bathroom redesign in Carmel Indiana" },
+      // { src: "/images/bathroom-redesign-2.webp", alt: "Custom vanity installation Carmel IN" },
+    ],
+  },
+  {
+    title: "Bathroom Vanity Refresh",
+    cat: "Bathroom",
+    color: "#5A7A6B",
+    desc: "Quick-turnaround vanity swap with new countertop, fixtures, and mirror.",
+    images: [
+      // { src: "/images/vanity-refresh-1.webp", alt: "Bathroom vanity refresh in Fishers Indiana" },
+    ],
+  },
+  {
+    title: "Bath & Shower Remodel",
+    cat: "Bathroom",
+    color: "#6A5A7B",
+    desc: "Tub-to-shower conversion with heated floors and rain showerhead.",
+    images: [
+      // { src: "/images/shower-remodel-1.webp", alt: "Shower remodel in Westfield Indiana" },
+    ],
+  },
+  {
+    title: "Full Home Remodel",
+    cat: "Whole Home",
+    color: "#7B5A4A",
+    desc: "Complete interior transformation — kitchen, bathrooms, flooring, and paint throughout.",
+    images: [
+      // { src: "/images/full-home-1.webp", alt: "Full home remodel in Noblesville Indiana" },
+      // { src: "/images/full-home-2.webp", alt: "Kitchen renovation Noblesville IN" },
+    ],
+  },
+  {
+    title: "Basement Finishing",
+    cat: "Basement",
+    color: "#4A5A7B",
+    desc: "Unfinished basement converted to entertainment area with wet bar and guest suite.",
+    images: [
+      // { src: "/images/basement-1.webp", alt: "Basement finishing in Carmel Indiana" },
+      // { src: "/images/basement-2.webp", alt: "Finished basement entertainment area Carmel IN" },
+    ],
+  },
+  {
+    title: "Deck & Patio Build",
+    cat: "Outdoor",
+    color: "#5A7B4A",
+    desc: "Custom composite deck with pergola, built-in seating, and landscape lighting.",
+    images: [
+      // { src: "/images/deck-1.webp", alt: "Custom deck build in Zionsville Indiana" },
+      // { src: "/images/deck-2.webp", alt: "Outdoor living space with pergola Zionsville IN" },
+    ],
+  },
 ];
 
 const BLOG = [
@@ -287,6 +349,59 @@ function OurProcess(){
   );
 }
 
+/* ─── Image Carousel ───────────────────────────────── */
+function Carousel({ images, color, title }) {
+  const [idx, setIdx] = useState(0);
+  const hasImages = images && images.length > 0;
+  const multi = hasImages && images.length > 1;
+
+  if (!hasImages) {
+    return (
+      <div style={{height:230,background:`linear-gradient(135deg,${color},${color}aa)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative"}}>
+        <div style={{position:"absolute",inset:0,opacity:.06,backgroundImage:"repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.5) 10px,rgba(255,255,255,.5) 11px)"}}/>
+        <span style={{color:"rgba(255,255,255,.25)",fontSize:12,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase"}}>Project Photo</span>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{position:"relative",height:230,overflow:"hidden",background:C.navyDark}}>
+      <img
+        src={images[idx].src}
+        alt={images[idx].alt || title}
+        style={{width:"100%",height:"100%",objectFit:"cover",transition:"opacity .3s ease"}}
+        loading="lazy"
+      />
+      {multi && (
+        <>
+          <button onClick={(e)=>{e.stopPropagation();setIdx(idx===0?images.length-1:idx-1)}}
+            style={{position:"absolute",left:8,top:"50%",transform:"translateY(-50%)",width:34,height:34,borderRadius:"50%",background:"rgba(0,0,0,.5)",border:"none",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",transition:"background .2s",backdropFilter:"blur(4px)"}}
+            onMouseEnter={e=>e.currentTarget.style.background="rgba(0,0,0,.75)"}
+            onMouseLeave={e=>e.currentTarget.style.background="rgba(0,0,0,.5)"}
+          >{I.chevL}</button>
+          <button onClick={(e)=>{e.stopPropagation();setIdx(idx===images.length-1?0:idx+1)}}
+            style={{position:"absolute",right:8,top:"50%",transform:"translateY(-50%)",width:34,height:34,borderRadius:"50%",background:"rgba(0,0,0,.5)",border:"none",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",transition:"background .2s",backdropFilter:"blur(4px)"}}
+            onMouseEnter={e=>e.currentTarget.style.background="rgba(0,0,0,.75)"}
+            onMouseLeave={e=>e.currentTarget.style.background="rgba(0,0,0,.5)"}
+          >{I.chevR}</button>
+          {/* Dot indicators */}
+          <div style={{position:"absolute",bottom:10,left:"50%",transform:"translateX(-50%)",display:"flex",gap:6}}>
+            {images.map((_,j)=>(
+              <button key={j} onClick={(e)=>{e.stopPropagation();setIdx(j)}}
+                style={{width:idx===j?18:7,height:7,borderRadius:4,background:idx===j?"#fff":"rgba(255,255,255,.45)",border:"none",cursor:"pointer",transition:"all .25s",padding:0}}
+              />
+            ))}
+          </div>
+          {/* Counter */}
+          <div style={{position:"absolute",top:10,right:12,background:"rgba(0,0,0,.55)",color:"#fff",fontSize:11,fontWeight:700,padding:"3px 10px",borderRadius:20,backdropFilter:"blur(4px)"}}>
+            {idx+1} / {images.length}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 /* ─── Projects ─────────────────────────────────────── */
 function Projects(){
   const[ref,vis]=useVis();
@@ -306,16 +421,15 @@ function Projects(){
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))",gap:22}}>
           {filtered.map((p,i)=>
-            <div key={p.title} className={vis?`fu d${i%6+1}`:""} style={{borderRadius:14,overflow:"hidden",background:"#fff",boxShadow:"0 2px 10px rgba(0,0,0,.05)",transition:"all .3s",cursor:"pointer"}}
+            <div key={p.title} className={vis?`fu d${i%6+1}`:""} style={{borderRadius:14,overflow:"hidden",background:"#fff",boxShadow:"0 2px 10px rgba(0,0,0,.05)",transition:"all .3s"}}
               onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-5px)";e.currentTarget.style.boxShadow="0 14px 44px rgba(0,0,0,.1)"}}
               onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="0 2px 10px rgba(0,0,0,.05)"}}>
-              <div style={{height:210,background:`linear-gradient(135deg,${p.color},${p.color}aa)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative"}}>
-                <div style={{position:"absolute",inset:0,opacity:.06,backgroundImage:"repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.5) 10px,rgba(255,255,255,.5) 11px)"}}/>
-                <span style={{color:"rgba(255,255,255,.25)",fontSize:12,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase"}}>Project Photo</span>
-              </div>
+              <Carousel images={p.images} color={p.color} title={p.title} />
               <div style={{padding:"20px 24px 24px"}}>
                 <span style={{fontSize:10,fontWeight:700,letterSpacing:".08em",color:C.green,textTransform:"uppercase"}}>{p.cat}</span>
                 <h3 className="display" style={{fontSize:17,color:C.navy,marginTop:6}}>{p.title}</h3>
+                {p.desc && <p style={{color:C.gray,fontSize:13,lineHeight:1.6,marginTop:8}}>{p.desc}</p>}
+                {p.images && p.images.length > 1 && <div style={{marginTop:10,color:C.gray,fontSize:11,fontWeight:600}}>{p.images.length} photos</div>}
               </div>
             </div>
           )}
