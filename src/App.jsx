@@ -62,8 +62,10 @@ const PROJECTS = [
     color: "#4A6A8B",
     desc: "Full gut renovation with modern tile, frameless glass shower, and custom vanity.",
     images: [
-      // { src: "/images/bathroom-redesign-1.webp", alt: "Completed bathroom redesign in Carmel Indiana" },
-      // { src: "/images/bathroom-redesign-2.webp", alt: "Custom vanity installation Carmel IN" },
+      { src: "/images/bathroom-green-tile-1.jpg", alt: "Bathroom remodel with green tile in Carmel Indiana" },
+      { src: "/images/bathroom-green-tile-2.jpg", alt: "Beautiful green tile shower remodel Carmel IN" },
+      { src: "/images/bathroom-green-tile-3.jpg", alt: "Custom bathroom tile work in Carmel Indiana" },
+      { src: "/images/bathroom-green-tile-4.jpg", alt: "Completed bathroom renovation Carmel IN" },
     ],
   },
   {
