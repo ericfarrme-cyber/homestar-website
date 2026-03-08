@@ -113,9 +113,11 @@ const BLOG = [
 ];
 
 const VIDEOS = [
-  { title: "Full Kitchen Remodel Walkthrough", dur: "8:24", desc: "Watch the complete transformation of a dated kitchen into a modern culinary space with custom cabinetry and quartz counters." },
-  { title: "Before & After: Basement Conversion", dur: "5:47", desc: "See how we turned an unfinished basement into a stunning family entertainment area with wet bar and guest suite." },
-  { title: "Bathroom Renovation: Start to Finish", dur: "6:12", desc: "A behind-the-scenes look at our team completing a spa-inspired master bath remodel from demolition to final reveal." },
+  { title: "Floor-to-Ceiling Bathroom Remodel in Noblesville, IN", id: "7ww8YOK33B8", desc: "Complete bathroom transformation from floor to ceiling in a Noblesville home." },
+  { title: "Full Upper Level Home Remodel in Geist, IN", id: "coWQF-AMLsw", desc: "Watch the full upper level renovation of this beautiful Geist residence." },
+  { title: "Luxury Double Shower Bathroom Remodel in Carmel, IN", id: "EM4UCRyGCYs", desc: "A luxurious double shower installation in this stunning Carmel bathroom remodel." },
+  { title: "Custom Green Tile Bathroom Remodel in Carmel, IN", id: "OauuZVYCbYY", desc: "Bold green tile brings this Carmel bathroom to life with a one-of-a-kind design." },
+  { title: "Jack & Jill Bathroom Remodel in Zionsville, IN", id: "QiuKLitzftY", desc: "A shared Jack & Jill bathroom gets a complete makeover in Zionsville." },
 ];
 
 const TESTIMONIALS = [
@@ -442,21 +444,32 @@ function Videos(){
           <h2 className="ttl ttl-w">Video Walkthroughs</h2>
           <p className="sub" style={{margin:"0 auto",color:"rgba(255,255,255,.45)"}}>Watch our process and results up close with behind-the-scenes project videos.</p>
         </div>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))",gap:24}}>
+        {/* Horizontal scroll container for vertical Shorts */}
+        <div style={{display:"flex",gap:20,overflowX:"auto",paddingBottom:16,scrollSnapType:"x mandatory",WebkitOverflowScrolling:"touch"}}>
           {VIDEOS.map((v,i)=>
-            <div key={v.title} className={vis?`fu d${i+1}`:""} style={{borderRadius:14,overflow:"hidden",background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.07)",transition:"all .3s",cursor:"pointer"}}
+            <div key={v.id} className={vis?`fu d${i+1}`:""} style={{minWidth:280,maxWidth:300,flexShrink:0,borderRadius:14,overflow:"hidden",background:"rgba(255,255,255,.04)",border:"1px solid rgba(255,255,255,.08)",scrollSnapAlign:"start",transition:"all .3s"}}
               onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(92,184,50,.35)";e.currentTarget.style.transform="translateY(-4px)"}}
-              onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,.07)";e.currentTarget.style.transform="translateY(0)"}}>
-              <div style={{height:190,background:"linear-gradient(135deg,rgba(92,184,50,.12),rgba(27,42,74,.5))",display:"flex",alignItems:"center",justifyContent:"center",position:"relative"}}>
-                <div style={{width:64,height:64,borderRadius:"50%",background:"rgba(92,184,50,.85)",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 8px 28px rgba(92,184,50,.3)"}}>{I.play}</div>
-                <div style={{position:"absolute",bottom:10,right:12,background:"rgba(0,0,0,.65)",color:"#fff",fontSize:11,fontWeight:700,padding:"3px 9px",borderRadius:4}}>{v.dur}</div>
+              onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,.08)";e.currentTarget.style.transform="translateY(0)"}}>
+              <div style={{position:"relative",width:"100%",paddingTop:"177.78%",background:C.navyDark}}>
+                <iframe
+                  src={`https://www.youtube.com/embed/${v.id}`}
+                  title={v.title}
+                  style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:"none"}}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                />
               </div>
-              <div style={{padding:"20px 22px"}}>
-                <h3 className="display" style={{color:"#fff",fontSize:16,marginBottom:8}}>{v.title}</h3>
-                <p style={{color:"rgba(255,255,255,.4)",fontSize:13,lineHeight:1.6}}>{v.desc}</p>
+              <div style={{padding:"18px 20px 22px"}}>
+                <h3 className="display" style={{color:"#fff",fontSize:14,marginBottom:8,lineHeight:1.35}}>{v.title}</h3>
+                <p style={{color:"rgba(255,255,255,.4)",fontSize:12,lineHeight:1.6}}>{v.desc}</p>
               </div>
             </div>
           )}
+        </div>
+        {/* Scroll hint */}
+        <div style={{textAlign:"center",marginTop:16,color:"rgba(255,255,255,.25)",fontSize:12,fontWeight:600}}>
+          ← Swipe to see more videos →
         </div>
       </div>
     </section>
