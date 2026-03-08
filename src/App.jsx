@@ -60,12 +60,12 @@ const PROJECTS = [
     title: "Bathroom Redesign – Complete",
     cat: "Bathroom",
     color: "#4A6A8B",
-    desc: "Full gut renovation with modern tile, frameless glass shower, and custom vanity.",
+    desc: "Full gut renovation with modern tile, frameless glass shower, and custom vanity in Carmel, IN.",
     images: [
-      { src: "/images/bathroom-green-tile-1.JPG", alt: "Bathroom remodel with green tile in Carmel Indiana" },
-      { src: "/images/bathroom-green-tile-2.JPG", alt: "Beautiful green tile shower remodel Carmel IN" },
-      { src: "/images/bathroom-green-tile-3.JPG", alt: "Custom bathroom tile work in Carmel Indiana" },
-      { src: "/images/bathroom-green-tile-4.JPG", alt: "Completed bathroom renovation Carmel IN" },
+      { src: "/images/bathroom-green-tile-1.jpg", alt: "Bathroom remodel with beautiful green tile in Carmel Indiana" },
+      { src: "/images/bathroom-green-tile-2.jpg", alt: "Green tile shower remodel in Carmel IN" },
+      { src: "/images/bathroom-green-tile-3.jpg", alt: "Custom bathroom tile work in Carmel Indiana" },
+      { src: "/images/bathroom-green-tile-4.jpg", alt: "Completed bathroom renovation with green tile Carmel IN" },
     ],
   },
   {
@@ -73,48 +73,35 @@ const PROJECTS = [
     cat: "Bathroom",
     color: "#5A7A6B",
     desc: "Quick-turnaround vanity swap with new countertop, fixtures, and mirror.",
-    images: [
-      // { src: "/images/vanity-refresh-1.webp", alt: "Bathroom vanity refresh in Fishers Indiana" },
-    ],
+    images: [],
   },
   {
     title: "Bath & Shower Remodel",
     cat: "Bathroom",
     color: "#6A5A7B",
     desc: "Tub-to-shower conversion with heated floors and rain showerhead.",
-    images: [
-      // { src: "/images/shower-remodel-1.webp", alt: "Shower remodel in Westfield Indiana" },
-    ],
+    images: [],
   },
   {
     title: "Full Home Remodel",
     cat: "Whole Home",
     color: "#7B5A4A",
     desc: "Complete interior transformation — kitchen, bathrooms, flooring, and paint throughout.",
-    images: [
-      // { src: "/images/full-home-1.webp", alt: "Full home remodel in Noblesville Indiana" },
-      // { src: "/images/full-home-2.webp", alt: "Kitchen renovation Noblesville IN" },
-    ],
+    images: [],
   },
   {
     title: "Basement Finishing",
     cat: "Basement",
     color: "#4A5A7B",
     desc: "Unfinished basement converted to entertainment area with wet bar and guest suite.",
-    images: [
-      // { src: "/images/basement-1.webp", alt: "Basement finishing in Carmel Indiana" },
-      // { src: "/images/basement-2.webp", alt: "Finished basement entertainment area Carmel IN" },
-    ],
+    images: [],
   },
   {
     title: "Deck & Patio Build",
     cat: "Outdoor",
     color: "#5A7B4A",
     desc: "Custom composite deck with pergola, built-in seating, and landscape lighting.",
-    images: [
-      // { src: "/images/deck-1.webp", alt: "Custom deck build in Zionsville Indiana" },
-      // { src: "/images/deck-2.webp", alt: "Outdoor living space with pergola Zionsville IN" },
-    ],
+    images: [],
   },
 ];
 
