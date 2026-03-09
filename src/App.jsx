@@ -201,9 +201,7 @@ function Nav(){
       {/* Main bar */}
       <div style={{maxWidth:1160,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:sc?64:72,transition:"height .3s"}}>
         <a href="#hero" style={{textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>
-          <div style={{background:C.green,width:36,height:36,borderRadius:7,display:"flex",alignItems:"center",justifyContent:"center"}}>
-            <span className="display" style={{color:"#fff",fontSize:19,fontWeight:800,lineHeight:1}}>H</span>
-          </div>
+          <img src="/images/logo-mascot.png" alt="HomeStar Services mascot" style={{width:40,height:40,objectFit:"contain"}} />
           <div>
             <div className="display" style={{color:"#fff",fontSize:17,fontWeight:800,letterSpacing:".02em",lineHeight:1.1}}>HOMESTAR</div>
             <div style={{color:C.green,fontSize:9,fontWeight:700,letterSpacing:".11em",lineHeight:1}}>SERVICES & CONTRACTING</div>
@@ -674,7 +672,7 @@ function Footer(){
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))",gap:44,marginBottom:44}}>
           <div>
             <div style={{display:"flex",alignItems:"center",gap:9,marginBottom:16}}>
-              <div style={{background:C.green,width:32,height:32,borderRadius:6,display:"flex",alignItems:"center",justifyContent:"center"}}><span className="display" style={{color:"#fff",fontSize:17,fontWeight:800}}>H</span></div>
+              <img src="/images/logo-mascot.png" alt="HomeStar Services mascot" style={{width:36,height:36,objectFit:"contain"}} />
               <div><div className="display" style={{color:"#fff",fontSize:14,fontWeight:800}}>HOMESTAR</div><div style={{color:C.green,fontSize:8,fontWeight:700,letterSpacing:".1em"}}>SERVICES & CONTRACTING</div></div>
             </div>
             <p style={{color:"rgba(255,255,255,.3)",fontSize:12,lineHeight:1.7,maxWidth:260}}>We make home remodeling projects simple and stress-free for families across Hamilton County, Indiana. Expert craftsmanship, honest pricing, and a 1-year workmanship warranty.</p>
