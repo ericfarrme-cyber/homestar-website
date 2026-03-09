@@ -174,6 +174,75 @@ const PROJECTS = [
       { src: "/images/zionsville-jack-and-jill-9.jpg", alt: "Jack and Jill bathroom transformation Zionsville Indiana" },
     ],
   },
+  {
+    title: "Quick Fishers Basement Finish",
+    cat: "Basement",
+    color: "#4A5A7B",
+    desc: "A fast, efficient basement finish that added usable living space without breaking the budget.",
+    images: [
+      { src: "/images/fishers-basement-1.jpg", alt: "Basement finishing in Fishers Indiana" },
+      { src: "/images/fishers-basement-2.jpg", alt: "Finished basement living space Fishers IN" },
+      { src: "/images/fishers-basement-3.jpg", alt: "Completed basement remodel Fishers Indiana" },
+    ],
+  },
+  {
+    title: "Fishers Bathroom Renovation",
+    cat: "Bathroom",
+    color: "#6A7B8B",
+    desc: "A complete bathroom renovation in Fishers with updated tile, fixtures, and a modern layout.",
+    images: [
+      { src: "/images/fishers-bath-1.jpg", alt: "Bathroom renovation in Fishers Indiana" },
+      { src: "/images/fishers-bath-2.jpg", alt: "Updated bathroom remodel Fishers IN" },
+      { src: "/images/fishers-bath-3.jpg", alt: "Modern bathroom renovation Fishers Indiana" },
+      { src: "/images/fishers-bath-4.jpg", alt: "Completed bathroom remodel Fishers IN" },
+    ],
+  },
+  {
+    title: "Teenage Child Bathroom Remodel in Fishers",
+    cat: "Children's Bathroom",
+    color: "#7B6A8B",
+    desc: "A stylish bathroom remodel designed for a teenager — durable, functional, and with personality.",
+    images: [
+      { src: "/images/fishers-childrens-bath-1.jpg", alt: "Children's bathroom remodel in Fishers Indiana" },
+      { src: "/images/fishers-childrens-bath-2.jpg", alt: "Teen bathroom renovation Fishers IN" },
+      { src: "/images/fishers-childrens-bath-3.jpg", alt: "Kids bathroom remodel Fishers Indiana" },
+      { src: "/images/fishers-childrens-bath-4.jpg", alt: "Completed children's bathroom Fishers IN" },
+    ],
+  },
+  {
+    title: "Laundry Room Flip near Geist, Fishers",
+    cat: "Laundry",
+    color: "#8B7A5A",
+    desc: "A compact laundry room transformed with smart storage and a clean, modern design.",
+    images: [
+      { src: "/images/geist-laundry-1.jpg", alt: "Laundry room remodel near Geist Fishers Indiana" },
+      { src: "/images/geist-laundry-2.jpg", alt: "Modern laundry room renovation Geist Fishers IN" },
+    ],
+  },
+  {
+    title: "Modern Farmhouse Bathroom Remodel in Fishers",
+    cat: "Bathroom",
+    color: "#7B8B6A",
+    desc: "A warm, modern farmhouse-inspired bathroom with shiplap accents, wood-tone vanity, and classic fixtures.",
+    images: [
+      { src: "/images/modern-farmhouse-1.jpg", alt: "Modern farmhouse bathroom remodel in Fishers Indiana" },
+      { src: "/images/modern-farmhouse-2.jpg", alt: "Farmhouse style bathroom renovation Fishers IN" },
+      { src: "/images/modern-farmhouse-3.jpg", alt: "Farmhouse bathroom with shiplap Fishers Indiana" },
+      { src: "/images/modern-farmhouse-4.jpg", alt: "Completed farmhouse bathroom remodel Fishers IN" },
+    ],
+  },
+  {
+    title: "Westfield Basement Finish on a Budget",
+    cat: "Basement",
+    color: "#5A6A7B",
+    desc: "Proof that a great basement doesn't require a massive budget — smart design and efficient execution in Westfield.",
+    images: [
+      { src: "/images/westfield-basement-1.jpg", alt: "Budget basement finish in Westfield Indiana" },
+      { src: "/images/westfield-basement-2.jpg", alt: "Affordable basement remodel Westfield IN" },
+      { src: "/images/westfield-basement-3.jpg", alt: "Basement finishing on a budget Westfield Indiana" },
+      { src: "/images/westfield-basement-4.jpg", alt: "Completed basement finish Westfield IN" },
+    ],
+  },
 ];
 
 const BLOG = [
