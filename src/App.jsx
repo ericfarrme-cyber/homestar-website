@@ -676,7 +676,24 @@ function FAQ(){
 /* ─── Contact ──────────────────────────────────────── */
 function Contact(){
   const[ref,vis]=useVis();
-  const[sent,setSent]=useState(false);
+  useEffect(()=>{
+    // Load Jobber CSS
+    if(!document.querySelector('link[href*="work_request_embed.css"]')){
+      const link=document.createElement("link");
+      link.rel="stylesheet";
+      link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";
+      link.media="screen";
+      document.head.appendChild(link);
+    }
+    // Load Jobber script
+    if(!document.querySelector('script[src*="work_request_embed_snippet"]')){
+      const s=document.createElement("script");
+      s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
+      s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
+      s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
+      document.body.appendChild(s);
+    }
+  },[]);
   return(
     <section id="contact" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,position:"relative",overflow:"hidden"}} ref={ref}>
       <div style={{position:"absolute",top:0,left:0,right:0,height:70,background:C.cream,clipPath:"polygon(0 0,100% 0,100% 100%)"}}/>
@@ -705,31 +722,10 @@ function Contact(){
               )}
             </div>
           </div>
-          <div className={vis?"sl d2":""} style={{background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.08)",borderRadius:16,padding:36}}>
-            {sent?
-              <div style={{textAlign:"center",padding:"56px 0"}}>
-                <div style={{width:64,height:64,borderRadius:"50%",background:C.greenMuted,display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 20px"}}><svg width="32" height="32" fill="none" stroke={C.green} strokeWidth="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
-                <h3 className="display" style={{color:"#fff",fontSize:22,marginBottom:10}}>Thank You!</h3>
-                <p style={{color:"rgba(255,255,255,.5)",fontSize:14}}>We'll be in touch within 24 hours to discuss your project.</p>
-              </div>
-            :<>
-              <h3 className="display" style={{color:"#fff",fontSize:20,marginBottom:6}}>Request a Free Estimate</h3>
-              <p style={{color:"rgba(255,255,255,.35)",fontSize:13,marginBottom:24}}>Fill out the form and we'll get back to you quickly.</p>
-              <div style={{display:"flex",flexDirection:"column",gap:14}}>
-                {[{ph:"Full Name",t:"text"},{ph:"Phone Number",t:"tel"},{ph:"Email Address",t:"email"}].map(f=>
-                  <input key={f.ph} type={f.t} placeholder={f.ph} style={{padding:"13px 16px",borderRadius:8,border:"1px solid rgba(255,255,255,.1)",background:"rgba(255,255,255,.03)",color:"#fff",fontSize:14,fontFamily:"'Plus Jakarta Sans',sans-serif",outline:"none",transition:"border-color .2s"}}
-                    onFocus={e=>e.target.style.borderColor=C.green} onBlur={e=>e.target.style.borderColor="rgba(255,255,255,.1)"}/>
-                )}
-                <select style={{padding:"13px 16px",borderRadius:8,border:"1px solid rgba(255,255,255,.1)",background:"rgba(255,255,255,.03)",color:"rgba(255,255,255,.45)",fontSize:14,fontFamily:"'Plus Jakarta Sans',sans-serif",outline:"none",appearance:"none"}}>
-                  <option value="">Select Service Type</option>
-                  {SVC.map(s=><option key={s.title} value={s.title}>{s.title}</option>)}
-                </select>
-                <textarea placeholder="Tell us about your project..." rows={3} style={{padding:"13px 16px",borderRadius:8,border:"1px solid rgba(255,255,255,.1)",background:"rgba(255,255,255,.03)",color:"#fff",fontSize:14,fontFamily:"'Plus Jakarta Sans',sans-serif",outline:"none",resize:"vertical",transition:"border-color .2s"}}
-                  onFocus={e=>e.target.style.borderColor=C.green} onBlur={e=>e.target.style.borderColor="rgba(255,255,255,.1)"}/>
-                <button className="btn-g" style={{width:"100%",justifyContent:"center",padding:"15px",fontSize:15}} onClick={()=>setSent(true)}>Send Request {I.arrow}</button>
-                <p style={{color:"rgba(255,255,255,.25)",fontSize:11,textAlign:"center"}}>No spam. No obligation. Just a conversation about your project.</p>
-              </div>
-            </>}
+          <div className={vis?"sl d2":""} style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
+            <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Request a Free Estimate</h3>
+            <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
+            <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
           </div>
         </div>
       </div>
