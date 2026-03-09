@@ -34,7 +34,7 @@ const I = {
 
 const SVC = [
   { title: "Kitchen Remodeling", tag: "Where great meals begin", desc: "The kitchen is the heart of every home. We build spaces that balance function and beauty—thoughtful layouts, quality cabinetry, and finishes that elevate your everyday routine.", color: "#D4A76A", href: "#projects" },
-  { title: "Bathroom Remodeling", tag: "Your personal retreat", desc: "From outdated tile to spa-worthy design, we handle every detail of your bathroom transformation. Walk-in showers, custom vanities, heated floors—whatever your vision, we bring it to life.", color: "#6A9FD4", href: "#projects" },
+  { title: "Bathroom Remodeling", tag: "Schluter Pro Certified", desc: "Our Schluter Pro Certified team delivers premium bathroom renovations backed by a 25-year waterproofing warranty. Walk-in showers, custom vanities, heated floors — built with materials that protect your investment for decades.", color: "#6A9FD4", href: "#projects" },
   { title: "Basement Finishing", tag: "Unlock hidden potential", desc: "That unused square footage below your main floor? It's ready for a promotion. We convert unfinished basements into entertainment spaces, guest suites, home offices, and more.", color: "#8B7EC4", href: "#projects" },
   { title: "Flooring Services", tag: "The foundation of great design", desc: "New flooring changes the entire feel of a room. We install hardwood, luxury vinyl, tile, and carpet—selected for your lifestyle, built to handle real life, and installed with precision.", color: "#C49A6A", href: "#projects" },
   { title: "Painting Services", tag: "Fresh color, fresh energy", desc: "A professional paint job does more than change a color—it transforms a room. We deliver clean edges, smooth finishes, and expert prep work that makes the difference.", color: "#6AC4A8", href: "#projects" },
@@ -177,6 +177,7 @@ const PROJECTS = [
 ];
 
 const BLOG = [
+  { title: "Why Your Bathroom Tile Might Fail in 5 Years (And How to Prevent It)", date: "Mar 5, 2026", read: "7 min", cat: "Bathroom", excerpt: "Most tile failures aren't about the tile — they're about what's underneath. Learn why the Schluter waterproofing system outperforms standard cement board and protects your remodel for decades." },
   { title: "5 Signs Your Bathroom Needs a Remodel", date: "Feb 18, 2026", read: "5 min", cat: "Bathroom", excerpt: "Cracked grout, outdated fixtures, and poor ventilation aren't just eyesores—they're signs it's time to invest in your bathroom. Here's what to look for." },
   { title: "Kitchen Remodel ROI: What Actually Adds Value in Indiana", date: "Feb 4, 2026", read: "6 min", cat: "Kitchen", excerpt: "Not all upgrades are equal. We break down which kitchen improvements deliver the best return for Hamilton County homeowners." },
   { title: "Why Basement Finishing Is the Best Investment You'll Make This Year", date: "Jan 20, 2026", read: "4 min", cat: "Basement", excerpt: "Extra living space without moving? A finished basement adds square footage, comfort, and serious resale value to your home." },
@@ -255,7 +256,7 @@ function Nav(){
   const[open,setOpen]=useState(false);
   const[sc,setSc]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>50);window.addEventListener("scroll",h,{passive:true});return()=>window.removeEventListener("scroll",h)},[]);
-  const links=[{l:"Services",h:"#services"},{l:"Our Process",h:"#process"},{l:"Projects",h:"#projects"},{l:"Videos",h:"#videos"},{l:"Blog",h:"#blog"},{l:"About",h:"#about"},{l:"Contact",h:"#contact"}];
+  const links=[{l:"Services",h:"#services"},{l:"Why HomeStar",h:"#difference"},{l:"Our Process",h:"#process"},{l:"Projects",h:"#projects"},{l:"Videos",h:"#videos"},{l:"Blog",h:"#blog"},{l:"About",h:"#about"},{l:"Contact",h:"#contact"}];
 
   return(
     <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000,background:sc?"rgba(27,42,74,.97)":"transparent",backdropFilter:sc?"blur(14px)":"none",transition:"all .35s",borderBottom:sc?"1px solid rgba(255,255,255,.06)":"none"}}>
@@ -358,6 +359,103 @@ function Services(){
               <a href={s.href} style={{marginTop:16,color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:6,textDecoration:"none"}}>View Our Work {I.arrow}</a>
             </div>
           )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── The HomeStar Difference ──────────────────────── */
+function Difference(){
+  const[ref,vis]=useVis();
+  const items = [
+    {
+      title: "Schluter Pro Certified Installers",
+      desc: "We exclusively use the complete Schluter System — Ditra for floors, Kerdi for walls, and Schluter shower pans. This 100% waterproof system absorbs natural house movement, preventing cracked tiles and water damage. Because our installers are Schluter Pro Certified, your project is backed by a 25-year manufacturer's warranty.",
+      highlight: "25-Year Warranty",
+      icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
+    },
+    {
+      title: "Licensed Plumbers & Electricians Only",
+      desc: "Every plumbing and electrical component of your project is handled by fully licensed tradespeople — not handymen, not apprentices. We don't cut corners on the professionals responsible for your family's safety and code compliance.",
+      highlight: "Fully Licensed",
+      icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>,
+    },
+    {
+      title: "3D Design Renderings",
+      desc: "Before any work begins, we create detailed 3D renderings of your space so you can see exactly how your new room will look. We refine the design based on your feedback until every detail is right — tile patterns, fixtures, lighting, and layout.",
+      highlight: "See It Before We Build It",
+      icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>,
+    },
+    {
+      title: "Direct Access to Owners",
+      desc: "Work directly with Robb and Eric — no layers of project managers, no automated phone systems. When you call, you get answers from the people who care most about your project. If you ever have a concern, the owners handle it personally.",
+      highlight: "No Runaround",
+      icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>,
+    },
+    {
+      title: "Premium Materials, Not Shortcuts",
+      desc: "What goes under your tile matters more than the tile itself. While other contractors use standard cement board to save money, we invest in the Schluter System — the industry gold standard for waterproofing and long-term durability.",
+      highlight: "Built to Last",
+      icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>,
+    },
+    {
+      title: "Locally Owned & Community Rooted",
+      desc: "We're a small business deeply connected to Hamilton County. Your neighbors are our clients, and our reputation is built on every project we complete. Licensed with the State of Indiana, fully insured, and bonded.",
+      highlight: "Your Neighbors Trust Us",
+      icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
+    },
+  ];
+
+  return(
+    <section id="difference" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,position:"relative",overflow:"hidden"}} ref={ref}>
+      <div style={{position:"absolute",top:-80,left:-80,width:400,height:400,borderRadius:"50%",background:"radial-gradient(circle,rgba(92,184,50,.08) 0%,transparent 70%)"}}/>
+      <div className="sec-in" style={{position:"relative",zIndex:2}}>
+        <div style={{textAlign:"center",marginBottom:56}}>
+          <div className="lab">Why HomeStar</div>
+          <h2 className="ttl ttl-w">The HomeStar Difference</h2>
+          <p className="sub" style={{margin:"0 auto",color:"rgba(255,255,255,.45)"}}>We're not the cheapest option — and that's by design. Here's what you get when you choose a contractor who invests in doing it right.</p>
+        </div>
+
+        {/* Schluter callout */}
+        <div className={vis?"fu d1":""} style={{background:"rgba(92,184,50,.08)",border:"1px solid rgba(92,184,50,.2)",borderRadius:16,padding:"32px 36px",marginBottom:36,display:"flex",flexWrap:"wrap",gap:32,alignItems:"center"}}>
+          <div style={{flex:"1 1 400px"}}>
+            <div style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(92,184,50,.15)",borderRadius:50,padding:"6px 14px",marginBottom:16}}>
+              <span style={{color:C.green,fontWeight:800,fontSize:11,letterSpacing:".08em"}}>SCHLUTER PRO CERTIFIED</span>
+            </div>
+            <h3 className="display" style={{color:"#fff",fontSize:22,marginBottom:10}}>The Hidden Investment That Changes Everything</h3>
+            <p style={{color:"rgba(255,255,255,.55)",fontSize:14,lineHeight:1.75}}>What goes <strong style={{color:"#fff"}}>under</strong> your tile matters more than the tile itself. We exclusively use the complete Schluter waterproofing system — the bright orange material that's 100% waterproof and absorbs natural house movement. Standard cement board is rigid, absorbs moisture over time, and leads to cracked tiles and water damage. Our approach costs more upfront but protects your investment for decades.</p>
+          </div>
+          <div style={{flex:"0 0 auto",display:"flex",gap:20}}>
+            {[{label:"Schluter System",sub:"100% waterproof",color:C.green},{label:"Cement Board",sub:"Absorbs moisture",color:"#888"}].map(c=>
+              <div key={c.label} style={{textAlign:"center",padding:"20px 24px",borderRadius:12,background:"rgba(255,255,255,.05)",border:`1px solid ${c.color}33`,minWidth:130}}>
+                <div className="display" style={{color:c.color,fontSize:14,fontWeight:700,marginBottom:4}}>{c.label}</div>
+                <div style={{color:"rgba(255,255,255,.4)",fontSize:11}}>{c.sub}</div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Cards grid */}
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))",gap:20}}>
+          {items.map((item,i)=>
+            <div key={item.title} className={vis?`fu d${i%6+1}`:""} style={{padding:"28px 26px",borderRadius:14,background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.07)",transition:"all .3s"}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(92,184,50,.3)";e.currentTarget.style.transform="translateY(-3px)"}}
+              onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,.07)";e.currentTarget.style.transform="translateY(0)"}}>
+              <div style={{display:"flex",alignItems:"center",gap:14,marginBottom:14}}>
+                <div style={{width:44,height:44,borderRadius:10,background:"rgba(92,184,50,.1)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{item.icon}</div>
+                <div>
+                  <h3 className="display" style={{color:"#fff",fontSize:16,lineHeight:1.3}}>{item.title}</h3>
+                  <span style={{color:C.green,fontSize:11,fontWeight:700,letterSpacing:".04em"}}>{item.highlight}</span>
+                </div>
+              </div>
+              <p style={{color:"rgba(255,255,255,.45)",fontSize:13,lineHeight:1.7}}>{item.desc}</p>
+            </div>
+          )}
+        </div>
+
+        <div style={{textAlign:"center",marginTop:44}}>
+          <a href="#contact" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
         </div>
       </div>
     </section>
@@ -793,6 +891,7 @@ export default function HomestarSite(){
       <Nav/>
       <Hero/>
       <Services/>
+      <Difference/>
       <OurProcess/>
       <Projects/>
       <Videos/>
