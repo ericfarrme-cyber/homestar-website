@@ -585,22 +585,24 @@ function Blog(){
 /* ─── Testimonials ─────────────────────────────────── */
 function Testimonials(){
   const[ref,vis]=useVis();
+  useEffect(()=>{
+    if(!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')){
+      const s=document.createElement("script");
+      s.src="https://elfsightcdn.com/platform.js";
+      s.async=true;
+      document.body.appendChild(s);
+    }
+  },[]);
   return(
     <section className="sec" style={{background:C.cream}} ref={ref}>
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:52}}>
           <div className="lab">Trusted by Homeowners</div>
           <h2 className="ttl">What Our Clients Say</h2>
+          <p className="sub" style={{margin:"0 auto"}}>Real reviews from real homeowners across Hamilton County.</p>
         </div>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))",gap:24}}>
-          {TESTIMONIALS.map((t,i)=>
-            <div key={t.name} className={vis?`fu d${i+1}`:""} style={{padding:32,borderRadius:14,background:"#fff",boxShadow:"0 2px 10px rgba(0,0,0,.04)",position:"relative"}}>
-              <div style={{position:"absolute",top:20,right:24,fontSize:50,fontFamily:"Georgia,serif",color:C.sand,lineHeight:1}}>"</div>
-              <div style={{display:"flex",gap:2,marginBottom:16}}>{Array.from({length:t.rating}).map((_,j)=><span key={j}>{I.star}</span>)}</div>
-              <p style={{color:C.grayDark,fontSize:14,lineHeight:1.75,marginBottom:22,fontStyle:"italic"}}>"{t.text}"</p>
-              <div><div style={{fontWeight:700,color:C.navy,fontSize:14}}>{t.name}</div><div style={{color:C.gray,fontSize:12}}>{t.loc}</div></div>
-            </div>
-          )}
+        <div className={vis?"fu d1":""}>
+          <div className="elfsight-app-aa4b2192-d931-4bb1-9f22-53adc2e6ed5e" data-elfsight-app-lazy></div>
         </div>
       </div>
     </section>
