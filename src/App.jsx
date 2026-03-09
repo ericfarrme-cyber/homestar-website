@@ -722,10 +722,26 @@ function Contact(){
               )}
             </div>
           </div>
-          <div className={vis?"sl d2":""} style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-            <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Request a Free Estimate</h3>
-            <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
-            <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+          <div className={vis?"sl d2":""} style={{display:"flex",flexDirection:"column",gap:20}}>
+            {/* Quick contact options */}
+            <div style={{background:"rgba(255,255,255,.06)",border:"1px solid rgba(255,255,255,.1)",borderRadius:16,padding:"28px 24px",textAlign:"center"}}>
+              <h3 className="display" style={{color:"#fff",fontSize:18,marginBottom:6}}>Quick Contact</h3>
+              <p style={{color:"rgba(255,255,255,.4)",fontSize:13,marginBottom:20}}>Skip the form — reach us directly.</p>
+              <div style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap"}}>
+                <a href="tel:+13172794798" className="btn-g" style={{flex:"1 1 140px",justifyContent:"center",padding:"14px 20px",fontSize:14}}>
+                  {I.phone} Call Us
+                </a>
+                <a href="sms:+13172794798" className="btn-o" style={{flex:"1 1 140px",justifyContent:"center",padding:"14px 20px",fontSize:14,borderColor:"rgba(92,184,50,.5)",color:C.green}}>
+                  {I.mail} Text Us
+                </a>
+              </div>
+            </div>
+            {/* Jobber form */}
+            <div style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
+              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Request a Free Estimate</h3>
+              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
+              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+            </div>
           </div>
         </div>
       </div>
