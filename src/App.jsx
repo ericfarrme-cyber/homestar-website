@@ -33,18 +33,18 @@ const I = {
 };
 
 const SVC = [
-  { title: "Kitchen Remodeling", tag: "Cook in style and comfort", desc: "Your kitchen is where the magic (and the messes) happen. We'll help you create a space that's equal parts chef-worthy and family-friendly—with smart storage, better flow, and finishes that make you want to host brunch every weekend.", color: "#D4A76A", href: "/services/kitchen-remodeling/" },
-  { title: "Bathroom Remodeling", tag: "Say hello to spa vibes", desc: "Say goodbye to leaky faucets and dated tile. We'll transform your bathroom into a serene space that works for your routine and looks good doing it. Think spa energy—without ever leaving the house.", color: "#6A9FD4", href: "/services/bathroom-remodeling/" },
-  { title: "Basement Finishing", tag: "Turn \"blah\" into \"ta-da!\"", desc: "Let's turn that underused space into something special. Whether it's a family lounge, guest suite, or your long-awaited craft cave, we design basements that finally get the attention they deserve.", color: "#8B7EC4", href: "/services/basement-finishing/" },
-  { title: "Flooring Services", tag: "Step into something stylish", desc: "From high-traffic durability to stylish charm, your floors should check all the boxes. We install everything from cozy carpet to stunning hardwood that can handle muddy shoes, busy feet, and life in between.", color: "#C49A6A", href: "/services/flooring-services/" },
-  { title: "Painting Services", tag: "Color your world", desc: "Ready to ditch the builder beige? We deliver flawless finishes, clean lines, and eye-catching color that completely transforms your space—without you lifting a brush.", color: "#6AC4A8", href: "/services/painting-services/" },
-  { title: "Decks & Outdoor Living", tag: "Let's bring the party outside", desc: "Extend your living space with decks, patios, and outdoor retreats made for lounging, laughing, and late-night stargazing. We bring the resort vibes—no suitcase required.", color: "#7AAF5A", href: "/services/decks-outdoor-living/" },
+  { title: "Kitchen Remodeling", tag: "Where great meals begin", desc: "The kitchen is the heart of every home. We build spaces that balance function and beauty—thoughtful layouts, quality cabinetry, and finishes that elevate your everyday routine.", color: "#D4A76A", href: "#projects" },
+  { title: "Bathroom Remodeling", tag: "Your personal retreat", desc: "From outdated tile to spa-worthy design, we handle every detail of your bathroom transformation. Walk-in showers, custom vanities, heated floors—whatever your vision, we bring it to life.", color: "#6A9FD4", href: "#projects" },
+  { title: "Basement Finishing", tag: "Unlock hidden potential", desc: "That unused square footage below your main floor? It's ready for a promotion. We convert unfinished basements into entertainment spaces, guest suites, home offices, and more.", color: "#8B7EC4", href: "#projects" },
+  { title: "Flooring Services", tag: "The foundation of great design", desc: "New flooring changes the entire feel of a room. We install hardwood, luxury vinyl, tile, and carpet—selected for your lifestyle, built to handle real life, and installed with precision.", color: "#C49A6A", href: "#projects" },
+  { title: "Painting Services", tag: "Fresh color, fresh energy", desc: "A professional paint job does more than change a color—it transforms a room. We deliver clean edges, smooth finishes, and expert prep work that makes the difference.", color: "#6AC4A8", href: "#projects" },
+  { title: "Decks & Outdoor Living", tag: "Bring life outdoors", desc: "Custom decks, covered patios, and outdoor living areas designed for how you actually live. Built with quality materials and craftsmanship that stands up to Indiana weather.", color: "#7AAF5A", href: "#projects" },
 ];
 
 const PROCESS = [
-  { icon: I.bulb, step: "01", title: "Inspiration & Understanding", sub: "We Listen. You Share. We Plan Together.", text: "Our process begins with a no-pressure in-home consultation. We want to get to know you—how you live, what you love about your home, and what you'd like to improve. This isn't just about measurements and materials—it's about building a relationship and understanding your vision.", bullets: ["A friendly walk-through of your space", "Open discussion about your goals & design inspiration", "Understanding of your timeline and budget", "Helpful advice, tips, and realistic possibilities"] },
-  { icon: I.calc, step: "02", title: "Design, Details & Estimate", sub: "Turning Ideas into a Plan That Fits Your Life.", text: "Once we've nailed down the big-picture vision, we get to work designing your dream space—with visuals, textures, and real-life samples that help you make informed decisions with confidence.", bullets: ["Custom design renderings reflecting your style", "Material samples you can touch and compare", "A detailed, itemized estimate with transparent pricing", "A clear timeline for your project"] },
-  { icon: I.cal, step: "03", title: "Sign, Schedule & Start", sub: "Let's Get to Work, On Your Terms.", text: "When everything is just right, we make it official. We'll finalize the contract, agree on your start date, and get the tools and team in place to bring your space to life.", bullets: ["Sign your proposal with confidence", "Set a clear, confirmed project start date", "Receive a preparation checklist for Day 1", "Stay in the loop with regular updates"] },
+  { icon: I.bulb, step: "01", title: "Inspiration & Understanding", sub: "Getting to Know Your Vision.", text: "Every project starts with a conversation. We visit your home, walk the space with you, and take time to understand how you use it and what you'd like to change. No pressure, no sales pitch—just an honest discussion about what's possible.", bullets: ["Walk-through of your space with our team", "Discussion of your goals, style, and priorities", "Clear understanding of budget and timeline", "Expert guidance and realistic recommendations"] },
+  { icon: I.calc, step: "02", title: "Design, Details & Estimate", sub: "Your Vision Takes Shape.", text: "With a clear picture of what you want, we put together a detailed plan—complete with design concepts, material options you can see in person, and a transparent, itemized estimate. No guesswork, no vague numbers.", bullets: ["Design renderings tailored to your space", "Physical material samples to compare", "Itemized estimate with clear, honest pricing", "Defined project timeline from start to finish"] },
+  { icon: I.cal, step: "03", title: "Sign, Schedule & Start", sub: "Your Project, On Your Timeline.", text: "Once the plan feels right, we lock in a start date and prepare everything behind the scenes. Our crew arrives on time, respects your home, and keeps you informed every step of the way.", bullets: ["Finalize and sign your project proposal", "Confirmed start date that works for you", "Pre-project preparation checklist provided", "Consistent communication throughout the build"] },
 ];
 
 /*
@@ -198,11 +198,11 @@ const TESTIMONIALS = [
 ];
 
 const FAQS = [
-  { q: "How do I get a free estimate?", a: "Simply call us at (317) 279-4798, fill out our contact form, or request a quote online. We'll schedule a convenient time to visit your property, discuss your vision, and provide a detailed written estimate—completely free." },
-  { q: "Are you licensed and insured?", a: "Yes. HomeStar Services & Contracting is fully licensed, bonded, and insured in the state of Indiana. We carry general liability and workers' compensation coverage for your complete protection." },
-  { q: "How long does a typical remodel take?", a: "Timelines vary by scope. A bathroom remodel typically takes 2–4 weeks, kitchens 4–8 weeks, and basement finishes 6–12 weeks. We provide a detailed project schedule before work begins." },
-  { q: "Do you offer a warranty?", a: "Absolutely. All of our work is backed by a 1-year workmanship warranty. If something's not right, we'll make it right. Lasting results should come standard." },
-  { q: "What areas do you serve?", a: "We proudly serve homeowners across Carmel, Fishers, Noblesville, Zionsville, Brownsburg, Pendleton, McCordsville, Fortville, and the greater Hamilton County area." },
+  { q: "How do I get a free estimate?", a: "Give us a call at (317) 279-4798 or submit a request through the form on this page. We'll set up a time to visit your home, talk through your project, and provide a detailed written estimate at no cost." },
+  { q: "Are you licensed and insured?", a: "Yes — HomeStar Services & Contracting holds full licensing, bonding, and insurance in Indiana, including general liability and workers' compensation. Your home and our crew are fully protected." },
+  { q: "How long does a typical remodel take?", a: "It depends on scope. Most bathroom remodels wrap up in 2–4 weeks, kitchens run 4–8 weeks, and basement finishes typically take 6–12 weeks. We'll give you a clear timeline before any work begins." },
+  { q: "Do you offer a warranty?", a: "Every project we complete includes a 1-year workmanship warranty. If something isn't right after we finish, we come back and fix it. Quality work should hold up long after the last day on the job." },
+  { q: "What areas do you serve?", a: "We work throughout Hamilton County and surrounding communities — including Carmel, Fishers, Noblesville, Zionsville, Brownsburg, Pendleton, McCordsville, and Fortville." },
 ];
 
 const AREAS = ["Carmel", "Fishers", "Noblesville", "Zionsville", "Brownsburg", "Pendleton", "McCordsville", "Fortville"];
@@ -308,11 +308,11 @@ function Hero(){
           </div>
 
           <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(36px,5.5vw,66px)",lineHeight:1.06,marginBottom:22}}>
-            Transforming Houses<br/>Into <span style={{color:C.green}}>Dream Homes</span>
+            Major Projects.<br/><span style={{color:C.green}}>Master Craftsmanship.</span>
           </h1>
 
           <p className="fu d3" style={{color:"rgba(255,255,255,.6)",fontSize:18,lineHeight:1.7,maxWidth:520,marginBottom:36}}>
-            From top-notch home remodeling to routine maintenance, we bring skill, care, and a splash of fun to every project in Hamilton County, Indiana and surrounding communities.
+            Full-service home remodeling for Hamilton County, Indiana and the surrounding communities. Licensed contractors, honest pricing, and results that speak for themselves.
           </p>
 
           <div className="fu d4" style={{display:"flex",flexWrap:"wrap",gap:14}}>
@@ -340,8 +340,8 @@ function Services(){
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:60}}>
           <div className="lab">What We Do</div>
-          <h2 className="ttl">Expert Solutions for Every Corner of Your Home</h2>
-          <p className="sub" style={{margin:"0 auto"}}>We provide a full range of remodeling and specialty trades designed to enhance your home's beauty, comfort, and value.</p>
+          <h2 className="ttl">Comprehensive Remodeling Services</h2>
+          <p className="sub" style={{margin:"0 auto"}}>From kitchens and bathrooms to basements and outdoor spaces — our licensed team handles every phase of your project with precision and care.</p>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:22}}>
           {SVC.map((s,i)=>
@@ -355,7 +355,7 @@ function Services(){
               </div>
               <h3 className="display" style={{fontSize:19,fontWeight:700,color:C.navy,marginBottom:10}}>{s.title}</h3>
               <p style={{color:C.gray,lineHeight:1.7,fontSize:14}}>{s.desc}</p>
-              <div style={{marginTop:16,color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:6}}>Discover Our Expertise {I.arrow}</div>
+              <a href={s.href} style={{marginTop:16,color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:6,textDecoration:"none"}}>View Our Work {I.arrow}</a>
             </div>
           )}
         </div>
@@ -372,8 +372,8 @@ function OurProcess(){
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:60}}>
           <div className="lab">How We Work</div>
-          <h2 className="ttl">From Vision to Completion—We Make It Simple</h2>
-          <p className="sub" style={{margin:"0 auto"}}>At HomeStar, we believe every great project starts with listening and ends with lasting satisfaction.</p>
+          <h2 className="ttl">A Clear Process from Start to Finish</h2>
+          <p className="sub" style={{margin:"0 auto"}}>No surprises, no guesswork. Here's exactly how we take your project from idea to completion.</p>
         </div>
         <div style={{display:"flex",flexDirection:"column",gap:32}}>
           {PROCESS.map((p,i)=>
@@ -400,8 +400,8 @@ function OurProcess(){
         {/* After project */}
         <div style={{textAlign:"center",marginTop:48,padding:"36px 28px",background:`linear-gradient(135deg,${C.navy},${C.navyLight})`,borderRadius:16}}>
           <div style={{marginBottom:12}}>{I.shield}</div>
-          <h3 className="display" style={{color:"#fff",fontSize:22,marginBottom:8}}>After the Project — We're Still Here for You</h3>
-          <p style={{color:"rgba(255,255,255,.55)",fontSize:14,lineHeight:1.7,maxWidth:560,margin:"0 auto 20px"}}>Every project comes with a 1-year workmanship warranty—because quality should last longer than the final invoice. If something's not right, we'll make it right.</p>
+          <h3 className="display" style={{color:"#fff",fontSize:22,marginBottom:8}}>After the Project — We Stand Behind Our Work</h3>
+          <p style={{color:"rgba(255,255,255,.55)",fontSize:14,lineHeight:1.7,maxWidth:560,margin:"0 auto 20px"}}>Every project includes a 1-year workmanship warranty. If anything needs attention after we're done, we come back and take care of it. That's our commitment to you.</p>
           <a href="#contact" className="btn-g">Start Your Project {I.arrow}</a>
         </div>
       </div>
@@ -618,12 +618,12 @@ function About(){
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(360px,1fr))",gap:56,alignItems:"center"}}>
           <div className={vis?"fu d1":""}>
             <div className="lab">Who We Are</div>
-            <h2 className="ttl">Your Home. Our Passion.</h2>
+            <h2 className="ttl">Built on Friendship,<br/>Backed by Experience</h2>
             <p style={{color:C.gray,fontSize:15,lineHeight:1.8,marginBottom:22}}>
-              At HomeStar Services and Contracting, we don't just work on houses—we transform them into dream homes. Proudly family-owned and locally operated, we're here to help you love where you live.
+              HomeStar Services and Contracting is a family-owned remodeling company rooted in Hamilton County. We specialize in residential projects that improve how you live in your home — from full renovations to targeted upgrades that make a real difference.
             </p>
             <p style={{color:C.gray,fontSize:15,lineHeight:1.8,marginBottom:28}}>
-              Founded by longtime friends <strong style={{color:C.navy}}>Robb and Eric</strong>—bringing together their experience in real estate and small business to serve families with honesty, integrity, and heart. At HomeStar, you're not just another job—you're part of the family.
+              Co-founded by <strong style={{color:C.navy}}>Robb and Eric</strong>, two lifelong friends with backgrounds in real estate and small business, HomeStar was built on a straightforward idea: treat every home like it's our own, and treat every homeowner like they're family.
             </p>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
               {["Licensed, Bonded & Insured","1-Year Workmanship Warranty","Transparent, Honest Pricing","Customer-First Communication","Clean Job Sites Always","On-Time Completion"].map(item=>
@@ -702,9 +702,9 @@ function Contact(){
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(360px,1fr))",gap:56}}>
           <div className={vis?"fu d1":""}>
             <div className="lab">Get Started</div>
-            <h2 className="ttl ttl-w">Ready to Love Your<br/>Home Again?</h2>
+            <h2 className="ttl ttl-w">Let's Talk About<br/>Your Project</h2>
             <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:36,maxWidth:420}}>
-              Whether you're planning a full remodel or just need a little extra help around the house, HomeStar is here to make it easy. Contact us today for a free estimate and discover how we can bring your vision to life.
+              Whether it's a full-scale renovation or a single room that needs attention, we're here to help. Reach out for a free estimate — no obligation, no pressure, just a real conversation about what's possible.
             </p>
             <div style={{display:"flex",flexDirection:"column",gap:22}}>
               {[{icon:I.phone,label:"(317) 279-4798",sub:"Mon–Fri 7am–6pm, Sat 8am–2pm"},{icon:I.mail,label:"info@thehomestarservice.com",sub:"We respond within 24 hours"},{icon:I.pin,label:"Hamilton County, Indiana",sub:"Carmel • Fishers • Westfield • Noblesville • Zionsville"}].map(c=>
@@ -760,7 +760,7 @@ function Footer(){
               <img src="/images/logo-mascot.png" alt="HomeStar Services mascot" style={{width:36,height:36,objectFit:"contain"}} />
               <div><div className="display" style={{color:"#fff",fontSize:14,fontWeight:800}}>HOMESTAR</div><div style={{color:C.green,fontSize:8,fontWeight:700,letterSpacing:".1em"}}>SERVICES & CONTRACTING</div></div>
             </div>
-            <p style={{color:"rgba(255,255,255,.3)",fontSize:12,lineHeight:1.7,maxWidth:260}}>We make home remodeling projects simple and stress-free for families across Hamilton County, Indiana. Expert craftsmanship, honest pricing, and a 1-year workmanship warranty.</p>
+            <p style={{color:"rgba(255,255,255,.3)",fontSize:12,lineHeight:1.7,maxWidth:260}}>Licensed, bonded, and insured home remodeling for Hamilton County, Indiana. Quality craftsmanship, clear pricing, and a 1-year workmanship warranty on every project.</p>
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Services</h4>
