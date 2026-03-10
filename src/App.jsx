@@ -246,11 +246,57 @@ const PROJECTS = [
 ];
 
 const BLOG = [
-  { title: "Why Your Bathroom Tile Might Fail in 5 Years (And How to Prevent It)", date: "Mar 5, 2026", read: "7 min", cat: "Bathroom", excerpt: "Most tile failures aren't about the tile — they're about what's underneath. Learn why the Schluter waterproofing system outperforms standard cement board and protects your remodel for decades." },
-  { title: "5 Signs Your Bathroom Needs a Remodel", date: "Feb 18, 2026", read: "5 min", cat: "Bathroom", excerpt: "Cracked grout, outdated fixtures, and poor ventilation aren't just eyesores—they're signs it's time to invest in your bathroom. Here's what to look for." },
-  { title: "Kitchen Remodel ROI: What Actually Adds Value in Indiana", date: "Feb 4, 2026", read: "6 min", cat: "Kitchen", excerpt: "Not all upgrades are equal. We break down which kitchen improvements deliver the best return for Hamilton County homeowners." },
-  { title: "Why Basement Finishing Is the Best Investment You'll Make This Year", date: "Jan 20, 2026", read: "4 min", cat: "Basement", excerpt: "Extra living space without moving? A finished basement adds square footage, comfort, and serious resale value to your home." },
-  { title: "Deck Season Is Coming: How to Plan Your Outdoor Living Space", date: "Jan 8, 2026", read: "3 min", cat: "Outdoor", excerpt: "Spring is the perfect time to start planning your dream deck. Here's how to choose materials, layout, and features that last." },
+  { title: "Why Your Bathroom Tile Might Fail in 5 Years (And How to Prevent It)", date: "Mar 5, 2026", read: "7 min", cat: "Bathroom", excerpt: "Most tile failures aren't about the tile — they're about what's underneath. Learn why the Schluter waterproofing system outperforms standard cement board and protects your remodel for decades.",
+    body: [
+      "Most homeowners spend weeks choosing the perfect tile for their bathroom remodel. They agonize over color, texture, pattern, and size. But here's what almost nobody talks about: what goes under that tile matters more than the tile itself.",
+      "We've seen it too many times — a homeowner invests $20,000+ in a beautiful bathroom remodel, only to see cracked grout lines, loose tiles, and water damage show up within a few years. The tile gets blamed, but the tile was never the problem. The problem is what was — or wasn't — underneath it.",
+      "Tile doesn't fail because it's bad tile. It fails because the substrate beneath it can't handle the conditions of a bathroom. Moisture is the enemy. Every shower sends moisture through grout lines and into whatever is behind the tile. If that material absorbs water — and standard cement board does — problems start developing that you can't see until they're serious.",
+      "Houses move. Your home is constantly shifting — settling, expanding and contracting with temperature changes, responding to humidity. These micro-movements put stress on rigid materials. When the substrate can't flex, the grout and tile above it crack.",
+      "At HomeStar, we exclusively use the complete Schluter System on every bathroom project. Ditra for floors, Kerdi for walls, and Schluter shower pans. It's 100% waterproof — not water-resistant, waterproof. The membrane creates a completely sealed barrier that prevents any moisture from reaching your subfloor or wall framing.",
+      "It also absorbs movement. The Schluter system acts as an uncoupling layer between your tile and the substrate. When your house shifts, the membrane absorbs that movement instead of transferring it to your tile. This prevents cracked grout and loose tiles.",
+      "Our tile installers are Schluter Pro Certified, which means your project is backed by a full 25-year manufacturer's warranty. If a contractor tells you they 'use Schluter' but can't show certification, the warranty may not apply. Always ask.",
+      "Beyond tile work, every bathroom remodel involves plumbing and electrical. At HomeStar, all plumbing is done by licensed plumbers and all electrical by licensed electricians. This isn't always the case with other contractors.",
+      "If you're planning a bathroom remodel in Hamilton County, ask your contractor: What substrate system are you using? Are your installers certified by the manufacturer? Are your plumbers and electricians licensed? The answers tell you everything about the quality you'll get.",
+      "Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com."
+    ]},
+  { title: "5 Signs Your Bathroom Needs a Remodel", date: "Feb 18, 2026", read: "5 min", cat: "Bathroom", excerpt: "Cracked grout, outdated fixtures, and poor ventilation aren't just eyesores—they're signs it's time to invest in your bathroom. Here's what to look for.",
+    body: [
+      "Sometimes a bathroom remodel is a want. Sometimes it's a need. And sometimes you've been living with problems for so long that they start to feel normal. Here are five signs that your bathroom is telling you it's time for an upgrade.",
+      "1. Cracked, Missing, or Moldy Grout — If the grout between your tiles is cracking, crumbling, or showing black mold spots, it's more than cosmetic. Damaged grout lets water seep behind tiles and into your subfloor and walls, leading to structural damage and hidden mold growth. If the damage is widespread, retiling is usually more cost-effective than patching.",
+      "2. Outdated Fixtures and Layout — If your bathroom still has brass fixtures from the 1990s or a layout that makes no sense for how your family uses the space, an update will dramatically improve your daily routine. Start with faucets, showerhead, lighting, and hardware for the biggest visual impact.",
+      "3. Poor Ventilation — If your mirror stays fogged for 20 minutes after a shower, or you notice moisture on walls and ceiling, your ventilation isn't doing its job. Poor ventilation leads to mold, peeling paint, and deterioration over time. A properly sized exhaust fan is one of those behind-the-scenes upgrades that protects everything else.",
+      "4. Water Damage or Soft Spots — If your floor feels soft near the toilet or tub, or you notice water stains on the ceiling below a second-floor bathroom, water is going where it shouldn't. This doesn't get better on its own. A remodel lets you address the source, repair damage, and rebuild with proper waterproofing.",
+      "5. You're Embarrassed When Guests Visit — This is actually the most common reason homeowners call us. If you find yourself apologizing for your bathroom, that's your gut telling you it's time. Sometimes a vanity swap, fresh paint, a new mirror, and updated lighting is all it takes.",
+      "If any of these signs sound familiar, HomeStar Services & Contracting specializes in bathroom remodels across Hamilton County. Call us at (317) 279-4798 for a free estimate."
+    ]},
+  { title: "Kitchen Remodel ROI: What Actually Adds Value in Indiana", date: "Feb 4, 2026", read: "6 min", cat: "Kitchen", excerpt: "Not all upgrades are equal. We break down which kitchen improvements deliver the best return for Hamilton County homeowners.",
+    body: [
+      "You want your kitchen to look amazing — but you also want to know the money you're putting in is well spent. As contractors working in Hamilton County homes every week, we see firsthand which kitchen upgrades deliver real returns.",
+      "Cabinet refacing or replacement consistently delivers one of the highest returns. If your boxes are solid, refacing with new doors and hardware gives you a new look at about 40% of the cost of full replacement. New semi-custom cabinets in a modern shaker style offer great value if the boxes are worn.",
+      "Countertop upgrades make a dramatic visual difference. Quartz has become the go-to material in central Indiana — durable, low-maintenance, and available in enough styles to match any kitchen. Both quartz and granite signal quality to future buyers.",
+      "Lighting is one of the most underrated kitchen upgrades. Replacing a dated fluorescent fixture with recessed lighting and under-cabinet LED strips transforms how the entire room feels — and it's relatively inexpensive compared to other kitchen work.",
+      "Ultra-premium appliances like Sub-Zero and Wolf are incredible products, but in most Hamilton County homes you won't recoup the full cost at resale. Mid-range professional-style appliances from brands like KitchenAid or Samsung offer 90% of the look at a fraction of the price.",
+      "Based on current market data for the Indianapolis metro area, a mid-range kitchen remodel typically recoups 60-75% of its cost at resale. A minor kitchen remodel with cosmetic updates can return 75-85%. You don't need an $80,000 gut job to add value.",
+      "Start with what bothers you most about your current kitchen — layout, storage, or the look. Prioritizing your pain points ensures you spend where it matters most. We offer free in-home consultations across Hamilton County. Call (317) 279-4798."
+    ]},
+  { title: "Why Basement Finishing Is the Best Investment You'll Make This Year", date: "Jan 20, 2026", read: "4 min", cat: "Basement", excerpt: "Extra living space without moving? A finished basement adds square footage, comfort, and serious resale value to your home.",
+    body: [
+      "If you're running out of room in your home but don't want to move, look down. Your unfinished basement is probably the most underutilized space in your house — and finishing it is one of the smartest investments a Hamilton County homeowner can make.",
+      "A finished basement adds usable square footage to your home without the cost or complexity of a home addition. You already own the space and the foundation is already built. The cost per square foot to finish a basement is significantly less than building out or up.",
+      "The most popular basement uses we see in Hamilton County homes include family entertainment areas with media setups, guest suites with a bedroom and bathroom, home offices for remote workers, kids' play areas, and home gyms. Many homeowners combine two or three of these into one project.",
+      "From a resale perspective, a finished basement can recoup 70-80% of its cost while making your home significantly more attractive to buyers. In competitive markets like Carmel, Fishers, and Westfield, a finished basement can be the differentiator that gets your home sold faster.",
+      "Common concerns include moisture and waterproofing — which we address with proper drainage, vapor barriers, and the right materials. Ceiling height is another factor; most Hamilton County homes built in the last 20-30 years have adequate ceiling height for a comfortable finished space.",
+      "Ready to put that empty space to work? HomeStar handles basement finishes from design through final inspection. Call (317) 279-4798 for a free estimate."
+    ]},
+  { title: "Deck Season Is Coming: How to Plan Your Outdoor Living Space", date: "Jan 8, 2026", read: "3 min", cat: "Outdoor", excerpt: "Spring is the perfect time to start planning your dream deck. Here's how to choose materials, layout, and features that last.",
+    body: [
+      "Indiana winters are long, but spring arrives fast — and when it does, you'll want an outdoor space that's ready for it. If you're thinking about adding or replacing a deck, now is the time to start planning so construction can begin as soon as weather allows.",
+      "The biggest decision is material. Pressure-treated wood is the most affordable option and looks great when new, but requires annual maintenance — staining, sealing, and eventually replacing boards as they weather. Composite decking from brands like Trex or TimberTech costs more upfront but requires virtually no maintenance and lasts 25-30 years.",
+      "For Hamilton County homeowners who want to enjoy their deck rather than maintain it, composite is usually the better long-term investment. The math works out over time when you factor in the cost of annual staining and board replacements with wood.",
+      "Layout matters more than most people realize. Think about how you'll actually use the space — dining, lounging, grilling, entertaining. A well-designed deck has distinct zones for different activities and flows naturally from your home's interior. Consider built-in seating, pergolas for shade, and landscape lighting for evening use.",
+      "Permits are required for deck construction in most Hamilton County municipalities. We handle the entire permitting process and ensure everything meets current building codes. A properly permitted deck protects your investment and avoids issues when you sell your home.",
+      "Start planning now and you'll be hosting cookouts by Memorial Day. Call HomeStar at (317) 279-4798 or visit thehomestarservice.com to request a free estimate."
+    ]},
 ];
 
 const VIDEOS = [
@@ -755,6 +801,8 @@ function Videos(){
 /* ─── Blog ─────────────────────────────────────────── */
 function Blog(){
   const[ref,vis]=useVis();
+  const[openPost,setOpenPost]=useState(null);
+
   return(
     <section id="blog" className="sec" style={{background:"#fff"}} ref={ref}>
       <div className="sec-in">
@@ -765,7 +813,7 @@ function Blog(){
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:22}}>
           {BLOG.map((b,i)=>
-            <article key={b.title} className={vis?`fu d${i+1}`:""} style={{borderRadius:14,overflow:"hidden",border:`1px solid ${C.sand}`,transition:"all .3s",cursor:"pointer"}}
+            <article key={b.title} className={vis?`fu d${i+1}`:""} onClick={()=>setOpenPost(b)} style={{borderRadius:14,overflow:"hidden",border:`1px solid ${C.sand}`,transition:"all .3s",cursor:"pointer"}}
               onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.07)"}}
               onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
               <div style={{height:5,background:`linear-gradient(90deg,${C.navy},${C.green})`}}/>
@@ -785,6 +833,41 @@ function Blog(){
           )}
         </div>
       </div>
+
+      {/* Blog Post Modal */}
+      {openPost&&(
+        <div style={{position:"fixed",inset:0,zIndex:2000,background:"rgba(0,0,0,.6)",backdropFilter:"blur(6px)",display:"flex",alignItems:"flex-start",justifyContent:"center",padding:"60px 20px",overflowY:"auto"}}
+          onClick={()=>setOpenPost(null)}>
+          <div style={{background:"#fff",borderRadius:18,maxWidth:720,width:"100%",padding:"48px 40px",position:"relative",animation:"fu .4s ease-out"}}
+            onClick={e=>e.stopPropagation()}>
+            {/* Close button */}
+            <button onClick={()=>setOpenPost(null)} style={{position:"absolute",top:18,right:18,width:36,height:36,borderRadius:"50%",background:C.cream,border:"none",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"background .2s"}}
+              onMouseEnter={e=>e.currentTarget.style.background=C.sand}
+              onMouseLeave={e=>e.currentTarget.style.background=C.cream}>{I.close}</button>
+
+            {/* Post header */}
+            <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:18}}>
+              <span style={{fontSize:11,fontWeight:700,letterSpacing:".07em",color:C.green,textTransform:"uppercase",background:C.greenMuted,padding:"4px 12px",borderRadius:50}}>{openPost.cat}</span>
+              <span style={{display:"flex",alignItems:"center",gap:4,fontSize:12,color:C.gray}}>{I.clock} {openPost.read}</span>
+              <span style={{color:C.gray,fontSize:12}}>• {openPost.date}</span>
+            </div>
+
+            <h2 className="display" style={{fontSize:28,color:C.navy,lineHeight:1.25,marginBottom:8}}>{openPost.title}</h2>
+            <div style={{height:4,width:60,background:C.green,borderRadius:2,marginBottom:28}}/>
+
+            {/* Post body */}
+            {openPost.body&&openPost.body.map((p,i)=>
+              <p key={i} style={{color:C.grayDark,fontSize:15,lineHeight:1.85,marginBottom:18}}>{p}</p>
+            )}
+
+            {/* CTA at bottom */}
+            <div style={{marginTop:32,padding:"24px 28px",background:C.cream,borderRadius:12,textAlign:"center"}}>
+              <p className="display" style={{color:C.navy,fontSize:17,marginBottom:12}}>Ready to start your project?</p>
+              <a href="#contact" className="btn-g" onClick={()=>setOpenPost(null)}>Get a Free Estimate {I.arrow}</a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -838,12 +921,8 @@ function About(){
               )}
             </div>
           </div>
-          <div className={vis?"sl d2":""} style={{height:440,borderRadius:16,background:`linear-gradient(135deg,${C.navy},${C.navyLight})`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden"}}>
-            <div style={{position:"absolute",inset:0,opacity:.04,backgroundImage:"repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.5) 14px,rgba(255,255,255,.5) 15px)"}}/>
-            <div style={{textAlign:"center",color:"rgba(255,255,255,.25)"}}>
-              <div style={{fontSize:44,marginBottom:10}}>📸</div>
-              <div style={{fontSize:13,fontWeight:700,letterSpacing:".08em"}}>ROBB & ERIC<br/>TEAM PHOTO</div>
-            </div>
+          <div className={vis?"sl d2":""} style={{height:440,borderRadius:16,overflow:"hidden",position:"relative"}}>
+            <img src="/images/robb-eric-1.jpg" alt="HomeStar founders Robb and Eric" style={{width:"100%",height:"100%",objectFit:"cover"}} loading="lazy"/>
             <div style={{position:"absolute",bottom:-16,right:-16,width:100,height:100,borderRadius:14,background:C.green,opacity:.2}}/>
           </div>
         </div>
