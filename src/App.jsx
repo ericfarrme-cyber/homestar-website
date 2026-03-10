@@ -33,9 +33,9 @@ const I = {
 };
 
 const SVC = [
-  { title: "Kitchen Remodeling", tag: "Where great meals begin", desc: "The kitchen is the heart of every home. We build spaces that balance function and beauty—thoughtful layouts, quality cabinetry, and finishes that elevate your everyday routine.", color: "#D4A76A", href: "#projects" },
   { title: "Bathroom Remodeling", tag: "Schluter Pro Certified", desc: "Our Schluter Pro Certified team delivers premium bathroom renovations backed by a 25-year waterproofing warranty. Walk-in showers, custom vanities, heated floors — built with materials that protect your investment for decades.", color: "#6A9FD4", href: "#projects" },
   { title: "Basement Finishing", tag: "Unlock hidden potential", desc: "That unused square footage below your main floor? It's ready for a promotion. We convert unfinished basements into entertainment spaces, guest suites, home offices, and more.", color: "#8B7EC4", href: "#projects" },
+  { title: "Kitchen Remodeling", tag: "Where great meals begin", desc: "The kitchen is the heart of every home. We build spaces that balance function and beauty—thoughtful layouts, quality cabinetry, and finishes that elevate your everyday routine.", color: "#D4A76A", href: "#projects" },
   { title: "Flooring Services", tag: "The foundation of great design", desc: "New flooring changes the entire feel of a room. We install hardwood, luxury vinyl, tile, and carpet—selected for your lifestyle, built to handle real life, and installed with precision.", color: "#C49A6A", href: "#projects" },
   { title: "Painting Services", tag: "Fresh color, fresh energy", desc: "A professional paint job does more than change a color—it transforms a room. We deliver clean edges, smooth finishes, and expert prep work that makes the difference.", color: "#6AC4A8", href: "#projects" },
   { title: "Decks & Outdoor Living", tag: "Bring life outdoors", desc: "Custom decks, covered patios, and outdoor living areas designed for how you actually live. Built with quality materials and craftsmanship that stands up to Indiana weather.", color: "#7AAF5A", href: "#projects" },
@@ -145,7 +145,7 @@ const PROJECTS = [
   },
   {
     title: "Two Children's Bathroom Remodels in Geist",
-    cat: "Bathroom",
+    cat: "Children's Bathroom",
     color: "#6A5A8B",
     desc: "Fun, functional, and kid-friendly — two children's bathrooms completely redesigned in a Geist home.",
     images: [
@@ -309,7 +309,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:${C.text};overflow-x:hidde
 
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:${C.cream}}::-webkit-scrollbar-thumb{background:${C.navy};border-radius:3px}
 
-@media(max-width:900px){.desk{display:none!important}.mob-btn{display:flex!important}}
+@media(max-width:900px){.desk{display:none!important}.mob-btn{display:flex!important}.hero-grid{grid-template-columns:1fr!important;gap:32px!important}}
 @media(min-width:901px){.mob-btn{display:none!important}.mob-menu{display:none!important}}
 `;
 
@@ -363,6 +363,40 @@ function Nav(){
 }
 
 /* ─── Hero ─────────────────────────────────────────── */
+/* ─── Hero Photo Showcase ──────────────────────────── */
+const HERO_PHOTOS = [
+  { src: "/images/fishers-spa-retreat-1.jpg", alt: "Spa retreat bathroom remodel in Fishers Indiana" },
+  { src: "/images/bathroom-green-tile-1.jpg", alt: "Custom green tile bathroom in Carmel Indiana" },
+  { src: "/images/geist-upper-level-1.jpg", alt: "Upper level home remodel in Geist Indiana" },
+  { src: "/images/zionsville-jack-and-jill-1.jpg", alt: "Jack and Jill bathroom remodel Zionsville Indiana" },
+  { src: "/images/fishers-double-shower-1.jpg", alt: "Double shower remodel in Fishers Indiana" },
+  { src: "/images/modern-farmhouse-1.jpg", alt: "Modern farmhouse bathroom Fishers Indiana" },
+];
+
+function HeroShowcase(){
+  const[idx,setIdx]=useState(0);
+  useEffect(()=>{
+    const timer=setInterval(()=>setIdx(i=>(i+1)%HERO_PHOTOS.length),4000);
+    return()=>clearInterval(timer);
+  },[]);
+  return(
+    <div className="fu d3" style={{position:"relative",width:"100%",height:"100%",minHeight:420,borderRadius:20,overflow:"hidden",boxShadow:"0 20px 60px rgba(0,0,0,.3)"}}>
+      {HERO_PHOTOS.map((p,i)=>(
+        <img key={p.src} src={p.src} alt={p.alt} loading={i===0?"eager":"lazy"}
+          style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",opacity:idx===i?1:0,transition:"opacity 1.2s ease-in-out"}}/>
+      ))}
+      {/* Subtle gradient overlay at bottom */}
+      <div style={{position:"absolute",bottom:0,left:0,right:0,height:100,background:"linear-gradient(transparent,rgba(17,29,53,.6))"}}/>
+      {/* Photo counter */}
+      <div style={{position:"absolute",bottom:16,right:16,display:"flex",gap:6}}>
+        {HERO_PHOTOS.map((_,i)=>(
+          <div key={i} style={{width:idx===i?20:6,height:6,borderRadius:3,background:idx===i?"#fff":"rgba(255,255,255,.35)",transition:"all .4s ease"}}/>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Hero(){
   return(
     <section id="hero" style={{position:"relative",minHeight:"100vh",display:"flex",alignItems:"center",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`,overflow:"hidden"}}>
@@ -371,30 +405,36 @@ function Hero(){
       <div style={{position:"absolute",inset:0,opacity:.025,backgroundImage:"linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)",backgroundSize:"64px 64px"}}/>
 
       <div style={{maxWidth:1160,margin:"0 auto",padding:"140px 24px 100px",position:"relative",zIndex:2,width:"100%"}}>
-        <div style={{maxWidth:680}}>
-          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:26}}>
-            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
-            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>FAMILY-OWNED • HAMILTON COUNTY, IN</span>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:48,alignItems:"center"}} className="hero-grid">
+          {/* Left: Text */}
+          <div>
+            <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:26}}>
+              <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+              <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>FAMILY-OWNED • HAMILTON COUNTY, IN</span>
+            </div>
+
+            <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(36px,5.5vw,60px)",lineHeight:1.06,marginBottom:22}}>
+              Major Projects.<br/><span style={{color:C.green}}>Master Craftsmanship.</span>
+            </h1>
+
+            <p className="fu d3" style={{color:"rgba(255,255,255,.6)",fontSize:18,lineHeight:1.7,maxWidth:520,marginBottom:36}}>
+              Full-service home remodeling for Hamilton County, Indiana and the surrounding communities. Licensed contractors, honest pricing, and results that speak for themselves.
+            </p>
+
+            <div className="fu d4" style={{display:"flex",flexWrap:"wrap",gap:14}}>
+              <a href="#contact" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
+              <a href="#services" className="btn-o">View Our Services</a>
+            </div>
+
+            <div className="fu d5" style={{display:"flex",flexWrap:"wrap",gap:36,marginTop:52}}>
+              {[{n:"100+",l:"Projects Completed"},{n:"1-Year",l:"Workmanship Warranty"},{n:"5.0★",l:"Google Rating"},{n:"100%",l:"Licensed & Insured"}].map(b=>
+                <div key={b.l}><div className="display" style={{color:C.green,fontSize:26,fontWeight:800}}>{b.n}</div><div style={{color:"rgba(255,255,255,.4)",fontSize:12,fontWeight:600,letterSpacing:".03em",marginTop:2}}>{b.l}</div></div>
+              )}
+            </div>
           </div>
 
-          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(36px,5.5vw,66px)",lineHeight:1.06,marginBottom:22}}>
-            Major Projects.<br/><span style={{color:C.green}}>Master Craftsmanship.</span>
-          </h1>
-
-          <p className="fu d3" style={{color:"rgba(255,255,255,.6)",fontSize:18,lineHeight:1.7,maxWidth:520,marginBottom:36}}>
-            Full-service home remodeling for Hamilton County, Indiana and the surrounding communities. Licensed contractors, honest pricing, and results that speak for themselves.
-          </p>
-
-          <div className="fu d4" style={{display:"flex",flexWrap:"wrap",gap:14}}>
-            <a href="#contact" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
-            <a href="#services" className="btn-o">View Our Services</a>
-          </div>
-
-          <div className="fu d5" style={{display:"flex",flexWrap:"wrap",gap:36,marginTop:52}}>
-            {[{n:"500+",l:"Projects Completed"},{n:"1-Year",l:"Workmanship Warranty"},{n:"4.9★",l:"Google Rating"},{n:"100%",l:"Licensed & Insured"}].map(b=>
-              <div key={b.l}><div className="display" style={{color:C.green,fontSize:26,fontWeight:800}}>{b.n}</div><div style={{color:"rgba(255,255,255,.4)",fontSize:12,fontWeight:600,letterSpacing:".03em",marginTop:2}}>{b.l}</div></div>
-            )}
-          </div>
+          {/* Right: Photo showcase */}
+          <HeroShowcase/>
         </div>
       </div>
       <div style={{position:"absolute",bottom:-2,left:0,right:0,height:70,background:"#fff",clipPath:"polygon(0 100%,100% 100%,100% 0)"}}/>
@@ -457,9 +497,9 @@ function Difference(){
       icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>,
     },
     {
-      title: "Direct Access to Owners",
-      desc: "Work directly with Robb and Eric — no layers of project managers, no automated phone systems. When you call, you get answers from the people who care most about your project. If you ever have a concern, the owners handle it personally.",
-      highlight: "No Runaround",
+      title: "Responsive Communication & Accountability",
+      desc: "You'll never be left wondering what's happening with your project. Our team provides timely updates, answers your calls and messages promptly, and takes full accountability for every detail — from the first consultation through final walkthrough.",
+      highlight: "Always In The Loop",
       icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>,
     },
     {
@@ -956,7 +996,7 @@ export default function HomestarSite(){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Family-owned home remodeling company serving Hamilton County, Indiana. Kitchen & bath remodeling, basement finishing, flooring, painting, decks & outdoor living.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Carmel",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9784,longitude:-86.1180},areaServed:[{name:"Carmel"},{name:"Fishers"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),aggregateRating:{"@type":"AggregateRating",ratingValue:"4.9",reviewCount:"127"},openingHours:["Mo-Fr 07:00-18:00","Sa 08:00-14:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/"],founder:[{"@type":"Person",name:"Robb"},{"@type":"Person",name:"Eric"}],hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Family-owned home remodeling company serving Hamilton County, Indiana. Kitchen & bath remodeling, basement finishing, flooring, painting, decks & outdoor living.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Carmel",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9784,longitude:-86.1180},areaServed:[{name:"Carmel"},{name:"Fishers"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"},openingHours:["Mo-Fr 07:00-18:00","Sa 08:00-14:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/"],founder:[{"@type":"Person",name:"Robb"},{"@type":"Person",name:"Eric"}],hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
       <Nav/>
       <Hero/>
       <Services/>
