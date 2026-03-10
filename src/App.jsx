@@ -473,7 +473,7 @@ function Hero(){
             </div>
 
             <div className="fu d5" style={{display:"flex",flexWrap:"wrap",gap:36,marginTop:52}}>
-              {[{n:"100+",l:"Projects Completed"},{n:"1-Year",l:"Workmanship Warranty"},{n:"5.0★",l:"Google Rating"},{n:"100%",l:"Licensed & Insured"}].map(b=>
+              {[{n:"100+",l:"Projects Completed"},{n:"1-Year",l:"Workmanship Warranty"},{n:"5.0★",l:"Google Rating"},{n:"25-Year",l:"Schluter Waterproofing Warranty"},{n:"100%",l:"Licensed & Insured"}].map(b=>
                 <div key={b.l}><div className="display" style={{color:C.green,fontSize:26,fontWeight:800}}>{b.n}</div><div style={{color:"rgba(255,255,255,.4)",fontSize:12,fontWeight:600,letterSpacing:".03em",marginTop:2}}>{b.l}</div></div>
               )}
             </div>
@@ -922,7 +922,7 @@ function About(){
             </div>
           </div>
           <div className={vis?"sl d2":""} style={{height:440,borderRadius:16,overflow:"hidden",position:"relative"}}>
-            <img src="/images/robb-eric-1.jpg" alt="HomeStar founders Robb and Eric" style={{width:"100%",height:"100%",objectFit:"cover"}} loading="lazy"/>
+            <img src="/images/robb-eric-1.JPG" alt="HomeStar founders Robb and Eric" style={{width:"100%",height:"100%",objectFit:"cover"}} loading="lazy"/>
             <div style={{position:"absolute",bottom:-16,right:-16,width:100,height:100,borderRadius:14,background:C.green,opacity:.2}}/>
           </div>
         </div>
@@ -993,7 +993,7 @@ function Contact(){
               Whether it's a full-scale renovation or a single room that needs attention, we're here to help. Reach out for a free estimate — no obligation, no pressure, just a real conversation about what's possible.
             </p>
             <div style={{display:"flex",flexDirection:"column",gap:22}}>
-              {[{icon:I.phone,label:"(317) 279-4798",sub:"Mon–Fri 7am–6pm, Sat 8am–2pm"},{icon:I.mail,label:"info@thehomestarservice.com",sub:"We respond within 24 hours"},{icon:I.pin,label:"Hamilton County, Indiana",sub:"Carmel • Fishers • Westfield • Noblesville • Zionsville"}].map(c=>
+              {[{icon:I.phone,label:"(317) 279-4798",sub:"Mon–Fri 7am–6pm, Sat 8am–2pm"},{icon:I.mail,label:"eric@thehomestarservice.com",sub:"We respond within 24 hours"},{icon:I.pin,label:"Hamilton County, Indiana",sub:"Carmel • Fishers • Westfield • Noblesville • Zionsville"}].map(c=>
                 <div key={c.label} style={{display:"flex",gap:14,alignItems:"flex-start"}}>
                   <div style={{color:C.green,flexShrink:0,marginTop:2}}>{c.icon}</div>
                   <div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>{c.label}</div><div style={{color:"rgba(255,255,255,.35)",fontSize:12}}>{c.sub}</div></div>
