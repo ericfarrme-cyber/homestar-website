@@ -382,7 +382,7 @@ function Nav(){
             <a href="tel:+13172794798" style={{color:"rgba(255,255,255,.6)",fontSize:12,fontWeight:600,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>{I.phone} (317) 279-4798</a>
             <span style={{color:"rgba(255,255,255,.3)",fontSize:12}}>Serving Hamilton County, IN</span>
           </div>
-          <a href="#contact" style={{color:C.green,fontSize:12,fontWeight:700,textDecoration:"none",letterSpacing:".04em"}}>REQUEST A FREE ESTIMATE</a>
+          <a href="#estimate" style={{color:C.green,fontSize:12,fontWeight:700,textDecoration:"none",letterSpacing:".04em"}}>REQUEST A FREE ESTIMATE</a>
         </div>
       </div>
       {/* Main bar */}
@@ -396,13 +396,13 @@ function Nav(){
         </a>
         <div className="desk" style={{display:"flex",alignItems:"center",gap:26}}>
           {links.map(l=><a key={l.h} href={l.h} style={{color:"rgba(255,255,255,.75)",textDecoration:"none",fontSize:13,fontWeight:600,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.75)"}>{l.l}</a>)}
-          <a href="#contact" className="btn-g" style={{padding:"9px 20px",fontSize:13}}>Free Estimate</a>
+          <a href="#estimate" className="btn-g" style={{padding:"9px 20px",fontSize:13}}>Free Estimate</a>
         </div>
         <button className="mob-btn" onClick={()=>setOpen(!open)} style={{background:"none",border:"none",color:"#fff",cursor:"pointer",display:"flex",alignItems:"center"}}>{open?I.close:I.menu}</button>
       </div>
       {open&&<div className="mob-menu" style={{background:C.navyDark,padding:"16px 24px 28px",display:"flex",flexDirection:"column",gap:14}}>
         {links.map(l=><a key={l.h} href={l.h} onClick={()=>setOpen(false)} style={{color:"#fff",textDecoration:"none",fontSize:15,fontWeight:600,padding:"6px 0",borderBottom:"1px solid rgba(255,255,255,.05)"}}>{l.l}</a>)}
-        <a href="#contact" className="btn-g" style={{textAlign:"center",marginTop:8}}>Get a Free Estimate</a>
+        <a href="#estimate" className="btn-g" style={{textAlign:"center",marginTop:8}}>Get a Free Estimate</a>
       </div>}
     </nav>
   );
@@ -468,7 +468,7 @@ function Hero(){
             </p>
 
             <div className="fu d4" style={{display:"flex",flexWrap:"wrap",gap:14}}>
-              <a href="#contact" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
+              <a href="#estimate" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
               <a href="#services" className="btn-o">View Our Services</a>
             </div>
 
@@ -610,7 +610,7 @@ function Difference(){
         </div>
 
         <div style={{textAlign:"center",marginTop:44}}>
-          <a href="#contact" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
+          <a href="#estimate" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
         </div>
       </div>
     </section>
@@ -655,7 +655,7 @@ function OurProcess(){
           <div style={{marginBottom:12}}>{I.shield}</div>
           <h3 className="display" style={{color:"#fff",fontSize:22,marginBottom:8}}>After the Project — We Stand Behind Our Work</h3>
           <p style={{color:"rgba(255,255,255,.55)",fontSize:14,lineHeight:1.7,maxWidth:560,margin:"0 auto 20px"}}>Every project includes a 1-year workmanship warranty. If anything needs attention after we're done, we come back and take care of it. That's our commitment to you.</p>
-          <a href="#contact" className="btn-g">Start Your Project {I.arrow}</a>
+          <a href="#estimate" className="btn-g">Start Your Project {I.arrow}</a>
         </div>
       </div>
     </section>
@@ -863,7 +863,7 @@ function Blog(){
             {/* CTA at bottom */}
             <div style={{marginTop:32,padding:"24px 28px",background:C.cream,borderRadius:12,textAlign:"center"}}>
               <p className="display" style={{color:C.navy,fontSize:17,marginBottom:12}}>Ready to start your project?</p>
-              <a href="#contact" className="btn-g" onClick={()=>setOpenPost(null)}>Get a Free Estimate {I.arrow}</a>
+              <a href="#estimate" className="btn-g" onClick={()=>setOpenPost(null)}>Get a Free Estimate {I.arrow}</a>
             </div>
           </div>
         </div>
@@ -1021,12 +1021,18 @@ function Contact(){
                   {I.mail} Text Us
                 </a>
               </div>
+              <p style={{color:"rgba(255,255,255,.25)",fontSize:10,lineHeight:1.6,marginTop:14,textAlign:"center"}}>
+                By texting us, you agree to receive project reminders and updates from HomeStar Services & Contracting. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out at any time. View our <a href="/privacy-policy.html" style={{color:"rgba(255,255,255,.4)",textDecoration:"underline"}}>Privacy Policy</a> and <a href="/terms-and-conditions.html" style={{color:"rgba(255,255,255,.4)",textDecoration:"underline"}}>Terms & Conditions</a>.
+              </p>
             </div>
             {/* Jobber form */}
-            <div style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
+            <div id="estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
               <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Request a Free Estimate</h3>
               <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
               <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+              <p style={{color:C.gray,fontSize:10,lineHeight:1.6,marginTop:14,textAlign:"center"}}>
+                By submitting this form, you agree to receive project-related text messages from HomeStar Services & Contracting. Message frequency varies. Msg & data rates may apply. Reply <strong>STOP</strong> to opt out. Reply <strong>HELP</strong> for help. Consent is not a condition of service. View our <a href="/privacy-policy.html" style={{color:C.green,textDecoration:"underline",fontSize:10}}>Privacy Policy</a> and <a href="/terms-and-conditions.html" style={{color:C.green,textDecoration:"underline",fontSize:10}}>Terms & Conditions</a>.
+              </p>
             </div>
           </div>
         </div>
@@ -1063,7 +1069,7 @@ function Footer(){
         </div>
         <div style={{borderTop:"1px solid rgba(255,255,255,.05)",paddingTop:20,display:"flex",flexWrap:"wrap",justifyContent:"space-between",alignItems:"center",gap:10}}>
           <p style={{color:"rgba(255,255,255,.2)",fontSize:11}}>© 2026 HomeStar Services and Contracting, LLC. All rights reserved.</p>
-          <div style={{display:"flex",gap:18}}>{["Privacy Policy","Terms of Service","Sitemap"].map(l=><a key={l} href="#" style={{color:"rgba(255,255,255,.2)",fontSize:11,textDecoration:"none",transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color="rgba(255,255,255,.4)"} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.2)"}>{l}</a>)}</div>
+          <div style={{display:"flex",gap:18}}>{[{l:"Privacy Policy",h:"/privacy-policy.html"},{l:"Terms & Conditions",h:"/terms-and-conditions.html"}].map(item=><a key={item.l} href={item.h} style={{color:"rgba(255,255,255,.2)",fontSize:11,textDecoration:"none",transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color="rgba(255,255,255,.4)"} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.2)"}>{item.l}</a>)}</div>
         </div>
       </div>
     </footer>
@@ -1071,7 +1077,81 @@ function Footer(){
 }
 
 /* ─── App ──────────────────────────────────────────── */
+/* ─── Legal Page Modal ──────────────────────────────── */
+function LegalModal({page,onClose}){
+  if(!page)return null;
+
+  const privacy = [
+    {t:"Introduction",c:"HomeStar Services & Contracting, LLC (\"HomeStar,\" \"we,\" \"us,\" or \"our\") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at thehomestarservice.com or communicate with us via phone, text, email, or our online forms."},
+    {t:"Information We Collect",c:"We may collect personal information you voluntarily provide, including: your name, phone number, email address, home address, and project details when you request a free estimate or contact us. We also automatically collect certain information when you visit our site, including IP address, browser type, pages visited, and time spent on pages through analytics tools."},
+    {t:"How We Use Your Information",c:"We use the information we collect to: respond to your estimate requests and inquiries, communicate with you about your project, send project reminders and updates via text message (if you opt in), improve our website and services, and comply with legal obligations."},
+    {t:"Text Messaging",c:"By texting HomeStar Services & Contracting at (317) 279-4798, you consent to receive project reminders and updates. Message frequency varies based on your project status. Message and data rates may apply. You may opt out at any time by replying STOP to any message. Reply HELP for assistance. Text messaging is not required to use our services."},
+    {t:"Information Sharing",c:"We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our business (such as our project management software, Jobber), provided they agree to keep your information confidential. We may also disclose information when required by law or to protect our rights."},
+    {t:"Cookies and Analytics",c:"Our website uses cookies and similar tracking technologies to enhance your browsing experience and analyze site traffic. We use Google Analytics and similar tools to understand how visitors interact with our site. You can control cookies through your browser settings."},
+    {t:"Third-Party Services",c:"Our website may contain embedded content from third parties including Google Reviews (via Elfsight), YouTube videos, and Jobber forms. These services may collect information about you according to their own privacy policies, which we encourage you to review."},
+    {t:"Data Security",c:"We implement reasonable security measures to protect your personal information. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security."},
+    {t:"Your Rights",c:"You may request access to, correction of, or deletion of your personal information by contacting us at eric@thehomestarservice.com or (317) 279-4798. We will respond to your request within a reasonable timeframe."},
+    {t:"Children's Privacy",c:"Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children."},
+    {t:"Changes to This Policy",c:"We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date. Your continued use of our website after changes are posted constitutes your acceptance of the updated policy."},
+    {t:"Contact Us",c:"If you have questions about this Privacy Policy, contact us at: HomeStar Services & Contracting, LLC, Fishers, Indiana, Phone: (317) 279-4798, Email: eric@thehomestarservice.com"},
+  ];
+
+  const terms = [
+    {t:"Acceptance of Terms",c:"By accessing and using the website at thehomestarservice.com (the \"Site\"), operated by HomeStar Services & Contracting, LLC (\"HomeStar,\" \"we,\" \"us,\" or \"our\"), you agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use our Site."},
+    {t:"Services Description",c:"HomeStar provides home remodeling and contracting services in Hamilton County, Indiana and surrounding areas, including but not limited to bathroom remodeling, kitchen remodeling, basement finishing, flooring, painting, and deck construction. All services are subject to a separate written contract between HomeStar and the client."},
+    {t:"Free Estimates",c:"Estimates provided through our website, phone, or in-person consultations are non-binding and provided for informational purposes. Final project pricing is determined by a written contract that outlines the full scope of work, materials, timeline, and payment terms. Estimates are valid for 30 days unless otherwise stated."},
+    {t:"Text Messaging Terms",c:"By initiating a text message to HomeStar at (317) 279-4798, you consent to receive text messages related to your project inquiry, including reminders and updates. Message frequency varies depending on project status and communication needs. Standard message and data rates may apply depending on your mobile carrier plan. You may opt out at any time by replying STOP. Reply HELP for assistance. Text messaging consent is not a condition of purchasing any service from HomeStar."},
+    {t:"Intellectual Property",c:"All content on this Site, including text, images, graphics, logos, videos, and design elements, is the property of HomeStar Services & Contracting, LLC unless otherwise noted. Project photographs depict actual work completed by HomeStar. You may not reproduce, distribute, or use any content from this Site without our written permission."},
+    {t:"User-Submitted Information",c:"By submitting information through our contact forms, estimate requests, or text messages, you represent that the information provided is accurate and that you are authorized to share it. You grant HomeStar permission to use this information to respond to your inquiry and provide services."},
+    {t:"Third-Party Links and Services",c:"Our Site may contain links to or embedded content from third-party websites and services, including Google, YouTube, Elfsight, and Jobber. We are not responsible for the content, privacy practices, or terms of these third-party services. We encourage you to review their respective policies."},
+    {t:"Warranty and Workmanship",c:"HomeStar provides a 1-year workmanship warranty on all completed projects. For bathroom remodeling projects using the Schluter System installed by our Schluter Pro Certified team, a 25-year manufacturer's warranty applies. Specific warranty terms are outlined in your individual project contract."},
+    {t:"Limitation of Liability",c:"HomeStar Services & Contracting, LLC and its owners, employees, and agents shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of this Site or reliance on any information provided herein. Our total liability for any claim related to the Site shall not exceed the amount you have paid to HomeStar in the preceding 12 months."},
+    {t:"Indemnification",c:"You agree to indemnify and hold harmless HomeStar Services & Contracting, LLC, its owners, employees, and agents from any claims, damages, losses, or expenses arising from your use of this Site or violation of these Terms."},
+    {t:"Governing Law",c:"These Terms & Conditions shall be governed by and construed in accordance with the laws of the State of Indiana. Any disputes arising from these terms shall be resolved in the courts of Hamilton County, Indiana."},
+    {t:"Changes to Terms",c:"We reserve the right to modify these Terms & Conditions at any time. Changes will be posted on this page with an updated effective date. Your continued use of the Site after changes are posted constitutes acceptance of the updated terms."},
+    {t:"Contact Us",c:"For questions about these Terms & Conditions, contact: HomeStar Services & Contracting, LLC, Fishers, Indiana, Phone: (317) 279-4798, Email: eric@thehomestarservice.com"},
+  ];
+
+  const content = page==="privacy" ? {title:"Privacy Policy",date:"March 11, 2026",sections:privacy} : {title:"Terms & Conditions",date:"March 11, 2026",sections:terms};
+
+  return(
+    <div style={{position:"fixed",inset:0,zIndex:2000,background:"rgba(0,0,0,.6)",backdropFilter:"blur(6px)",display:"flex",alignItems:"flex-start",justifyContent:"center",padding:"60px 20px",overflowY:"auto"}}
+      onClick={onClose}>
+      <div style={{background:"#fff",borderRadius:18,maxWidth:720,width:"100%",padding:"48px 40px",position:"relative",animation:"fu .4s ease-out"}}
+        onClick={e=>e.stopPropagation()}>
+        <button onClick={onClose} style={{position:"absolute",top:18,right:18,width:36,height:36,borderRadius:"50%",background:C.cream,border:"none",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>{I.close}</button>
+        <h2 className="display" style={{fontSize:28,color:C.navy,marginBottom:6}}>{content.title}</h2>
+        <p style={{color:C.gray,fontSize:13,marginBottom:6}}>Effective Date: {content.date}</p>
+        <p style={{color:C.gray,fontSize:13,marginBottom:28}}>HomeStar Services & Contracting, LLC — Fishers, Indiana</p>
+        <div style={{height:4,width:60,background:C.green,borderRadius:2,marginBottom:28}}/>
+        {content.sections.map((s,i)=>
+          <div key={i} style={{marginBottom:22}}>
+            <h3 style={{color:C.navy,fontSize:16,fontWeight:700,marginBottom:8}}>{s.t}</h3>
+            <p style={{color:C.grayDark,fontSize:14,lineHeight:1.8}}>{s.c}</p>
+          </div>
+        )}
+        <div style={{marginTop:32,padding:"20px 24px",background:C.cream,borderRadius:12}}>
+          <p style={{color:C.gray,fontSize:13,lineHeight:1.7}}>Questions? Contact us at <strong style={{color:C.navy}}>eric@thehomestarservice.com</strong> or call <strong style={{color:C.navy}}>(317) 279-4798</strong>.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function HomestarSite(){
+  const[legalPage,setLegalPage]=useState(null);
+
+  useEffect(()=>{
+    const handleHash=()=>{
+      const hash=window.location.hash;
+      if(hash==="#privacy"){setLegalPage("privacy");window.history.replaceState(null,"",window.location.pathname);}
+      else if(hash==="#terms"){setLegalPage("terms");window.history.replaceState(null,"",window.location.pathname);}
+    };
+    handleHash();
+    window.addEventListener("hashchange",handleHash);
+    return()=>window.removeEventListener("hashchange",handleHash);
+  },[]);
+
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
@@ -1089,6 +1169,7 @@ export default function HomestarSite(){
       <FAQ/>
       <Contact/>
       <Footer/>
+      <LegalModal page={legalPage} onClose={()=>setLegalPage(null)}/>
     </div>
   );
 }
