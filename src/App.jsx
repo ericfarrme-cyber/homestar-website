@@ -371,7 +371,7 @@ function Nav(){
   const[open,setOpen]=useState(false);
   const[sc,setSc]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>50);window.addEventListener("scroll",h,{passive:true});return()=>window.removeEventListener("scroll",h)},[]);
-  const links=[{l:"Services",h:"#services"},{l:"Why HomeStar",h:"#difference"},{l:"Our Process",h:"#process"},{l:"Projects",h:"#projects"},{l:"Videos",h:"#videos"},{l:"Blog",h:"#blog"},{l:"About",h:"#about"},{l:"Contact",h:"#contact"}];
+  const links=[{l:"Services",h:"#services"},{l:"Why HomeStar",h:"#difference"},{l:"Our Process",h:"#process"},{l:"Projects",h:"#projects"},{l:"Videos",h:"#videos"},{l:"Blog",h:"#blog"},{l:"Service Areas",h:"#areas"},{l:"Contact",h:"#contact"}];
 
   return(
     <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000,background:sc?"rgba(27,42,74,.97)":"transparent",backdropFilter:sc?"blur(14px)":"none",transition:"all .35s",borderBottom:sc?"1px solid rgba(255,255,255,.06)":"none"}}>
@@ -899,6 +899,47 @@ function Testimonials(){
   );
 }
 
+/* ─── Service Areas ────────────────────────────────── */
+function ServiceAreas(){
+  const[ref,vis]=useVis();
+  const cities=[
+    {name:"Fishers",slug:"home-remodeling-fishers-in",desc:"Geist, Saxony, Britton Falls & more",projects:"7+ projects completed"},
+    {name:"Carmel",slug:"home-remodeling-carmel-in",desc:"West Clay, Arts District, City Center & more",projects:"Custom tile specialist"},
+    {name:"Noblesville",slug:"home-remodeling-noblesville-in",desc:"Downtown, Morse Reservoir, Millstone & more",projects:"Floor-to-ceiling tile experts"},
+    {name:"Westfield",slug:"home-remodeling-westfield-in",desc:"Grand Park, Chatham Hills, Bridgewater & more",projects:"Budget-friendly options"},
+    {name:"Zionsville",slug:"home-remodeling-zionsville-in",desc:"Village, Holliday Farms, Traders Point & more",projects:"Premium renovations"},
+  ];
+  return(
+    <section id="areas" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,position:"relative",overflow:"hidden"}} ref={ref}>
+      <div style={{position:"absolute",top:-60,left:-60,width:350,height:350,borderRadius:"50%",background:"radial-gradient(circle,rgba(92,184,50,.06) 0%,transparent 70%)"}}/>
+      <div className="sec-in" style={{position:"relative",zIndex:2}}>
+        <div style={{textAlign:"center",marginBottom:52}}>
+          <div className="lab">Where We Work</div>
+          <h2 className="ttl ttl-w">Serving Hamilton County & Beyond</h2>
+          <p className="sub" style={{margin:"0 auto",color:"rgba(255,255,255,.45)"}}>Bathroom remodeling, kitchen renovation, and basement finishing across central Indiana's top communities.</p>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))",gap:16}}>
+          {cities.map((c,i)=>
+            <a key={c.name} href={`/${c.slug}`} className={vis?`fu d${i+1}`:""} style={{padding:"28px 22px",borderRadius:14,background:"rgba(255,255,255,.04)",border:"1px solid rgba(255,255,255,.08)",textDecoration:"none",transition:"all .3s",display:"block"}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(92,184,50,.35)";e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.background="rgba(255,255,255,.06)"}}
+              onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,.08)";e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.background="rgba(255,255,255,.04)"}}>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
+                {I.pin}
+                <h3 className="display" style={{color:"#fff",fontSize:18}}>{c.name}, IN</h3>
+              </div>
+              <p style={{color:"rgba(255,255,255,.4)",fontSize:12,lineHeight:1.6,marginBottom:12}}>{c.desc}</p>
+              <span style={{color:C.green,fontSize:12,fontWeight:700,display:"flex",alignItems:"center",gap:5}}>View {c.name} Services {I.arrow}</span>
+            </a>
+          )}
+        </div>
+        <div style={{textAlign:"center",marginTop:36}}>
+          <p style={{color:"rgba(255,255,255,.3)",fontSize:13}}>Also serving Brownsburg, Pendleton, McCordsville, Fortville, and surrounding communities.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── About ────────────────────────────────────────── */
 function About(){
   const[ref,vis]=useVis();
@@ -1064,7 +1105,8 @@ function Footer(){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
-            {AREAS.map(a=><span key={a} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,marginBottom:9}}>{a}, IN</span>)}
+            {[{name:"Fishers",slug:"home-remodeling-fishers-in"},{name:"Carmel",slug:"home-remodeling-carmel-in"},{name:"Noblesville",slug:"home-remodeling-noblesville-in"},{name:"Westfield",slug:"home-remodeling-westfield-in"},{name:"Zionsville",slug:"home-remodeling-zionsville-in"}].map(a=><a key={a.name} href={`/${a.slug}`} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{a.name}, IN</a>)}
+            {["Brownsburg","Pendleton","McCordsville","Fortville"].map(a=><span key={a} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,marginBottom:9}}>{a}, IN</span>)}
           </div>
         </div>
         <div style={{borderTop:"1px solid rgba(255,255,255,.05)",paddingTop:20,display:"flex",flexWrap:"wrap",justifyContent:"space-between",alignItems:"center",gap:10}}>
@@ -1431,6 +1473,7 @@ export default function HomestarSite(){
       <Videos/>
       <Blog/>
       <Testimonials/>
+      <ServiceAreas/>
       <About/>
       <FAQ/>
       <Contact/>
