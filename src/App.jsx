@@ -243,6 +243,54 @@ const PROJECTS = [
       { src: "/images/westfield-basement-4.jpg", alt: "Completed basement finish Westfield IN" },
     ],
   },
+  {
+    title: "Double Shower Bathroom Remodel in Carmel",
+    cat: "Bathroom",
+    color: "#5A7B8B",
+    desc: "A stunning double shower bathroom renovation in Carmel featuring custom tile, modern vanity with LED mirror, hexagonal floor tile, and premium fixtures throughout.",
+    images: [
+      { src: "/images/carmel-double-shower-1.jpg", alt: "Double shower bathroom remodel in Carmel Indiana" },
+      { src: "/images/carmel-double-shower-2.jpg", alt: "LED mirror vanity bathroom renovation Carmel IN" },
+      { src: "/images/carmel-double-shower-3.jpg", alt: "Custom tile shower remodel Carmel Indiana" },
+      { src: "/images/carmel-double-shower-4.jpg", alt: "Walk-in shower bathroom remodel Carmel IN" },
+      { src: "/images/carmel-double-shower-5.jpg", alt: "Hexagonal tile bathroom floor Carmel Indiana" },
+      { src: "/images/carmel-double-shower-6.jpg", alt: "Modern bathroom fixtures Carmel IN" },
+      { src: "/images/carmel-double-shower-7.jpg", alt: "Completed double shower bathroom Carmel Indiana" },
+    ],
+  },
+  {
+    title: "Fortville Pavilion Patio Project",
+    cat: "Exterior",
+    color: "#8B6A5A",
+    desc: "A custom outdoor pavilion and patio in Fortville featuring a stone column bar area, covered seating with stained wood beams, and a comfortable entertaining space designed for year-round use.",
+    images: [
+      { src: "/images/fortville-pavilion-1.jpg", alt: "Custom pavilion patio project in Fortville Indiana" },
+      { src: "/images/fortville-pavilion-2.jpg", alt: "Stone column outdoor bar Fortville IN" },
+      { src: "/images/fortville-pavilion-3.jpg", alt: "Covered pavilion outdoor living Fortville Indiana" },
+    ],
+  },
+  {
+    title: "Stamped Concrete Patio in Fishers",
+    cat: "Exterior",
+    color: "#7B6A5A",
+    desc: "A beautiful stamped concrete patio installation in Fishers featuring decorative patterns and clean borders, creating a durable outdoor living space perfect for entertaining.",
+    images: [
+      { src: "/images/fishers-concrete-1.jpg", alt: "Stamped concrete patio in Fishers Indiana" },
+      { src: "/images/fishers-concrete-2.jpg", alt: "Decorative concrete patio installation Fishers IN" },
+    ],
+  },
+  {
+    title: "Stamped Concrete Patio in Noblesville",
+    cat: "Exterior",
+    color: "#6A7B5A",
+    desc: "A custom stamped concrete patio in Noblesville with a decorative finish and clean edges, extending the home's living space outdoors.",
+    images: [
+      { src: "/images/noblesville-concrete-1.jpg", alt: "Stamped concrete patio in Noblesville Indiana" },
+      { src: "/images/noblesville-concrete-2.jpg", alt: "Concrete patio installation Noblesville IN" },
+      { src: "/images/noblesville-concrete-3.jpg", alt: "Decorative stamped concrete Noblesville Indiana" },
+      { src: "/images/noblesville-concrete-4.jpg", alt: "Completed concrete patio Noblesville IN" },
+    ],
+  },
 ];
 
 const BLOG = [
@@ -371,7 +419,7 @@ function Nav(){
   const[open,setOpen]=useState(false);
   const[sc,setSc]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>50);window.addEventListener("scroll",h,{passive:true});return()=>window.removeEventListener("scroll",h)},[]);
-  const links=[{l:"Services",h:"#services"},{l:"Why HomeStar",h:"#difference"},{l:"Our Process",h:"#process"},{l:"Projects",h:"#projects"},{l:"Videos",h:"#videos"},{l:"Blog",h:"#blog"},{l:"About",h:"#about"},{l:"Contact",h:"#contact"}];
+  const links=[{l:"Services",h:"#services"},{l:"Why HomeStar",h:"#difference"},{l:"Our Process",h:"#process"},{l:"Projects",h:"#projects"},{l:"Videos",h:"#videos"},{l:"Blog",h:"#blog"},{l:"Service Areas",h:"#areas"},{l:"Contact",h:"#contact"}];
 
   return(
     <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000,background:sc?"rgba(27,42,74,.97)":"transparent",backdropFilter:sc?"blur(14px)":"none",transition:"all .35s",borderBottom:sc?"1px solid rgba(255,255,255,.06)":"none"}}>
@@ -899,6 +947,47 @@ function Testimonials(){
   );
 }
 
+/* ─── Service Areas ────────────────────────────────── */
+function ServiceAreas(){
+  const[ref,vis]=useVis();
+  const cities=[
+    {name:"Fishers",slug:"home-remodeling-fishers-in",desc:"Geist, Saxony, Britton Falls & more",projects:"7+ projects completed"},
+    {name:"Carmel",slug:"home-remodeling-carmel-in",desc:"West Clay, Arts District, City Center & more",projects:"Custom tile specialist"},
+    {name:"Noblesville",slug:"home-remodeling-noblesville-in",desc:"Downtown, Morse Reservoir, Millstone & more",projects:"Floor-to-ceiling tile experts"},
+    {name:"Westfield",slug:"home-remodeling-westfield-in",desc:"Grand Park, Chatham Hills, Bridgewater & more",projects:"Budget-friendly options"},
+    {name:"Zionsville",slug:"home-remodeling-zionsville-in",desc:"Village, Holliday Farms, Traders Point & more",projects:"Premium renovations"},
+  ];
+  return(
+    <section id="areas" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,position:"relative",overflow:"hidden"}} ref={ref}>
+      <div style={{position:"absolute",top:-60,left:-60,width:350,height:350,borderRadius:"50%",background:"radial-gradient(circle,rgba(92,184,50,.06) 0%,transparent 70%)"}}/>
+      <div className="sec-in" style={{position:"relative",zIndex:2}}>
+        <div style={{textAlign:"center",marginBottom:52}}>
+          <div className="lab">Where We Work</div>
+          <h2 className="ttl ttl-w">Serving Hamilton County & Beyond</h2>
+          <p className="sub" style={{margin:"0 auto",color:"rgba(255,255,255,.45)"}}>Bathroom remodeling, kitchen renovation, and basement finishing across central Indiana's top communities.</p>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))",gap:16}}>
+          {cities.map((c,i)=>
+            <a key={c.name} href={`/${c.slug}`} className={vis?`fu d${i+1}`:""} style={{padding:"28px 22px",borderRadius:14,background:"rgba(255,255,255,.04)",border:"1px solid rgba(255,255,255,.08)",textDecoration:"none",transition:"all .3s",display:"block"}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(92,184,50,.35)";e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.background="rgba(255,255,255,.06)"}}
+              onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,.08)";e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.background="rgba(255,255,255,.04)"}}>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
+                {I.pin}
+                <h3 className="display" style={{color:"#fff",fontSize:18}}>{c.name}, IN</h3>
+              </div>
+              <p style={{color:"rgba(255,255,255,.4)",fontSize:12,lineHeight:1.6,marginBottom:12}}>{c.desc}</p>
+              <span style={{color:C.green,fontSize:12,fontWeight:700,display:"flex",alignItems:"center",gap:5}}>View {c.name} Services {I.arrow}</span>
+            </a>
+          )}
+        </div>
+        <div style={{textAlign:"center",marginTop:36}}>
+          <p style={{color:"rgba(255,255,255,.3)",fontSize:13}}>Also serving Brownsburg, Pendleton, McCordsville, Fortville, and surrounding communities.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── About ────────────────────────────────────────── */
 function About(){
   const[ref,vis]=useVis();
@@ -1064,7 +1153,8 @@ function Footer(){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
-            {AREAS.map(a=><span key={a} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,marginBottom:9}}>{a}, IN</span>)}
+            {[{name:"Fishers",slug:"home-remodeling-fishers-in"},{name:"Carmel",slug:"home-remodeling-carmel-in"},{name:"Noblesville",slug:"home-remodeling-noblesville-in"},{name:"Westfield",slug:"home-remodeling-westfield-in"},{name:"Zionsville",slug:"home-remodeling-zionsville-in"}].map(a=><a key={a.name} href={`/${a.slug}`} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{a.name}, IN</a>)}
+            {["Brownsburg","Pendleton","McCordsville","Fortville"].map(a=><span key={a} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,marginBottom:9}}>{a}, IN</span>)}
           </div>
         </div>
         <div style={{borderTop:"1px solid rgba(255,255,255,.05)",paddingTop:20,display:"flex",flexWrap:"wrap",justifyContent:"space-between",alignItems:"center",gap:10}}>
@@ -1138,8 +1228,270 @@ function LegalModal({page,onClose}){
   );
 }
 
+/* ─── City Pages ────────────────────────────────────── */
+const CITIES = {
+  "home-remodeling-fishers-in": {
+    city: "Fishers", state: "IN", lat: 39.9568, lng: -86.0131,
+    title: "Home Remodeling in Fishers, IN",
+    metaDesc: "Licensed home remodeling contractor in Fishers, Indiana. Bathroom remodeling, basement finishing, kitchen renovations & more. Schluter Pro Certified. Free estimates. (317) 279-4798",
+    heroHeading: "Trusted Home Remodeling in Fishers, Indiana",
+    heroSub: "From Geist to Olio Road, we've been transforming Fishers homes with expert craftsmanship, honest pricing, and a 25-year Schluter waterproofing warranty.",
+    neighborhoods: ["Geist", "Saxony", "Britton Falls", "Fishers District", "Olio Road corridor", "Brooks School area", "Southeastern Fishers"],
+    intro: "Fishers is one of the fastest-growing communities in Indiana, and homeowners here expect quality that matches the standard of their neighborhoods. Whether you're in a newer Saxony build that needs personalization or an established Geist home ready for a full renovation, HomeStar Services & Contracting brings the same level of precision and care to every project.",
+    whyUs: "As a family-owned company based right here in Hamilton County, we know Fishers homes inside and out. Our Schluter Pro Certified tile installers deliver bathroom renovations backed by a 25-year waterproofing warranty — something most contractors in the area simply can't offer. All plumbing and electrical work is performed by licensed professionals, and every project comes with a 1-year workmanship guarantee.",
+    services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: ["fishers-double-shower","fishers-spa-retreat","fishers-bath","fishers-childrens-bath","modern-farmhouse","fishers-basement"],
+    faq: [
+      {q:"Do I need a permit for a bathroom remodel in Fishers?",a:"It depends on the scope. If the project involves plumbing or electrical changes, a permit is typically required through the City of Fishers. We handle the entire permitting process for you and ensure all work passes inspection."},
+      {q:"How long does a bathroom remodel take in Fishers?",a:"Most bathroom remodels in Fishers take 2-4 weeks depending on scope. A vanity refresh might take a week, while a full gut renovation with custom tile could take 3-4 weeks. We provide a detailed timeline before work begins."},
+      {q:"What does a bathroom remodel cost in Fishers, IN?",a:"Costs vary by scope. A mid-range bathroom remodel in Fishers typically runs $15,000-$30,000. A basic refresh starts around $8,000, while luxury spa-level renovations can reach $40,000+. We provide free, detailed estimates."},
+    ],
+  },
+  "home-remodeling-carmel-in": {
+    city: "Carmel", state: "IN", lat: 39.9784, lng: -86.1180,
+    title: "Home Remodeling in Carmel, IN",
+    metaDesc: "Premium home remodeling contractor in Carmel, Indiana. Bathroom renovations, kitchen remodels, basement finishing. Schluter Pro Certified with 25-year warranty. Free estimates. (317) 279-4798",
+    heroHeading: "Premium Home Remodeling in Carmel, Indiana",
+    heroSub: "From the Arts & Design District to the Village of WestClay, Carmel homeowners trust HomeStar for bathroom renovations, kitchen remodels, and whole-home transformations.",
+    neighborhoods: ["Village of WestClay", "Arts & Design District", "Carmel City Center", "Home Place", "West Carmel", "Springmill", "Clay Township"],
+    intro: "Carmel has been named one of the best places to live in America, and the homes here reflect that reputation. Whether you're updating a master bathroom in WestClay, finishing a basement in West Carmel, or renovating a kitchen near City Center, HomeStar delivers the quality craftsmanship that Carmel homeowners expect.",
+    whyUs: "We've completed numerous projects across Carmel, including our signature green tile bathroom remodel that showcases the precision of our Schluter Pro Certified installers. Every bathroom we build uses the complete Schluter waterproofing system — Ditra for floors, Kerdi for walls — backed by a 25-year manufacturer's warranty. Combined with licensed plumbers and electricians on every job, you get a renovation built to last.",
+    services: ["Bathroom Remodeling","Kitchen Remodeling","Basement Finishing","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: ["bathroom-green-tile"],
+    faq: [
+      {q:"Do I need a permit for remodeling in Carmel?",a:"Carmel requires permits for most remodeling projects that involve structural, plumbing, or electrical work. The City of Carmel Department of Community Services handles permits. We manage the entire process for you."},
+      {q:"How much does a kitchen remodel cost in Carmel?",a:"A mid-range kitchen remodel in Carmel typically costs $25,000-$50,000 depending on scope. Minor updates start around $15,000, while high-end renovations with custom cabinetry can reach $75,000+. We provide free detailed estimates."},
+      {q:"What sets HomeStar apart from other Carmel contractors?",a:"We're Schluter Pro Certified (25-year waterproofing warranty), use only licensed plumbers and electricians, provide 3D design renderings before construction, and you work directly with the owners throughout the project."},
+    ],
+  },
+  "home-remodeling-noblesville-in": {
+    city: "Noblesville", state: "IN", lat: 40.0456, lng: -86.0086,
+    title: "Home Remodeling in Noblesville, IN",
+    metaDesc: "Expert home remodeling in Noblesville, Indiana. Bathroom remodeling, basement finishing, kitchen renovations. Schluter Pro Certified. Licensed & insured. Free estimates. (317) 279-4798",
+    heroHeading: "Expert Home Remodeling in Noblesville, Indiana",
+    heroSub: "From the Historic Square to Morse Reservoir, Noblesville homeowners count on HomeStar for quality renovations backed by certified craftsmanship.",
+    neighborhoods: ["Downtown Noblesville", "Morse Reservoir area", "Hinkle Creek", "Millstone", "Federal Hill", "Oakmont", "Prairie Lakes"],
+    intro: "Noblesville blends small-town charm with modern growth, and the homes here range from historic downtown properties to newer developments around Morse Reservoir. Whether your home needs a complete bathroom overhaul or a basement finish to add living space, HomeStar understands the unique character of Noblesville homes and delivers renovations that respect that character while modernizing your space.",
+    whyUs: "Our Noblesville projects include a stunning floor-to-ceiling tile bathroom remodel that demonstrates the quality our Schluter Pro Certified installers bring to every job. With the complete Schluter waterproofing system and a 25-year manufacturer's warranty, your investment is protected for decades. We also completed a laundry room remodel in Noblesville that shows how we maximize every square foot.",
+    services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Laundry Room Remodeling","Flooring Services","Painting Services"],
+    projects: ["noblesville-floor-to-ceiling-tile","noblesville-laundry"],
+    faq: [
+      {q:"Does Noblesville require building permits for remodeling?",a:"Yes. The City of Noblesville requires permits for projects involving structural changes, plumbing, or electrical work. Our team handles the permit application and all required inspections."},
+      {q:"How long does a basement finish take in Noblesville?",a:"A standard basement finish in Noblesville typically takes 6-12 weeks depending on the scope — whether it includes a bathroom, wet bar, or guest suite. We provide a full project timeline upfront."},
+      {q:"Do you serve areas around Morse Reservoir?",a:"Absolutely. We serve all of Noblesville including the Morse Reservoir area, downtown, Millstone, Federal Hill, and all surrounding neighborhoods."},
+    ],
+  },
+  "home-remodeling-westfield-in": {
+    city: "Westfield", state: "IN", lat: 40.0428, lng: -86.1275,
+    title: "Home Remodeling in Westfield, IN",
+    metaDesc: "Quality home remodeling contractor in Westfield, Indiana. Bathroom renovations, basement finishing, kitchen remodels. Licensed, insured & Schluter Pro Certified. (317) 279-4798",
+    heroHeading: "Quality Home Remodeling in Westfield, Indiana",
+    heroSub: "Grand Park families trust HomeStar for bathroom remodels, basement finishes, and home renovations built with quality materials and honest pricing.",
+    neighborhoods: ["Grand Park area", "Maple Knoll", "Chatham Hills", "Bridgewater", "Westfield Village", "Osborne Trails", "Wheeler Landing"],
+    intro: "Westfield is booming — and with all that growth comes homeowners looking to make their spaces truly their own. Whether you bought a new build near Grand Park that needs a basement finish, or you're renovating bathrooms in an established neighborhood like Chatham Hills, HomeStar brings the same certified craftsmanship and transparent process to every Westfield project.",
+    whyUs: "Our Westfield basement finish project demonstrates how we deliver quality results on a smart budget — proving you don't need to overspend to get a great space. Every bathroom project uses the Schluter waterproofing system installed by our certified team, backed by a 25-year warranty. All electrical and plumbing work is done by licensed professionals.",
+    services: ["Basement Finishing","Bathroom Remodeling","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: ["westfield-basement"],
+    faq: [
+      {q:"Do new Westfield homes need remodeling?",a:"Many newer Westfield homes have unfinished basements that are perfect candidates for finishing — adding bedrooms, entertainment areas, or home offices. Builders also use standard-grade materials that homeowners often want to upgrade, especially in bathrooms."},
+      {q:"What does a basement finish cost in Westfield?",a:"Basement finishing in Westfield typically ranges from $20,000-$50,000 depending on the scope. A basic finish with drywall, flooring, and lighting starts on the lower end, while adding a bathroom, wet bar, or guest suite increases the investment."},
+      {q:"How do I get started on a project in Westfield?",a:"Call us at (317) 279-4798 or fill out our online estimate form. We'll schedule a free in-home consultation to discuss your vision, walk your space, and provide a detailed written estimate."},
+    ],
+  },
+  "home-remodeling-zionsville-in": {
+    city: "Zionsville", state: "IN", lat: 39.9509, lng: -86.2617,
+    title: "Home Remodeling in Zionsville, IN",
+    metaDesc: "Trusted home remodeling in Zionsville, Indiana. Bathroom renovations, kitchen remodels, basement finishing. Schluter Pro Certified with 25-year warranty. Free estimates. (317) 279-4798",
+    heroHeading: "Trusted Home Remodeling in Zionsville, Indiana",
+    heroSub: "From the brick streets of downtown to the estates of Eagle Creek, Zionsville homeowners choose HomeStar for craftsmanship that matches the character of their homes.",
+    neighborhoods: ["Downtown Zionsville", "Eagle Creek area", "Traders Point", "Holliday Farms", "Willow Glen", "Brookside Park", "Rural Zionsville"],
+    intro: "Zionsville is known for its charm, character, and quality of life — and the homes here reflect all of that. Whether you're renovating a bathroom in a historic downtown home or updating a Jack & Jill bathroom in a newer Holliday Farms build, HomeStar approaches every Zionsville project with the attention to detail these homes deserve.",
+    whyUs: "Our Jack & Jill bathroom remodel in Zionsville is one of our most-viewed projects — a complete transformation with dual vanities and modern finishes that showcases what HomeStar delivers. As Schluter Pro Certified installers, we protect your renovation with 25-year waterproofing. Every plumber and electrician on the job is fully licensed.",
+    services: ["Bathroom Remodeling","Kitchen Remodeling","Basement Finishing","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: ["zionsville-jack-and-jill"],
+    faq: [
+      {q:"Does Zionsville have specific building codes for remodeling?",a:"Yes. The Town of Zionsville has its own building department and requires permits for most remodeling work involving structural, plumbing, or electrical changes. We manage the entire permitting and inspection process."},
+      {q:"Can you work on historic Zionsville homes?",a:"Absolutely. We have experience working with older homes that require careful attention to existing structures, plumbing, and electrical systems. We ensure all updates meet current code while respecting the home's character."},
+      {q:"How much does a Jack & Jill bathroom remodel cost?",a:"A Jack & Jill bathroom remodel in Zionsville typically ranges from $15,000-$35,000 depending on scope and finishes. We provide a free in-home consultation and detailed written estimate."},
+    ],
+  },
+};
+
+/* Also create service-specific city pages */
+const SERVICE_CITY_ALIASES = {
+  "bathroom-remodeling-fishers-in": "home-remodeling-fishers-in",
+  "bathroom-remodeling-carmel-in": "home-remodeling-carmel-in",
+  "bathroom-remodeling-noblesville-in": "home-remodeling-noblesville-in",
+  "bathroom-remodeling-westfield-in": "home-remodeling-westfield-in",
+  "bathroom-remodeling-zionsville-in": "home-remodeling-zionsville-in",
+  "basement-finishing-fishers-in": "home-remodeling-fishers-in",
+  "basement-finishing-carmel-in": "home-remodeling-carmel-in",
+  "basement-finishing-noblesville-in": "home-remodeling-noblesville-in",
+  "basement-finishing-westfield-in": "home-remodeling-westfield-in",
+  "basement-finishing-zionsville-in": "home-remodeling-zionsville-in",
+  "kitchen-remodeling-fishers-in": "home-remodeling-fishers-in",
+  "kitchen-remodeling-carmel-in": "home-remodeling-carmel-in",
+  "kitchen-remodeling-noblesville-in": "home-remodeling-noblesville-in",
+  "kitchen-remodeling-westfield-in": "home-remodeling-westfield-in",
+  "kitchen-remodeling-zionsville-in": "home-remodeling-zionsville-in",
+};
+
+function CityPage({data}){
+  const[faqOpen,setFaqOpen]=useState(null);
+
+  useEffect(()=>{
+    document.title=data.title+" | HomeStar Services & Contracting";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content",data.metaDesc);
+  },[data]);
+
+  useEffect(()=>{
+    if(!document.querySelector('link[href*="work_request_embed.css"]')){
+      const link=document.createElement("link");link.rel="stylesheet";link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";link.media="screen";document.head.appendChild(link);
+    }
+    if(!document.querySelector('script[src*="work_request_embed_snippet"]')){
+      const s=document.createElement("script");s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
+      s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
+      s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
+      document.body.appendChild(s);
+    }
+  },[]);
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      {/* Schema.org for this city */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:data.metaDesc,url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:data.city,addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:data.lat,longitude:data.lng},areaServed:{"@type":"City",name:data.city},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"},priceRange:"$$"})}}/>
+
+      <Nav/>
+
+      {/* Hero */}
+      <section style={{position:"relative",padding:"160px 24px 80px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`,overflow:"hidden"}}>
+        <div style={{position:"absolute",inset:0,opacity:.025,backgroundImage:"linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)",backgroundSize:"64px 64px"}}/>
+        <div style={{maxWidth:800,margin:"0 auto",position:"relative",zIndex:2,textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>SERVING {data.city.toUpperCase()}, INDIANA</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(32px,5vw,52px)",lineHeight:1.1,marginBottom:20}}>{data.heroHeading}</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.6)",fontSize:17,lineHeight:1.7,maxWidth:600,margin:"0 auto 32px"}}>{data.heroSub}</p>
+          <div className="fu d4" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:14}}>
+            <a href="#city-estimate" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate in {data.city} {I.arrow}</a>
+            <a href="/" className="btn-o">View All Our Work</a>
+          </div>
+          <div className="fu d5" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:32,marginTop:44}}>
+            {[{n:"5.0★",l:"Google Rating"},{n:"25-Year",l:"Schluter Warranty"},{n:"100%",l:"Licensed & Insured"}].map(b=>
+              <div key={b.l}><div className="display" style={{color:C.green,fontSize:24,fontWeight:800}}>{b.n}</div><div style={{color:"rgba(255,255,255,.4)",fontSize:11,fontWeight:600}}>{b.l}</div></div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Intro */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <h2 className="ttl" style={{textAlign:"center"}}>Why {data.city} Homeowners Choose HomeStar</h2>
+          <p style={{color:C.gray,fontSize:16,lineHeight:1.85,marginBottom:28,textAlign:"center"}}>{data.intro}</p>
+          <p style={{color:C.gray,fontSize:16,lineHeight:1.85,textAlign:"center"}}>{data.whyUs}</p>
+        </div>
+      </section>
+
+      {/* Services in this city */}
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Our Services in {data.city}</div>
+            <h2 className="ttl">What We Do in {data.city}, Indiana</h2>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:18}}>
+            {data.services.map(s=>
+              <div key={s} style={{padding:"24px 22px",borderRadius:12,background:"#fff",border:`1px solid ${C.sand}`,transition:"all .3s"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)"}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)"}}>
+                <div style={{display:"flex",alignItems:"center",gap:10}}>
+                  {I.check}
+                  <h3 style={{color:C.navy,fontWeight:700,fontSize:16}}>{s}</h3>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Neighborhoods */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800,textAlign:"center"}}>
+          <div className="lab">Areas We Serve</div>
+          <h2 className="ttl">{data.city} Neighborhoods We Serve</h2>
+          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10,marginTop:24}}>
+            {data.neighborhoods.map(n=>
+              <span key={n} style={{padding:"8px 18px",borderRadius:50,background:C.cream,color:C.grayDark,fontSize:13,fontWeight:600}}>{n}</span>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:700}}>
+          <div style={{textAlign:"center",marginBottom:44}}>
+            <div className="lab">Common Questions</div>
+            <h2 className="ttl">{data.city} Remodeling FAQ</h2>
+          </div>
+          <div style={{display:"flex",flexDirection:"column",gap:10}}>
+            {data.faq.map((f,i)=>
+              <div key={i} style={{background:"#fff",borderRadius:12,overflow:"hidden",border:`1px solid ${faqOpen===i?C.green:C.sand}`,transition:"border-color .3s"}}>
+                <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} style={{width:"100%",padding:"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",cursor:"pointer",textAlign:"left",fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:700,fontSize:15,color:C.navy}}>
+                  {f.q}<span style={{transform:faqOpen===i?"rotate(180deg)":"rotate(0)",transition:"transform .3s",flexShrink:0,marginLeft:14}}>{I.chevDown}</span>
+                </button>
+                <div style={{maxHeight:faqOpen===i?260:0,overflow:"hidden",transition:"max-height .4s ease"}}>
+                  <div style={{padding:"0 24px 20px",color:C.gray,lineHeight:1.75,fontSize:14}}>{f.a}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA + Jobber Form */}
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in">
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:48}}>
+            <div>
+              <div className="lab">Get Started in {data.city}</div>
+              <h2 className="ttl ttl-w">Ready to Start Your {data.city} Remodel?</h2>
+              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:28}}>Request a free, no-obligation estimate. We'll visit your {data.city} home, discuss your vision, and provide a detailed quote with transparent pricing.</p>
+              <div style={{display:"flex",flexDirection:"column",gap:18}}>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.phone}</div><div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>(317) 279-4798</div></div></div>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.mail}</div><div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>eric@thehomestarservice.com</div></div></div>
+              </div>
+              <div style={{marginTop:28}}>
+                <a href="/" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← Back to main site</a>
+              </div>
+            </div>
+            <div id="city-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
+              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate in {data.city}</h3>
+              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
+              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer/>
+    </div>
+  );
+}
+
 export default function HomestarSite(){
   const[legalPage,setLegalPage]=useState(null);
+  const[cityPage,setCityPage]=useState(null);
+
+  useEffect(()=>{
+    const path=window.location.pathname.replace(/^\//,"").replace(/\/$/,"");
+    const resolved=SERVICE_CITY_ALIASES[path]||path;
+    if(CITIES[resolved]){setCityPage(resolved);}
+  },[]);
 
   useEffect(()=>{
     const handleHash=()=>{
@@ -1151,6 +1503,10 @@ export default function HomestarSite(){
     window.addEventListener("hashchange",handleHash);
     return()=>window.removeEventListener("hashchange",handleHash);
   },[]);
+
+  if(cityPage&&CITIES[cityPage]){
+    return <CityPage data={CITIES[cityPage]}/>;
+  }
 
   return(
     <div style={{overflowX:"hidden"}}>
@@ -1165,6 +1521,7 @@ export default function HomestarSite(){
       <Videos/>
       <Blog/>
       <Testimonials/>
+      <ServiceAreas/>
       <About/>
       <FAQ/>
       <Contact/>
