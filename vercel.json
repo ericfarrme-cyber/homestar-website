@@ -1,4 +1,19 @@
 {
+  "redirects": [
+    { "source": "/resources/blog/", "destination": "/#blog", "permanent": true },
+    { "source": "/resources/blog", "destination": "/#blog", "permanent": true },
+    { "source": "/resources/faqs/", "destination": "/", "permanent": true },
+    { "source": "/resources/faqs", "destination": "/", "permanent": true },
+    { "source": "/resources/testimonials/", "destination": "/#reviews", "permanent": true },
+    { "source": "/resources/testimonials", "destination": "/#reviews", "permanent": true },
+    { "source": "/resources/", "destination": "/", "permanent": true },
+    { "source": "/resources", "destination": "/", "permanent": true },
+    { "source": "/projects/page/:path*", "destination": "/#projects", "permanent": true },
+    { "source": "/projects/", "destination": "/#projects", "permanent": true },
+    { "source": "/projects", "destination": "/#projects", "permanent": true },
+    { "source": "/hello-world/", "destination": "/", "permanent": true },
+    { "source": "/hello-world", "destination": "/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
