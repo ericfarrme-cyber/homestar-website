@@ -816,6 +816,36 @@ function Projects(){
 }
 
 /* ─── Videos ───────────────────────────────────────── */
+function YouTubeFacade({id,title}){
+  const[play,setPlay]=useState(false);
+  return(
+    <div style={{position:"relative",width:"100%",paddingTop:"177.78%",background:C.navyDark}}>
+      {play?(
+        <iframe
+          src={`https://www.youtube.com/embed/${id}?autoplay=1`}
+          title={title}
+          style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:"none"}}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      ):(
+        <button onClick={()=>setPlay(true)} aria-label={`Play ${title}`}
+          style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:"none",cursor:"pointer",background:"none",padding:0}}>
+          <img src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`} alt={title}
+            loading="lazy" style={{width:"100%",height:"100%",objectFit:"cover"}}/>
+          <div style={{position:"absolute",inset:0,background:"rgba(0,0,0,.25)",display:"flex",alignItems:"center",justifyContent:"center",transition:"background .3s"}}
+            onMouseEnter={e=>e.currentTarget.style.background="rgba(0,0,0,.1)"}
+            onMouseLeave={e=>e.currentTarget.style.background="rgba(0,0,0,.25)"}>
+            <div style={{width:64,height:64,borderRadius:"50%",background:"rgba(255,0,0,.9)",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 20px rgba(0,0,0,.4)"}}>
+              {I.play}
+            </div>
+          </div>
+        </button>
+      )}
+    </div>
+  );
+}
+
 function Videos(){
   const[ref,vis]=useVis();
   return(
@@ -832,16 +862,7 @@ function Videos(){
             <div key={v.id} className={vis?`fu d${i+1}`:""} style={{minWidth:280,maxWidth:300,flexShrink:0,borderRadius:14,overflow:"hidden",background:"rgba(255,255,255,.04)",border:"1px solid rgba(255,255,255,.08)",scrollSnapAlign:"start",transition:"all .3s"}}
               onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(92,184,50,.35)";e.currentTarget.style.transform="translateY(-4px)"}}
               onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,.08)";e.currentTarget.style.transform="translateY(0)"}}>
-              <div style={{position:"relative",width:"100%",paddingTop:"177.78%",background:C.navyDark}}>
-                <iframe
-                  src={`https://www.youtube.com/embed/${v.id}`}
-                  title={v.title}
-                  style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:"none"}}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
+              <YouTubeFacade id={v.id} title={v.title}/>
               <div style={{padding:"18px 20px 22px"}}>
                 <h3 className="display" style={{color:"#fff",fontSize:14,marginBottom:8,lineHeight:1.35}}>{v.title}</h3>
                 <p style={{color:"rgba(255,255,255,.4)",fontSize:12,lineHeight:1.6}}>{v.desc}</p>
