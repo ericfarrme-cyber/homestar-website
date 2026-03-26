@@ -291,6 +291,17 @@ const PROJECTS = [
       { src: "/images/noblesville-concrete-4.jpg", alt: "Completed concrete patio Noblesville IN" },
     ],
   },
+  {
+    title: "Composite Deck Build in Fishers",
+    cat: "Exterior",
+    color: "#6A7B6A",
+    desc: "A custom composite deck in Fishers with white railing, dual staircases, and a spacious layout designed for entertaining. Built with low-maintenance composite decking that stands up to Indiana weather year after year.",
+    images: [
+      { src: "/images/fishers-composite-deck-1.jpg", alt: "Composite deck build in Fishers Indiana" },
+      { src: "/images/fishers-composite-deck-2.jpg", alt: "Custom composite deck with white railing Fishers IN" },
+      { src: "/images/fishers-composite-deck-3.jpg", alt: "Completed composite deck project Fishers Indiana" },
+    ],
+  },
 ];
 
 const BLOG = [
