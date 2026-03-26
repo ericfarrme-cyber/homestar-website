@@ -426,11 +426,12 @@ function useVis(t=0.12){
 }
 
 /* ─── Nav ─────────────────────────────────────────── */
-function Nav(){
+function Nav({isCity}){
   const[open,setOpen]=useState(false);
   const[sc,setSc]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>50);window.addEventListener("scroll",h,{passive:true});return()=>window.removeEventListener("scroll",h)},[]);
-  const links=[{l:"Services",h:"#services"},{l:"Why HomeStar",h:"#difference"},{l:"Our Process",h:"#process"},{l:"Projects",h:"#projects"},{l:"Videos",h:"#videos"},{l:"Blog",h:"#blog"},{l:"Service Areas",h:"#areas"},{l:"Contact",h:"#contact"}];
+  const p=isCity?"/":"";
+  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Videos",h:p+"#videos"},{l:"Blog",h:p+"#blog"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
 
   return(
     <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000,background:sc?"rgba(27,42,74,.97)":"transparent",backdropFilter:sc?"blur(14px)":"none",transition:"all .35s",borderBottom:sc?"1px solid rgba(255,255,255,.06)":"none"}}>
@@ -441,12 +442,12 @@ function Nav(){
             <a href="tel:+13172794798" style={{color:"rgba(255,255,255,.6)",fontSize:12,fontWeight:600,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>{I.phone} (317) 279-4798</a>
             <span style={{color:"rgba(255,255,255,.3)",fontSize:12}}>Serving Hamilton County, IN</span>
           </div>
-          <a href="#estimate" style={{color:C.green,fontSize:12,fontWeight:700,textDecoration:"none",letterSpacing:".04em"}}>REQUEST A FREE ESTIMATE</a>
+          <a href={isCity?"#city-estimate":"#estimate"} style={{color:C.green,fontSize:12,fontWeight:700,textDecoration:"none",letterSpacing:".04em"}}>REQUEST A FREE ESTIMATE</a>
         </div>
       </div>
       {/* Main bar */}
       <div style={{maxWidth:1160,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:sc?64:72,transition:"height .3s"}}>
-        <a href="#hero" style={{textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>
+        <a href={isCity?"/":"#hero"} style={{textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>
           <img src="/images/logo-mascot.png" alt="HomeStar Services mascot" style={{width:40,height:40,objectFit:"contain"}} />
           <div>
             <div className="display" style={{color:"#fff",fontSize:17,fontWeight:800,letterSpacing:".02em",lineHeight:1.1}}>HOMESTAR</div>
@@ -455,13 +456,13 @@ function Nav(){
         </a>
         <div className="desk" style={{display:"flex",alignItems:"center",gap:26}}>
           {links.map(l=><a key={l.h} href={l.h} style={{color:"rgba(255,255,255,.75)",textDecoration:"none",fontSize:13,fontWeight:600,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.75)"}>{l.l}</a>)}
-          <a href="#estimate" className="btn-g" style={{padding:"9px 20px",fontSize:13}}>Free Estimate</a>
+          <a href={isCity?"#city-estimate":"#estimate"} className="btn-g" style={{padding:"9px 20px",fontSize:13}}>Free Estimate</a>
         </div>
         <button className="mob-btn" onClick={()=>setOpen(!open)} style={{background:"none",border:"none",color:"#fff",cursor:"pointer",display:"flex",alignItems:"center"}}>{open?I.close:I.menu}</button>
       </div>
       {open&&<div className="mob-menu" style={{background:C.navyDark,padding:"16px 24px 28px",display:"flex",flexDirection:"column",gap:14}}>
         {links.map(l=><a key={l.h} href={l.h} onClick={()=>setOpen(false)} style={{color:"#fff",textDecoration:"none",fontSize:15,fontWeight:600,padding:"6px 0",borderBottom:"1px solid rgba(255,255,255,.05)"}}>{l.l}</a>)}
-        <a href="#estimate" className="btn-g" style={{textAlign:"center",marginTop:8}}>Get a Free Estimate</a>
+        <a href={isCity?"#city-estimate":"#estimate"} className="btn-g" style={{textAlign:"center",marginTop:8}}>Get a Free Estimate</a>
       </div>}
     </nav>
   );
@@ -1142,7 +1143,9 @@ function Contact(){
 }
 
 /* ─── Footer ───────────────────────────────────────── */
-function Footer(){
+function Footer({isCity}){
+  const p=isCity?"/":"";
+  const companyLinks=[{l:"About Us",h:p+"#about"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Blog",h:p+"#blog"},{l:"Videos",h:p+"#videos"},{l:"Contact",h:p+"#contact"},{l:"Request Estimate",h:isCity?"#city-estimate":p+"#estimate"}];
   return(
     <footer style={{background:C.navyDark,padding:"56px 24px 28px"}}>
       <div style={{maxWidth:1160,margin:"0 auto"}}>
@@ -1156,11 +1159,11 @@ function Footer(){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Services</h4>
-            {SVC.map(s=><a key={s.title} href="#services" style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{s.title}</a>)}
+            {SVC.map(s=><a key={s.title} href={p+"#services"} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{s.title}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Company</h4>
-            {["About Us","Our Process","Projects","Blog","Videos","Contact","Request Estimate"].map(l=><a key={l} href={`#${l.toLowerCase().replace(/ /g,"")}`} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l}</a>)}
+            {companyLinks.map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
@@ -1374,7 +1377,7 @@ function CityPage({data}){
       {/* Schema.org for this city */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:data.metaDesc,url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:data.city,addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:data.lat,longitude:data.lng},areaServed:{"@type":"City",name:data.city},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"},priceRange:"$$"})}}/>
 
-      <Nav/>
+      <Nav isCity/>
 
       {/* Hero */}
       <section style={{position:"relative",padding:"160px 24px 80px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`,overflow:"hidden"}}>
@@ -1489,7 +1492,7 @@ function CityPage({data}){
         </div>
       </section>
 
-      <Footer/>
+      <Footer isCity/>
     </div>
   );
 }
