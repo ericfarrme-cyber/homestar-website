@@ -965,7 +965,7 @@ function Testimonials(){
     }
   },[]);
   return(
-    <section className="sec" style={{background:C.cream}} ref={ref}>
+    <section id="reviews" className="sec" style={{background:C.cream}} ref={ref}>
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:52}}>
           <div className="lab">Trusted by Homeowners</div>
@@ -989,6 +989,8 @@ function ServiceAreas(){
     {name:"Noblesville",slug:"home-remodeling-noblesville-in",desc:"Downtown, Morse Reservoir, Millstone & more",projects:"Floor-to-ceiling tile experts"},
     {name:"Westfield",slug:"home-remodeling-westfield-in",desc:"Grand Park, Chatham Hills, Bridgewater & more",projects:"Budget-friendly options"},
     {name:"Zionsville",slug:"home-remodeling-zionsville-in",desc:"Village, Holliday Farms, Traders Point & more",projects:"Premium renovations"},
+    {name:"Fortville",slug:"home-remodeling-fortville-in",desc:"Downtown Fortville, Buck Creek area & more",projects:"Custom outdoor living"},
+    {name:"McCordsville",slug:"home-remodeling-mccordsville-in",desc:"Geist area, Mt. Comfort corridor & more",projects:"Growing community"},
   ];
   return(
     <section id="areas" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,position:"relative",overflow:"hidden"}} ref={ref}>
@@ -1014,7 +1016,7 @@ function ServiceAreas(){
           )}
         </div>
         <div style={{textAlign:"center",marginTop:36}}>
-          <p style={{color:"rgba(255,255,255,.3)",fontSize:13}}>Also serving Brownsburg, Pendleton, McCordsville, Fortville, and surrounding communities.</p>
+          <p style={{color:"rgba(255,255,255,.3)",fontSize:13}}>Also serving Brownsburg, Pendleton, and surrounding communities.</p>
         </div>
       </div>
     </section>
@@ -1188,8 +1190,8 @@ function Footer({isCity}){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
-            {[{name:"Fishers",slug:"home-remodeling-fishers-in"},{name:"Carmel",slug:"home-remodeling-carmel-in"},{name:"Noblesville",slug:"home-remodeling-noblesville-in"},{name:"Westfield",slug:"home-remodeling-westfield-in"},{name:"Zionsville",slug:"home-remodeling-zionsville-in"}].map(a=><a key={a.name} href={`/${a.slug}`} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{a.name}, IN</a>)}
-            {["Brownsburg","Pendleton","McCordsville","Fortville"].map(a=><span key={a} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,marginBottom:9}}>{a}, IN</span>)}
+            {[{name:"Fishers",slug:"home-remodeling-fishers-in"},{name:"Carmel",slug:"home-remodeling-carmel-in"},{name:"Noblesville",slug:"home-remodeling-noblesville-in"},{name:"Westfield",slug:"home-remodeling-westfield-in"},{name:"Zionsville",slug:"home-remodeling-zionsville-in"},{name:"Fortville",slug:"home-remodeling-fortville-in"},{name:"McCordsville",slug:"home-remodeling-mccordsville-in"}].map(a=><a key={a.name} href={`/${a.slug}`} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{a.name}, IN</a>)}
+            {["Brownsburg","Pendleton"].map(a=><span key={a} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,marginBottom:9}}>{a}, IN</span>)}
           </div>
         </div>
         <div style={{borderTop:"1px solid rgba(255,255,255,.05)",paddingTop:20,display:"flex",flexWrap:"wrap",justifyContent:"space-between",alignItems:"center",gap:10}}>
@@ -1350,6 +1352,40 @@ const CITIES = {
       {q:"How much does a Jack & Jill bathroom remodel cost?",a:"A Jack & Jill bathroom remodel in Zionsville typically ranges from $15,000-$35,000 depending on scope and finishes. We provide a free in-home consultation and detailed written estimate."},
     ],
   },
+  "home-remodeling-fortville-in": {
+    city: "Fortville", state: "IN", lat: 39.9322, lng: -85.8480,
+    title: "Home Remodeling in Fortville, IN",
+    metaDesc: "Reliable home remodeling in Fortville, Indiana. Bathroom remodeling, kitchen renovations, basement finishing, decks & outdoor living. Schluter Pro Certified. Free estimates. (317) 279-4798",
+    heroHeading: "Reliable Home Remodeling in Fortville, Indiana",
+    heroSub: "From custom outdoor pavilions to full interior renovations, Fortville homeowners trust HomeStar for craftsmanship that's built to last.",
+    neighborhoods: ["Downtown Fortville", "Buck Creek area", "Fortville Proper", "Southeastern Hamilton County", "Northern Hancock County"],
+    intro: "Fortville may be a small town, but the homeowners here take pride in their properties — and they deserve a contractor who does, too. Whether you're upgrading a bathroom, finishing a basement, or creating the ultimate outdoor living space, HomeStar Services & Contracting brings Hamilton County's top craftsmanship right to your doorstep. We've already made our mark in Fortville with a custom pavilion project, and we're ready to do the same for your home.",
+    whyUs: "Our Fortville Pavilion Patio Project is a standout example of what HomeStar can do — a custom outdoor living space featuring stone columns, a covered bar area with stained wood beams, and a layout designed for year-round entertaining. It's the kind of project that shows our attention to detail extends well beyond the walls of your home. As Schluter Pro Certified installers, every bathroom project is backed by a 25-year waterproofing warranty, and all plumbing and electrical work is performed by licensed professionals.",
+    services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: ["fortville-pavilion"],
+    faq: [
+      {q:"Do you serve Fortville even though you're based in Fishers?",a:"Absolutely. Fortville is part of our core service area. We've already completed projects in Fortville and surrounding areas, and the drive is short enough that it has zero impact on project scheduling or pricing."},
+      {q:"What does an outdoor living project cost in Fortville?",a:"Outdoor living projects like pavilions, patios, and decks typically range from $10,000-$40,000 depending on size, materials, and features. Custom stone work and covered structures are on the higher end. We provide free, detailed estimates."},
+      {q:"How do I get started on a project in Fortville?",a:"Call us at (317) 279-4798 or fill out our online estimate form. We'll schedule a free in-home consultation to discuss your vision, walk your space, and provide a detailed written estimate."},
+    ],
+  },
+  "home-remodeling-mccordsville-in": {
+    city: "McCordsville", state: "IN", lat: 39.8936, lng: -85.9225,
+    title: "Home Remodeling in McCordsville, IN",
+    metaDesc: "Professional home remodeling in McCordsville, Indiana. Bathroom renovations, basement finishing, kitchen remodels, flooring & painting. Schluter Pro Certified. Free estimates. (317) 279-4798",
+    heroHeading: "Professional Home Remodeling in McCordsville, Indiana",
+    heroSub: "McCordsville's growing community deserves a contractor who delivers quality craftsmanship, transparent pricing, and results that stand the test of time.",
+    neighborhoods: ["McCordsville Proper", "Geist area", "Mt. Comfort corridor", "Southeastern Hamilton County", "Western Hancock County"],
+    intro: "McCordsville is one of the fastest-growing communities east of Indianapolis, with new construction and established homes that both benefit from expert remodeling. Whether you're personalizing a new build with upgraded finishes, renovating a bathroom, or finishing your basement to add living space, HomeStar brings the same certified craftsmanship we've delivered across Hamilton County to every McCordsville project.",
+    whyUs: "We've completed dozens of projects in nearby Fishers and Geist — neighborhoods that share a border with McCordsville — so we know the homes, the building styles, and the expectations in this area. As Schluter Pro Certified installers, every bathroom project is backed by a 25-year waterproofing warranty. All plumbing and electrical work is performed by licensed professionals, and every project comes with a 1-year workmanship guarantee.",
+    services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: [],
+    faq: [
+      {q:"Do you serve McCordsville?",a:"Yes. McCordsville is part of our core service area, and we've completed many projects in neighboring Fishers and Geist. We serve all of McCordsville and the surrounding Mt. Comfort corridor."},
+      {q:"What's the most popular remodeling project in McCordsville?",a:"Bathroom remodeling and basement finishing are the most requested services in McCordsville. Many newer homes have unfinished basements with great potential, and homeowners frequently upgrade builder-grade bathrooms to something more personal."},
+      {q:"How do I get started on a project in McCordsville?",a:"Call us at (317) 279-4798 or fill out our online estimate form. We'll schedule a free in-home consultation to discuss your vision, walk your space, and provide a detailed written estimate."},
+    ],
+  },
 };
 
 /* Also create service-specific city pages */
@@ -1359,16 +1395,22 @@ const SERVICE_CITY_ALIASES = {
   "bathroom-remodeling-noblesville-in": "home-remodeling-noblesville-in",
   "bathroom-remodeling-westfield-in": "home-remodeling-westfield-in",
   "bathroom-remodeling-zionsville-in": "home-remodeling-zionsville-in",
+  "bathroom-remodeling-fortville-in": "home-remodeling-fortville-in",
+  "bathroom-remodeling-mccordsville-in": "home-remodeling-mccordsville-in",
   "basement-finishing-fishers-in": "home-remodeling-fishers-in",
   "basement-finishing-carmel-in": "home-remodeling-carmel-in",
   "basement-finishing-noblesville-in": "home-remodeling-noblesville-in",
   "basement-finishing-westfield-in": "home-remodeling-westfield-in",
   "basement-finishing-zionsville-in": "home-remodeling-zionsville-in",
+  "basement-finishing-fortville-in": "home-remodeling-fortville-in",
+  "basement-finishing-mccordsville-in": "home-remodeling-mccordsville-in",
   "kitchen-remodeling-fishers-in": "home-remodeling-fishers-in",
   "kitchen-remodeling-carmel-in": "home-remodeling-carmel-in",
   "kitchen-remodeling-noblesville-in": "home-remodeling-noblesville-in",
   "kitchen-remodeling-westfield-in": "home-remodeling-westfield-in",
   "kitchen-remodeling-zionsville-in": "home-remodeling-zionsville-in",
+  "kitchen-remodeling-fortville-in": "home-remodeling-fortville-in",
+  "kitchen-remodeling-mccordsville-in": "home-remodeling-mccordsville-in",
 };
 
 function CityPage({data}){
