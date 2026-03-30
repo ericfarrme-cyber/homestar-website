@@ -356,6 +356,21 @@ const BLOG = [
       "Permits are required for deck construction in most Hamilton County municipalities. We handle the entire permitting process and ensure everything meets current building codes. A properly permitted deck protects your investment and avoids issues when you sell your home.",
       "Start planning now and you'll be hosting cookouts by Memorial Day. Call HomeStar at (317) 279-4798 or visit thehomestarservice.com to request a free estimate."
     ]},
+  { title: "How Much Does a Bathroom Remodel Cost in Hamilton County, Indiana?", date: "Mar 29, 2026", read: "8 min", cat: "Bathroom", excerpt: "From basic refreshes to full spa-level renovations, here's what bathroom remodels actually cost in Fishers, Carmel, Noblesville, and surrounding areas — with real numbers from local projects.",
+    body: [
+      "If you're a homeowner in Hamilton County thinking about remodeling your bathroom, the first question on your mind is probably: how much is this going to cost? It's a fair question — and unfortunately, the answer you'll find online is usually a vague national average that has nothing to do with what you'll actually pay in Fishers, Carmel, Noblesville, or Westfield.",
+      "We're going to break it down honestly based on what we see every day as a local remodeling company working in Hamilton County homes. No vague ranges, no bait-and-switch. Just real numbers for real projects.",
+      "A basic bathroom refresh — new vanity, faucet, mirror, light fixture, fresh paint, and maybe new flooring — typically runs $8,000 to $12,000 in the Fishers and Carmel area. This level of update is great if the layout works fine and the bones are solid, but the finishes are dated. You're not moving plumbing or changing the footprint, which keeps costs down.",
+      "A mid-range bathroom remodel is where most Hamilton County homeowners land. This typically runs $15,000 to $30,000 and includes a full gut of the space — new tile (floor and shower), new vanity and countertop, new fixtures, improved lighting, fresh paint, and often a new shower configuration. At this level, you're likely moving some plumbing and upgrading the exhaust fan.",
+      "What separates a $15,000 remodel from a $30,000 remodel at this tier? Tile is the biggest variable. A standard subway tile shower runs significantly less than a floor-to-ceiling large-format tile installation. The scope of plumbing changes also matters — relocating a shower valve or adding a new drain line costs more than replacing fixtures in place.",
+      "A high-end or spa-level bathroom remodel in Hamilton County typically runs $30,000 to $50,000+. This includes premium finishes throughout — custom tile work, frameless glass shower enclosures, freestanding soaking tubs, heated floors, dual vanities with quartz or marble countertops, custom lighting, and often a complete reconfiguration of the layout.",
+      "At HomeStar, every bathroom remodel at every price point uses the complete Schluter waterproofing system — Ditra for floors, Kerdi for walls, and Schluter shower pans. This system is 100% waterproof and backed by a 25-year manufacturer's warranty. This is not an optional upgrade; it's our standard. Most contractors in Hamilton County use standard cement board, which absorbs moisture over time and leads to tile failure.",
+      "Here's something most contractors won't tell you: the quality of what goes under your tile matters more than the tile itself. We've seen $25,000 remodels fail within three years because the substrate wasn't properly waterproofed. And we've seen $15,000 remodels still look perfect after a decade because the waterproofing was done right.",
+      "Labor costs in Hamilton County are influenced by the fact that licensed tradespeople are in high demand. At HomeStar, all plumbing is done by licensed plumbers and all electrical by licensed electricians. This costs more than a company that has a general handyman doing everything, but it means the work is done correctly and to code — and it passes inspection the first time.",
+      "Beyond the remodel itself, there are a few costs homeowners sometimes overlook. Permit fees in Fishers, Carmel, and Noblesville typically run $100 to $300. If your home is older and the project reveals issues like outdated wiring, galvanized plumbing, or water damage in the subfloor, remediation adds cost. We always flag these during our initial walkthrough so you're not surprised.",
+      "Our advice to Hamilton County homeowners: start with what bothers you most about your current bathroom. Is it the shower? The vanity? The layout? Prioritizing your biggest pain point ensures your budget goes where it matters most. You don't need to do everything at once — a well-planned phase-one remodel can transform your daily experience while staying on budget.",
+      "Ready to get a real number for your bathroom? Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com. We'll visit your home, walk the space with you, and provide a detailed, itemized estimate — no pressure, no vague ranges, just honest numbers."
+    ]},
 ];
 
 const VIDEOS = [
@@ -1560,14 +1575,282 @@ function CityPage({data}){
   );
 }
 
+/* ─── Service Pages ──────────────────────────────────── */
+const SERVICE_PAGES = {
+  "bathroom-remodeling": {
+    service: "Bathroom Remodeling",
+    title: "Bathroom Remodeling in Hamilton County, IN",
+    metaDesc: "Expert bathroom remodeling in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Schluter Pro Certified with 25-year waterproofing warranty. Walk-in showers, custom tile, vanities. Free estimates. (317) 279-4798",
+    heroHeading: "Expert Bathroom Remodeling in Hamilton County, Indiana",
+    heroSub: "From walk-in showers and custom tile to complete spa-level transformations — our Schluter Pro Certified team delivers bathrooms built to last decades, not just years.",
+    intro: "Your bathroom should be more than functional — it should be a space you enjoy. At HomeStar Services & Contracting, we specialize in bathroom renovations that combine beautiful design with bulletproof construction. Every shower, every floor, every wall is built on our complete Schluter waterproofing system — the same system trusted by luxury builders worldwide.",
+    highlights: [
+      {title:"Schluter Pro Certified",desc:"Our tile installers are factory-certified by Schluter Systems. Every bathroom gets Ditra for floors, Kerdi for walls, and Schluter shower pans — 100% waterproof, backed by a 25-year manufacturer's warranty."},
+      {title:"Licensed Plumbers & Electricians",desc:"All plumbing and electrical work is performed by licensed, insured professionals — not general laborers. This means code-compliant work that passes inspection the first time."},
+      {title:"3D Design Renderings",desc:"Before we touch a hammer, you see your new bathroom in realistic 3D renderings. Choose finishes, layouts, and fixtures with confidence before construction begins."},
+      {title:"1-Year Workmanship Warranty",desc:"Every project is backed by our 1-year workmanship warranty. If something isn't right, we come back and fix it. Quality work should hold up long after the last day on the job."},
+    ],
+    whatWeDoIntro: "Whether you're updating a half bath or gutting a master suite, we handle every detail from design through final inspection.",
+    whatWeDo: [
+      "Custom tile showers — walk-in, curbless, double shower, floor-to-ceiling",
+      "Freestanding and built-in soaking tubs",
+      "Vanity installation — single, double, floating, and custom",
+      "Heated flooring systems",
+      "Frameless glass shower enclosures",
+      "Exhaust fan upgrades and lighting design",
+      "ADA-compliant and aging-in-place modifications",
+      "Complete gut renovations and layout changes",
+    ],
+    costIntro: "Bathroom remodel costs in Hamilton County vary by scope. Here's what homeowners in Fishers, Carmel, and Noblesville typically invest:",
+    costs: [
+      {level:"Basic Refresh",range:"$8,000 – $12,000",desc:"New vanity, faucet, mirror, light fixture, paint, and flooring. Layout stays the same."},
+      {level:"Mid-Range Remodel",range:"$15,000 – $30,000",desc:"Full gut — new tile, shower, vanity, countertop, fixtures, lighting, exhaust. Some plumbing changes."},
+      {level:"Spa-Level Renovation",range:"$30,000 – $50,000+",desc:"Premium finishes, frameless glass, freestanding tub, heated floors, dual vanities, full layout reconfiguration."},
+    ],
+    projectCats: ["Bathroom","Children's Bathroom"],
+    faq: [
+      {q:"How long does a bathroom remodel take?",a:"Most bathroom remodels take 2 to 4 weeks. A basic vanity refresh can be done in about a week, while a full gut renovation with custom tile work typically takes 3 to 4 weeks. We provide a detailed project timeline before work begins."},
+      {q:"Do I need a permit for a bathroom remodel?",a:"If the project involves plumbing or electrical changes, a permit is typically required. We handle the entire permitting process for all Hamilton County municipalities — Fishers, Carmel, Noblesville, Westfield, and Zionsville."},
+      {q:"What is the Schluter waterproofing system?",a:"The Schluter system is a complete waterproofing solution for tile installations. It includes Ditra uncoupling membrane for floors, Kerdi waterproof membrane for walls, and Schluter shower pans. Unlike standard cement board, which absorbs moisture over time, Schluter creates a 100% waterproof barrier that prevents mold, rot, and tile failure."},
+      {q:"Why does waterproofing matter for a bathroom remodel?",a:"Most tile failures aren't caused by bad tile — they're caused by moisture getting behind the tile and damaging the substrate. Standard cement board absorbs water. The Schluter system is 100% waterproof and also absorbs structural movement, preventing cracked grout and loose tiles."},
+      {q:"How much does a walk-in shower remodel cost?",a:"A walk-in shower remodel in Hamilton County typically costs $12,000 to $25,000 depending on tile selection, size, and fixtures. Floor-to-ceiling tile and frameless glass add to the cost. We provide free, detailed estimates."},
+      {q:"Can you work with my existing bathroom layout?",a:"Absolutely. Many of our projects keep the existing layout and focus on upgrading finishes, fixtures, and waterproofing. If you want to change the layout — like converting a tub to a walk-in shower — we handle the plumbing relocation as well."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
+  },
+};
+
+function ServicePage({data}){
+  const[faqOpen,setFaqOpen]=useState(null);
+  const filteredProjects=PROJECTS.filter(p=>data.projectCats.includes(p.cat));
+  const[activeProject,setActiveProject]=useState(0);
+  const[activeImg,setActiveImg]=useState(0);
+
+  useEffect(()=>{
+    document.title=data.title+" | HomeStar Services & Contracting";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content",data.metaDesc);
+  },[data]);
+
+  useEffect(()=>{
+    if(!document.querySelector('link[href*="work_request_embed.css"]')){
+      const link=document.createElement("link");link.rel="stylesheet";link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";link.media="screen";document.head.appendChild(link);
+    }
+    if(!document.querySelector('script[src*="work_request_embed_snippet"]')){
+      const s=document.createElement("script");s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
+      s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
+      s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
+      document.body.appendChild(s);
+    }
+  },[]);
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:data.service,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"}},areaServed:data.cities.map(c=>({"@type":"City",name:c})),description:data.metaDesc})}}/>
+
+      <Nav isCity/>
+
+      {/* Hero */}
+      <section style={{position:"relative",padding:"160px 24px 80px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`,overflow:"hidden"}}>
+        <div style={{position:"absolute",inset:0,opacity:.025,backgroundImage:"linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)",backgroundSize:"64px 64px"}}/>
+        <div style={{maxWidth:800,margin:"0 auto",position:"relative",zIndex:2,textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>SCHLUTER PRO CERTIFIED</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(32px,5vw,52px)",lineHeight:1.1,marginBottom:20}}>{data.heroHeading}</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.6)",fontSize:17,lineHeight:1.7,maxWidth:600,margin:"0 auto 32px"}}>{data.heroSub}</p>
+          <div className="fu d4" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:14}}>
+            <a href="#service-estimate" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
+            <a href="#service-projects" className="btn-o">View Our Work</a>
+          </div>
+          <div className="fu d5" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:32,marginTop:44}}>
+            {[{n:"5.0★",l:"Google Rating"},{n:"25-Year",l:"Schluter Warranty"},{n:"100%",l:"Licensed & Insured"}].map(b=>
+              <div key={b.l}><div className="display" style={{color:C.green,fontSize:24,fontWeight:800}}>{b.n}</div><div style={{color:"rgba(255,255,255,.4)",fontSize:11,fontWeight:600}}>{b.l}</div></div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Intro */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <h2 className="ttl" style={{textAlign:"center"}}>Why Hamilton County Homeowners Choose HomeStar</h2>
+          <p style={{color:C.gray,fontSize:16,lineHeight:1.85,textAlign:"center"}}>{data.intro}</p>
+        </div>
+      </section>
+
+      {/* Highlights */}
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">What Sets Us Apart</div>
+            <h2 className="ttl">The HomeStar Difference</h2>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:20}}>
+            {data.highlights.map(h=>
+              <div key={h.title} style={{padding:"28px 24px",borderRadius:14,background:"#fff",border:`1px solid ${C.sand}`,transition:"all .3s"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)"}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)"}}>
+                <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>{I.check}<h3 style={{color:C.navy,fontWeight:700,fontSize:16}}>{h.title}</h3></div>
+                <p style={{color:C.gray,fontSize:14,lineHeight:1.7}}>{h.desc}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* What We Do */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Our Expertise</div>
+            <h2 className="ttl">What We Do</h2>
+            <p style={{color:C.gray,fontSize:15,lineHeight:1.8,marginTop:16}}>{data.whatWeDoIntro}</p>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:14}}>
+            {data.whatWeDo.map(item=>
+              <div key={item} style={{display:"flex",alignItems:"flex-start",gap:10,padding:"14px 18px",borderRadius:10,background:C.cream}}>
+                {I.check}<span style={{color:C.navy,fontSize:14,fontWeight:600,lineHeight:1.5}}>{item}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Cost Guide */}
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Investment Guide</div>
+            <h2 className="ttl ttl-w">How Much Does It Cost?</h2>
+            <p style={{color:"rgba(255,255,255,.45)",fontSize:15,lineHeight:1.8,maxWidth:600,margin:"12px auto 0"}}>{data.costIntro}</p>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:20}}>
+            {data.costs.map(c=>
+              <div key={c.level} style={{padding:"32px 28px",borderRadius:14,background:"rgba(255,255,255,.04)",border:"1px solid rgba(255,255,255,.08)"}}>
+                <div style={{color:C.green,fontWeight:700,fontSize:13,marginBottom:8,letterSpacing:".04em"}}>{c.level.toUpperCase()}</div>
+                <div className="display" style={{color:"#fff",fontSize:28,fontWeight:800,marginBottom:14}}>{c.range}</div>
+                <p style={{color:"rgba(255,255,255,.45)",fontSize:14,lineHeight:1.7}}>{c.desc}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section id="service-projects" className="sec" style={{background:"#fff"}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Our Work</div>
+            <h2 className="ttl">{data.service} Projects</h2>
+          </div>
+          {filteredProjects.length>0&&(
+            <div>
+              <div style={{display:"flex",gap:10,flexWrap:"wrap",justifyContent:"center",marginBottom:28}}>
+                {filteredProjects.map((p,i)=>
+                  <button key={p.title} onClick={()=>{setActiveProject(i);setActiveImg(0);}} style={{padding:"8px 18px",borderRadius:50,border:`1px solid ${activeProject===i?C.green:C.sand}`,background:activeProject===i?C.greenMuted:"#fff",color:activeProject===i?C.green:C.gray,fontWeight:600,fontSize:13,cursor:"pointer",fontFamily:"'Plus Jakarta Sans',sans-serif"}}>{p.title.replace(/remodel|project|build/gi,"").replace(/in\s\w+$/i,"").trim()}</button>
+                )}
+              </div>
+              <div style={{position:"relative",borderRadius:16,overflow:"hidden",background:C.navyDark,maxWidth:700,margin:"0 auto"}}>
+                <img src={filteredProjects[activeProject].images[activeImg].src} alt={filteredProjects[activeProject].images[activeImg].alt} style={{width:"100%",height:420,objectFit:"cover",display:"block"}}/>
+                <div style={{position:"absolute",bottom:16,left:"50%",transform:"translateX(-50%)",display:"flex",gap:6}}>
+                  {filteredProjects[activeProject].images.map((_,i)=>
+                    <button key={i} onClick={()=>setActiveImg(i)} style={{width:activeImg===i?20:8,height:8,borderRadius:4,background:activeImg===i?"#fff":"rgba(255,255,255,.4)",border:"none",cursor:"pointer",transition:"all .3s"}}/>
+                  )}
+                </div>
+              </div>
+              <div style={{textAlign:"center",marginTop:20}}>
+                <h3 className="display" style={{color:C.navy,fontSize:18}}>{filteredProjects[activeProject].title}</h3>
+                <p style={{color:C.gray,fontSize:14,marginTop:6}}>{filteredProjects[activeProject].desc}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:36}}>
+            <div className="lab">Where We Work</div>
+            <h2 className="ttl">{data.service} Across Hamilton County</h2>
+          </div>
+          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:12}}>
+            {data.cities.map(c=>
+              <a key={c} href={`/home-remodeling-${c.toLowerCase().replace(/ /g,"-")}-in`} style={{padding:"12px 22px",borderRadius:50,background:"#fff",border:`1px solid ${C.sand}`,color:C.navy,fontWeight:600,fontSize:14,textDecoration:"none",transition:"all .3s"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.color=C.green}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.color=C.navy}}>
+                {c}, IN
+              </a>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:720}}>
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Common Questions</div>
+            <h2 className="ttl">{data.service} FAQ</h2>
+          </div>
+          <div style={{display:"flex",flexDirection:"column",gap:10}}>
+            {data.faq.map((f,i)=>
+              <div key={i} style={{borderRadius:12,border:`1px solid ${C.sand}`,overflow:"hidden",background:C.cream}}>
+                <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} style={{width:"100%",padding:"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",cursor:"pointer",textAlign:"left",fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:700,fontSize:15,color:C.navy}}>
+                  {f.q}<span style={{transform:faqOpen===i?"rotate(180deg)":"rotate(0)",transition:"transform .3s",flexShrink:0,marginLeft:14}}>{I.chevDown}</span>
+                </button>
+                <div style={{maxHeight:faqOpen===i?300:0,overflow:"hidden",transition:"max-height .4s ease"}}>
+                  <div style={{padding:"0 24px 20px",color:C.gray,lineHeight:1.75,fontSize:14}}>{f.a}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA + Jobber Form */}
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in">
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:48}}>
+            <div>
+              <div className="lab">Get Started</div>
+              <h2 className="ttl ttl-w">Ready to Remodel Your Bathroom?</h2>
+              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:28}}>Request a free, no-obligation estimate. We'll visit your home, discuss your vision, and provide a detailed quote with transparent pricing.</p>
+              <div style={{display:"flex",flexDirection:"column",gap:18}}>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.phone}</div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>(317) 279-4798</div></div>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.mail}</div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>eric@thehomestarservice.com</div></div>
+              </div>
+              <div style={{marginTop:28}}>
+                <a href="/" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← Back to main site</a>
+              </div>
+            </div>
+            <div id="service-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
+              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free {data.service} Estimate</h3>
+              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
+              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
+
 export default function HomestarSite(){
   const[legalPage,setLegalPage]=useState(null);
   const[cityPage,setCityPage]=useState(null);
+  const[servicePage,setServicePage]=useState(null);
 
   useEffect(()=>{
     const path=window.location.pathname.replace(/^\//,"").replace(/\/$/,"");
     const resolved=SERVICE_CITY_ALIASES[path]||path;
     if(CITIES[resolved]){setCityPage(resolved);}
+    else if(SERVICE_PAGES[path]){setServicePage(path);}
   },[]);
 
   useEffect(()=>{
@@ -1583,6 +1866,10 @@ export default function HomestarSite(){
 
   if(cityPage&&CITIES[cityPage]){
     return <CityPage data={CITIES[cityPage]}/>;
+  }
+
+  if(servicePage&&SERVICE_PAGES[servicePage]){
+    return <ServicePage data={SERVICE_PAGES[servicePage]}/>;
   }
 
   return(
