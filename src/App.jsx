@@ -1618,6 +1618,47 @@ const SERVICE_PAGES = {
     ],
     cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
   },
+  "basement-finishing": {
+    service: "Basement Finishing",
+    title: "Basement Finishing in Hamilton County, IN",
+    metaDesc: "Professional basement finishing in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Entertainment rooms, guest suites, home offices. Licensed contractors. Free estimates. (317) 279-4798",
+    heroHeading: "Professional Basement Finishing in Hamilton County, Indiana",
+    heroSub: "Turn your unfinished basement into the most-used room in your home. Entertainment spaces, guest suites, home offices — designed for your lifestyle and built to last.",
+    intro: "Your unfinished basement is the most underutilized space in your home — and finishing it is one of the smartest investments a Hamilton County homeowner can make. You already own the space and the foundation is already built. At HomeStar Services & Contracting, we transform empty basements into comfortable, functional living areas that add real value to your home and your daily life.",
+    highlights: [
+      {title:"Complete Turnkey Builds",desc:"We handle everything from framing and insulation to drywall, flooring, lighting, plumbing, and electrical. One contractor, one point of contact, one seamless project from start to finish."},
+      {title:"Licensed Plumbers & Electricians",desc:"All plumbing and electrical work is performed by licensed, insured professionals. This matters especially in basements where proper egress lighting, bathroom rough-ins, and moisture management are critical."},
+      {title:"Moisture Management",desc:"Indiana basements deal with moisture. We address it upfront with proper vapor barriers, drainage solutions, and moisture-resistant materials that prevent problems before they start."},
+      {title:"1-Year Workmanship Warranty",desc:"Every basement finish is backed by our 1-year workmanship warranty. If something isn't right, we come back and fix it — no questions asked."},
+    ],
+    whatWeDoIntro: "Whether you want a simple open-concept space or a fully built-out lower level with multiple rooms, we design and build basements that match how you actually live.",
+    whatWeDo: [
+      "Family entertainment rooms with media and gaming areas",
+      "Guest suites with bedroom, bathroom, and closet",
+      "Home offices and remote work spaces",
+      "Wet bars and kitchenettes",
+      "Home gyms and fitness rooms",
+      "Kids' playrooms and teen hangout spaces",
+      "Laundry room additions and upgrades",
+      "Full basement bathrooms with custom tile showers",
+    ],
+    costIntro: "Basement finishing costs in Hamilton County depend on the size of your basement and the scope of the build. Here's what homeowners in Fishers, Carmel, and Westfield typically invest:",
+    costs: [
+      {level:"Basic Finish",range:"$20,000 – $30,000",desc:"Open-concept layout with drywall, flooring, recessed lighting, and paint. Great for a simple family room or play area."},
+      {level:"Mid-Range Build",range:"$30,000 – $45,000",desc:"Multiple rooms, upgraded flooring (LVP or carpet), bathroom rough-in or full bath, improved lighting, and built-in storage."},
+      {level:"Full Build-Out",range:"$45,000 – $65,000+",desc:"Complete lower level with guest suite, full bathroom, wet bar or kitchenette, home office, and premium finishes throughout."},
+    ],
+    projectCats: ["Basement"],
+    faq: [
+      {q:"How long does a basement finish take?",a:"Most basement finishes in Hamilton County take 6 to 12 weeks depending on scope. A basic open-concept finish is on the shorter end, while a full build-out with bathroom, wet bar, and multiple rooms takes closer to 10-12 weeks. We provide a detailed project timeline before work begins."},
+      {q:"Do I need a permit to finish my basement?",a:"Yes — finishing a basement requires permits in all Hamilton County municipalities for framing, electrical, plumbing, and HVAC work. We handle the entire permitting and inspection process for you in Fishers, Carmel, Noblesville, Westfield, and Zionsville."},
+      {q:"Will finishing my basement add value to my home?",a:"Absolutely. A finished basement in Hamilton County typically recoups 70-80% of its cost at resale while making your home significantly more attractive to buyers. In competitive markets like Carmel, Fishers, and Westfield, a finished basement can be the differentiator that gets your home sold faster."},
+      {q:"What about moisture and waterproofing?",a:"Indiana basements can have moisture issues, so we address this upfront during our initial walkthrough. We use proper vapor barriers, moisture-resistant materials, and drainage solutions as needed. If there's an existing water issue, we'll identify it and recommend a solution before finishing begins."},
+      {q:"Can you add a bathroom to my basement?",a:"Yes — adding a basement bathroom is one of our most popular requests. If your home has a bathroom rough-in (pre-plumbed drain lines), the cost is lower. If not, our licensed plumbers can install new drain lines. Every basement bathroom we build uses our Schluter waterproofing system with a 25-year warranty."},
+      {q:"What flooring works best in a basement?",a:"Luxury vinyl plank (LVP) is the most popular choice for Hamilton County basements because it's waterproof, durable, and looks great. Carpet is also popular for bedrooms and entertainment areas. We help you choose the right material for each zone of your basement based on how you'll use the space."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
+  },
 };
 
 function ServicePage({data}){
