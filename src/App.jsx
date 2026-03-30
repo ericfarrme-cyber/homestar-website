@@ -33,12 +33,12 @@ const I = {
 };
 
 const SVC = [
-  { title: "Bathroom Remodeling", tag: "Schluter Pro Certified", desc: "Our Schluter Pro Certified team delivers premium bathroom renovations backed by a 25-year waterproofing warranty. Walk-in showers, custom vanities, heated floors — built with materials that protect your investment for decades.", color: "#6A9FD4", href: "#projects" },
-  { title: "Basement Finishing", tag: "Unlock hidden potential", desc: "That unused square footage below your main floor? It's ready for a promotion. We convert unfinished basements into entertainment spaces, guest suites, home offices, and more.", color: "#8B7EC4", href: "#projects" },
-  { title: "Kitchen Remodeling", tag: "Where great meals begin", desc: "The kitchen is the heart of every home. We build spaces that balance function and beauty—thoughtful layouts, quality cabinetry, and finishes that elevate your everyday routine.", color: "#D4A76A", href: "#projects" },
+  { title: "Bathroom Remodeling", tag: "Schluter Pro Certified", desc: "Our Schluter Pro Certified team delivers premium bathroom renovations backed by a 25-year waterproofing warranty. Walk-in showers, custom vanities, heated floors — built with materials that protect your investment for decades.", color: "#6A9FD4", href: "/bathroom-remodeling" },
+  { title: "Basement Finishing", tag: "Unlock hidden potential", desc: "That unused square footage below your main floor? It's ready for a promotion. We convert unfinished basements into entertainment spaces, guest suites, home offices, and more.", color: "#8B7EC4", href: "/basement-finishing" },
+  { title: "Kitchen Remodeling", tag: "Where great meals begin", desc: "The kitchen is the heart of every home. We build spaces that balance function and beauty—thoughtful layouts, quality cabinetry, and finishes that elevate your everyday routine.", color: "#D4A76A", href: "/kitchen-remodeling" },
   { title: "Flooring Services", tag: "The foundation of great design", desc: "New flooring changes the entire feel of a room. We install hardwood, luxury vinyl, tile, and carpet—selected for your lifestyle, built to handle real life, and installed with precision.", color: "#C49A6A", href: "#projects" },
   { title: "Painting Services", tag: "Fresh color, fresh energy", desc: "A professional paint job does more than change a color—it transforms a room. We deliver clean edges, smooth finishes, and expert prep work that makes the difference.", color: "#6AC4A8", href: "#projects" },
-  { title: "Decks & Outdoor Living", tag: "Bring life outdoors", desc: "Custom decks, covered patios, and outdoor living areas designed for how you actually live. Built with quality materials and craftsmanship that stands up to Indiana weather.", color: "#7AAF5A", href: "#projects" },
+  { title: "Decks & Outdoor Living", tag: "Bring life outdoors", desc: "Custom decks, covered patios, and outdoor living areas designed for how you actually live. Built with quality materials and craftsmanship that stands up to Indiana weather.", color: "#7AAF5A", href: "/decks-outdoor-living" },
 ];
 
 const PROCESS = [
@@ -586,7 +586,7 @@ function Services(){
               </div>
               <h3 className="display" style={{fontSize:19,fontWeight:700,color:C.navy,marginBottom:10}}>{s.title}</h3>
               <p style={{color:C.gray,lineHeight:1.7,fontSize:14}}>{s.desc}</p>
-              <a href={s.href} style={{marginTop:16,color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:6,textDecoration:"none"}}>View Our Work {I.arrow}</a>
+              <a href={s.href} style={{marginTop:16,color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:6,textDecoration:"none"}}>{s.href.startsWith("/")?"Learn More":"View Our Work"} {I.arrow}</a>
             </div>
           )}
         </div>
@@ -1197,7 +1197,7 @@ function Footer({isCity}){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Services</h4>
-            {SVC.map(s=><a key={s.title} href={p+"#services"} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{s.title}</a>)}
+            {SVC.map(s=><a key={s.title} href={s.href.startsWith("/")?s.href:p+"#services"} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{s.title}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Company</h4>
@@ -1656,6 +1656,88 @@ const SERVICE_PAGES = {
       {q:"What about moisture and waterproofing?",a:"Indiana basements can have moisture issues, so we address this upfront during our initial walkthrough. We use proper vapor barriers, moisture-resistant materials, and drainage solutions as needed. If there's an existing water issue, we'll identify it and recommend a solution before finishing begins."},
       {q:"Can you add a bathroom to my basement?",a:"Yes — adding a basement bathroom is one of our most popular requests. If your home has a bathroom rough-in (pre-plumbed drain lines), the cost is lower. If not, our licensed plumbers can install new drain lines. Every basement bathroom we build uses our Schluter waterproofing system with a 25-year warranty."},
       {q:"What flooring works best in a basement?",a:"Luxury vinyl plank (LVP) is the most popular choice for Hamilton County basements because it's waterproof, durable, and looks great. Carpet is also popular for bedrooms and entertainment areas. We help you choose the right material for each zone of your basement based on how you'll use the space."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
+  },
+  "kitchen-remodeling": {
+    service: "Kitchen Remodeling",
+    title: "Kitchen Remodeling in Hamilton County, IN",
+    metaDesc: "Quality kitchen remodeling in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Custom cabinetry, countertops, flooring, lighting. Licensed contractors. Free estimates. (317) 279-4798",
+    heroHeading: "Quality Kitchen Remodeling in Hamilton County, Indiana",
+    heroSub: "The kitchen is the heart of your home. We build spaces that balance function and beauty — thoughtful layouts, quality cabinetry, and finishes that elevate your everyday routine.",
+    intro: "A great kitchen remodel isn't just about looks — it's about making your daily life easier, more enjoyable, and more efficient. At HomeStar Services & Contracting, we approach every kitchen project with a focus on smart layouts, durable materials, and finishes that hold up to real family life. Whether you're updating countertops and cabinets or doing a full gut renovation, we bring the same precision and transparency to every kitchen we build.",
+    highlights: [
+      {title:"Thoughtful Design",desc:"We start with how you actually use your kitchen — cooking habits, family size, entertaining style — then design a layout that works. You'll see 3D renderings before construction begins so every detail is right."},
+      {title:"Licensed Plumbers & Electricians",desc:"Kitchen remodels involve gas lines, water supply, drainage, and electrical circuits. All of this work is performed by licensed, insured professionals — ensuring code compliance and safety."},
+      {title:"Quality Materials",desc:"We help you select cabinetry, countertops, flooring, and hardware that balance your budget with long-term durability. No builder-grade shortcuts — just honest recommendations based on what works."},
+      {title:"1-Year Workmanship Warranty",desc:"Every kitchen project is backed by our 1-year workmanship warranty. We stand behind our craftsmanship long after the last cabinet door is hung."},
+    ],
+    whatWeDoIntro: "From minor cosmetic updates to full kitchen transformations, we handle every phase of the project in-house.",
+    whatWeDo: [
+      "Cabinet refacing, replacement, and custom installations",
+      "Countertop installation — quartz, granite, butcher block, marble",
+      "Kitchen flooring — hardwood, luxury vinyl plank, tile",
+      "Backsplash design and tile installation",
+      "Recessed lighting, under-cabinet LEDs, and pendant fixtures",
+      "Plumbing — sink, garbage disposal, dishwasher hookup",
+      "Kitchen island builds and layout reconfiguration",
+      "Appliance installation and finish carpentry",
+    ],
+    costIntro: "Kitchen remodel costs in Hamilton County vary widely based on scope. Here's what homeowners in Fishers, Carmel, and Westfield typically invest:",
+    costs: [
+      {level:"Cosmetic Refresh",range:"$10,000 – $20,000",desc:"New countertops, cabinet refacing or paint, updated hardware, fresh backsplash, and lighting upgrades. Layout stays the same."},
+      {level:"Mid-Range Remodel",range:"$25,000 – $50,000",desc:"New cabinets, countertops, flooring, backsplash, lighting, sink, and faucet. May include minor layout changes and appliance upgrades."},
+      {level:"Full Kitchen Renovation",range:"$50,000 – $80,000+",desc:"Complete gut — new layout, custom cabinetry, premium countertops, hardwood or tile flooring, island, high-end appliances, and full lighting design."},
+    ],
+    projectCats: ["Kitchen"],
+    faq: [
+      {q:"How long does a kitchen remodel take?",a:"Kitchen remodels in Hamilton County typically take 4 to 8 weeks depending on scope. A cosmetic refresh with new countertops and cabinet refacing can be done in 3-4 weeks, while a full gut renovation with layout changes takes 6-8 weeks. We provide a detailed timeline before work begins."},
+      {q:"What kitchen upgrades add the most value?",a:"Based on what we see in Hamilton County homes, cabinet replacement or refacing, quartz countertops, and modern lighting deliver the strongest returns. Mid-range kitchen remodels typically recoup 60-75% of their cost at resale, while minor cosmetic updates can return 75-85%."},
+      {q:"Should I choose quartz or granite countertops?",a:"Both are excellent choices. Quartz is the most popular in Hamilton County right now — it's non-porous, low-maintenance, and available in a huge range of styles. Granite offers unique natural patterns and excellent durability. We bring samples to your home so you can compare in your own lighting."},
+      {q:"Do I need to move out during a kitchen remodel?",a:"Most homeowners stay in their home during a kitchen remodel. We help you set up a temporary kitchen area with a microwave, coffee maker, and portable cooktop. It's not luxurious, but it works. We also contain dust and debris to keep the rest of your home clean."},
+      {q:"Can you work with my existing layout?",a:"Absolutely. Many of our kitchen projects keep the existing plumbing and electrical layout, which reduces cost significantly. If you want to change the layout — like adding an island or moving the sink — we handle the plumbing and electrical relocation with licensed tradespeople."},
+      {q:"Do you handle permits for kitchen remodels?",a:"Yes. Kitchen remodels that involve plumbing, electrical, or structural changes require permits in Hamilton County. We manage the entire permitting and inspection process in Fishers, Carmel, Noblesville, Westfield, and Zionsville."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
+  },
+  "decks-outdoor-living": {
+    service: "Decks & Outdoor Living",
+    title: "Decks & Outdoor Living in Hamilton County, IN",
+    metaDesc: "Custom decks, patios, pavilions & outdoor living spaces in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Composite and wood decks. Licensed contractors. Free estimates. (317) 279-4798",
+    heroHeading: "Custom Decks & Outdoor Living in Hamilton County, Indiana",
+    heroSub: "From composite decks and stamped concrete patios to covered pavilions with outdoor bars — we design and build outdoor spaces that stand up to Indiana weather and elevate how you live.",
+    intro: "Your backyard should be an extension of your home — not an afterthought. At HomeStar Services & Contracting, we design and build outdoor living spaces that are functional, beautiful, and built to handle Indiana's four-season climate. Whether you want a simple deck for weekend grilling or a full outdoor entertaining area with a covered pavilion and bar, we bring the same craftsmanship we put into every interior project to your exterior spaces.",
+    highlights: [
+      {title:"Composite & Wood Options",desc:"We build with both premium composite decking (Trex, TimberTech) for low-maintenance longevity and pressure-treated wood for budget-conscious projects. We'll help you choose the right material for your lifestyle and budget."},
+      {title:"Custom Design",desc:"Every outdoor space is designed around how you actually plan to use it — dining, lounging, grilling, entertaining. We create distinct zones, consider traffic flow, and design for year-round enjoyment."},
+      {title:"Licensed & Insured",desc:"All structural work, electrical (for landscape lighting and outlets), and any plumbing (for outdoor kitchens) is performed by licensed professionals. Fully insured and bonded."},
+      {title:"Built for Indiana Weather",desc:"We select materials and construction methods specifically suited for Indiana's freeze-thaw cycles, humidity, and heavy rains. Proper footings, drainage, and weather-resistant hardware ensure your outdoor space lasts."},
+    ],
+    whatWeDoIntro: "From simple deck builds to elaborate outdoor living areas, we handle the full scope of exterior projects.",
+    whatWeDo: [
+      "Composite deck builds — Trex, TimberTech, and similar brands",
+      "Pressure-treated wood decks and pergolas",
+      "Covered pavilions with stained wood beams and stone columns",
+      "Stamped and decorative concrete patios",
+      "Outdoor bar areas and kitchenette spaces",
+      "Deck railing systems — composite, aluminum, cable",
+      "Landscape lighting and electrical for outdoor areas",
+      "Screened porches and three-season rooms",
+    ],
+    costIntro: "Outdoor living project costs in Hamilton County depend on the size, materials, and complexity. Here's what homeowners in Fishers, Carmel, and Noblesville typically invest:",
+    costs: [
+      {level:"Basic Deck Build",range:"$8,000 – $18,000",desc:"Pressure-treated wood deck with standard railing, stairs, and basic layout. Great for a functional outdoor space on a budget."},
+      {level:"Composite Deck",range:"$18,000 – $35,000",desc:"Premium composite decking with aluminum or composite railing, dual staircases, and a spacious layout. Low-maintenance for 25+ years."},
+      {level:"Full Outdoor Living",range:"$35,000 – $60,000+",desc:"Covered pavilion, stone columns, outdoor bar, stamped concrete patio, landscape lighting, and custom design. Year-round entertaining."},
+    ],
+    projectCats: ["Exterior"],
+    faq: [
+      {q:"How long does it take to build a deck?",a:"A standard deck build in Hamilton County takes 1 to 3 weeks depending on size and complexity. A simple pressure-treated wood deck can be done in about a week, while a large composite deck with multiple levels and custom railing takes 2-3 weeks. Covered pavilions and full outdoor living spaces take 3-6 weeks."},
+      {q:"Composite or wood — which is better?",a:"It depends on your priorities. Composite costs more upfront but requires virtually zero maintenance and lasts 25-30 years. Pressure-treated wood is more affordable initially but requires annual staining and sealing, and boards will eventually need replacement. For most Hamilton County homeowners who want to enjoy their deck rather than maintain it, composite is the better long-term investment."},
+      {q:"Do I need a permit to build a deck in Indiana?",a:"Yes — deck construction requires permits in all Hamilton County municipalities. We handle the entire permitting and inspection process. A properly permitted deck protects your investment and avoids issues when you sell your home."},
+      {q:"Can you build a covered patio or pavilion?",a:"Absolutely. Our Fortville Pavilion project is a great example — a custom outdoor living space with stone columns, stained wood beams, a covered bar area, and a layout designed for year-round entertaining. We design and build custom covered structures tailored to your space."},
+      {q:"What's the best time of year to build a deck in Indiana?",a:"Spring and early summer are the most popular times, but we build decks from March through November. If you want your deck ready for Memorial Day, start the planning and design process in January or February so we can schedule construction for early spring."},
+      {q:"Do you do stamped concrete patios?",a:"Yes. We've completed stamped concrete patio projects in both Fishers and Noblesville. Stamped concrete offers the look of natural stone or brick at a fraction of the cost, and it's extremely durable for Indiana's climate."},
     ],
     cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
   },
