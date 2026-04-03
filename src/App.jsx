@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from "react";
 
 /* ─── Brand Tokens ────────────────────────────────── */
 const C = {
-  navy: "#2D3E46", navyMid: "#374A52", navyLight: "#45585F", navyDark: "#1E2D34",
-  green: "#A0917F", greenDark: "#8C7E6E", greenLight: "#B3A594", greenMuted: "rgba(160,145,127,0.10)",
-  white: "#FFFFFF", cream: "#FAF8F5", sand: "#F0EDE8",
-  gray: "#7A8A8F", grayDark: "#4B5563", text: "#2D3E46",
+  navy: "#1B2A4A", navyMid: "#243556", navyLight: "#2E4068", navyDark: "#111D35",
+  green: "#5CB832", greenDark: "#49A023", greenLight: "#6FCC42", greenMuted: "rgba(92,184,50,0.12)",
+  white: "#FFFFFF", cream: "#F7F8FA", sand: "#ECEEF2",
+  gray: "#8892A4", grayDark: "#4B5563", text: "#1A1F2E",
 };
 
 /* ─── Icons (inline SVG) ──────────────────────────── */
@@ -13,11 +13,12 @@ const I = {
   phone: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>,
   mail: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>,
   pin: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
-  star: <svg width="16" height="16" fill="#A0917F" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>,
-  check: <svg width="18" height="18" fill="none" stroke="#A0917F" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>,
+  star: <svg width="16" height="16" fill="#5CB832" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>,
+  check: <svg width="18" height="18" fill="none" stroke="#5CB832" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>,
   arrow: <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>,
   menu: <svg width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>,
   close: <svg width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>,
+  play: <svg width="40" height="40" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>,
   chevDown: <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>,
   chevL: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>,
   chevR: <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>,
@@ -32,19 +33,18 @@ const I = {
 };
 
 const SVC = [
-  { title: "Stamped & Decorative Concrete", tag: "Our specialty", desc: "Transform any surface with the look of natural stone, brick, slate, or tile. We specialize in stamped concrete with custom colors, patterns, and textures — delivering high-end results that elevate your property at a fraction of the cost of natural materials.", color: "#8B7A5A", href: "/stamped-decorative-concrete" },
-  { title: "Patios & Outdoor Living", tag: "Your backyard, reimagined", desc: "Custom-designed concrete patios built for how you actually live outdoors. From simple entertaining pads to full outdoor living spaces with fire pit pads, seating walls, and decorative borders — we create backyards people never want to leave.", color: "#6A8B7A", href: "/concrete-patios-outdoor-living" },
-  { title: "Pavilions, Pergolas & Enclosed Patios", tag: "Outdoor living, year-round", desc: "Extend your outdoor season with a custom pavilion, pergola, or fully enclosed 3- or 4-season room. We build the concrete foundation and partner with trusted local builders to deliver complete covered and enclosed outdoor living spaces — from open-air pergolas to insulated sunrooms you can enjoy all year.", color: "#7A6A8B", href: "/pavilions-pergolas-enclosed-patios" },
-  { title: "Concrete Driveways", tag: "Curb appeal that lasts", desc: "Durable, professionally poured driveways in standard broom finish, stamped patterns, exposed aggregate, or colored concrete. Designed to complement your home and built to handle Indiana weather for decades.", color: "#6A8B9B", href: "/concrete-driveways" },
-  { title: "Sidewalks & Walkways", tag: "Safe & beautiful pathways", desc: "Level, durable, and attractive sidewalks and walkways for residential and commercial properties. New pours, replacements, and decorative options that connect your spaces beautifully.", color: "#5A7A6A", href: "/concrete-sidewalks-walkways" },
-  { title: "Garage Floors & Slabs", tag: "Built for heavy use", desc: "High-performance garage floor pours, shop slabs, and resurfacing. Proper grading, reinforcement, and finishing that stands up to vehicles, equipment, and daily wear.", color: "#6A6A8B", href: "/garage-floors-concrete-slabs" },
-  { title: "Concrete Removal & Replacement", tag: "Out with the old", desc: "Complete tear-out and hauling of old, cracked, or sunken concrete. We prep the site properly with grading and compaction so your new pour starts on a solid foundation.", color: "#7A8B6A", href: "/concrete-removal-replacement" },
+  { title: "Bathroom Remodeling", tag: "Schluter Pro Certified", desc: "Our Schluter Pro Certified team delivers premium bathroom renovations backed by a 25-year waterproofing warranty. Walk-in showers, custom vanities, heated floors — built with materials that protect your investment for decades.", color: "#6A9FD4", href: "/bathroom-remodeling" },
+  { title: "Basement Finishing", tag: "Unlock hidden potential", desc: "That unused square footage below your main floor? It's ready for a promotion. We convert unfinished basements into entertainment spaces, guest suites, home offices, and more.", color: "#8B7EC4", href: "/basement-finishing" },
+  { title: "Kitchen Remodeling", tag: "Where great meals begin", desc: "The kitchen is the heart of every home. We build spaces that balance function and beauty—thoughtful layouts, quality cabinetry, and finishes that elevate your everyday routine.", color: "#D4A76A", href: "/kitchen-remodeling" },
+  { title: "Flooring Services", tag: "The foundation of great design", desc: "New flooring changes the entire feel of a room. We install hardwood, luxury vinyl, tile, and carpet—selected for your lifestyle, built to handle real life, and installed with precision.", color: "#C49A6A", href: "/flooring-services" },
+  { title: "Painting Services", tag: "Fresh color, fresh energy", desc: "A professional paint job does more than change a color—it transforms a room. We deliver clean edges, smooth finishes, and expert prep work that makes the difference.", color: "#6AC4A8", href: "/painting-services" },
+  { title: "Decks & Outdoor Living", tag: "Bring life outdoors", desc: "Custom decks, covered patios, and outdoor living areas designed for how you actually live. Built with quality materials and craftsmanship that stands up to Indiana weather.", color: "#7AAF5A", href: "/decks-outdoor-living" },
 ];
 
 const PROCESS = [
-  { icon: I.bulb, step: "01", title: "Consultation & Site Evaluation", sub: "Understanding Your Property.", text: "Every project starts with an on-site visit. We walk your property, assess soil conditions and drainage, discuss your goals, and help you understand what's possible within your budget. No pressure — just an honest conversation about the best approach for your property.", bullets: ["On-site walkthrough and property assessment", "Discussion of design options and finishes", "Drainage and grading evaluation", "Clear understanding of budget and timeline"] },
-  { icon: I.calc, step: "02", title: "Design, Materials & Estimate", sub: "Your Project Takes Shape.", text: "With a clear picture of what you want, we put together a detailed plan — including layout, finish options, reinforcement specs, and a transparent, itemized estimate. You'll know exactly what you're getting and what it costs before any work begins.", bullets: ["Detailed project layout and design plan", "Material options: standard, stamped, colored, exposed aggregate", "Itemized estimate with clear, honest pricing", "Defined project timeline from start to finish"] },
-  { icon: I.cal, step: "03", title: "Schedule, Pour & Finish", sub: "Your Project, Built Right.", text: "Once the plan is set, we lock in your start date and handle everything — excavation, grading, forming, reinforcement, pour, and finish. Our crew arrives on time, works clean, and keeps you informed every step of the way.", bullets: ["Confirmed start date that works for you", "Professional excavation and site prep", "Expert forming, pouring, and finishing", "Final walkthrough and curing instructions"] },
+  { icon: I.bulb, step: "01", title: "Inspiration & Understanding", sub: "Getting to Know Your Vision.", text: "Every project starts with a conversation. We visit your home, walk the space with you, and take time to understand how you use it and what you'd like to change. No pressure, no sales pitch—just an honest discussion about what's possible.", bullets: ["Walk-through of your space with our team", "Discussion of your goals, style, and priorities", "Clear understanding of budget and timeline", "Expert guidance and realistic recommendations"] },
+  { icon: I.calc, step: "02", title: "Design, Details & Estimate", sub: "Your Vision Takes Shape.", text: "With a clear picture of what you want, we put together a detailed plan—complete with design concepts, material options you can see in person, and a transparent, itemized estimate. No guesswork, no vague numbers.", bullets: ["Design renderings tailored to your space", "Physical material samples to compare", "Itemized estimate with clear, honest pricing", "Defined project timeline from start to finish"] },
+  { icon: I.cal, step: "03", title: "Sign, Schedule & Start", sub: "Your Project, On Your Timeline.", text: "Once the plan feels right, we lock in a start date and prepare everything behind the scenes. Our crew arrives on time, respects your home, and keeps you informed every step of the way.", bullets: ["Finalize and sign your project proposal", "Confirmed start date that works for you", "Pre-project preparation checklist provided", "Consistent communication throughout the build"] },
 ];
 
 /*
@@ -57,206 +57,345 @@ const PROCESS = [
  */
 const PROJECTS = [
   {
-    title: "Stamped Concrete Patio in Fishers",
-    cat: "Stamped Concrete",
-    color: "#8B7A5A",
-    desc: "A beautiful stamped concrete patio installation for a Fishers home — expertly poured with decorative pattern and seamless finish that transforms the backyard.",
+    title: "Custom Green Tile Bathroom Remodel in Carmel",
+    cat: "Bathroom",
+    color: "#4A6A8B",
+    desc: "Bold green tile brings this Carmel bathroom to life with a one-of-a-kind design, custom vanity, and full gut renovation.",
     images: [
-      { src: "/images/fishers-concrete-1.jpg", alt: "Stamped concrete patio installation in Fishers Indiana" },
-      { src: "/images/fishers-concrete-2.jpg", alt: "Stamped concrete patio detail Fishers IN" },
-      { src: "/images/stamped-concrete-fishers.jpg", alt: "Stamped concrete patio finished pour Fishers Indiana" },
+      { src: "/images/bathroom-green-tile-1.jpg", alt: "Custom green tile bathroom remodel in Carmel Indiana" },
+      { src: "/images/bathroom-green-tile-2.jpg", alt: "Green tile shower installation Carmel IN" },
+      { src: "/images/bathroom-green-tile-3.jpg", alt: "Bathroom tile detail work Carmel Indiana" },
+      { src: "/images/bathroom-green-tile-4.jpg", alt: "Completed green tile bathroom Carmel IN" },
+      { src: "/images/bathroom-green-tile-5.jpg", alt: "Custom vanity in green tile bathroom Carmel Indiana" },
+      { src: "/images/bathroom-green-tile-6.jpg", alt: "Green tile bathroom renovation Carmel IN" },
+      { src: "/images/bathroom-green-tile-7.jpg", alt: "Bathroom remodel with green tile accents Carmel Indiana" },
+      { src: "/images/bathroom-green-tile-8.jpg", alt: "Full bathroom transformation with green tile Carmel IN" },
+    ],
+  },
+  {
+    title: "Double Shower Remodel in Fishers",
+    cat: "Bathroom",
+    color: "#5A7A9B",
+    desc: "A luxurious double shower installation in this stunning Fishers bathroom remodel.",
+    images: [
+      { src: "/images/fishers-double-shower-1.jpg", alt: "Double shower bathroom remodel in Fishers Indiana" },
+      { src: "/images/fishers-double-shower-2.jpg", alt: "Luxury double shower installation Fishers IN" },
+      { src: "/images/fishers-double-shower-3.jpg", alt: "Custom double shower design Fishers Indiana" },
+      { src: "/images/fishers-double-shower-4.jpg", alt: "Double shower tile work Fishers IN" },
+      { src: "/images/fishers-double-shower-5.jpg", alt: "Completed double shower remodel Fishers Indiana" },
+      { src: "/images/fishers-double-shower-6.jpg", alt: "Double shower bathroom renovation Fishers IN" },
+    ],
+  },
+  {
+    title: "Spa Retreat Bathroom Remodel in Fishers",
+    cat: "Bathroom",
+    color: "#6A8B7A",
+    desc: "A serene spa-inspired bathroom retreat with premium finishes and a calming design.",
+    images: [
+      { src: "/images/fishers-spa-retreat-1.jpg", alt: "Spa retreat bathroom remodel in Fishers Indiana" },
+      { src: "/images/fishers-spa-retreat-2.jpg", alt: "Spa inspired bathroom renovation Fishers IN" },
+      { src: "/images/fishers-spa-retreat-3.jpg", alt: "Luxury spa bathroom design Fishers Indiana" },
+      { src: "/images/fishers-spa-retreat-4.jpg", alt: "Spa bathroom with premium finishes Fishers IN" },
+      { src: "/images/fishers-spa-retreat-5.jpg", alt: "Relaxing spa bathroom remodel Fishers Indiana" },
+      { src: "/images/fishers-spa-retreat-6.jpg", alt: "Completed spa retreat bathroom Fishers IN" },
+    ],
+  },
+  {
+    title: "Beautiful Geist Upper Level Remodel",
+    cat: "Whole Home",
+    color: "#7B5A4A",
+    desc: "Complete upper level transformation in a beautiful Geist residence — every room reimagined with modern finishes.",
+    images: [
+      { src: "/images/geist-upper-level-1.jpg", alt: "Upper level home remodel in Geist Indiana" },
+      { src: "/images/geist-upper-level-2.jpg", alt: "Geist home renovation upper level IN" },
+      { src: "/images/geist-upper-level-3.jpg", alt: "Full upper level remodel Geist Indiana" },
+      { src: "/images/geist-upper-level-4.jpg", alt: "Modern upper level renovation Geist IN" },
+      { src: "/images/geist-upper-level-5.jpg", alt: "Upper level home transformation Geist Indiana" },
+      { src: "/images/geist-upper-level-6.jpg", alt: "Geist upper level remodel completed IN" },
+      { src: "/images/geist-upper-level-7.jpg", alt: "Beautiful upper level renovation Geist Indiana" },
+      { src: "/images/geist-upper-level-8.jpg", alt: "Upper level interior remodel Geist IN" },
+      { src: "/images/geist-upper-level-9.jpg", alt: "Geist home upper level makeover Indiana" },
+      { src: "/images/geist-upper-level-10.jpg", alt: "Upper level remodel details Geist IN" },
+      { src: "/images/geist-upper-level-11.jpg", alt: "Geist upper level finishing touches Indiana" },
+      { src: "/images/geist-upper-level-12.jpg", alt: "Completed upper level remodel Geist IN" },
+    ],
+  },
+  {
+    title: "Floor-to-Ceiling Tile Bathroom Remodel in Noblesville",
+    cat: "Bathroom",
+    color: "#5A6A8B",
+    desc: "Complete floor-to-ceiling tile transformation in this Noblesville bathroom — every surface upgraded.",
+    images: [
+      { src: "/images/noblesville-floor-to-ceiling-tile-1.jpg", alt: "Floor to ceiling tile bathroom remodel Noblesville Indiana" },
+      { src: "/images/noblesville-floor-to-ceiling-tile-2.jpg", alt: "Full tile bathroom renovation Noblesville IN" },
+      { src: "/images/noblesville-floor-to-ceiling-tile-3.jpg", alt: "Floor to ceiling tile installation Noblesville Indiana" },
+      { src: "/images/noblesville-floor-to-ceiling-tile-4.jpg", alt: "Completed tile bathroom remodel Noblesville IN" },
+    ],
+  },
+  {
+    title: "Noblesville Laundry Room Remodel",
+    cat: "Laundry",
+    color: "#8B7A5A",
+    desc: "A dated laundry room gets a complete makeover with modern storage, new countertops, and a fresh layout.",
+    images: [
+      { src: "/images/noblesville-laundry-1.jpg", alt: "Laundry room remodel in Noblesville Indiana" },
+      { src: "/images/noblesville-laundry-2.jpg", alt: "Modern laundry room renovation Noblesville IN" },
+      { src: "/images/noblesville-laundry-3.jpg", alt: "Completed laundry room remodel Noblesville Indiana" },
+    ],
+  },
+  {
+    title: "Two Children's Bathroom Remodels in Geist",
+    cat: "Children's Bathroom",
+    color: "#6A5A8B",
+    desc: "Fun, functional, and kid-friendly — two children's bathrooms completely redesigned in a Geist home.",
+    images: [
+      { src: "/images/two-geist-childrens-bathrooms-1.jpg", alt: "Children's bathroom remodel in Geist Fishers Indiana" },
+      { src: "/images/two-geist-childrens-bathrooms-2.jpg", alt: "Kids bathroom renovation Geist IN" },
+      { src: "/images/two-geist-childrens-bathrooms-3.jpg", alt: "Children's bathroom design Geist Fishers Indiana" },
+      { src: "/images/two-geist-childrens-bathrooms-4.jpg", alt: "Kid-friendly bathroom remodel Geist IN" },
+      { src: "/images/two-geist-childrens-bathrooms-5.jpg", alt: "Completed children's bathroom Geist Fishers Indiana" },
+      { src: "/images/two-geist-childrens-bathrooms-6.jpg", alt: "Two children's bathrooms remodeled Geist IN" },
+    ],
+  },
+  {
+    title: "Jack & Jill Bathroom Remodel in Zionsville",
+    cat: "Bathroom",
+    color: "#5A8B6A",
+    desc: "A shared Jack & Jill bathroom gets a complete makeover with dual vanities and modern finishes in Zionsville.",
+    images: [
+      { src: "/images/zionsville-jack-and-jill-1.jpg", alt: "Jack and Jill bathroom remodel in Zionsville Indiana" },
+      { src: "/images/zionsville-jack-and-jill-2.jpg", alt: "Jack and Jill bathroom renovation Zionsville IN" },
+      { src: "/images/zionsville-jack-and-jill-3.jpg", alt: "Shared bathroom remodel Zionsville Indiana" },
+      { src: "/images/zionsville-jack-and-jill-4.jpg", alt: "Jack and Jill dual vanity Zionsville IN" },
+      { src: "/images/zionsville-jack-and-jill-5.jpg", alt: "Jack and Jill bathroom design Zionsville Indiana" },
+      { src: "/images/zionsville-jack-and-jill-6.jpg", alt: "Modern Jack and Jill bathroom Zionsville IN" },
+      { src: "/images/zionsville-jack-and-jill-7.jpg", alt: "Jack and Jill bathroom finishes Zionsville Indiana" },
+      { src: "/images/zionsville-jack-and-jill-8.jpg", alt: "Completed Jack and Jill remodel Zionsville IN" },
+      { src: "/images/zionsville-jack-and-jill-9.jpg", alt: "Jack and Jill bathroom transformation Zionsville Indiana" },
+    ],
+  },
+  {
+    title: "Quick Fishers Basement Finish",
+    cat: "Basement",
+    color: "#4A5A7B",
+    desc: "A fast, efficient basement finish that added usable living space without breaking the budget.",
+    images: [
+      { src: "/images/fishers-basement-1.jpg", alt: "Basement finishing in Fishers Indiana" },
+      { src: "/images/fishers-basement-2.jpg", alt: "Finished basement living space Fishers IN" },
+      { src: "/images/fishers-basement-3.jpg", alt: "Completed basement remodel Fishers Indiana" },
+    ],
+  },
+  {
+    title: "Fishers Bathroom Renovation",
+    cat: "Bathroom",
+    color: "#6A7B8B",
+    desc: "A complete bathroom renovation in Fishers with updated tile, fixtures, and a modern layout.",
+    images: [
+      { src: "/images/fishers-bath-1.jpg", alt: "Bathroom renovation in Fishers Indiana" },
+      { src: "/images/fishers-bath-2.jpg", alt: "Updated bathroom remodel Fishers IN" },
+      { src: "/images/fishers-bath-3.jpg", alt: "Modern bathroom renovation Fishers Indiana" },
+      { src: "/images/fishers-bath-4.jpg", alt: "Completed bathroom remodel Fishers IN" },
+    ],
+  },
+  {
+    title: "Teenage Child Bathroom Remodel in Fishers",
+    cat: "Children's Bathroom",
+    color: "#7B6A8B",
+    desc: "A stylish bathroom remodel designed for a teenager — durable, functional, and with personality.",
+    images: [
+      { src: "/images/fishers-childrens-bath-1.jpg", alt: "Children's bathroom remodel in Fishers Indiana" },
+      { src: "/images/fishers-childrens-bath-2.jpg", alt: "Teen bathroom renovation Fishers IN" },
+      { src: "/images/fishers-childrens-bath-3.jpg", alt: "Kids bathroom remodel Fishers Indiana" },
+      { src: "/images/fishers-childrens-bath-4.jpg", alt: "Completed children's bathroom Fishers IN" },
+    ],
+  },
+  {
+    title: "Laundry Room Flip near Geist, Fishers",
+    cat: "Laundry",
+    color: "#8B7A5A",
+    desc: "A compact laundry room transformed with smart storage and a clean, modern design.",
+    images: [
+      { src: "/images/geist-laundry-1.jpg", alt: "Laundry room remodel near Geist Fishers Indiana" },
+      { src: "/images/geist-laundry-2.jpg", alt: "Modern laundry room renovation Geist Fishers IN" },
+    ],
+  },
+  {
+    title: "Modern Farmhouse Bathroom Remodel in Fishers",
+    cat: "Bathroom",
+    color: "#7B8B6A",
+    desc: "A warm, modern farmhouse-inspired bathroom with shiplap accents, wood-tone vanity, and classic fixtures.",
+    images: [
+      { src: "/images/modern-farmhouse-1.jpg", alt: "Modern farmhouse bathroom remodel in Fishers Indiana" },
+      { src: "/images/modern-farmhouse-2.jpg", alt: "Farmhouse style bathroom renovation Fishers IN" },
+      { src: "/images/modern-farmhouse-3.jpg", alt: "Farmhouse bathroom with shiplap Fishers Indiana" },
+      { src: "/images/modern-farmhouse-4.jpg", alt: "Completed farmhouse bathroom remodel Fishers IN" },
+    ],
+  },
+  {
+    title: "Westfield Basement Finish on a Budget",
+    cat: "Basement",
+    color: "#5A6A7B",
+    desc: "Proof that a great basement doesn't require a massive budget — smart design and efficient execution in Westfield.",
+    images: [
+      { src: "/images/westfield-basement-1.jpg", alt: "Budget basement finish in Westfield Indiana" },
+      { src: "/images/westfield-basement-2.jpg", alt: "Affordable basement remodel Westfield IN" },
+      { src: "/images/westfield-basement-3.jpg", alt: "Basement finishing on a budget Westfield Indiana" },
+      { src: "/images/westfield-basement-4.jpg", alt: "Completed basement finish Westfield IN" },
+    ],
+  },
+  {
+    title: "Double Shower Bathroom Remodel in Carmel",
+    cat: "Bathroom",
+    color: "#5A7B8B",
+    desc: "A stunning double shower bathroom renovation in Carmel featuring custom tile, modern vanity with LED mirror, hexagonal floor tile, and premium fixtures throughout.",
+    images: [
+      { src: "/images/carmel-double-shower-1.jpg", alt: "Double shower bathroom remodel in Carmel Indiana" },
+      { src: "/images/carmel-double-shower-2.jpg", alt: "LED mirror vanity bathroom renovation Carmel IN" },
+      { src: "/images/carmel-double-shower-3.jpg", alt: "Custom tile shower remodel Carmel Indiana" },
+      { src: "/images/carmel-double-shower-4.jpg", alt: "Walk-in shower bathroom remodel Carmel IN" },
+      { src: "/images/carmel-double-shower-5.jpg", alt: "Hexagonal tile bathroom floor Carmel Indiana" },
+      { src: "/images/carmel-double-shower-6.jpg", alt: "Modern bathroom fixtures Carmel IN" },
+      { src: "/images/carmel-double-shower-7.jpg", alt: "Completed double shower bathroom Carmel Indiana" },
+    ],
+  },
+  {
+    title: "Fortville Pavilion Patio Project",
+    cat: "Exterior",
+    color: "#8B6A5A",
+    desc: "A custom outdoor pavilion and patio in Fortville featuring a stone column bar area, covered seating with stained wood beams, and a comfortable entertaining space designed for year-round use.",
+    images: [
+      { src: "/images/fortville-pavilion-1.jpg", alt: "Custom pavilion patio project in Fortville Indiana" },
+      { src: "/images/fortville-pavilion-2.jpg", alt: "Stone column outdoor bar Fortville IN" },
+      { src: "/images/fortville-pavilion-3.jpg", alt: "Covered pavilion outdoor living Fortville Indiana" },
+    ],
+  },
+  {
+    title: "Stamped Concrete Patio in Fishers",
+    cat: "Exterior",
+    color: "#7B6A5A",
+    desc: "A beautiful stamped concrete patio installation in Fishers featuring decorative patterns and clean borders, creating a durable outdoor living space perfect for entertaining.",
+    images: [
+      { src: "/images/fishers-concrete-1.jpg", alt: "Stamped concrete patio in Fishers Indiana" },
+      { src: "/images/fishers-concrete-2.jpg", alt: "Decorative concrete patio installation Fishers IN" },
     ],
   },
   {
     title: "Stamped Concrete Patio in Noblesville",
-    cat: "Stamped Concrete",
-    color: "#6A8B7A",
-    desc: "A full backyard stamped concrete patio in Noblesville with a natural stone pattern, custom color, and clean edges — designed for outdoor living and entertaining.",
+    cat: "Exterior",
+    color: "#6A7B5A",
+    desc: "A custom stamped concrete patio in Noblesville with a decorative finish and clean edges, extending the home's living space outdoors.",
     images: [
       { src: "/images/noblesville-concrete-1.jpg", alt: "Stamped concrete patio in Noblesville Indiana" },
-      { src: "/images/noblesville-concrete-2.jpg", alt: "Stamped concrete patio installation Noblesville IN" },
-      { src: "/images/noblesville-concrete-3.jpg", alt: "Stamped concrete backyard patio Noblesville Indiana" },
-      { src: "/images/noblesville-concrete-4.jpg", alt: "Completed stamped concrete patio Noblesville IN" },
-      { src: "/images/stamped-concrete-noblesville.jpg", alt: "Stamped concrete patio wet finish Noblesville Indiana" },
-      { src: "/images/stamped-concrete-noblesville-patio.jpg", alt: "Stamped concrete patio completed Noblesville Indiana" },
-    ],
-  },
-  {
-    title: "Custom Pavilion & Patio in Fortville",
-    cat: "Pavilion",
-    color: "#7A6A8B",
-    desc: "A custom-built pavilion with stone columns, stained wood ceiling, and stamped concrete pad — a complete outdoor living space built for year-round enjoyment in Fortville.",
-    images: [
-      { src: "/images/fortville-pavilion-1.jpg", alt: "Custom pavilion with stamped concrete patio in Fortville Indiana" },
-      { src: "/images/fortville-pavilion-2.jpg", alt: "Pavilion stone column detail Fortville IN" },
-      { src: "/images/fortville-pavilion-3.jpg", alt: "Covered pavilion outdoor living space Fortville Indiana" },
-    ],
-  },
-  {
-    title: "Fire Pit & Outdoor Living Space in Noblesville",
-    cat: "Outdoor Living",
-    color: "#8B6A5A",
-    desc: "A cozy outdoor living space featuring a custom fire pit, Adirondack seating area, and stamped concrete patio — designed for relaxing evenings in a Noblesville backyard.",
-    images: [
-      { src: "/images/outdoor-living-noblesville.jpg", alt: "Outdoor living space with fire pit in Noblesville Indiana" },
-    ],
-  },
-  {
-    title: "Stamped Concrete Walkway in Carmel",
-    cat: "Stamped Concrete",
-    color: "#6A8B9B",
-    desc: "A stunning cobblestone-pattern stamped concrete walkway winding through the landscape — custom color with rich texture and hand-tooled edges in a beautiful Carmel property.",
-    images: [
-      { src: "/images/stamped-concrete-carmel.jpg", alt: "Stamped concrete walkway in Carmel Indiana" },
-    ],
-  },
-  {
-    title: "Brushed Concrete Patio in Fishers",
-    cat: "Patio",
-    color: "#5A7A9B",
-    desc: "A clean, modern brushed concrete patio with precise control joints and smooth broom finish — a functional backyard space built for everyday use in Fishers.",
-    images: [
-      { src: "/images/brushed-concrete-fishers.jpg", alt: "Brushed concrete patio in Fishers Indiana" },
-    ],
-  },
-  {
-    title: "Stamped Concrete Sidewalk in Fishers",
-    cat: "Stamped Concrete",
-    color: "#8B8A6A",
-    desc: "A decorative stamped concrete sidewalk curving around the front of a Fishers home — seamless pattern with a natural stone look that elevates the curb appeal.",
-    images: [
-      { src: "/images/stamped-concrete-sidewalk-fishers.jpg", alt: "Stamped concrete sidewalk in Fishers Indiana" },
-    ],
-  },
-  {
-    title: "Stamped Concrete Patio in McCordsville",
-    cat: "Stamped Concrete",
-    color: "#9B6A6A",
-    desc: "A custom stamped concrete patio with natural stone pattern and clean border detail — a beautiful outdoor living surface for a McCordsville home.",
-    images: [
-      { src: "/images/stamped-concrete-mccordsville.jpg", alt: "Stamped concrete patio in McCordsville Indiana" },
-    ],
-  },
-  {
-    title: "Stamped Concrete Patio in Zionsville",
-    cat: "Stamped Concrete",
-    color: "#6A9B8B",
-    desc: "An elegant stamped concrete patio with outdoor dining space in Zionsville — natural stone pattern with rich color and expert finishing that blends seamlessly with the home's architecture.",
-    images: [
-      { src: "/images/stamped-concrete-patio-zionsville.jpg", alt: "Stamped concrete patio with outdoor dining in Zionsville Indiana" },
-    ],
-  },
-  {
-    title: "Outdoor Living Space & Pavilion in Westfield",
-    cat: "Outdoor Living",
-    color: "#7A8B5A",
-    desc: "A complete outdoor living space in Westfield featuring a covered pavilion with cedar accents, stamped concrete pad, fire pit area, and evening lighting — built for year-round entertaining.",
-    images: [
-      { src: "/images/outdoor-living-stamped-westfield-1.jpg", alt: "Outdoor living pavilion with stamped concrete in Westfield Indiana" },
-      { src: "/images/outdoor-living-stamped-westfield.jpg", alt: "Covered pavilion outdoor living space Westfield IN" },
-    ],
-  },
-  {
-    title: "Brushed Concrete Sidewalk & Driveway in Westfield",
-    cat: "Patio",
-    color: "#5A8B7A",
-    desc: "A clean brushed concrete sidewalk with natural stone border connecting to the driveway — precise edges, proper grading, and a professional finish in a Westfield neighborhood.",
-    images: [
-      { src: "/images/brushed-concrete-sidewalk-and-driveway-westfield.jpg", alt: "Brushed concrete sidewalk and driveway in Westfield Indiana" },
-    ],
-  },
-  {
-    title: "Brushed Concrete Driveway in Carmel",
-    cat: "Driveway",
-    color: "#6A8B9B",
-    desc: "A fresh brushed concrete driveway pour in Carmel — clean control joints, smooth broom finish, and proper grading for a durable, professional result.",
-    images: [
-      { src: "/images/brushed-concrete-driveway-carmel.jpg", alt: "Brushed concrete driveway in Carmel Indiana" },
-      { src: "/images/brushed-concrete-carmel.jpg", alt: "Brushed concrete pour in progress Carmel IN" },
+      { src: "/images/noblesville-concrete-2.jpg", alt: "Concrete patio installation Noblesville IN" },
+      { src: "/images/noblesville-concrete-3.jpg", alt: "Decorative stamped concrete Noblesville Indiana" },
+      { src: "/images/noblesville-concrete-4.jpg", alt: "Completed concrete patio Noblesville IN" },
     ],
   },
   {
     title: "Composite Deck Build in Fishers",
-    cat: "Deck",
-    color: "#6A7A8B",
-    desc: "A custom composite deck with white railing, dual staircases, and spacious multi-level layout — built for a Fishers family that loves outdoor entertaining. Low-maintenance composite decking designed to look great for decades without staining or sealing.",
+    cat: "Exterior",
+    color: "#6A7B6A",
+    desc: "A custom composite deck in Fishers with white railing, dual staircases, and a spacious layout designed for entertaining. Built with low-maintenance composite decking that stands up to Indiana weather year after year.",
     images: [
       { src: "/images/fishers-composite-deck-1.jpg", alt: "Composite deck build in Fishers Indiana" },
-      { src: "/images/fishers-composite-deck-2.jpg", alt: "Composite deck with white railing Fishers IN" },
-      { src: "/images/fishers-composite-deck-3.jpg", alt: "Multi-level composite deck Fishers Indiana" },
+      { src: "/images/fishers-composite-deck-2.jpg", alt: "Custom composite deck with white railing Fishers IN" },
+      { src: "/images/fishers-composite-deck-3.jpg", alt: "Completed composite deck project Fishers Indiana" },
     ],
   },
 ];
 
 const BLOG = [
-  { title: "Stamped vs. Standard Concrete: Which Is Right for Your Patio?", date: "Mar 10, 2026", read: "5 min", cat: "Patios", excerpt: "Stamped concrete looks incredible — but is it worth the extra cost? We break down the pros, cons, and real cost difference so you can make the right call for your backyard.",
+  { title: "Why Your Bathroom Tile Might Fail in 5 Years (And How to Prevent It)", date: "Mar 5, 2026", read: "7 min", cat: "Bathroom", excerpt: "Most tile failures aren't about the tile — they're about what's underneath. Learn why the Schluter waterproofing system outperforms standard cement board and protects your remodel for decades.",
     body: [
-      "If you're planning a new patio, one of the first decisions you'll face is whether to go with standard broom-finish concrete or upgrade to stamped concrete. Both are durable, long-lasting options — but they serve different purposes and come at different price points.",
-      "Standard concrete with a broom finish is the workhorse of residential concrete. It's clean, functional, slip-resistant, and cost-effective. For homeowners who want a solid patio without the premium price tag, it's hard to beat. A well-poured broom-finish patio will last 25–30 years with minimal maintenance.",
-      "Stamped concrete takes things up a notch by imprinting patterns into the wet concrete that replicate the look of natural stone, brick, slate, or tile. Add integral color and a release agent, and you've got a surface that looks like high-end hardscape at a fraction of the material cost.",
-      "The real cost difference? Standard concrete typically runs $8–12 per square foot installed in Hamilton County. Stamped concrete ranges from $14–20 per square foot depending on the pattern complexity and color choices. For a 400 sq ft patio, that's the difference between roughly $3,600 and $7,200.",
-      "Maintenance is another consideration. Standard concrete needs occasional sealing every 2–3 years. Stamped concrete should be resealed every 2–3 years as well, but the sealer also refreshes the color and keeps the pattern looking sharp. Both surfaces may develop hairline cracks over time — that's normal for concrete in Indiana's freeze-thaw climate.",
-      "Our recommendation? If your patio is in a high-visibility area — like right off the back of your house where you entertain — stamped concrete delivers a dramatic visual upgrade. For utility areas, side yards, or budget-focused projects, standard concrete gives you excellent value.",
-      "Not sure which direction to go? Call Hamilton County Concrete and Patios at (317) 279-5643 for a free on-site consultation. We'll show you real samples and help you pick the best option for your space and budget."
+      "Most homeowners spend weeks choosing the perfect tile for their bathroom remodel. They agonize over color, texture, pattern, and size. But here's what almost nobody talks about: what goes under that tile matters more than the tile itself.",
+      "We've seen it too many times — a homeowner invests $20,000+ in a beautiful bathroom remodel, only to see cracked grout lines, loose tiles, and water damage show up within a few years. The tile gets blamed, but the tile was never the problem. The problem is what was — or wasn't — underneath it.",
+      "Tile doesn't fail because it's bad tile. It fails because the substrate beneath it can't handle the conditions of a bathroom. Moisture is the enemy. Every shower sends moisture through grout lines and into whatever is behind the tile. If that material absorbs water — and standard cement board does — problems start developing that you can't see until they're serious.",
+      "Houses move. Your home is constantly shifting — settling, expanding and contracting with temperature changes, responding to humidity. These micro-movements put stress on rigid materials. When the substrate can't flex, the grout and tile above it crack.",
+      "At HomeStar, we exclusively use the complete Schluter System on every bathroom project. Ditra for floors, Kerdi for walls, and Schluter shower pans. It's 100% waterproof — not water-resistant, waterproof. The membrane creates a completely sealed barrier that prevents any moisture from reaching your subfloor or wall framing.",
+      "It also absorbs movement. The Schluter system acts as an uncoupling layer between your tile and the substrate. When your house shifts, the membrane absorbs that movement instead of transferring it to your tile. This prevents cracked grout and loose tiles.",
+      "Our tile installers are Schluter Pro Certified, which means your project is backed by a full 25-year manufacturer's warranty. If a contractor tells you they 'use Schluter' but can't show certification, the warranty may not apply. Always ask.",
+      "Beyond tile work, every bathroom remodel involves plumbing and electrical. At HomeStar, all plumbing is done by licensed plumbers and all electrical by licensed electricians. This isn't always the case with other contractors.",
+      "If you're planning a bathroom remodel in Hamilton County, ask your contractor: What substrate system are you using? Are your installers certified by the manufacturer? Are your plumbers and electricians licensed? The answers tell you everything about the quality you'll get.",
+      "Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com."
     ]},
-  { title: "5 Signs Your Driveway Needs to Be Replaced (Not Just Patched)", date: "Feb 22, 2026", read: "4 min", cat: "Driveways", excerpt: "Cracks, sinking, and crumbling edges aren't always fixable with a patch job. Here are five signs it's time for a full driveway replacement.",
+  { title: "5 Signs Your Bathroom Needs a Remodel", date: "Feb 18, 2026", read: "5 min", cat: "Bathroom", excerpt: "Cracked grout, outdated fixtures, and poor ventilation aren't just eyesores—they're signs it's time to invest in your bathroom. Here's what to look for.",
     body: [
-      "Concrete driveways are built to last — but nothing lasts forever. Indiana's freeze-thaw cycles, road salt, heavy vehicles, and time all take their toll. The question most homeowners face isn't whether to fix their driveway, but whether a patch job will hold or whether it's time for a full replacement.",
-      "1. Widespread Cracking — A single hairline crack is cosmetic. But when cracks are spreading across the entire surface, intersecting, or widening over time, the structural integrity of the slab is compromised. Patching widespread cracks is like putting tape on a crumbling wall — it looks okay for a month but doesn't address the underlying issue.",
-      "2. Sinking or Uneven Sections — If sections of your driveway have sunk, creating uneven surfaces or trip hazards, the base beneath the concrete has failed. This usually means poor compaction during original installation, soil erosion, or water undermining the base. Mudjacking can sometimes help, but if multiple sections are affected, replacement is the better long-term investment.",
-      "3. Crumbling Edges — When the edges of your driveway start breaking apart, it's usually a sign the concrete was poured too thin at the perimeter or the forms weren't properly set. Edge crumbling tends to accelerate over time, especially with lawn equipment and vehicle tires hitting those weak spots.",
-      "4. Large Potholes or Spalling — Surface spalling — where the top layer flakes and peels away — is common on driveways that weren't properly finished or sealed. Deep potholes indicate the slab has broken through entirely. Both conditions worsen every winter as water gets in, freezes, and expands.",
-      "5. The Driveway Is 25+ Years Old — Concrete driveways in Indiana have a typical lifespan of 25–30 years. If yours is approaching that age and showing any of the signs above, replacement will give you another three decades of reliable service versus years of escalating repairs.",
-      "Hamilton County Concrete and Patios provides free driveway evaluations across Carmel, Fishers, Noblesville, Westfield, and Zionsville. Call us at (317) 279-5643 and we'll tell you honestly whether a repair or replacement makes the most sense."
+      "Sometimes a bathroom remodel is a want. Sometimes it's a need. And sometimes you've been living with problems for so long that they start to feel normal. Here are five signs that your bathroom is telling you it's time for an upgrade.",
+      "1. Cracked, Missing, or Moldy Grout — If the grout between your tiles is cracking, crumbling, or showing black mold spots, it's more than cosmetic. Damaged grout lets water seep behind tiles and into your subfloor and walls, leading to structural damage and hidden mold growth. If the damage is widespread, retiling is usually more cost-effective than patching.",
+      "2. Outdated Fixtures and Layout — If your bathroom still has brass fixtures from the 1990s or a layout that makes no sense for how your family uses the space, an update will dramatically improve your daily routine. Start with faucets, showerhead, lighting, and hardware for the biggest visual impact.",
+      "3. Poor Ventilation — If your mirror stays fogged for 20 minutes after a shower, or you notice moisture on walls and ceiling, your ventilation isn't doing its job. Poor ventilation leads to mold, peeling paint, and deterioration over time. A properly sized exhaust fan is one of those behind-the-scenes upgrades that protects everything else.",
+      "4. Water Damage or Soft Spots — If your floor feels soft near the toilet or tub, or you notice water stains on the ceiling below a second-floor bathroom, water is going where it shouldn't. This doesn't get better on its own. A remodel lets you address the source, repair damage, and rebuild with proper waterproofing.",
+      "5. You're Embarrassed When Guests Visit — This is actually the most common reason homeowners call us. If you find yourself apologizing for your bathroom, that's your gut telling you it's time. Sometimes a vanity swap, fresh paint, a new mirror, and updated lighting is all it takes.",
+      "If any of these signs sound familiar, HomeStar Services & Contracting specializes in bathroom remodels across Hamilton County. Call us at (317) 279-4798 for a free estimate."
     ]},
-  { title: "How to Prepare Your Property for a Concrete Pour", date: "Feb 8, 2026", read: "4 min", cat: "Tips", excerpt: "A little prep goes a long way. Here's what homeowners should know before the crew arrives to pour your new concrete.",
+  { title: "Kitchen Remodel ROI: What Actually Adds Value in Indiana", date: "Feb 4, 2026", read: "6 min", cat: "Kitchen", excerpt: "Not all upgrades are equal. We break down which kitchen improvements deliver the best return for Hamilton County homeowners.",
     body: [
-      "You've scheduled your concrete project — now what? While our crew handles the heavy lifting, there are a few things homeowners can do to make sure everything goes smoothly on pour day.",
-      "Clear the area. Remove any furniture, planters, vehicles, grills, or items near the work zone. We need clear access not just to the pour area but also to the path our equipment will use to reach it. If we're pouring a backyard patio, make sure the gate is accessible and the path is clear.",
-      "Mark any underground utilities. Before we dig, we'll call 811 to have public utilities marked. But if you have private irrigation lines, invisible fence wires, or landscape lighting wiring, please flag those for us. It saves time and prevents accidental damage.",
-      "Talk to your neighbors. Concrete trucks are large and loud, and the process can temporarily block part of the street or shared driveway. A quick heads-up to your neighbors goes a long way. We're always respectful of the neighborhood, but advance notice helps everyone.",
-      "Plan for curing time. Fresh concrete needs time to cure — typically 24–48 hours before foot traffic and 7 days before vehicle traffic. Plan accordingly if we're pouring your driveway. You'll want to arrange alternate parking for about a week.",
-      "Check the weather with us. We monitor forecasts closely and will reschedule if rain is likely. Concrete and rain don't mix well during the pour and finishing process. If there's a chance of weather, we'll communicate early so you're not caught off guard.",
-      "Questions about your upcoming project? Call Hamilton County Concrete and Patios at (317) 279-5643. We walk every customer through the process so there are no surprises."
+      "You want your kitchen to look amazing — but you also want to know the money you're putting in is well spent. As contractors working in Hamilton County homes every week, we see firsthand which kitchen upgrades deliver real returns.",
+      "Cabinet refacing or replacement consistently delivers one of the highest returns. If your boxes are solid, refacing with new doors and hardware gives you a new look at about 40% of the cost of full replacement. New semi-custom cabinets in a modern shaker style offer great value if the boxes are worn.",
+      "Countertop upgrades make a dramatic visual difference. Quartz has become the go-to material in central Indiana — durable, low-maintenance, and available in enough styles to match any kitchen. Both quartz and granite signal quality to future buyers.",
+      "Lighting is one of the most underrated kitchen upgrades. Replacing a dated fluorescent fixture with recessed lighting and under-cabinet LED strips transforms how the entire room feels — and it's relatively inexpensive compared to other kitchen work.",
+      "Ultra-premium appliances like Sub-Zero and Wolf are incredible products, but in most Hamilton County homes you won't recoup the full cost at resale. Mid-range professional-style appliances from brands like KitchenAid or Samsung offer 90% of the look at a fraction of the price.",
+      "Based on current market data for the Indianapolis metro area, a mid-range kitchen remodel typically recoups 60-75% of its cost at resale. A minor kitchen remodel with cosmetic updates can return 75-85%. You don't need an $80,000 gut job to add value.",
+      "Start with what bothers you most about your current kitchen — layout, storage, or the look. Prioritizing your pain points ensures you spend where it matters most. We offer free in-home consultations across Hamilton County. Call (317) 279-4798."
     ]},
-  { title: "Why Proper Base Prep Is the Most Important Step in Any Concrete Job", date: "Jan 25, 2026", read: "5 min", cat: "Education", excerpt: "The concrete you see is only as good as the base you don't. Here's why we spend more time on what goes underneath.",
+  { title: "Why Basement Finishing Is the Best Investment You'll Make This Year", date: "Jan 20, 2026", read: "4 min", cat: "Basement", excerpt: "Extra living space without moving? A finished basement adds square footage, comfort, and serious resale value to your home.",
     body: [
-      "Ask most homeowners what makes a great concrete driveway or patio, and they'll talk about the finish — how smooth it is, the stamp pattern, the color. But ask any experienced concrete contractor the same question, and the answer is always the same: the base.",
-      "What goes under your concrete determines how long it lasts, whether it cracks, and whether it settles unevenly over time. A perfect finish poured on a bad base will fail. A basic finish poured on a properly prepared base will last decades.",
-      "Proper base preparation starts with excavation to the correct depth — removing topsoil, organic material, and any unstable soil. In Hamilton County, we're typically working with clay-heavy soils that expand and contract with moisture. That makes base prep even more critical.",
-      "After excavation, we compact the existing subgrade to create a stable foundation. Then we add a layer of compactable aggregate — usually 4–6 inches of crushed stone — and compact it in lifts using a plate compactor. This creates a uniform, well-drained base that supports the concrete evenly.",
-      "Proper grading is the next critical step. Water should always drain away from structures — your house, garage, or any adjacent buildings. We grade the base to ensure positive drainage, which prevents water from pooling under or against the concrete.",
-      "Finally, we install reinforcement. For driveways, that means rebar or welded wire mesh positioned in the slab, plus fiber mesh in the concrete mix for additional crack resistance. For patios and walkways, fiber mesh and proper joint spacing are usually sufficient.",
-      "When a contractor rushes through base prep — or skips it — you end up with settling, cracking, and drainage problems that no amount of surface repair can fix. At Hamilton County Concrete and Patios, we spend the time to do it right because everything we pour depends on it."
+      "If you're running out of room in your home but don't want to move, look down. Your unfinished basement is probably the most underutilized space in your house — and finishing it is one of the smartest investments a Hamilton County homeowner can make.",
+      "A finished basement adds usable square footage to your home without the cost or complexity of a home addition. You already own the space and the foundation is already built. The cost per square foot to finish a basement is significantly less than building out or up.",
+      "The most popular basement uses we see in Hamilton County homes include family entertainment areas with media setups, guest suites with a bedroom and bathroom, home offices for remote workers, kids' play areas, and home gyms. Many homeowners combine two or three of these into one project.",
+      "From a resale perspective, a finished basement can recoup 70-80% of its cost while making your home significantly more attractive to buyers. In competitive markets like Carmel, Fishers, and Westfield, a finished basement can be the differentiator that gets your home sold faster.",
+      "Common concerns include moisture and waterproofing — which we address with proper drainage, vapor barriers, and the right materials. Ceiling height is another factor; most Hamilton County homes built in the last 20-30 years have adequate ceiling height for a comfortable finished space.",
+      "Ready to put that empty space to work? HomeStar handles basement finishes from design through final inspection. Call (317) 279-4798 for a free estimate."
     ]},
-  { title: "Concrete vs. Pavers: Making the Right Choice for Your Project", date: "Jan 10, 2026", read: "5 min", cat: "Education", excerpt: "Both have their place. Here's an honest comparison to help you decide between poured concrete and pavers for your next project.",
+  { title: "Deck Season Is Coming: How to Plan Your Outdoor Living Space", date: "Jan 8, 2026", read: "3 min", cat: "Outdoor", excerpt: "Spring is the perfect time to start planning your dream deck. Here's how to choose materials, layout, and features that last.",
     body: [
-      "Concrete and pavers are the two most popular options for driveways, patios, and walkways in Hamilton County. Both are excellent materials — but they serve different needs, come at different price points, and require different maintenance.",
-      "Poured concrete gives you a seamless, uniform surface. It's faster to install, typically more affordable per square foot, and requires very little ongoing maintenance beyond occasional sealing. With stamped or colored options, you can achieve a wide range of looks without the premium cost of natural stone pavers.",
-      "Pavers offer a modular look with individual units that can be arranged in patterns. They're easier to repair individually — if one paver cracks, you replace that single unit. However, pavers require a more complex installation with edge restraints and polymeric sand, and weeds can grow between joints over time.",
-      "Cost comparison for Hamilton County: Standard concrete runs $8–12 per square foot installed. Stamped concrete runs $14–20. Basic concrete pavers start around $15–20 per square foot installed, while premium natural stone pavers can reach $25–40+.",
-      "For driveways, poured concrete is our go-to recommendation. It handles vehicle weight better than pavers (which can shift and settle under repeated loads), it's faster to install, and it provides a smooth, continuous surface that's easy to plow in winter.",
-      "For patios and walkways, the choice is more personal. If you want a specific modular look and don't mind the higher cost and ongoing maintenance, pavers are a great option. If you want a beautiful, low-maintenance surface at a better price point, stamped concrete delivers exceptional results.",
-      "Still deciding? Call Hamilton County Concrete and Patios at (317) 279-5643 for a free consultation. We'll help you weigh the options based on your specific project and budget."
+      "Indiana winters are long, but spring arrives fast — and when it does, you'll want an outdoor space that's ready for it. If you're thinking about adding or replacing a deck, now is the time to start planning so construction can begin as soon as weather allows.",
+      "The biggest decision is material. Pressure-treated wood is the most affordable option and looks great when new, but requires annual maintenance — staining, sealing, and eventually replacing boards as they weather. Composite decking from brands like Trex or TimberTech costs more upfront but requires virtually no maintenance and lasts 25-30 years.",
+      "For Hamilton County homeowners who want to enjoy their deck rather than maintain it, composite is usually the better long-term investment. The math works out over time when you factor in the cost of annual staining and board replacements with wood.",
+      "Layout matters more than most people realize. Think about how you'll actually use the space — dining, lounging, grilling, entertaining. A well-designed deck has distinct zones for different activities and flows naturally from your home's interior. Consider built-in seating, pergolas for shade, and landscape lighting for evening use.",
+      "Permits are required for deck construction in most Hamilton County municipalities. We handle the entire permitting process and ensure everything meets current building codes. A properly permitted deck protects your investment and avoids issues when you sell your home.",
+      "Start planning now and you'll be hosting cookouts by Memorial Day. Call HomeStar at (317) 279-4798 or visit thehomestarservice.com to request a free estimate."
     ]},
+  { title: "How Much Does a Bathroom Remodel Cost in Hamilton County, Indiana?", date: "Mar 29, 2026", read: "8 min", cat: "Bathroom", excerpt: "From basic refreshes to full spa-level renovations, here's what bathroom remodels actually cost in Fishers, Carmel, Noblesville, and surrounding areas — with real numbers from local projects.",
+    body: [
+      "If you're a homeowner in Hamilton County thinking about remodeling your bathroom, the first question on your mind is probably: how much is this going to cost? It's a fair question — and unfortunately, the answer you'll find online is usually a vague national average that has nothing to do with what you'll actually pay in Fishers, Carmel, Noblesville, or Westfield.",
+      "We're going to break it down honestly based on what we see every day as a local remodeling company working in Hamilton County homes. No vague ranges, no bait-and-switch. Just real numbers for real projects.",
+      "A basic bathroom refresh — new vanity, faucet, mirror, light fixture, fresh paint, and maybe new flooring — typically runs $8,000 to $12,000 in the Fishers and Carmel area. This level of update is great if the layout works fine and the bones are solid, but the finishes are dated. You're not moving plumbing or changing the footprint, which keeps costs down.",
+      "A mid-range bathroom remodel is where most Hamilton County homeowners land. This typically runs $15,000 to $30,000 and includes a full gut of the space — new tile (floor and shower), new vanity and countertop, new fixtures, improved lighting, fresh paint, and often a new shower configuration. At this level, you're likely moving some plumbing and upgrading the exhaust fan.",
+      "What separates a $15,000 remodel from a $30,000 remodel at this tier? Tile is the biggest variable. A standard subway tile shower runs significantly less than a floor-to-ceiling large-format tile installation. The scope of plumbing changes also matters — relocating a shower valve or adding a new drain line costs more than replacing fixtures in place.",
+      "A high-end or spa-level bathroom remodel in Hamilton County typically runs $30,000 to $50,000+. This includes premium finishes throughout — custom tile work, frameless glass shower enclosures, freestanding soaking tubs, heated floors, dual vanities with quartz or marble countertops, custom lighting, and often a complete reconfiguration of the layout.",
+      "At HomeStar, every bathroom remodel at every price point uses the complete Schluter waterproofing system — Ditra for floors, Kerdi for walls, and Schluter shower pans. This system is 100% waterproof and backed by a 25-year manufacturer's warranty. This is not an optional upgrade; it's our standard. Most contractors in Hamilton County use standard cement board, which absorbs moisture over time and leads to tile failure.",
+      "Here's something most contractors won't tell you: the quality of what goes under your tile matters more than the tile itself. We've seen $25,000 remodels fail within three years because the substrate wasn't properly waterproofed. And we've seen $15,000 remodels still look perfect after a decade because the waterproofing was done right.",
+      "Labor costs in Hamilton County are influenced by the fact that licensed tradespeople are in high demand. At HomeStar, all plumbing is done by licensed plumbers and all electrical by licensed electricians. This costs more than a company that has a general handyman doing everything, but it means the work is done correctly and to code — and it passes inspection the first time.",
+      "Beyond the remodel itself, there are a few costs homeowners sometimes overlook. Permit fees in Fishers, Carmel, and Noblesville typically run $100 to $300. If your home is older and the project reveals issues like outdated wiring, galvanized plumbing, or water damage in the subfloor, remediation adds cost. We always flag these during our initial walkthrough so you're not surprised.",
+      "Our advice to Hamilton County homeowners: start with what bothers you most about your current bathroom. Is it the shower? The vanity? The layout? Prioritizing your biggest pain point ensures your budget goes where it matters most. You don't need to do everything at once — a well-planned phase-one remodel can transform your daily experience while staying on budget.",
+      "Ready to get a real number for your bathroom? Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com. We'll visit your home, walk the space with you, and provide a detailed, itemized estimate — no pressure, no vague ranges, just honest numbers."
+    ]},
+];
+
+const VIDEOS = [
+  { title: "Floor-to-Ceiling Bathroom Remodel in Noblesville, IN", id: "7ww8YOK33B8", desc: "Complete bathroom transformation from floor to ceiling in a Noblesville home." },
+  { title: "Full Upper Level Home Remodel in Geist, IN", id: "coWQF-AMLsw", desc: "Watch the full upper level renovation of this beautiful Geist residence." },
+  { title: "Luxury Double Shower Bathroom Remodel in Carmel, IN", id: "EM4UCRyGCYs", desc: "A luxurious double shower installation in this stunning Carmel bathroom remodel." },
+  { title: "Custom Green Tile Bathroom Remodel in Carmel, IN", id: "OauuZVYCbYY", desc: "Bold green tile brings this Carmel bathroom to life with a one-of-a-kind design." },
+  { title: "Jack & Jill Bathroom Remodel in Zionsville, IN", id: "QiuKLitzftY", desc: "A shared Jack & Jill bathroom gets a complete makeover in Zionsville." },
 ];
 
 const TESTIMONIALS = [
-  { name: "Mike & Sarah T.", loc: "Carmel, IN", text: "Hamilton County Concrete and Patios replaced our entire driveway and added a stamped patio in the backyard. The crew was professional, on time, and the finished product looks incredible. Highly recommend.", rating: 5 },
-  { name: "Jennifer R.", loc: "Fishers, IN", text: "We got three quotes for a new patio and these guys were the most thorough in explaining the process and what to expect. Fair price, excellent work, and they cleaned up perfectly when done.", rating: 5 },
-  { name: "David & Lisa K.", loc: "Westfield, IN", text: "From the first phone call to the final walkthrough, everything was smooth and professional. Our new sidewalk and front porch landing look amazing. Would absolutely use them again.", rating: 5 },
+  { name: "Sarah M.", loc: "Carmel, IN", text: "HomeStar completely transformed our kitchen. The attention to detail was incredible, and they finished ahead of schedule. Robb and Eric are the real deal.", rating: 5 },
+  { name: "James & Linda K.", loc: "Westfield, IN", text: "Professional from start to finish. The crew was respectful of our home, and the communication throughout the project was outstanding. No surprises, no hidden fees.", rating: 5 },
+  { name: "David R.", loc: "Fishers, IN", text: "We've used HomeStar for three projects now—bathroom remodel, basement finish, and a deck build. Consistently excellent work at fair prices. They're our go-to.", rating: 5 },
 ];
 
 const FAQS = [
-  { q: "How do I get a free estimate?", a: "Give us a call at (317) 279-5643 or submit a request through the form on this page. We'll set up a time to visit your property, discuss your project, and provide a detailed written estimate at no cost." },
-  { q: "Are you licensed and insured?", a: "Yes — Hamilton County Concrete and Patios holds full licensing, bonding, and insurance in Indiana, including general liability and workers' compensation. Your property and our crew are fully protected." },
-  { q: "How long does a typical concrete project take?", a: "Most residential pours take 1–3 days depending on scope — but total project time including excavation, forming, and curing runs about 1–2 weeks. We'll give you a clear timeline before any work begins." },
-  { q: "How long before I can walk on or drive on new concrete?", a: "Foot traffic is typically safe after 24–48 hours. Vehicle traffic should wait at least 7 days, and heavy loads 14 days. We'll provide specific curing instructions based on your project and weather conditions." },
-  { q: "What areas do you serve?", a: "We work throughout Hamilton County and surrounding communities — including Carmel, Fishers, Noblesville, Westfield, Zionsville, Brownsburg, Pendleton, McCordsville, and Fortville." },
-  { q: "Do you offer stamped or colored concrete?", a: "Absolutely. We offer a full range of decorative options including stamped patterns, integral color, stained finishes, exposed aggregate, and decorative borders. We'll bring samples to your consultation so you can see and feel the options." },
+  { q: "How do I get a free estimate?", a: "Give us a call at (317) 279-4798 or submit a request through the form on this page. We'll set up a time to visit your home, talk through your project, and provide a detailed written estimate at no cost." },
+  { q: "Are you licensed and insured?", a: "Yes — HomeStar Services & Contracting holds full licensing, bonding, and insurance in Indiana, including general liability and workers' compensation. Your home and our crew are fully protected." },
+  { q: "How long does a typical remodel take?", a: "It depends on scope. Most bathroom remodels wrap up in 2–4 weeks, kitchens run 4–8 weeks, and basement finishes typically take 6–12 weeks. We'll give you a clear timeline before any work begins." },
+  { q: "Do you offer a warranty?", a: "Every project we complete includes a 1-year workmanship warranty. If something isn't right after we finish, we come back and fix it. Quality work should hold up long after the last day on the job." },
+  { q: "What areas do you serve?", a: "We work throughout Hamilton County and surrounding communities — including Carmel, Fishers, Noblesville, Zionsville, Brownsburg, Pendleton, McCordsville, and Fortville." },
 ];
 
-const AREAS = ["Carmel", "Fishers", "Noblesville", "Westfield", "Zionsville", "Brownsburg", "Pendleton", "McCordsville", "Fortville"];
+const AREAS = ["Carmel", "Fishers", "Noblesville", "Zionsville", "Brownsburg", "Pendleton", "McCordsville", "Fortville"];
 
 /* ─── Styles ──────────────────────────────────────── */
 const css = `
@@ -276,9 +415,9 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:${C.text};overflow-x:hidde
 .d4{animation-delay:.4s;opacity:0}.d5{animation-delay:.5s;opacity:0}.d6{animation-delay:.6s;opacity:0}
 
 .btn-g{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:${C.green};color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;border:none;border-radius:8px;cursor:pointer;text-decoration:none;transition:all .25s;letter-spacing:.01em}
-.btn-g:hover{background:${C.greenDark};transform:translateY(-2px);box-shadow:0 8px 24px rgba(160,145,127,.35)}
+.btn-g:hover{background:${C.greenDark};transform:translateY(-2px);box-shadow:0 8px 24px rgba(92,184,50,.3)}
 .btn-n{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:${C.navy};color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;border:none;border-radius:8px;cursor:pointer;text-decoration:none;transition:all .25s}
-.btn-n:hover{background:${C.navyMid};transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,62,70,.3)}
+.btn-n:hover{background:${C.navyMid};transform:translateY(-2px);box-shadow:0 8px 24px rgba(27,42,74,.3)}
 .btn-o{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:transparent;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;border:2px solid rgba(255,255,255,.35);border-radius:8px;cursor:pointer;text-decoration:none;transition:all .25s}
 .btn-o:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 
@@ -302,56 +441,57 @@ function useVis(t=0.12){
 }
 
 /* ─── Nav ─────────────────────────────────────────── */
-function Nav(){
+function Nav({isCity}){
   const[open,setOpen]=useState(false);
   const[sc,setSc]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>50);window.addEventListener("scroll",h,{passive:true});return()=>window.removeEventListener("scroll",h)},[]);
-  const links=[{l:"Services",h:"#services"},{l:"Why Us",h:"#difference"},{l:"Our Process",h:"#process"},{l:"Projects",h:"#projects"},{l:"Blog",h:"#blog"},{l:"Service Areas",h:"#areas"},{l:"Contact",h:"#contact"}];
+  const p=isCity?"/":"";
+  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Videos",h:p+"#videos"},{l:"Blog",h:p+"#blog"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
 
   return(
-    <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000,background:sc?"rgba(250,248,245,.97)":"rgba(250,248,245,.95)",backdropFilter:"blur(14px)",transition:"all .35s",borderBottom:sc?`1px solid ${C.sand}`:"1px solid transparent",boxShadow:sc?"0 2px 20px rgba(0,0,0,.06)":"none"}}>
+    <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000,background:sc?"rgba(27,42,74,.97)":"transparent",backdropFilter:sc?"blur(14px)":"none",transition:"all .35s",borderBottom:sc?"1px solid rgba(255,255,255,.06)":"none"}}>
       {/* Top bar */}
-      <div style={{background:C.sand,transition:"background .35s",borderBottom:`1px solid ${C.sand}`}}>
-        <div style={{maxWidth:1160,margin:"0 auto",padding:"0 24px",display:"flex",justifyContent:"space-between",alignItems:"center",height:sc?0:32,overflow:"hidden",transition:"height .3s"}}>
+      <div style={{background:sc?"transparent":C.navyDark,transition:"background .35s",borderBottom:"1px solid rgba(255,255,255,.05)"}}>
+        <div style={{maxWidth:1160,margin:"0 auto",padding:"0 24px",display:"flex",justifyContent:"space-between",alignItems:"center",height:sc?0:36,overflow:"hidden",transition:"height .3s"}}>
           <div style={{display:"flex",gap:24,alignItems:"center"}}>
-            <a href="tel:+13172795643" style={{color:C.gray,fontSize:12,fontWeight:600,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>{I.phone} (317) 279-5643</a>
-            <span style={{color:C.gray,fontSize:12}}>Serving Hamilton County, IN</span>
+            <a href="tel:+13172794798" style={{color:"rgba(255,255,255,.6)",fontSize:12,fontWeight:600,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>{I.phone} (317) 279-4798</a>
+            <span style={{color:"rgba(255,255,255,.3)",fontSize:12}}>Serving Hamilton County, IN</span>
           </div>
-          <a href="#estimate" style={{color:C.navy,fontSize:12,fontWeight:700,textDecoration:"none",letterSpacing:".04em"}}>REQUEST A FREE ESTIMATE</a>
+          <a href={isCity?"#city-estimate":"#estimate"} style={{color:C.green,fontSize:12,fontWeight:700,textDecoration:"none",letterSpacing:".04em"}}>REQUEST A FREE ESTIMATE</a>
         </div>
       </div>
       {/* Main bar */}
-      <div style={{maxWidth:1160,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:sc?60:68,transition:"height .3s"}}>
-        <a href="#hero" style={{textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>
-          <img src="/images/indiana-icon.png" alt="" style={{height:sc?36:42,objectFit:"contain",transition:"all .3s"}} />
-          <div style={{lineHeight:1.15}}>
-            <div className="display" style={{color:C.navy,fontSize:sc?13:15,fontWeight:800,letterSpacing:".02em"}}>HAMILTON COUNTY</div>
-            <div className="display" style={{color:C.navy,fontSize:sc?13:15,fontWeight:800,letterSpacing:".02em",opacity:.6}}>CONCRETE AND PATIOS</div>
+      <div style={{maxWidth:1160,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:sc?64:72,transition:"height .3s"}}>
+        <a href={isCity?"/":"#hero"} style={{textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>
+          <img src="/images/logo-mascot.png" alt="HomeStar Services mascot" style={{width:40,height:40,objectFit:"contain"}} />
+          <div>
+            <div className="display" style={{color:"#fff",fontSize:17,fontWeight:800,letterSpacing:".02em",lineHeight:1.1}}>HOMESTAR</div>
+            <div style={{color:C.green,fontSize:9,fontWeight:700,letterSpacing:".11em",lineHeight:1}}>SERVICES & CONTRACTING</div>
           </div>
         </a>
         <div className="desk" style={{display:"flex",alignItems:"center",gap:26}}>
-          {links.map(l=><a key={l.h} href={l.h} style={{color:C.navy,textDecoration:"none",fontSize:13,fontWeight:600,transition:"color .2s",opacity:.7}} onMouseEnter={e=>{e.currentTarget.style.opacity="1";e.currentTarget.style.color=C.green}} onMouseLeave={e=>{e.currentTarget.style.opacity=".7";e.currentTarget.style.color=C.navy}}>{l.l}</a>)}
-          <a href="#estimate" className="btn-n" style={{padding:"9px 20px",fontSize:13}}>Free Estimate</a>
+          {links.map(l=><a key={l.h} href={l.h} style={{color:"rgba(255,255,255,.75)",textDecoration:"none",fontSize:13,fontWeight:600,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.75)"}>{l.l}</a>)}
+          <a href={isCity?"#city-estimate":"#estimate"} className="btn-g" style={{padding:"9px 20px",fontSize:13}}>Free Estimate</a>
         </div>
-        <button className="mob-btn" onClick={()=>setOpen(!open)} style={{background:"none",border:"none",color:C.navy,cursor:"pointer",display:"flex",alignItems:"center"}}>{open?I.close:I.menu}</button>
+        <button className="mob-btn" onClick={()=>setOpen(!open)} style={{background:"none",border:"none",color:"#fff",cursor:"pointer",display:"flex",alignItems:"center"}}>{open?I.close:I.menu}</button>
       </div>
-      {open&&<div className="mob-menu" style={{background:C.cream,padding:"16px 24px 28px",display:"flex",flexDirection:"column",gap:14,borderTop:`1px solid ${C.sand}`}}>
-        {links.map(l=><a key={l.h} href={l.h} onClick={()=>setOpen(false)} style={{color:C.navy,textDecoration:"none",fontSize:15,fontWeight:600,padding:"6px 0",borderBottom:`1px solid ${C.sand}`}}>{l.l}</a>)}
-        <a href="#estimate" className="btn-n" style={{textAlign:"center",marginTop:8}}>Get a Free Estimate</a>
+      {open&&<div className="mob-menu" style={{background:C.navyDark,padding:"16px 24px 28px",display:"flex",flexDirection:"column",gap:14}}>
+        {links.map(l=><a key={l.h} href={l.h} onClick={()=>setOpen(false)} style={{color:"#fff",textDecoration:"none",fontSize:15,fontWeight:600,padding:"6px 0",borderBottom:"1px solid rgba(255,255,255,.05)"}}>{l.l}</a>)}
+        <a href={isCity?"#city-estimate":"#estimate"} className="btn-g" style={{textAlign:"center",marginTop:8}}>Get a Free Estimate</a>
       </div>}
     </nav>
   );
 }
 
+/* ─── Hero ─────────────────────────────────────────── */
 /* ─── Hero Photo Showcase ──────────────────────────── */
 const HERO_PHOTOS = [
-  { src: "/images/stamped-concrete-patio-zionsville.jpg", alt: "Stamped concrete patio with outdoor dining in Zionsville Indiana" },
-  { src: "/images/outdoor-living-stamped-westfield-1.jpg", alt: "Outdoor living pavilion with stamped concrete in Westfield Indiana" },
-  { src: "/images/stamped-concrete-carmel.jpg", alt: "Stamped concrete walkway in Carmel Indiana" },
-  { src: "/images/fortville-pavilion-1.jpg", alt: "Custom pavilion with stamped concrete in Fortville Indiana" },
-  { src: "/images/noblesville-concrete-1.jpg", alt: "Stamped concrete patio in Noblesville Indiana" },
-  { src: "/images/outdoor-living-noblesville.jpg", alt: "Outdoor living space with fire pit in Noblesville Indiana" },
-  { src: "/images/fishers-concrete-1.jpg", alt: "Stamped concrete patio in Fishers Indiana" },
+  { src: "/images/fishers-spa-retreat-1.jpg", alt: "Spa retreat bathroom remodel in Fishers Indiana" },
+  { src: "/images/bathroom-green-tile-1.jpg", alt: "Custom green tile bathroom in Carmel Indiana" },
+  { src: "/images/geist-upper-level-1.jpg", alt: "Upper level home remodel in Geist Indiana" },
+  { src: "/images/zionsville-jack-and-jill-1.jpg", alt: "Jack and Jill bathroom remodel Zionsville Indiana" },
+  { src: "/images/fishers-double-shower-1.jpg", alt: "Double shower remodel in Fishers Indiana" },
+  { src: "/images/modern-farmhouse-1.jpg", alt: "Modern farmhouse bathroom Fishers Indiana" },
 ];
 
 function HeroShowcase(){
@@ -366,7 +506,9 @@ function HeroShowcase(){
         <img key={p.src} src={p.src} alt={p.alt} loading={i===0?"eager":"lazy"}
           style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",opacity:idx===i?1:0,transition:"opacity 1.2s ease-in-out"}}/>
       ))}
-      <div style={{position:"absolute",bottom:0,left:0,right:0,height:100,background:"linear-gradient(transparent,rgba(30,45,52,.6))"}}/>
+      {/* Subtle gradient overlay at bottom */}
+      <div style={{position:"absolute",bottom:0,left:0,right:0,height:100,background:"linear-gradient(transparent,rgba(17,29,53,.6))"}}/>
+      {/* Photo counter */}
       <div style={{position:"absolute",bottom:16,right:16,display:"flex",gap:6}}>
         {HERO_PHOTOS.map((_,i)=>(
           <div key={i} style={{width:idx===i?20:6,height:6,borderRadius:3,background:idx===i?"#fff":"rgba(255,255,255,.35)",transition:"all .4s ease"}}/>
@@ -376,32 +518,28 @@ function HeroShowcase(){
   );
 }
 
-/* ─── Hero ─────────────────────────────────────────── */
 function Hero(){
   return(
-    <section id="hero" style={{position:"relative",minHeight:"100vh",display:"flex",alignItems:"center",background:`linear-gradient(155deg,${C.navyLight} 0%,#4E666F 35%,#5E7680 65%,#6E8690 100%)`,overflow:"hidden"}}>
-      {/* Large warm cream glows */}
-      <div style={{position:"absolute",top:"-20%",right:"-10%",width:900,height:900,borderRadius:"50%",background:"radial-gradient(circle,rgba(250,248,245,.18) 0%,rgba(250,248,245,.06) 40%,transparent 70%)"}}/>
-      <div style={{position:"absolute",bottom:"-25%",left:"-15%",width:1000,height:1000,borderRadius:"50%",background:"radial-gradient(circle,rgba(250,248,245,.14) 0%,rgba(250,248,245,.04) 40%,transparent 70%)"}}/>
-      <div style={{position:"absolute",top:"30%",left:"40%",width:600,height:600,borderRadius:"50%",background:"radial-gradient(circle,rgba(240,237,232,.10) 0%,transparent 60%)"}}/>
-      {/* Subtle grid */}
-      <div style={{position:"absolute",inset:0,opacity:.03,backgroundImage:"linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)",backgroundSize:"64px 64px"}}/>
+    <section id="hero" style={{position:"relative",minHeight:"100vh",display:"flex",alignItems:"center",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`,overflow:"hidden"}}>
+      <div style={{position:"absolute",top:-80,right:-80,width:500,height:500,borderRadius:"50%",background:"radial-gradient(circle,rgba(92,184,50,.1) 0%,transparent 70%)"}}/>
+      <div style={{position:"absolute",bottom:-120,left:-120,width:550,height:550,borderRadius:"50%",background:"radial-gradient(circle,rgba(92,184,50,.06) 0%,transparent 65%)"}}/>
+      <div style={{position:"absolute",inset:0,opacity:.025,backgroundImage:"linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)",backgroundSize:"64px 64px"}}/>
 
       <div style={{maxWidth:1160,margin:"0 auto",padding:"140px 24px 100px",position:"relative",zIndex:2,width:"100%"}}>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:48,alignItems:"center"}} className="hero-grid">
           {/* Left: Text */}
           <div>
-            <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(255,255,255,.12)",borderRadius:50,padding:"7px 16px",marginBottom:26}}>
-              <div style={{width:7,height:7,borderRadius:"50%",background:"rgba(255,255,255,.7)"}}/>
-              <span style={{color:"rgba(255,255,255,.85)",fontWeight:700,fontSize:12,letterSpacing:".06em"}}>LOCALLY OWNED • HAMILTON COUNTY, IN</span>
+            <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:26}}>
+              <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+              <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>FAMILY-OWNED • HAMILTON COUNTY, IN</span>
             </div>
 
             <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(36px,5.5vw,60px)",lineHeight:1.06,marginBottom:22}}>
-              Stunning Patios.<br/><span style={{color:"rgba(255,255,255,.55)"}}>Built to Last.</span>
+              Major Projects.<br/><span style={{color:C.green}}>Master Craftsmanship.</span>
             </h1>
 
-            <p className="fu d3" style={{color:"rgba(255,255,255,.75)",fontSize:18,lineHeight:1.7,maxWidth:520,marginBottom:36}}>
-              Stamped concrete patios, decorative outdoor living spaces, driveways, and more across Hamilton County, Indiana. Specializing in the finishes that make your property unforgettable.
+            <p className="fu d3" style={{color:"rgba(255,255,255,.6)",fontSize:18,lineHeight:1.7,maxWidth:520,marginBottom:36}}>
+              Full-service home remodeling for Hamilton County, Indiana and the surrounding communities. Licensed contractors, honest pricing, and results that speak for themselves.
             </p>
 
             <div className="fu d4" style={{display:"flex",flexWrap:"wrap",gap:14}}>
@@ -410,8 +548,8 @@ function Hero(){
             </div>
 
             <div className="fu d5" style={{display:"flex",flexWrap:"wrap",gap:36,marginTop:52}}>
-              {[{n:"Local",l:"Hamilton County Born & Raised"},{n:"100%",l:"Licensed & Insured"},{n:"5.0★",l:"Google Rating"},{n:"Free",l:"On-Site Estimates"}].map(b=>
-                <div key={b.l}><div className="display" style={{color:"#fff",fontSize:26,fontWeight:800}}>{b.n}</div><div style={{color:"rgba(255,255,255,.5)",fontSize:12,fontWeight:600,letterSpacing:".03em",marginTop:2}}>{b.l}</div></div>
+              {[{n:"100+",l:"Projects Completed"},{n:"1-Year",l:"Workmanship Warranty"},{n:"5.0★",l:"Google Rating"},{n:"25-Year",l:"Schluter Waterproofing Warranty"},{n:"100%",l:"Licensed & Insured"}].map(b=>
+                <div key={b.l}><div className="display" style={{color:C.green,fontSize:26,fontWeight:800}}>{b.n}</div><div style={{color:"rgba(255,255,255,.4)",fontSize:12,fontWeight:600,letterSpacing:".03em",marginTop:2}}>{b.l}</div></div>
               )}
             </div>
           </div>
@@ -433,13 +571,13 @@ function Services(){
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:60}}>
           <div className="lab">What We Do</div>
-          <h2 className="ttl">Stamped Concrete, Patios & More</h2>
-          <p className="sub" style={{margin:"0 auto"}}>We specialize in stamped and decorative concrete patios — plus driveways, walkways, and full concrete replacement across Hamilton County.</p>
+          <h2 className="ttl">Comprehensive Remodeling Services</h2>
+          <p className="sub" style={{margin:"0 auto"}}>From kitchens and bathrooms to basements and outdoor spaces — our licensed team handles every phase of your project with precision and care.</p>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:22}}>
           {SVC.map((s,i)=>
             <div key={s.title} className={vis?`fu d${i%6+1}`:""} style={{padding:"32px 28px",borderRadius:14,border:`1px solid ${C.sand}`,background:"#fff",transition:"all .3s",cursor:"pointer",position:"relative",overflow:"hidden"}}
-              onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow="0 14px 40px rgba(240,232,220,.15)"}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow="0 14px 40px rgba(92,184,50,.1)"}}
               onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
               <div style={{position:"absolute",top:0,left:0,right:0,height:4,background:`linear-gradient(90deg,${s.color},${s.color}88)`,borderRadius:"14px 14px 0 0"}}/>
               <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,marginTop:4}}>
@@ -448,7 +586,7 @@ function Services(){
               </div>
               <h3 className="display" style={{fontSize:19,fontWeight:700,color:C.navy,marginBottom:10}}>{s.title}</h3>
               <p style={{color:C.gray,lineHeight:1.7,fontSize:14}}>{s.desc}</p>
-              <a href={s.href} style={{marginTop:16,color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:6,textDecoration:"none"}}>View Our Work {I.arrow}</a>
+              <a href={s.href} style={{marginTop:16,color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:6,textDecoration:"none"}}>{s.href.startsWith("/")?"Learn More":"View Our Work"} {I.arrow}</a>
             </div>
           )}
         </div>
@@ -457,69 +595,70 @@ function Services(){
   );
 }
 
-/* ─── The Difference ──────────────────────────────── */
+/* ─── The HomeStar Difference ──────────────────────── */
 function Difference(){
   const[ref,vis]=useVis();
   const items = [
     {
-      title: "Proper Base Preparation — Every Time",
-      desc: "We don't pour on dirt. Every project starts with full excavation, compactable aggregate base, and mechanical compaction. It costs more and takes longer, but it's why our concrete stays level and crack-free for decades while cheaper pours fail in a few years.",
-      highlight: "The Foundation of Quality",
+      title: "Schluter Pro Certified Installers",
+      desc: "We exclusively use the complete Schluter System — Ditra for floors, Kerdi for walls, and Schluter shower pans. This 100% waterproof system absorbs natural house movement, preventing cracked tiles and water damage. Because our installers are Schluter Pro Certified, your project is backed by a 25-year manufacturer's warranty.",
+      highlight: "25-Year Warranty",
       icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>,
     },
     {
-      title: "Reinforced Concrete Standard",
-      desc: "Every driveway and high-load surface we pour includes rebar or welded wire mesh reinforcement plus fiber mesh in the mix. This isn't an upgrade — it's our standard. Reinforcement prevents cracking and extends the life of your concrete by decades.",
-      highlight: "Rebar + Fiber Mesh Standard",
+      title: "Licensed Plumbers & Electricians Only",
+      desc: "Every plumbing and electrical component of your project is handled by fully licensed tradespeople — not handymen, not apprentices. We don't cut corners on the professionals responsible for your family's safety and code compliance.",
+      highlight: "Fully Licensed",
       icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>,
     },
     {
-      title: "Proper Grading & Drainage",
-      desc: "Water is concrete's worst enemy. We grade every surface for positive drainage away from your home and structures. Proper slope, strategic control joints, and correct thickness prevent pooling, erosion, and the freeze-thaw damage that destroys poorly planned pours.",
-      highlight: "Protects Your Investment",
+      title: "3D Design Renderings",
+      desc: "Before any work begins, we create detailed 3D renderings of your space so you can see exactly how your new room will look. We refine the design based on your feedback until every detail is right — tile patterns, fixtures, lighting, and layout.",
+      highlight: "See It Before We Build It",
       icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>,
     },
     {
-      title: "Clear Communication & Accountability",
-      desc: "You'll never be left wondering what's happening with your project. We provide a detailed written estimate, a clear timeline, and keep you informed from excavation through final finish. One point of contact, no runaround.",
+      title: "Responsive Communication & Accountability",
+      desc: "You'll never be left wondering what's happening with your project. Our team provides timely updates, answers your calls and messages promptly, and takes full accountability for every detail — from the first consultation through final walkthrough.",
       highlight: "Always In The Loop",
       icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>,
     },
     {
-      title: "Quality Materials, Not Shortcuts",
-      desc: "We use the right PSI concrete mix for every application — 4,000 PSI minimum for driveways, proper air entrainment for freeze-thaw resistance, and quality sealers that protect your finish. Cheap materials lead to early failure. We don't cut those corners.",
-      highlight: "4,000+ PSI Standard",
+      title: "Premium Materials, Not Shortcuts",
+      desc: "What goes under your tile matters more than the tile itself. While other contractors use standard cement board to save money, we invest in the Schluter System — the industry gold standard for waterproofing and long-term durability.",
+      highlight: "Built to Last",
       icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>,
     },
     {
       title: "Locally Owned & Community Rooted",
-      desc: "We're a small business rooted in Hamilton County. Your neighbors are our clients, and our reputation is built on every project we complete. Licensed with the State of Indiana, fully insured, and committed to this community.",
+      desc: "We're a small business deeply connected to Hamilton County. Your neighbors are our clients, and our reputation is built on every project we complete. Licensed with the State of Indiana, fully insured, and bonded.",
       highlight: "Your Neighbors Trust Us",
       icon: <svg width="28" height="28" fill="none" stroke={C.green} strokeWidth="1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>,
     },
   ];
 
   return(
-    <section id="difference" className="sec" style={{background:C.cream,position:"relative",overflow:"hidden"}} ref={ref}>
+    <section id="difference" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,position:"relative",overflow:"hidden"}} ref={ref}>
+      <div style={{position:"absolute",top:-80,left:-80,width:400,height:400,borderRadius:"50%",background:"radial-gradient(circle,rgba(92,184,50,.08) 0%,transparent 70%)"}}/>
       <div className="sec-in" style={{position:"relative",zIndex:2}}>
         <div style={{textAlign:"center",marginBottom:56}}>
-          <div className="lab">Why Hamilton County Concrete and Patios</div>
-          <h2 className="ttl">The Difference Is in the Details</h2>
-          <p className="sub" style={{margin:"0 auto"}}>Stamped concrete and decorative finishes demand a higher level of skill. Here's what sets our work apart.</p>
+          <div className="lab">Why HomeStar</div>
+          <h2 className="ttl ttl-w">The HomeStar Difference</h2>
+          <p className="sub" style={{margin:"0 auto",color:"rgba(255,255,255,.45)"}}>We're not the cheapest option — and that's by design. Here's what you get when you choose a contractor who invests in doing it right.</p>
         </div>
 
-        {/* Stamped concrete callout */}
-        <div className={vis?"fu d1":""} style={{background:C.navy,borderRadius:16,padding:"32px 36px",marginBottom:36,display:"flex",flexWrap:"wrap",gap:32,alignItems:"center"}}>
+        {/* Schluter callout */}
+        <div className={vis?"fu d1":""} style={{background:"rgba(92,184,50,.08)",border:"1px solid rgba(92,184,50,.2)",borderRadius:16,padding:"32px 36px",marginBottom:36,display:"flex",flexWrap:"wrap",gap:32,alignItems:"center"}}>
           <div style={{flex:"1 1 400px"}}>
-            <div style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(160,145,127,.2)",borderRadius:50,padding:"6px 14px",marginBottom:16}}>
-              <span style={{color:C.green,fontWeight:800,fontSize:11,letterSpacing:".08em"}}>STAMPED & DECORATIVE SPECIALISTS</span>
+            <div style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(92,184,50,.15)",borderRadius:50,padding:"6px 14px",marginBottom:16}}>
+              <span style={{color:C.green,fontWeight:800,fontSize:11,letterSpacing:".08em"}}>SCHLUTER PRO CERTIFIED</span>
             </div>
-            <h3 className="display" style={{color:"#fff",fontSize:22,marginBottom:10}}>Beautiful Finishes Start With a Perfect Foundation</h3>
-            <p style={{color:"rgba(255,255,255,.55)",fontSize:14,lineHeight:1.75}}>Stamped concrete is only as good as the pour beneath it. We <strong style={{color:"#fff"}}>excavate to full depth</strong>, install compactable aggregate base, and mechanically compact before pouring. Then our finishing crew applies patterns, color hardeners, and release agents with the precision that decorative work demands. The result is a surface that looks stunning <em>and</em> lasts decades.</p>
+            <h3 className="display" style={{color:"#fff",fontSize:22,marginBottom:10}}>The Hidden Investment That Changes Everything</h3>
+            <p style={{color:"rgba(255,255,255,.55)",fontSize:14,lineHeight:1.75}}>What goes <strong style={{color:"#fff"}}>under</strong> your tile matters more than the tile itself. We exclusively use the complete Schluter waterproofing system — the bright orange material that's 100% waterproof and absorbs natural house movement. Standard cement board is rigid, absorbs moisture over time, and leads to cracked tiles and water damage. Our approach costs more upfront but protects your investment for decades.</p>
           </div>
           <div style={{flex:"0 0 auto",display:"flex",gap:20}}>
-            {[{label:"Our Method",sub:"Full excavation + aggregate base",color:C.green},{label:"The Shortcut",sub:"Pour on existing soil",color:"#888"}].map(c=>
-              <div key={c.label} style={{textAlign:"center",padding:"20px 24px",borderRadius:12,background:"rgba(255,255,255,.06)",border:`1px solid ${c.color}33`,minWidth:130}}>
+            {[{label:"Schluter System",sub:"100% waterproof",color:C.green},{label:"Cement Board",sub:"Absorbs moisture",color:"#888"}].map(c=>
+              <div key={c.label} style={{textAlign:"center",padding:"20px 24px",borderRadius:12,background:"rgba(255,255,255,.05)",border:`1px solid ${c.color}33`,minWidth:130}}>
                 <div className="display" style={{color:c.color,fontSize:14,fontWeight:700,marginBottom:4}}>{c.label}</div>
                 <div style={{color:"rgba(255,255,255,.4)",fontSize:11}}>{c.sub}</div>
               </div>
@@ -530,23 +669,23 @@ function Difference(){
         {/* Cards grid */}
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))",gap:20}}>
           {items.map((item,i)=>
-            <div key={item.title} className={vis?`fu d${i%6+1}`:""} style={{padding:"28px 26px",borderRadius:14,background:"#fff",border:`1px solid ${C.sand}`,transition:"all .3s"}}
-              onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 12px 36px rgba(0,0,0,.06)"}}
-              onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
+            <div key={item.title} className={vis?`fu d${i%6+1}`:""} style={{padding:"28px 26px",borderRadius:14,background:"rgba(255,255,255,.03)",border:"1px solid rgba(255,255,255,.07)",transition:"all .3s"}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(92,184,50,.3)";e.currentTarget.style.transform="translateY(-3px)"}}
+              onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,.07)";e.currentTarget.style.transform="translateY(0)"}}>
               <div style={{display:"flex",alignItems:"center",gap:14,marginBottom:14}}>
-                <div style={{width:44,height:44,borderRadius:10,background:C.greenMuted,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{item.icon}</div>
+                <div style={{width:44,height:44,borderRadius:10,background:"rgba(92,184,50,.1)",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{item.icon}</div>
                 <div>
-                  <h3 className="display" style={{color:C.navy,fontSize:16,lineHeight:1.3}}>{item.title}</h3>
+                  <h3 className="display" style={{color:"#fff",fontSize:16,lineHeight:1.3}}>{item.title}</h3>
                   <span style={{color:C.green,fontSize:11,fontWeight:700,letterSpacing:".04em"}}>{item.highlight}</span>
                 </div>
               </div>
-              <p style={{color:C.gray,fontSize:13,lineHeight:1.7}}>{item.desc}</p>
+              <p style={{color:"rgba(255,255,255,.45)",fontSize:13,lineHeight:1.7}}>{item.desc}</p>
             </div>
           )}
         </div>
 
         <div style={{textAlign:"center",marginTop:44}}>
-          <a href="#estimate" className="btn-n" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
+          <a href="#estimate" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
         </div>
       </div>
     </section>
@@ -557,7 +696,7 @@ function Difference(){
 function OurProcess(){
   const[ref,vis]=useVis();
   return(
-    <section id="process" className="sec" style={{background:"#fff"}} ref={ref}>
+    <section id="process" className="sec" style={{background:C.cream}} ref={ref}>
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:60}}>
           <div className="lab">How We Work</div>
@@ -566,7 +705,7 @@ function OurProcess(){
         </div>
         <div style={{display:"flex",flexDirection:"column",gap:32}}>
           {PROCESS.map((p,i)=>
-            <div key={p.step} className={vis?`fu d${i+1}`:""} style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:40,alignItems:"center",background:C.cream,borderRadius:16,padding:"40px 36px",boxShadow:"0 2px 16px rgba(0,0,0,.04)",border:`1px solid ${C.sand}`}}>
+            <div key={p.step} className={vis?`fu d${i+1}`:""} style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:40,alignItems:"center",background:"#fff",borderRadius:16,padding:"40px 36px",boxShadow:"0 2px 16px rgba(0,0,0,.04)",border:`1px solid ${C.sand}`}}>
               <div>
                 <div style={{display:"flex",alignItems:"center",gap:14,marginBottom:16}}>
                   <div style={{width:48,height:48,borderRadius:12,background:C.greenMuted,display:"flex",alignItems:"center",justifyContent:"center"}}>{p.icon}</div>
@@ -589,8 +728,8 @@ function OurProcess(){
         {/* After project */}
         <div style={{textAlign:"center",marginTop:48,padding:"36px 28px",background:`linear-gradient(135deg,${C.navy},${C.navyLight})`,borderRadius:16}}>
           <div style={{marginBottom:12}}>{I.shield}</div>
-          <h3 className="display" style={{color:"#fff",fontSize:22,marginBottom:8}}>We Stand Behind Every Pour</h3>
-          <p style={{color:"rgba(255,255,255,.55)",fontSize:14,lineHeight:1.7,maxWidth:560,margin:"0 auto 20px"}}>Quality concrete should last for decades — and ours does. If anything needs attention after we're done, we come back and take care of it. That's our commitment to you.</p>
+          <h3 className="display" style={{color:"#fff",fontSize:22,marginBottom:8}}>After the Project — We Stand Behind Our Work</h3>
+          <p style={{color:"rgba(255,255,255,.55)",fontSize:14,lineHeight:1.7,maxWidth:560,margin:"0 auto 20px"}}>Every project includes a 1-year workmanship warranty. If anything needs attention after we're done, we come back and take care of it. That's our commitment to you.</p>
           <a href="#estimate" className="btn-g">Start Your Project {I.arrow}</a>
         </div>
       </div>
@@ -608,14 +747,19 @@ function Carousel({ images, color, title }) {
     return (
       <div style={{height:230,background:`linear-gradient(135deg,${color},${color}aa)`,display:"flex",alignItems:"center",justifyContent:"center",position:"relative"}}>
         <div style={{position:"absolute",inset:0,opacity:.06,backgroundImage:"repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.5) 10px,rgba(255,255,255,.5) 11px)"}}/>
-        <span style={{color:"rgba(255,255,255,.25)",fontSize:12,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase"}}>Project Photo Coming Soon</span>
+        <span style={{color:"rgba(255,255,255,.25)",fontSize:12,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase"}}>Project Photo</span>
       </div>
     );
   }
 
   return (
     <div style={{position:"relative",height:230,overflow:"hidden",background:C.navyDark}}>
-      <img src={images[idx].src} alt={images[idx].alt || title} style={{width:"100%",height:"100%",objectFit:"cover",transition:"opacity .3s ease"}} loading="lazy"/>
+      <img
+        src={images[idx].src}
+        alt={images[idx].alt || title}
+        style={{width:"100%",height:"100%",objectFit:"cover",transition:"opacity .3s ease"}}
+        loading="lazy"
+      />
       {multi && (
         <>
           <button onClick={(e)=>{e.stopPropagation();setIdx(idx===0?images.length-1:idx-1)}}
@@ -628,13 +772,18 @@ function Carousel({ images, color, title }) {
             onMouseEnter={e=>e.currentTarget.style.background="rgba(0,0,0,.75)"}
             onMouseLeave={e=>e.currentTarget.style.background="rgba(0,0,0,.5)"}
           >{I.chevR}</button>
+          {/* Dot indicators */}
           <div style={{position:"absolute",bottom:10,left:"50%",transform:"translateX(-50%)",display:"flex",gap:6}}>
             {images.map((_,j)=>(
               <button key={j} onClick={(e)=>{e.stopPropagation();setIdx(j)}}
-                style={{width:idx===j?18:7,height:7,borderRadius:4,background:idx===j?"#fff":"rgba(255,255,255,.45)",border:"none",cursor:"pointer",transition:"all .25s",padding:0}}/>
+                style={{width:idx===j?18:7,height:7,borderRadius:4,background:idx===j?"#fff":"rgba(255,255,255,.45)",border:"none",cursor:"pointer",transition:"all .25s",padding:0}}
+              />
             ))}
           </div>
-          <div style={{position:"absolute",top:10,right:12,background:"rgba(0,0,0,.55)",color:"#fff",fontSize:11,fontWeight:700,padding:"3px 10px",borderRadius:20,backdropFilter:"blur(4px)"}}>{idx+1} / {images.length}</div>
+          {/* Counter */}
+          <div style={{position:"absolute",top:10,right:12,background:"rgba(0,0,0,.55)",color:"#fff",fontSize:11,fontWeight:700,padding:"3px 10px",borderRadius:20,backdropFilter:"blur(4px)"}}>
+            {idx+1} / {images.length}
+          </div>
         </>
       )}
     </div>
@@ -648,15 +797,15 @@ function Projects(){
   const cats=["All",...new Set(PROJECTS.map(p=>p.cat))];
   const filtered=filter==="All"?PROJECTS:PROJECTS.filter(p=>p.cat===filter);
   return(
-    <section id="projects" className="sec" style={{background:C.cream}} ref={ref}>
+    <section id="projects" className="sec" style={{background:"#fff"}} ref={ref}>
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:48}}>
           <div className="lab">Our Portfolio</div>
-          <h2 className="ttl">Stamped Patios, Decorative Concrete & More</h2>
-          <p className="sub" style={{margin:"0 auto"}}>See the custom stamped patios, decorative finishes, and concrete work we've completed across Hamilton County.</p>
+          <h2 className="ttl">Real Projects. Real Homes. Real Results.</h2>
+          <p className="sub" style={{margin:"0 auto"}}>See the difference HomeStar makes in real homes across Hamilton County. Our portfolio showcases the quality and care we bring to every project.</p>
         </div>
         <div style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:8,marginBottom:36}}>
-          {cats.map(c=><button key={c} onClick={()=>setFilter(c)} style={{padding:"9px 20px",borderRadius:50,border:"none",cursor:"pointer",fontWeight:700,fontSize:12,letterSpacing:".02em",fontFamily:"'Plus Jakarta Sans',sans-serif",background:filter===c?C.navy:"#fff",color:filter===c?"#fff":C.grayDark,transition:"all .2s",boxShadow:filter===c?"0 4px 14px rgba(45,62,70,.2)":"0 1px 4px rgba(0,0,0,.06)"}}>{c}</button>)}
+          {cats.map(c=><button key={c} onClick={()=>setFilter(c)} style={{padding:"9px 20px",borderRadius:50,border:"none",cursor:"pointer",fontWeight:700,fontSize:12,letterSpacing:".02em",fontFamily:"'Plus Jakarta Sans',sans-serif",background:filter===c?C.navy:"#fff",color:filter===c?"#fff":C.grayDark,transition:"all .2s",boxShadow:filter===c?"0 4px 14px rgba(27,42,74,.2)":"0 1px 4px rgba(0,0,0,.06)"}}>{c}</button>)}
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))",gap:22}}>
           {filtered.map((p,i)=>
@@ -674,7 +823,71 @@ function Projects(){
           )}
         </div>
         <div style={{textAlign:"center",marginTop:44}}>
-          <a href="#contact" className="btn-n">Discuss Your Project {I.arrow}</a>
+          <a href="#contact" className="btn-n">View Full Portfolio {I.arrow}</a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Videos ───────────────────────────────────────── */
+function YouTubeFacade({id,title}){
+  const[play,setPlay]=useState(false);
+  return(
+    <div style={{position:"relative",width:"100%",paddingTop:"177.78%",background:C.navyDark}}>
+      {play?(
+        <iframe
+          src={`https://www.youtube.com/embed/${id}?autoplay=1`}
+          title={title}
+          style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:"none"}}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      ):(
+        <button onClick={()=>setPlay(true)} aria-label={`Play ${title}`}
+          style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",border:"none",cursor:"pointer",background:"none",padding:0}}>
+          <img src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`} alt={title}
+            loading="lazy" style={{width:"100%",height:"100%",objectFit:"cover"}}/>
+          <div style={{position:"absolute",inset:0,background:"rgba(0,0,0,.25)",display:"flex",alignItems:"center",justifyContent:"center",transition:"background .3s"}}
+            onMouseEnter={e=>e.currentTarget.style.background="rgba(0,0,0,.1)"}
+            onMouseLeave={e=>e.currentTarget.style.background="rgba(0,0,0,.25)"}>
+            <div style={{width:64,height:64,borderRadius:"50%",background:"rgba(255,0,0,.9)",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:"0 4px 20px rgba(0,0,0,.4)"}}>
+              {I.play}
+            </div>
+          </div>
+        </button>
+      )}
+    </div>
+  );
+}
+
+function Videos(){
+  const[ref,vis]=useVis();
+  return(
+    <section id="videos" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}} ref={ref}>
+      <div className="sec-in">
+        <div style={{textAlign:"center",marginBottom:52}}>
+          <div className="lab">See Our Work in Action</div>
+          <h2 className="ttl ttl-w">Video Walkthroughs</h2>
+          <p className="sub" style={{margin:"0 auto",color:"rgba(255,255,255,.45)"}}>Watch our process and results up close with behind-the-scenes project videos.</p>
+        </div>
+        {/* Horizontal scroll container for vertical Shorts */}
+        <div style={{display:"flex",gap:20,overflowX:"auto",paddingBottom:16,scrollSnapType:"x mandatory",WebkitOverflowScrolling:"touch"}}>
+          {VIDEOS.map((v,i)=>
+            <div key={v.id} className={vis?`fu d${i+1}`:""} style={{minWidth:280,maxWidth:300,flexShrink:0,borderRadius:14,overflow:"hidden",background:"rgba(255,255,255,.04)",border:"1px solid rgba(255,255,255,.08)",scrollSnapAlign:"start",transition:"all .3s"}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(92,184,50,.35)";e.currentTarget.style.transform="translateY(-4px)"}}
+              onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,.08)";e.currentTarget.style.transform="translateY(0)"}}>
+              <YouTubeFacade id={v.id} title={v.title}/>
+              <div style={{padding:"18px 20px 22px"}}>
+                <h3 className="display" style={{color:"#fff",fontSize:14,marginBottom:8,lineHeight:1.35}}>{v.title}</h3>
+                <p style={{color:"rgba(255,255,255,.4)",fontSize:12,lineHeight:1.6}}>{v.desc}</p>
+              </div>
+            </div>
+          )}
+        </div>
+        {/* Scroll hint */}
+        <div style={{textAlign:"center",marginTop:16,color:"rgba(255,255,255,.25)",fontSize:12,fontWeight:600}}>
+          ← Swipe to see more videos →
         </div>
       </div>
     </section>
@@ -691,12 +904,12 @@ function Blog(){
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:52}}>
           <div className="lab">Expert Tips & Insights</div>
-          <h2 className="ttl">From the HCC Blog</h2>
+          <h2 className="ttl">From the HomeStar Blog</h2>
           <p className="sub" style={{margin:"0 auto"}}>Helpful guides, project inspiration, and homeowner tips from our team.</p>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:22}}>
           {BLOG.map((b,i)=>
-            <article key={b.title} className={vis?`fu d${i+1}`:""} onClick={()=>setOpenPost(b)} style={{borderRadius:14,overflow:"hidden",border:`1px solid ${C.sand}`,background:"#fff",transition:"all .3s",cursor:"pointer"}}
+            <article key={b.title} className={vis?`fu d${i+1}`:""} onClick={()=>setOpenPost(b)} style={{borderRadius:14,overflow:"hidden",border:`1px solid ${C.sand}`,transition:"all .3s",cursor:"pointer"}}
               onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.07)"}}
               onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
               <div style={{height:5,background:`linear-gradient(90deg,${C.navy},${C.green})`}}/>
@@ -723,10 +936,12 @@ function Blog(){
           onClick={()=>setOpenPost(null)}>
           <div style={{background:"#fff",borderRadius:18,maxWidth:720,width:"100%",padding:"48px 40px",position:"relative",animation:"fu .4s ease-out"}}
             onClick={e=>e.stopPropagation()}>
+            {/* Close button */}
             <button onClick={()=>setOpenPost(null)} style={{position:"absolute",top:18,right:18,width:36,height:36,borderRadius:"50%",background:C.cream,border:"none",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"background .2s"}}
               onMouseEnter={e=>e.currentTarget.style.background=C.sand}
               onMouseLeave={e=>e.currentTarget.style.background=C.cream}>{I.close}</button>
 
+            {/* Post header */}
             <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:18}}>
               <span style={{fontSize:11,fontWeight:700,letterSpacing:".07em",color:C.green,textTransform:"uppercase",background:C.greenMuted,padding:"4px 12px",borderRadius:50}}>{openPost.cat}</span>
               <span style={{display:"flex",alignItems:"center",gap:4,fontSize:12,color:C.gray}}>{I.clock} {openPost.read}</span>
@@ -736,10 +951,12 @@ function Blog(){
             <h2 className="display" style={{fontSize:28,color:C.navy,lineHeight:1.25,marginBottom:8}}>{openPost.title}</h2>
             <div style={{height:4,width:60,background:C.green,borderRadius:2,marginBottom:28}}/>
 
+            {/* Post body */}
             {openPost.body&&openPost.body.map((p,i)=>
               <p key={i} style={{color:C.grayDark,fontSize:15,lineHeight:1.85,marginBottom:18}}>{p}</p>
             )}
 
+            {/* CTA at bottom */}
             <div style={{marginTop:32,padding:"24px 28px",background:C.cream,borderRadius:12,textAlign:"center"}}>
               <p className="display" style={{color:C.navy,fontSize:17,marginBottom:12}}>Ready to start your project?</p>
               <a href="#estimate" className="btn-g" onClick={()=>setOpenPost(null)}>Get a Free Estimate {I.arrow}</a>
@@ -754,33 +971,24 @@ function Blog(){
 /* ─── Testimonials ─────────────────────────────────── */
 function Testimonials(){
   const[ref,vis]=useVis();
-  /* TODO: Replace with Elfsight widget once you have a widget ID */
-  /* useEffect(()=>{
+  useEffect(()=>{
     if(!document.querySelector('script[src="https://elfsightcdn.com/platform.js"]')){
       const s=document.createElement("script");
       s.src="https://elfsightcdn.com/platform.js";
       s.async=true;
       document.body.appendChild(s);
     }
-  },[]); */
+  },[]);
   return(
-    <section className="sec" style={{background:C.cream}} ref={ref}>
+    <section id="reviews" className="sec" style={{background:C.cream}} ref={ref}>
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:52}}>
           <div className="lab">Trusted by Homeowners</div>
           <h2 className="ttl">What Our Clients Say</h2>
           <p className="sub" style={{margin:"0 auto"}}>Real reviews from real homeowners across Hamilton County.</p>
         </div>
-        {/* Placeholder testimonials — replace with Elfsight widget */}
-        {/* <div className="elfsight-app-YOUR_WIDGET_ID" data-elfsight-app-lazy></div> */}
-        <div className={vis?"fu d1":""} style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))",gap:22}}>
-          {TESTIMONIALS.map((t,i)=>
-            <div key={i} style={{padding:"32px 28px",borderRadius:14,background:"#fff",border:`1px solid ${C.sand}`}}>
-              <div style={{display:"flex",gap:2,marginBottom:14}}>{Array.from({length:t.rating}).map((_,j)=><span key={j}>{I.star}</span>)}</div>
-              <p style={{color:C.grayDark,fontSize:14,lineHeight:1.75,fontStyle:"italic",marginBottom:18}}>"{t.text}"</p>
-              <div><div style={{fontWeight:700,fontSize:14,color:C.navy}}>{t.name}</div><div style={{fontSize:12,color:C.gray}}>{t.loc}</div></div>
-            </div>
-          )}
+        <div className={vis?"fu d1":""}>
+          <div className="elfsight-app-aa4b2192-d931-4bb1-9f22-53adc2e6ed5e" data-elfsight-app-lazy></div>
         </div>
       </div>
     </section>
@@ -791,36 +999,39 @@ function Testimonials(){
 function ServiceAreas(){
   const[ref,vis]=useVis();
   const cities=[
-    {name:"Carmel",slug:"concrete-services-carmel-in",desc:"West Clay, Arts District, City Center & more",projects:"Driveways, patios & walkways"},
-    {name:"Fishers",slug:"concrete-services-fishers-in",desc:"Geist, Saxony, Britton Falls & more",projects:"Full concrete services"},
-    {name:"Noblesville",slug:"concrete-services-noblesville-in",desc:"Downtown, Morse Reservoir, Millstone & more",projects:"Residential & commercial"},
-    {name:"Westfield",slug:"concrete-services-westfield-in",desc:"Grand Park, Chatham Hills, Bridgewater & more",projects:"New construction & replacement"},
-    {name:"Zionsville",slug:"concrete-services-zionsville-in",desc:"Village, Holliday Farms, Traders Point & more",projects:"Premium concrete finishes"},
+    {name:"Fishers",slug:"home-remodeling-fishers-in",desc:"Geist, Saxony, Britton Falls & more",projects:"7+ projects completed"},
+    {name:"Carmel",slug:"home-remodeling-carmel-in",desc:"West Clay, Arts District, City Center & more",projects:"Custom tile specialist"},
+    {name:"Noblesville",slug:"home-remodeling-noblesville-in",desc:"Downtown, Morse Reservoir, Millstone & more",projects:"Floor-to-ceiling tile experts"},
+    {name:"Westfield",slug:"home-remodeling-westfield-in",desc:"Grand Park, Chatham Hills, Bridgewater & more",projects:"Budget-friendly options"},
+    {name:"Zionsville",slug:"home-remodeling-zionsville-in",desc:"Village, Holliday Farms, Traders Point & more",projects:"Premium renovations"},
+    {name:"Fortville",slug:"home-remodeling-fortville-in",desc:"Downtown Fortville, Buck Creek area & more",projects:"Custom outdoor living"},
+    {name:"McCordsville",slug:"home-remodeling-mccordsville-in",desc:"Geist area, Mt. Comfort corridor & more",projects:"Growing community"},
   ];
   return(
-    <section id="areas" className="sec" style={{background:"#fff"}} ref={ref}>
-      <div className="sec-in">
+    <section id="areas" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,position:"relative",overflow:"hidden"}} ref={ref}>
+      <div style={{position:"absolute",top:-60,left:-60,width:350,height:350,borderRadius:"50%",background:"radial-gradient(circle,rgba(92,184,50,.06) 0%,transparent 70%)"}}/>
+      <div className="sec-in" style={{position:"relative",zIndex:2}}>
         <div style={{textAlign:"center",marginBottom:52}}>
           <div className="lab">Where We Work</div>
-          <h2 className="ttl">Serving Hamilton County & Beyond</h2>
-          <p className="sub" style={{margin:"0 auto"}}>Stamped concrete patios, decorative outdoor living spaces, driveways, and more across central Indiana's top communities.</p>
+          <h2 className="ttl ttl-w">Serving Hamilton County & Beyond</h2>
+          <p className="sub" style={{margin:"0 auto",color:"rgba(255,255,255,.45)"}}>Bathroom remodeling, kitchen renovation, and basement finishing across central Indiana's top communities.</p>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))",gap:16}}>
           {cities.map((c,i)=>
-            <a key={c.name} href={`/${c.slug}`} className={vis?`fu d${i+1}`:""} style={{padding:"28px 22px",borderRadius:14,background:C.cream,border:`1px solid ${C.sand}`,textDecoration:"none",transition:"all .3s",display:"block"}}
-              onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.boxShadow="0 12px 36px rgba(0,0,0,.06)"}}
-              onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
-              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10,color:C.green}}>
+            <a key={c.name} href={`/${c.slug}`} className={vis?`fu d${i+1}`:""} style={{padding:"28px 22px",borderRadius:14,background:"rgba(255,255,255,.04)",border:"1px solid rgba(255,255,255,.08)",textDecoration:"none",transition:"all .3s",display:"block"}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(92,184,50,.35)";e.currentTarget.style.transform="translateY(-4px)";e.currentTarget.style.background="rgba(255,255,255,.06)"}}
+              onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,.08)";e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.background="rgba(255,255,255,.04)"}}>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10}}>
                 {I.pin}
-                <h3 className="display" style={{color:C.navy,fontSize:18}}>{c.name}, IN</h3>
+                <h3 className="display" style={{color:"#fff",fontSize:18}}>{c.name}, IN</h3>
               </div>
-              <p style={{color:C.gray,fontSize:12,lineHeight:1.6,marginBottom:12}}>{c.desc}</p>
+              <p style={{color:"rgba(255,255,255,.4)",fontSize:12,lineHeight:1.6,marginBottom:12}}>{c.desc}</p>
               <span style={{color:C.green,fontSize:12,fontWeight:700,display:"flex",alignItems:"center",gap:5}}>View {c.name} Services {I.arrow}</span>
             </a>
           )}
         </div>
         <div style={{textAlign:"center",marginTop:36}}>
-          <p style={{color:C.gray,fontSize:13}}>Also serving Brownsburg, Pendleton, McCordsville, Fortville, and surrounding communities.</p>
+          <p style={{color:"rgba(255,255,255,.3)",fontSize:13}}>Also serving Brownsburg, Pendleton, and surrounding communities.</p>
         </div>
       </div>
     </section>
@@ -831,27 +1042,26 @@ function ServiceAreas(){
 function About(){
   const[ref,vis]=useVis();
   return(
-    <section id="about" className="sec" style={{background:C.cream}} ref={ref}>
+    <section id="about" className="sec" style={{background:"#fff"}} ref={ref}>
       <div className="sec-in">
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(360px,1fr))",gap:56,alignItems:"center"}}>
           <div className={vis?"fu d1":""}>
             <div className="lab">Who We Are</div>
-            <h2 className="ttl">Stamped Concrete &<br/>Patio Specialists</h2>
+            <h2 className="ttl">Built on Friendship,<br/>Backed by Experience</h2>
             <p style={{color:C.gray,fontSize:15,lineHeight:1.8,marginBottom:22}}>
-              Hamilton County Concrete and Patios is a locally owned company serving Carmel, Fishers, Noblesville, Westfield, Zionsville, and surrounding communities. We specialize in stamped and decorative concrete — patios, outdoor living spaces, driveways, and walkways that stand out.
+              HomeStar Services and Contracting is a family-owned remodeling company rooted in Hamilton County. We specialize in residential projects that improve how you live in your home — from full renovations to targeted upgrades that make a real difference.
             </p>
             <p style={{color:C.gray,fontSize:15,lineHeight:1.8,marginBottom:28}}>
-              While we handle all types of concrete work, our passion is creating outdoor spaces people love. Custom stamp patterns, integral colors, decorative borders, and expert finishing — that's where we really shine. No shortcuts, no pressure, no surprises — just beautiful concrete and honest service.
+              Co-founded by <strong style={{color:C.navy}}>Robb and Eric</strong>, two lifelong friends with backgrounds in real estate and small business, HomeStar was built on a straightforward idea: treat every home like it's our own, and treat every homeowner like they're family.
             </p>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
-              {["Licensed, Bonded & Insured","Proper Base Prep Every Time","Transparent, Honest Pricing","Reinforced Concrete Standard","Clean Job Sites Always","Free On-Site Estimates"].map(item=>
+              {["Licensed, Bonded & Insured","1-Year Workmanship Warranty","Transparent, Honest Pricing","Customer-First Communication","Clean Job Sites Always","On-Time Completion"].map(item=>
                 <div key={item} style={{display:"flex",alignItems:"center",gap:8}}>{I.check}<span style={{fontSize:13,fontWeight:600,color:C.grayDark}}>{item}</span></div>
               )}
             </div>
           </div>
-          <div className={vis?"sl d2":""} style={{height:440,borderRadius:16,overflow:"hidden",position:"relative",background:`linear-gradient(135deg,${C.navyDark},${C.navyLight})`,display:"flex",alignItems:"center",justifyContent:"center"}}>
-            {/* Replace with team photo: <img src="/images/team-photo.jpg" alt="Hamilton County Concrete and Patios team" style={{width:"100%",height:"100%",objectFit:"cover"}} loading="lazy"/> */}
-            <img src="/images/logo-horizontal-light.png" alt="Hamilton County Concrete and Patios" style={{width:"70%",objectFit:"contain",opacity:.85}} loading="lazy"/>
+          <div className={vis?"sl d2":""} style={{height:440,borderRadius:16,overflow:"hidden",position:"relative"}}>
+            <img src="/images/robb-eric-1.JPG" alt="HomeStar founders Robb and Eric" style={{width:"100%",height:"100%",objectFit:"cover"}} loading="lazy"/>
             <div style={{position:"absolute",bottom:-16,right:-16,width:100,height:100,borderRadius:14,background:C.green,opacity:.2}}/>
           </div>
         </div>
@@ -865,7 +1075,7 @@ function FAQ(){
   const[open,setOpen]=useState(null);
   const[ref,vis]=useVis();
   return(
-    <section id="faq" className="sec" style={{background:"#fff"}} ref={ref}>
+    <section id="faq" className="sec" style={{background:C.cream}} ref={ref}>
       <div className="sec-in" style={{maxWidth:780}}>
         <div style={{textAlign:"center",marginBottom:52}}>
           <div className="lab">Common Questions</div>
@@ -873,7 +1083,7 @@ function FAQ(){
         </div>
         <div style={{display:"flex",flexDirection:"column",gap:10}}>
           {FAQS.map((f,i)=>
-            <div key={i} className={vis?`fu d${Math.min(i+1,5)}`:""} style={{background:C.cream,borderRadius:12,overflow:"hidden",border:`1px solid ${open===i?C.green:C.sand}`,transition:"border-color .3s"}}>
+            <div key={i} className={vis?`fu d${Math.min(i+1,5)}`:""} style={{background:"#fff",borderRadius:12,overflow:"hidden",border:`1px solid ${open===i?C.green:C.sand}`,transition:"border-color .3s"}}>
               <button onClick={()=>setOpen(open===i?null:i)} style={{width:"100%",padding:"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",cursor:"pointer",textAlign:"left",fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:700,fontSize:15,color:C.navy}}>
                 {f.q}<span style={{transform:open===i?"rotate(180deg)":"rotate(0)",transition:"transform .3s",flexShrink:0,marginLeft:14}}>{I.chevDown}</span>
               </button>
@@ -892,11 +1102,18 @@ function FAQ(){
 function Contact(){
   const[ref,vis]=useVis();
   useEffect(()=>{
+    // Load Jobber CSS
     if(!document.querySelector('link[href*="work_request_embed.css"]')){
-      const link=document.createElement("link");link.rel="stylesheet";link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";link.media="screen";document.head.appendChild(link);
+      const link=document.createElement("link");
+      link.rel="stylesheet";
+      link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";
+      link.media="screen";
+      document.head.appendChild(link);
     }
+    // Load Jobber script
     if(!document.querySelector('script[src*="work_request_embed_snippet"]')){
-      const s=document.createElement("script");s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
+      const s=document.createElement("script");
+      s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
       s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
       s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
       document.body.appendChild(s);
@@ -904,39 +1121,31 @@ function Contact(){
   },[]);
   return(
     <section id="contact" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,position:"relative",overflow:"hidden"}} ref={ref}>
-      <div style={{position:"absolute",top:0,left:0,right:0,height:70,background:"#fff",clipPath:"polygon(0 0,100% 0,100% 100%)"}}/>
-      <div style={{position:"absolute",top:-80,right:-80,width:380,height:380,borderRadius:"50%",background:"radial-gradient(circle,rgba(240,232,220,.12) 0%,transparent 70%)"}}/>
+      <div style={{position:"absolute",top:0,left:0,right:0,height:70,background:C.cream,clipPath:"polygon(0 0,100% 0,100% 100%)"}}/>
+      <div style={{position:"absolute",top:-80,right:-80,width:380,height:380,borderRadius:"50%",background:"radial-gradient(circle,rgba(92,184,50,.08) 0%,transparent 70%)"}}/>
       <div className="sec-in" style={{position:"relative",zIndex:2}}>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(360px,1fr))",gap:56}}>
           <div className={vis?"fu d1":""}>
             <div className="lab">Get Started</div>
             <h2 className="ttl ttl-w">Let's Talk About<br/>Your Project</h2>
             <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:36,maxWidth:420}}>
-              Whether it's a custom stamped patio, a decorative driveway, or a full outdoor living space — we're here to help. Reach out for a free estimate. No obligation, no pressure, just an honest conversation about what's possible.
+              Whether it's a full-scale renovation or a single room that needs attention, we're here to help. Reach out for a free estimate — no obligation, no pressure, just a real conversation about what's possible.
             </p>
             <div style={{display:"flex",flexDirection:"column",gap:22}}>
-              <div style={{display:"flex",gap:14,alignItems:"flex-start"}}>
-                <div style={{color:C.green,flexShrink:0,marginTop:2}}>{I.phone}</div>
-                <div><a href="tel:+13172795643" style={{color:"#fff",fontWeight:700,fontSize:14,textDecoration:"none"}}>(317) 279-5643</a><div style={{color:"rgba(255,255,255,.35)",fontSize:12}}>Mon–Fri 7am–6pm, Sat 8am–2pm</div></div>
-              </div>
-              <div style={{display:"flex",gap:14,alignItems:"flex-start"}}>
-                <div style={{color:C.green,flexShrink:0,marginTop:2}}>{I.mail}</div>
-                <div><a href="mailto:eric@hamiltoncountyconcrete.com" style={{color:"#fff",fontWeight:700,fontSize:14,textDecoration:"none"}}>eric@hamiltoncountyconcrete.com</a><div style={{color:"rgba(255,255,255,.35)",fontSize:12}}>We respond within 24 hours</div></div>
-              </div>
-              <div style={{display:"flex",gap:14,alignItems:"flex-start"}}>
-                <div style={{color:C.green,flexShrink:0,marginTop:2}}>{I.pin}</div>
-                <div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>Hamilton County, Indiana</div><div style={{color:"rgba(255,255,255,.35)",fontSize:12}}>Carmel • Fishers • Westfield • Noblesville • Zionsville</div></div>
-              </div>
+              {[{icon:I.phone,label:"(317) 279-4798",sub:"Mon–Fri 7am–6pm, Sat 8am–2pm"},{icon:I.mail,label:"eric@thehomestarservice.com",sub:"We respond within 24 hours"},{icon:I.pin,label:"Hamilton County, Indiana",sub:"Carmel • Fishers • Westfield • Noblesville • Zionsville"}].map(c=>
+                <div key={c.label} style={{display:"flex",gap:14,alignItems:"flex-start"}}>
+                  <div style={{color:C.green,flexShrink:0,marginTop:2}}>{c.icon}</div>
+                  <div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>{c.label}</div><div style={{color:"rgba(255,255,255,.35)",fontSize:12}}>{c.sub}</div></div>
+                </div>
+              )}
             </div>
-            {/* Social media links — uncomment and add real URLs when profiles are created
             <div style={{display:"flex",gap:14,marginTop:32}}>
-              {[{icon:I.fb,label:"Facebook",href:"https://facebook.com/YOUR_PAGE"},{icon:I.ig,label:"Instagram",href:"https://instagram.com/YOUR_HANDLE"},{icon:I.gg,label:"Google",href:"https://g.page/YOUR_PAGE/review"}].map(s=>
+              {[{icon:I.fb,label:"Facebook",href:"https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/"},{icon:I.ig,label:"Instagram",href:"https://www.instagram.com/thehomestarservice/"},{icon:I.gg,label:"Google",href:"https://g.page/r/CVYAu4UIVz1wEBM/review"}].map(s=>
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" style={{width:42,height:42,borderRadius:10,display:"flex",alignItems:"center",justifyContent:"center",background:"rgba(255,255,255,.05)",color:"rgba(255,255,255,.45)",transition:"all .25s",textDecoration:"none"}}
-                  onMouseEnter={e=>{e.currentTarget.style.background="rgba(160,145,127,.15)";e.currentTarget.style.color=C.green}}
+                  onMouseEnter={e=>{e.currentTarget.style.background="rgba(92,184,50,.15)";e.currentTarget.style.color=C.green}}
                   onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,.05)";e.currentTarget.style.color="rgba(255,255,255,.45)"}}>{s.icon}</a>
               )}
             </div>
-            */}
           </div>
           <div className={vis?"sl d2":""} style={{display:"flex",flexDirection:"column",gap:20}}>
             {/* Quick contact options */}
@@ -944,24 +1153,24 @@ function Contact(){
               <h3 className="display" style={{color:"#fff",fontSize:18,marginBottom:6}}>Quick Contact</h3>
               <p style={{color:"rgba(255,255,255,.4)",fontSize:13,marginBottom:20}}>Skip the form — reach us directly.</p>
               <div style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap"}}>
-                <a href="tel:+13172795643" className="btn-g" style={{flex:"1 1 140px",justifyContent:"center",padding:"14px 20px",fontSize:14}}>
+                <a href="tel:+13172794798" className="btn-g" style={{flex:"1 1 140px",justifyContent:"center",padding:"14px 20px",fontSize:14}}>
                   {I.phone} Call Us
                 </a>
-                <a href="sms:+13172795643" className="btn-o" style={{flex:"1 1 140px",justifyContent:"center",padding:"14px 20px",fontSize:14,borderColor:"rgba(160,145,127,.5)",color:C.green}}>
+                <a href="sms:+13172794798" className="btn-o" style={{flex:"1 1 140px",justifyContent:"center",padding:"14px 20px",fontSize:14,borderColor:"rgba(92,184,50,.5)",color:C.green}}>
                   {I.mail} Text Us
                 </a>
               </div>
               <p style={{color:"rgba(255,255,255,.25)",fontSize:10,lineHeight:1.6,marginTop:14,textAlign:"center"}}>
-                By texting us, you agree to receive project reminders and updates from Hamilton County Concrete and Patios. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out at any time. View our <a href="#privacy" style={{color:"rgba(255,255,255,.4)",textDecoration:"underline"}}>Privacy Policy</a> and <a href="#terms" style={{color:"rgba(255,255,255,.4)",textDecoration:"underline"}}>Terms & Conditions</a>.
+                By texting us, you agree to receive project reminders and updates from HomeStar Services & Contracting. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out at any time. View our <a href="/privacy-policy.html" style={{color:"rgba(255,255,255,.4)",textDecoration:"underline"}}>Privacy Policy</a> and <a href="/terms-and-conditions.html" style={{color:"rgba(255,255,255,.4)",textDecoration:"underline"}}>Terms & Conditions</a>.
               </p>
             </div>
-            {/* Jobber form placeholder */}
+            {/* Jobber form */}
             <div id="estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
               <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Request a Free Estimate</h3>
               <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
               <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
               <p style={{color:C.gray,fontSize:10,lineHeight:1.6,marginTop:14,textAlign:"center"}}>
-                By submitting this form, you agree to receive project-related text messages from Hamilton County Concrete and Patios. Message frequency varies. Msg & data rates may apply. Reply <strong>STOP</strong> to opt out. Reply <strong>HELP</strong> for help. Consent is not a condition of service. View our <a href="#privacy" style={{color:C.green,textDecoration:"underline",fontSize:10}}>Privacy Policy</a> and <a href="#terms" style={{color:C.green,textDecoration:"underline",fontSize:10}}>Terms & Conditions</a>.
+                By submitting this form, you agree to receive project-related text messages from HomeStar Services & Contracting. Message frequency varies. Msg & data rates may apply. Reply <strong>STOP</strong> to opt out. Reply <strong>HELP</strong> for help. Consent is not a condition of service. View our <a href="/privacy-policy.html" style={{color:C.green,textDecoration:"underline",fontSize:10}}>Privacy Policy</a> and <a href="/terms-and-conditions.html" style={{color:C.green,textDecoration:"underline",fontSize:10}}>Terms & Conditions</a>.
               </p>
             </div>
           </div>
@@ -972,79 +1181,80 @@ function Contact(){
 }
 
 /* ─── Footer ───────────────────────────────────────── */
-function Footer(){
+function Footer({isCity}){
+  const p=isCity?"/":"";
+  const companyLinks=[{l:"About Us",h:p+"#about"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Blog",h:p+"#blog"},{l:"Videos",h:p+"#videos"},{l:"Contact",h:p+"#contact"},{l:"Request Estimate",h:isCity?"#city-estimate":p+"#estimate"}];
   return(
     <footer style={{background:C.navyDark,padding:"56px 24px 28px"}}>
       <div style={{maxWidth:1160,margin:"0 auto"}}>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))",gap:44,marginBottom:44}}>
           <div>
             <div style={{display:"flex",alignItems:"center",gap:9,marginBottom:16}}>
-              <img src="/images/indiana-icon.png" alt="" style={{height:36,objectFit:"contain",filter:"brightness(3)"}} />
-              <div style={{lineHeight:1.15}}>
-                <div className="display" style={{color:"#fff",fontSize:13,fontWeight:800,letterSpacing:".02em"}}>HAMILTON COUNTY</div>
-                <div className="display" style={{color:"#fff",fontSize:13,fontWeight:800,letterSpacing:".02em",opacity:.5}}>CONCRETE AND PATIOS</div>
-              </div>
+              <img src="/images/logo-mascot.png" alt="HomeStar Services mascot" style={{width:36,height:36,objectFit:"contain"}} />
+              <div><div className="display" style={{color:"#fff",fontSize:14,fontWeight:800}}>HOMESTAR</div><div style={{color:C.green,fontSize:8,fontWeight:700,letterSpacing:".1em"}}>SERVICES & CONTRACTING</div></div>
             </div>
-            <p style={{color:"rgba(255,255,255,.3)",fontSize:12,lineHeight:1.7,maxWidth:260}}>Stamped concrete patios, decorative outdoor living spaces, driveways & more. Licensed, bonded, and insured in Hamilton County, Indiana.</p>
+            <p style={{color:"rgba(255,255,255,.3)",fontSize:12,lineHeight:1.7,maxWidth:260}}>Licensed, bonded, and insured home remodeling for Hamilton County, Indiana. Quality craftsmanship, clear pricing, and a 1-year workmanship warranty on every project.</p>
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Services</h4>
-            {SVC.map(s=><a key={s.title} href={s.href} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{s.title}</a>)}
+            {SVC.map(s=><a key={s.title} href={s.href.startsWith("/")?s.href:p+"#services"} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{s.title}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Company</h4>
-            {[["About Us","#about"],["Our Process","#process"],["Projects","#projects"],["Blog","#blog"],["Contact","#contact"],["Request Estimate","#estimate"]].map(([label,href])=><a key={label} href={href} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{label}</a>)}
+            {companyLinks.map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
-            {[{name:"Carmel",slug:"concrete-services-carmel-in"},{name:"Fishers",slug:"concrete-services-fishers-in"},{name:"Noblesville",slug:"concrete-services-noblesville-in"},{name:"Westfield",slug:"concrete-services-westfield-in"},{name:"Zionsville",slug:"concrete-services-zionsville-in"}].map(a=><a key={a.name} href={`/${a.slug}`} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{a.name}, IN</a>)}
-            {["Brownsburg","Pendleton","McCordsville","Fortville"].map(a=><span key={a} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,marginBottom:9}}>{a}, IN</span>)}
+            {[{name:"Fishers",slug:"home-remodeling-fishers-in"},{name:"Carmel",slug:"home-remodeling-carmel-in"},{name:"Noblesville",slug:"home-remodeling-noblesville-in"},{name:"Westfield",slug:"home-remodeling-westfield-in"},{name:"Zionsville",slug:"home-remodeling-zionsville-in"},{name:"Fortville",slug:"home-remodeling-fortville-in"},{name:"McCordsville",slug:"home-remodeling-mccordsville-in"}].map(a=><a key={a.name} href={`/${a.slug}`} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{a.name}, IN</a>)}
+            {["Brownsburg","Pendleton"].map(a=><span key={a} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,marginBottom:9}}>{a}, IN</span>)}
           </div>
         </div>
         <div style={{borderTop:"1px solid rgba(255,255,255,.05)",paddingTop:20,display:"flex",flexWrap:"wrap",justifyContent:"space-between",alignItems:"center",gap:10}}>
-          <p style={{color:"rgba(255,255,255,.2)",fontSize:11}}>© 2026 Hamilton County Concrete and Patios. All rights reserved.</p>
-          <div style={{display:"flex",gap:18}}>{[{l:"Privacy Policy",h:"#privacy"},{l:"Terms & Conditions",h:"#terms"}].map(item=><a key={item.l} href={item.h} style={{color:"rgba(255,255,255,.2)",fontSize:11,textDecoration:"none",transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color="rgba(255,255,255,.4)"} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.2)"}>{item.l}</a>)}</div>
+          <p style={{color:"rgba(255,255,255,.2)",fontSize:11}}>© 2026 HomeStar Services and Contracting, LLC. All rights reserved.</p>
+          <div style={{display:"flex",gap:18}}>{[{l:"Privacy Policy",h:"/privacy-policy.html"},{l:"Terms & Conditions",h:"/terms-and-conditions.html"}].map(item=><a key={item.l} href={item.h} style={{color:"rgba(255,255,255,.2)",fontSize:11,textDecoration:"none",transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color="rgba(255,255,255,.4)"} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.2)"}>{item.l}</a>)}</div>
         </div>
       </div>
     </footer>
   );
 }
 
+/* ─── App ──────────────────────────────────────────── */
 /* ─── Legal Page Modal ──────────────────────────────── */
 function LegalModal({page,onClose}){
   if(!page)return null;
 
   const privacy = [
-    {t:"Introduction",c:"Hamilton County Concrete and Patios (\"HCC,\" \"we,\" \"us,\" or \"our\") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at hamiltoncountyconcrete.com or communicate with us via phone, text, email, or our online forms."},
+    {t:"Introduction",c:"HomeStar Services & Contracting, LLC (\"HomeStar,\" \"we,\" \"us,\" or \"our\") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at thehomestarservice.com or communicate with us via phone, text, email, or our online forms."},
     {t:"Information We Collect",c:"We may collect personal information you voluntarily provide, including: your name, phone number, email address, home address, and project details when you request a free estimate or contact us. We also automatically collect certain information when you visit our site, including IP address, browser type, pages visited, and time spent on pages through analytics tools."},
     {t:"How We Use Your Information",c:"We use the information we collect to: respond to your estimate requests and inquiries, communicate with you about your project, send project reminders and updates via text message (if you opt in), improve our website and services, and comply with legal obligations."},
-    {t:"Text Messaging",c:"By texting Hamilton County Concrete and Patios at (317) 279-5643, you consent to receive project reminders and updates. Message frequency varies based on your project status. Message and data rates may apply. You may opt out at any time by replying STOP to any message. Reply HELP for assistance. Text messaging is not required to use our services."},
-    {t:"Information Sharing",c:"We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our business, provided they agree to keep your information confidential. We may also disclose information when required by law or to protect our rights."},
+    {t:"Text Messaging",c:"By texting HomeStar Services & Contracting at (317) 279-4798, you consent to receive project reminders and updates. Message frequency varies based on your project status. Message and data rates may apply. You may opt out at any time by replying STOP to any message. Reply HELP for assistance. Text messaging is not required to use our services."},
+    {t:"Information Sharing",c:"We do not sell, trade, or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our business (such as our project management software, Jobber), provided they agree to keep your information confidential. We may also disclose information when required by law or to protect our rights."},
     {t:"Cookies and Analytics",c:"Our website uses cookies and similar tracking technologies to enhance your browsing experience and analyze site traffic. We use Google Analytics and similar tools to understand how visitors interact with our site. You can control cookies through your browser settings."},
-    {t:"Third-Party Services",c:"Our website may contain embedded content from third parties including Google Reviews widgets, YouTube videos, and contact forms. These services may collect information about you according to their own privacy policies, which we encourage you to review."},
+    {t:"Third-Party Services",c:"Our website may contain embedded content from third parties including Google Reviews (via Elfsight), YouTube videos, and Jobber forms. These services may collect information about you according to their own privacy policies, which we encourage you to review."},
     {t:"Data Security",c:"We implement reasonable security measures to protect your personal information. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security."},
-    {t:"Your Rights",c:"You may request access to, correction of, or deletion of your personal information by contacting us at eric@hamiltoncountyconcrete.com or (317) 279-5643. We will respond to your request within a reasonable timeframe."},
+    {t:"Your Rights",c:"You may request access to, correction of, or deletion of your personal information by contacting us at eric@thehomestarservice.com or (317) 279-4798. We will respond to your request within a reasonable timeframe."},
     {t:"Children's Privacy",c:"Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children."},
     {t:"Changes to This Policy",c:"We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date. Your continued use of our website after changes are posted constitutes your acceptance of the updated policy."},
-    {t:"Contact Us",c:"If you have questions about this Privacy Policy, contact us at: Hamilton County Concrete and Patios, Hamilton County, Indiana, Phone: (317) 279-5643, Email: eric@hamiltoncountyconcrete.com"},
+    {t:"Contact Us",c:"If you have questions about this Privacy Policy, contact us at: HomeStar Services & Contracting, LLC, Fishers, Indiana, Phone: (317) 279-4798, Email: eric@thehomestarservice.com"},
   ];
 
   const terms = [
-    {t:"Acceptance of Terms",c:"By accessing and using the website at hamiltoncountyconcrete.com (the \"Site\"), operated by Hamilton County Concrete and Patios (\"HCC,\" \"we,\" \"us,\" or \"our\"), you agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use our Site."},
-    {t:"Services Description",c:"Hamilton County Concrete and Patios provides concrete installation and replacement services in Hamilton County, Indiana and surrounding areas, including but not limited to driveways, patios, sidewalks, walkways, garage floors, stamped concrete, and decorative concrete. All services are subject to a separate written contract between HCC and the client."},
+    {t:"Acceptance of Terms",c:"By accessing and using the website at thehomestarservice.com (the \"Site\"), operated by HomeStar Services & Contracting, LLC (\"HomeStar,\" \"we,\" \"us,\" or \"our\"), you agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use our Site."},
+    {t:"Services Description",c:"HomeStar provides home remodeling and contracting services in Hamilton County, Indiana and surrounding areas, including but not limited to bathroom remodeling, kitchen remodeling, basement finishing, flooring, painting, and deck construction. All services are subject to a separate written contract between HomeStar and the client."},
     {t:"Free Estimates",c:"Estimates provided through our website, phone, or in-person consultations are non-binding and provided for informational purposes. Final project pricing is determined by a written contract that outlines the full scope of work, materials, timeline, and payment terms. Estimates are valid for 30 days unless otherwise stated."},
-    {t:"Text Messaging Terms",c:"By initiating a text message to Hamilton County Concrete and Patios at (317) 279-5643, you consent to receive text messages related to your project inquiry, including reminders and updates. Message frequency varies depending on project status and communication needs. Standard message and data rates may apply depending on your mobile carrier plan. You may opt out at any time by replying STOP. Reply HELP for assistance. Text messaging consent is not a condition of purchasing any service from HCC."},
-    {t:"Intellectual Property",c:"All content on this Site, including text, images, graphics, logos, videos, and design elements, is the property of Hamilton County Concrete and Patios unless otherwise noted. Project photographs depict actual work completed by HCC. You may not reproduce, distribute, or use any content from this Site without our written permission."},
-    {t:"User-Submitted Information",c:"By submitting information through our contact forms, estimate requests, or text messages, you represent that the information provided is accurate and that you are authorized to share it. You grant HCC permission to use this information to respond to your inquiry and provide services."},
-    {t:"Third-Party Links and Services",c:"Our Site may contain links to or embedded content from third-party websites and services. We are not responsible for the content, privacy practices, or terms of these third-party services. We encourage you to review their respective policies."},
-    {t:"Limitation of Liability",c:"Hamilton County Concrete and Patios and its owners, employees, and agents shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of this Site or reliance on any information provided herein. Our total liability for any claim related to the Site shall not exceed the amount you have paid to HCC in the preceding 12 months."},
-    {t:"Indemnification",c:"You agree to indemnify and hold harmless Hamilton County Concrete and Patios, its owners, employees, and agents from any claims, damages, losses, or expenses arising from your use of this Site or violation of these Terms."},
+    {t:"Text Messaging Terms",c:"By initiating a text message to HomeStar at (317) 279-4798, you consent to receive text messages related to your project inquiry, including reminders and updates. Message frequency varies depending on project status and communication needs. Standard message and data rates may apply depending on your mobile carrier plan. You may opt out at any time by replying STOP. Reply HELP for assistance. Text messaging consent is not a condition of purchasing any service from HomeStar."},
+    {t:"Intellectual Property",c:"All content on this Site, including text, images, graphics, logos, videos, and design elements, is the property of HomeStar Services & Contracting, LLC unless otherwise noted. Project photographs depict actual work completed by HomeStar. You may not reproduce, distribute, or use any content from this Site without our written permission."},
+    {t:"User-Submitted Information",c:"By submitting information through our contact forms, estimate requests, or text messages, you represent that the information provided is accurate and that you are authorized to share it. You grant HomeStar permission to use this information to respond to your inquiry and provide services."},
+    {t:"Third-Party Links and Services",c:"Our Site may contain links to or embedded content from third-party websites and services, including Google, YouTube, Elfsight, and Jobber. We are not responsible for the content, privacy practices, or terms of these third-party services. We encourage you to review their respective policies."},
+    {t:"Warranty and Workmanship",c:"HomeStar provides a 1-year workmanship warranty on all completed projects. For bathroom remodeling projects using the Schluter System installed by our Schluter Pro Certified team, a 25-year manufacturer's warranty applies. Specific warranty terms are outlined in your individual project contract."},
+    {t:"Limitation of Liability",c:"HomeStar Services & Contracting, LLC and its owners, employees, and agents shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of this Site or reliance on any information provided herein. Our total liability for any claim related to the Site shall not exceed the amount you have paid to HomeStar in the preceding 12 months."},
+    {t:"Indemnification",c:"You agree to indemnify and hold harmless HomeStar Services & Contracting, LLC, its owners, employees, and agents from any claims, damages, losses, or expenses arising from your use of this Site or violation of these Terms."},
     {t:"Governing Law",c:"These Terms & Conditions shall be governed by and construed in accordance with the laws of the State of Indiana. Any disputes arising from these terms shall be resolved in the courts of Hamilton County, Indiana."},
     {t:"Changes to Terms",c:"We reserve the right to modify these Terms & Conditions at any time. Changes will be posted on this page with an updated effective date. Your continued use of the Site after changes are posted constitutes acceptance of the updated terms."},
-    {t:"Contact Us",c:"For questions about these Terms & Conditions, contact: Hamilton County Concrete and Patios, Hamilton County, Indiana, Phone: (317) 279-5643, Email: eric@hamiltoncountyconcrete.com"},
+    {t:"Contact Us",c:"For questions about these Terms & Conditions, contact: HomeStar Services & Contracting, LLC, Fishers, Indiana, Phone: (317) 279-4798, Email: eric@thehomestarservice.com"},
   ];
 
-  const content = page==="privacy" ? {title:"Privacy Policy",date:"March 21, 2026",sections:privacy} : {title:"Terms & Conditions",date:"March 21, 2026",sections:terms};
+  const content = page==="privacy" ? {title:"Privacy Policy",date:"March 11, 2026",sections:privacy} : {title:"Terms & Conditions",date:"March 11, 2026",sections:terms};
 
   return(
     <div style={{position:"fixed",inset:0,zIndex:2000,background:"rgba(0,0,0,.6)",backdropFilter:"blur(6px)",display:"flex",alignItems:"flex-start",justifyContent:"center",padding:"60px 20px",overflowY:"auto"}}
@@ -1054,7 +1264,7 @@ function LegalModal({page,onClose}){
         <button onClick={onClose} style={{position:"absolute",top:18,right:18,width:36,height:36,borderRadius:"50%",background:C.cream,border:"none",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>{I.close}</button>
         <h2 className="display" style={{fontSize:28,color:C.navy,marginBottom:6}}>{content.title}</h2>
         <p style={{color:C.gray,fontSize:13,marginBottom:6}}>Effective Date: {content.date}</p>
-        <p style={{color:C.gray,fontSize:13,marginBottom:28}}>Hamilton County Concrete and Patios — Hamilton County, Indiana</p>
+        <p style={{color:C.gray,fontSize:13,marginBottom:28}}>HomeStar Services & Contracting, LLC — Fishers, Indiana</p>
         <div style={{height:4,width:60,background:C.green,borderRadius:2,marginBottom:28}}/>
         {content.sections.map((s,i)=>
           <div key={i} style={{marginBottom:22}}>
@@ -1063,7 +1273,7 @@ function LegalModal({page,onClose}){
           </div>
         )}
         <div style={{marginTop:32,padding:"20px 24px",background:C.cream,borderRadius:12}}>
-          <p style={{color:C.gray,fontSize:13,lineHeight:1.7}}>Questions? Contact us at <strong style={{color:C.navy}}>eric@hamiltoncountyconcrete.com</strong> or call <strong style={{color:C.navy}}>(317) 279-5643</strong>.</p>
+          <p style={{color:C.gray,fontSize:13,lineHeight:1.7}}>Questions? Contact us at <strong style={{color:C.navy}}>eric@thehomestarservice.com</strong> or call <strong style={{color:C.navy}}>(317) 279-4798</strong>.</p>
         </div>
       </div>
     </div>
@@ -1072,341 +1282,178 @@ function LegalModal({page,onClose}){
 
 /* ─── City Pages ────────────────────────────────────── */
 const CITIES = {
-  "concrete-services-carmel-in": {
-    city: "Carmel", state: "IN", lat: 39.9784, lng: -86.1180,
-    title: "Concrete Services in Carmel, IN",
-    metaDesc: "Stamped concrete patios & decorative concrete specialist in Carmel, Indiana. Driveways, patios, sidewalks, stamped concrete & more. Licensed & insured. Free estimates. (317) 279-5643",
-    heroHeading: "Stamped Concrete & Custom Patios in Carmel, Indiana",
-    heroSub: "From the Arts & Design District to the Village of WestClay, Carmel homeowners trust Hamilton County Concrete and Patios for driveways, patios, and decorative concrete that lasts.",
-    neighborhoods: ["Village of WestClay", "Arts & Design District", "Carmel City Center", "Home Place", "West Carmel", "Springmill", "Clay Township"],
-    intro: "Carmel has been named one of the best places to live in America, and the homes here reflect that reputation. Whether you're replacing a cracked driveway in WestClay, adding a stamped patio in West Carmel, or pouring a new walkway near City Center, Hamilton County Concrete and Patios delivers the quality craftsmanship that Carmel homeowners expect.",
-    whyUs: "We've completed numerous concrete projects across Carmel — from standard driveways to decorative stamped patios with custom colors and patterns. Every project starts with proper excavation, aggregate base, and mechanical compaction. We use reinforced concrete with fiber mesh on every pour, and we grade for proper drainage away from your home. The result is concrete that stays level, crack-free, and beautiful for decades.",
-    services: ["Stamped & Decorative Concrete","Patios & Outdoor Living","Pavilions, Pergolas & Enclosed Patios","Concrete Driveways","Sidewalks & Walkways","Garage Floors & Slabs","Concrete Removal & Replacement"],
-    faq: [
-      {q:"Do I need a permit for a concrete driveway in Carmel?",a:"In most cases, yes. The City of Carmel requires permits for driveway installations and replacements. We handle the entire permitting process for you and ensure all work meets local code requirements."},
-      {q:"How much does a concrete driveway cost in Carmel?",a:"A standard broom-finish driveway in Carmel typically runs $8–12 per square foot. Stamped or decorative driveways range from $14–20 per square foot. We provide free on-site estimates with exact pricing for your specific project."},
-      {q:"How long does a patio pour take in Carmel?",a:"Most residential patios can be excavated, formed, and poured in 1–3 days. Total project time including curing is about 1–2 weeks. We provide a detailed timeline before work begins."},
-    ],
-  },
-  "concrete-services-fishers-in": {
+  "home-remodeling-fishers-in": {
     city: "Fishers", state: "IN", lat: 39.9568, lng: -86.0131,
-    title: "Concrete Services in Fishers, IN",
-    metaDesc: "Stamped concrete patios & outdoor living specialist in Fishers, Indiana. Driveways, patios, sidewalks, stamped & decorative concrete. Free estimates. (317) 279-5643",
-    heroHeading: "Stamped Patios & Decorative Concrete in Fishers, Indiana",
-    heroSub: "From Geist to Saxony, Fishers homeowners count on Hamilton County Concrete and Patios for driveways, patios, and walkways built to last.",
+    title: "Home Remodeling in Fishers, IN",
+    metaDesc: "Licensed home remodeling contractor in Fishers, Indiana. Bathroom remodeling, basement finishing, kitchen renovations & more. Schluter Pro Certified. Free estimates. (317) 279-4798",
+    heroHeading: "Trusted Home Remodeling in Fishers, Indiana",
+    heroSub: "From Geist to Olio Road, we've been transforming Fishers homes with expert craftsmanship, honest pricing, and a 25-year Schluter waterproofing warranty.",
     neighborhoods: ["Geist", "Saxony", "Britton Falls", "Fishers District", "Olio Road corridor", "Brooks School area", "Southeastern Fishers"],
-    intro: "Fishers is one of the fastest-growing communities in Indiana, and homeowners here expect quality that matches the standard of their neighborhoods. Whether you're in a newer Saxony build that needs a patio addition or an established Geist home ready for a full driveway replacement, Hamilton County Concrete and Patios brings the same level of precision and care to every project.",
-    whyUs: "As a locally owned company based in Hamilton County, we know Fishers properties inside and out. Our standard process includes full excavation, compactable aggregate base, mechanical compaction, reinforced concrete, and proper drainage grading. We don't cut corners — and the results speak for themselves in neighborhoods across Fishers.",
-    services: ["Stamped & Decorative Concrete","Patios & Outdoor Living","Pavilions, Pergolas & Enclosed Patios","Concrete Driveways","Sidewalks & Walkways","Garage Floors & Slabs","Concrete Removal & Replacement"],
+    intro: "Fishers is one of the fastest-growing communities in Indiana, and homeowners here expect quality that matches the standard of their neighborhoods. Whether you're in a newer Saxony build that needs personalization or an established Geist home ready for a full renovation, HomeStar Services & Contracting brings the same level of precision and care to every project.",
+    whyUs: "As a family-owned company based right here in Hamilton County, we know Fishers homes inside and out. Our Schluter Pro Certified tile installers deliver bathroom renovations backed by a 25-year waterproofing warranty — something most contractors in the area simply can't offer. All plumbing and electrical work is performed by licensed professionals, and every project comes with a 1-year workmanship guarantee.",
+    services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: ["fishers-double-shower","fishers-spa-retreat","fishers-bath","fishers-childrens-bath","modern-farmhouse","fishers-basement"],
     faq: [
-      {q:"Do I need a permit for concrete work in Fishers?",a:"It depends on the scope. Driveway replacements and new patio pours typically require a permit through the City of Fishers. We handle the entire permitting process for you."},
-      {q:"How long does a driveway replacement take in Fishers?",a:"A typical driveway replacement in Fishers takes 2–4 days for demolition and new pour. Add 7 days for curing before vehicle traffic. We provide a full timeline upfront."},
-      {q:"What concrete finish options do you offer?",a:"We offer broom finish, stamped patterns, exposed aggregate, colored concrete, and decorative borders. We bring samples to your consultation so you can see the options in person."},
+      {q:"Do I need a permit for a bathroom remodel in Fishers?",a:"It depends on the scope. If the project involves plumbing or electrical changes, a permit is typically required through the City of Fishers. We handle the entire permitting process for you and ensure all work passes inspection."},
+      {q:"How long does a bathroom remodel take in Fishers?",a:"Most bathroom remodels in Fishers take 2-4 weeks depending on scope. A vanity refresh might take a week, while a full gut renovation with custom tile could take 3-4 weeks. We provide a detailed timeline before work begins."},
+      {q:"What does a bathroom remodel cost in Fishers, IN?",a:"Costs vary by scope. A mid-range bathroom remodel in Fishers typically runs $15,000-$30,000. A basic refresh starts around $8,000, while luxury spa-level renovations can reach $40,000+. We provide free, detailed estimates."},
     ],
   },
-  "concrete-services-noblesville-in": {
-    city: "Noblesville", state: "IN", lat: 40.0456, lng: -86.0086,
-    title: "Concrete Services in Noblesville, IN",
-    metaDesc: "Stamped patios, decorative concrete & outdoor living in Noblesville, Indiana. Driveways, patios, sidewalks, stamped concrete. Licensed & insured. Free estimates. (317) 279-5643",
-    heroHeading: "Custom Patios & Stamped Concrete in Noblesville, Indiana",
-    heroSub: "From the Historic Square to Morse Reservoir, Noblesville homeowners count on Hamilton County Concrete and Patios for quality pours that last.",
-    neighborhoods: ["Downtown Noblesville", "Morse Reservoir area", "Hinkle Creek", "Millstone", "Federal Hill", "Oakmont", "Prairie Lakes"],
-    intro: "Noblesville blends small-town charm with modern growth, and the properties here range from historic downtown homes to newer developments around Morse Reservoir. Whether your home needs a driveway replacement, a new backyard patio, or a connecting walkway, Hamilton County Concrete and Patios understands Noblesville properties and delivers concrete built to handle Indiana weather for decades.",
-    whyUs: "Our Noblesville projects showcase the quality that comes from doing things right — proper excavation, aggregate base, reinforced concrete, and expert finishing. We grade every surface for positive drainage and use control joints to manage natural concrete movement. The result is a pour that looks great and performs for 25–30 years.",
-    services: ["Stamped & Decorative Concrete","Patios & Outdoor Living","Pavilions, Pergolas & Enclosed Patios","Concrete Driveways","Sidewalks & Walkways","Garage Floors & Slabs","Concrete Removal & Replacement"],
+  "home-remodeling-carmel-in": {
+    city: "Carmel", state: "IN", lat: 39.9784, lng: -86.1180,
+    title: "Home Remodeling in Carmel, IN",
+    metaDesc: "Premium home remodeling contractor in Carmel, Indiana. Bathroom renovations, kitchen remodels, basement finishing. Schluter Pro Certified with 25-year warranty. Free estimates. (317) 279-4798",
+    heroHeading: "Premium Home Remodeling in Carmel, Indiana",
+    heroSub: "From the Arts & Design District to the Village of WestClay, Carmel homeowners trust HomeStar for bathroom renovations, kitchen remodels, and whole-home transformations.",
+    neighborhoods: ["Village of WestClay", "Arts & Design District", "Carmel City Center", "Home Place", "West Carmel", "Springmill", "Clay Township"],
+    intro: "Carmel has been named one of the best places to live in America, and the homes here reflect that reputation. Whether you're updating a master bathroom in WestClay, finishing a basement in West Carmel, or renovating a kitchen near City Center, HomeStar delivers the quality craftsmanship that Carmel homeowners expect.",
+    whyUs: "We've completed numerous projects across Carmel, including our signature green tile bathroom remodel that showcases the precision of our Schluter Pro Certified installers. Every bathroom we build uses the complete Schluter waterproofing system — Ditra for floors, Kerdi for walls — backed by a 25-year manufacturer's warranty. Combined with licensed plumbers and electricians on every job, you get a renovation built to last.",
+    services: ["Bathroom Remodeling","Kitchen Remodeling","Basement Finishing","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: ["bathroom-green-tile"],
     faq: [
-      {q:"Does Noblesville require permits for concrete work?",a:"Yes, the City of Noblesville requires permits for most concrete work including driveway installations and replacements. Our team handles the permit application and all required inspections."},
-      {q:"How much does a concrete patio cost in Noblesville?",a:"A standard patio in Noblesville runs $8–12 per square foot. Stamped or decorative patios range from $14–20 per square foot. We provide free estimates with exact pricing."},
+      {q:"Do I need a permit for remodeling in Carmel?",a:"Carmel requires permits for most remodeling projects that involve structural, plumbing, or electrical work. The City of Carmel Department of Community Services handles permits. We manage the entire process for you."},
+      {q:"How much does a kitchen remodel cost in Carmel?",a:"A mid-range kitchen remodel in Carmel typically costs $25,000-$50,000 depending on scope. Minor updates start around $15,000, while high-end renovations with custom cabinetry can reach $75,000+. We provide free detailed estimates."},
+      {q:"What sets HomeStar apart from other Carmel contractors?",a:"We're Schluter Pro Certified (25-year waterproofing warranty), use only licensed plumbers and electricians, provide 3D design renderings before construction, and you work directly with the owners throughout the project."},
+    ],
+  },
+  "home-remodeling-noblesville-in": {
+    city: "Noblesville", state: "IN", lat: 40.0456, lng: -86.0086,
+    title: "Home Remodeling in Noblesville, IN",
+    metaDesc: "Expert home remodeling in Noblesville, Indiana. Bathroom remodeling, basement finishing, kitchen renovations. Schluter Pro Certified. Licensed & insured. Free estimates. (317) 279-4798",
+    heroHeading: "Expert Home Remodeling in Noblesville, Indiana",
+    heroSub: "From the Historic Square to Morse Reservoir, Noblesville homeowners count on HomeStar for quality renovations backed by certified craftsmanship.",
+    neighborhoods: ["Downtown Noblesville", "Morse Reservoir area", "Hinkle Creek", "Millstone", "Federal Hill", "Oakmont", "Prairie Lakes"],
+    intro: "Noblesville blends small-town charm with modern growth, and the homes here range from historic downtown properties to newer developments around Morse Reservoir. Whether your home needs a complete bathroom overhaul or a basement finish to add living space, HomeStar understands the unique character of Noblesville homes and delivers renovations that respect that character while modernizing your space.",
+    whyUs: "Our Noblesville projects include a stunning floor-to-ceiling tile bathroom remodel that demonstrates the quality our Schluter Pro Certified installers bring to every job. With the complete Schluter waterproofing system and a 25-year manufacturer's warranty, your investment is protected for decades. We also completed a laundry room remodel in Noblesville that shows how we maximize every square foot.",
+    services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Laundry Room Remodeling","Flooring Services","Painting Services"],
+    projects: ["noblesville-floor-to-ceiling-tile","noblesville-laundry"],
+    faq: [
+      {q:"Does Noblesville require building permits for remodeling?",a:"Yes. The City of Noblesville requires permits for projects involving structural changes, plumbing, or electrical work. Our team handles the permit application and all required inspections."},
+      {q:"How long does a basement finish take in Noblesville?",a:"A standard basement finish in Noblesville typically takes 6-12 weeks depending on the scope — whether it includes a bathroom, wet bar, or guest suite. We provide a full project timeline upfront."},
       {q:"Do you serve areas around Morse Reservoir?",a:"Absolutely. We serve all of Noblesville including the Morse Reservoir area, downtown, Millstone, Federal Hill, and all surrounding neighborhoods."},
     ],
   },
-  "concrete-services-westfield-in": {
+  "home-remodeling-westfield-in": {
     city: "Westfield", state: "IN", lat: 40.0428, lng: -86.1275,
-    title: "Concrete Services in Westfield, IN",
-    metaDesc: "Stamped concrete & patio specialist in Westfield, Indiana. Driveways, patios, sidewalks, decorative concrete. Licensed, insured. Free estimates. (317) 279-5643",
-    heroHeading: "Stamped Patios & Outdoor Living in Westfield, Indiana",
-    heroSub: "Grand Park families trust Hamilton County Concrete and Patios for driveways, patios, and walkways built with quality materials and honest pricing.",
+    title: "Home Remodeling in Westfield, IN",
+    metaDesc: "Quality home remodeling contractor in Westfield, Indiana. Bathroom renovations, basement finishing, kitchen remodels. Licensed, insured & Schluter Pro Certified. (317) 279-4798",
+    heroHeading: "Quality Home Remodeling in Westfield, Indiana",
+    heroSub: "Grand Park families trust HomeStar for bathroom remodels, basement finishes, and home renovations built with quality materials and honest pricing.",
     neighborhoods: ["Grand Park area", "Maple Knoll", "Chatham Hills", "Bridgewater", "Westfield Village", "Osborne Trails", "Wheeler Landing"],
-    intro: "Westfield is booming — and with all that growth comes homeowners looking to enhance their properties. Whether you bought a new build near Grand Park that needs a patio, or you're replacing a worn driveway in Chatham Hills, Hamilton County Concrete and Patios brings the same quality process and transparent pricing to every Westfield project.",
-    whyUs: "Our Westfield projects demonstrate how we deliver excellent results at fair prices. Every pour starts with proper base preparation, uses reinforced concrete, and is finished to the highest standards. We handle everything from excavation through final cleanup — and we stand behind every project.",
-    services: ["Stamped & Decorative Concrete","Patios & Outdoor Living","Pavilions, Pergolas & Enclosed Patios","Concrete Driveways","Sidewalks & Walkways","Garage Floors & Slabs","Concrete Removal & Replacement"],
+    intro: "Westfield is booming — and with all that growth comes homeowners looking to make their spaces truly their own. Whether you bought a new build near Grand Park that needs a basement finish, or you're renovating bathrooms in an established neighborhood like Chatham Hills, HomeStar brings the same certified craftsmanship and transparent process to every Westfield project.",
+    whyUs: "Our Westfield basement finish project demonstrates how we deliver quality results on a smart budget — proving you don't need to overspend to get a great space. Every bathroom project uses the Schluter waterproofing system installed by our certified team, backed by a 25-year warranty. All electrical and plumbing work is done by licensed professionals.",
+    services: ["Basement Finishing","Bathroom Remodeling","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: ["westfield-basement"],
     faq: [
-      {q:"Do new Westfield homes need concrete work?",a:"Many newer Westfield homes have basic builder-grade concrete that homeowners want to upgrade — adding patios, extending driveways, or replacing thin walkways with properly reinforced concrete."},
-      {q:"What does a driveway cost in Westfield?",a:"Driveway costs in Westfield depend on size and finish. Standard broom finish runs $8–12/sq ft, stamped runs $14–20/sq ft. We provide free on-site estimates with exact pricing."},
-      {q:"How do I get started on a project in Westfield?",a:"Call us at (317) 279-5643 or fill out our online estimate form. We'll schedule a free on-site consultation to discuss your project and provide a detailed written estimate."},
+      {q:"Do new Westfield homes need remodeling?",a:"Many newer Westfield homes have unfinished basements that are perfect candidates for finishing — adding bedrooms, entertainment areas, or home offices. Builders also use standard-grade materials that homeowners often want to upgrade, especially in bathrooms."},
+      {q:"What does a basement finish cost in Westfield?",a:"Basement finishing in Westfield typically ranges from $20,000-$50,000 depending on the scope. A basic finish with drywall, flooring, and lighting starts on the lower end, while adding a bathroom, wet bar, or guest suite increases the investment."},
+      {q:"How do I get started on a project in Westfield?",a:"Call us at (317) 279-4798 or fill out our online estimate form. We'll schedule a free in-home consultation to discuss your vision, walk your space, and provide a detailed written estimate."},
     ],
   },
-  "concrete-services-zionsville-in": {
+  "home-remodeling-zionsville-in": {
     city: "Zionsville", state: "IN", lat: 39.9509, lng: -86.2617,
-    title: "Concrete Services in Zionsville, IN",
-    metaDesc: "Stamped patios, decorative concrete & outdoor living in Zionsville, Indiana. Driveways, patios, sidewalks, stamped & decorative concrete. Licensed & insured. Free estimates. (317) 279-5643",
-    heroHeading: "Stamped Patios & Decorative Concrete in Zionsville, Indiana",
-    heroSub: "From the brick streets of downtown to the estates of Eagle Creek, Zionsville homeowners choose Hamilton County Concrete and Patios for quality that matches the character of their homes.",
+    title: "Home Remodeling in Zionsville, IN",
+    metaDesc: "Trusted home remodeling in Zionsville, Indiana. Bathroom renovations, kitchen remodels, basement finishing. Schluter Pro Certified with 25-year warranty. Free estimates. (317) 279-4798",
+    heroHeading: "Trusted Home Remodeling in Zionsville, Indiana",
+    heroSub: "From the brick streets of downtown to the estates of Eagle Creek, Zionsville homeowners choose HomeStar for craftsmanship that matches the character of their homes.",
     neighborhoods: ["Downtown Zionsville", "Eagle Creek area", "Traders Point", "Holliday Farms", "Willow Glen", "Brookside Park", "Rural Zionsville"],
-    intro: "Zionsville is known for its charm, character, and quality of life — and the homes here reflect all of that. Whether you're adding a stamped patio to a historic downtown property or replacing the driveway on a Holliday Farms estate, Hamilton County Concrete and Patios approaches every Zionsville project with the attention to detail these homes deserve.",
-    whyUs: "Zionsville homeowners appreciate quality — and that's exactly what we deliver. From proper base preparation and reinforced concrete to expert finishing and clean job sites, every detail matters. Our decorative concrete options allow you to match the aesthetic of your home, whether that's a classic broom finish or an elegant stamped stone pattern.",
-    services: ["Stamped & Decorative Concrete","Patios & Outdoor Living","Pavilions, Pergolas & Enclosed Patios","Concrete Driveways","Sidewalks & Walkways","Garage Floors & Slabs","Concrete Removal & Replacement"],
+    intro: "Zionsville is known for its charm, character, and quality of life — and the homes here reflect all of that. Whether you're renovating a bathroom in a historic downtown home or updating a Jack & Jill bathroom in a newer Holliday Farms build, HomeStar approaches every Zionsville project with the attention to detail these homes deserve.",
+    whyUs: "Our Jack & Jill bathroom remodel in Zionsville is one of our most-viewed projects — a complete transformation with dual vanities and modern finishes that showcases what HomeStar delivers. As Schluter Pro Certified installers, we protect your renovation with 25-year waterproofing. Every plumber and electrician on the job is fully licensed.",
+    services: ["Bathroom Remodeling","Kitchen Remodeling","Basement Finishing","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: ["zionsville-jack-and-jill"],
     faq: [
-      {q:"Does Zionsville have specific requirements for concrete work?",a:"Yes. The Town of Zionsville has its own building department and requires permits for most concrete work. We manage the entire permitting and inspection process."},
-      {q:"Can you match existing concrete or hardscape?",a:"We can get very close with color matching using integral color and stain options. We'll bring samples to your consultation so you can compare options against your existing surfaces."},
-      {q:"How much does stamped concrete cost in Zionsville?",a:"Stamped concrete in Zionsville typically ranges from $14–20 per square foot depending on pattern complexity and color options. We provide a free consultation and detailed written estimate."},
+      {q:"Does Zionsville have specific building codes for remodeling?",a:"Yes. The Town of Zionsville has its own building department and requires permits for most remodeling work involving structural, plumbing, or electrical changes. We manage the entire permitting and inspection process."},
+      {q:"Can you work on historic Zionsville homes?",a:"Absolutely. We have experience working with older homes that require careful attention to existing structures, plumbing, and electrical systems. We ensure all updates meet current code while respecting the home's character."},
+      {q:"How much does a Jack & Jill bathroom remodel cost?",a:"A Jack & Jill bathroom remodel in Zionsville typically ranges from $15,000-$35,000 depending on scope and finishes. We provide a free in-home consultation and detailed written estimate."},
+    ],
+  },
+  "home-remodeling-fortville-in": {
+    city: "Fortville", state: "IN", lat: 39.9322, lng: -85.8480,
+    title: "Home Remodeling in Fortville, IN",
+    metaDesc: "Reliable home remodeling in Fortville, Indiana. Bathroom remodeling, kitchen renovations, basement finishing, decks & outdoor living. Schluter Pro Certified. Free estimates. (317) 279-4798",
+    heroHeading: "Reliable Home Remodeling in Fortville, Indiana",
+    heroSub: "From custom outdoor pavilions to full interior renovations, Fortville homeowners trust HomeStar for craftsmanship that's built to last.",
+    neighborhoods: ["Downtown Fortville", "Buck Creek area", "Fortville Proper", "Southeastern Hamilton County", "Northern Hancock County"],
+    intro: "Fortville may be a small town, but the homeowners here take pride in their properties — and they deserve a contractor who does, too. Whether you're upgrading a bathroom, finishing a basement, or creating the ultimate outdoor living space, HomeStar Services & Contracting brings Hamilton County's top craftsmanship right to your doorstep. We've already made our mark in Fortville with a custom pavilion project, and we're ready to do the same for your home.",
+    whyUs: "Our Fortville Pavilion Patio Project is a standout example of what HomeStar can do — a custom outdoor living space featuring stone columns, a covered bar area with stained wood beams, and a layout designed for year-round entertaining. It's the kind of project that shows our attention to detail extends well beyond the walls of your home. As Schluter Pro Certified installers, every bathroom project is backed by a 25-year waterproofing warranty, and all plumbing and electrical work is performed by licensed professionals.",
+    services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: ["fortville-pavilion"],
+    faq: [
+      {q:"Do you serve Fortville even though you're based in Fishers?",a:"Absolutely. Fortville is part of our core service area. We've already completed projects in Fortville and surrounding areas, and the drive is short enough that it has zero impact on project scheduling or pricing."},
+      {q:"What does an outdoor living project cost in Fortville?",a:"Outdoor living projects like pavilions, patios, and decks typically range from $10,000-$40,000 depending on size, materials, and features. Custom stone work and covered structures are on the higher end. We provide free, detailed estimates."},
+      {q:"How do I get started on a project in Fortville?",a:"Call us at (317) 279-4798 or fill out our online estimate form. We'll schedule a free in-home consultation to discuss your vision, walk your space, and provide a detailed written estimate."},
+    ],
+  },
+  "home-remodeling-mccordsville-in": {
+    city: "McCordsville", state: "IN", lat: 39.8936, lng: -85.9225,
+    title: "Home Remodeling in McCordsville, IN",
+    metaDesc: "Professional home remodeling in McCordsville, Indiana. Bathroom renovations, basement finishing, kitchen remodels, flooring & painting. Schluter Pro Certified. Free estimates. (317) 279-4798",
+    heroHeading: "Professional Home Remodeling in McCordsville, Indiana",
+    heroSub: "McCordsville's growing community deserves a contractor who delivers quality craftsmanship, transparent pricing, and results that stand the test of time.",
+    neighborhoods: ["McCordsville Proper", "Geist area", "Mt. Comfort corridor", "Southeastern Hamilton County", "Western Hancock County"],
+    intro: "McCordsville is one of the fastest-growing communities east of Indianapolis, with new construction and established homes that both benefit from expert remodeling. Whether you're personalizing a new build with upgraded finishes, renovating a bathroom, or finishing your basement to add living space, HomeStar brings the same certified craftsmanship we've delivered across Hamilton County to every McCordsville project.",
+    whyUs: "We've completed dozens of projects in nearby Fishers and Geist — neighborhoods that share a border with McCordsville — so we know the homes, the building styles, and the expectations in this area. As Schluter Pro Certified installers, every bathroom project is backed by a 25-year waterproofing warranty. All plumbing and electrical work is performed by licensed professionals, and every project comes with a 1-year workmanship guarantee.",
+    services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
+    projects: [],
+    faq: [
+      {q:"Do you serve McCordsville?",a:"Yes. McCordsville is part of our core service area, and we've completed many projects in neighboring Fishers and Geist. We serve all of McCordsville and the surrounding Mt. Comfort corridor."},
+      {q:"What's the most popular remodeling project in McCordsville?",a:"Bathroom remodeling and basement finishing are the most requested services in McCordsville. Many newer homes have unfinished basements with great potential, and homeowners frequently upgrade builder-grade bathrooms to something more personal."},
+      {q:"How do I get started on a project in McCordsville?",a:"Call us at (317) 279-4798 or fill out our online estimate form. We'll schedule a free in-home consultation to discuss your vision, walk your space, and provide a detailed written estimate."},
     ],
   },
 };
 
-/* ─── Service-City Combo Pages (35 unique pages) ─── */
-const SVC_SLUG_MAP = {
-  "stamped-concrete": "stamped-decorative-concrete",
-  "concrete-patios": "concrete-patios-outdoor-living",
-  "pavilions-pergolas": "pavilions-pergolas-enclosed-patios",
-  "concrete-driveways": "concrete-driveways",
-  "concrete-sidewalks": "concrete-sidewalks-walkways",
-  "garage-floors": "garage-floors-concrete-slabs",
-  "concrete-removal": "concrete-removal-replacement",
+/* Service-city combo pages — each renders unique content */
+const SERVICE_CITY_ALIASES = {
+  "bathroom-remodeling-fishers-in": {s:"bathroom-remodeling",c:"home-remodeling-fishers-in"},
+  "bathroom-remodeling-carmel-in": {s:"bathroom-remodeling",c:"home-remodeling-carmel-in"},
+  "bathroom-remodeling-noblesville-in": {s:"bathroom-remodeling",c:"home-remodeling-noblesville-in"},
+  "bathroom-remodeling-westfield-in": {s:"bathroom-remodeling",c:"home-remodeling-westfield-in"},
+  "bathroom-remodeling-zionsville-in": {s:"bathroom-remodeling",c:"home-remodeling-zionsville-in"},
+  "bathroom-remodeling-fortville-in": {s:"bathroom-remodeling",c:"home-remodeling-fortville-in"},
+  "bathroom-remodeling-mccordsville-in": {s:"bathroom-remodeling",c:"home-remodeling-mccordsville-in"},
+  "basement-finishing-fishers-in": {s:"basement-finishing",c:"home-remodeling-fishers-in"},
+  "basement-finishing-carmel-in": {s:"basement-finishing",c:"home-remodeling-carmel-in"},
+  "basement-finishing-noblesville-in": {s:"basement-finishing",c:"home-remodeling-noblesville-in"},
+  "basement-finishing-westfield-in": {s:"basement-finishing",c:"home-remodeling-westfield-in"},
+  "basement-finishing-zionsville-in": {s:"basement-finishing",c:"home-remodeling-zionsville-in"},
+  "basement-finishing-fortville-in": {s:"basement-finishing",c:"home-remodeling-fortville-in"},
+  "basement-finishing-mccordsville-in": {s:"basement-finishing",c:"home-remodeling-mccordsville-in"},
+  "kitchen-remodeling-fishers-in": {s:"kitchen-remodeling",c:"home-remodeling-fishers-in"},
+  "kitchen-remodeling-carmel-in": {s:"kitchen-remodeling",c:"home-remodeling-carmel-in"},
+  "kitchen-remodeling-noblesville-in": {s:"kitchen-remodeling",c:"home-remodeling-noblesville-in"},
+  "kitchen-remodeling-westfield-in": {s:"kitchen-remodeling",c:"home-remodeling-westfield-in"},
+  "kitchen-remodeling-zionsville-in": {s:"kitchen-remodeling",c:"home-remodeling-zionsville-in"},
+  "kitchen-remodeling-fortville-in": {s:"kitchen-remodeling",c:"home-remodeling-fortville-in"},
+  "kitchen-remodeling-mccordsville-in": {s:"kitchen-remodeling",c:"home-remodeling-mccordsville-in"},
+  "flooring-services-fishers-in": {s:"flooring-services",c:"home-remodeling-fishers-in"},
+  "flooring-services-carmel-in": {s:"flooring-services",c:"home-remodeling-carmel-in"},
+  "flooring-services-noblesville-in": {s:"flooring-services",c:"home-remodeling-noblesville-in"},
+  "flooring-services-westfield-in": {s:"flooring-services",c:"home-remodeling-westfield-in"},
+  "flooring-services-zionsville-in": {s:"flooring-services",c:"home-remodeling-zionsville-in"},
+  "flooring-services-fortville-in": {s:"flooring-services",c:"home-remodeling-fortville-in"},
+  "flooring-services-mccordsville-in": {s:"flooring-services",c:"home-remodeling-mccordsville-in"},
+  "painting-services-fishers-in": {s:"painting-services",c:"home-remodeling-fishers-in"},
+  "painting-services-carmel-in": {s:"painting-services",c:"home-remodeling-carmel-in"},
+  "painting-services-noblesville-in": {s:"painting-services",c:"home-remodeling-noblesville-in"},
+  "painting-services-westfield-in": {s:"painting-services",c:"home-remodeling-westfield-in"},
+  "painting-services-zionsville-in": {s:"painting-services",c:"home-remodeling-zionsville-in"},
+  "painting-services-fortville-in": {s:"painting-services",c:"home-remodeling-fortville-in"},
+  "painting-services-mccordsville-in": {s:"painting-services",c:"home-remodeling-mccordsville-in"},
+  "deck-builder-fishers-in": {s:"decks-outdoor-living",c:"home-remodeling-fishers-in"},
+  "deck-builder-carmel-in": {s:"decks-outdoor-living",c:"home-remodeling-carmel-in"},
+  "deck-builder-noblesville-in": {s:"decks-outdoor-living",c:"home-remodeling-noblesville-in"},
+  "deck-builder-westfield-in": {s:"decks-outdoor-living",c:"home-remodeling-westfield-in"},
+  "deck-builder-zionsville-in": {s:"decks-outdoor-living",c:"home-remodeling-zionsville-in"},
+  "deck-builder-fortville-in": {s:"decks-outdoor-living",c:"home-remodeling-fortville-in"},
+  "deck-builder-mccordsville-in": {s:"decks-outdoor-living",c:"home-remodeling-mccordsville-in"},
 };
-const CITY_SLUG_MAP = {
-  "carmel-in": "concrete-services-carmel-in",
-  "fishers-in": "concrete-services-fishers-in",
-  "noblesville-in": "concrete-services-noblesville-in",
-  "westfield-in": "concrete-services-westfield-in",
-  "zionsville-in": "concrete-services-zionsville-in",
-};
-
-/* Unique intros per service-city combo — what makes each page distinct */
-const SVC_CITY_INTROS = {
-  "stamped-concrete-carmel-in": "Carmel homeowners in WestClay, Springmill, and the Arts & Design District know that a stamped concrete patio or walkway sets their property apart. Our stamped and decorative concrete work across Carmel delivers the natural stone, slate, and cobblestone aesthetics that complement Carmel's upscale architecture — with the durability to handle Indiana's freeze-thaw cycles for decades.",
-  "stamped-concrete-fishers-in": "From Geist waterfront properties to new builds in Saxony, Fishers homeowners choose stamped concrete for outdoor spaces that look like natural stone without the maintenance. Our stamped patios, walkways, and pool decks across Fishers feature custom patterns and colors selected to complement each home's unique style.",
-  "stamped-concrete-noblesville-in": "Noblesville properties from the Historic Square to Morse Reservoir deserve concrete that's as beautiful as it is durable. Our stamped concrete work in Noblesville transforms ordinary pours into stunning stone-look surfaces with custom patterns, integral colors, and expert finishing that lasts decades.",
-  "stamped-concrete-westfield-in": "Westfield's newer communities around Grand Park and Chatham Hills are the perfect canvas for decorative stamped concrete. We help Westfield homeowners upgrade builder-grade patios into custom stamped surfaces with natural stone patterns, rich colors, and hand-tooled details that elevate the entire backyard.",
-  "stamped-concrete-zionsville-in": "Zionsville's charming brick-street downtown and estate homes in Holliday Farms and Eagle Creek call for decorative concrete that matches the character of the neighborhood. Our stamped concrete work in Zionsville delivers elegance — ashlar slate, flagstone, and cobblestone patterns with custom colors chosen to complement your home's architecture.",
-  "concrete-patios-carmel-in": "Carmel backyards deserve outdoor living spaces built for entertaining, relaxing, and enjoying Indiana's best seasons. Whether you're in WestClay, West Carmel, or near City Center, our custom concrete patios are designed around how you actually live outdoors — with options from simple broom-finish entertaining pads to multi-level stamped patios with fire pit pads and seating walls.",
-  "concrete-patios-fishers-in": "Fishers families in Geist, Britton Falls, and the Fishers District are turning their backyards into outdoor living destinations with custom concrete patios. We design patio layouts that maximize usable space, ensure proper drainage away from your foundation, and create natural transitions between entertaining zones.",
-  "concrete-patios-noblesville-in": "Noblesville homeowners near Morse Reservoir, Federal Hill, and Millstone are expanding their outdoor living space with custom concrete patios designed for Indiana's climate. From stamped stone-look surfaces to clean broom-finish entertaining pads, we build patios that become the center of your outdoor life.",
-  "concrete-patios-westfield-in": "With Westfield growing as fast as it is, homeowners in Grand Park, Maple Knoll, and Bridgewater are investing in backyard spaces that match the energy of the community. Our custom concrete patios in Westfield give you a durable, low-maintenance outdoor living area built on a properly prepared foundation.",
-  "concrete-patios-zionsville-in": "Zionsville properties in Traders Point, Holliday Farms, and downtown deserve patio spaces as refined as the homes themselves. Our custom patios in Zionsville feature premium finishes — stamped stone patterns, exposed aggregate borders, and decorative color work that blend seamlessly with the character of your property.",
-  "pavilions-pergolas-carmel-in": "Carmel homeowners in WestClay, Springmill, and West Carmel are extending their outdoor season with custom pavilions and pergolas built on reinforced concrete foundations. From open-air pergolas that add shade and ambiance to fully enclosed 4-season rooms, we build complete outdoor structures that become the centerpiece of your property.",
-  "pavilions-pergolas-fishers-in": "Fishers families in Geist, Saxony, and Britton Falls are investing in covered outdoor structures that let them enjoy the backyard rain or shine. Our pavilion and pergola projects in Fishers include everything from the concrete foundation to the finished structure — stone columns, cedar ceilings, lighting, and optional fireplace integration.",
-  "pavilions-pergolas-noblesville-in": "Noblesville properties near Morse Reservoir and throughout the city are perfect settings for custom pavilions and pergolas. Imagine entertaining under a covered cedar pavilion with a stamped concrete pad, fire pit, and landscape lighting — we build that entire vision from the ground up for Noblesville homeowners.",
-  "pavilions-pergolas-westfield-in": "Westfield's growing neighborhoods around Grand Park and Chatham Hills feature spacious lots that are perfect for pavilion and pergola additions. We design and build covered outdoor structures on properly engineered concrete foundations, giving Westfield families a year-round outdoor living space.",
-  "pavilions-pergolas-zionsville-in": "Zionsville's estate-style properties in Eagle Creek, Holliday Farms, and rural Zionsville provide the space and setting for stunning custom pavilions and pergolas. Our outdoor structure projects in Zionsville pair natural stone columns and cedar accents with expertly poured stamped concrete foundations.",
-  "concrete-driveways-carmel-in": "Carmel driveways in WestClay, Springmill, and West Carmel take a beating from daily traffic, salt, and Indiana's freeze-thaw cycles. Our driveway installations and replacements in Carmel are engineered to handle it all — with 4,000+ PSI air-entrained concrete, rebar reinforcement, and proper base preparation that prevents the settling and cracking that plagues poorly built driveways.",
-  "concrete-driveways-fishers-in": "Fishers driveways from Geist to Saxony need to stand up to years of daily use and harsh Indiana winters. We pour driveways in Fishers with the correct concrete mix, proper reinforcement, and a prepared aggregate base that prevents the settling and heaving common with builder-grade pours.",
-  "concrete-driveways-noblesville-in": "Whether you're replacing a cracked driveway near downtown Noblesville or installing a new stamped driveway at a Morse Reservoir property, our Noblesville driveway projects start with full excavation and proper base preparation — the foundation that makes the difference between a 10-year driveway and a 30-year driveway.",
-  "concrete-driveways-westfield-in": "Many newer Westfield homes near Grand Park and Maple Knoll were built with thin, unreinforced driveways that start cracking within a few years. Our driveway replacements in Westfield address the root cause — we excavate properly, install compacted aggregate base, add rebar reinforcement, and pour with a concrete mix designed for Indiana weather.",
-  "concrete-driveways-zionsville-in": "Zionsville homes in Holliday Farms, Traders Point, and downtown Zionsville deserve driveways that match the quality of the property. Our driveway work in Zionsville delivers clean lines, proper drainage grading, and a finish — standard broom or decorative stamped — that enhances your home's curb appeal for decades.",
-  "concrete-sidewalks-carmel-in": "Carmel sidewalks and walkways connect your spaces and set the tone for your entire property. Whether you need a front walkway replacement in WestClay, a decorative stamped path in West Carmel, or a connecting walkway from patio to garden, our Carmel walkway projects combine function with curb appeal.",
-  "concrete-sidewalks-fishers-in": "Fishers homeowners in Geist, Saxony, and the Fishers District rely on us for sidewalk and walkway projects that are level, properly drained, and built to last. From front walkway replacements to decorative stamped garden paths, we pour walkways in Fishers that stay smooth and trip-free for decades.",
-  "concrete-sidewalks-noblesville-in": "Noblesville properties near downtown, Morse Reservoir, and Federal Hill benefit from properly built sidewalks and walkways that handle foot traffic and weather without settling or cracking. We pour walkways in Noblesville with the same base preparation and reinforcement standards we apply to every project.",
-  "concrete-sidewalks-westfield-in": "Westfield's growing neighborhoods need sidewalks and walkways built to handle the community's active lifestyle. We pour residential and commercial walkways in Westfield with proper grading, reinforcement, and finish options from standard broom to decorative stamped cobblestone patterns.",
-  "concrete-sidewalks-zionsville-in": "Zionsville's charming streetscapes and estate properties deserve walkways that match the neighborhood's character. Our walkway projects in Zionsville range from clean broom-finish front walks to elegant stamped cobblestone paths with decorative borders and hand-tooled edges.",
-  "garage-floors-carmel-in": "Carmel homeowners in WestClay, Springmill, and West Carmel need garage floors that perform under daily vehicle traffic, road salt, and temperature swings. Our garage floor pours in Carmel include vapor barriers, rebar reinforcement, and proper thickness specifications designed for real-world use.",
-  "garage-floors-fishers-in": "Fishers garage floors take a beating — vehicles, equipment, salt, chemicals, and temperature extremes. Our garage floor pours and replacements in Fishers are built to handle it with proper thickness, vapor barriers, and reinforcement that standard builder-grade floors don't provide.",
-  "garage-floors-noblesville-in": "Noblesville homeowners and shop owners need garage floors and slabs that can handle heavy use without cracking or settling. We pour garage floors in Noblesville with proper excavation, vapor barriers, rebar reinforcement, and finishes suited to the intended use.",
-  "garage-floors-westfield-in": "Many newer Westfield homes have garage floors that are already showing cracks from inadequate base prep and thin pours. Our garage floor replacements in Westfield address those root issues with proper excavation, compacted base, vapor barrier, and reinforced concrete built for decades of daily use.",
-  "garage-floors-zionsville-in": "Zionsville properties with oversized garages, workshops, and outbuildings need concrete floors engineered for the intended load. Our garage and shop slab pours in Zionsville include proper thickness, reinforcement, vapor barriers, and drainage grading for heavy-duty performance.",
-  "concrete-removal-carmel-in": "When Carmel driveways, patios, and sidewalks have reached the end of their life — cracked, sunken, spalling, or simply worn out — a full removal and replacement is the right call. We handle the entire process for Carmel homeowners: sawcutting, demo, hauling, base correction, and a fresh reinforced pour.",
-  "concrete-removal-fishers-in": "Fishers properties with failing concrete need more than a patch — they need a fresh start. Our concrete removal and replacement projects in Fishers address the root cause of failure (usually poor base prep), and rebuild with proper excavation, aggregate base, and reinforced concrete that won't repeat the same problems.",
-  "concrete-removal-noblesville-in": "Cracked driveways, sunken patios, and trip-hazard sidewalks across Noblesville need full removal and replacement to be fixed properly. Our Noblesville removal projects include complete tear-out, debris hauling, soil correction, and a new reinforced pour on a properly prepared base.",
-  "concrete-removal-westfield-in": "Westfield's rapid growth means many properties have concrete that was poured too quickly on poorly prepared soil — and it's starting to show. Our concrete removal and replacement in Westfield corrects those shortcuts with proper excavation, compacted aggregate base, and reinforced concrete that lasts.",
-  "concrete-removal-zionsville-in": "When Zionsville driveways, walkways, or patios have deteriorated beyond repair, our removal and replacement process starts fresh — complete demo, hauling, base preparation, and a new reinforced pour that restores your property's appearance and function for decades.",
-};
-
-function resolveServiceCity(path) {
-  for (const [svcSlug, svcKey] of Object.entries(SVC_SLUG_MAP)) {
-    for (const [citySlug, cityKey] of Object.entries(CITY_SLUG_MAP)) {
-      if (path === `${svcSlug}-${citySlug}`) {
-        return { svcKey, cityKey, slug: path };
-      }
-    }
-  }
-  return null;
-}
-
-function ServiceCityPage({svcKey, cityKey, slug}){
-  const svc = SERVICE_PAGES[svcKey];
-  const city = CITIES[cityKey];
-  const intro = SVC_CITY_INTROS[slug] || "";
-  const [faqOpen, setFaqOpen] = useState(null);
-
-  const pageTitle = `${svc.title} in ${city.city}, ${city.state}`;
-  const metaTitle = `${svc.title} in ${city.city}, IN | Hamilton County Concrete and Patios`;
-  const metaDesc = `Professional ${svc.title.toLowerCase()} in ${city.city}, Indiana. ${svc.options.slice(0,4).join(", ")}. Serving ${city.neighborhoods.slice(0,3).join(", ")} and all of ${city.city}. Licensed and insured. Free estimates. (317) 279-5643`;
-
-  useEffect(()=>{
-    document.title = metaTitle;
-    const meta = document.querySelector('meta[name="description"]');
-    if(meta) meta.setAttribute("content", metaDesc);
-    window.scrollTo(0, 0);
-  },[metaTitle, metaDesc]);
-
-  useEffect(()=>{
-    if(!document.querySelector('link[href*="work_request_embed.css"]')){
-      const link=document.createElement("link");link.rel="stylesheet";link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";link.media="screen";document.head.appendChild(link);
-    }
-    if(!document.querySelector('script[src*="work_request_embed_snippet"]')){
-      const s=document.createElement("script");s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
-      s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
-      s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
-      document.body.appendChild(s);
-    }
-  },[]);
-
-  /* Merge FAQs: first 2 from service page (rewritten for city), plus city-specific */
-  const faqs = [
-    {q:`How much does ${svc.title.toLowerCase()} cost in ${city.city}?`, a: svc.faq.find(f=>f.q.toLowerCase().includes("cost"))?.a.replace(/Hamilton County/g, city.city) || `Costs vary by project scope and finish. Call (317) 279-5643 for a free estimate in ${city.city}.`},
-    ...svc.faq.filter(f=>!f.q.toLowerCase().includes("cost")).slice(0,2).map(f=>({...f, a: f.a.replace(/Hamilton County/gi, city.city)})),
-    ...city.faq.slice(0,2),
-  ];
-
-  /* Filter projects matching this service */
-  const serviceProjects = svc.projects.length > 0 ? PROJECTS.filter(p=>svc.projects.some(cat=>p.cat===cat||p.cat.includes(cat))) : [];
-
-  return(
-    <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service","name":`${svc.title} in ${city.city}, Indiana`,"provider":{"@type":"HomeAndConstructionBusiness","name":"Hamilton County Concrete and Patios","telephone":"+1-317-279-5643","url":"https://www.hamiltoncountyconcrete.com","address":{"@type":"PostalAddress","addressLocality":city.city,"addressRegion":"IN","addressCountry":"US"}},"areaServed":{"@type":"City","name":city.city},"description":metaDesc})}}/>
-
-      <Nav/>
-
-      {/* Hero */}
-      <section style={{position:"relative",padding:"160px 24px 80px",background:`linear-gradient(155deg,${C.navyLight} 0%,#4E666F 35%,#5E7680 65%,#6E8690 100%)`,overflow:"hidden"}}>
-        <div style={{position:"absolute",top:"-20%",right:"-10%",width:700,height:700,borderRadius:"50%",background:"radial-gradient(circle,rgba(250,248,245,.14) 0%,transparent 70%)"}}/>
-        <div style={{position:"absolute",inset:0,opacity:.03,backgroundImage:"linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)",backgroundSize:"64px 64px"}}/>
-        <div style={{maxWidth:800,margin:"0 auto",position:"relative",zIndex:2,textAlign:"center"}}>
-          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(255,255,255,.12)",borderRadius:50,padding:"7px 16px",marginBottom:22}}>
-            <div style={{width:7,height:7,borderRadius:"50%",background:"rgba(255,255,255,.7)"}}/>
-            <span style={{color:"rgba(255,255,255,.85)",fontWeight:700,fontSize:12,letterSpacing:".06em"}}>{svc.title.toUpperCase()} • {city.city.toUpperCase()}, IN</span>
-          </div>
-          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(30px,4.5vw,48px)",lineHeight:1.1,marginBottom:20}}>{svc.title} in {city.city}, Indiana</h1>
-          <p className="fu d3" style={{color:"rgba(255,255,255,.7)",fontSize:17,lineHeight:1.7,maxWidth:600,margin:"0 auto 32px"}}>{svc.heroSub}</p>
-          <div className="fu d4" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:14}}>
-            <a href="#sc-estimate" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate in {city.city} {I.arrow}</a>
-            <a href={`/${svcKey}`} className="btn-o">Learn About {svc.title}</a>
-          </div>
-        </div>
-      </section>
-
-      {/* Unique intro */}
-      <section className="sec" style={{background:"#fff"}}>
-        <div className="sec-in" style={{maxWidth:800}}>
-          <div className="lab" style={{textAlign:"center"}}>{svc.title} in {city.city}</div>
-          <h2 className="ttl" style={{textAlign:"center"}}>{svc.title} for {city.city} Homeowners</h2>
-          <p style={{color:C.gray,fontSize:16,lineHeight:1.85,marginBottom:28}}>{intro}</p>
-          <p style={{color:C.gray,fontSize:16,lineHeight:1.85}}>{svc.details}</p>
-        </div>
-      </section>
-
-      {/* Options */}
-      <section className="sec" style={{background:C.cream}}>
-        <div className="sec-in" style={{maxWidth:800,textAlign:"center"}}>
-          <div className="lab">{svc.optionsLabel} in {city.city}</div>
-          <h2 className="ttl">{svc.title} Options</h2>
-          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10,marginTop:24}}>
-            {svc.options.map(opt=>
-              <span key={opt} style={{padding:"10px 20px",borderRadius:50,background:"#fff",color:C.navy,fontSize:14,fontWeight:600,border:`1px solid ${C.sand}`}}>{opt}</span>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Projects */}
-      {serviceProjects.length>0&&(
-        <section className="sec" style={{background:"#fff"}}>
-          <div className="sec-in">
-            <div style={{textAlign:"center",marginBottom:48}}>
-              <div className="lab">Our Work Near {city.city}</div>
-              <h2 className="ttl">{svc.title} Projects</h2>
-            </div>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))",gap:22}}>
-              {serviceProjects.map(p=>
-                <div key={p.title} style={{borderRadius:14,overflow:"hidden",background:C.cream,boxShadow:"0 2px 10px rgba(0,0,0,.05)",transition:"all .3s"}}
-                  onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-5px)";e.currentTarget.style.boxShadow="0 14px 44px rgba(0,0,0,.1)"}}
-                  onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="0 2px 10px rgba(0,0,0,.05)"}}>
-                  <Carousel images={p.images} color={p.color} title={p.title} />
-                  <div style={{padding:"20px 24px 24px"}}>
-                    <span style={{fontSize:10,fontWeight:700,letterSpacing:".08em",color:C.green,textTransform:"uppercase"}}>{p.cat}</span>
-                    <h3 className="display" style={{fontSize:17,color:C.navy,marginTop:6}}>{p.title}</h3>
-                    {p.desc&&<p style={{color:C.gray,fontSize:13,lineHeight:1.6,marginTop:8}}>{p.desc}</p>}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Neighborhoods */}
-      <section className="sec" style={{background:C.cream}}>
-        <div className="sec-in" style={{maxWidth:800,textAlign:"center"}}>
-          <div className="lab">{city.city} Areas We Serve</div>
-          <h2 className="ttl">{svc.title} Across {city.city}</h2>
-          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10,marginTop:24}}>
-            {city.neighborhoods.map(n=>
-              <span key={n} style={{padding:"10px 20px",borderRadius:50,background:"#fff",color:C.navy,fontSize:14,fontWeight:600,border:`1px solid ${C.sand}`}}>{n}</span>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="sec" style={{background:"#fff"}}>
-        <div className="sec-in" style={{maxWidth:700}}>
-          <div style={{textAlign:"center",marginBottom:44}}>
-            <div className="lab">Common Questions</div>
-            <h2 className="ttl">{svc.title} in {city.city} FAQ</h2>
-          </div>
-          <div style={{display:"flex",flexDirection:"column",gap:10}}>
-            {faqs.map((f,i)=>
-              <div key={i} style={{background:C.cream,borderRadius:12,overflow:"hidden",border:`1px solid ${faqOpen===i?C.green:C.sand}`,transition:"border-color .3s"}}>
-                <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} style={{width:"100%",padding:"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",cursor:"pointer",textAlign:"left",fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:700,fontSize:15,color:C.navy}}>
-                  {f.q}<span style={{transform:faqOpen===i?"rotate(180deg)":"rotate(0)",transition:"transform .3s",flexShrink:0,marginLeft:14}}>{I.chevDown}</span>
-                </button>
-                <div style={{maxHeight:faqOpen===i?400:0,overflow:"hidden",transition:"max-height .4s ease"}}>
-                  <div style={{padding:"0 24px 20px",color:C.gray,lineHeight:1.75,fontSize:14}}>{f.a}</div>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA + Form */}
-      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
-        <div className="sec-in">
-          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:48}}>
-            <div>
-              <div className="lab">Get Started</div>
-              <h2 className="ttl ttl-w">Ready for {svc.title} in {city.city}?</h2>
-              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:28}}>Request a free, no-obligation estimate. We'll visit your {city.city} property, discuss your vision, and provide a detailed quote.</p>
-              <div style={{display:"flex",flexDirection:"column",gap:18}}>
-                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.phone}</div><a href="tel:+13172795643" style={{color:"#fff",fontWeight:700,fontSize:14,textDecoration:"none"}}>(317) 279-5643</a></div>
-                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.mail}</div><a href="mailto:eric@hamiltoncountyconcrete.com" style={{color:"#fff",fontWeight:700,fontSize:14,textDecoration:"none"}}>eric@hamiltoncountyconcrete.com</a></div>
-              </div>
-              <div style={{marginTop:28,display:"flex",gap:16,flexWrap:"wrap"}}>
-                <a href={`/${svcKey}`} style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none"}}>← {svc.title} overview</a>
-                <a href={`/${cityKey}`} style={{color:"rgba(255,255,255,.4)",fontWeight:700,fontSize:14,textDecoration:"none"}}>All services in {city.city}</a>
-                <a href="/" style={{color:"rgba(255,255,255,.4)",fontWeight:700,fontSize:14,textDecoration:"none"}}>Main site</a>
-              </div>
-            </div>
-            <div id="sc-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free {svc.title} Estimate in {city.city}</h3>
-              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
-              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Footer/>
-    </div>
-  );
-}
 
 function CityPage({data}){
   const[faqOpen,setFaqOpen]=useState(null);
 
   useEffect(()=>{
-    document.title=data.title+" | Hamilton County Concrete and Patios";
+    document.title=data.title+" | HomeStar Services & Contracting";
     const meta=document.querySelector('meta[name="description"]');
     if(meta)meta.setAttribute("content",data.metaDesc);
   },[data]);
@@ -1426,9 +1473,10 @@ function CityPage({data}){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"Hamilton County Concrete and Patios",description:data.metaDesc,url:"https://www.hamiltoncountyconcrete.com",telephone:"+1-317-279-5643",address:{"@type":"PostalAddress",addressLocality:data.city,addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:data.lat,longitude:data.lng},areaServed:{"@type":"City",name:data.city},priceRange:"$$"})}}/>
+      {/* Schema.org for this city */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:data.metaDesc,url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:data.city,addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:data.lat,longitude:data.lng},areaServed:{"@type":"City",name:data.city},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"},priceRange:"$$"})}}/>
 
-      <Nav/>
+      <Nav isCity/>
 
       {/* Hero */}
       <section style={{position:"relative",padding:"160px 24px 80px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`,overflow:"hidden"}}>
@@ -1445,7 +1493,7 @@ function CityPage({data}){
             <a href="/" className="btn-o">View All Our Work</a>
           </div>
           <div className="fu d5" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:32,marginTop:44}}>
-            {[{n:"Local",l:"Hamilton County Born & Raised"},{n:"100%",l:"Licensed & Insured"},{n:"Free",l:"On-Site Estimates"}].map(b=>
+            {[{n:"5.0★",l:"Google Rating"},{n:"25-Year",l:"Schluter Warranty"},{n:"100%",l:"Licensed & Insured"}].map(b=>
               <div key={b.l}><div className="display" style={{color:C.green,fontSize:24,fontWeight:800}}>{b.n}</div><div style={{color:"rgba(255,255,255,.4)",fontSize:11,fontWeight:600}}>{b.l}</div></div>
             )}
           </div>
@@ -1455,7 +1503,7 @@ function CityPage({data}){
       {/* Intro */}
       <section className="sec" style={{background:"#fff"}}>
         <div className="sec-in" style={{maxWidth:800}}>
-          <h2 className="ttl" style={{textAlign:"center"}}>Why {data.city} Homeowners Choose Hamilton County Concrete and Patios</h2>
+          <h2 className="ttl" style={{textAlign:"center"}}>Why {data.city} Homeowners Choose HomeStar</h2>
           <p style={{color:C.gray,fontSize:16,lineHeight:1.85,marginBottom:28,textAlign:"center"}}>{data.intro}</p>
           <p style={{color:C.gray,fontSize:16,lineHeight:1.85,textAlign:"center"}}>{data.whyUs}</p>
         </div>
@@ -1501,7 +1549,7 @@ function CityPage({data}){
         <div className="sec-in" style={{maxWidth:700}}>
           <div style={{textAlign:"center",marginBottom:44}}>
             <div className="lab">Common Questions</div>
-            <h2 className="ttl">{data.city} Concrete FAQ</h2>
+            <h2 className="ttl">{data.city} Remodeling FAQ</h2>
           </div>
           <div style={{display:"flex",flexDirection:"column",gap:10}}>
             {data.faq.map((f,i)=>
@@ -1518,17 +1566,17 @@ function CityPage({data}){
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA + Jobber Form */}
       <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
         <div className="sec-in">
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:48}}>
             <div>
               <div className="lab">Get Started in {data.city}</div>
-              <h2 className="ttl ttl-w">Ready to Start Your {data.city} Project?</h2>
-              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:28}}>Request a free, no-obligation estimate. We'll visit your {data.city} property, discuss your project, and provide a detailed quote with transparent pricing.</p>
+              <h2 className="ttl ttl-w">Ready to Start Your {data.city} Remodel?</h2>
+              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:28}}>Request a free, no-obligation estimate. We'll visit your {data.city} home, discuss your vision, and provide a detailed quote with transparent pricing.</p>
               <div style={{display:"flex",flexDirection:"column",gap:18}}>
-                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.phone}</div><div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>(317) 279-5643</div></div></div>
-                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.mail}</div><div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>eric@hamiltoncountyconcrete.com</div></div></div>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.phone}</div><div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>(317) 279-4798</div></div></div>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.mail}</div><div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>eric@thehomestarservice.com</div></div></div>
               </div>
               <div style={{marginTop:28}}>
                 <a href="/" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← Back to main site</a>
@@ -1543,149 +1591,269 @@ function CityPage({data}){
         </div>
       </section>
 
-      <Footer/>
+      <Footer isCity/>
     </div>
   );
 }
 
-/* ─── Service Pages ────────────────────────────────── */
+/* ─── Service Pages ──────────────────────────────────── */
 const SERVICE_PAGES = {
-  "stamped-decorative-concrete": {
-    title: "Stamped & Decorative Concrete",
-    metaTitle: "Stamped & Decorative Concrete in Hamilton County, IN | Hamilton County Concrete and Patios",
-    metaDesc: "Expert stamped and decorative concrete in Hamilton County, Indiana. Natural stone, brick, slate, and custom patterns. Color hardener, exposed aggregate, and hand-tooled borders. Free estimates. (317) 279-5643",
-    heroHeading: "Stamped & Decorative Concrete Specialists",
-    heroSub: "Transform any surface with the look of natural stone, brick, or slate — at a fraction of the cost. Custom patterns, colors, and textures that make your property unforgettable.",
-    intro: "Stamped concrete is our specialty — and it shows in every project we complete. Unlike standard broom-finish concrete, stamped and decorative concrete uses precision-applied patterns, integral colors, color hardeners, and release agents to replicate the look of natural stone, brick, slate, tile, or even wood planks. The result is a surface that delivers high-end aesthetics with the durability and low maintenance of concrete.",
-    details: "Our decorative concrete process starts long before the stamp hits the surface. Every stamped project begins with full excavation, compactable aggregate base, and mechanical compaction — because even the most beautiful finish will fail on a poorly prepared base. We pour with the correct PSI mix for the application, add fiber mesh reinforcement, and then apply color hardener to the fresh concrete for rich, UV-stable color that penetrates the surface. Next, we apply a release agent — either powder or liquid — that prevents the stamps from sticking and adds an antiqued, multi-tonal look to the finished surface. Our crew then presses the stamp mats into the concrete with precision, ensuring consistent pattern alignment and depth. After curing, we pressure wash the excess release and apply a high-quality sealer that protects the color and provides a subtle sheen.",
-    options: ["Ashlar Slate","Flagstone","Cobblestone","European Fan","Random Stone","Wood Plank","Brick Running Bond","Herringbone","Seamless Texture","Custom Patterns"],
-    optionsLabel: "Popular Stamp Patterns",
-    projects: ["Stamped Concrete","Stamped Driveway"],
-    faq: [
-      {q:"How long does stamped concrete last?",a:"With proper base preparation, quality materials, and regular sealing every 2-3 years, stamped concrete will last 25-30+ years in Indiana's climate. Our process includes full excavation, aggregate base, and reinforced concrete — the foundation that makes the finish last."},
-      {q:"Is stamped concrete slippery when wet?",a:"When properly sealed with a non-skid additive (which we include as standard), stamped concrete provides excellent traction even when wet. The texture of the stamp pattern itself also adds natural slip resistance."},
-      {q:"How much does stamped concrete cost in Hamilton County?",a:"Stamped concrete in Hamilton County typically ranges from $14-20 per square foot depending on pattern complexity, number of colors, and project size. Standard broom-finish concrete runs $8-12 per square foot for comparison. Call (317) 279-5643 for a free on-site estimate."},
-      {q:"Can you stamp an existing concrete surface?",a:"Stamping must be done on fresh, wet concrete — you can't stamp existing hardened concrete. However, we can apply a stampable overlay to some existing surfaces, or we can tear out and replace with a new stamped pour. We'll evaluate your specific situation during a free consultation."},
-      {q:"What colors are available for stamped concrete?",a:"We offer a wide range of integral colors (mixed into the concrete) and color hardeners (applied to the surface). Popular choices in Hamilton County include sandstone, walnut, charcoal, terra cotta, and slate gray. We bring physical samples to every consultation so you can see the options in person."},
+  "bathroom-remodeling": {
+    service: "Bathroom Remodeling",
+    title: "Bathroom Remodeling in Hamilton County, IN",
+    metaDesc: "Expert bathroom remodeling in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Schluter Pro Certified with 25-year waterproofing warranty. Walk-in showers, custom tile, vanities. Free estimates. (317) 279-4798",
+    heroHeading: "Expert Bathroom Remodeling in Hamilton County, Indiana",
+    heroSub: "From walk-in showers and custom tile to complete spa-level transformations — our Schluter Pro Certified team delivers bathrooms built to last decades, not just years.",
+    intro: "Your bathroom should be more than functional — it should be a space you enjoy. At HomeStar Services & Contracting, we specialize in bathroom renovations that combine beautiful design with bulletproof construction. Every shower, every floor, every wall is built on our complete Schluter waterproofing system — the same system trusted by luxury builders worldwide.",
+    highlights: [
+      {title:"Schluter Pro Certified",desc:"Our tile installers are factory-certified by Schluter Systems. Every bathroom gets Ditra for floors, Kerdi for walls, and Schluter shower pans — 100% waterproof, backed by a 25-year manufacturer's warranty."},
+      {title:"Licensed Plumbers & Electricians",desc:"All plumbing and electrical work is performed by licensed, insured professionals — not general laborers. This means code-compliant work that passes inspection the first time."},
+      {title:"3D Design Renderings",desc:"Before we touch a hammer, you see your new bathroom in realistic 3D renderings. Choose finishes, layouts, and fixtures with confidence before construction begins."},
+      {title:"1-Year Workmanship Warranty",desc:"Every project is backed by our 1-year workmanship warranty. If something isn't right, we come back and fix it. Quality work should hold up long after the last day on the job."},
     ],
+    whatWeDoIntro: "Whether you're updating a half bath or gutting a master suite, we handle every detail from design through final inspection.",
+    whatWeDo: [
+      "Custom tile showers — walk-in, curbless, double shower, floor-to-ceiling",
+      "Freestanding and built-in soaking tubs",
+      "Vanity installation — single, double, floating, and custom",
+      "Heated flooring systems",
+      "Frameless glass shower enclosures",
+      "Exhaust fan upgrades and lighting design",
+      "ADA-compliant and aging-in-place modifications",
+      "Complete gut renovations and layout changes",
+    ],
+    costIntro: "Bathroom remodel costs in Hamilton County vary by scope. Here's what homeowners in Fishers, Carmel, and Noblesville typically invest:",
+    costs: [
+      {level:"Basic Refresh",range:"$8,000 – $12,000",desc:"New vanity, faucet, mirror, light fixture, paint, and flooring. Layout stays the same."},
+      {level:"Mid-Range Remodel",range:"$15,000 – $30,000",desc:"Full gut — new tile, shower, vanity, countertop, fixtures, lighting, exhaust. Some plumbing changes."},
+      {level:"Spa-Level Renovation",range:"$30,000 – $50,000+",desc:"Premium finishes, frameless glass, freestanding tub, heated floors, dual vanities, full layout reconfiguration."},
+    ],
+    projectCats: ["Bathroom","Children's Bathroom"],
+    faq: [
+      {q:"How long does a bathroom remodel take?",a:"Most bathroom remodels take 2 to 4 weeks. A basic vanity refresh can be done in about a week, while a full gut renovation with custom tile work typically takes 3 to 4 weeks. We provide a detailed project timeline before work begins."},
+      {q:"Do I need a permit for a bathroom remodel?",a:"If the project involves plumbing or electrical changes, a permit is typically required. We handle the entire permitting process for all Hamilton County municipalities — Fishers, Carmel, Noblesville, Westfield, and Zionsville."},
+      {q:"What is the Schluter waterproofing system?",a:"The Schluter system is a complete waterproofing solution for tile installations. It includes Ditra uncoupling membrane for floors, Kerdi waterproof membrane for walls, and Schluter shower pans. Unlike standard cement board, which absorbs moisture over time, Schluter creates a 100% waterproof barrier that prevents mold, rot, and tile failure."},
+      {q:"Why does waterproofing matter for a bathroom remodel?",a:"Most tile failures aren't caused by bad tile — they're caused by moisture getting behind the tile and damaging the substrate. Standard cement board absorbs water. The Schluter system is 100% waterproof and also absorbs structural movement, preventing cracked grout and loose tiles."},
+      {q:"How much does a walk-in shower remodel cost?",a:"A walk-in shower remodel in Hamilton County typically costs $12,000 to $25,000 depending on tile selection, size, and fixtures. Floor-to-ceiling tile and frameless glass add to the cost. We provide free, detailed estimates."},
+      {q:"Can you work with my existing bathroom layout?",a:"Absolutely. Many of our projects keep the existing layout and focus on upgrading finishes, fixtures, and waterproofing. If you want to change the layout — like converting a tub to a walk-in shower — we handle the plumbing relocation as well."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
   },
-  "concrete-patios-outdoor-living": {
-    title: "Patios & Outdoor Living Spaces",
-    metaTitle: "Concrete Patios & Outdoor Living in Hamilton County, IN | Hamilton County Concrete and Patios",
-    metaDesc: "Custom concrete patios and outdoor living spaces in Hamilton County, Indiana. Stamped, brushed, and decorative options. Fire pit pads, seating walls, multi-level designs. Free estimates. (317) 279-5643",
-    heroHeading: "Custom Patios & Outdoor Living Spaces",
-    heroSub: "From simple entertaining pads to full outdoor living environments with fire pits, seating walls, and multi-level transitions — we create backyards people never want to leave.",
-    intro: "A well-designed patio is the foundation of outdoor living. Whether you're looking for a simple, clean space for a table and chairs or a full outdoor living environment with multiple zones for dining, lounging, and gathering around a fire pit, the concrete patio is where it all starts. At Hamilton County Concrete and Patios, we design and pour patios that match how you actually live outdoors.",
-    details: "Every patio we pour begins with an on-site consultation where we walk your property, discuss your vision, and evaluate drainage, grading, and soil conditions. We then design a layout that maximizes your usable space, ensures proper water flow away from your home, and creates natural transitions between zones. Our patio pours include full excavation to proper depth, compactable aggregate base installed in lifts and mechanically compacted, fiber mesh reinforcement, and your choice of finish — from clean broom finish to decorative stamped patterns with custom colors. We also pour integrated features like fire pit pads, step-downs, landing pads, and connecting walkways as part of a unified project.",
-    options: ["Stamped Patio","Broom Finish Patio","Exposed Aggregate","Fire Pit Pad","Multi-Level Patio","Seating Wall Integration","Step-Down Transitions","Connecting Walkways"],
-    optionsLabel: "Patio Options We Offer",
-    projects: ["Patio","Stamped Concrete","Outdoor Living"],
-    faq: [
-      {q:"How much does a concrete patio cost in Hamilton County?",a:"A standard broom-finish patio in Hamilton County runs $8-12 per square foot installed. Stamped or decorative patios range from $14-20 per square foot. A typical 400 sq ft patio costs $3,200-$8,000 depending on finish. Call (317) 279-5643 for a free estimate specific to your project."},
-      {q:"How long does it take to pour a patio?",a:"Most residential patios can be excavated, formed, and poured in 1-3 days. Stamped patios may add an extra day for the finishing process. Total project time including curing is about 1-2 weeks. You can walk on it in 24-48 hours, and place furniture after 7 days."},
-      {q:"What's better for a patio — concrete or pavers?",a:"Both are excellent options. Concrete is faster to install, more affordable per square foot, and offers a seamless surface with no weeds between joints. Pavers offer a modular look but cost more and require ongoing maintenance (re-sanding, re-leveling). For most Hamilton County homeowners, stamped concrete delivers a similar aesthetic at a better price point."},
-      {q:"Can you add a fire pit to a concrete patio?",a:"Absolutely. We pour integrated fire pit pads as part of the patio project, with proper reinforcement and heat-resistant specifications. We can design the fire pit area as a focal point of your outdoor living space with surrounding seating areas."},
-      {q:"Do concrete patios crack?",a:"All concrete develops minor hairline cracks over time — that's normal. However, the severity and frequency of cracking depends almost entirely on base preparation. Our process of full excavation, aggregate base, compaction, reinforcement, and proper control joint placement minimizes cracking dramatically compared to pours done on unprepared soil."},
+  "basement-finishing": {
+    service: "Basement Finishing",
+    title: "Basement Finishing in Hamilton County, IN",
+    metaDesc: "Professional basement finishing in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Entertainment rooms, guest suites, home offices. Licensed contractors. Free estimates. (317) 279-4798",
+    heroHeading: "Professional Basement Finishing in Hamilton County, Indiana",
+    heroSub: "Turn your unfinished basement into the most-used room in your home. Entertainment spaces, guest suites, home offices — designed for your lifestyle and built to last.",
+    intro: "Your unfinished basement is the most underutilized space in your home — and finishing it is one of the smartest investments a Hamilton County homeowner can make. You already own the space and the foundation is already built. At HomeStar Services & Contracting, we transform empty basements into comfortable, functional living areas that add real value to your home and your daily life.",
+    highlights: [
+      {title:"Complete Turnkey Builds",desc:"We handle everything from framing and insulation to drywall, flooring, lighting, plumbing, and electrical. One contractor, one point of contact, one seamless project from start to finish."},
+      {title:"Licensed Plumbers & Electricians",desc:"All plumbing and electrical work is performed by licensed, insured professionals. This matters especially in basements where proper egress lighting, bathroom rough-ins, and moisture management are critical."},
+      {title:"Moisture Management",desc:"Indiana basements deal with moisture. We address it upfront with proper vapor barriers, drainage solutions, and moisture-resistant materials that prevent problems before they start."},
+      {title:"1-Year Workmanship Warranty",desc:"Every basement finish is backed by our 1-year workmanship warranty. If something isn't right, we come back and fix it — no questions asked."},
     ],
+    whatWeDoIntro: "Whether you want a simple open-concept space or a fully built-out lower level with multiple rooms, we design and build basements that match how you actually live.",
+    whatWeDo: [
+      "Family entertainment rooms with media and gaming areas",
+      "Guest suites with bedroom, bathroom, and closet",
+      "Home offices and remote work spaces",
+      "Wet bars and kitchenettes",
+      "Home gyms and fitness rooms",
+      "Kids' playrooms and teen hangout spaces",
+      "Laundry room additions and upgrades",
+      "Full basement bathrooms with custom tile showers",
+    ],
+    costIntro: "Basement finishing costs in Hamilton County depend on the size of your basement and the scope of the build. Here's what homeowners in Fishers, Carmel, and Westfield typically invest:",
+    costs: [
+      {level:"Basic Finish",range:"$20,000 – $30,000",desc:"Open-concept layout with drywall, flooring, recessed lighting, and paint. Great for a simple family room or play area."},
+      {level:"Mid-Range Build",range:"$30,000 – $45,000",desc:"Multiple rooms, upgraded flooring (LVP or carpet), bathroom rough-in or full bath, improved lighting, and built-in storage."},
+      {level:"Full Build-Out",range:"$45,000 – $65,000+",desc:"Complete lower level with guest suite, full bathroom, wet bar or kitchenette, home office, and premium finishes throughout."},
+    ],
+    projectCats: ["Basement"],
+    faq: [
+      {q:"How long does a basement finish take?",a:"Most basement finishes in Hamilton County take 6 to 12 weeks depending on scope. A basic open-concept finish is on the shorter end, while a full build-out with bathroom, wet bar, and multiple rooms takes closer to 10-12 weeks. We provide a detailed project timeline before work begins."},
+      {q:"Do I need a permit to finish my basement?",a:"Yes — finishing a basement requires permits in all Hamilton County municipalities for framing, electrical, plumbing, and HVAC work. We handle the entire permitting and inspection process for you in Fishers, Carmel, Noblesville, Westfield, and Zionsville."},
+      {q:"Will finishing my basement add value to my home?",a:"Absolutely. A finished basement in Hamilton County typically recoups 70-80% of its cost at resale while making your home significantly more attractive to buyers. In competitive markets like Carmel, Fishers, and Westfield, a finished basement can be the differentiator that gets your home sold faster."},
+      {q:"What about moisture and waterproofing?",a:"Indiana basements can have moisture issues, so we address this upfront during our initial walkthrough. We use proper vapor barriers, moisture-resistant materials, and drainage solutions as needed. If there's an existing water issue, we'll identify it and recommend a solution before finishing begins."},
+      {q:"Can you add a bathroom to my basement?",a:"Yes — adding a basement bathroom is one of our most popular requests. If your home has a bathroom rough-in (pre-plumbed drain lines), the cost is lower. If not, our licensed plumbers can install new drain lines. Every basement bathroom we build uses our Schluter waterproofing system with a 25-year warranty."},
+      {q:"What flooring works best in a basement?",a:"Luxury vinyl plank (LVP) is the most popular choice for Hamilton County basements because it's waterproof, durable, and looks great. Carpet is also popular for bedrooms and entertainment areas. We help you choose the right material for each zone of your basement based on how you'll use the space."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
   },
-  "pavilions-pergolas-enclosed-patios": {
-    title: "Pavilions, Pergolas & Enclosed Patios",
-    metaTitle: "Pavilions, Pergolas & Enclosed Patios in Hamilton County, IN | Hamilton County Concrete and Patios",
-    metaDesc: "Custom pavilions, pergolas, and 3/4-season enclosed patios in Hamilton County, Indiana. Complete outdoor structures with stamped concrete foundations. Free estimates. (317) 279-5643",
-    heroHeading: "Pavilions, Pergolas & Enclosed Patios",
-    heroSub: "Extend your outdoor season with a custom-built structure — from open-air pergolas to fully insulated 3/4-season rooms. We build the foundation and the complete outdoor environment.",
-    intro: "An outdoor structure transforms your patio from a seasonal space into a year-round destination. Whether it's an open-air pergola for shade and ambiance, a covered pavilion for rain-or-shine entertaining, or a fully enclosed 3-season or 4-season room that extends your living space, the structure starts with a solid foundation — and that's where we come in.",
-    details: "We handle the complete project from the concrete foundation up through the finished structure. Our pavilion and pergola builds start with a properly engineered stamped or standard concrete pad, with footings sized for the structural loads above. We then build the structure with quality materials — natural stone veneer columns, cedar or composite beams, architectural-grade roofing, and optional features like ceiling fans, lighting, screens, and fireplace integration. For enclosed patios (3-season and 4-season rooms), we work with trusted local builders to deliver a fully weatherized space with insulated walls, windows, HVAC integration, and finished interiors — all on a concrete foundation built to support the structure for decades.",
-    options: ["Open-Air Pergola","Covered Pavilion","3-Season Room","4-Season Room","Stone Column Pavilion","Cedar Pavilion","Screened-In Patio","Pavilion with Fireplace","Pavilion with Outdoor Kitchen"],
-    optionsLabel: "Structure Options",
-    projects: ["Pavilion","Outdoor Living"],
-    faq: [
-      {q:"How much does a pavilion cost in Hamilton County?",a:"Pavilion projects in Hamilton County typically range from $25,000-$75,000+ depending on size, materials, and features. A basic 12x16 cedar pavilion on a stamped concrete pad starts around $25,000. A premium stone-column pavilion with fireplace and lighting can reach $60,000+. Call (317) 279-5643 for a detailed estimate."},
-      {q:"Do I need a permit for a pavilion or pergola?",a:"In most Hamilton County municipalities, yes. Covered structures typically require a building permit and may need to meet setback requirements. We handle the entire permitting process for you and ensure the structure meets local building codes."},
-      {q:"What's the difference between a 3-season and 4-season room?",a:"A 3-season room has screens or windows that provide protection from insects and rain but is not heated — it's comfortable from spring through fall. A 4-season room is fully insulated with HVAC, making it usable year-round like an extension of your home. The 4-season option costs more but adds significant living space and resale value."},
-      {q:"Can you add a pavilion to an existing patio?",a:"It depends on the existing patio's condition and thickness. If the concrete is in good shape and thick enough to support footings, we can often build directly on it. If not, we may need to pour new footings adjacent to the existing pad. We evaluate this during our free on-site consultation."},
+  "kitchen-remodeling": {
+    service: "Kitchen Remodeling",
+    title: "Kitchen Remodeling in Hamilton County, IN",
+    metaDesc: "Quality kitchen remodeling in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Custom cabinetry, countertops, flooring, lighting. Licensed contractors. Free estimates. (317) 279-4798",
+    heroHeading: "Quality Kitchen Remodeling in Hamilton County, Indiana",
+    heroSub: "The kitchen is the heart of your home. We build spaces that balance function and beauty — thoughtful layouts, quality cabinetry, and finishes that elevate your everyday routine.",
+    intro: "A great kitchen remodel isn't just about looks — it's about making your daily life easier, more enjoyable, and more efficient. At HomeStar Services & Contracting, we approach every kitchen project with a focus on smart layouts, durable materials, and finishes that hold up to real family life. Whether you're updating countertops and cabinets or doing a full gut renovation, we bring the same precision and transparency to every kitchen we build.",
+    highlights: [
+      {title:"Thoughtful Design",desc:"We start with how you actually use your kitchen — cooking habits, family size, entertaining style — then design a layout that works. You'll see 3D renderings before construction begins so every detail is right."},
+      {title:"Licensed Plumbers & Electricians",desc:"Kitchen remodels involve gas lines, water supply, drainage, and electrical circuits. All of this work is performed by licensed, insured professionals — ensuring code compliance and safety."},
+      {title:"Quality Materials",desc:"We help you select cabinetry, countertops, flooring, and hardware that balance your budget with long-term durability. No builder-grade shortcuts — just honest recommendations based on what works."},
+      {title:"1-Year Workmanship Warranty",desc:"Every kitchen project is backed by our 1-year workmanship warranty. We stand behind our craftsmanship long after the last cabinet door is hung."},
     ],
+    whatWeDoIntro: "From minor cosmetic updates to full kitchen transformations, we handle every phase of the project in-house.",
+    whatWeDo: [
+      "Cabinet refacing, replacement, and custom installations",
+      "Countertop installation — quartz, granite, butcher block, marble",
+      "Kitchen flooring — hardwood, luxury vinyl plank, tile",
+      "Backsplash design and tile installation",
+      "Recessed lighting, under-cabinet LEDs, and pendant fixtures",
+      "Plumbing — sink, garbage disposal, dishwasher hookup",
+      "Kitchen island builds and layout reconfiguration",
+      "Appliance installation and finish carpentry",
+    ],
+    costIntro: "Kitchen remodel costs in Hamilton County vary widely based on scope. Here's what homeowners in Fishers, Carmel, and Westfield typically invest:",
+    costs: [
+      {level:"Cosmetic Refresh",range:"$10,000 – $20,000",desc:"New countertops, cabinet refacing or paint, updated hardware, fresh backsplash, and lighting upgrades. Layout stays the same."},
+      {level:"Mid-Range Remodel",range:"$25,000 – $50,000",desc:"New cabinets, countertops, flooring, backsplash, lighting, sink, and faucet. May include minor layout changes and appliance upgrades."},
+      {level:"Full Kitchen Renovation",range:"$50,000 – $80,000+",desc:"Complete gut — new layout, custom cabinetry, premium countertops, hardwood or tile flooring, island, high-end appliances, and full lighting design."},
+    ],
+    projectCats: ["Kitchen"],
+    faq: [
+      {q:"How long does a kitchen remodel take?",a:"Kitchen remodels in Hamilton County typically take 4 to 8 weeks depending on scope. A cosmetic refresh with new countertops and cabinet refacing can be done in 3-4 weeks, while a full gut renovation with layout changes takes 6-8 weeks. We provide a detailed timeline before work begins."},
+      {q:"What kitchen upgrades add the most value?",a:"Based on what we see in Hamilton County homes, cabinet replacement or refacing, quartz countertops, and modern lighting deliver the strongest returns. Mid-range kitchen remodels typically recoup 60-75% of their cost at resale, while minor cosmetic updates can return 75-85%."},
+      {q:"Should I choose quartz or granite countertops?",a:"Both are excellent choices. Quartz is the most popular in Hamilton County right now — it's non-porous, low-maintenance, and available in a huge range of styles. Granite offers unique natural patterns and excellent durability. We bring samples to your home so you can compare in your own lighting."},
+      {q:"Do I need to move out during a kitchen remodel?",a:"Most homeowners stay in their home during a kitchen remodel. We help you set up a temporary kitchen area with a microwave, coffee maker, and portable cooktop. It's not luxurious, but it works. We also contain dust and debris to keep the rest of your home clean."},
+      {q:"Can you work with my existing layout?",a:"Absolutely. Many of our kitchen projects keep the existing plumbing and electrical layout, which reduces cost significantly. If you want to change the layout — like adding an island or moving the sink — we handle the plumbing and electrical relocation with licensed tradespeople."},
+      {q:"Do you handle permits for kitchen remodels?",a:"Yes. Kitchen remodels that involve plumbing, electrical, or structural changes require permits in Hamilton County. We manage the entire permitting and inspection process in Fishers, Carmel, Noblesville, Westfield, and Zionsville."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
   },
-  "concrete-driveways": {
-    title: "Concrete Driveways",
-    metaTitle: "Concrete Driveways in Hamilton County, IN | Hamilton County Concrete and Patios",
-    metaDesc: "Professional concrete driveway installation and replacement in Hamilton County, Indiana. Standard, stamped, exposed aggregate, and colored options. Free estimates. (317) 279-5643",
-    heroHeading: "Concrete Driveways Built to Last",
-    heroSub: "New installations, full replacements, and extensions — poured with proper base preparation, reinforcement, and finishing that handles Indiana weather for decades.",
-    intro: "Your driveway is the first thing people see when they pull up to your home — and it takes more abuse than any other concrete surface on your property. Vehicles, salt, freeze-thaw cycles, and UV exposure all take their toll. That's why driveway concrete demands the highest standards of base preparation, mix design, reinforcement, and finishing. At Hamilton County Concrete and Patios, we build driveways that look great on day one and perform for 25-30 years.",
-    details: "Our driveway process starts with complete removal of the old surface (if replacing), followed by excavation to the proper depth — typically 8-10 inches below finished grade to accommodate base material and concrete thickness. We install 4-6 inches of compactable aggregate base and compact in lifts using a plate compactor. We then set forms to the proper grade, ensuring positive drainage away from your garage and home. Every driveway we pour includes rebar or welded wire mesh reinforcement plus fiber mesh in the concrete mix, and we use a minimum 4,000 PSI concrete with air entrainment for freeze-thaw resistance. Control joints are cut at proper intervals to manage natural cracking, and the finished surface receives a professional broom finish for slip resistance or your choice of decorative finish.",
-    options: ["Standard Broom Finish","Stamped Driveway","Exposed Aggregate","Colored Concrete","Stamped Border with Broom Center","Turnaround Pad","Driveway Extension","Apron Replacement"],
-    optionsLabel: "Driveway Options",
-    projects: ["Driveway"],
-    faq: [
-      {q:"How much does a concrete driveway cost in Hamilton County?",a:"A standard broom-finish driveway in Hamilton County typically costs $8-12 per square foot installed. Stamped or decorative driveways range from $14-20 per square foot. A typical two-car driveway (600-800 sq ft) costs $5,000-$16,000 depending on finish. Call (317) 279-5643 for a free estimate."},
-      {q:"How long does a driveway replacement take?",a:"A typical driveway replacement takes 2-4 days: day 1 for demolition and hauling, day 2 for base prep and forming, and day 3 for the pour. Add 7 days of curing before vehicle traffic. We provide a detailed timeline upfront."},
-      {q:"How long before I can drive on new concrete?",a:"We recommend waiting at least 7 days before passenger vehicle traffic and 14 days before heavy vehicles. Foot traffic is safe after 24-48 hours. We'll provide specific curing instructions based on weather conditions at the time of your pour."},
-      {q:"Should I seal my new driveway?",a:"Yes. We recommend sealing your new driveway 30 days after the pour, and then every 2-3 years thereafter. Sealing protects against salt damage, UV fading, and moisture penetration — all critical in Indiana's climate. We can apply the initial sealer as part of your project."},
-      {q:"Can you match my existing concrete color?",a:"We can get very close using integral color or stain options. New concrete next to old will always look slightly different initially due to aging and weathering, but they'll converge over time. We bring color samples to your consultation."},
+  "decks-outdoor-living": {
+    service: "Decks & Outdoor Living",
+    title: "Decks & Outdoor Living in Hamilton County, IN",
+    metaDesc: "Custom decks, patios, pavilions & outdoor living spaces in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Composite and wood decks. Licensed contractors. Free estimates. (317) 279-4798",
+    heroHeading: "Custom Decks & Outdoor Living in Hamilton County, Indiana",
+    heroSub: "From composite decks and stamped concrete patios to covered pavilions with outdoor bars — we design and build outdoor spaces that stand up to Indiana weather and elevate how you live.",
+    intro: "Your backyard should be an extension of your home — not an afterthought. At HomeStar Services & Contracting, we design and build outdoor living spaces that are functional, beautiful, and built to handle Indiana's four-season climate. Whether you want a simple deck for weekend grilling or a full outdoor entertaining area with a covered pavilion and bar, we bring the same craftsmanship we put into every interior project to your exterior spaces.",
+    highlights: [
+      {title:"Composite & Wood Options",desc:"We build with both premium composite decking (Trex, TimberTech) for low-maintenance longevity and pressure-treated wood for budget-conscious projects. We'll help you choose the right material for your lifestyle and budget."},
+      {title:"Custom Design",desc:"Every outdoor space is designed around how you actually plan to use it — dining, lounging, grilling, entertaining. We create distinct zones, consider traffic flow, and design for year-round enjoyment."},
+      {title:"Licensed & Insured",desc:"All structural work, electrical (for landscape lighting and outlets), and any plumbing (for outdoor kitchens) is performed by licensed professionals. Fully insured and bonded."},
+      {title:"Built for Indiana Weather",desc:"We select materials and construction methods specifically suited for Indiana's freeze-thaw cycles, humidity, and heavy rains. Proper footings, drainage, and weather-resistant hardware ensure your outdoor space lasts."},
     ],
+    whatWeDoIntro: "From simple deck builds to elaborate outdoor living areas, we handle the full scope of exterior projects.",
+    whatWeDo: [
+      "Composite deck builds — Trex, TimberTech, and similar brands",
+      "Pressure-treated wood decks and pergolas",
+      "Covered pavilions with stained wood beams and stone columns",
+      "Stamped and decorative concrete patios",
+      "Outdoor bar areas and kitchenette spaces",
+      "Deck railing systems — composite, aluminum, cable",
+      "Landscape lighting and electrical for outdoor areas",
+      "Screened porches and three-season rooms",
+    ],
+    costIntro: "Outdoor living project costs in Hamilton County depend on the size, materials, and complexity. Here's what homeowners in Fishers, Carmel, and Noblesville typically invest:",
+    costs: [
+      {level:"Basic Deck Build",range:"$8,000 – $18,000",desc:"Pressure-treated wood deck with standard railing, stairs, and basic layout. Great for a functional outdoor space on a budget."},
+      {level:"Composite Deck",range:"$18,000 – $35,000",desc:"Premium composite decking with aluminum or composite railing, dual staircases, and a spacious layout. Low-maintenance for 25+ years."},
+      {level:"Full Outdoor Living",range:"$35,000 – $60,000+",desc:"Covered pavilion, stone columns, outdoor bar, stamped concrete patio, landscape lighting, and custom design. Year-round entertaining."},
+    ],
+    projectCats: ["Exterior"],
+    faq: [
+      {q:"How long does it take to build a deck?",a:"A standard deck build in Hamilton County takes 1 to 3 weeks depending on size and complexity. A simple pressure-treated wood deck can be done in about a week, while a large composite deck with multiple levels and custom railing takes 2-3 weeks. Covered pavilions and full outdoor living spaces take 3-6 weeks."},
+      {q:"Composite or wood — which is better?",a:"It depends on your priorities. Composite costs more upfront but requires virtually zero maintenance and lasts 25-30 years. Pressure-treated wood is more affordable initially but requires annual staining and sealing, and boards will eventually need replacement. For most Hamilton County homeowners who want to enjoy their deck rather than maintain it, composite is the better long-term investment."},
+      {q:"Do I need a permit to build a deck in Indiana?",a:"Yes — deck construction requires permits in all Hamilton County municipalities. We handle the entire permitting and inspection process. A properly permitted deck protects your investment and avoids issues when you sell your home."},
+      {q:"Can you build a covered patio or pavilion?",a:"Absolutely. Our Fortville Pavilion project is a great example — a custom outdoor living space with stone columns, stained wood beams, a covered bar area, and a layout designed for year-round entertaining. We design and build custom covered structures tailored to your space."},
+      {q:"What's the best time of year to build a deck in Indiana?",a:"Spring and early summer are the most popular times, but we build decks from March through November. If you want your deck ready for Memorial Day, start the planning and design process in January or February so we can schedule construction for early spring."},
+      {q:"Do you do stamped concrete patios?",a:"Yes. We've completed stamped concrete patio projects in both Fishers and Noblesville. Stamped concrete offers the look of natural stone or brick at a fraction of the cost, and it's extremely durable for Indiana's climate."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
   },
-  "concrete-sidewalks-walkways": {
-    title: "Sidewalks & Walkways",
-    metaTitle: "Concrete Sidewalks & Walkways in Hamilton County, IN | Hamilton County Concrete and Patios",
-    metaDesc: "Professional concrete sidewalk and walkway installation in Hamilton County, Indiana. Standard and decorative stamped options. New pours and replacements. Free estimates. (317) 279-5643",
-    heroHeading: "Concrete Sidewalks & Walkways",
-    heroSub: "Safe, level, and beautiful pathways that connect your spaces — from front walkways that elevate curb appeal to backyard paths that complete your outdoor living area.",
-    intro: "Sidewalks and walkways serve a dual purpose: they provide safe, level passage between spaces, and they contribute significantly to your property's curb appeal and overall landscape design. Whether you need a new front walkway, a replacement sidewalk, or a decorative stamped path connecting your patio to a garden or pool area, we pour walkways built for both function and beauty.",
-    details: "Our walkway process follows the same quality standards as our larger pours — full excavation, compactable aggregate base, compaction, and reinforced concrete. We grade every walkway for positive drainage and proper slope, ensuring water flows away from structures and doesn't pool on the surface. For standard walkways, we apply a clean broom finish with precise control joints. For decorative walkways, we offer stamped patterns, colored concrete, exposed aggregate borders, and hand-tooled edge details. We also handle ADA-compliant installations for commercial properties, with proper slopes, widths, and surface textures that meet code requirements.",
-    options: ["Standard Broom Finish","Stamped Walkway","Cobblestone Pattern","Exposed Aggregate Border","Colored Concrete","Front Porch Landing","Step Integration","ADA-Compliant Commercial"],
-    optionsLabel: "Walkway Options",
-    projects: ["Stamped Concrete","Patio"],
-    faq: [
-      {q:"How much does a concrete walkway cost?",a:"Standard broom-finish walkways in Hamilton County run $8-12 per square foot. Stamped or decorative walkways range from $14-20 per square foot. A typical 4-foot-wide, 30-foot-long front walkway (120 sq ft) costs $960-$2,400. Call (317) 279-5643 for a free estimate."},
-      {q:"Can you replace just part of a sidewalk?",a:"Yes. We can remove and replace individual sections of sidewalk without disturbing the sections that are still in good condition. We color-match as closely as possible and cut clean joints at the transition points."},
-      {q:"How wide should a walkway be?",a:"For residential front walkways, we recommend 4 feet minimum — wide enough for two people to walk side by side. For secondary paths and garden walkways, 3 feet works well. ADA-compliant commercial walkways require a minimum of 5 feet."},
-      {q:"Do you pour steps and landings?",a:"Absolutely. We pour concrete steps, landings, and stoops as part of walkway projects. All steps are built to code with proper rise, run, and railing attachment points if needed."},
+  "flooring-services": {
+    service: "Flooring Services",
+    title: "Flooring Installation in Hamilton County, IN",
+    metaDesc: "Professional flooring installation in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Hardwood, luxury vinyl plank, tile, carpet. Licensed contractors. Free estimates. (317) 279-4798",
+    heroHeading: "Professional Flooring Installation in Hamilton County, Indiana",
+    heroSub: "New flooring changes the entire feel of a room. We install hardwood, luxury vinyl plank, tile, and carpet — selected for your lifestyle, built to handle real life, and installed with precision.",
+    intro: "The right flooring transforms a space more than almost any other upgrade. At HomeStar Services & Contracting, we help Hamilton County homeowners choose the right material for each room — considering foot traffic, moisture exposure, pets, kids, and style preferences — then install it with the precision and care that ensures it looks great and lasts for years. Whether you're upgrading a single room or reflooring your entire home, we deliver results you can feel the moment you walk in.",
+    highlights: [
+      {title:"Expert Material Guidance",desc:"We don't just install — we help you choose. We'll walk you through the pros and cons of hardwood, LVP, tile, and carpet for each room based on how you actually live, so you make a confident decision."},
+      {title:"Precision Installation",desc:"Flooring is only as good as its installation. Our team ensures proper subfloor preparation, acclimation of materials, tight seams, and clean transitions between rooms. No shortcuts, no lifted edges."},
+      {title:"Full-Service Approach",desc:"We handle everything: removal of old flooring, subfloor repair if needed, installation, trim work, and final cleanup. One contractor, one seamless project."},
+      {title:"1-Year Workmanship Warranty",desc:"Every flooring installation is backed by our 1-year workmanship warranty. If something isn't right, we come back and make it right."},
     ],
+    whatWeDoIntro: "We install all major flooring types across Hamilton County homes, matched to each room's demands.",
+    whatWeDo: [
+      "Luxury vinyl plank (LVP) — waterproof, durable, and realistic wood looks",
+      "Hardwood flooring — solid and engineered options",
+      "Porcelain and ceramic tile — bathrooms, kitchens, entryways",
+      "Carpet installation — bedrooms, basements, bonus rooms",
+      "Subfloor repair and leveling",
+      "Old flooring removal and disposal",
+      "Transition strips and trim work between rooms",
+      "Heated floor systems (under tile)",
+    ],
+    costIntro: "Flooring installation costs in Hamilton County depend on the material, square footage, and subfloor condition. Here's what homeowners in Fishers, Carmel, and Noblesville typically invest:",
+    costs: [
+      {level:"Single Room",range:"$2,000 – $5,000",desc:"One room (bedroom, bathroom, or kitchen) with new flooring, including removal of old material and installation. Material choice drives the range."},
+      {level:"Multi-Room / Full Floor",range:"$6,000 – $15,000",desc:"Multiple rooms or an entire floor level. LVP and carpet are on the lower end, hardwood and tile on the higher end. Includes transitions and trim."},
+      {level:"Whole-Home Reflooring",range:"$15,000 – $30,000+",desc:"Complete flooring replacement throughout the home. Often done during a larger renovation. Mix of materials across different rooms for optimal performance."},
+    ],
+    projectCats: ["Flooring"],
+    faq: [
+      {q:"What's the best flooring for a bathroom?",a:"Luxury vinyl plank (LVP) and porcelain tile are both excellent choices for bathrooms because they're waterproof. LVP is warmer underfoot and easier to install, while tile offers more design versatility and works great with heated floor systems. We help you choose based on your style and budget."},
+      {q:"Is luxury vinyl plank (LVP) good for homes with pets?",a:"LVP is one of the best flooring options for pet owners. It's scratch-resistant, waterproof, and easy to clean. Most LVP products we install have a thick wear layer that handles dog nails without showing scratches. It's the most popular choice in Hamilton County homes with pets."},
+      {q:"How long does flooring installation take?",a:"A single room typically takes 1-2 days. A full floor level takes 3-5 days. Whole-home reflooring can take 1-2 weeks depending on scope. We provide a detailed timeline before work begins."},
+      {q:"Do you remove the old flooring?",a:"Yes — we handle complete removal and disposal of old flooring, including carpet, tile, vinyl, and hardwood. We also inspect and repair the subfloor if needed before installing new material."},
+      {q:"How much does hardwood flooring cost in Hamilton County?",a:"Hardwood flooring installation in the Fishers, Carmel, and Noblesville area typically runs $8 to $15 per square foot installed, depending on the species and whether it's solid or engineered. We provide free in-home estimates with exact pricing for your space."},
+      {q:"Can you install flooring over existing floors?",a:"In many cases, yes. LVP and engineered hardwood can often be installed over existing hard surfaces if the subfloor is level and in good condition. We assess this during our free in-home consultation and recommend the best approach."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
   },
-  "garage-floors-concrete-slabs": {
-    title: "Garage Floors & Concrete Slabs",
-    metaTitle: "Garage Floors & Concrete Slabs in Hamilton County, IN | Hamilton County Concrete and Patios",
-    metaDesc: "Garage floor pours, shop slabs, and concrete resurfacing in Hamilton County, Indiana. Proper grading, reinforcement, and professional finishing. Free estimates. (317) 279-5643",
-    heroHeading: "Garage Floors & Concrete Slabs",
-    heroSub: "High-performance floor pours for garages, shops, barns, and outbuildings — built with proper grading, vapor barriers, and reinforcement to handle heavy loads.",
-    intro: "Garage floors and concrete slabs take more abuse than most surfaces — vehicle weight, equipment loads, chemical spills, road salt, and temperature extremes. A garage floor that's too thin, poured on poor base, or lacks proper reinforcement will crack, settle, and deteriorate within a few years. We pour garage floors and slabs that handle real-world use for decades.",
-    details: "Our garage floor process starts with excavation and base preparation — removing unstable soil and installing compactable aggregate base compacted in lifts. We install a vapor barrier to prevent moisture from wicking through the slab, which is critical for preventing efflorescence, coating failure, and moisture problems in the space above. We pour with a minimum 4-inch thickness (6-inch for heavy equipment or vehicle lifts), using 4,000+ PSI concrete with rebar or welded wire mesh reinforcement. Control joints are placed at proper intervals, and the surface receives a steel trowel or broom finish depending on the intended use. We grade the floor to drain toward the garage door opening for water management.",
-    options: ["Standard Garage Floor","Heavy-Duty Shop Slab","Barn/Outbuilding Pad","Equipment Pad","Smooth Trowel Finish","Broom Finish","Apron Pour","Slab Replacement"],
-    optionsLabel: "Slab Options",
-    projects: [],
-    faq: [
-      {q:"How thick should a garage floor be?",a:"Standard residential garage floors should be a minimum of 4 inches thick. For shops with heavy equipment, vehicle lifts, or commercial use, we recommend 6 inches with heavier reinforcement. We evaluate your specific use case during the consultation."},
-      {q:"How much does a garage floor cost?",a:"Garage floor pours in Hamilton County typically run $8-12 per square foot for a standard broom or trowel finish. A typical 2-car garage (400-600 sq ft) costs $3,200-$7,200. Tear-out of an existing slab adds $2-4 per square foot. Call (317) 279-5643 for a detailed estimate."},
-      {q:"Do you install vapor barriers?",a:"Yes — we install a vapor barrier (typically 6-mil poly sheeting) under every garage floor and interior slab. This prevents ground moisture from wicking through the concrete, which can cause coating failure, efflorescence, and moisture problems in the space above."},
-      {q:"Can you pour over an existing garage floor?",a:"In most cases, no. Pouring over existing concrete creates a thin overlay that's prone to delamination and cracking. We typically recommend full tear-out and replacement for the best long-term result. We'll evaluate your specific situation during the consultation."},
+  "painting-services": {
+    service: "Painting Services",
+    title: "Interior & Exterior Painting in Hamilton County, IN",
+    metaDesc: "Professional interior and exterior painting in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Clean lines, quality finishes, expert prep. Licensed & insured. Free estimates. (317) 279-4798",
+    heroHeading: "Professional Painting Services in Hamilton County, Indiana",
+    heroSub: "A professional paint job does more than change a color — it transforms a room. We deliver clean edges, smooth finishes, and expert prep work that makes the difference between a weekend DIY job and a result you're proud of for years.",
+    intro: "Paint is the most cost-effective way to transform any space in your home. But the difference between a good paint job and a great one is all in the preparation. At HomeStar Services & Contracting, we invest the time in proper surface prep — filling holes, sanding, priming, caulking, and masking — before any paint goes on the wall. The result is clean lines, smooth finishes, and color that looks as good in three years as it does on day one.",
+    highlights: [
+      {title:"Expert Surface Preparation",desc:"The secret to a flawless paint job is what happens before the roller touches the wall. We fill, sand, prime, caulk, and mask every surface so the finish is smooth and long-lasting."},
+      {title:"Quality Paint Products",desc:"We use premium paints from trusted brands like Sherwin-Williams and Benjamin Moore. The right paint in the right sheen for each room ensures durability, washability, and beautiful color."},
+      {title:"Interior & Exterior",desc:"From living rooms and bedrooms to siding, trim, doors, and decks — we handle both interior and exterior painting projects of any size across Hamilton County."},
+      {title:"Clean, Respectful Crew",desc:"We protect your floors, furniture, and fixtures. We clean up every day. And we leave your home looking better than when we arrived — not just the walls, but the whole space."},
     ],
-  },
-  "concrete-removal-replacement": {
-    title: "Concrete Removal & Replacement",
-    metaTitle: "Concrete Removal & Replacement in Hamilton County, IN | Hamilton County Concrete and Patios",
-    metaDesc: "Complete concrete removal, tear-out, and replacement in Hamilton County, Indiana. Driveways, patios, sidewalks, and slabs. Proper base prep on every pour. Free estimates. (317) 279-5643",
-    heroHeading: "Concrete Removal & Replacement",
-    heroSub: "Out with the old, in with the new. Complete tear-out, hauling, base preparation, and fresh concrete — done right from the ground up.",
-    intro: "Sometimes the best fix is a fresh start. When your existing concrete is severely cracked, sunken, spalling, or simply past its lifespan, patching and mudjacking only delay the inevitable. A full removal and replacement gives you a brand-new surface built on a properly prepared base — and it's often more cost-effective than years of ongoing repairs.",
-    details: "Our removal and replacement process is comprehensive. We start by sawcutting clean edges to define the work area, then use skid steers and concrete saws to break up and remove the old slab. All debris is loaded and hauled away — you never have to deal with disposal. Once the old concrete is removed, we excavate to the proper depth, evaluate and correct any drainage or soil issues that contributed to the original failure, install compactable aggregate base, compact in lifts, and pour new concrete with proper reinforcement and finishing. The result is a surface that addresses the root cause of the original failure, not just the symptoms.",
-    options: ["Full Driveway Replacement","Patio Tear-Out & Replace","Sidewalk Section Replacement","Garage Floor Replacement","Apron Replacement","Pool Deck Replacement","Sunken Slab Correction","Trip Hazard Elimination"],
-    optionsLabel: "Replacement Services",
-    projects: [],
-    faq: [
-      {q:"How much does concrete removal and replacement cost?",a:"Removal and replacement in Hamilton County typically runs $10-16 per square foot including tear-out, hauling, base prep, and new concrete. The total depends on thickness, access, reinforcement, and finish. A typical driveway replacement runs $7,000-$14,000. Call (317) 279-5643 for a free estimate."},
-      {q:"How long does a replacement project take?",a:"Most residential replacements take 2-4 days: demo and hauling, base prep and forming, and the new pour. Larger projects or those with drainage corrections may take longer. Add 7 days of curing before vehicle traffic on driveways."},
-      {q:"Why did my old concrete fail?",a:"The most common causes in Hamilton County are: poor base preparation (pouring on unprepared soil), insufficient thickness, lack of reinforcement, poor drainage causing water to undermine the slab, tree root pressure, and simply reaching the end of a 25-30 year lifespan. We address all of these root causes in our replacement process."},
-      {q:"Can you replace just a section of my driveway?",a:"Yes. We can remove and replace individual sections without disturbing the rest. We sawcut clean edges, match the thickness, and use control joints at the transition. The new section may look slightly different in color initially but will blend over time."},
+    whatWeDoIntro: "From single accent walls to full interior and exterior painting projects, we handle it all.",
+    whatWeDo: [
+      "Interior wall and ceiling painting",
+      "Exterior siding, trim, and fascia painting",
+      "Cabinet painting and refinishing",
+      "Door and window trim painting",
+      "Deck and fence staining and sealing",
+      "Drywall repair and patching before paint",
+      "Color consultation and recommendations",
+      "Wallpaper removal and surface preparation",
     ],
+    costIntro: "Painting costs in Hamilton County depend on the scope, surface condition, and number of rooms. Here's what homeowners in Fishers, Carmel, and Westfield typically invest:",
+    costs: [
+      {level:"Single Room",range:"$400 – $900",desc:"One standard bedroom or bathroom — walls and ceiling, including prep, primer (if needed), and two coats of finish paint."},
+      {level:"Multi-Room Interior",range:"$2,000 – $6,000",desc:"3-6 rooms including hallways and trim. Price varies by room size, ceiling height, and amount of prep work needed."},
+      {level:"Full Interior or Exterior",range:"$5,000 – $12,000+",desc:"Complete interior repaint (all rooms, trim, doors, ceilings) or full exterior (siding, trim, fascia, soffits, doors). Includes thorough prep and premium paint."},
+    ],
+    projectCats: ["Painting"],
+    faq: [
+      {q:"How long does it take to paint the interior of a house?",a:"A full interior paint job in a typical Hamilton County home takes 3 to 5 days depending on the number of rooms, ceiling height, and amount of prep work. A single room can often be completed in one day. We provide a timeline before work begins."},
+      {q:"Do you do exterior painting?",a:"Yes — we paint exterior siding, trim, fascia, soffits, doors, and shutters. Proper exterior prep is critical in Indiana's climate, so we scrape, sand, prime, and caulk before applying paint to ensure it holds up through freeze-thaw cycles and humidity."},
+      {q:"What paint brands do you use?",a:"We primarily use Sherwin-Williams and Benjamin Moore products. Both offer excellent coverage, durability, and color selection. We recommend specific products and sheens based on each room — for example, eggshell for living areas, satin for kitchens and bathrooms, semi-gloss for trim."},
+      {q:"Can you paint kitchen cabinets?",a:"Yes — cabinet painting is one of our most popular services. It's a cost-effective way to completely transform a kitchen without a full remodel. We properly sand, prime, and apply multiple coats of cabinet-grade paint for a factory-smooth finish that lasts."},
+      {q:"How much does it cost to paint the exterior of a house in Hamilton County?",a:"Exterior painting in the Fishers, Carmel, and Noblesville area typically costs $4,000 to $10,000 depending on the home's size, siding type, and condition. Homes with extensive prep needs (peeling paint, wood rot repair) are on the higher end. We provide free estimates."},
+      {q:"Do I need to move furniture before you arrive?",a:"We handle all furniture moving and protection. We cover floors with drop cloths, move furniture away from walls, and mask all fixtures, outlets, and trim. At the end of each day, we put everything back and clean up."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
   },
 };
 
 function ServicePage({data}){
   const[faqOpen,setFaqOpen]=useState(null);
+  const filteredProjects=PROJECTS.filter(p=>data.projectCats.includes(p.cat));
+  const[activeProject,setActiveProject]=useState(0);
+  const[activeImg,setActiveImg]=useState(0);
 
   useEffect(()=>{
-    document.title=data.metaTitle;
+    document.title=data.title+" | HomeStar Services & Contracting";
     const meta=document.querySelector('meta[name="description"]');
     if(meta)meta.setAttribute("content",data.metaDesc);
   },[data]);
@@ -1702,30 +1870,31 @@ function ServicePage({data}){
     }
   },[]);
 
-  /* Filter projects matching this service's categories */
-  const serviceProjects = data.projects.length > 0 ? PROJECTS.filter(p=>data.projects.some(cat=>p.cat===cat||p.cat.includes(cat))) : [];
-
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service","name":data.title,"provider":{"@type":"HomeAndConstructionBusiness","name":"Hamilton County Concrete and Patios","telephone":"+1-317-279-5643","url":"https://www.hamiltoncountyconcrete.com","address":{"@type":"PostalAddress","addressLocality":"Carmel","addressRegion":"IN","addressCountry":"US"}},"areaServed":[{name:"Carmel"},{name:"Fishers"},{name:"Noblesville"},{name:"Westfield"},{name:"Zionsville"},{name:"Hamilton County"}].map(c=>({"@type":"City",...c})),"description":data.metaDesc})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:data.service,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"}},areaServed:data.cities.map(c=>({"@type":"City",name:c})),description:data.metaDesc})}}/>
 
-      <Nav/>
+      <Nav isCity/>
 
       {/* Hero */}
-      <section style={{position:"relative",padding:"160px 24px 80px",background:`linear-gradient(155deg,${C.navyLight} 0%,#4E666F 35%,#5E7680 65%,#6E8690 100%)`,overflow:"hidden"}}>
-        <div style={{position:"absolute",top:"-20%",right:"-10%",width:700,height:700,borderRadius:"50%",background:"radial-gradient(circle,rgba(250,248,245,.14) 0%,transparent 70%)"}}/>
-        <div style={{position:"absolute",inset:0,opacity:.03,backgroundImage:"linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)",backgroundSize:"64px 64px"}}/>
+      <section style={{position:"relative",padding:"160px 24px 80px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`,overflow:"hidden"}}>
+        <div style={{position:"absolute",inset:0,opacity:.025,backgroundImage:"linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)",backgroundSize:"64px 64px"}}/>
         <div style={{maxWidth:800,margin:"0 auto",position:"relative",zIndex:2,textAlign:"center"}}>
-          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(255,255,255,.12)",borderRadius:50,padding:"7px 16px",marginBottom:22}}>
-            <div style={{width:7,height:7,borderRadius:"50%",background:"rgba(255,255,255,.7)"}}/>
-            <span style={{color:"rgba(255,255,255,.85)",fontWeight:700,fontSize:12,letterSpacing:".06em"}}>HAMILTON COUNTY, INDIANA</span>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>SCHLUTER PRO CERTIFIED</span>
           </div>
           <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(32px,5vw,52px)",lineHeight:1.1,marginBottom:20}}>{data.heroHeading}</h1>
-          <p className="fu d3" style={{color:"rgba(255,255,255,.7)",fontSize:17,lineHeight:1.7,maxWidth:600,margin:"0 auto 32px"}}>{data.heroSub}</p>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.6)",fontSize:17,lineHeight:1.7,maxWidth:600,margin:"0 auto 32px"}}>{data.heroSub}</p>
           <div className="fu d4" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:14}}>
-            <a href="#svc-estimate" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
-            <a href="/" className="btn-o">View All Services</a>
+            <a href="#service-estimate" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
+            <a href="#service-projects" className="btn-o">View Our Work</a>
+          </div>
+          <div className="fu d5" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:32,marginTop:44}}>
+            {[{n:"5.0★",l:"Google Rating"},{n:"25-Year",l:"Schluter Warranty"},{n:"100%",l:"Licensed & Insured"}].map(b=>
+              <div key={b.l}><div className="display" style={{color:C.green,fontSize:24,fontWeight:800}}>{b.n}</div><div style={{color:"rgba(255,255,255,.4)",fontSize:11,fontWeight:600}}>{b.l}</div></div>
+            )}
           </div>
         </div>
       </section>
@@ -1733,61 +1902,114 @@ function ServicePage({data}){
       {/* Intro */}
       <section className="sec" style={{background:"#fff"}}>
         <div className="sec-in" style={{maxWidth:800}}>
-          <div className="lab" style={{textAlign:"center"}}>About This Service</div>
-          <h2 className="ttl" style={{textAlign:"center"}}>{data.title} in Hamilton County</h2>
-          <p style={{color:C.gray,fontSize:16,lineHeight:1.85,marginBottom:28}}>{data.intro}</p>
-          <p style={{color:C.gray,fontSize:16,lineHeight:1.85}}>{data.details}</p>
+          <h2 className="ttl" style={{textAlign:"center"}}>Why Hamilton County Homeowners Choose HomeStar</h2>
+          <p style={{color:C.gray,fontSize:16,lineHeight:1.85,textAlign:"center"}}>{data.intro}</p>
         </div>
       </section>
 
-      {/* Options */}
+      {/* Highlights */}
       <section className="sec" style={{background:C.cream}}>
-        <div className="sec-in" style={{maxWidth:800,textAlign:"center"}}>
-          <div className="lab">{data.optionsLabel}</div>
-          <h2 className="ttl">Options Available</h2>
-          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10,marginTop:24}}>
-            {data.options.map(opt=>
-              <span key={opt} style={{padding:"10px 20px",borderRadius:50,background:"#fff",color:C.navy,fontSize:14,fontWeight:600,border:`1px solid ${C.sand}`}}>{opt}</span>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">What Sets Us Apart</div>
+            <h2 className="ttl">The HomeStar Difference</h2>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:20}}>
+            {data.highlights.map(h=>
+              <div key={h.title} style={{padding:"28px 24px",borderRadius:14,background:"#fff",border:`1px solid ${C.sand}`,transition:"all .3s"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)"}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)"}}>
+                <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>{I.check}<h3 style={{color:C.navy,fontWeight:700,fontSize:16}}>{h.title}</h3></div>
+                <p style={{color:C.gray,fontSize:14,lineHeight:1.7}}>{h.desc}</p>
+              </div>
             )}
           </div>
         </div>
       </section>
 
-      {/* Projects for this service */}
-      {serviceProjects.length>0&&(
-        <section className="sec" style={{background:"#fff"}}>
-          <div className="sec-in">
-            <div style={{textAlign:"center",marginBottom:48}}>
-              <div className="lab">Our {data.title} Work</div>
-              <h2 className="ttl">Recent {data.title} Projects</h2>
-            </div>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))",gap:22}}>
-              {serviceProjects.map((p,i)=>
-                <div key={p.title} style={{borderRadius:14,overflow:"hidden",background:C.cream,boxShadow:"0 2px 10px rgba(0,0,0,.05)",transition:"all .3s"}}
-                  onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-5px)";e.currentTarget.style.boxShadow="0 14px 44px rgba(0,0,0,.1)"}}
-                  onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="0 2px 10px rgba(0,0,0,.05)"}}>
-                  <Carousel images={p.images} color={p.color} title={p.title} />
-                  <div style={{padding:"20px 24px 24px"}}>
-                    <span style={{fontSize:10,fontWeight:700,letterSpacing:".08em",color:C.green,textTransform:"uppercase"}}>{p.cat}</span>
-                    <h3 className="display" style={{fontSize:17,color:C.navy,marginTop:6}}>{p.title}</h3>
-                    {p.desc&&<p style={{color:C.gray,fontSize:13,lineHeight:1.6,marginTop:8}}>{p.desc}</p>}
-                    {p.images&&p.images.length>1&&<div style={{marginTop:10,color:C.gray,fontSize:11,fontWeight:600}}>{p.images.length} photos</div>}
-                  </div>
-                </div>
-              )}
-            </div>
+      {/* What We Do */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Our Expertise</div>
+            <h2 className="ttl">What We Do</h2>
+            <p style={{color:C.gray,fontSize:15,lineHeight:1.8,marginTop:16}}>{data.whatWeDoIntro}</p>
           </div>
-        </section>
-      )}
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:14}}>
+            {data.whatWeDo.map(item=>
+              <div key={item} style={{display:"flex",alignItems:"flex-start",gap:10,padding:"14px 18px",borderRadius:10,background:C.cream}}>
+                {I.check}<span style={{color:C.navy,fontSize:14,fontWeight:600,lineHeight:1.5}}>{item}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Cost Guide */}
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Investment Guide</div>
+            <h2 className="ttl ttl-w">How Much Does It Cost?</h2>
+            <p style={{color:"rgba(255,255,255,.45)",fontSize:15,lineHeight:1.8,maxWidth:600,margin:"12px auto 0"}}>{data.costIntro}</p>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:20}}>
+            {data.costs.map(c=>
+              <div key={c.level} style={{padding:"32px 28px",borderRadius:14,background:"rgba(255,255,255,.04)",border:"1px solid rgba(255,255,255,.08)"}}>
+                <div style={{color:C.green,fontWeight:700,fontSize:13,marginBottom:8,letterSpacing:".04em"}}>{c.level.toUpperCase()}</div>
+                <div className="display" style={{color:"#fff",fontSize:28,fontWeight:800,marginBottom:14}}>{c.range}</div>
+                <p style={{color:"rgba(255,255,255,.45)",fontSize:14,lineHeight:1.7}}>{c.desc}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section id="service-projects" className="sec" style={{background:"#fff"}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Our Work</div>
+            <h2 className="ttl">{data.service} Projects</h2>
+          </div>
+          {filteredProjects.length>0&&(
+            <div>
+              <div style={{display:"flex",gap:10,flexWrap:"wrap",justifyContent:"center",marginBottom:28}}>
+                {filteredProjects.map((p,i)=>
+                  <button key={p.title} onClick={()=>{setActiveProject(i);setActiveImg(0);}} style={{padding:"8px 18px",borderRadius:50,border:`1px solid ${activeProject===i?C.green:C.sand}`,background:activeProject===i?C.greenMuted:"#fff",color:activeProject===i?C.green:C.gray,fontWeight:600,fontSize:13,cursor:"pointer",fontFamily:"'Plus Jakarta Sans',sans-serif"}}>{p.title.replace(/remodel|project|build/gi,"").replace(/in\s\w+$/i,"").trim()}</button>
+                )}
+              </div>
+              <div style={{position:"relative",borderRadius:16,overflow:"hidden",background:C.navyDark,maxWidth:700,margin:"0 auto"}}>
+                <img src={filteredProjects[activeProject].images[activeImg].src} alt={filteredProjects[activeProject].images[activeImg].alt} style={{width:"100%",height:420,objectFit:"cover",display:"block"}}/>
+                <div style={{position:"absolute",bottom:16,left:"50%",transform:"translateX(-50%)",display:"flex",gap:6}}>
+                  {filteredProjects[activeProject].images.map((_,i)=>
+                    <button key={i} onClick={()=>setActiveImg(i)} style={{width:activeImg===i?20:8,height:8,borderRadius:4,background:activeImg===i?"#fff":"rgba(255,255,255,.4)",border:"none",cursor:"pointer",transition:"all .3s"}}/>
+                  )}
+                </div>
+              </div>
+              <div style={{textAlign:"center",marginTop:20}}>
+                <h3 className="display" style={{color:C.navy,fontSize:18}}>{filteredProjects[activeProject].title}</h3>
+                <p style={{color:C.gray,fontSize:14,marginTop:6}}>{filteredProjects[activeProject].desc}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Service Areas */}
       <section className="sec" style={{background:C.cream}}>
-        <div className="sec-in" style={{maxWidth:800,textAlign:"center"}}>
-          <div className="lab">Where We Offer {data.title}</div>
-          <h2 className="ttl">Service Areas</h2>
-          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10,marginTop:24}}>
-            {["Carmel","Fishers","Noblesville","Westfield","Zionsville","Brownsburg","Pendleton","McCordsville","Fortville"].map(city=>
-              <span key={city} style={{padding:"10px 20px",borderRadius:50,background:"#fff",color:C.navy,fontSize:14,fontWeight:600,border:`1px solid ${C.sand}`}}>{city}, IN</span>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:36}}>
+            <div className="lab">Where We Work</div>
+            <h2 className="ttl">{data.service} Across Hamilton County</h2>
+          </div>
+          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:12}}>
+            {data.cities.map(c=>
+              <a key={c} href={`/home-remodeling-${c.toLowerCase().replace(/ /g,"-")}-in`} style={{padding:"12px 22px",borderRadius:50,background:"#fff",border:`1px solid ${C.sand}`,color:C.navy,fontWeight:600,fontSize:14,textDecoration:"none",transition:"all .3s"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.color=C.green}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.color=C.navy}}>
+                {c}, IN
+              </a>
             )}
           </div>
         </div>
@@ -1795,18 +2017,18 @@ function ServicePage({data}){
 
       {/* FAQ */}
       <section className="sec" style={{background:"#fff"}}>
-        <div className="sec-in" style={{maxWidth:700}}>
-          <div style={{textAlign:"center",marginBottom:44}}>
+        <div className="sec-in" style={{maxWidth:720}}>
+          <div style={{textAlign:"center",marginBottom:48}}>
             <div className="lab">Common Questions</div>
-            <h2 className="ttl">{data.title} FAQ</h2>
+            <h2 className="ttl">{data.service} FAQ</h2>
           </div>
           <div style={{display:"flex",flexDirection:"column",gap:10}}>
             {data.faq.map((f,i)=>
-              <div key={i} style={{background:C.cream,borderRadius:12,overflow:"hidden",border:`1px solid ${faqOpen===i?C.green:C.sand}`,transition:"border-color .3s"}}>
+              <div key={i} style={{borderRadius:12,border:`1px solid ${C.sand}`,overflow:"hidden",background:C.cream}}>
                 <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} style={{width:"100%",padding:"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",cursor:"pointer",textAlign:"left",fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:700,fontSize:15,color:C.navy}}>
                   {f.q}<span style={{transform:faqOpen===i?"rotate(180deg)":"rotate(0)",transition:"transform .3s",flexShrink:0,marginLeft:14}}>{I.chevDown}</span>
                 </button>
-                <div style={{maxHeight:faqOpen===i?400:0,overflow:"hidden",transition:"max-height .4s ease"}}>
+                <div style={{maxHeight:faqOpen===i?300:0,overflow:"hidden",transition:"max-height .4s ease"}}>
                   <div style={{padding:"0 24px 20px",color:C.gray,lineHeight:1.75,fontSize:14}}>{f.a}</div>
                 </div>
               </div>
@@ -1815,24 +2037,24 @@ function ServicePage({data}){
         </div>
       </section>
 
-      {/* CTA + Form */}
+      {/* CTA + Jobber Form */}
       <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
         <div className="sec-in">
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:48}}>
             <div>
               <div className="lab">Get Started</div>
-              <h2 className="ttl ttl-w">Ready for Your {data.title} Project?</h2>
-              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:28}}>Request a free, no-obligation estimate. We'll visit your property, discuss your vision, and provide a detailed quote with transparent pricing.</p>
+              <h2 className="ttl ttl-w">Ready to Remodel Your Bathroom?</h2>
+              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:28}}>Request a free, no-obligation estimate. We'll visit your home, discuss your vision, and provide a detailed quote with transparent pricing.</p>
               <div style={{display:"flex",flexDirection:"column",gap:18}}>
-                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.phone}</div><div><a href="tel:+13172795643" style={{color:"#fff",fontWeight:700,fontSize:14,textDecoration:"none"}}>(317) 279-5643</a></div></div>
-                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.mail}</div><div><a href="mailto:eric@hamiltoncountyconcrete.com" style={{color:"#fff",fontWeight:700,fontSize:14,textDecoration:"none"}}>eric@hamiltoncountyconcrete.com</a></div></div>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.phone}</div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>(317) 279-4798</div></div>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.mail}</div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>eric@thehomestarservice.com</div></div>
               </div>
               <div style={{marginTop:28}}>
                 <a href="/" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← Back to main site</a>
               </div>
             </div>
-            <div id="svc-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free {data.title} Estimate</h3>
+            <div id="service-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
+              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free {data.service} Estimate</h3>
               <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
               <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
             </div>
@@ -1840,12 +2062,295 @@ function ServicePage({data}){
         </div>
       </section>
 
-      <Footer/>
+      <Footer isCity/>
     </div>
   );
 }
 
-export default function HamiltonCountyConcreteSite(){
+/* ─── Service-City Pages (42 unique pages) ────────── */
+const SERVICE_SLUG_MAP = {
+  "bathroom-remodeling":"bathroom-remodeling",
+  "basement-finishing":"basement-finishing",
+  "kitchen-remodeling":"kitchen-remodeling",
+  "flooring-services":"flooring-services",
+  "painting-services":"painting-services",
+  "deck-builder":"decks-outdoor-living",
+};
+
+const SVC_CITY_TPL = {
+  "bathroom-remodeling":{
+    adj:"Expert",badge:"SCHLUTER PRO CERTIFIED",schemaType:"BathroomRemodeler",
+    intro:(c,n)=>`Looking for expert bathroom remodeling in ${c}, Indiana? HomeStar Services & Contracting is the Schluter Pro Certified bathroom renovation specialist trusted by homeowners in ${n.slice(0,3).join(", ")} and throughout ${c}. From walk-in showers and custom tile to complete spa-level transformations, we build bathrooms in ${c} that are 100% waterproof — backed by a 25-year manufacturer's warranty that most contractors simply can't offer.`,
+    whyUs:(c,pCount)=>pCount>0?`We've already completed multiple bathroom remodeling projects in the ${c} area, each built on the complete Schluter waterproofing system — Ditra for floors, Kerdi for walls, and Schluter shower pans. Every ${c} bathroom project includes licensed plumbers for all water supply and drainage, licensed electricians for lighting and ventilation, and our 1-year workmanship warranty.`:`Our team has completed bathroom renovations throughout Hamilton County and brings the same Schluter Pro Certified craftsmanship to every ${c} project. All plumbing by licensed plumbers, all electrical by licensed electricians, with our 1-year workmanship warranty on every job.`,
+    costIntro:(c)=>`Here's what ${c} homeowners typically invest in a bathroom remodel:`,
+  },
+  "basement-finishing":{
+    adj:"Professional",badge:"COMPLETE TURNKEY BUILDS",schemaType:"GeneralContractor",
+    intro:(c,n)=>`Ready to unlock the full potential of your ${c} home? HomeStar Services & Contracting transforms unfinished basements across ${c} — from ${n.slice(0,3).join(", ")} and beyond — into the most-used rooms in the house. Family entertainment areas, guest suites, home offices, kids' playrooms, and home gyms — we handle the entire build from framing to final walkthrough, all with licensed tradespeople.`,
+    whyUs:(c,pCount)=>pCount>0?`We've already completed basement finishing projects in the ${c} area that demonstrate our ability to deliver quality results on smart budgets. Every basement we finish includes proper moisture management, licensed electricians for all wiring and panels, and our 1-year workmanship warranty. If your ${c} home has an unfinished basement, you're sitting on untapped square footage and serious resale value.`:`Our basement finishing work across Hamilton County showcases the quality we bring to every project. We address moisture upfront with proper vapor barriers and drainage, use licensed electricians and plumbers for all rough-in work, and back everything with our 1-year workmanship warranty. ${c} homes with finished basements consistently outperform in resale.`,
+    costIntro:(c)=>`Here's what ${c} homeowners typically invest in a basement finish:`,
+  },
+  "kitchen-remodeling":{
+    adj:"Quality",badge:"LICENSED CONTRACTORS",schemaType:"GeneralContractor",
+    intro:(c,n)=>`The kitchen is the heart of your ${c} home — and it deserves a remodeling team that treats it that way. HomeStar Services & Contracting brings thoughtful design, quality materials, and licensed craftsmanship to kitchen renovations across ${c}, from ${n.slice(0,3).join(", ")} to every neighborhood in between. Whether you're updating countertops and cabinets or gutting the entire space, we build kitchens that balance function and beauty.`,
+    whyUs:(c,pCount)=>`Every kitchen remodel in ${c} involves gas lines, water supply, drainage, and electrical circuits — work that should only be done by licensed professionals. At HomeStar, all plumbing is handled by licensed plumbers and all electrical by licensed electricians. We provide 3D design renderings so you see your new ${c} kitchen before construction begins, and every project comes with our 1-year workmanship warranty.`,
+    costIntro:(c)=>`Here's what ${c} homeowners typically invest in a kitchen remodel:`,
+  },
+  "flooring-services":{
+    adj:"Professional",badge:"PRECISION INSTALLATION",schemaType:"GeneralContractor",
+    intro:(c,n)=>`New flooring transforms the entire feel of your ${c} home. HomeStar Services & Contracting installs hardwood, luxury vinyl plank, tile, and carpet for homeowners across ${c} — from ${n.slice(0,3).join(", ")} to every corner of the community. We help you choose the right material for each room based on traffic, moisture, pets, kids, and style, then install it with the precision that ensures it looks great and lasts for years.`,
+    whyUs:(c,pCount)=>`Flooring installation in ${c} is only as good as the prep work beneath it. Our team ensures proper subfloor preparation, material acclimation, tight seams, and clean transitions between rooms. We handle everything — old flooring removal, subfloor repair, installation, trim work, and cleanup. One contractor, one seamless project, backed by our 1-year workmanship warranty.`,
+    costIntro:(c)=>`Here's what ${c} homeowners typically invest in new flooring:`,
+  },
+  "painting-services":{
+    adj:"Professional",badge:"EXPERT PREP & FINISH",schemaType:"Painter",
+    intro:(c,n)=>`A professional paint job does more than change a color — it transforms your ${c} home. HomeStar Services & Contracting delivers clean edges, smooth finishes, and expert prep work for homeowners across ${c}, from ${n.slice(0,3).join(", ")} and throughout the area. The difference between a good paint job and a great one is all in the preparation — and that's where we invest the time that shows in the results.`,
+    whyUs:(c,pCount)=>`Every painting project in ${c} starts with thorough surface preparation — filling holes, sanding, priming, caulking, and careful masking. We use premium paints from Sherwin-Williams and Benjamin Moore, selected for durability and color accuracy. Interior and exterior, single rooms to whole homes — backed by our 1-year workmanship warranty.`,
+    costIntro:(c)=>`Here's what ${c} homeowners typically invest in professional painting:`,
+  },
+  "decks-outdoor-living":{
+    adj:"Custom",badge:"BUILT FOR INDIANA WEATHER",schemaType:"GeneralContractor",
+    intro:(c,n)=>`Your ${c} backyard should be an extension of your home. HomeStar Services & Contracting designs and builds custom decks, covered pavilions, stamped concrete patios, and outdoor living spaces for homeowners across ${c} — from ${n.slice(0,3).join(", ")} and throughout the community. We build with materials and methods specifically suited for Indiana's four-season climate.`,
+    whyUs:(c,pCount)=>pCount>0?`We've already completed outdoor living projects in the ${c} area — from composite deck builds to custom pavilions with stone columns and covered bar areas. Every exterior project is built with proper footings, weather-resistant hardware, and materials chosen to handle Indiana's freeze-thaw cycles, humidity, and heavy rains. Licensed electricians handle all landscape lighting and outdoor outlets.`:`Our outdoor living projects across Hamilton County showcase the quality we bring to every deck, patio, and pavilion we build. From composite decking to stamped concrete to covered structures, we select materials and construction methods that stand up to Indiana weather year after year. Licensed electricians handle all outdoor electrical work.`,
+    costIntro:(c)=>`Here's what ${c} homeowners typically invest in outdoor living:`,
+  },
+};
+
+function ServiceCityPage({svcData,cityData,svcKey}){
+  const tpl=SVC_CITY_TPL[svcKey]||SVC_CITY_TPL["bathroom-remodeling"];
+  const city=cityData.city;
+  const hoods=cityData.neighborhoods||[];
+  const[faqOpen,setFaqOpen]=useState(null);
+  const[activeProject,setActiveProject]=useState(0);
+  const[activeImg,setActiveImg]=useState(0);
+
+  /* Filter projects by service category AND city name in title */
+  const cityProjects=PROJECTS.filter(p=>svcData.projectCats.includes(p.cat)&&p.title.toLowerCase().includes(city.toLowerCase()));
+  const allSvcProjects=PROJECTS.filter(p=>svcData.projectCats.includes(p.cat));
+  const displayProjects=cityProjects.length>0?cityProjects:allSvcProjects.slice(0,3);
+
+  const pageTitle=`${svcData.service} in ${city}, IN`;
+  const metaDesc=`${tpl.adj} ${svcData.service.toLowerCase()} in ${city}, Indiana. ${svcData.highlights[0].desc.split(".")[0]}. Free estimates. (317) 279-4798`;
+
+  useEffect(()=>{
+    document.title=pageTitle+" | HomeStar Services & Contracting";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content",metaDesc);
+  },[city]);
+
+  useEffect(()=>{
+    if(!document.querySelector('link[href*="work_request_embed.css"]')){
+      const link=document.createElement("link");link.rel="stylesheet";link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";link.media="screen";document.head.appendChild(link);
+    }
+    if(!document.querySelector('script[src*="work_request_embed_snippet"]')){
+      const s=document.createElement("script");s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
+      s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
+      s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
+      document.body.appendChild(s);
+    }
+  },[]);
+
+  /* City-ify the FAQs by replacing "Hamilton County" with city name in answers */
+  const cityFaqs=svcData.faq.map(f=>({q:f.q.replace(/Hamilton County/g,city),a:f.a.replace(/Hamilton County/g,`the ${city} area`)}));
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":tpl.schemaType||"Service",name:`${svcData.service} in ${city}, IN`,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:city,addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"}},areaServed:{"@type":"City",name:city},description:metaDesc})}}/>
+
+      <Nav isCity/>
+
+      {/* Hero */}
+      <section style={{position:"relative",padding:"160px 24px 80px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`,overflow:"hidden"}}>
+        <div style={{position:"absolute",inset:0,opacity:.025,backgroundImage:"linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)",backgroundSize:"64px 64px"}}/>
+        <div style={{maxWidth:800,margin:"0 auto",position:"relative",zIndex:2,textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>{tpl.badge}</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(32px,5vw,48px)",lineHeight:1.1,marginBottom:20}}>{tpl.adj} {svcData.service} in {city}, Indiana</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.6)",fontSize:17,lineHeight:1.7,maxWidth:600,margin:"0 auto 32px"}}>{svcData.heroSub.replace(/Hamilton County/g,city)}</p>
+          <div className="fu d4" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:14}}>
+            <a href="#svc-city-estimate" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate in {city} {I.arrow}</a>
+            <a href={`/home-remodeling-${city.toLowerCase().replace(/ /g,"-")}-in`} className="btn-o">All {city} Services</a>
+          </div>
+          <div className="fu d5" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:32,marginTop:44}}>
+            {[{n:"5.0★",l:"Google Rating"},{n:"25-Year",l:"Schluter Warranty"},{n:"100%",l:"Licensed & Insured"}].map(b=>
+              <div key={b.l}><div className="display" style={{color:C.green,fontSize:24,fontWeight:800}}>{b.n}</div><div style={{color:"rgba(255,255,255,.4)",fontSize:11,fontWeight:600}}>{b.l}</div></div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Unique Intro */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <h2 className="ttl" style={{textAlign:"center"}}>Why {city} Homeowners Choose HomeStar for {svcData.service}</h2>
+          <p style={{color:C.gray,fontSize:16,lineHeight:1.85,textAlign:"center",marginBottom:24}}>{tpl.intro(city,hoods)}</p>
+          <p style={{color:C.gray,fontSize:16,lineHeight:1.85,textAlign:"center"}}>{tpl.whyUs(city,cityProjects.length)}</p>
+        </div>
+      </section>
+
+      {/* Highlights */}
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">{svcData.service} in {city}</div>
+            <h2 className="ttl">The HomeStar Difference</h2>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:20}}>
+            {svcData.highlights.map(h=>
+              <div key={h.title} style={{padding:"28px 24px",borderRadius:14,background:"#fff",border:`1px solid ${C.sand}`,transition:"all .3s"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)"}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)"}}>
+                <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>{I.check}<h3 style={{color:C.navy,fontWeight:700,fontSize:16}}>{h.title}</h3></div>
+                <p style={{color:C.gray,fontSize:14,lineHeight:1.7}}>{h.desc}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* What We Do */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Our {city} Expertise</div>
+            <h2 className="ttl">{svcData.service} Services in {city}</h2>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:14}}>
+            {svcData.whatWeDo.map(item=>
+              <div key={item} style={{display:"flex",alignItems:"flex-start",gap:10,padding:"14px 18px",borderRadius:10,background:C.cream}}>
+                {I.check}<span style={{color:C.navy,fontSize:14,fontWeight:600,lineHeight:1.5}}>{item}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Cost Guide */}
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">{svcData.service} Cost in {city}</div>
+            <h2 className="ttl ttl-w">How Much Does {svcData.service} Cost in {city}?</h2>
+            <p style={{color:"rgba(255,255,255,.45)",fontSize:15,lineHeight:1.8,maxWidth:600,margin:"12px auto 0"}}>{tpl.costIntro(city)}</p>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:20}}>
+            {svcData.costs.map(c=>
+              <div key={c.level} style={{padding:"32px 28px",borderRadius:14,background:"rgba(255,255,255,.04)",border:"1px solid rgba(255,255,255,.08)"}}>
+                <div style={{color:C.green,fontWeight:700,fontSize:13,marginBottom:8,letterSpacing:".04em"}}>{c.level.toUpperCase()}</div>
+                <div className="display" style={{color:"#fff",fontSize:28,fontWeight:800,marginBottom:14}}>{c.range}</div>
+                <p style={{color:"rgba(255,255,255,.45)",fontSize:14,lineHeight:1.7}}>{c.desc}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects */}
+      {displayProjects.length>0&&(
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Our Work</div>
+            <h2 className="ttl">{svcData.service} Projects{cityProjects.length>0?` in ${city}`:""}</h2>
+          </div>
+          <div>
+            <div style={{display:"flex",gap:10,flexWrap:"wrap",justifyContent:"center",marginBottom:28}}>
+              {displayProjects.map((p,i)=>
+                <button key={p.title} onClick={()=>{setActiveProject(i);setActiveImg(0);}} style={{padding:"8px 18px",borderRadius:50,border:`1px solid ${activeProject===i?C.green:C.sand}`,background:activeProject===i?C.greenMuted:"#fff",color:activeProject===i?C.green:C.gray,fontWeight:600,fontSize:13,cursor:"pointer",fontFamily:"'Plus Jakarta Sans',sans-serif"}}>{p.title.replace(/remodel|project|build/gi,"").replace(/in\s\w+$/i,"").trim()}</button>
+              )}
+            </div>
+            <div style={{position:"relative",borderRadius:16,overflow:"hidden",background:C.navyDark,maxWidth:700,margin:"0 auto"}}>
+              <img src={displayProjects[activeProject].images[activeImg].src} alt={displayProjects[activeProject].images[activeImg].alt} style={{width:"100%",height:420,objectFit:"cover",display:"block"}}/>
+              <div style={{position:"absolute",bottom:16,left:"50%",transform:"translateX(-50%)",display:"flex",gap:6}}>
+                {displayProjects[activeProject].images.map((_,i)=>
+                  <button key={i} onClick={()=>setActiveImg(i)} style={{width:activeImg===i?20:8,height:8,borderRadius:4,background:activeImg===i?"#fff":"rgba(255,255,255,.4)",border:"none",cursor:"pointer",transition:"all .3s"}}/>
+                )}
+              </div>
+            </div>
+            <div style={{textAlign:"center",marginTop:20}}>
+              <h3 className="display" style={{color:C.navy,fontSize:18}}>{displayProjects[activeProject].title}</h3>
+              <p style={{color:C.gray,fontSize:14,marginTop:6}}>{displayProjects[activeProject].desc}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      )}
+
+      {/* Neighborhoods */}
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:36}}>
+            <div className="lab">{svcData.service} Near You</div>
+            <h2 className="ttl">{city} Neighborhoods We Serve</h2>
+          </div>
+          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:12}}>
+            {hoods.map(n=>
+              <span key={n} style={{padding:"10px 20px",borderRadius:50,background:"#fff",border:`1px solid ${C.sand}`,color:C.navy,fontWeight:600,fontSize:14}}>{n}</span>
+            )}
+          </div>
+          <div style={{textAlign:"center",marginTop:28}}>
+            <a href={`/home-remodeling-${city.toLowerCase().replace(/ /g,"-")}-in`} style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"inline-flex",alignItems:"center",gap:6}}>View all services in {city} {I.arrow}</a>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:720}}>
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Common Questions</div>
+            <h2 className="ttl">{svcData.service} FAQ for {city} Homeowners</h2>
+          </div>
+          <div style={{display:"flex",flexDirection:"column",gap:10}}>
+            {cityFaqs.map((f,i)=>
+              <div key={i} style={{borderRadius:12,border:`1px solid ${C.sand}`,overflow:"hidden",background:C.cream}}>
+                <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} style={{width:"100%",padding:"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",cursor:"pointer",textAlign:"left",fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:700,fontSize:15,color:C.navy}}>
+                  {f.q}<span style={{transform:faqOpen===i?"rotate(180deg)":"rotate(0)",transition:"transform .3s",flexShrink:0,marginLeft:14}}>{I.chevDown}</span>
+                </button>
+                <div style={{maxHeight:faqOpen===i?300:0,overflow:"hidden",transition:"max-height .4s ease"}}>
+                  <div style={{padding:"0 24px 20px",color:C.gray,lineHeight:1.75,fontSize:14}}>{f.a}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA + Jobber Form */}
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in">
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:48}}>
+            <div>
+              <div className="lab">Get Started in {city}</div>
+              <h2 className="ttl ttl-w">Ready for {svcData.service} in {city}?</h2>
+              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:28}}>Request a free, no-obligation estimate for your {city} {svcData.service.toLowerCase()} project. We'll visit your home, discuss your vision, and provide a detailed quote with transparent pricing.</p>
+              <div style={{display:"flex",flexDirection:"column",gap:18}}>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.phone}</div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>(317) 279-4798</div></div>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.mail}</div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>eric@thehomestarservice.com</div></div>
+              </div>
+              <div style={{marginTop:28,display:"flex",gap:20}}>
+                <a href="/" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← Main site</a>
+                <a href={`/home-remodeling-${city.toLowerCase().replace(/ /g,"-")}-in`} style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← All {city} services</a>
+              </div>
+            </div>
+            <div id="svc-city-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
+              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free {svcData.service} Estimate in {city}</h3>
+              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
+              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
+
+export default function HomestarSite(){
   const[legalPage,setLegalPage]=useState(null);
   const[cityPage,setCityPage]=useState(null);
   const[servicePage,setServicePage]=useState(null);
@@ -1853,11 +2358,17 @@ export default function HamiltonCountyConcreteSite(){
 
   useEffect(()=>{
     const path=window.location.pathname.replace(/^\//,"").replace(/\/$/,"");
-    /* Check service-city combo first (most specific) */
-    const svcCity = resolveServiceCity(path);
-    if(svcCity){ setServiceCityPage(svcCity); }
-    else if(CITIES[path]){ setCityPage(path); }
-    else if(SERVICE_PAGES[path]){ setServicePage(path); }
+
+    /* Check service-city combo first (e.g. bathroom-remodeling-fishers-in) */
+    const alias=SERVICE_CITY_ALIASES[path];
+    if(alias&&alias.s&&alias.c&&CITIES[alias.c]&&SERVICE_PAGES[alias.s]){
+      setServiceCityPage({service:alias.s,city:alias.c,svcKey:alias.s});
+      return;
+    }
+    /* Then city pages */
+    if(CITIES[path]){setCityPage(path);return;}
+    /* Then service pages */
+    if(SERVICE_PAGES[path]){setServicePage(path);}
   },[]);
 
   useEffect(()=>{
@@ -1872,11 +2383,13 @@ export default function HamiltonCountyConcreteSite(){
   },[]);
 
   if(serviceCityPage){
-    return <ServiceCityPage svcKey={serviceCityPage.svcKey} cityKey={serviceCityPage.cityKey} slug={serviceCityPage.slug}/>;
+    return <ServiceCityPage svcData={SERVICE_PAGES[serviceCityPage.service]} cityData={CITIES[serviceCityPage.city]} svcKey={serviceCityPage.svcKey}/>;
   }
+
   if(cityPage&&CITIES[cityPage]){
     return <CityPage data={CITIES[cityPage]}/>;
   }
+
   if(servicePage&&SERVICE_PAGES[servicePage]){
     return <ServicePage data={SERVICE_PAGES[servicePage]}/>;
   }
@@ -1884,13 +2397,14 @@ export default function HamiltonCountyConcreteSite(){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"Hamilton County Concrete and Patios",description:"Stamped concrete patios, decorative outdoor living spaces, driveways & more. Locally owned, serving Hamilton County, Indiana. Licensed & insured. Free estimates.",url:"https://www.hamiltoncountyconcrete.com",telephone:"+1-317-279-5643",address:{"@type":"PostalAddress",addressLocality:"Carmel",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9784,longitude:-86.1180},areaServed:[{name:"Carmel"},{name:"Fishers"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),openingHours:["Mo-Fr 07:00-18:00","Sa 08:00-14:00"],priceRange:"$$",hasOfferCatalog:{"@type":"OfferCatalog",name:"Concrete Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Family-owned home remodeling company serving Hamilton County, Indiana. Kitchen & bath remodeling, basement finishing, flooring, painting, decks & outdoor living.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Carmel",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9784,longitude:-86.1180},areaServed:[{name:"Carmel"},{name:"Fishers"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"},openingHours:["Mo-Fr 07:00-18:00","Sa 08:00-14:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/"],founder:[{"@type":"Person",name:"Robb"},{"@type":"Person",name:"Eric"}],hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
       <Nav/>
       <Hero/>
       <Services/>
       <Difference/>
       <OurProcess/>
       <Projects/>
+      <Videos/>
       <Blog/>
       <Testimonials/>
       <ServiceAreas/>

@@ -1,70 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
-  <url><loc>https://www.hamiltoncountyconcrete.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.thehomestarservice.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
 
-  <!-- Service pages (7) -->
-  <url><loc>https://www.hamiltoncountyconcrete.com/stamped-decorative-concrete</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-patios-outdoor-living</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/pavilions-pergolas-enclosed-patios</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-driveways</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-sidewalks-walkways</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/garage-floors-concrete-slabs</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-removal-replacement</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <!-- City Pages -->
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-fishers-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
-  <!-- City pages (5) -->
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-services-carmel-in</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-services-fishers-in</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-services-noblesville-in</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-services-westfield-in</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-services-zionsville-in</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <!-- Service Pages -->
+  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/basement-finishing</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/decks-outdoor-living</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/flooring-services</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/painting-services</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-carmel-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-westfield-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-fortville-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
-  <!-- Stamped concrete + city (5) -->
-  <url><loc>https://www.hamiltoncountyconcrete.com/stamped-concrete-carmel-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/stamped-concrete-fishers-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/stamped-concrete-noblesville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/stamped-concrete-westfield-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/stamped-concrete-zionsville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <!-- Bathroom Remodeling Service-City Aliases -->
+  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-westfield-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Concrete patios + city (5) -->
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-patios-carmel-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-patios-fishers-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-patios-noblesville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-patios-westfield-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-patios-zionsville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <!-- Basement Finishing Service-City Aliases -->
+  <url><loc>https://www.thehomestarservice.com/basement-finishing-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/basement-finishing-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/basement-finishing-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/basement-finishing-westfield-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/basement-finishing-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/basement-finishing-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/basement-finishing-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Pavilions + city (5) -->
-  <url><loc>https://www.hamiltoncountyconcrete.com/pavilions-pergolas-carmel-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/pavilions-pergolas-fishers-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/pavilions-pergolas-noblesville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/pavilions-pergolas-westfield-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/pavilions-pergolas-zionsville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <!-- Kitchen Remodeling Service-City Aliases -->
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-westfield-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Driveways + city (5) -->
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-driveways-carmel-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-driveways-fishers-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-driveways-noblesville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-driveways-westfield-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-driveways-zionsville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <!-- Flooring Services Service-City Aliases -->
+  <url><loc>https://www.thehomestarservice.com/flooring-services-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/flooring-services-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/flooring-services-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/flooring-services-westfield-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/flooring-services-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/flooring-services-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/flooring-services-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Sidewalks + city (5) -->
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-sidewalks-carmel-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-sidewalks-fishers-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-sidewalks-noblesville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-sidewalks-westfield-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-sidewalks-zionsville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <!-- Painting Services Service-City Aliases -->
+  <url><loc>https://www.thehomestarservice.com/painting-services-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/painting-services-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/painting-services-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/painting-services-westfield-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/painting-services-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/painting-services-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/painting-services-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Garage floors + city (5) -->
-  <url><loc>https://www.hamiltoncountyconcrete.com/garage-floors-carmel-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/garage-floors-fishers-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/garage-floors-noblesville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/garage-floors-westfield-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/garage-floors-zionsville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-
-  <!-- Concrete removal + city (5) -->
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-removal-carmel-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-removal-fishers-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-removal-noblesville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-removal-westfield-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.hamiltoncountyconcrete.com/concrete-removal-zionsville-in</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <!-- Deck Builder Service-City Aliases -->
+  <url><loc>https://www.thehomestarservice.com/deck-builder-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/deck-builder-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/deck-builder-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/deck-builder-westfield-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/deck-builder-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/deck-builder-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/deck-builder-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
