@@ -304,8 +304,102 @@ const PROJECTS = [
   },
 ];
 
+/* ─── SEO Helpers ─────────────────────────────────── */
+function useCanonical(path){
+  useEffect(()=>{
+    let link=document.querySelector('link[rel="canonical"]');
+    if(!link){link=document.createElement("link");link.rel="canonical";document.head.appendChild(link);}
+    link.href="https://www.thehomestarservice.com"+(path?"/"+path:"");
+  },[path]);
+}
+
+function FaqSchema({faqs}){
+  if(!faqs||faqs.length===0)return null;
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:f.a}}))})}} />;
+}
+
+function BreadcrumbSchema({items}){
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:items.map((item,i)=>({"@type":"ListItem",position:i+1,name:item.name,item:item.url?"https://www.thehomestarservice.com"+item.url:undefined}))})}} />;
+}
+
+/* ─── Service-City Cross Links ────────────────────── */
+function ServiceCityLinks({currentService,currentCity}){
+  const services=[
+    {name:"Bathroom Remodeling",slug:"bathroom-remodeling"},
+    {name:"Basement Finishing",slug:"basement-finishing"},
+    {name:"Kitchen Remodeling",slug:"kitchen-remodeling"},
+    {name:"Flooring Services",slug:"flooring-services"},
+    {name:"Painting Services",slug:"painting-services"},
+    {name:"Decks & Outdoor Living",slug:"deck-builder"},
+  ];
+  const cities=["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"];
+
+  if(currentService){
+    /* On a service page — show links to all cities for this service */
+    const svcSlug=services.find(s=>s.name===currentService)?.slug;
+    if(!svcSlug)return null;
+    return(
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:32}}>
+            <div className="lab">{currentService} by City</div>
+            <h2 className="ttl">{currentService} Across Hamilton County</h2>
+          </div>
+          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10}}>
+            {cities.filter(c=>c!==currentCity).map(c=>
+              <a key={c} href={`/${svcSlug}-${c.toLowerCase().replace(/ /g,"-")}-in`} style={{padding:"10px 20px",borderRadius:50,background:"#fff",border:`1px solid ${C.sand}`,color:C.navy,fontWeight:600,fontSize:13,textDecoration:"none",transition:"all .3s"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.color=C.green}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.color=C.navy}}>
+                {currentService} in {c}
+              </a>
+            )}
+          </div>
+          {!currentCity&&(
+            <div style={{textAlign:"center",marginTop:28}}>
+              <h3 style={{color:C.navy,fontSize:15,fontWeight:700,marginBottom:14}}>Other Services</h3>
+              <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10}}>
+                {services.filter(s=>s.name!==currentService).map(s=>
+                  <a key={s.name} href={`/${s.slug==="deck-builder"?"decks-outdoor-living":s.slug}`} style={{padding:"8px 16px",borderRadius:50,background:"#fff",border:`1px solid ${C.sand}`,color:C.gray,fontWeight:600,fontSize:12,textDecoration:"none",transition:"all .3s"}}
+                    onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.color=C.green}}
+                    onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.color=C.gray}}>
+                    {s.name}
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+    );
+  }
+
+  if(currentCity){
+    /* On a city page — show links to all services for this city */
+    return(
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:32}}>
+            <div className="lab">Services in {currentCity}</div>
+            <h2 className="ttl">All Services Available in {currentCity}, IN</h2>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:12}}>
+            {services.map(s=>
+              <a key={s.name} href={`/${s.slug}-${currentCity.toLowerCase().replace(/ /g,"-")}-in`} style={{padding:"16px 20px",borderRadius:12,background:"#fff",border:`1px solid ${C.sand}`,color:C.navy,fontWeight:600,fontSize:14,textDecoration:"none",transition:"all .3s",display:"flex",alignItems:"center",gap:10}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-2px)"}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)"}}>
+                {I.check}{s.name} in {currentCity}
+              </a>
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  }
+  return null;
+}
+
 const BLOG = [
-  { title: "Why Your Bathroom Tile Might Fail in 5 Years (And How to Prevent It)", date: "Mar 5, 2026", read: "7 min", cat: "Bathroom", excerpt: "Most tile failures aren't about the tile — they're about what's underneath. Learn why the Schluter waterproofing system outperforms standard cement board and protects your remodel for decades.",
+  { slug:"bathroom-tile-failure-prevention", title: "Why Your Bathroom Tile Might Fail in 5 Years (And How to Prevent It)", date: "Mar 5, 2026", read: "7 min", cat: "Bathroom", excerpt: "Most tile failures aren't about the tile — they're about what's underneath. Learn why the Schluter waterproofing system outperforms standard cement board and protects your remodel for decades.",
     body: [
       "Most homeowners spend weeks choosing the perfect tile for their bathroom remodel. They agonize over color, texture, pattern, and size. But here's what almost nobody talks about: what goes under that tile matters more than the tile itself.",
       "We've seen it too many times — a homeowner invests $20,000+ in a beautiful bathroom remodel, only to see cracked grout lines, loose tiles, and water damage show up within a few years. The tile gets blamed, but the tile was never the problem. The problem is what was — or wasn't — underneath it.",
@@ -318,7 +412,7 @@ const BLOG = [
       "If you're planning a bathroom remodel in Hamilton County, ask your contractor: What substrate system are you using? Are your installers certified by the manufacturer? Are your plumbers and electricians licensed? The answers tell you everything about the quality you'll get.",
       "Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com."
     ]},
-  { title: "5 Signs Your Bathroom Needs a Remodel", date: "Feb 18, 2026", read: "5 min", cat: "Bathroom", excerpt: "Cracked grout, outdated fixtures, and poor ventilation aren't just eyesores—they're signs it's time to invest in your bathroom. Here's what to look for.",
+  { slug:"signs-bathroom-needs-remodel", title: "5 Signs Your Bathroom Needs a Remodel", date: "Feb 18, 2026", read: "5 min", cat: "Bathroom", excerpt: "Cracked grout, outdated fixtures, and poor ventilation aren't just eyesores—they're signs it's time to invest in your bathroom. Here's what to look for.",
     body: [
       "Sometimes a bathroom remodel is a want. Sometimes it's a need. And sometimes you've been living with problems for so long that they start to feel normal. Here are five signs that your bathroom is telling you it's time for an upgrade.",
       "1. Cracked, Missing, or Moldy Grout — If the grout between your tiles is cracking, crumbling, or showing black mold spots, it's more than cosmetic. Damaged grout lets water seep behind tiles and into your subfloor and walls, leading to structural damage and hidden mold growth. If the damage is widespread, retiling is usually more cost-effective than patching.",
@@ -328,7 +422,7 @@ const BLOG = [
       "5. You're Embarrassed When Guests Visit — This is actually the most common reason homeowners call us. If you find yourself apologizing for your bathroom, that's your gut telling you it's time. Sometimes a vanity swap, fresh paint, a new mirror, and updated lighting is all it takes.",
       "If any of these signs sound familiar, HomeStar Services & Contracting specializes in bathroom remodels across Hamilton County. Call us at (317) 279-4798 for a free estimate."
     ]},
-  { title: "Kitchen Remodel ROI: What Actually Adds Value in Indiana", date: "Feb 4, 2026", read: "6 min", cat: "Kitchen", excerpt: "Not all upgrades are equal. We break down which kitchen improvements deliver the best return for Hamilton County homeowners.",
+  { slug:"kitchen-remodel-roi-indiana", title: "Kitchen Remodel ROI: What Actually Adds Value in Indiana", date: "Feb 4, 2026", read: "6 min", cat: "Kitchen", excerpt: "Not all upgrades are equal. We break down which kitchen improvements deliver the best return for Hamilton County homeowners.",
     body: [
       "You want your kitchen to look amazing — but you also want to know the money you're putting in is well spent. As contractors working in Hamilton County homes every week, we see firsthand which kitchen upgrades deliver real returns.",
       "Cabinet refacing or replacement consistently delivers one of the highest returns. If your boxes are solid, refacing with new doors and hardware gives you a new look at about 40% of the cost of full replacement. New semi-custom cabinets in a modern shaker style offer great value if the boxes are worn.",
@@ -338,7 +432,7 @@ const BLOG = [
       "Based on current market data for the Indianapolis metro area, a mid-range kitchen remodel typically recoups 60-75% of its cost at resale. A minor kitchen remodel with cosmetic updates can return 75-85%. You don't need an $80,000 gut job to add value.",
       "Start with what bothers you most about your current kitchen — layout, storage, or the look. Prioritizing your pain points ensures you spend where it matters most. We offer free in-home consultations across Hamilton County. Call (317) 279-4798."
     ]},
-  { title: "Why Basement Finishing Is the Best Investment You'll Make This Year", date: "Jan 20, 2026", read: "4 min", cat: "Basement", excerpt: "Extra living space without moving? A finished basement adds square footage, comfort, and serious resale value to your home.",
+  { slug:"basement-finishing-best-investment", title: "Why Basement Finishing Is the Best Investment You'll Make This Year", date: "Jan 20, 2026", read: "4 min", cat: "Basement", excerpt: "Extra living space without moving? A finished basement adds square footage, comfort, and serious resale value to your home.",
     body: [
       "If you're running out of room in your home but don't want to move, look down. Your unfinished basement is probably the most underutilized space in your house — and finishing it is one of the smartest investments a Hamilton County homeowner can make.",
       "A finished basement adds usable square footage to your home without the cost or complexity of a home addition. You already own the space and the foundation is already built. The cost per square foot to finish a basement is significantly less than building out or up.",
@@ -347,7 +441,7 @@ const BLOG = [
       "Common concerns include moisture and waterproofing — which we address with proper drainage, vapor barriers, and the right materials. Ceiling height is another factor; most Hamilton County homes built in the last 20-30 years have adequate ceiling height for a comfortable finished space.",
       "Ready to put that empty space to work? HomeStar handles basement finishes from design through final inspection. Call (317) 279-4798 for a free estimate."
     ]},
-  { title: "Deck Season Is Coming: How to Plan Your Outdoor Living Space", date: "Jan 8, 2026", read: "3 min", cat: "Outdoor", excerpt: "Spring is the perfect time to start planning your dream deck. Here's how to choose materials, layout, and features that last.",
+  { slug:"deck-season-outdoor-living-planning", title: "Deck Season Is Coming: How to Plan Your Outdoor Living Space", date: "Jan 8, 2026", read: "3 min", cat: "Outdoor", excerpt: "Spring is the perfect time to start planning your dream deck. Here's how to choose materials, layout, and features that last.",
     body: [
       "Indiana winters are long, but spring arrives fast — and when it does, you'll want an outdoor space that's ready for it. If you're thinking about adding or replacing a deck, now is the time to start planning so construction can begin as soon as weather allows.",
       "The biggest decision is material. Pressure-treated wood is the most affordable option and looks great when new, but requires annual maintenance — staining, sealing, and eventually replacing boards as they weather. Composite decking from brands like Trex or TimberTech costs more upfront but requires virtually no maintenance and lasts 25-30 years.",
@@ -356,7 +450,7 @@ const BLOG = [
       "Permits are required for deck construction in most Hamilton County municipalities. We handle the entire permitting process and ensure everything meets current building codes. A properly permitted deck protects your investment and avoids issues when you sell your home.",
       "Start planning now and you'll be hosting cookouts by Memorial Day. Call HomeStar at (317) 279-4798 or visit thehomestarservice.com to request a free estimate."
     ]},
-  { title: "How Much Does a Bathroom Remodel Cost in Hamilton County, Indiana?", date: "Mar 29, 2026", read: "8 min", cat: "Bathroom", excerpt: "From basic refreshes to full spa-level renovations, here's what bathroom remodels actually cost in Fishers, Carmel, Noblesville, and surrounding areas — with real numbers from local projects.",
+  { slug:"bathroom-remodel-cost-hamilton-county", title: "How Much Does a Bathroom Remodel Cost in Hamilton County, Indiana?", date: "Mar 29, 2026", read: "8 min", cat: "Bathroom", excerpt: "From basic refreshes to full spa-level renovations, here's what bathroom remodels actually cost in Fishers, Carmel, Noblesville, and surrounding areas — with real numbers from local projects.",
     body: [
       "If you're a homeowner in Hamilton County thinking about remodeling your bathroom, the first question on your mind is probably: how much is this going to cost? It's a fair question — and unfortunately, the answer you'll find online is usually a vague national average that has nothing to do with what you'll actually pay in Fishers, Carmel, Noblesville, or Westfield.",
       "We're going to break it down honestly based on what we see every day as a local remodeling company working in Hamilton County homes. No vague ranges, no bait-and-switch. Just real numbers for real projects.",
@@ -897,7 +991,6 @@ function Videos(){
 /* ─── Blog ─────────────────────────────────────────── */
 function Blog(){
   const[ref,vis]=useVis();
-  const[openPost,setOpenPost]=useState(null);
 
   return(
     <section id="blog" className="sec" style={{background:"#fff"}} ref={ref}>
@@ -909,7 +1002,7 @@ function Blog(){
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:22}}>
           {BLOG.map((b,i)=>
-            <article key={b.title} className={vis?`fu d${i+1}`:""} onClick={()=>setOpenPost(b)} style={{borderRadius:14,overflow:"hidden",border:`1px solid ${C.sand}`,transition:"all .3s",cursor:"pointer"}}
+            <a key={b.slug} href={`/blog/${b.slug}`} className={vis?`fu d${i+1}`:""} style={{borderRadius:14,overflow:"hidden",border:`1px solid ${C.sand}`,transition:"all .3s",cursor:"pointer",textDecoration:"none",display:"block"}}
               onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.07)"}}
               onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
               <div style={{height:5,background:`linear-gradient(90deg,${C.navy},${C.green})`}}/>
@@ -925,46 +1018,82 @@ function Blog(){
                   <span style={{color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:5}}>Read More {I.arrow}</span>
                 </div>
               </div>
-            </article>
+            </a>
           )}
         </div>
       </div>
+    </section>
+  );
+}
 
-      {/* Blog Post Modal */}
-      {openPost&&(
-        <div style={{position:"fixed",inset:0,zIndex:2000,background:"rgba(0,0,0,.6)",backdropFilter:"blur(6px)",display:"flex",alignItems:"flex-start",justifyContent:"center",padding:"60px 20px",overflowY:"auto"}}
-          onClick={()=>setOpenPost(null)}>
-          <div style={{background:"#fff",borderRadius:18,maxWidth:720,width:"100%",padding:"48px 40px",position:"relative",animation:"fu .4s ease-out"}}
-            onClick={e=>e.stopPropagation()}>
-            {/* Close button */}
-            <button onClick={()=>setOpenPost(null)} style={{position:"absolute",top:18,right:18,width:36,height:36,borderRadius:"50%",background:C.cream,border:"none",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",transition:"background .2s"}}
-              onMouseEnter={e=>e.currentTarget.style.background=C.sand}
-              onMouseLeave={e=>e.currentTarget.style.background=C.cream}>{I.close}</button>
+/* ─── Blog Post Page (full indexable page) ────────── */
+function BlogPostPage({post}){
+  useCanonical("blog/"+post.slug);
 
-            {/* Post header */}
-            <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:18}}>
-              <span style={{fontSize:11,fontWeight:700,letterSpacing:".07em",color:C.green,textTransform:"uppercase",background:C.greenMuted,padding:"4px 12px",borderRadius:50}}>{openPost.cat}</span>
-              <span style={{display:"flex",alignItems:"center",gap:4,fontSize:12,color:C.gray}}>{I.clock} {openPost.read}</span>
-              <span style={{color:C.gray,fontSize:12}}>• {openPost.date}</span>
+  useEffect(()=>{
+    document.title=post.title+" | HomeStar Services & Contracting";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content",post.excerpt);
+  },[post]);
+
+  /* Find related posts (same category, different post) */
+  const related=BLOG.filter(b=>b.cat===post.cat&&b.slug!==post.slug).slice(0,2);
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Blog",url:"/#blog"},{name:post.title}]}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"BlogPosting",headline:post.title,description:post.excerpt,datePublished:post.date,author:{"@type":"Organization",name:"HomeStar Services & Contracting"},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
+
+      <Nav isCity/>
+
+      <section style={{position:"relative",padding:"160px 24px 60px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`}}>
+        <div style={{maxWidth:720,margin:"0 auto",position:"relative",zIndex:2}}>
+          <div className="fu d1" style={{display:"flex",alignItems:"center",gap:10,marginBottom:18}}>
+            <span style={{fontSize:11,fontWeight:700,letterSpacing:".07em",color:C.green,textTransform:"uppercase",background:C.greenMuted,padding:"4px 12px",borderRadius:50}}>{post.cat}</span>
+            <span style={{display:"flex",alignItems:"center",gap:4,fontSize:12,color:"rgba(255,255,255,.5)"}}>{I.clock} {post.read}</span>
+            <span style={{color:"rgba(255,255,255,.4)",fontSize:12}}>• {post.date}</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(28px,4.5vw,42px)",lineHeight:1.2,marginBottom:16}}>{post.title}</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.5)",fontSize:16,lineHeight:1.7}}>{post.excerpt}</p>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div style={{maxWidth:720,margin:"0 auto",padding:"0 24px"}}>
+          {post.body&&post.body.map((p,i)=>
+            <p key={i} style={{color:C.grayDark,fontSize:16,lineHeight:1.9,marginBottom:20}}>{p}</p>
+          )}
+
+          <div style={{marginTop:40,padding:"28px 32px",background:C.cream,borderRadius:14,textAlign:"center"}}>
+            <p className="display" style={{color:C.navy,fontSize:18,marginBottom:12}}>Ready to start your project?</p>
+            <a href="/#estimate" className="btn-g">Get a Free Estimate {I.arrow}</a>
+          </div>
+
+          {related.length>0&&(
+            <div style={{marginTop:48}}>
+              <h3 style={{color:C.navy,fontWeight:700,fontSize:17,marginBottom:20}}>Related Articles</h3>
+              <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:16}}>
+                {related.map(r=>
+                  <a key={r.slug} href={`/blog/${r.slug}`} style={{padding:"20px",borderRadius:12,border:`1px solid ${C.sand}`,textDecoration:"none",transition:"all .3s"}}
+                    onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-2px)"}}
+                    onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)"}}>
+                    <span style={{fontSize:10,fontWeight:700,letterSpacing:".07em",color:C.green,textTransform:"uppercase"}}>{r.cat}</span>
+                    <h4 className="display" style={{color:C.navy,fontSize:15,marginTop:6,lineHeight:1.3}}>{r.title}</h4>
+                  </a>
+                )}
+              </div>
             </div>
+          )}
 
-            <h2 className="display" style={{fontSize:28,color:C.navy,lineHeight:1.25,marginBottom:8}}>{openPost.title}</h2>
-            <div style={{height:4,width:60,background:C.green,borderRadius:2,marginBottom:28}}/>
-
-            {/* Post body */}
-            {openPost.body&&openPost.body.map((p,i)=>
-              <p key={i} style={{color:C.grayDark,fontSize:15,lineHeight:1.85,marginBottom:18}}>{p}</p>
-            )}
-
-            {/* CTA at bottom */}
-            <div style={{marginTop:32,padding:"24px 28px",background:C.cream,borderRadius:12,textAlign:"center"}}>
-              <p className="display" style={{color:C.navy,fontSize:17,marginBottom:12}}>Ready to start your project?</p>
-              <a href="#estimate" className="btn-g" onClick={()=>setOpenPost(null)}>Get a Free Estimate {I.arrow}</a>
-            </div>
+          <div style={{marginTop:32}}>
+            <a href="/" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← Back to main site</a>
           </div>
         </div>
-      )}
-    </section>
+      </section>
+
+      <Footer isCity/>
+    </div>
   );
 }
 
@@ -1076,6 +1205,7 @@ function FAQ(){
   const[ref,vis]=useVis();
   return(
     <section id="faq" className="sec" style={{background:C.cream}} ref={ref}>
+      <FaqSchema faqs={FAQS}/>
       <div className="sec-in" style={{maxWidth:780}}>
         <div style={{textAlign:"center",marginBottom:52}}>
           <div className="lab">Common Questions</div>
@@ -1451,6 +1581,8 @@ const SERVICE_CITY_ALIASES = {
 
 function CityPage({data}){
   const[faqOpen,setFaqOpen]=useState(null);
+  const citySlug="home-remodeling-"+data.city.toLowerCase().replace(/ /g,"-")+"-in";
+  useCanonical(citySlug);
 
   useEffect(()=>{
     document.title=data.title+" | HomeStar Services & Contracting";
@@ -1475,6 +1607,8 @@ function CityPage({data}){
       <style>{css}</style>
       {/* Schema.org for this city */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:data.metaDesc,url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:data.city,addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:data.lat,longitude:data.lng},areaServed:{"@type":"City",name:data.city},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"},priceRange:"$$"})}}/>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Service Areas",url:"/#areas"},{name:`${data.city}, IN`}]}/>
+      <FaqSchema faqs={data.faq}/>
 
       <Nav isCity/>
 
@@ -1590,6 +1724,8 @@ function CityPage({data}){
           </div>
         </div>
       </section>
+
+      <ServiceCityLinks currentCity={data.city}/>
 
       <Footer isCity/>
     </div>
@@ -1846,11 +1982,12 @@ const SERVICE_PAGES = {
   },
 };
 
-function ServicePage({data}){
+function ServicePage({data,slug}){
   const[faqOpen,setFaqOpen]=useState(null);
   const filteredProjects=PROJECTS.filter(p=>data.projectCats.includes(p.cat));
   const[activeProject,setActiveProject]=useState(0);
   const[activeImg,setActiveImg]=useState(0);
+  useCanonical(slug);
 
   useEffect(()=>{
     document.title=data.title+" | HomeStar Services & Contracting";
@@ -1874,6 +2011,8 @@ function ServicePage({data}){
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:data.service,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"}},areaServed:data.cities.map(c=>({"@type":"City",name:c})),description:data.metaDesc})}}/>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Services",url:"/#services"},{name:data.service}]}/>
+      <FaqSchema faqs={data.faq}/>
 
       <Nav isCity/>
 
@@ -2062,6 +2201,8 @@ function ServicePage({data}){
         </div>
       </section>
 
+      <ServiceCityLinks currentService={data.service}/>
+
       <Footer isCity/>
     </div>
   );
@@ -2123,6 +2264,8 @@ function ServiceCityPage({svcData,cityData,svcKey}){
   const[faqOpen,setFaqOpen]=useState(null);
   const[activeProject,setActiveProject]=useState(0);
   const[activeImg,setActiveImg]=useState(0);
+  const pageSlug=svcKey+"-"+city.toLowerCase().replace(/ /g,"-")+"-in";
+  useCanonical(pageSlug);
 
   /* Filter projects by service category AND city name in title */
   const cityProjects=PROJECTS.filter(p=>svcData.projectCats.includes(p.cat)&&p.title.toLowerCase().includes(city.toLowerCase()));
@@ -2157,6 +2300,8 @@ function ServiceCityPage({svcData,cityData,svcKey}){
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":tpl.schemaType||"Service",name:`${svcData.service} in ${city}, IN`,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:city,addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"}},areaServed:{"@type":"City",name:city},description:metaDesc})}}/>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:svcData.service,url:"/"+SERVICE_SLUG_MAP[svcKey]},{name:`${city}, IN`}]}/>
+      <FaqSchema faqs={cityFaqs}/>
 
       <Nav isCity/>
 
@@ -2345,6 +2490,8 @@ function ServiceCityPage({svcData,cityData,svcKey}){
         </div>
       </section>
 
+      <ServiceCityLinks currentService={svcData.service} currentCity={city}/>
+
       <Footer isCity/>
     </div>
   );
@@ -2355,14 +2502,22 @@ export default function HomestarSite(){
   const[cityPage,setCityPage]=useState(null);
   const[servicePage,setServicePage]=useState(null);
   const[serviceCityPage,setServiceCityPage]=useState(null);
+  const[blogPost,setBlogPost]=useState(null);
+  useCanonical("");
 
   useEffect(()=>{
     const path=window.location.pathname.replace(/^\//,"").replace(/\/$/,"");
 
+    /* Blog posts (e.g. blog/bathroom-remodel-cost-hamilton-county) */
+    if(path.startsWith("blog/")){
+      const slug=path.replace("blog/","");
+      const post=BLOG.find(b=>b.slug===slug);
+      if(post){setBlogPost(post);return;}
+    }
     /* Check service-city combo first (e.g. bathroom-remodeling-fishers-in) */
     const alias=SERVICE_CITY_ALIASES[path];
     if(alias&&alias.s&&alias.c&&CITIES[alias.c]&&SERVICE_PAGES[alias.s]){
-      setServiceCityPage({service:alias.s,city:alias.c,svcKey:alias.s});
+      setServiceCityPage({service:alias.s,city:alias.c,svcKey:Object.keys(SERVICE_SLUG_MAP).find(k=>SERVICE_SLUG_MAP[k]===alias.s)||alias.s});
       return;
     }
     /* Then city pages */
@@ -2382,6 +2537,10 @@ export default function HomestarSite(){
     return()=>window.removeEventListener("hashchange",handleHash);
   },[]);
 
+  if(blogPost){
+    return <BlogPostPage post={blogPost}/>;
+  }
+
   if(serviceCityPage){
     return <ServiceCityPage svcData={SERVICE_PAGES[serviceCityPage.service]} cityData={CITIES[serviceCityPage.city]} svcKey={serviceCityPage.svcKey}/>;
   }
@@ -2391,7 +2550,7 @@ export default function HomestarSite(){
   }
 
   if(servicePage&&SERVICE_PAGES[servicePage]){
-    return <ServicePage data={SERVICE_PAGES[servicePage]}/>;
+    return <ServicePage data={SERVICE_PAGES[servicePage]} slug={servicePage}/>;
   }
 
   return(
