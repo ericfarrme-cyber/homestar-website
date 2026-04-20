@@ -313,6 +313,23 @@ function useCanonical(path){
   },[path]);
 }
 
+function useJobberForm(){
+  useEffect(()=>{
+    /* CSS — only add once */
+    if(!document.querySelector('link[href*="work_request_embed.css"]')){
+      const link=document.createElement("link");link.rel="stylesheet";link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";link.media="screen";document.head.appendChild(link);
+    }
+    /* Script — remove old and re-add to force re-initialization */
+    const old=document.querySelector('script[src*="work_request_embed_snippet"]');
+    if(old)old.remove();
+    const s=document.createElement("script");
+    s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
+    s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
+    s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
+    document.body.appendChild(s);
+  },[]);
+}
+
 function FaqSchema({faqs}){
   if(!faqs||faqs.length===0)return null;
   return <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:f.a}}))})}} />;
@@ -1294,24 +1311,7 @@ function FAQ(){
 /* ─── Contact ──────────────────────────────────────── */
 function Contact(){
   const[ref,vis]=useVis();
-  useEffect(()=>{
-    // Load Jobber CSS
-    if(!document.querySelector('link[href*="work_request_embed.css"]')){
-      const link=document.createElement("link");
-      link.rel="stylesheet";
-      link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";
-      link.media="screen";
-      document.head.appendChild(link);
-    }
-    // Load Jobber script
-    if(!document.querySelector('script[src*="work_request_embed_snippet"]')){
-      const s=document.createElement("script");
-      s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
-      s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
-      s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
-      document.body.appendChild(s);
-    }
-  },[]);
+  useJobberForm();
   return(
     <section id="contact" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,position:"relative",overflow:"hidden"}} ref={ref}>
       <div style={{position:"absolute",top:0,left:0,right:0,height:70,background:C.cream,clipPath:"polygon(0 0,100% 0,100% 100%)"}}/>
@@ -1755,17 +1755,7 @@ function NeighborhoodPage({hood}){
     if(meta)meta.setAttribute("content",`Expert home remodeling in ${hood.name}, ${hood.city}, Indiana. ${hood.character.split(".")[0]}. Schluter Pro Certified. Free estimates. (317) 279-4798`);
   },[hood]);
 
-  useEffect(()=>{
-    if(!document.querySelector('link[href*="work_request_embed.css"]')){
-      const link=document.createElement("link");link.rel="stylesheet";link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";link.media="screen";document.head.appendChild(link);
-    }
-    if(!document.querySelector('script[src*="work_request_embed_snippet"]')){
-      const s=document.createElement("script");s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
-      s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
-      s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
-      document.body.appendChild(s);
-    }
-  },[]);
+  useJobberForm();
 
   const services=[
     {name:"Bathroom Remodeling",slug:"bathroom-remodeling",icon:I.bath||I.check},
@@ -1916,17 +1906,7 @@ function CityPage({data}){
     if(meta)meta.setAttribute("content",data.metaDesc);
   },[data]);
 
-  useEffect(()=>{
-    if(!document.querySelector('link[href*="work_request_embed.css"]')){
-      const link=document.createElement("link");link.rel="stylesheet";link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";link.media="screen";document.head.appendChild(link);
-    }
-    if(!document.querySelector('script[src*="work_request_embed_snippet"]')){
-      const s=document.createElement("script");s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
-      s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
-      s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
-      document.body.appendChild(s);
-    }
-  },[]);
+  useJobberForm();
 
   return(
     <div style={{overflowX:"hidden"}}>
@@ -2321,17 +2301,7 @@ function ServicePage({data,slug}){
     if(meta)meta.setAttribute("content",data.metaDesc);
   },[data]);
 
-  useEffect(()=>{
-    if(!document.querySelector('link[href*="work_request_embed.css"]')){
-      const link=document.createElement("link");link.rel="stylesheet";link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";link.media="screen";document.head.appendChild(link);
-    }
-    if(!document.querySelector('script[src*="work_request_embed_snippet"]')){
-      const s=document.createElement("script");s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
-      s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
-      s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
-      document.body.appendChild(s);
-    }
-  },[]);
+  useJobberForm();
 
   return(
     <div style={{overflowX:"hidden"}}>
@@ -2607,17 +2577,7 @@ function ServiceCityPage({svcData,cityData,svcKey}){
     if(meta)meta.setAttribute("content",metaDesc);
   },[city]);
 
-  useEffect(()=>{
-    if(!document.querySelector('link[href*="work_request_embed.css"]')){
-      const link=document.createElement("link");link.rel="stylesheet";link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";link.media="screen";document.head.appendChild(link);
-    }
-    if(!document.querySelector('script[src*="work_request_embed_snippet"]')){
-      const s=document.createElement("script");s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
-      s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
-      s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
-      document.body.appendChild(s);
-    }
-  },[]);
+  useJobberForm();
 
   /* City-ify the FAQs by replacing "Hamilton County" with city name in answers */
   const cityFaqs=svcData.faq.map(f=>({q:f.q.replace(/Hamilton County/g,city),a:f.a.replace(/Hamilton County/g,`the ${city} area`)}));
