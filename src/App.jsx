@@ -2029,33 +2029,101 @@ function CityPage({data}){
       {/* Intro */}
       <section className="sec" style={{background:"#fff"}}>
         <div className="sec-in" style={{maxWidth:800}}>
-          <h2 className="ttl" style={{textAlign:"center"}}>Why {data.city} Homeowners Choose HomeStar</h2>
-          <p style={{color:C.gray,fontSize:16,lineHeight:1.85,marginBottom:28,textAlign:"center"}}>{data.intro}</p>
-          <p style={{color:C.gray,fontSize:16,lineHeight:1.85,textAlign:"center"}}>{data.whyUs}</p>
+          <div style={{textAlign:"center",marginBottom:32}}>
+            <div className="lab">About HomeStar in {data.city}</div>
+            <h2 className="ttl">Why {data.city} Homeowners Choose HomeStar</h2>
+          </div>
+          <p style={{color:C.gray,fontSize:16,lineHeight:1.85,marginBottom:20}}>{data.intro}</p>
+          <p style={{color:C.gray,fontSize:16,lineHeight:1.85}}>{data.whyUs}</p>
         </div>
       </section>
 
-      {/* Services in this city */}
+      {/* Differentiators */}
       <section className="sec" style={{background:C.cream}}>
-        <div className="sec-in">
-          <div style={{textAlign:"center",marginBottom:48}}>
-            <div className="lab">Our Services in {data.city}</div>
-            <h2 className="ttl">What We Do in {data.city}, Indiana</h2>
+        <div className="sec-in" style={{maxWidth:1000}}>
+          <div style={{textAlign:"center",marginBottom:40}}>
+            <div className="lab">The HomeStar Difference</div>
+            <h2 className="ttl">What Sets Us Apart in {data.city}</h2>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:18}}>
-            {data.services.map(s=>
-              <div key={s} style={{padding:"24px 22px",borderRadius:12,background:"#fff",border:`1px solid ${C.sand}`,transition:"all .3s"}}
-                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)"}}
-                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)"}}>
-                <div style={{display:"flex",alignItems:"center",gap:10}}>
-                  {I.check}
-                  <h3 style={{color:C.navy,fontWeight:700,fontSize:16}}>{s}</h3>
-                </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",gap:18}}>
+            {[
+              {icon:I.shield||I.check,title:"25-Year Waterproofing",desc:"Every bathroom built on the complete Schluter system — Ditra for floors, Kerdi for walls — 100% waterproof, backed by the manufacturer."},
+              {icon:I.check,title:"Licensed Tradespeople",desc:"All plumbing by licensed plumbers. All electrical by licensed electricians. Not general laborers — licensed professionals on every job."},
+              {icon:I.check,title:"3D Design Renderings",desc:"See your renovation in full detail before any construction begins. Review every material, fixture, and layout decision. No surprises."},
+              {icon:I.check,title:"Family-Owned & Local",desc:"Co-owned by Eric and Robb. You work directly with the owners — not a project manager who's never swung a hammer."},
+            ].map(d=>
+              <div key={d.title} style={{background:"#fff",borderRadius:14,padding:"28px 24px",border:`1px solid ${C.sand}`,transition:"all .3s"}}
+                onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.06)"}}
+                onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
+                <div style={{color:C.green,marginBottom:12}}>{d.icon}</div>
+                <h4 className="display" style={{color:C.navy,fontSize:16,marginBottom:10}}>{d.title}</h4>
+                <p style={{color:C.gray,fontSize:13,lineHeight:1.7,margin:0}}>{d.desc}</p>
               </div>
             )}
           </div>
         </div>
       </section>
+
+      {/* Services in this city — with descriptions */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:48}}>
+            <div className="lab">Our Services in {data.city}</div>
+            <h2 className="ttl">Remodeling Services in {data.city}, Indiana</h2>
+            <p className="sub" style={{margin:"0 auto"}}>Every service backed by licensed professionals, certified craftsmanship, and transparent pricing.</p>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:18}}>
+            {[
+              {name:"Bathroom Remodeling",slug:"bathroom-remodeling",desc:"Custom tile, walk-in showers, frameless glass, Schluter waterproofing with 25-year warranty."},
+              {name:"Kitchen Remodeling",slug:"kitchen-remodeling",desc:"Custom cabinetry, quartz countertops, modern lighting, and layouts designed for how you live."},
+              {name:"Basement Finishing",slug:"basement-finishing",desc:"Entertainment areas, guest suites, home offices — transforming unused space into your favorite room."},
+              {name:"Flooring Services",slug:"flooring-services",desc:"Luxury vinyl plank, hardwood, tile — installed with precision for a flawless finish."},
+              {name:"Painting Services",slug:"painting-services",desc:"Interior and exterior painting with meticulous prep work and premium materials."},
+              {name:"Decks & Outdoor Living",slug:"deck-builder",desc:"Composite and wood decks, patios, and outdoor living spaces built to last."},
+            ].map(s=>
+              <a key={s.name} href={`/${s.slug}-${data.city.toLowerCase().replace(/ /g,"-")}-in`} style={{padding:"28px 24px",borderRadius:14,background:C.cream,border:`1px solid ${C.sand}`,textDecoration:"none",transition:"all .3s",display:"block"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.06)"}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
+                <h4 className="display" style={{color:C.navy,fontSize:16,marginBottom:8}}>{s.name}</h4>
+                <p style={{color:C.gray,fontSize:13,lineHeight:1.7,marginBottom:14}}>{s.desc}</p>
+                <span style={{color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:5}}>{s.name} in {data.city} {I.arrow}</span>
+              </a>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects in this City */}
+      {(()=>{
+        const cityProjects=PROJECTS.filter(p=>p.title.toLowerCase().includes(data.city.toLowerCase())||(data.city==="Geist"&&p.title.toLowerCase().includes("geist")));
+        if(cityProjects.length===0)return null;
+        return(
+          <section className="sec" style={{background:C.cream}}>
+            <div className="sec-in">
+              <div style={{textAlign:"center",marginBottom:40}}>
+                <div className="lab">Our Work in {data.city}</div>
+                <h2 className="ttl">Recent Projects in {data.city}</h2>
+              </div>
+              <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(300px,1fr))",gap:20}}>
+                {cityProjects.slice(0,3).map((p,i)=>
+                  <div key={i} style={{borderRadius:14,overflow:"hidden",border:`1px solid ${C.sand}`,background:"#fff",transition:"all .3s"}}
+                    onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.06)"}}
+                    onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
+                    <img src={p.images[0].src} alt={p.images[0].alt} style={{width:"100%",height:220,objectFit:"cover"}} loading="lazy"/>
+                    <div style={{padding:"20px 22px"}}>
+                      <h4 className="display" style={{color:C.navy,fontSize:15,marginBottom:6}}>{p.title}</h4>
+                      <p style={{color:C.gray,fontSize:13,lineHeight:1.6,margin:0}}>{p.desc}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div style={{textAlign:"center",marginTop:28}}>
+                <a href="/#projects" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"inline-flex",alignItems:"center",gap:6}}>View All Projects {I.arrow}</a>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Neighborhoods */}
       {(()=>{
