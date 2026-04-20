@@ -1748,29 +1748,46 @@ const NEIGHBORHOODS = {
 function NeighborhoodPage({hood}){
   const[faqOpen,setFaqOpen]=useState(null);
   const cityData=CITIES[hood.citySlug];
-  const hoodSlug="remodeling-"+Object.keys(NEIGHBORHOODS).find(k=>NEIGHBORHOODS[k]===hood)+"-"+hood.city.toLowerCase().replace(/ /g,"-")+"-in";
+  const hoodKey=Object.keys(NEIGHBORHOODS).find(k=>NEIGHBORHOODS[k]===hood);
+  const hoodSlug="remodeling-"+hoodKey+"-"+hood.city.toLowerCase().replace(/ /g,"-")+"-in";
   useCanonical(hoodSlug);
 
   useEffect(()=>{
     document.title=`Home Remodeling in ${hood.name}, ${hood.city}, IN | HomeStar Services & Contracting`;
     const meta=document.querySelector('meta[name="description"]');
     if(meta)meta.setAttribute("content",`Expert home remodeling in ${hood.name}, ${hood.city}, Indiana. ${hood.character.split(".")[0]}. Schluter Pro Certified. Free estimates. (317) 279-4798`);
+    window.scrollTo(0,0);
   },[hood]);
 
   useJobberForm();
 
   const services=[
-    {name:"Bathroom Remodeling",slug:"bathroom-remodeling",icon:I.bath||I.check},
-    {name:"Basement Finishing",slug:"basement-finishing",icon:I.check},
-    {name:"Kitchen Remodeling",slug:"kitchen-remodeling",icon:I.check},
-    {name:"Flooring Services",slug:"flooring-services",icon:I.check},
-    {name:"Painting Services",slug:"painting-services",icon:I.check},
-    {name:"Decks & Outdoor Living",slug:"deck-builder",icon:I.check},
+    {name:"Bathroom Remodeling",slug:"bathroom-remodeling",desc:"Custom tile, walk-in showers, frameless glass, Schluter waterproofing with 25-year warranty."},
+    {name:"Kitchen Remodeling",slug:"kitchen-remodeling",desc:"Custom cabinetry, quartz countertops, modern lighting, and layouts designed for how you live."},
+    {name:"Basement Finishing",slug:"basement-finishing",desc:"Entertainment areas, guest suites, home offices — transforming unused space into your favorite room."},
+    {name:"Flooring Services",slug:"flooring-services",desc:"Luxury vinyl plank, hardwood, tile — installed with precision for a flawless finish."},
+    {name:"Painting Services",slug:"painting-services",desc:"Interior and exterior painting with meticulous prep work and premium materials."},
+    {name:"Decks & Outdoor Living",slug:"deck-builder",desc:"Composite and wood decks, patios, and outdoor living spaces built to last."},
   ];
   const citySlugShort=hood.city.toLowerCase().replace(/ /g,"-");
-
-  /* Get other neighborhoods in same city */
   const sameCity=Object.entries(NEIGHBORHOODS).filter(([k,v])=>v.citySlug===hood.citySlug&&v!==hood);
+
+  /* Tier-based content generation */
+  const isLuxury=hood.tier==="ultra"||hood.tier==="luxury";
+  const isHigh=hood.tier==="high";
+  const tierIntro=isLuxury
+    ?`${hood.name} is one of ${hood.city}'s most prestigious addresses. Homeowners here have invested significantly in their properties, and they expect a remodeling partner who delivers craftsmanship to match. At HomeStar, we understand that luxury homes require meticulous attention to detail, premium materials, and flawless execution — from the waterproofing behind your tile to the finish on your fixtures.`
+    :isHigh
+    ?`${hood.name} is an established ${hood.city} neighborhood where homeowners take pride in their homes. Whether you're updating finishes that have served you well for years or reimagining a space entirely, HomeStar brings the same certified craftsmanship and transparent process to every project — regardless of size.`
+    :`Homeowners in ${hood.name} are discovering that smart remodeling upgrades — from proper waterproofing to quality materials — make a meaningful difference in both daily comfort and long-term value. HomeStar brings professional, certified craftsmanship to every project in ${hood.name}, treating your home with the same care we'd give our own.`;
+
+  const tierWhy=isLuxury
+    ?`In a community like ${hood.name}, the details matter. That's why we exclusively use the Schluter waterproofing system on every bathroom — the same system specified in luxury hotels and high-end residences. Our tile installers are Schluter Pro Certified, meaning your project qualifies for a full 25-year manufacturer's warranty. All plumbing by licensed plumbers. All electrical by licensed electricians. We provide 3D design renderings before any construction begins, so you see exactly what you're getting.`
+    :`We don't cut corners — on any project, in any neighborhood. Every bathroom HomeStar builds uses the complete Schluter waterproofing system with a 25-year manufacturer's warranty. All plumbing is done by licensed plumbers. All electrical by licensed electricians. We provide 3D design renderings before construction begins and communicate with you daily throughout the project.`;
+
+  /* Get projects in this city */
+  const cityProjects=PROJECTS.filter(p=>p.title.toLowerCase().includes(hood.city.toLowerCase())||p.title.toLowerCase().includes("geist"));
+  const featuredProject=cityProjects.length>0?cityProjects[0]:null;
 
   return(
     <div style={{overflowX:"hidden"}}>
@@ -1787,55 +1804,113 @@ function NeighborhoodPage({hood}){
         <div style={{maxWidth:800,margin:"0 auto",position:"relative",zIndex:2,textAlign:"center"}}>
           <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
             <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
-            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>HOMES {hood.values}</span>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>SCHLUTER PRO CERTIFIED</span>
           </div>
           <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(28px,4.5vw,44px)",lineHeight:1.15,marginBottom:20}}>Home Remodeling in {hood.name}, {hood.city}, Indiana</h1>
           <p className="fu d3" style={{color:"rgba(255,255,255,.6)",fontSize:17,lineHeight:1.7,maxWidth:620,margin:"0 auto 32px"}}>{hood.character}</p>
           <div className="fu d4" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:14}}>
-            <a href="#hood-estimate" className="btn-g">Free Estimate {I.arrow}</a>
-            <a href="tel:+13172794798" className="btn-w" style={{background:"rgba(255,255,255,.1)",color:"#fff",border:"1px solid rgba(255,255,255,.15)"}}>{I.phone} (317) 279-4798</a>
+            <a href="#hood-estimate" className="btn-g">Get a Free Estimate {I.arrow}</a>
+            <a href="tel:+13172794798" className="btn-w">{I.phone} (317) 279-4798</a>
+          </div>
+          {/* Trust indicators */}
+          <div className="fu d5" style={{display:"flex",justifyContent:"center",gap:36,marginTop:36}}>
+            {[{val:"5.0★",lab:"Google Rating"},{val:"25-Year",lab:"Schluter Warranty"},{val:"100%",lab:"Licensed & Insured"}].map(t=>
+              <div key={t.lab} style={{textAlign:"center"}}>
+                <div className="display" style={{color:"#fff",fontSize:22}}>{t.val}</div>
+                <div style={{color:"rgba(255,255,255,.35)",fontSize:11,letterSpacing:".04em"}}>{t.lab}</div>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Intro + Popular Projects */}
+      {/* About the Neighborhood */}
       <section className="sec" style={{background:"#fff"}}>
         <div className="sec-in" style={{maxWidth:800}}>
           <div style={{textAlign:"center",marginBottom:40}}>
             <div className="lab">About {hood.name}</div>
-            <h2 className="ttl">Remodeling for {hood.name} Homeowners</h2>
+            <h2 className="ttl">Why {hood.name} Homeowners Choose HomeStar</h2>
           </div>
           <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85,marginBottom:20}}>{hood.character}</p>
-          <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85,marginBottom:20}}><strong>Popular projects in {hood.name}:</strong> {hood.popular}</p>
-          <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85}}>Whether you're planning a bathroom renovation, finishing your basement, updating your kitchen, or adding outdoor living space, HomeStar Services & Contracting brings Schluter Pro Certified craftsmanship and licensed tradespeople to every {hood.name} project — backed by a 25-year waterproofing warranty.</p>
+          <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85,marginBottom:20}}>{tierIntro}</p>
+          <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85,marginBottom:20}}>{tierWhy}</p>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* What We Do in This Neighborhood */}
       <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:900}}>
+          <div style={{textAlign:"center",marginBottom:40}}>
+            <div className="lab">Popular in {hood.name}</div>
+            <h2 className="ttl">What {hood.name} Homeowners Are Investing In</h2>
+            <p className="sub" style={{margin:"0 auto"}}>{hood.popular}</p>
+          </div>
+          {/* Differentiators */}
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",gap:18,marginTop:32}}>
+            {[
+              {icon:I.shield||I.check,title:"25-Year Waterproofing",desc:"Every bathroom built on the complete Schluter system — 100% waterproof, backed by the manufacturer."},
+              {icon:I.check,title:"Licensed Tradespeople",desc:"All plumbing by licensed plumbers. All electrical by licensed electricians. No exceptions."},
+              {icon:I.check,title:"3D Design Renderings",desc:"See your renovation in full detail before any construction begins. No surprises."},
+              {icon:I.check,title:"Family-Owned & Local",desc:"Co-owned by Eric and Robb. You work directly with the owners throughout your project."},
+            ].map(d=>
+              <div key={d.title} style={{background:"#fff",borderRadius:14,padding:"24px 22px",border:`1px solid ${C.sand}`}}>
+                <div style={{color:C.green,marginBottom:10}}>{d.icon}</div>
+                <h4 className="display" style={{color:C.navy,fontSize:15,marginBottom:8}}>{d.title}</h4>
+                <p style={{color:C.gray,fontSize:13,lineHeight:1.7,margin:0}}>{d.desc}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Available */}
+      <section className="sec" style={{background:"#fff"}}>
         <div className="sec-in">
           <div style={{textAlign:"center",marginBottom:40}}>
             <div className="lab">Our Services</div>
-            <h2 className="ttl">Services Available in {hood.name}</h2>
+            <h2 className="ttl">Remodeling Services in {hood.name}, {hood.city}</h2>
+            <p className="sub" style={{margin:"0 auto"}}>Every service backed by licensed professionals, certified craftsmanship, and transparent pricing.</p>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:14}}>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:18}}>
             {services.map(s=>
-              <a key={s.name} href={`/${s.slug}-${citySlugShort}-in`} style={{padding:"20px 24px",borderRadius:14,background:"#fff",border:`1px solid ${C.sand}`,color:C.navy,fontWeight:600,fontSize:14,textDecoration:"none",transition:"all .3s",display:"flex",alignItems:"center",gap:12}}
-                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-2px)"}}
-                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)"}}>
-                {I.check}{s.name} in {hood.city}
+              <a key={s.name} href={`/${s.slug}-${citySlugShort}-in`} style={{padding:"28px 24px",borderRadius:14,background:C.cream,border:`1px solid ${C.sand}`,textDecoration:"none",transition:"all .3s",display:"block"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.06)"}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
+                <h4 className="display" style={{color:C.navy,fontSize:16,marginBottom:8}}>{s.name}</h4>
+                <p style={{color:C.gray,fontSize:13,lineHeight:1.7,marginBottom:14}}>{s.desc}</p>
+                <span style={{color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:5}}>{s.name} in {hood.city} {I.arrow}</span>
               </a>
             )}
           </div>
         </div>
       </section>
 
+      {/* Featured Project (if available in this city) */}
+      {featuredProject&&(
+        <section className="sec" style={{background:C.cream}}>
+          <div className="sec-in" style={{maxWidth:800}}>
+            <div style={{textAlign:"center",marginBottom:32}}>
+              <div className="lab">Recent Work Near {hood.name}</div>
+              <h2 className="ttl">{featuredProject.title}</h2>
+            </div>
+            <div style={{borderRadius:14,overflow:"hidden",border:`1px solid ${C.sand}`}}>
+              <img src={featuredProject.images[0].src} alt={featuredProject.images[0].alt} style={{width:"100%",height:360,objectFit:"cover"}} loading="lazy"/>
+              <div style={{padding:"24px 28px",background:"#fff"}}>
+                <p style={{color:C.grayDark,fontSize:14,lineHeight:1.75,marginBottom:16}}>{featuredProject.desc}</p>
+                <a href="/#projects" style={{color:C.green,fontWeight:700,fontSize:13,textDecoration:"none",display:"flex",alignItems:"center",gap:5}}>View All Projects {I.arrow}</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQ */}
       <section className="sec" style={{background:"#fff"}}>
         <div className="sec-in" style={{maxWidth:780}}>
           <div style={{textAlign:"center",marginBottom:40}}>
             <div className="lab">Common Questions</div>
-            <h2 className="ttl">Remodeling FAQ for {hood.name}</h2>
+            <h2 className="ttl">{hood.name} Remodeling FAQ</h2>
+            <p className="sub" style={{margin:"0 auto"}}>Have a question about remodeling in {hood.name}? We've got answers.</p>
           </div>
           <div style={{display:"flex",flexDirection:"column",gap:10}}>
             {hood.faq.map((f,i)=>
@@ -1852,13 +1927,13 @@ function NeighborhoodPage({hood}){
         </div>
       </section>
 
-      {/* Other Neighborhoods in Same City */}
+      {/* Other Neighborhoods + City Link */}
       {sameCity.length>0&&(
         <section className="sec" style={{background:C.cream}}>
           <div className="sec-in">
             <div style={{textAlign:"center",marginBottom:32}}>
               <div className="lab">Other Neighborhoods</div>
-              <h2 className="ttl">More Neighborhoods in {hood.city}</h2>
+              <h2 className="ttl">More Neighborhoods We Serve in {hood.city}</h2>
             </div>
             <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10}}>
               {sameCity.map(([k,v])=>
@@ -1878,16 +1953,25 @@ function NeighborhoodPage({hood}){
 
       {/* Estimate Form */}
       <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
-        <div className="sec-in" style={{maxWidth:600}}>
-          <div style={{textAlign:"center",marginBottom:32}}>
-            <div className="lab" style={{color:C.green}}>Get Started</div>
-            <h2 className="display" style={{color:"#fff",fontSize:"clamp(24px,3vw,32px)"}}>Free Estimate for {hood.name}</h2>
-            <p style={{color:"rgba(255,255,255,.5)",fontSize:14,marginTop:10}}>Tell us about your project and we'll get back to you quickly.</p>
-          </div>
-          <div id="hood-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-            <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate in {hood.name}</h3>
-            <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Serving {hood.name} and all of {hood.city}, IN</p>
-            <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+        <div className="sec-in" style={{maxWidth:1000}}>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:48,alignItems:"start"}}>
+            <div style={{padding:"20px 0"}}>
+              <div className="lab" style={{color:C.green}}>Get Started</div>
+              <h2 className="display" style={{color:"#fff",fontSize:"clamp(24px,3vw,32px)",marginBottom:16}}>Ready to Start Your {hood.name} Remodel?</h2>
+              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.7,marginBottom:24}}>Request a free, no-obligation estimate. We'll visit your {hood.name} home, discuss your vision, and provide a detailed quote with transparent pricing.</p>
+              <div style={{display:"flex",flexDirection:"column",gap:14}}>
+                <a href="tel:+13172794798" style={{color:"#fff",fontSize:15,textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>{I.phone} (317) 279-4798</a>
+                <a href="mailto:eric@thehomestarservice.com" style={{color:"#fff",fontSize:15,textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>{I.mail||"✉"} eric@thehomestarservice.com</a>
+              </div>
+              <div style={{marginTop:24}}>
+                <a href={`/${hood.citySlug}`} style={{color:C.green,fontWeight:600,fontSize:13,textDecoration:"none"}}>← Back to {hood.city} services</a>
+              </div>
+            </div>
+            <div id="hood-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
+              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
+              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Serving {hood.name} and all of {hood.city}, IN</p>
+              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -1990,7 +2074,7 @@ function CityPage({data}){
                       onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-2px)"}}
                       onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)"}}>
                       <h4 className="display" style={{color:C.navy,fontSize:15,marginBottom:4}}>{v.name}</h4>
-                      <p style={{color:C.gray,fontSize:12,margin:0}}>Homes {v.values}</p>
+                      <p style={{color:C.gray,fontSize:12,margin:0}}>View remodeling services →</p>
                     </a>
                   )}
                 </div>
