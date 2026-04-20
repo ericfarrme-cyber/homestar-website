@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url><loc>https://www.thehomestarservice.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
 
-  <!-- City Pages -->
-  <url><loc>https://www.thehomestarservice.com/home-remodeling-fishers-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <!-- City Pages (9) -->
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-fishers-in</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-carmel-in</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-noblesville-in</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-westfield-in</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-zionsville-in</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-fortville-in</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-mccordsville-in</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-geist-in</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/home-remodeling-pendleton-in</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
-  <!-- Service Pages -->
-  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/basement-finishing</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/decks-outdoor-living</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/flooring-services</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/painting-services</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/home-remodeling-carmel-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/home-remodeling-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/home-remodeling-westfield-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/home-remodeling-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/home-remodeling-fortville-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/home-remodeling-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <!-- Service Pages (6) -->
+  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/basement-finishing</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/flooring-services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/painting-services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/decks-outdoor-living</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
-  <!-- Bathroom Remodeling Service-City Aliases -->
+  <!-- Service-City Combos (54) -->
   <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -27,8 +30,8 @@
   <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <!-- Basement Finishing Service-City Aliases -->
+  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-geist-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/basement-finishing-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/basement-finishing-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/basement-finishing-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -36,8 +39,8 @@
   <url><loc>https://www.thehomestarservice.com/basement-finishing-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/basement-finishing-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/basement-finishing-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <!-- Kitchen Remodeling Service-City Aliases -->
+  <url><loc>https://www.thehomestarservice.com/basement-finishing-geist-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/basement-finishing-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -45,8 +48,8 @@
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <!-- Flooring Services Service-City Aliases -->
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-geist-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/flooring-services-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/flooring-services-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/flooring-services-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -54,8 +57,8 @@
   <url><loc>https://www.thehomestarservice.com/flooring-services-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/flooring-services-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/flooring-services-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <!-- Painting Services Service-City Aliases -->
+  <url><loc>https://www.thehomestarservice.com/flooring-services-geist-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/flooring-services-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/painting-services-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/painting-services-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/painting-services-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -63,8 +66,8 @@
   <url><loc>https://www.thehomestarservice.com/painting-services-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/painting-services-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/painting-services-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <!-- Deck Builder Service-City Aliases -->
+  <url><loc>https://www.thehomestarservice.com/painting-services-geist-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/painting-services-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/deck-builder-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/deck-builder-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/deck-builder-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -72,8 +75,10 @@
   <url><loc>https://www.thehomestarservice.com/deck-builder-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/deck-builder-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/deck-builder-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/deck-builder-geist-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/deck-builder-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Blog Posts -->
+  <!-- Blog Posts (10) -->
   <url><loc>https://www.thehomestarservice.com/blog/bathroom-tile-failure-prevention</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/signs-bathroom-needs-remodel</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/kitchen-remodel-roi-indiana</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -84,4 +89,62 @@
   <url><loc>https://www.thehomestarservice.com/blog/bathroom-remodel-timeline-week-by-week</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/how-to-choose-remodeling-contractor-indiana</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/hamilton-county-remodeling-trends-2026</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Neighborhood Pages - Fishers (10) -->
+  <url><loc>https://www.thehomestarservice.com/remodeling-hamilton-proper-fishers-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-geist-reservoir-fishers-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-estates-at-geist-fishers-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-admirals-pointe-fishers-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-saxon-woods-fishers-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-thorpe-creek-fishers-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-cambridge-fishers-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-canal-place-fishers-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-brooks-school-fishers-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-olio-road-fishers-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Neighborhood Pages - Carmel (10) -->
+  <url><loc>https://www.thehomestarservice.com/remodeling-laurelwood-carmel-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-116th-street-carmel-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-jacksons-grant-carmel-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-reserve-at-springmill-carmel-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-laurel-lakes-carmel-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-village-of-westclay-carmel-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-bridgewater-club-carmel-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-springmill-carmel-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-brookshire-carmel-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-smokey-ridge-carmel-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Neighborhood Pages - Zionsville (6) -->
+  <url><loc>https://www.thehomestarservice.com/remodeling-promontory-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-holliday-farms-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-bradley-ridge-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-eagle-creek-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-traders-point-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-rural-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Neighborhood Pages - Westfield (5) -->
+  <url><loc>https://www.thehomestarservice.com/remodeling-chatham-hills-westfield-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-centennial-westfield-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-bridgewater-westfield-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-harmony-westfield-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-grand-park-westfield-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Neighborhood Pages - Noblesville (4) -->
+  <url><loc>https://www.thehomestarservice.com/remodeling-bear-slide-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-morse-reservoir-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-finch-creek-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-prairie-lakes-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Neighborhood Pages - Fortville (2) -->
+  <url><loc>https://www.thehomestarservice.com/remodeling-downtown-fortville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-buck-creek-fortville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Neighborhood Pages - McCordsville (2) -->
+  <url><loc>https://www.thehomestarservice.com/remodeling-mccordsville-proper-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-geist-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Neighborhood Pages - Pendleton (3) -->
+  <url><loc>https://www.thehomestarservice.com/remodeling-downtown-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-south-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thehomestarservice.com/remodeling-pendleton-heights-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
