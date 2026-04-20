@@ -566,10 +566,10 @@ const FAQS = [
   { q: "Are you licensed and insured?", a: "Yes — HomeStar Services & Contracting holds full licensing, bonding, and insurance in Indiana, including general liability and workers' compensation. Your home and our crew are fully protected." },
   { q: "How long does a typical remodel take?", a: "It depends on scope. Most bathroom remodels wrap up in 2–4 weeks, kitchens run 4–8 weeks, and basement finishes typically take 6–12 weeks. We'll give you a clear timeline before any work begins." },
   { q: "Do you offer a warranty?", a: "Every project we complete includes a 1-year workmanship warranty. If something isn't right after we finish, we come back and fix it. Quality work should hold up long after the last day on the job." },
-  { q: "What areas do you serve?", a: "We work throughout Hamilton County and surrounding communities — including Carmel, Fishers, Noblesville, Zionsville, Brownsburg, Pendleton, McCordsville, and Fortville." },
+  { q: "What areas do you serve?", a: "We work throughout Hamilton County and surrounding communities — including Carmel, Fishers, Geist, Noblesville, Westfield, Zionsville, Brownsburg, Pendleton, McCordsville, and Fortville." },
 ];
 
-const AREAS = ["Carmel", "Fishers", "Noblesville", "Zionsville", "Brownsburg", "Pendleton", "McCordsville", "Fortville"];
+const AREAS = ["Carmel", "Fishers", "Geist", "Noblesville", "Zionsville", "Brownsburg", "Pendleton", "McCordsville", "Fortville", "Westfield"];
 
 /* ─── Styles ──────────────────────────────────────── */
 const css = `
@@ -1215,6 +1215,8 @@ function ServiceAreas(){
     {name:"Zionsville",slug:"home-remodeling-zionsville-in",desc:"Village, Holliday Farms, Traders Point & more",projects:"Premium renovations"},
     {name:"Fortville",slug:"home-remodeling-fortville-in",desc:"Downtown Fortville, Buck Creek area & more",projects:"Custom outdoor living"},
     {name:"McCordsville",slug:"home-remodeling-mccordsville-in",desc:"Geist area, Mt. Comfort corridor & more",projects:"Growing community"},
+    {name:"Geist",slug:"home-remodeling-geist-in",desc:"Reservoir estates, Admirals Pointe & more",projects:"Luxury renovations"},
+    {name:"Pendleton",slug:"home-remodeling-pendleton-in",desc:"Falls Park, Downtown & more",projects:"Serving east Hamilton County"},
   ];
   return(
     <section id="areas" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,position:"relative",overflow:"hidden"}} ref={ref}>
@@ -1240,7 +1242,7 @@ function ServiceAreas(){
           )}
         </div>
         <div style={{textAlign:"center",marginTop:36}}>
-          <p style={{color:"rgba(255,255,255,.3)",fontSize:13}}>Also serving Brownsburg, Pendleton, and surrounding communities.</p>
+          <p style={{color:"rgba(255,255,255,.3)",fontSize:13}}>Also serving Brownsburg and surrounding communities.</p>
         </div>
       </div>
     </section>
@@ -1481,7 +1483,7 @@ const CITIES = {
     metaDesc: "Licensed home remodeling contractor in Fishers, Indiana. Bathroom remodeling, basement finishing, kitchen renovations & more. Schluter Pro Certified. Free estimates. (317) 279-4798",
     heroHeading: "Trusted Home Remodeling in Fishers, Indiana",
     heroSub: "From Geist to Olio Road, we've been transforming Fishers homes with expert craftsmanship, honest pricing, and a 25-year Schluter waterproofing warranty.",
-    neighborhoods: ["Geist", "Saxony", "Britton Falls", "Fishers District", "Olio Road corridor", "Brooks School area", "Southeastern Fishers"],
+    neighborhoods: ["Hamilton Proper", "Geist Reservoir", "The Estates at Geist", "Admirals Pointe", "Saxon Woods", "Thorpe Creek", "Cambridge", "Canal Place", "Brooks School area", "Olio Road corridor"],
     intro: "Fishers is one of the fastest-growing communities in Indiana, and homeowners here expect quality that matches the standard of their neighborhoods. Whether you're in a newer Saxony build that needs personalization or an established Geist home ready for a full renovation, HomeStar Services & Contracting brings the same level of precision and care to every project.",
     whyUs: "As a family-owned company based right here in Hamilton County, we know Fishers homes inside and out. Our Schluter Pro Certified tile installers deliver bathroom renovations backed by a 25-year waterproofing warranty — something most contractors in the area simply can't offer. All plumbing and electrical work is performed by licensed professionals, and every project comes with a 1-year workmanship guarantee.",
     services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
@@ -1498,7 +1500,7 @@ const CITIES = {
     metaDesc: "Premium home remodeling contractor in Carmel, Indiana. Bathroom renovations, kitchen remodels, basement finishing. Schluter Pro Certified with 25-year warranty. Free estimates. (317) 279-4798",
     heroHeading: "Premium Home Remodeling in Carmel, Indiana",
     heroSub: "From the Arts & Design District to the Village of WestClay, Carmel homeowners trust HomeStar for bathroom renovations, kitchen remodels, and whole-home transformations.",
-    neighborhoods: ["Village of WestClay", "Arts & Design District", "Carmel City Center", "Home Place", "West Carmel", "Springmill", "Clay Township"],
+    neighborhoods: ["Laurelwood", "116th Street corridor", "Jackson's Grant", "Reserve at Springmill", "Laurel Lakes", "Village of WestClay", "Bridgewater Club", "Springmill", "Brookshire", "Smokey Ridge"],
     intro: "Carmel has been named one of the best places to live in America, and the homes here reflect that reputation. Whether you're updating a master bathroom in WestClay, finishing a basement in West Carmel, or renovating a kitchen near City Center, HomeStar delivers the quality craftsmanship that Carmel homeowners expect.",
     whyUs: "We've completed numerous projects across Carmel, including our signature green tile bathroom remodel that showcases the precision of our Schluter Pro Certified installers. Every bathroom we build uses the complete Schluter waterproofing system — Ditra for floors, Kerdi for walls — backed by a 25-year manufacturer's warranty. Combined with licensed plumbers and electricians on every job, you get a renovation built to last.",
     services: ["Bathroom Remodeling","Kitchen Remodeling","Basement Finishing","Flooring Services","Painting Services","Decks & Outdoor Living"],
@@ -1515,7 +1517,7 @@ const CITIES = {
     metaDesc: "Expert home remodeling in Noblesville, Indiana. Bathroom remodeling, basement finishing, kitchen renovations. Schluter Pro Certified. Licensed & insured. Free estimates. (317) 279-4798",
     heroHeading: "Expert Home Remodeling in Noblesville, Indiana",
     heroSub: "From the Historic Square to Morse Reservoir, Noblesville homeowners count on HomeStar for quality renovations backed by certified craftsmanship.",
-    neighborhoods: ["Downtown Noblesville", "Morse Reservoir area", "Hinkle Creek", "Millstone", "Federal Hill", "Oakmont", "Prairie Lakes"],
+    neighborhoods: ["Bear Slide / Golden Bear", "Morse Reservoir", "Finch Creek", "Prairie Lakes", "Hinkle Creek", "Federal Hill"],
     intro: "Noblesville blends small-town charm with modern growth, and the homes here range from historic downtown properties to newer developments around Morse Reservoir. Whether your home needs a complete bathroom overhaul or a basement finish to add living space, HomeStar understands the unique character of Noblesville homes and delivers renovations that respect that character while modernizing your space.",
     whyUs: "Our Noblesville projects include a stunning floor-to-ceiling tile bathroom remodel that demonstrates the quality our Schluter Pro Certified installers bring to every job. With the complete Schluter waterproofing system and a 25-year manufacturer's warranty, your investment is protected for decades. We also completed a laundry room remodel in Noblesville that shows how we maximize every square foot.",
     services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Laundry Room Remodeling","Flooring Services","Painting Services"],
@@ -1532,7 +1534,7 @@ const CITIES = {
     metaDesc: "Quality home remodeling contractor in Westfield, Indiana. Bathroom renovations, basement finishing, kitchen remodels. Licensed, insured & Schluter Pro Certified. (317) 279-4798",
     heroHeading: "Quality Home Remodeling in Westfield, Indiana",
     heroSub: "Grand Park families trust HomeStar for bathroom remodels, basement finishes, and home renovations built with quality materials and honest pricing.",
-    neighborhoods: ["Grand Park area", "Maple Knoll", "Chatham Hills", "Bridgewater", "Westfield Village", "Osborne Trails", "Wheeler Landing"],
+    neighborhoods: ["Chatham Hills", "Centennial", "Bridgewater", "Harmony", "Grand Park area"],
     intro: "Westfield is booming — and with all that growth comes homeowners looking to make their spaces truly their own. Whether you bought a new build near Grand Park that needs a basement finish, or you're renovating bathrooms in an established neighborhood like Chatham Hills, HomeStar brings the same certified craftsmanship and transparent process to every Westfield project.",
     whyUs: "Our Westfield basement finish project demonstrates how we deliver quality results on a smart budget — proving you don't need to overspend to get a great space. Every bathroom project uses the Schluter waterproofing system installed by our certified team, backed by a 25-year warranty. All electrical and plumbing work is done by licensed professionals.",
     services: ["Basement Finishing","Bathroom Remodeling","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
@@ -1549,7 +1551,7 @@ const CITIES = {
     metaDesc: "Trusted home remodeling in Zionsville, Indiana. Bathroom renovations, kitchen remodels, basement finishing. Schluter Pro Certified with 25-year warranty. Free estimates. (317) 279-4798",
     heroHeading: "Trusted Home Remodeling in Zionsville, Indiana",
     heroSub: "From the brick streets of downtown to the estates of Eagle Creek, Zionsville homeowners choose HomeStar for craftsmanship that matches the character of their homes.",
-    neighborhoods: ["Downtown Zionsville", "Eagle Creek area", "Traders Point", "Holliday Farms", "Willow Glen", "Brookside Park", "Rural Zionsville"],
+    neighborhoods: ["Promontory", "Holliday Farms", "Bradley Ridge", "Eagle Creek area", "Traders Point", "Rural Zionsville"],
     intro: "Zionsville is known for its charm, character, and quality of life — and the homes here reflect all of that. Whether you're renovating a bathroom in a historic downtown home or updating a Jack & Jill bathroom in a newer Holliday Farms build, HomeStar approaches every Zionsville project with the attention to detail these homes deserve.",
     whyUs: "Our Jack & Jill bathroom remodel in Zionsville is one of our most-viewed projects — a complete transformation with dual vanities and modern finishes that showcases what HomeStar delivers. As Schluter Pro Certified installers, we protect your renovation with 25-year waterproofing. Every plumber and electrician on the job is fully licensed.",
     services: ["Bathroom Remodeling","Kitchen Remodeling","Basement Finishing","Flooring Services","Painting Services","Decks & Outdoor Living"],
@@ -1566,7 +1568,7 @@ const CITIES = {
     metaDesc: "Reliable home remodeling in Fortville, Indiana. Bathroom remodeling, kitchen renovations, basement finishing, decks & outdoor living. Schluter Pro Certified. Free estimates. (317) 279-4798",
     heroHeading: "Reliable Home Remodeling in Fortville, Indiana",
     heroSub: "From custom outdoor pavilions to full interior renovations, Fortville homeowners trust HomeStar for craftsmanship that's built to last.",
-    neighborhoods: ["Downtown Fortville", "Buck Creek area", "Fortville Proper", "Southeastern Hamilton County", "Northern Hancock County"],
+    neighborhoods: ["Downtown Fortville", "Buck Creek area"],
     intro: "Fortville may be a small town, but the homeowners here take pride in their properties — and they deserve a contractor who does, too. Whether you're upgrading a bathroom, finishing a basement, or creating the ultimate outdoor living space, HomeStar Services & Contracting brings Hamilton County's top craftsmanship right to your doorstep. We've already made our mark in Fortville with a custom pavilion project, and we're ready to do the same for your home.",
     whyUs: "Our Fortville Pavilion Patio Project is a standout example of what HomeStar can do — a custom outdoor living space featuring stone columns, a covered bar area with stained wood beams, and a layout designed for year-round entertaining. It's the kind of project that shows our attention to detail extends well beyond the walls of your home. As Schluter Pro Certified installers, every bathroom project is backed by a 25-year waterproofing warranty, and all plumbing and electrical work is performed by licensed professionals.",
     services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
@@ -1583,7 +1585,7 @@ const CITIES = {
     metaDesc: "Professional home remodeling in McCordsville, Indiana. Bathroom renovations, basement finishing, kitchen remodels, flooring & painting. Schluter Pro Certified. Free estimates. (317) 279-4798",
     heroHeading: "Professional Home Remodeling in McCordsville, Indiana",
     heroSub: "McCordsville's growing community deserves a contractor who delivers quality craftsmanship, transparent pricing, and results that stand the test of time.",
-    neighborhoods: ["McCordsville Proper", "Geist area", "Mt. Comfort corridor", "Southeastern Hamilton County", "Western Hancock County"],
+    neighborhoods: ["McCordsville Proper", "Geist area (McCordsville)", "Mt. Comfort corridor"],
     intro: "McCordsville is one of the fastest-growing communities east of Indianapolis, with new construction and established homes that both benefit from expert remodeling. Whether you're personalizing a new build with upgraded finishes, renovating a bathroom, or finishing your basement to add living space, HomeStar brings the same certified craftsmanship we've delivered across Hamilton County to every McCordsville project.",
     whyUs: "We've completed dozens of projects in nearby Fishers and Geist — neighborhoods that share a border with McCordsville — so we know the homes, the building styles, and the expectations in this area. As Schluter Pro Certified installers, every bathroom project is backed by a 25-year waterproofing warranty. All plumbing and electrical work is performed by licensed professionals, and every project comes with a 1-year workmanship guarantee.",
     services: ["Bathroom Remodeling","Basement Finishing","Kitchen Remodeling","Flooring Services","Painting Services","Decks & Outdoor Living"],
@@ -1972,17 +1974,37 @@ function CityPage({data}){
       </section>
 
       {/* Neighborhoods */}
-      <section className="sec" style={{background:"#fff"}}>
-        <div className="sec-in" style={{maxWidth:800,textAlign:"center"}}>
-          <div className="lab">Areas We Serve</div>
-          <h2 className="ttl">{data.city} Neighborhoods We Serve</h2>
-          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10,marginTop:24}}>
-            {data.neighborhoods.map(n=>
-              <span key={n} style={{padding:"8px 18px",borderRadius:50,background:C.cream,color:C.grayDark,fontSize:13,fontWeight:600}}>{n}</span>
-            )}
-          </div>
-        </div>
-      </section>
+      {(()=>{
+        const cityHoods=Object.entries(NEIGHBORHOODS).filter(([k,v])=>v.city===data.city);
+        return(
+          <section className="sec" style={{background:"#fff"}}>
+            <div className="sec-in">
+              <div style={{textAlign:"center",marginBottom:32}}>
+                <div className="lab">Neighborhoods</div>
+                <h2 className="ttl">Neighborhoods We Serve in {data.city}</h2>
+              </div>
+              {cityHoods.length>0?(
+                <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:12}}>
+                  {cityHoods.map(([k,v])=>
+                    <a key={k} href={`/remodeling-${k}-${v.city.toLowerCase().replace(/ /g,"-")}-in`} style={{padding:"18px 22px",borderRadius:12,background:C.cream,border:`1px solid ${C.sand}`,textDecoration:"none",transition:"all .3s"}}
+                      onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-2px)"}}
+                      onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)"}}>
+                      <h4 className="display" style={{color:C.navy,fontSize:15,marginBottom:4}}>{v.name}</h4>
+                      <p style={{color:C.gray,fontSize:12,margin:0}}>Homes {v.values}</p>
+                    </a>
+                  )}
+                </div>
+              ):(
+                <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10}}>
+                  {data.neighborhoods.map(n=>
+                    <span key={n} style={{padding:"8px 18px",borderRadius:50,background:C.cream,color:C.grayDark,fontSize:13,fontWeight:600}}>{n}</span>
+                  )}
+                </div>
+              )}
+            </div>
+          </section>
+        );
+      })()}
 
       {/* FAQ */}
       <section className="sec" style={{background:C.cream}}>
@@ -2079,7 +2101,7 @@ const SERVICE_PAGES = {
       {q:"How much does a walk-in shower remodel cost?",a:"A walk-in shower remodel in Hamilton County typically costs $12,000 to $25,000 depending on tile selection, size, and fixtures. Floor-to-ceiling tile and frameless glass add to the cost. We provide free, detailed estimates."},
       {q:"Can you work with my existing bathroom layout?",a:"Absolutely. Many of our projects keep the existing layout and focus on upgrading finishes, fixtures, and waterproofing. If you want to change the layout — like converting a tub to a walk-in shower — we handle the plumbing relocation as well."},
     ],
-    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"],
   },
   "basement-finishing": {
     service: "Basement Finishing",
@@ -2120,7 +2142,7 @@ const SERVICE_PAGES = {
       {q:"Can you add a bathroom to my basement?",a:"Yes — adding a basement bathroom is one of our most popular requests. If your home has a bathroom rough-in (pre-plumbed drain lines), the cost is lower. If not, our licensed plumbers can install new drain lines. Every basement bathroom we build uses our Schluter waterproofing system with a 25-year warranty."},
       {q:"What flooring works best in a basement?",a:"Luxury vinyl plank (LVP) is the most popular choice for Hamilton County basements because it's waterproof, durable, and looks great. Carpet is also popular for bedrooms and entertainment areas. We help you choose the right material for each zone of your basement based on how you'll use the space."},
     ],
-    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"],
   },
   "kitchen-remodeling": {
     service: "Kitchen Remodeling",
@@ -2161,7 +2183,7 @@ const SERVICE_PAGES = {
       {q:"Can you work with my existing layout?",a:"Absolutely. Many of our kitchen projects keep the existing plumbing and electrical layout, which reduces cost significantly. If you want to change the layout — like adding an island or moving the sink — we handle the plumbing and electrical relocation with licensed tradespeople."},
       {q:"Do you handle permits for kitchen remodels?",a:"Yes. Kitchen remodels that involve plumbing, electrical, or structural changes require permits in Hamilton County. We manage the entire permitting and inspection process in Fishers, Carmel, Noblesville, Westfield, and Zionsville."},
     ],
-    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"],
   },
   "decks-outdoor-living": {
     service: "Decks & Outdoor Living",
@@ -2202,7 +2224,7 @@ const SERVICE_PAGES = {
       {q:"What's the best time of year to build a deck in Indiana?",a:"Spring and early summer are the most popular times, but we build decks from March through November. If you want your deck ready for Memorial Day, start the planning and design process in January or February so we can schedule construction for early spring."},
       {q:"Do you do stamped concrete patios?",a:"Yes. We've completed stamped concrete patio projects in both Fishers and Noblesville. Stamped concrete offers the look of natural stone or brick at a fraction of the cost, and it's extremely durable for Indiana's climate."},
     ],
-    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"],
   },
   "flooring-services": {
     service: "Flooring Services",
@@ -2243,7 +2265,7 @@ const SERVICE_PAGES = {
       {q:"How much does hardwood flooring cost in Hamilton County?",a:"Hardwood flooring installation in the Fishers, Carmel, and Noblesville area typically runs $8 to $15 per square foot installed, depending on the species and whether it's solid or engineered. We provide free in-home estimates with exact pricing for your space."},
       {q:"Can you install flooring over existing floors?",a:"In many cases, yes. LVP and engineered hardwood can often be installed over existing hard surfaces if the subfloor is level and in good condition. We assess this during our free in-home consultation and recommend the best approach."},
     ],
-    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"],
   },
   "painting-services": {
     service: "Painting Services",
@@ -2284,7 +2306,7 @@ const SERVICE_PAGES = {
       {q:"How much does it cost to paint the exterior of a house in Hamilton County?",a:"Exterior painting in the Fishers, Carmel, and Noblesville area typically costs $4,000 to $10,000 depending on the home's size, siding type, and condition. Homes with extensive prep needs (peeling paint, wood rot repair) are on the higher end. We provide free estimates."},
       {q:"Do I need to move furniture before you arrive?",a:"We handle all furniture moving and protection. We cover floors with drop cloths, move furniture away from walls, and mask all fixtures, outlets, and trim. At the end of each day, we put everything back and clean up."},
     ],
-    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville"],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"],
   },
 };
 
@@ -2857,7 +2879,7 @@ export default function HomestarSite(){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Family-owned home remodeling company serving Hamilton County, Indiana. Kitchen & bath remodeling, basement finishing, flooring, painting, decks & outdoor living.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Carmel",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9784,longitude:-86.1180},areaServed:[{name:"Carmel"},{name:"Fishers"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"},openingHours:["Mo-Fr 07:00-18:00","Sa 08:00-14:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/"],founder:[{"@type":"Person",name:"Robb"},{"@type":"Person",name:"Eric"}],hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Family-owned home remodeling company serving Hamilton County, Indiana. Kitchen & bath remodeling, basement finishing, flooring, painting, decks & outdoor living.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Carmel",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9784,longitude:-86.1180},areaServed:[{name:"Carmel"},{name:"Fishers"},{name:"Geist"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"},openingHours:["Mo-Fr 07:00-18:00","Sa 08:00-14:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/"],founder:[{"@type":"Person",name:"Robb"},{"@type":"Person",name:"Eric"}],hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
       <Nav/>
       <Hero/>
       <Services/>
