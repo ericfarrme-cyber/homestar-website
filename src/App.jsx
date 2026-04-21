@@ -58,9 +58,11 @@ const PROCESS = [
 const PROJECTS = [
   {
     title: "Custom Green Tile Bathroom Remodel in Carmel",
-    cat: "Bathroom",
+    slug: "green-tile-bathroom-carmel",
+    cat: "Bathroom", city: "Carmel", service: "Bathroom Remodeling",
     color: "#4A6A8B",
     desc: "Bold green tile brings this Carmel bathroom to life with a one-of-a-kind design, custom vanity, and full gut renovation.",
+    story: {challenge:"This Carmel homeowner wanted a bathroom that would stand out — something bold, personal, and unlike anything their neighbors had. The existing bathroom was dated with standard white tile and a worn vanity.",approach:"We worked with the homeowner to select a distinctive green tile that would become the signature of the space. The complete Schluter waterproofing system was installed — Ditra on floors, Kerdi on walls — before any tile was set. A custom vanity with stone countertop was designed to complement the green palette. All plumbing by licensed plumber, all electrical by licensed electrician.",result:"The finished bathroom is one of our most striking transformations — a bold, one-of-a-kind space that perfectly reflects the homeowner's personality while being built on a waterproofing system that will protect their investment for 25+ years."},
     images: [
       { src: "/images/bathroom-green-tile-1.jpg", alt: "Custom green tile bathroom remodel in Carmel Indiana" },
       { src: "/images/bathroom-green-tile-2.jpg", alt: "Green tile shower installation Carmel IN" },
@@ -73,7 +75,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Double Shower Remodel in Fishers",
+    title: "Double Shower Remodel in Fishers", slug: "double-shower-fishers", city: "Fishers", service: "Bathroom Remodeling",
     cat: "Bathroom",
     color: "#5A7A9B",
     desc: "A luxurious double shower installation in this stunning Fishers bathroom remodel.",
@@ -87,7 +89,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Spa Retreat Bathroom Remodel in Fishers",
+    title: "Spa Retreat Bathroom Remodel in Fishers", slug: "spa-retreat-bathroom-fishers", city: "Fishers", service: "Bathroom Remodeling",
     cat: "Bathroom",
     color: "#6A8B7A",
     desc: "A serene spa-inspired bathroom retreat with premium finishes and a calming design.",
@@ -101,7 +103,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Beautiful Geist Upper Level Remodel",
+    title: "Beautiful Geist Upper Level Remodel", slug: "geist-upper-level-remodel", city: "Geist", service: "Bathroom Remodeling",
     cat: "Whole Home",
     color: "#7B5A4A",
     desc: "Complete upper level transformation in a beautiful Geist residence — every room reimagined with modern finishes.",
@@ -121,7 +123,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Floor-to-Ceiling Tile Bathroom Remodel in Noblesville",
+    title: "Floor-to-Ceiling Tile Bathroom Remodel in Noblesville", slug: "floor-to-ceiling-tile-noblesville", city: "Noblesville", service: "Bathroom Remodeling",
     cat: "Bathroom",
     color: "#5A6A8B",
     desc: "Complete floor-to-ceiling tile transformation in this Noblesville bathroom — every surface upgraded.",
@@ -133,7 +135,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Noblesville Laundry Room Remodel",
+    title: "Noblesville Laundry Room Remodel", slug: "laundry-room-noblesville", city: "Noblesville", service: "Flooring Services",
     cat: "Laundry",
     color: "#8B7A5A",
     desc: "A dated laundry room gets a complete makeover with modern storage, new countertops, and a fresh layout.",
@@ -144,7 +146,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Two Children's Bathroom Remodels in Geist",
+    title: "Two Children's Bathroom Remodels in Geist", slug: "childrens-bathrooms-geist", city: "Geist", service: "Bathroom Remodeling",
     cat: "Children's Bathroom",
     color: "#6A5A8B",
     desc: "Fun, functional, and kid-friendly — two children's bathrooms completely redesigned in a Geist home.",
@@ -158,7 +160,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Jack & Jill Bathroom Remodel in Zionsville",
+    title: "Jack & Jill Bathroom Remodel in Zionsville", slug: "jack-and-jill-zionsville", city: "Zionsville", service: "Bathroom Remodeling",
     cat: "Bathroom",
     color: "#5A8B6A",
     desc: "A shared Jack & Jill bathroom gets a complete makeover with dual vanities and modern finishes in Zionsville.",
@@ -175,7 +177,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Quick Fishers Basement Finish",
+    title: "Quick Fishers Basement Finish", slug: "basement-finish-fishers", city: "Fishers", service: "Basement Finishing",
     cat: "Basement",
     color: "#4A5A7B",
     desc: "A fast, efficient basement finish that added usable living space without breaking the budget.",
@@ -186,7 +188,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Fishers Bathroom Renovation",
+    title: "Fishers Bathroom Renovation", slug: "bathroom-renovation-fishers", city: "Fishers", service: "Bathroom Remodeling",
     cat: "Bathroom",
     color: "#6A7B8B",
     desc: "A complete bathroom renovation in Fishers with updated tile, fixtures, and a modern layout.",
@@ -198,7 +200,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Teenage Child Bathroom Remodel in Fishers",
+    title: "Teenage Child Bathroom Remodel in Fishers", slug: "kids-bathroom-fishers", city: "Fishers", service: "Bathroom Remodeling",
     cat: "Children's Bathroom",
     color: "#7B6A8B",
     desc: "A stylish bathroom remodel designed for a teenager — durable, functional, and with personality.",
@@ -210,7 +212,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Laundry Room Flip near Geist, Fishers",
+    title: "Laundry Room Flip near Geist, Fishers", slug: "laundry-room-geist", city: "Fishers", service: "Flooring Services",
     cat: "Laundry",
     color: "#8B7A5A",
     desc: "A compact laundry room transformed with smart storage and a clean, modern design.",
@@ -220,7 +222,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Modern Farmhouse Bathroom Remodel in Fishers",
+    title: "Modern Farmhouse Bathroom Remodel in Fishers", slug: "modern-farmhouse-bathroom-fishers", city: "Fishers", service: "Bathroom Remodeling",
     cat: "Bathroom",
     color: "#7B8B6A",
     desc: "A warm, modern farmhouse-inspired bathroom with shiplap accents, wood-tone vanity, and classic fixtures.",
@@ -232,7 +234,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Westfield Basement Finish on a Budget",
+    title: "Westfield Basement Finish on a Budget", slug: "basement-finish-westfield", city: "Westfield", service: "Basement Finishing",
     cat: "Basement",
     color: "#5A6A7B",
     desc: "Proof that a great basement doesn't require a massive budget — smart design and efficient execution in Westfield.",
@@ -244,7 +246,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Double Shower Bathroom Remodel in Carmel",
+    title: "Double Shower Bathroom Remodel in Carmel", slug: "double-shower-carmel", city: "Carmel", service: "Bathroom Remodeling",
     cat: "Bathroom",
     color: "#5A7B8B",
     desc: "A stunning double shower bathroom renovation in Carmel featuring custom tile, modern vanity with LED mirror, hexagonal floor tile, and premium fixtures throughout.",
@@ -259,7 +261,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Fortville Pavilion Patio Project",
+    title: "Fortville Pavilion Patio Project", slug: "pavilion-patio-fortville", city: "Fortville", service: "Decks & Outdoor Living",
     cat: "Exterior",
     color: "#8B6A5A",
     desc: "A custom outdoor pavilion and patio in Fortville featuring a stone column bar area, covered seating with stained wood beams, and a comfortable entertaining space designed for year-round use.",
@@ -270,7 +272,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Stamped Concrete Patio in Fishers",
+    title: "Stamped Concrete Patio in Fishers", slug: "stamped-concrete-fishers", city: "Fishers", service: "Decks & Outdoor Living",
     cat: "Exterior",
     color: "#7B6A5A",
     desc: "A beautiful stamped concrete patio installation in Fishers featuring decorative patterns and clean borders, creating a durable outdoor living space perfect for entertaining.",
@@ -280,7 +282,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Stamped Concrete Patio in Noblesville",
+    title: "Stamped Concrete Patio in Noblesville", slug: "stamped-concrete-noblesville", city: "Noblesville", service: "Decks & Outdoor Living",
     cat: "Exterior",
     color: "#6A7B5A",
     desc: "A custom stamped concrete patio in Noblesville with a decorative finish and clean edges, extending the home's living space outdoors.",
@@ -292,7 +294,7 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Composite Deck Build in Fishers",
+    title: "Composite Deck Build in Fishers", slug: "composite-deck-fishers", city: "Fishers", service: "Decks & Outdoor Living",
     cat: "Exterior",
     color: "#6A7B6A",
     desc: "A custom composite deck in Fishers with white railing, dual staircases, and a spacious layout designed for entertaining. Built with low-maintenance composite decking that stands up to Indiana weather year after year.",
@@ -1123,7 +1125,7 @@ function BlogPostPage({post}){
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Blog",url:"/#blog"},{name:post.title}]}/>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"BlogPosting",headline:post.title,description:post.excerpt,datePublished:post.date,author:{"@type":"Organization",name:"HomeStar Services & Contracting"},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"BlogPosting",headline:post.title,description:post.excerpt,datePublished:post.date,author:{"@type":"Person",name:"Eric Farr",url:"https://www.thehomestarservice.com/about/eric-farr"},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
 
       <Nav isCity/>
 
@@ -1145,7 +1147,16 @@ function BlogPostPage({post}){
             <p key={i} style={{color:C.grayDark,fontSize:16,lineHeight:1.9,marginBottom:20}}>{p}</p>
           )}
 
-          <div style={{marginTop:40,padding:"28px 32px",background:C.cream,borderRadius:14,textAlign:"center"}}>
+          {/* Author Attribution */}
+          <div style={{display:"flex",alignItems:"center",gap:16,padding:"20px 24px",background:C.cream,borderRadius:12,marginTop:32,marginBottom:8}}>
+            <div style={{width:48,height:48,borderRadius:"50%",background:C.navy,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontWeight:800,fontSize:18,flexShrink:0}}>EF</div>
+            <div>
+              <a href="/about/eric-farr" style={{color:C.navy,fontWeight:700,fontSize:14,textDecoration:"none"}}>Eric Farr</a>
+              <div style={{color:C.gray,fontSize:12}}>Co-Founder, HomeStar Services & Contracting · Schluter Pro Certified</div>
+            </div>
+          </div>
+
+          <div style={{marginTop:32,padding:"28px 32px",background:C.cream,borderRadius:14,textAlign:"center"}}>
             <p className="display" style={{color:C.navy,fontSize:18,marginBottom:12}}>Ready to start your project?</p>
             <a href="/#estimate" className="btn-g">Get a Free Estimate {I.arrow}</a>
           </div>
@@ -2957,6 +2968,286 @@ function ServiceCityPage({svcData,cityData,svcKey}){
   );
 }
 
+/* ─── Project Case Study Stories ──────────────────── */
+const PROJECT_STORIES = {
+  "green-tile-bathroom-carmel":{challenge:"This Carmel homeowner wanted a bathroom that would stand out — something bold, personal, and unlike anything their neighbors had. The existing bathroom was dated with standard white tile and a worn vanity.",approach:"We worked with the homeowner to select a distinctive green tile that would become the signature of the space. The complete Schluter waterproofing system was installed — Ditra on floors, Kerdi on walls — before any tile was set. A custom vanity with stone countertop was designed to complement the green palette. All plumbing by licensed plumber, all electrical by licensed electrician.",result:"The finished bathroom is one of our most striking transformations — a bold, one-of-a-kind space that perfectly reflects the homeowner's personality while being built on a waterproofing system that will protect their investment for 25+ years."},
+  "double-shower-fishers":{challenge:"The homeowners wanted a spacious, luxurious master bathroom with a double shower large enough for two. The existing bathroom had an outdated single shower and cramped layout that didn't match the home's quality.",approach:"We reconfigured the layout to accommodate a large double shower with custom tile and frameless glass enclosure. The complete Schluter waterproofing system was installed throughout — critical for a shower this size. New plumbing lines were run by our licensed plumber to support dual showerheads and updated drainage.",result:"The finished space feels like a luxury hotel — a generous double shower with seamless tile, modern fixtures, and frameless glass that opens up the entire bathroom. Built to last with Schluter waterproofing and a 25-year warranty."},
+  "spa-retreat-bathroom-fishers":{challenge:"After years of living with a builder-grade bathroom, this Fishers homeowner wanted a spa-like retreat — a space for unwinding at the end of the day with premium finishes and a calming design.",approach:"We designed a serene spa-inspired space with a freestanding soaking tub, walk-in shower with custom tile, updated vanity, and modern lighting. The Schluter waterproofing system protects every tile surface. Our licensed electrician installed dimmable lighting and a properly sized exhaust fan for the spa atmosphere.",result:"The transformation turned a dated, uninspiring bathroom into a private spa retreat. The homeowner describes it as their favorite room in the house — a space that feels like a resort without leaving home."},
+  "geist-upper-level-remodel":{challenge:"This Geist waterfront homeowner wanted to modernize the entire upper level — multiple bathrooms, updated finishes throughout, and a cohesive design that matched the beauty of their reservoir views.",approach:"We managed a comprehensive upper-level renovation across multiple rooms. Every bathroom received the complete Schluter waterproofing system. Modern design elements were coordinated across all spaces for a cohesive look. Licensed plumbers and electricians handled all trade work across the entire upper floor.",result:"The entire upper level was transformed — multiple bathrooms with premium tile work, updated finishes, and modern design elements that feel cohesive and intentional. A whole-level renovation that elevated the entire home to match its stunning Geist setting."},
+  "floor-to-ceiling-tile-noblesville":{challenge:"The homeowner wanted a dramatic, modern bathroom with tile covering every surface — floor to ceiling — creating a seamless, high-end hotel look in their Noblesville home.",approach:"Floor-to-ceiling tile requires flawless substrate preparation and the Schluter waterproofing system is essential. We installed Ditra on the floor and Kerdi on every wall surface, creating a completely waterproof envelope before setting a single tile. Large-format tiles were precision-cut and installed with meticulous attention to alignment.",result:"The result is one of our most dramatic transformations — a seamless, modern bathroom where custom tile flows from floor through shower surround and accent walls. It looks like a high-end boutique hotel, but it's built on a waterproofing system that will protect it for decades."},
+  "laundry-room-noblesville":{challenge:"A cramped, dated laundry room near Noblesville that lacked storage and felt like an afterthought in an otherwise well-maintained home.",approach:"We maximized every square foot with smart storage solutions — custom shelving, improved countertop space, and a clean modern layout. New flooring and fresh finishes transformed the space from a chore room into a functional, polished space.",result:"The finished laundry room proves that even the smallest spaces can be transformed. Smart design and quality materials turned a neglected room into one of the most functional spaces in the home."},
+  "childrens-bathrooms-geist":{challenge:"Two children's bathrooms in a Geist home needed a complete overhaul — they needed to be fun and kid-friendly while also being durable enough to handle daily use by active kids.",approach:"We designed both bathrooms with durability as the priority — the Schluter waterproofing system on all tile surfaces, easy-to-clean materials, and layouts that work for kids. Licensed plumbing on both bathrooms ensured proper function. The designs are playful yet timeless, so they'll still look great as the kids grow.",result:"Two completely redesigned bathrooms that are fun, functional, and built to handle anything kids throw at them. The Schluter waterproofing system means these bathrooms will look this good for 25+ years — long after the kids have grown up."},
+  "jack-and-jill-zionsville":{challenge:"A shared Jack & Jill bathroom in Zionsville that needed to work for siblings — dual access points, enough space for two, and a design that didn't feel like a compromise.",approach:"We redesigned the layout with dual vanities, modern finishes, and a smart configuration that gives both users their own space. The Schluter waterproofing system was installed throughout, and all plumbing was updated by our licensed plumber to support the dual-vanity setup.",result:"One of our most popular project walkthroughs — a shared bathroom that doesn't feel shared. Dual vanities, modern finishes, and a layout that works for the whole family. It's become a go-to example of how thoughtful design solves real family challenges."},
+  "basement-finish-fishers":{challenge:"An unfinished Fishers basement — raw concrete, exposed framing, and wasted square footage in a home that needed more living space.",approach:"We designed and built a complete basement finish with proper moisture management, insulation, drywall, flooring, and lighting. The space was configured as a multi-use entertainment area. Our licensed electrician installed a complete electrical system with recessed lighting and dedicated circuits.",result:"The basement went from empty concrete to a fully finished living space that added significant usable square footage to the home — all at a fraction of the cost of a home addition."},
+  "bathroom-renovation-fishers":{challenge:"A dated Fishers bathroom with worn tile, old fixtures, and a vanity that had seen better days. The homeowner wanted a fresh, modern update without a complete gut renovation.",approach:"We replaced the vanity and countertop, updated all fixtures, installed new tile in the shower and floor area with the Schluter waterproofing system, and added modern lighting. All plumbing connections by our licensed plumber.",result:"A clean, modern bathroom that feels brand new — updated finishes, modern fixtures, and proper waterproofing that protects the investment for decades. Proof that a well-executed renovation doesn't have to mean a complete gut job."},
+  "kids-bathroom-fishers":{challenge:"A teenager's bathroom in Fishers that needed an update — something with more personality that could handle daily use while still being durable and easy to maintain.",approach:"We designed a bathroom with the teenager's input — durable materials that can handle daily use, a design with personality, and the Schluter waterproofing system on all tile surfaces. Modern fixtures and updated lighting complete the look.",result:"A stylish, functional bathroom designed for a teenager — durable enough for daily use, modern enough to impress friends, and properly waterproofed to last well beyond the teenage years."},
+  "laundry-room-geist":{challenge:"A dated laundry room near Geist that wasn't keeping up with the rest of this Fishers home's quality and style.",approach:"We transformed the space with modern storage solutions, new countertops, updated flooring, and a fresh, clean design that matches the quality of the rest of the home.",result:"A compact laundry room transformed with smart storage and a clean, modern design — proving that every room in your home deserves attention to detail."},
+  "modern-farmhouse-bathroom-fishers":{challenge:"The homeowner wanted a warm, modern farmhouse aesthetic — shiplap accents, wood-tone vanity, classic fixtures — but built with proper waterproofing and quality materials, not just the look.",approach:"We designed a modern farmhouse bathroom with shiplap accent walls, a warm wood-tone vanity, and classic black fixtures. Behind the farmhouse charm, the complete Schluter waterproofing system protects every tile surface. Licensed plumbing and electrical ensure everything functions perfectly.",result:"A warm, inviting modern farmhouse bathroom that balances rustic charm with certified craftsmanship — shiplap, wood tones, and classic fixtures, all built on a 25-year waterproofing foundation."},
+  "basement-finish-westfield":{challenge:"A Westfield family wanted their unfinished basement turned into usable living space — but on a smart budget. They needed proof that quality doesn't require overspending.",approach:"We designed an efficient layout that maximized the available space without unnecessary extras. Quality materials, proper insulation, professional electrical work, and clean finishes — all focused on delivering the best result within the budget.",result:"A fast, efficient basement finish that added usable living space without breaking the budget. This project demonstrates our ability to deliver quality results at every price point — you don't need to overspend to get a great space."},
+  "double-shower-carmel":{challenge:"A Carmel master bathroom that needed a premium upgrade — the homeowners wanted a spacious shower, modern finishes, and a design that matched the quality of their neighborhood.",approach:"We installed a luxurious double shower with custom tile work, frameless glass enclosure, and premium fixtures. The complete Schluter waterproofing system was installed throughout. An LED backlit mirror and updated vanity with modern hardware complete the transformation.",result:"A stunning Carmel bathroom with a spacious double shower, custom tile, frameless glass, and premium finishes throughout. Built on the Schluter waterproofing system with a 25-year manufacturer's warranty."},
+  "pavilion-patio-fortville":{challenge:"A Fortville homeowner wanted a custom outdoor living space — a covered pavilion that could serve as an extension of their indoor living area for entertaining, family gatherings, and enjoying the property.",approach:"We designed and built a custom pavilion with a durable structure, quality roofing, and a layout designed for outdoor entertaining. The project showcases our ability to deliver custom outdoor living spaces that extend how families use their homes.",result:"A beautiful custom pavilion that transformed the backyard into a true outdoor living space — perfect for everything from family dinners to weekend entertaining. One of our most popular project showcases."},
+  "stamped-concrete-fishers":{challenge:"The backyard needed a durable, attractive patio surface that could handle Indiana weather while providing a great space for outdoor entertaining.",approach:"We designed and installed a stamped concrete patio with a pattern and color that complements the home's exterior. Proper grading ensures water drainage away from the foundation.",result:"A beautiful stamped concrete patio that provides years of low-maintenance outdoor living space — durable enough for Indiana weather, attractive enough for weekend entertaining."},
+  "stamped-concrete-noblesville":{challenge:"A Noblesville homeowner wanted a patio that looked like natural stone without the maintenance — a durable surface for outdoor living.",approach:"We installed stamped concrete with a natural stone pattern, proper drainage grading, and a durable sealer to protect against Indiana's freeze-thaw cycles.",result:"A stamped concrete patio that delivers the look of natural stone with the durability and low maintenance of concrete — a smart investment for Indiana outdoor living."},
+  "composite-deck-fishers":{challenge:"The homeowner wanted a spacious outdoor space for entertaining but was tired of the annual staining and maintenance that comes with a wood deck.",approach:"We designed and built a premium composite deck with white railing, dual staircases, and a layout optimized for entertaining. Composite decking requires zero staining or sealing and lasts 25-30 years.",result:"A beautiful, spacious composite deck that will look this good for 25+ years — zero annual maintenance, no staining, no sealing. Just outdoor living space the homeowner can actually enjoy instead of maintain."},
+};
+
+/* ─── Project Case Study Pages (19 pages) ─────────── */
+function ProjectPage({project}){
+  useCanonical("projects/"+project.slug);
+  const[activeImg,setActiveImg]=useState(0);
+  const story=project.story||PROJECT_STORIES[project.slug];
+
+  useEffect(()=>{
+    document.title=project.title+" | HomeStar Services & Contracting";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content",project.desc+" Schluter Pro Certified. Free estimates. (317) 279-4798");
+    window.scrollTo(0,0);
+  },[project]);
+
+  useJobberForm();
+
+  const related=PROJECTS.filter(p=>p.slug!==project.slug&&(p.cat===project.cat||p.city===project.city)).slice(0,3);
+  const serviceSlug=project.service==="Bathroom Remodeling"?"bathroom-remodeling":project.service==="Basement Finishing"?"basement-finishing":project.service==="Kitchen Remodeling"?"kitchen-remodeling":project.service==="Flooring Services"?"flooring-services":project.service==="Painting Services"?"painting-services":"decks-outdoor-living";
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Projects",url:"/#projects"},{name:project.title}]}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Article",headline:project.title,description:project.desc,author:{"@type":"Organization",name:"HomeStar Services & Contracting"},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"},image:project.images[0]?.src})}}/>
+
+      <Nav isCity/>
+
+      {/* Hero */}
+      <section style={{position:"relative",padding:"140px 24px 60px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`}}>
+        <div style={{maxWidth:800,margin:"0 auto",position:"relative",zIndex:2,textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:10,marginBottom:18}}>
+            <span style={{fontSize:11,fontWeight:700,letterSpacing:".07em",color:C.green,textTransform:"uppercase",background:C.greenMuted,padding:"4px 12px",borderRadius:50}}>{project.cat}</span>
+            {project.city&&<span style={{fontSize:11,fontWeight:700,letterSpacing:".07em",color:"rgba(255,255,255,.4)",textTransform:"uppercase"}}>{project.city}, IN</span>}
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(26px,4vw,40px)",lineHeight:1.2,marginBottom:16}}>{project.title}</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.5)",fontSize:16,lineHeight:1.7}}>{project.desc}</p>
+        </div>
+      </section>
+
+      {/* Photo Gallery */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:900}}>
+          <div style={{borderRadius:16,overflow:"hidden",border:`1px solid ${C.sand}`,marginBottom:16}}>
+            <img src={project.images[activeImg]?.src} alt={project.images[activeImg]?.alt} style={{width:"100%",height:"clamp(300px,40vw,500px)",objectFit:"cover"}} loading="lazy"/>
+          </div>
+          {project.images.length>1&&(
+            <div style={{display:"flex",gap:8,overflowX:"auto",paddingBottom:8}}>
+              {project.images.map((img,i)=>
+                <img key={i} src={img.src} alt={img.alt} onClick={()=>setActiveImg(i)} loading="lazy"
+                  style={{width:80,height:60,objectFit:"cover",borderRadius:8,cursor:"pointer",border:activeImg===i?`2px solid ${C.green}`:`2px solid ${C.sand}`,opacity:activeImg===i?1:.6,transition:"all .2s"}}/>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Project Story */}
+      {story&&(
+        <section className="sec" style={{background:C.cream}}>
+          <div className="sec-in" style={{maxWidth:800}}>
+            <div style={{display:"grid",gap:32}}>
+              <div>
+                <div className="lab">The Challenge</div>
+                <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:12}}>What the Homeowner Wanted</h3>
+                <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85}}>{story.challenge}</p>
+              </div>
+              <div>
+                <div className="lab">Our Approach</div>
+                <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:12}}>How We Built It</h3>
+                <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85}}>{story.approach}</p>
+              </div>
+              <div>
+                <div className="lab">The Result</div>
+                <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:12}}>The Finished Space</h3>
+                <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85}}>{story.result}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Project Details Card */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <div style={{background:C.cream,borderRadius:14,padding:"32px 36px",display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(180px,1fr))",gap:20}}>
+            <div><div style={{color:C.gray,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Service</div><div style={{color:C.navy,fontWeight:700,fontSize:15}}>{project.service}</div></div>
+            <div><div style={{color:C.gray,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Location</div><div style={{color:C.navy,fontWeight:700,fontSize:15}}>{project.city}, Indiana</div></div>
+            <div><div style={{color:C.gray,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Waterproofing</div><div style={{color:C.navy,fontWeight:700,fontSize:15}}>Schluter Pro Certified</div></div>
+            <div><div style={{color:C.gray,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Licensed Trades</div><div style={{color:C.navy,fontWeight:700,fontSize:15}}>Plumbing & Electrical</div></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Projects */}
+      {related.length>0&&(
+        <section className="sec" style={{background:C.cream}}>
+          <div className="sec-in">
+            <div style={{textAlign:"center",marginBottom:32}}>
+              <div className="lab">More Projects</div>
+              <h2 className="ttl">Related Work</h2>
+            </div>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:18}}>
+              {related.map(r=>
+                <a key={r.slug} href={`/projects/${r.slug}`} style={{borderRadius:14,overflow:"hidden",border:`1px solid ${C.sand}`,background:"#fff",textDecoration:"none",transition:"all .3s"}}
+                  onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.06)"}}
+                  onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
+                  <img src={r.images[0]?.src} alt={r.images[0]?.alt} style={{width:"100%",height:180,objectFit:"cover"}} loading="lazy"/>
+                  <div style={{padding:"16px 18px"}}>
+                    <span style={{fontSize:10,fontWeight:700,letterSpacing:".06em",color:C.green,textTransform:"uppercase"}}>{r.cat}</span>
+                    <h4 className="display" style={{color:C.navy,fontSize:14,marginTop:4}}>{r.title}</h4>
+                  </div>
+                </a>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* CTA */}
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in" style={{maxWidth:1000}}>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:48,alignItems:"start"}}>
+            <div style={{padding:"20px 0"}}>
+              <div className="lab" style={{color:C.green}}>Start Your Project</div>
+              <h2 className="display" style={{color:"#fff",fontSize:"clamp(24px,3vw,32px)",marginBottom:16}}>Want Results Like This?</h2>
+              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.7,marginBottom:24}}>We'd love to bring this level of craftsmanship to your home. Request a free estimate and let's talk about your vision.</p>
+              <div style={{display:"flex",flexDirection:"column",gap:14}}>
+                <a href="tel:+13172794798" style={{color:"#fff",fontSize:15,textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>{I.phone} (317) 279-4798</a>
+                <a href="mailto:eric@thehomestarservice.com" style={{color:"#fff",fontSize:15,textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>{I.mail||"✉"} eric@thehomestarservice.com</a>
+              </div>
+              <div style={{marginTop:24,display:"flex",gap:16}}>
+                <a href={`/${serviceSlug}`} style={{color:C.green,fontWeight:600,fontSize:13,textDecoration:"none"}}>← {project.service}</a>
+                <a href="/#projects" style={{color:"rgba(255,255,255,.4)",fontWeight:600,fontSize:13,textDecoration:"none"}}>All Projects</a>
+              </div>
+            </div>
+            <div style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
+              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
+              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Tell us about your project.</p>
+              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
+
+/* ─── Author / E-E-A-T Pages ─────────────────────── */
+const AUTHORS = {
+  "eric-farr":{
+    name:"Eric Farr",slug:"eric-farr",role:"Co-Founder",
+    bio:"Eric co-founded HomeStar Services & Contracting with a clear mission: deliver the kind of remodeling quality that homeowners in Hamilton County deserve — honest pricing, certified craftsmanship, and results that last. With a background in real estate and small business, Eric brings a homeowner's perspective to every project. He understands that a remodeling project isn't just about tile and fixtures — it's about trust, communication, and protecting one of your biggest investments.",
+    credentials:["Schluter Pro Certified","Licensed & Insured Contractor","Member, Better Business Bureau","50+ Hamilton County Projects Completed"],
+    philosophy:"Every home we work on gets treated like it's our own. That means no shortcuts on waterproofing, no unlicensed tradespeople, and no vague estimates. We show you exactly what you're getting before we start — with 3D renderings, itemized pricing, and a timeline we actually stick to.",
+    email:"eric@thehomestarservice.com",
+  },
+  "robb-rice":{
+    name:"Robb Rice",slug:"robb-rice",role:"Co-Founder",
+    bio:"Robb co-founded HomeStar Services & Contracting alongside Eric with a shared commitment to quality and integrity. Together, they've built HomeStar into a trusted name across Hamilton County — known for bathroom transformations, basement finishes, and kitchen remodels that are built to last. Robb's hands-on approach and attention to detail ensure that every project meets the high standard HomeStar is known for.",
+    credentials:["Schluter Pro Certified","Licensed & Insured Contractor","Experienced in Residential Construction","Serving Hamilton County Communities"],
+    philosophy:"We started HomeStar because we saw too many homeowners getting burned by contractors who cut corners. Our promise is simple: we use the best materials, hire licensed professionals for every trade, and stand behind our work with real warranties — not empty promises.",
+    email:"thehomestarservice@gmail.com",
+  },
+};
+
+function AuthorPage({author}){
+  useCanonical("about/"+author.slug);
+
+  useEffect(()=>{
+    document.title=author.name+" — "+author.role+" | HomeStar Services & Contracting";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content",`${author.name}, ${author.role} of HomeStar Services & Contracting. Schluter Pro Certified home remodeling in Hamilton County, Indiana.`);
+    window.scrollTo(0,0);
+  },[author]);
+
+  const authorPosts=BLOG.filter(()=>true); /* All posts attributed to both founders */
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"About",url:"/#about"},{name:author.name}]}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Person",name:author.name,jobTitle:author.role,worksFor:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"},knowsAbout:["bathroom remodeling","kitchen remodeling","basement finishing","Schluter waterproofing system","home renovation"],email:author.email})}}/>
+
+      <Nav isCity/>
+
+      <section style={{position:"relative",padding:"160px 24px 80px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`}}>
+        <div style={{maxWidth:700,margin:"0 auto",position:"relative",zIndex:2,textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>{author.role.toUpperCase()}</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(32px,5vw,48px)",lineHeight:1.1,marginBottom:16}}>{author.name}</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.5)",fontSize:17,lineHeight:1.7}}>{author.role}, HomeStar Services & Contracting</p>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <div style={{textAlign:"center",marginBottom:32}}>
+            <div className="lab">Background</div>
+            <h2 className="ttl">About {author.name}</h2>
+          </div>
+          <p style={{color:C.grayDark,fontSize:16,lineHeight:1.85,marginBottom:24}}>{author.bio}</p>
+          <div style={{background:C.cream,borderRadius:14,padding:"28px 32px",marginBottom:24}}>
+            <h3 className="display" style={{color:C.navy,fontSize:17,marginBottom:16}}>Credentials & Certifications</h3>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",gap:10}}>
+              {author.credentials.map(c=>
+                <div key={c} style={{display:"flex",alignItems:"center",gap:10,color:C.grayDark,fontSize:14}}>{I.check} {c}</div>
+              )}
+            </div>
+          </div>
+          <div style={{background:C.cream,borderRadius:14,padding:"28px 32px"}}>
+            <h3 className="display" style={{color:C.navy,fontSize:17,marginBottom:12}}>Philosophy</h3>
+            <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85,margin:0,fontStyle:"italic"}}>"{author.philosophy}"</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <div style={{textAlign:"center",marginBottom:32}}>
+            <div className="lab">Articles</div>
+            <h2 className="ttl">Written by {author.name}</h2>
+          </div>
+          <div style={{display:"grid",gap:12}}>
+            {authorPosts.map(b=>
+              <a key={b.slug} href={`/blog/${b.slug}`} style={{padding:"20px 24px",borderRadius:12,background:"#fff",border:`1px solid ${C.sand}`,textDecoration:"none",display:"flex",justifyContent:"space-between",alignItems:"center",transition:"all .3s"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand}}>
+                <div>
+                  <span style={{fontSize:10,fontWeight:700,letterSpacing:".06em",color:C.green,textTransform:"uppercase"}}>{b.cat} · {b.read}</span>
+                  <h4 className="display" style={{color:C.navy,fontSize:15,marginTop:4}}>{b.title}</h4>
+                </div>
+                <span style={{color:C.green,flexShrink:0,marginLeft:16}}>{I.arrow}</span>
+              </a>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{textAlign:"center"}}>
+          <h2 className="ttl">Work With {author.name}</h2>
+          <p className="sub" style={{margin:"0 auto 28px"}}>Ready to start your remodeling project? {author.name} and the HomeStar team are here to help.</p>
+          <div style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:14}}>
+            <a href="/#estimate" className="btn-g">Get a Free Estimate {I.arrow}</a>
+            <a href="tel:+13172794798" className="btn-w">{I.phone} (317) 279-4798</a>
+          </div>
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
+
 export default function HomestarSite(){
   const[legalPage,setLegalPage]=useState(null);
   const[cityPage,setCityPage]=useState(null);
@@ -2964,18 +3255,31 @@ export default function HomestarSite(){
   const[serviceCityPage,setServiceCityPage]=useState(null);
   const[blogPost,setBlogPost]=useState(null);
   const[neighborhoodPage,setNeighborhoodPage]=useState(null);
+  const[projectPage,setProjectPage]=useState(null);
+  const[authorPage,setAuthorPage]=useState(null);
   useCanonical("");
 
   useEffect(()=>{
     const path=window.location.pathname.replace(/^\//,"").replace(/\/$/,"");
 
-    /* Blog posts (e.g. blog/bathroom-remodel-cost-hamilton-county) */
+    /* Blog posts */
     if(path.startsWith("blog/")){
       const slug=path.replace("blog/","");
       const post=BLOG.find(b=>b.slug===slug);
       if(post){setBlogPost(post);return;}
     }
-    /* Neighborhood pages (e.g. remodeling-hamilton-proper-fishers-in) */
+    /* Project case studies */
+    if(path.startsWith("projects/")){
+      const slug=path.replace("projects/","");
+      const proj=PROJECTS.find(p=>p.slug===slug);
+      if(proj){setProjectPage(proj);return;}
+    }
+    /* Author pages */
+    if(path.startsWith("about/")){
+      const slug=path.replace("about/","");
+      if(AUTHORS[slug]){setAuthorPage(slug);return;}
+    }
+    /* Neighborhood pages */
     if(path.startsWith("remodeling-")){
       const hoodPath=path.replace(/^remodeling-/,"").replace(/-in$/,"");
       for(const[key,hood] of Object.entries(NEIGHBORHOODS)){
@@ -2985,15 +3289,15 @@ export default function HomestarSite(){
         }
       }
     }
-    /* Check service-city combo first (e.g. bathroom-remodeling-fishers-in) */
+    /* Service-city combos */
     const alias=SERVICE_CITY_ALIASES[path];
     if(alias&&alias.s&&alias.c&&CITIES[alias.c]&&SERVICE_PAGES[alias.s]){
       setServiceCityPage({service:alias.s,city:alias.c,svcKey:Object.keys(SERVICE_SLUG_MAP).find(k=>SERVICE_SLUG_MAP[k]===alias.s)||alias.s});
       return;
     }
-    /* Then city pages */
+    /* City pages */
     if(CITIES[path]){setCityPage(path);return;}
-    /* Then service pages */
+    /* Service pages */
     if(SERVICE_PAGES[path]){setServicePage(path);}
   },[]);
 
@@ -3010,6 +3314,14 @@ export default function HomestarSite(){
 
   if(blogPost){
     return <BlogPostPage post={blogPost}/>;
+  }
+
+  if(projectPage){
+    return <ProjectPage project={projectPage}/>;
+  }
+
+  if(authorPage&&AUTHORS[authorPage]){
+    return <AuthorPage author={AUTHORS[authorPage]}/>;
   }
 
   if(neighborhoodPage&&NEIGHBORHOODS[neighborhoodPage]){
