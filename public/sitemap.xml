@@ -176,4 +176,14 @@
   <!-- Author Pages (2) -->
   <url><loc>https://www.thehomestarservice.com/about/eric-farr</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/about/robb-rice</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Pillar/Hub Guides (5) -->
+  <url><loc>https://www.thehomestarservice.com/guide/bathroom-remodeling-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/guide/basement-finishing-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/guide/kitchen-remodeling-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/guide/outdoor-living-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/guide/hiring-contractor-indiana</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Cost Calculator (1) -->
+  <url><loc>https://www.thehomestarservice.com/tools/remodel-cost-calculator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

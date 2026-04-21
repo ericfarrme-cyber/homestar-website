@@ -3300,6 +3300,385 @@ function AuthorPage({author}){
   );
 }
 
+/* ─── Pillar/Hub Guide Pages (5 pages) ────────────── */
+const GUIDES = {
+  "bathroom-remodeling-hamilton-county":{
+    title:"The Complete Guide to Bathroom Remodeling in Hamilton County",
+    metaDesc:"Everything Hamilton County homeowners need to know about bathroom remodeling — costs, timelines, materials, waterproofing, and how to choose a contractor. From Fishers to Zionsville.",
+    service:"Bathroom Remodeling",serviceSlug:"bathroom-remodeling",
+    sections:[
+      {h:"What Does a Bathroom Remodel Cost in Hamilton County?",p:["Bathroom remodeling costs in Hamilton County vary significantly by scope. A basic refresh — new vanity, faucet, mirror, light fixture, and paint — typically runs $8,000 to $12,000. A mid-range remodel with full gut, new tile shower, vanity, fixtures, and lighting runs $15,000 to $30,000. High-end spa-level renovations with custom tile, frameless glass, freestanding tubs, heated floors, and premium fixtures range from $30,000 to $50,000+.","The biggest cost variable is tile. A standard subway tile shower costs significantly less than a floor-to-ceiling large-format installation. The scope of plumbing changes also matters — relocating a shower valve or adding a drain line costs more than replacing fixtures in place."]},
+      {h:"How Long Does a Bathroom Remodel Take?",p:["Most mid-range bathroom remodels in Hamilton County take 3-4 weeks from demolition to walkthrough. A basic refresh takes 1-1.5 weeks. Spa-level renovations with layout changes take 4-5 weeks. The most common cause of delays isn't construction — it's material lead times. Specialty tile and custom vanities can have 2-3 week lead times, so start the planning process 4-6 weeks before you want construction to begin."]},
+      {h:"Why Waterproofing Is the Most Important Decision",p:["The material behind your tile matters more than the tile itself. Standard cement board is water-resistant, not waterproof — it absorbs moisture over time, leading to mold, rot, and tile failure within 3-7 years. The Schluter waterproofing system (Kerdi for walls, Ditra for floors) is 100% waterproof and absorbs structural movement that would otherwise crack grout and loosen tiles.","At HomeStar, every bathroom uses the complete Schluter system — not as an upgrade, but as our standard. Our installers are Schluter Pro Certified, qualifying every project for a 25-year manufacturer's warranty. This is the single most important quality differentiator in bathroom remodeling."]},
+      {h:"Choosing the Right Tile for Your Shower",p:["Porcelain tile is the gold standard for showers — dense, low-porosity, and available in virtually any style. Large-format porcelain (12x24 and larger) is the dominant choice in Hamilton County because fewer grout lines mean a cleaner look and easier maintenance. Natural stone is beautiful but requires regular sealing. For shower floors, small mosaic tiles provide essential slip resistance."]},
+      {h:"Walk-In Showers vs Bathtubs: The Hamilton County Trend",p:["The most consistent trend in Hamilton County bathrooms is the conversion of tub/shower combos to walk-in showers. Homeowners in their 40s-60s are choosing spacious, curbless or low-curb showers that are easier to use, easier to clean, and age-in-place friendly. Freestanding soaking tubs remain popular in luxury remodels as a design feature, but the standard built-in tub is disappearing from master bathrooms."]},
+      {h:"Licensed Trades: Why It Matters",p:["Every bathroom remodel involves plumbing and electrical work. At HomeStar, all plumbing is performed by licensed plumbers and all electrical by licensed electricians. Many contractors use general laborers for these tasks to save money. The difference shows up during inspection — and in the safety and longevity of the work. Always ask your contractor if their plumbers and electricians are individually licensed."]},
+      {h:"How to Get Started",p:["Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com. We'll visit your home, walk the space with you, create 3D design renderings, and provide a detailed, itemized estimate. We serve Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville, McCordsville, and Pendleton."]},
+    ],
+    faq:[
+      {q:"What's the average bathroom remodel cost in Fishers?",a:"Mid-range bathroom remodels in Fishers typically cost $15,000-$30,000. Basic refreshes start around $8,000, while luxury spa-level renovations can reach $50,000+."},
+      {q:"Do I need a permit for a bathroom remodel?",a:"If the project involves plumbing or electrical changes, a permit is typically required. We handle the entire permitting process for all Hamilton County municipalities."},
+      {q:"What is the Schluter waterproofing system?",a:"Schluter is a complete waterproofing system — Ditra for floors, Kerdi for walls — that creates a 100% waterproof barrier behind your tile. It's backed by a 25-year manufacturer's warranty when installed by a certified installer like HomeStar."},
+      {q:"How do I choose between a walk-in shower and a bathtub?",a:"It depends on your lifestyle. Walk-in showers are more popular for daily use, accessibility, and modern design. Freestanding tubs are chosen as luxury design features in larger bathrooms. Many homeowners choose a walk-in shower in the master and keep a tub in a secondary bathroom."},
+      {q:"Can you remodel a small bathroom?",a:"Absolutely. We handle bathrooms of all sizes — from compact powder rooms to spacious master suites. Smart design maximizes every square foot."},
+    ],
+    relatedPosts:["bathroom-remodel-cost-hamilton-county","schluter-vs-cement-board-waterproofing","bathroom-remodel-timeline-week-by-week","bathroom-tile-failure-prevention","best-tile-bathroom-showers","signs-bathroom-needs-remodel"],
+  },
+  "basement-finishing-hamilton-county":{
+    title:"The Complete Guide to Basement Finishing in Hamilton County",
+    metaDesc:"Everything you need to know about finishing your Hamilton County basement — costs, timelines, popular layouts, moisture management, and how to maximize your investment.",
+    service:"Basement Finishing",serviceSlug:"basement-finishing",
+    sections:[
+      {h:"Why Basement Finishing Is Hamilton County's Smartest Investment",p:["Your unfinished basement is probably the most underutilized space in your home. Finishing it adds usable square footage without the cost of a home addition — you already own the space and the foundation is built. The cost per square foot to finish a basement is significantly less than building out or up, and a well-designed basement can recoup 70-80% of its cost at resale.","Hamilton County's building boom means thousands of homes in Fishers, Westfield, and McCordsville have unfinished basements with 9-foot ceilings — perfect for comfortable living space."]},
+      {h:"What Does Basement Finishing Cost in Hamilton County?",p:["Basement finishing costs depend on size, layout, and features. A basic finish (framing, drywall, flooring, lighting) for a typical 800-1,200 square foot basement runs $22,000-$38,000. Adding a bathroom increases the cost by $8,000-$15,000. Premium finishes — wet bar, home theater setup, built-in storage — can bring the total to $45,000-$65,000."]},
+      {h:"Most Popular Basement Layouts",p:["The most popular configurations we see in Hamilton County include family entertainment areas with large TV walls and comfortable seating, guest suites with bedroom and full bathroom, home offices for remote workers, kids' play areas with durable flooring, and home gyms. Many homeowners combine two or three of these functions in a single project."]},
+      {h:"Moisture Management: The Foundation of Every Basement Finish",p:["Moisture is the primary concern in any basement. We address it with proper drainage assessment, vapor barriers, moisture-resistant materials, and appropriate flooring choices. Luxury vinyl plank (LVP) is the standard flooring choice for basements — it's 100% waterproof, looks like hardwood, and handles temperature fluctuations without issue."]},
+      {h:"Getting Started",p:["Call (317) 279-4798 for a free basement consultation. We'll assess your space, discuss your vision, and provide a detailed estimate. We serve all of Hamilton County."]},
+    ],
+    faq:[
+      {q:"How long does basement finishing take?",a:"Most basement finishing projects take 4-8 weeks depending on size and complexity. Adding a bathroom or wet bar extends the timeline."},
+      {q:"Do I need a permit to finish my basement?",a:"Yes. Basement finishing requires building permits for framing, electrical, and plumbing work. We handle all permitting."},
+      {q:"What flooring is best for basements?",a:"Luxury vinyl plank (LVP) is the best choice — it's 100% waterproof, looks like hardwood, and handles the moisture conditions common in basements."},
+    ],
+    relatedPosts:["basement-finishing-best-investment","lvp-vs-hardwood-flooring"],
+  },
+  "kitchen-remodeling-hamilton-county":{
+    title:"The Complete Guide to Kitchen Remodeling in Hamilton County",
+    metaDesc:"Planning a kitchen remodel in Hamilton County? Here's everything you need to know — costs, ROI, material choices, timelines, and how to make smart decisions for your Fishers, Carmel, or Westfield kitchen.",
+    service:"Kitchen Remodeling",serviceSlug:"kitchen-remodeling",
+    sections:[
+      {h:"Kitchen Remodel Costs in Hamilton County",p:["Kitchen remodeling in Hamilton County ranges widely by scope. A minor update (new countertops, hardware, paint, lighting) runs $10,000-$18,000. A mid-range remodel (new cabinets or refacing, countertops, backsplash, flooring, fixtures) costs $25,000-$50,000. A high-end renovation with custom cabinetry, premium appliances, and layout changes can reach $60,000-$100,000+."]},
+      {h:"Which Kitchen Upgrades Deliver the Best ROI?",p:["Cabinet refacing or replacement delivers one of the highest returns — new doors and hardware on solid boxes gives you a new look at 40% of the cost. Quartz countertops have become the standard in Hamilton County — roughly 70% of our installations are now quartz over granite. Lighting upgrades (recessed lighting, under-cabinet LEDs) are one of the most impactful yet affordable changes."]},
+      {h:"Quartz vs Granite: The Countertop Decision",p:["Quartz offers zero maintenance (no sealing), consistent color, and stain resistance. Granite offers natural beauty with unique variation but requires annual sealing. Both cost $50-$120 per square foot installed. For most Hamilton County homeowners, quartz is the practical choice — busy families don't want to think about sealing schedules."]},
+      {h:"Timeline and Process",p:["Kitchen remodels take 4-8 weeks depending on scope. We start with an in-home consultation, create 3D renderings, and provide a detailed estimate. Materials are ordered before construction begins to minimize delays. All plumbing by licensed plumbers, all electrical by licensed electricians."]},
+      {h:"Getting Started",p:["Call (317) 279-4798 for a free kitchen consultation. We serve Fishers, Carmel, Noblesville, Westfield, Zionsville, and all of Hamilton County."]},
+    ],
+    faq:[
+      {q:"How long does a kitchen remodel take?",a:"Most kitchen remodels take 4-8 weeks. Minor updates can be completed in 2-3 weeks. We provide a detailed timeline before work begins."},
+      {q:"Should I choose quartz or granite countertops?",a:"Both are excellent. Quartz requires zero maintenance and offers consistent color. Granite offers natural beauty but needs annual sealing. About 70% of our Hamilton County clients choose quartz."},
+      {q:"Do you provide design services for kitchens?",a:"Yes. We create 3D renderings so you can visualize your new kitchen before construction begins — layouts, materials, and finishes all reviewed in advance."},
+    ],
+    relatedPosts:["kitchen-remodel-roi-indiana","quartz-vs-granite-countertops","hamilton-county-remodeling-trends-2026"],
+  },
+  "outdoor-living-hamilton-county":{
+    title:"The Complete Guide to Outdoor Living in Hamilton County",
+    metaDesc:"Planning a deck, patio, or outdoor living space in Hamilton County? Here's everything Indiana homeowners need to know — materials, costs, design ideas, and why composite decking dominates in 2026.",
+    service:"Decks & Outdoor Living",serviceSlug:"decks-outdoor-living",
+    sections:[
+      {h:"Composite vs Wood: The Material Decision",p:["The math has shifted decisively in favor of composite decking. While pressure-treated wood costs less upfront ($15-$25/sqft vs $30-$45/sqft), the 10-year total cost is comparable or lower for composite when you factor in annual maintenance — staining, sealing, and board replacement. Composite lasts 25-30 years with zero maintenance. Nearly all of our 2025-2026 deck builds have been composite."]},
+      {h:"Deck Costs in Hamilton County",p:["A pressure-treated wood deck costs roughly $4,500-$7,500 for a typical 300 sqft build. A composite deck costs $9,000-$13,500. Over 10 years with maintenance costs factored in, composite typically costs less. Premium features like cable railing, built-in lighting, and multi-level designs add to both options."]},
+      {h:"Design Considerations",p:["Layout matters more than most people realize. Think about how you'll use the space — dining, lounging, grilling, entertaining. A well-designed deck has distinct zones for different activities. Consider built-in seating, pergolas for shade, and landscape lighting for evening use. We provide design concepts before construction begins."]},
+      {h:"Permits and Building Codes",p:["Deck construction requires permits in most Hamilton County municipalities. We handle the entire permitting process and ensure everything meets current building codes. A properly permitted deck protects your investment and avoids issues when you sell."]},
+      {h:"Getting Started",p:["Deck season fills up fast — start planning now so construction can begin when weather allows. Call (317) 279-4798 for a free estimate."]},
+    ],
+    faq:[
+      {q:"How long does it take to build a deck?",a:"Most decks take 1-3 weeks to build depending on size and complexity. Planning and permitting add 2-4 weeks before construction begins."},
+      {q:"Do I need a permit for a deck in Hamilton County?",a:"Yes. Deck construction requires permits in most Hamilton County municipalities. We handle the entire permitting process."},
+      {q:"What's the best decking material for Indiana weather?",a:"Composite decking handles Indiana's freeze-thaw cycles without warping, cracking, or requiring maintenance. It's the smart choice for our climate."},
+    ],
+    relatedPosts:["composite-vs-wood-decking","deck-season-outdoor-living-planning","hamilton-county-remodeling-trends-2026"],
+  },
+  "hiring-contractor-indiana":{
+    title:"The Complete Homeowner's Guide to Hiring a Contractor in Indiana",
+    metaDesc:"How to choose the right remodeling contractor in Indiana — 12 essential questions to ask, red flags to watch for, and what separates quality contractors from the rest.",
+    service:null,serviceSlug:null,
+    sections:[
+      {h:"Why Choosing the Right Contractor Matters More Than Anything Else",p:["The contractor you choose determines everything — the quality of the work, whether the project stays on budget, how stressful the process is, and whether the results last 5 years or 25. A great contractor transforms your home and your daily life. A bad one can cost you tens of thousands of dollars, months of your time, and enormous stress."]},
+      {h:"The 12 Questions Every Homeowner Should Ask",p:["Before signing any contract, ask: Are you licensed, bonded, and insured? Are your plumbers and electricians individually licensed? What waterproofing system do you use? Can you provide a detailed, itemized written estimate? Do you handle permits and inspections? What is your project timeline? Who will be on-site doing the work? Can I see completed projects similar to mine? Do you offer 3D design renderings? What warranty do you offer? How do you communicate during the project? Can I speak with recent clients?"]},
+      {h:"Red Flags to Watch For",p:["Be wary of contractors who: suggest skipping permits, can't show proof of insurance, give vague verbal estimates instead of detailed written ones, ask for more than 10-15% upfront, have no portfolio of completed work, won't provide references, or pressure you into signing quickly. A quality contractor welcomes scrutiny."]},
+      {h:"What Quality Costs — And Why It's Worth It",p:["The cheapest bid is almost never the best value. Low bids often mean unlicensed tradespeople, inadequate waterproofing, and corners cut where you can't see them. A bathroom that fails in 3 years because of poor waterproofing costs far more than paying slightly more for certified installation with a 25-year warranty."]},
+      {h:"About HomeStar Services & Contracting",p:["We welcome every one of these questions. We're licensed, bonded, and insured. Our plumbers and electricians are individually licensed. We're Schluter Pro Certified with a 25-year waterproofing warranty. We provide detailed written estimates, handle all permits, offer 3D renderings, and communicate daily. 62+ Google reviews at 5.0 rating. Call (317) 279-4798 for a free estimate."]},
+    ],
+    faq:[
+      {q:"How do I verify a contractor is licensed in Indiana?",a:"Ask for their license number and verify it with the Indiana Professional Licensing Agency. Also ask for their certificate of insurance and verify it's current."},
+      {q:"How much should I pay upfront?",a:"A reasonable deposit is 10-15% of the project cost. Be wary of contractors who ask for 50% or more upfront before any work begins."},
+      {q:"What warranty should I expect?",a:"A quality contractor offers a written workmanship warranty of 1-2 years minimum. For bathroom tile work, ask about manufacturer warranties on the waterproofing system."},
+    ],
+    relatedPosts:["how-to-choose-remodeling-contractor-indiana","hamilton-county-remodeling-trends-2026"],
+  },
+};
+
+function GuidePage({guide}){
+  const[faqOpen,setFaqOpen]=useState(null);
+  const slug=Object.keys(GUIDES).find(k=>GUIDES[k]===guide);
+  useCanonical("guide/"+slug);
+
+  useEffect(()=>{
+    document.title=guide.title+" | HomeStar Services & Contracting";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content",guide.metaDesc);
+    window.scrollTo(0,0);
+  },[guide]);
+
+  useJobberForm();
+
+  const relatedBlogPosts=guide.relatedPosts?BLOG.filter(b=>guide.relatedPosts.includes(b.slug)):[];
+  const cities=["Fishers","Carmel","Noblesville","Westfield","Zionsville","Geist","Fortville","McCordsville","Pendleton"];
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Guides"},{name:guide.title}]}/>
+      <FaqSchema faqs={guide.faq}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Article",headline:guide.title,description:guide.metaDesc,author:{"@type":"Person",name:"Eric Farr",url:"https://www.thehomestarservice.com/about/eric-farr"},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
+
+      <Nav isCity/>
+
+      {/* Hero */}
+      <section style={{position:"relative",padding:"160px 24px 80px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`}}>
+        <div style={{maxWidth:800,margin:"0 auto",position:"relative",zIndex:2,textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>COMPREHENSIVE GUIDE</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(28px,4.5vw,42px)",lineHeight:1.2,marginBottom:16}}>{guide.title}</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.5)",fontSize:16,lineHeight:1.7,maxWidth:620,margin:"0 auto"}}>{guide.metaDesc}</p>
+        </div>
+      </section>
+
+      {/* Table of Contents */}
+      <section style={{background:"#fff",padding:"32px 24px"}}>
+        <div style={{maxWidth:700,margin:"0 auto"}}>
+          <div style={{background:C.cream,borderRadius:14,padding:"24px 28px"}}>
+            <h3 className="display" style={{color:C.navy,fontSize:16,marginBottom:14}}>In This Guide</h3>
+            {guide.sections.map((s,i)=>
+              <a key={i} href={`#guide-section-${i}`} style={{display:"block",color:C.green,fontSize:14,fontWeight:600,textDecoration:"none",padding:"6px 0",transition:"color .2s"}}
+                onMouseEnter={e=>e.currentTarget.style.color=C.navy}
+                onMouseLeave={e=>e.currentTarget.style.color=C.green}>
+                {i+1}. {s.h}
+              </a>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Guide Sections */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div style={{maxWidth:750,margin:"0 auto",padding:"0 24px"}}>
+          {guide.sections.map((s,i)=>
+            <div key={i} id={`guide-section-${i}`} style={{marginBottom:48}}>
+              <h2 className="display" style={{color:C.navy,fontSize:22,marginBottom:16,lineHeight:1.3}}>{s.h}</h2>
+              {s.p.map((para,j)=>
+                <p key={j} style={{color:C.grayDark,fontSize:15,lineHeight:1.85,marginBottom:16}}>{para}</p>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Service-City Links */}
+      {guide.serviceSlug&&(
+        <section className="sec" style={{background:C.cream}}>
+          <div className="sec-in">
+            <div style={{textAlign:"center",marginBottom:32}}>
+              <div className="lab">{guide.service} by City</div>
+              <h2 className="ttl">{guide.service} Across Hamilton County</h2>
+            </div>
+            <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10}}>
+              {cities.map(c=>{
+                const svcSlug=guide.serviceSlug==="decks-outdoor-living"?"deck-builder":guide.serviceSlug;
+                return <a key={c} href={`/${svcSlug}-${c.toLowerCase().replace(/ /g,"-")}-in`} style={{padding:"10px 20px",borderRadius:50,background:"#fff",border:`1px solid ${C.sand}`,color:C.navy,fontWeight:600,fontSize:13,textDecoration:"none",transition:"all .3s"}}
+                  onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.color=C.green}}
+                  onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.color=C.navy}}>
+                  {guide.service} in {c}
+                </a>;
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related Blog Posts */}
+      {relatedBlogPosts.length>0&&(
+        <section className="sec" style={{background:"#fff"}}>
+          <div className="sec-in" style={{maxWidth:800}}>
+            <div style={{textAlign:"center",marginBottom:32}}>
+              <div className="lab">Related Reading</div>
+              <h2 className="ttl">Articles You'll Find Helpful</h2>
+            </div>
+            <div style={{display:"grid",gap:12}}>
+              {relatedBlogPosts.map(b=>
+                <a key={b.slug} href={`/blog/${b.slug}`} style={{padding:"20px 24px",borderRadius:12,background:C.cream,border:`1px solid ${C.sand}`,textDecoration:"none",display:"flex",justifyContent:"space-between",alignItems:"center",transition:"all .3s"}}
+                  onMouseEnter={e=>e.currentTarget.style.borderColor=C.green}
+                  onMouseLeave={e=>e.currentTarget.style.borderColor=C.sand}>
+                  <div>
+                    <span style={{fontSize:10,fontWeight:700,letterSpacing:".06em",color:C.green,textTransform:"uppercase"}}>{b.cat} · {b.read}</span>
+                    <h4 className="display" style={{color:C.navy,fontSize:15,marginTop:4}}>{b.title}</h4>
+                  </div>
+                  <span style={{color:C.green,flexShrink:0,marginLeft:16}}>{I.arrow}</span>
+                </a>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* FAQ */}
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:780}}>
+          <div style={{textAlign:"center",marginBottom:40}}>
+            <div className="lab">Common Questions</div>
+            <h2 className="ttl">Frequently Asked Questions</h2>
+          </div>
+          <div style={{display:"flex",flexDirection:"column",gap:10}}>
+            {guide.faq.map((f,i)=>
+              <div key={i} style={{background:"#fff",borderRadius:12,overflow:"hidden",border:`1px solid ${faqOpen===i?C.green:C.sand}`,transition:"border-color .3s"}}>
+                <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} style={{width:"100%",padding:"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",cursor:"pointer",textAlign:"left",fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:700,fontSize:15,color:C.navy}}>
+                  {f.q}<span style={{transform:faqOpen===i?"rotate(180deg)":"rotate(0)",transition:"transform .3s",flexShrink:0,marginLeft:14}}>{I.chevDown}</span>
+                </button>
+                <div style={{maxHeight:faqOpen===i?260:0,overflow:"hidden",transition:"max-height .4s ease"}}>
+                  <div style={{padding:"0 24px 20px",color:C.gray,lineHeight:1.75,fontSize:14}}>{f.a}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in" style={{maxWidth:1000}}>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:48,alignItems:"start"}}>
+            <div style={{padding:"20px 0"}}>
+              <div className="lab" style={{color:C.green}}>Ready to Start?</div>
+              <h2 className="display" style={{color:"#fff",fontSize:"clamp(24px,3vw,32px)",marginBottom:16}}>Get a Free Estimate</h2>
+              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.7,marginBottom:24}}>We'll visit your home, discuss your vision, and provide a detailed, itemized estimate with transparent pricing. No pressure, no vague ranges.</p>
+              <div style={{display:"flex",flexDirection:"column",gap:14}}>
+                <a href="tel:+13172794798" style={{color:"#fff",fontSize:15,textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>{I.phone} (317) 279-4798</a>
+                <a href="mailto:eric@thehomestarservice.com" style={{color:"#fff",fontSize:15,textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>{I.mail||"✉"} eric@thehomestarservice.com</a>
+              </div>
+            </div>
+            <div style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
+              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
+              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Serving all of Hamilton County, IN</p>
+              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
+
+/* ─── Cost Calculator ─────────────────────────────── */
+function CostCalculator(){
+  const[service,setService]=useState("bathroom");
+  const[scope,setScope]=useState("mid");
+  const[size,setSize]=useState("medium");
+  useCanonical("tools/remodel-cost-calculator");
+
+  useEffect(()=>{
+    document.title="Remodel Cost Calculator | HomeStar Services & Contracting";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content","Get an instant estimate for your bathroom, kitchen, basement, or deck project in Hamilton County, Indiana. Free remodel cost calculator from HomeStar Services & Contracting.");
+    window.scrollTo(0,0);
+  },[]);
+
+  useJobberForm();
+
+  const costs={
+    bathroom:{basic:{s:[7000,10000],m:[8000,12000],l:[10000,14000]},mid:{s:[14000,22000],m:[18000,30000],l:[25000,38000]},high:{s:[28000,40000],m:[35000,55000],l:[45000,75000]}},
+    kitchen:{basic:{s:[8000,14000],m:[12000,18000],l:[15000,22000]},mid:{s:[22000,35000],m:[28000,50000],l:[40000,65000]},high:{s:[45000,60000],m:[55000,80000],l:[70000,100000]}},
+    basement:{basic:{s:[18000,26000],m:[22000,32000],l:[28000,40000]},mid:{s:[28000,38000],m:[32000,48000],l:[40000,58000]},high:{s:[40000,55000],m:[48000,68000],l:[58000,85000]}},
+    deck:{basic:{s:[4000,6500],m:[6000,9000],l:[9000,13000]},mid:{s:[8000,12000],m:[11000,16000],l:[15000,22000]},high:{s:[14000,20000],m:[18000,28000],l:[24000,38000]}},
+  };
+
+  const range=costs[service]?.[scope]?.[size]||[0,0];
+  const svcNames={bathroom:"Bathroom Remodeling",kitchen:"Kitchen Remodeling",basement:"Basement Finishing",deck:"Deck & Outdoor Living"};
+  const scopeNames={basic:"Basic Refresh",mid:"Mid-Range Remodel",high:"High-End / Luxury"};
+  const sizeNames={s:"Small",m:"Medium",l:"Large"};
+  const scopeDescs={
+    bathroom:{basic:"New vanity, faucet, mirror, light fixture, fresh paint. No layout changes.",mid:"Full gut, new tile shower, vanity, fixtures, lighting. May include plumbing updates.",high:"Spa-level — custom tile, frameless glass, freestanding tub, heated floors, premium everything."},
+    kitchen:{basic:"New countertops, hardware, paint, light fixture. Cabinet refacing optional.",mid:"New cabinets or refacing, countertops, backsplash, flooring, fixtures, lighting.",high:"Custom cabinetry, premium appliances, layout changes, custom lighting, premium finishes."},
+    basement:{basic:"Framing, drywall, basic flooring, recessed lighting. Open layout.",mid:"Defined rooms, quality LVP flooring, bathroom rough-in or full bath, entertainment area.",high:"Full bathroom, wet bar, home theater, custom built-ins, premium finishes throughout."},
+    deck:{basic:"Pressure-treated wood, standard railing, single level, basic design.",mid:"Composite decking (Trex/TimberTech), upgraded railing, design features.",high:"Premium composite, cable railing, multi-level, built-in lighting, pergola, custom design."},
+  };
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Tools"},{name:"Cost Calculator"}]}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"WebApplication",name:"Hamilton County Remodel Cost Calculator",applicationCategory:"HomeImprovement",operatingSystem:"Web",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},provider:{"@type":"Organization",name:"HomeStar Services & Contracting"}})}}/>
+
+      <Nav isCity/>
+
+      <section style={{position:"relative",padding:"160px 24px 60px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`}}>
+        <div style={{maxWidth:700,margin:"0 auto",textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>FREE TOOL</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(28px,4.5vw,40px)",lineHeight:1.2,marginBottom:16}}>Remodel Cost Calculator</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.5)",fontSize:16}}>Get an instant estimate for your Hamilton County remodeling project.</p>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:700}}>
+          {/* Service Selection */}
+          <div style={{marginBottom:32}}>
+            <label style={{display:"block",color:C.navy,fontWeight:700,fontSize:14,marginBottom:10}}>What are you remodeling?</label>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(140px,1fr))",gap:10}}>
+              {Object.entries(svcNames).map(([k,v])=>
+                <button key={k} onClick={()=>setService(k)} style={{padding:"14px 16px",borderRadius:10,border:`2px solid ${service===k?C.green:C.sand}`,background:service===k?C.greenMuted:"#fff",color:service===k?C.green:C.navy,fontWeight:700,fontSize:14,cursor:"pointer",transition:"all .2s",fontFamily:"'Plus Jakarta Sans',sans-serif"}}>{v}</button>
+              )}
+            </div>
+          </div>
+
+          {/* Scope Selection */}
+          <div style={{marginBottom:32}}>
+            <label style={{display:"block",color:C.navy,fontWeight:700,fontSize:14,marginBottom:10}}>Project scope</label>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:10}}>
+              {Object.entries(scopeNames).map(([k,v])=>
+                <button key={k} onClick={()=>setScope(k)} style={{padding:"14px 16px",borderRadius:10,border:`2px solid ${scope===k?C.green:C.sand}`,background:scope===k?C.greenMuted:"#fff",color:scope===k?C.green:C.navy,fontWeight:700,fontSize:13,cursor:"pointer",transition:"all .2s",fontFamily:"'Plus Jakarta Sans',sans-serif"}}>{v}</button>
+              )}
+            </div>
+            <p style={{color:C.gray,fontSize:13,marginTop:10,lineHeight:1.6}}>{scopeDescs[service]?.[scope]}</p>
+          </div>
+
+          {/* Size Selection */}
+          <div style={{marginBottom:32}}>
+            <label style={{display:"block",color:C.navy,fontWeight:700,fontSize:14,marginBottom:10}}>Project size</label>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:10}}>
+              {Object.entries(sizeNames).map(([k,v])=>
+                <button key={k} onClick={()=>setSize(k)} style={{padding:"14px 16px",borderRadius:10,border:`2px solid ${size===k?C.green:C.sand}`,background:size===k?C.greenMuted:"#fff",color:size===k?C.green:C.navy,fontWeight:700,fontSize:14,cursor:"pointer",transition:"all .2s",fontFamily:"'Plus Jakarta Sans',sans-serif"}}>{v}</button>
+              )}
+            </div>
+          </div>
+
+          {/* Result */}
+          <div style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,borderRadius:16,padding:"36px 32px",textAlign:"center",marginBottom:32}}>
+            <div style={{color:"rgba(255,255,255,.4)",fontSize:12,fontWeight:700,letterSpacing:".08em",textTransform:"uppercase",marginBottom:8}}>Estimated Cost Range</div>
+            <div className="display" style={{color:"#fff",fontSize:"clamp(32px,5vw,48px)",marginBottom:8}}>
+              ${range[0].toLocaleString()} – ${range[1].toLocaleString()}
+            </div>
+            <div style={{color:"rgba(255,255,255,.4)",fontSize:13,marginBottom:20}}>
+              {scopeNames[scope]} · {sizeNames[size]} {svcNames[service]} · Hamilton County, IN
+            </div>
+            <p style={{color:"rgba(255,255,255,.3)",fontSize:12,maxWidth:500,margin:"0 auto"}}>
+              This is an estimate based on typical Hamilton County project costs. Your actual cost depends on specific materials, layout, and site conditions. Call for a free, detailed quote.
+            </p>
+          </div>
+
+          {/* CTA */}
+          <div style={{background:C.cream,borderRadius:14,padding:"28px 32px",textAlign:"center"}}>
+            <h3 className="display" style={{color:C.navy,fontSize:18,marginBottom:8}}>Want an Exact Number?</h3>
+            <p style={{color:C.gray,fontSize:14,marginBottom:16}}>Our free in-home consultation includes a detailed, itemized estimate — not a vague range.</p>
+            <div style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:14}}>
+              <a href="/#estimate" className="btn-g">Get a Free Estimate {I.arrow}</a>
+              <a href="tel:+13172794798" className="btn-w">{I.phone} (317) 279-4798</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
+
 export default function HomestarSite(){
   const[legalPage,setLegalPage]=useState(null);
   const[cityPage,setCityPage]=useState(null);
@@ -3309,6 +3688,8 @@ export default function HomestarSite(){
   const[neighborhoodPage,setNeighborhoodPage]=useState(null);
   const[projectPage,setProjectPage]=useState(null);
   const[authorPage,setAuthorPage]=useState(null);
+  const[guidePage,setGuidePage]=useState(null);
+  const[calcPage,setCalcPage]=useState(false);
   useCanonical("");
 
   useEffect(()=>{
@@ -3331,6 +3712,13 @@ export default function HomestarSite(){
       const slug=path.replace("about/","");
       if(AUTHORS[slug]){setAuthorPage(slug);return;}
     }
+    /* Guide pages */
+    if(path.startsWith("guide/")){
+      const slug=path.replace("guide/","");
+      if(GUIDES[slug]){setGuidePage(slug);return;}
+    }
+    /* Cost calculator */
+    if(path==="tools/remodel-cost-calculator"){setCalcPage(true);return;}
     /* Neighborhood pages */
     if(path.startsWith("remodeling-")){
       const hoodPath=path.replace(/^remodeling-/,"").replace(/-in$/,"");
@@ -3374,6 +3762,14 @@ export default function HomestarSite(){
 
   if(authorPage&&AUTHORS[authorPage]){
     return <AuthorPage author={AUTHORS[authorPage]}/>;
+  }
+
+  if(guidePage&&GUIDES[guidePage]){
+    return <GuidePage guide={GUIDES[guidePage]}/>;
+  }
+
+  if(calcPage){
+    return <CostCalculator/>;
   }
 
   if(neighborhoodPage&&NEIGHBORHOODS[neighborhoodPage]){
