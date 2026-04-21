@@ -547,6 +547,49 @@ const BLOG = [
       "What does this mean for Hamilton County homeowners planning a remodel in 2026? Focus on materials and systems over cosmetic upgrades. A well-waterproofed bathroom with quality tile will outlast a flashy bathroom with poor substrate work. Choose versatile, durable materials — quartz countertops, LVP flooring, composite decking — that perform well over decades, not just on installation day. Think about how you use your home today, not how it might look to a future buyer. The remodels that deliver the most satisfaction are the ones designed for the homeowner's actual lifestyle.",
       "At HomeStar Services & Contracting, we help Hamilton County homeowners make smart choices about materials, design, and scope. We're Schluter Pro Certified, use licensed plumbers and electricians on every project, and provide free in-home consultations with 3D design renderings. Call (317) 279-4798 or visit thehomestarservice.com for a free estimate. We serve Fishers, Carmel, Noblesville, Westfield, Zionsville, Fortville, McCordsville, and surrounding communities."
     ]},
+  { slug:"quartz-vs-granite-countertops", title: "Quartz vs Granite Countertops: The Complete Hamilton County Homeowner's Guide", date: "Apr 17, 2026", read: "8 min", cat: "Kitchen", excerpt: "Choosing between quartz and granite for your kitchen or bathroom countertops? Here's a detailed comparison based on what we see in Hamilton County homes — cost, durability, maintenance, and which one delivers better long-term value.",
+    body: [
+      "If you're remodeling a kitchen or bathroom in Hamilton County, the countertop question comes up on every single project: quartz or granite? Both are premium materials. Both look beautiful. And both will last for years. But they're fundamentally different products with different strengths — and the right choice depends on how you live, what you value, and what matters most to you long-term.",
+      "Granite is a natural stone quarried from the earth and cut into slabs. Every piece is unique — the veining, color variation, and movement in granite are completely natural and unrepeatable. Quartz countertops (brands like Cambria, Caesarstone, and Silestone) are engineered stone — roughly 90-95% ground natural quartz mixed with resins and pigments, then formed into slabs. The result is a consistent, controlled appearance.",
+      "Here's the direct comparison that matters for Hamilton County homeowners. Appearance: Granite offers natural beauty with unique variation — no two slabs are identical. Quartz offers consistent color and pattern — what you see in the showroom is what you get. Durability: Both are extremely durable. Granite can chip or crack if hit hard enough. Quartz is slightly more flexible and resistant to impact. Heat resistance: Granite handles hot pots and pans well. Quartz can be damaged by direct high heat — always use trivets. Maintenance: Granite requires annual sealing to prevent staining. Quartz requires zero sealing — ever. Stain resistance: Sealed granite resists most stains but can absorb liquids if the seal wears. Quartz is non-porous and virtually stain-proof. Cost: In Hamilton County, both materials typically run $50-$120 per square foot installed, depending on the specific slab and edge profile.",
+      "About 70% of our kitchen countertop installations in Hamilton County in 2025 were quartz, up from about 50% in 2023. The shift is driven by one thing: maintenance. Hamilton County homeowners — busy professionals, families with kids, people who use their kitchens daily — don't want to think about annual sealing schedules. Quartz gives them a premium look with zero ongoing maintenance.",
+      "That said, granite is still chosen by homeowners who value natural beauty above all else. If you love the look of natural stone — the organic movement, the depth, the fact that your countertop is a one-of-a-kind piece of the earth — granite delivers something quartz simply cannot replicate. Many high-end Carmel and Zionsville kitchens still feature granite as a design centerpiece.",
+      "Our recommendation for Hamilton County homeowners: if you want the lowest-maintenance premium countertop that will look exactly the same in 10 years as it does today, choose quartz. If you want a natural, unique surface and you're willing to seal it annually, choose granite. Both are excellent investments — neither is a wrong choice.",
+      "At HomeStar, we install both quartz and granite countertops as part of our kitchen and bathroom remodeling services throughout Fishers, Carmel, Noblesville, Westfield, and Zionsville. Call (317) 279-4798 for a free consultation."
+    ]},
+  { slug:"composite-vs-wood-decking", title: "Composite vs Wood Decking: Cost Comparison for Indiana Homeowners", date: "Apr 18, 2026", read: "7 min", cat: "Outdoor", excerpt: "Thinking about a new deck? Here's a detailed cost comparison of composite vs pressure-treated wood decking for Indiana homeowners — including upfront cost, maintenance, lifespan, and the 10-year total cost of ownership.",
+    body: [
+      "When Hamilton County homeowners ask us about building a new deck, the first question is almost always: composite or wood? The answer used to be simple — wood was cheaper, composite was a luxury upgrade. But the math has changed significantly, and for most Indiana homeowners, composite decking is now the smarter financial decision over any reasonable timeframe.",
+      "Pressure-treated wood decking costs roughly $15-$25 per square foot for materials, installed. Composite decking (brands like Trex, TimberTech, and Fiberon) costs roughly $30-$45 per square foot installed. On a typical 300-square-foot deck, that's roughly $4,500-$7,500 for wood versus $9,000-$13,500 for composite. Wood wins the upfront cost comparison by a wide margin.",
+      "But here's where the math changes. A wood deck requires annual maintenance: power washing ($150-$300), staining or sealing ($300-$600 for materials and a weekend of your time, or $600-$1,200 to hire it out), and eventually board replacement as individual boards warp, crack, or rot ($200-$500 per repair). Over 10 years, annual maintenance on a wood deck adds $5,000-$15,000 to the total cost of ownership.",
+      "A composite deck requires essentially zero maintenance. No staining. No sealing. No board replacement. An occasional wash with soap and water is all it needs. The 10-year maintenance cost is effectively $0. When you add the upfront cost plus 10 years of maintenance, a wood deck costs roughly $9,500-$22,500 total, while a composite deck costs roughly $9,000-$13,500 total. Composite wins the 10-year cost comparison — and the gap widens every year after.",
+      "Lifespan is the other major factor. Pressure-treated wood decks typically last 10-15 years before needing significant repair or replacement, assuming consistent maintenance. Composite decks last 25-30+ years with manufacturer warranties to match. If you plan to stay in your home for more than 5-7 years, composite pays for itself.",
+      "Indiana weather is particularly hard on wood decks. Our freeze-thaw cycles cause wood to expand and contract repeatedly, accelerating warping and cracking. Composite materials are engineered to handle these temperature swings without degradation. We've seen wood decks in Hamilton County need their first major repair within 3-4 years of installation when maintenance is skipped even one season.",
+      "Nearly all of our 2025-2026 deck builds in Fishers and Hamilton County have been composite. The homeowners who choose composite consistently tell us the same thing: they want to enjoy their outdoor space, not maintain it. That's hard to argue with.",
+      "Ready to plan your deck? HomeStar builds composite and wood decks throughout Hamilton County. Call (317) 279-4798 for a free estimate."
+    ]},
+  { slug:"lvp-vs-hardwood-flooring", title: "LVP vs Hardwood Flooring: Which Is Right for Your Indiana Home?", date: "Apr 19, 2026", read: "7 min", cat: "Flooring", excerpt: "Luxury vinyl plank has exploded in popularity — but is it really better than hardwood? Here's a detailed comparison for Hamilton County homeowners based on what we install in local homes every week.",
+    body: [
+      "Five years ago, recommending luxury vinyl plank (LVP) flooring to a Hamilton County homeowner would have been met with skepticism. Today, it's the most popular flooring material we install — and for good reason. Modern LVP is virtually indistinguishable from real hardwood, costs significantly less, and handles Indiana life (kids, dogs, wet boots, basement moisture) better than wood ever could.",
+      "Hardwood flooring — oak, maple, hickory, walnut — remains the gold standard for warmth, character, and long-term home value. Nothing replicates the feel of real wood underfoot or the way hardwood ages with character over decades. In the luxury neighborhoods of Carmel, Zionsville, and Geist, hardwood is still the premium choice for main living areas where buyers expect real wood.",
+      "Here's the comparison. Cost: Hardwood typically runs $8-$15 per square foot installed in Hamilton County. LVP runs $4-$8 per square foot installed. For a typical 1,000-square-foot main level, that's $8,000-$15,000 for hardwood versus $4,000-$8,000 for LVP — a 40-50% savings. Water resistance: Hardwood is damaged by standing water. LVP is 100% waterproof. This alone makes LVP the only choice for basements, bathrooms, laundry rooms, and entryways. Durability: Hardwood scratches and dents (especially softer species). LVP's wear layer resists scratches from pets, furniture, and kids. Refinishing: Hardwood can be sanded and refinished 3-5 times over its lifespan, extending it to 50-100 years. LVP cannot be refinished — when the wear layer is through, it's replaced. Lifespan: Hardwood lasts 50-100 years with refinishing. Quality LVP lasts 15-25 years. Feel underfoot: Hardwood has a natural warmth and slight give. LVP is slightly harder and cooler, though underlayment helps.",
+      "For basements, LVP is the only sensible choice. Moisture is always a concern below grade, and even the best vapor barriers can't guarantee a completely dry environment long-term. We install LVP in virtually every basement finish project in Hamilton County — it looks like hardwood, handles moisture without damage, and gives homeowners decades of worry-free performance.",
+      "For main living areas, it depends on the home and the homeowner. In luxury homes — $800K+ in Carmel, Zionsville, and Geist — real hardwood on the main level remains the standard. Buyers at this level expect it, and it's the right choice for long-term value. In homes under $600K, or for homeowners with young kids and pets, LVP on the main level delivers 90% of the look at 50% of the cost with dramatically better durability.",
+      "Our recommendation: hardwood on the main level of luxury homes where long-term value matters, LVP everywhere else — basements, bathrooms, laundry rooms, and main levels where durability is the priority. Many Hamilton County homeowners are choosing a hybrid approach: hardwood in the living room and dining room, LVP in the kitchen, mudroom, and basement.",
+      "HomeStar installs both hardwood and luxury vinyl plank throughout Hamilton County. Call (317) 279-4798 for a free consultation on the best flooring for your home."
+    ]},
+  { slug:"best-tile-bathroom-showers", title: "Best Tile for Bathroom Showers in Indiana: A Contractor's Honest Guide", date: "Apr 20, 2026", read: "8 min", cat: "Bathroom", excerpt: "Not all shower tile is created equal. After installing tile in hundreds of Hamilton County bathrooms, here's our honest assessment of which tile materials, sizes, and styles perform best in Indiana showers — and which ones to avoid.",
+    body: [
+      "Choosing tile for your shower is one of the most important decisions in a bathroom remodel — and one of the most overwhelming. Walk into any tile showroom in Indianapolis and you're facing hundreds of options. After installing tile in bathrooms across Hamilton County for years, here's what we've learned about which tile actually performs well in Indiana showers and which tile causes problems.",
+      "Porcelain tile is the gold standard for shower walls and floors. It's dense, low-porosity, extremely durable, and available in virtually any color, size, or pattern. Porcelain absorbs less than 0.5% water, making it ideal for wet environments. Most of the shower tile we install in Hamilton County is porcelain — it performs flawlessly for decades when installed correctly on a proper waterproofing system.",
+      "Ceramic tile is a step below porcelain in density and water resistance, but it's perfectly acceptable for shower walls (not floors). It costs 20-30% less than porcelain and comes in a huge range of styles. For budget-conscious bathroom remodels, ceramic tile on the walls with porcelain on the floor is a smart combination that saves money without sacrificing performance.",
+      "Natural stone tile (marble, travertine, slate) is beautiful but requires more maintenance in a shower environment. Stone is porous and needs regular sealing — typically every 6-12 months in a shower. Marble is particularly susceptible to etching from acidic products (shampoo, body wash, cleaning solutions). If you choose natural stone for your shower, commit to the maintenance schedule or you'll see deterioration within a few years.",
+      "Large-format tile — 12x24 inches and larger — has become the dominant choice in Hamilton County bathroom remodels. The advantages are significant: fewer grout lines means a cleaner look, easier maintenance, and less opportunity for mold and mildew to develop. Large-format tile requires a perfectly flat substrate for proper installation. This is one of the key reasons we use the Schluter Ditra system — it provides the flat, stable surface that large-format tile demands.",
+      "The tile nobody talks about but should: your shower floor tile matters as much as your wall tile. Shower floor tile needs to be textured for slip resistance — smooth porcelain on a shower floor is a safety hazard. Small mosaic tiles (2x2 or 1x1 inch) are the traditional choice for shower floors because the many grout lines provide traction. Larger tiles can work on shower floors if they have adequate texture.",
+      "What matters more than the tile itself is what's behind it. We've seen beautiful tile installations fail within 3-5 years because the waterproofing was inadequate. Standard cement board absorbs moisture over time, leading to mold, rot, and tile failure. The Schluter waterproofing system — Kerdi on walls, Ditra on floors — creates a 100% waterproof barrier that protects your investment for 25+ years. We install Schluter on every shower, with every tile type, at every price point.",
+      "Our tile recommendations for Hamilton County homeowners: For most budgets, large-format porcelain tile (12x24 or larger) on walls with small mosaic porcelain on the shower floor. For luxury remodels, consider porcelain that mimics natural stone (you get the look without the maintenance). For budget remodels, ceramic on walls with porcelain on the floor. And regardless of tile choice, insist on the Schluter waterproofing system — it's the foundation everything else depends on.",
+      "Ready to choose tile for your bathroom remodel? HomeStar provides 3D design renderings so you can see exactly how your tile selection will look before we set a single piece. Call (317) 279-4798 for a free consultation."
+    ]},
 ];
 
 const VIDEOS = [
@@ -1125,7 +1168,7 @@ function BlogPostPage({post}){
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Blog",url:"/#blog"},{name:post.title}]}/>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"BlogPosting",headline:post.title,description:post.excerpt,datePublished:post.date,author:{"@type":"Person",name:"Eric Farr",url:"https://www.thehomestarservice.com/about/eric-farr"},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"BlogPosting",headline:post.title,description:post.excerpt,datePublished:post.date,author:{"@type":"Person",name:BLOG.findIndex(b=>b.slug===post.slug)%2===1?"Robb Rice":"Eric Farr",url:"https://www.thehomestarservice.com/about/"+(BLOG.findIndex(b=>b.slug===post.slug)%2===1?"robb-rice":"eric-farr")},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
 
       <Nav isCity/>
 
@@ -1148,13 +1191,22 @@ function BlogPostPage({post}){
           )}
 
           {/* Author Attribution */}
-          <div style={{display:"flex",alignItems:"center",gap:16,padding:"20px 24px",background:C.cream,borderRadius:12,marginTop:32,marginBottom:8}}>
-            <div style={{width:48,height:48,borderRadius:"50%",background:C.navy,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontWeight:800,fontSize:18,flexShrink:0}}>EF</div>
-            <div>
-              <a href="/about/eric-farr" style={{color:C.navy,fontWeight:700,fontSize:14,textDecoration:"none"}}>Eric Farr</a>
-              <div style={{color:C.gray,fontSize:12}}>Co-Founder, HomeStar Services & Contracting · Schluter Pro Certified</div>
-            </div>
-          </div>
+          {(()=>{
+            const idx=BLOG.findIndex(b=>b.slug===post.slug);
+            const isRobb=idx%2===1;
+            const authorName=isRobb?"Robb Rice":"Eric Farr";
+            const authorSlug=isRobb?"robb-rice":"eric-farr";
+            const authorInitials=isRobb?"RR":"EF";
+            return(
+              <div style={{display:"flex",alignItems:"center",gap:16,padding:"20px 24px",background:C.cream,borderRadius:12,marginTop:32,marginBottom:8}}>
+                <div style={{width:48,height:48,borderRadius:"50%",background:C.navy,display:"flex",alignItems:"center",justifyContent:"center",color:"#fff",fontWeight:800,fontSize:18,flexShrink:0}}>{authorInitials}</div>
+                <div>
+                  <a href={`/about/${authorSlug}`} style={{color:C.navy,fontWeight:700,fontSize:14,textDecoration:"none"}}>{authorName}</a>
+                  <div style={{color:C.gray,fontSize:12}}>Co-Founder, HomeStar Services & Contracting · Schluter Pro Certified</div>
+                </div>
+              </div>
+            );
+          })()}
 
           <div style={{marginTop:32,padding:"28px 32px",background:C.cream,borderRadius:14,textAlign:"center"}}>
             <p className="display" style={{color:C.navy,fontSize:18,marginBottom:12}}>Ready to start your project?</p>
@@ -3032,8 +3084,8 @@ function ProjectPage({project}){
       {/* Photo Gallery */}
       <section className="sec" style={{background:"#fff"}}>
         <div className="sec-in" style={{maxWidth:900}}>
-          <div style={{borderRadius:16,overflow:"hidden",border:`1px solid ${C.sand}`,marginBottom:16}}>
-            <img src={project.images[activeImg]?.src} alt={project.images[activeImg]?.alt} style={{width:"100%",height:"clamp(300px,40vw,500px)",objectFit:"cover"}} loading="lazy"/>
+          <div style={{borderRadius:16,overflow:"hidden",border:`1px solid ${C.sand}`,marginBottom:16,background:"#f8f8f8",textAlign:"center"}}>
+            <img src={project.images[activeImg]?.src} alt={project.images[activeImg]?.alt} style={{width:"100%",height:"auto",maxHeight:700,objectFit:"contain",display:"block"}} loading="lazy"/>
           </div>
           {project.images.length>1&&(
             <div style={{display:"flex",gap:8,overflowX:"auto",paddingBottom:8}}>
