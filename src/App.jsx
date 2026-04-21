@@ -665,7 +665,7 @@ function Nav({isCity}){
   const[sc,setSc]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>50);window.addEventListener("scroll",h,{passive:true});return()=>window.removeEventListener("scroll",h)},[]);
   const p=isCity?"/":"";
-  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Videos",h:p+"#videos"},{l:"Blog",h:p+"#blog"},{l:"Guides",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
+  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Videos",h:p+"#videos"},{l:"Blog",h:p+"#blog"},{l:"Guides",h:p+"#guides"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
 
   return(
     <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000,background:sc?"rgba(27,42,74,.97)":"transparent",backdropFilter:sc?"blur(14px)":"none",transition:"all .35s",borderBottom:sc?"1px solid rgba(255,255,255,.06)":"none"}}>
@@ -1279,7 +1279,7 @@ function GuidesAndTools(){
     {title:"Hiring a Contractor",slug:"hiring-contractor-indiana",desc:"12 questions to ask, red flags, and what quality actually costs."},
   ];
   return(
-    <section className="sec" style={{background:C.cream}} ref={ref}>
+    <section id="guides" className="sec" style={{background:C.cream}} ref={ref}>
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:48}}>
           <div className="lab">Guides & Tools</div>
@@ -3743,6 +3743,157 @@ function CostCalculator(){
   );
 }
 
+/* ─── Neighborhood-Service Combo Pages (45 pages) ──── */
+const LUXURY_HOODS=["hamilton-proper","geist-reservoir","estates-at-geist","admirals-pointe","laurelwood","jacksons-grant","reserve-at-springmill","laurel-lakes","village-of-westclay","bridgewater-club","promontory","holliday-farms","bradley-ridge","chatham-hills","bear-slide"];
+const HOOD_SVCS=[
+  {slug:"bathroom-remodeling",name:"Bathroom Remodeling",features:["Custom tile with Schluter Pro waterproofing and 25-year warranty","Frameless glass shower enclosures","Dual vanities with premium stone countertops","Heated tile floors","Freestanding soaking tubs","Licensed plumbing and electrical on every project"]},
+  {slug:"kitchen-remodeling",name:"Kitchen Remodeling",features:["Custom cabinetry with soft-close hardware","Quartz or natural stone countertops","Designer backsplash tile","Under-cabinet and pendant lighting","Premium appliance integration","Licensed electrical for dedicated circuits"]},
+  {slug:"basement-finishing",name:"Basement Finishing",features:["Custom entertainment and living areas","Guest suite with full bathroom","Home office with built-in storage","LVP flooring for moisture resistance","Recessed lighting throughout","Licensed electrical and plumbing"]},
+];
+
+function HoodServicePage({hood,svc}){
+  const hoodKey=Object.keys(NEIGHBORHOODS).find(k=>NEIGHBORHOODS[k]===hood);
+  const pageSlug=`${svc.slug}-${hoodKey}-${hood.city.toLowerCase().replace(/ /g,"-")}-in`;
+  useCanonical(pageSlug);
+  const[faqOpen,setFaqOpen]=useState(null);
+
+  useEffect(()=>{
+    document.title=`${svc.name} in ${hood.name}, ${hood.city}, IN | HomeStar`;
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content",`Expert ${svc.name.toLowerCase()} in ${hood.name}, ${hood.city}, Indiana. Schluter Pro Certified. Licensed plumbers & electricians. 25-year warranty. Free estimates. (317) 279-4798`);
+    window.scrollTo(0,0);
+  },[hood,svc]);
+
+  useJobberForm();
+
+  const isLuxury=hood.tier==="ultra"||hood.tier==="luxury";
+  const citySlug=hood.city.toLowerCase().replace(/ /g,"-");
+  const faq=[
+    {q:`How much does ${svc.name.toLowerCase()} cost in ${hood.name}?`,a:`${svc.name} costs in ${hood.name} depend on scope, materials, and finishes. We provide free in-home consultations with detailed, itemized estimates — not vague ranges. Call (317) 279-4798 for a quote.`},
+    {q:`Do you work in ${hood.name}, ${hood.city}?`,a:`Yes. HomeStar serves ${hood.name} and all neighborhoods in ${hood.city}. We're based locally in Hamilton County and know these communities well.`},
+    {q:`What makes HomeStar different for ${hood.name} homes?`,a:`We're Schluter Pro Certified with a 25-year waterproofing warranty, use only licensed plumbers and electricians, and provide 3D design renderings before construction. ${isLuxury?"For luxury homes like those in "+hood.name+", our certified craftsmanship matches the quality these homes deserve.":"We bring the same certified quality to every project regardless of size."}`},
+  ];
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:`${hood.city}, IN`,url:"/"+hood.citySlug},{name:hood.name,url:`/remodeling-${hoodKey}-${citySlug}-in`},{name:svc.name}]}/>
+      <FaqSchema faqs={faq}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:`${svc.name} in ${hood.name}, ${hood.city}, Indiana`,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798"},areaServed:{"@type":"Place",name:`${hood.name}, ${hood.city}, IN`}})}}/>
+
+      <Nav isCity/>
+
+      <section style={{position:"relative",padding:"160px 24px 80px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`}}>
+        <div style={{maxWidth:800,margin:"0 auto",position:"relative",zIndex:2,textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>SCHLUTER PRO CERTIFIED</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(26px,4vw,40px)",lineHeight:1.2,marginBottom:20}}>{svc.name} in {hood.name}, {hood.city}</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.5)",fontSize:16,lineHeight:1.7,maxWidth:620,margin:"0 auto 32px"}}>{isLuxury?`Premium ${svc.name.toLowerCase()} for one of ${hood.city}'s most prestigious neighborhoods. Certified craftsmanship that matches the quality of your home.`:`Expert ${svc.name.toLowerCase()} for ${hood.name} homeowners. Certified craftsmanship, licensed trades, and transparent pricing.`}</p>
+          <div className="fu d4" style={{display:"flex",justifyContent:"center",flexWrap:"wrap",gap:14}}>
+            <a href="#hsvc-estimate" className="btn-g">Get a Free Estimate {I.arrow}</a>
+            <a href="tel:+13172794798" className="btn-w">{I.phone} (317) 279-4798</a>
+          </div>
+          <div className="fu d5" style={{display:"flex",justifyContent:"center",gap:36,marginTop:36}}>
+            {[{val:"5.0★",lab:"Google Rating"},{val:"25-Year",lab:"Schluter Warranty"},{val:"100%",lab:"Licensed & Insured"}].map(t=>
+              <div key={t.lab} style={{textAlign:"center"}}>
+                <div className="display" style={{color:"#fff",fontSize:22}}>{t.val}</div>
+                <div style={{color:"rgba(255,255,255,.35)",fontSize:11,letterSpacing:".04em"}}>{t.lab}</div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <div style={{textAlign:"center",marginBottom:32}}>
+            <div className="lab">{svc.name} in {hood.name}</div>
+            <h2 className="ttl">Why {hood.name} Homeowners Choose HomeStar for {svc.name}</h2>
+          </div>
+          <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85,marginBottom:20}}>{hood.character}</p>
+          <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85,marginBottom:20}}>{isLuxury?`In a community like ${hood.name}, you need a ${svc.name.toLowerCase()} contractor who understands that the details matter. From the waterproofing behind your tile to the fixtures you touch every day, every element needs to match the quality of your home. HomeStar is Schluter Pro Certified — the same waterproofing system specified in luxury hotels and high-end residences — and we use licensed plumbers and electricians on every project without exception.`:`Whether you're updating a space that's served you well for years or creating something entirely new, HomeStar brings certified craftsmanship to every ${svc.name.toLowerCase()} project in ${hood.name}. We're Schluter Pro Certified with a 25-year waterproofing warranty, and every project is completed by licensed tradespeople.`}</p>
+          <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85}}><strong>Popular in {hood.name}:</strong> {hood.popular}</p>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:900}}>
+          <div style={{textAlign:"center",marginBottom:32}}>
+            <div className="lab">What's Included</div>
+            <h2 className="ttl">{svc.name} Features for {hood.name}</h2>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:14}}>
+            {svc.features.map(f=>
+              <div key={f} style={{padding:"18px 22px",borderRadius:12,background:"#fff",border:`1px solid ${C.sand}`,display:"flex",alignItems:"flex-start",gap:12}}>
+                <div style={{color:C.green,flexShrink:0,marginTop:2}}>{I.check}</div>
+                <p style={{color:C.grayDark,fontSize:14,lineHeight:1.6,margin:0}}>{f}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:780}}>
+          <div style={{textAlign:"center",marginBottom:40}}>
+            <div className="lab">Common Questions</div>
+            <h2 className="ttl">{svc.name} FAQ for {hood.name}</h2>
+          </div>
+          <div style={{display:"flex",flexDirection:"column",gap:10}}>
+            {faq.map((f,i)=>
+              <div key={i} style={{background:C.cream,borderRadius:12,overflow:"hidden",border:`1px solid ${faqOpen===i?C.green:C.sand}`,transition:"border-color .3s"}}>
+                <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} style={{width:"100%",padding:"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"none",border:"none",cursor:"pointer",textAlign:"left",fontFamily:"'Plus Jakarta Sans',sans-serif",fontWeight:700,fontSize:15,color:C.navy}}>
+                  {f.q}<span style={{transform:faqOpen===i?"rotate(180deg)":"rotate(0)",transition:"transform .3s",flexShrink:0,marginLeft:14}}>{I.chevDown}</span>
+                </button>
+                <div style={{maxHeight:faqOpen===i?260:0,overflow:"hidden",transition:"max-height .4s ease"}}>
+                  <div style={{padding:"0 24px 20px",color:C.gray,lineHeight:1.75,fontSize:14}}>{f.a}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{textAlign:"center"}}>
+          <div className="lab">Explore More</div>
+          <h2 className="ttl" style={{marginBottom:20}}>More Services & Areas</h2>
+          <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10,marginBottom:16}}>
+            <a href={`/remodeling-${hoodKey}-${citySlug}-in`} style={{padding:"10px 20px",borderRadius:50,background:"#fff",border:`1px solid ${C.sand}`,color:C.navy,fontWeight:600,fontSize:13,textDecoration:"none"}}>All {hood.name} Services</a>
+            <a href={`/${hood.citySlug}`} style={{padding:"10px 20px",borderRadius:50,background:"#fff",border:`1px solid ${C.sand}`,color:C.navy,fontWeight:600,fontSize:13,textDecoration:"none"}}>All {hood.city} Services</a>
+            <a href={`/${svc.slug}-${citySlug}-in`} style={{padding:"10px 20px",borderRadius:50,background:"#fff",border:`1px solid ${C.sand}`,color:C.navy,fontWeight:600,fontSize:13,textDecoration:"none"}}>{svc.name} in {hood.city}</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in" style={{maxWidth:1000}}>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:48,alignItems:"start"}}>
+            <div style={{padding:"20px 0"}}>
+              <div className="lab" style={{color:C.green}}>Get Started</div>
+              <h2 className="display" style={{color:"#fff",fontSize:"clamp(24px,3vw,32px)",marginBottom:16}}>Ready for {svc.name} in {hood.name}?</h2>
+              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.7,marginBottom:24}}>Request a free estimate. We'll visit your {hood.name} home, discuss your vision, and provide a detailed quote with transparent pricing.</p>
+              <div style={{display:"flex",flexDirection:"column",gap:14}}>
+                <a href="tel:+13172794798" style={{color:"#fff",fontSize:15,textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>{I.phone} (317) 279-4798</a>
+                <a href="mailto:eric@thehomestarservice.com" style={{color:"#fff",fontSize:15,textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>{I.mail||"✉"} eric@thehomestarservice.com</a>
+              </div>
+            </div>
+            <div id="hsvc-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
+              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
+              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>{svc.name} in {hood.name}, {hood.city}</p>
+              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
+
 export default function HomestarSite(){
   const[legalPage,setLegalPage]=useState(null);
   const[cityPage,setCityPage]=useState(null);
@@ -3754,6 +3905,7 @@ export default function HomestarSite(){
   const[authorPage,setAuthorPage]=useState(null);
   const[guidePage,setGuidePage]=useState(null);
   const[calcPage,setCalcPage]=useState(false);
+  const[hoodSvcPage,setHoodSvcPage]=useState(null);
   useCanonical("");
 
   useEffect(()=>{
@@ -3799,6 +3951,20 @@ export default function HomestarSite(){
       setServiceCityPage({service:alias.s,city:alias.c,svcKey:Object.keys(SERVICE_SLUG_MAP).find(k=>SERVICE_SLUG_MAP[k]===alias.s)||alias.s});
       return;
     }
+    /* Neighborhood-service combos (e.g. bathroom-remodeling-hamilton-proper-fishers-in) */
+    for(const svc of HOOD_SVCS){
+      if(path.startsWith(svc.slug+"-")){
+        const rest=path.slice(svc.slug.length+1);
+        for(const hoodKey of LUXURY_HOODS){
+          const hood=NEIGHBORHOODS[hoodKey];
+          if(!hood)continue;
+          const citySlug=hood.city.toLowerCase().replace(/ /g,"-");
+          if(rest===hoodKey+"-"+citySlug+"-in"){
+            setHoodSvcPage({hood:hoodKey,svc:svc});return;
+          }
+        }
+      }
+    }
     /* City pages */
     if(CITIES[path]){setCityPage(path);return;}
     /* Service pages */
@@ -3834,6 +4000,10 @@ export default function HomestarSite(){
 
   if(calcPage){
     return <CostCalculator/>;
+  }
+
+  if(hoodSvcPage&&NEIGHBORHOODS[hoodSvcPage.hood]){
+    return <HoodServicePage hood={NEIGHBORHOODS[hoodSvcPage.hood]} svc={hoodSvcPage.svc}/>;
   }
 
   if(neighborhoodPage&&NEIGHBORHOODS[neighborhoodPage]){
