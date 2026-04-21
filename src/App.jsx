@@ -665,7 +665,7 @@ function Nav({isCity}){
   const[sc,setSc]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>50);window.addEventListener("scroll",h,{passive:true});return()=>window.removeEventListener("scroll",h)},[]);
   const p=isCity?"/":"";
-  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Videos",h:p+"#videos"},{l:"Blog",h:p+"#blog"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
+  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Videos",h:p+"#videos"},{l:"Blog",h:p+"#blog"},{l:"Guides",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
 
   return(
     <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000,background:sc?"rgba(27,42,74,.97)":"transparent",backdropFilter:sc?"blur(14px)":"none",transition:"all .35s",borderBottom:sc?"1px solid rgba(255,255,255,.06)":"none"}}>
@@ -1036,7 +1036,8 @@ function Projects(){
                 <span style={{fontSize:10,fontWeight:700,letterSpacing:".08em",color:C.green,textTransform:"uppercase"}}>{p.cat}</span>
                 <h3 className="display" style={{fontSize:17,color:C.navy,marginTop:6}}>{p.title}</h3>
                 {p.desc && <p style={{color:C.gray,fontSize:13,lineHeight:1.6,marginTop:8}}>{p.desc}</p>}
-                {p.images && p.images.length > 1 && <div style={{marginTop:10,color:C.gray,fontSize:11,fontWeight:600}}>{p.images.length} photos</div>}
+                {p.slug&&<a href={`/projects/${p.slug}`} style={{display:"inline-flex",alignItems:"center",gap:5,color:C.green,fontWeight:700,fontSize:12,textDecoration:"none",marginTop:10}}>View Case Study {I.arrow}</a>}
+                {!p.slug&&p.images && p.images.length > 1 && <div style={{marginTop:10,color:C.gray,fontSize:11,fontWeight:600}}>{p.images.length} photos</div>}
               </div>
             </div>
           )}
@@ -1267,6 +1268,47 @@ function Testimonials(){
   );
 }
 
+/* ─── Guides & Tools (Homepage Section) ───────────── */
+function GuidesAndTools(){
+  const[ref,vis]=useVis();
+  const guides=[
+    {title:"Bathroom Remodeling Guide",slug:"bathroom-remodeling-hamilton-county",desc:"Costs, timelines, materials, waterproofing — everything you need to know."},
+    {title:"Kitchen Remodeling Guide",slug:"kitchen-remodeling-hamilton-county",desc:"ROI, countertop choices, cabinet options, and what to expect."},
+    {title:"Basement Finishing Guide",slug:"basement-finishing-hamilton-county",desc:"Layouts, moisture management, costs, and smart investment tips."},
+    {title:"Outdoor Living Guide",slug:"outdoor-living-hamilton-county",desc:"Composite vs wood, costs, design ideas, and Indiana weather considerations."},
+    {title:"Hiring a Contractor",slug:"hiring-contractor-indiana",desc:"12 questions to ask, red flags, and what quality actually costs."},
+  ];
+  return(
+    <section className="sec" style={{background:C.cream}} ref={ref}>
+      <div className="sec-in">
+        <div style={{textAlign:"center",marginBottom:48}}>
+          <div className="lab">Guides & Tools</div>
+          <h2 className="ttl">Homeowner Resources</h2>
+          <p className="sub" style={{margin:"0 auto"}}>Free guides and tools to help you plan your remodeling project with confidence.</p>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",gap:16,marginBottom:24}}>
+          {guides.map((g,i)=>
+            <a key={g.slug} href={`/guide/${g.slug}`} className={vis?`fu d${i+1}`:""} style={{padding:"24px 22px",borderRadius:14,background:"#fff",border:`1px solid ${C.sand}`,textDecoration:"none",transition:"all .3s",display:"block"}}
+              onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.06)"}}
+              onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
+              <h4 className="display" style={{color:C.navy,fontSize:15,marginBottom:6}}>{g.title}</h4>
+              <p style={{color:C.gray,fontSize:12,lineHeight:1.6,marginBottom:10}}>{g.desc}</p>
+              <span style={{color:C.green,fontWeight:700,fontSize:12,display:"flex",alignItems:"center",gap:4}}>Read Guide {I.arrow}</span>
+            </a>
+          )}
+        </div>
+        <div style={{textAlign:"center"}}>
+          <a href="/tools/remodel-cost-calculator" style={{display:"inline-flex",alignItems:"center",gap:10,padding:"16px 32px",borderRadius:12,background:`linear-gradient(135deg,${C.navyDark},${C.navy})`,color:"#fff",fontWeight:700,fontSize:15,textDecoration:"none",transition:"all .3s"}}
+            onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow="0 8px 24px rgba(0,0,0,.15)"}}
+            onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
+            {I.calc||"🔢"} Try Our Free Cost Calculator {I.arrow}
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Service Areas ────────────────────────────────── */
 function ServiceAreas(){
   const[ref,vis]=useVis();
@@ -1441,11 +1483,11 @@ function Contact(){
 /* ─── Footer ───────────────────────────────────────── */
 function Footer({isCity}){
   const p=isCity?"/":"";
-  const companyLinks=[{l:"About Us",h:p+"#about"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Blog",h:p+"#blog"},{l:"Videos",h:p+"#videos"},{l:"Contact",h:p+"#contact"},{l:"Request Estimate",h:isCity?"#city-estimate":p+"#estimate"}];
+  const companyLinks=[{l:"About Us",h:p+"#about"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Blog",h:p+"#blog"},{l:"Videos",h:p+"#videos"},{l:"Contact",h:p+"#contact"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Meet Eric Farr",h:"/about/eric-farr"},{l:"Meet Robb Rice",h:"/about/robb-rice"},{l:"Request Estimate",h:isCity?"#city-estimate":p+"#estimate"}];
   return(
     <footer style={{background:C.navyDark,padding:"56px 24px 28px"}}>
       <div style={{maxWidth:1160,margin:"0 auto"}}>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))",gap:44,marginBottom:44}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(180px,1fr))",gap:36,marginBottom:44}}>
           <div>
             <div style={{display:"flex",alignItems:"center",gap:9,marginBottom:16}}>
               <img src="/images/logo-mascot.png" alt="HomeStar Services mascot" style={{width:36,height:36,objectFit:"contain"}} />
@@ -1460,6 +1502,10 @@ function Footer({isCity}){
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Company</h4>
             {companyLinks.map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
+          </div>
+          <div>
+            <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Guides & Resources</h4>
+            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
@@ -2734,6 +2780,24 @@ function ServicePage({data,slug}){
         </div>
       </section>
 
+      {/* Link to Guide */}
+      {(()=>{
+        const guideMap={"bathroom-remodeling":"bathroom-remodeling-hamilton-county","basement-finishing":"basement-finishing-hamilton-county","kitchen-remodeling":"kitchen-remodeling-hamilton-county","decks-outdoor-living":"outdoor-living-hamilton-county"};
+        const guideSlug=guideMap[slug];
+        if(!guideSlug)return null;
+        return(
+          <section className="sec" style={{background:"#fff"}}>
+            <div className="sec-in" style={{textAlign:"center"}}>
+              <a href={`/guide/${guideSlug}`} style={{display:"inline-flex",alignItems:"center",gap:10,padding:"16px 32px",borderRadius:12,background:C.cream,border:`1px solid ${C.sand}`,color:C.navy,fontWeight:700,fontSize:15,textDecoration:"none",transition:"all .3s"}}
+                onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.color=C.green}}
+                onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.color=C.navy}}>
+                📖 Read Our Complete {data.service} Guide {I.arrow}
+              </a>
+            </div>
+          </section>
+        );
+      })()}
+
       <ServiceCityLinks currentService={data.service}/>
 
       <Footer isCity/>
@@ -3800,6 +3864,7 @@ export default function HomestarSite(){
       <Projects/>
       <Videos/>
       <Blog/>
+      <GuidesAndTools/>
       <Testimonials/>
       <ServiceAreas/>
       <About/>
