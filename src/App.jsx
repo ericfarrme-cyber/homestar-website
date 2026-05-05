@@ -39,6 +39,7 @@ const SVC = [
   { title: "Flooring Services", tag: "The foundation of great design", desc: "New flooring changes the entire feel of a room. We install hardwood, luxury vinyl, tile, and carpet—selected for your lifestyle, built to handle real life, and installed with precision.", color: "#C49A6A", href: "/flooring-services" },
   { title: "Painting Services", tag: "Fresh color, fresh energy", desc: "A professional paint job does more than change a color—it transforms a room. We deliver clean edges, smooth finishes, and expert prep work that makes the difference.", color: "#6AC4A8", href: "/painting-services" },
   { title: "Decks & Outdoor Living", tag: "Bring life outdoors", desc: "Custom decks, covered patios, and outdoor living areas designed for how you actually live. Built with quality materials and craftsmanship that stands up to Indiana weather.", color: "#7AAF5A", href: "/decks-outdoor-living" },
+  { title: "Insurance Restoration", tag: "Disaster recovery experts", desc: "Water damage, fire damage, storm damage — we rebuild what's broken with certified craftsmanship. Insurance claim support, licensed trades, and Schluter waterproofing on every bathroom rebuild.", color: "#D46A6A", href: "/insurance-restoration" },
 ];
 
 const PROCESS = [
@@ -590,6 +591,42 @@ const BLOG = [
       "Our tile recommendations for Hamilton County homeowners: For most budgets, large-format porcelain tile (12x24 or larger) on walls with small mosaic porcelain on the shower floor. For luxury remodels, consider porcelain that mimics natural stone (you get the look without the maintenance). For budget remodels, ceramic on walls with porcelain on the floor. And regardless of tile choice, insist on the Schluter waterproofing system — it's the foundation everything else depends on.",
       "Ready to choose tile for your bathroom remodel? HomeStar provides 3D design renderings so you can see exactly how your tile selection will look before we set a single piece. Call (317) 279-4798 for a free consultation."
     ]},
+  { slug:"bathroom-flooded-what-to-do", title: "Your Bathroom Flooded: What to Do Right Now (Indiana Homeowner's Emergency Guide)", date: "Apr 22, 2026", read: "6 min", cat: "Insurance", excerpt: "A burst pipe, failed supply line, or overflowing toilet just flooded your bathroom. Here's exactly what to do in the first 60 minutes — and how to protect your insurance claim.",
+    body: [
+      "Your bathroom is flooding. Water is spreading into the hallway, soaking the floor, seeping into the subfloor. Whether it's a burst pipe, a failed supply line under the toilet, or a water heater rupture, the next 60 minutes are critical — both for minimizing damage and protecting your insurance claim.",
+      "Step one: Stop the water. Find the shutoff valve for the fixture that's leaking and turn it off. If you can't find it, or if the source is unclear, shut off your home's main water supply. Every homeowner should know where their main shutoff is before an emergency happens. In most Hamilton County homes, it's in the basement or crawl space near where the water line enters the house.",
+      "Step two: Document everything before touching anything. Pull out your phone and take photos and video of every affected area — the source of the leak, standing water, damaged flooring, wet walls, wet ceilings. This documentation is critical for your insurance claim. The adjuster needs to see what happened before any cleanup begins.",
+      "Step three: Remove standing water carefully. Use towels, a wet/dry vacuum, or a mop. If the water is more than an inch deep, or if it's mixed with sewage, stay out and call a professional immediately. Extract as much water as you can to prevent it from spreading further.",
+      "Step four: Call your insurance company. Open a claim as soon as possible. Your homeowner's policy typically covers sudden water damage from burst pipes, supply line failures, and appliance malfunctions. It usually does NOT cover gradual leaks, lack of maintenance, or flood water from outside. Your agent will assign an adjuster to assess the damage.",
+      "Step five: Call a contractor. This is where the restoration process begins. At HomeStar, we provide fast damage assessments, detailed scopes of work for your insurance company, and complete restoration — not just patches. When we rebuild a water-damaged bathroom, we install the Schluter waterproofing system so the new space is actually better protected than the original.",
+      "What NOT to do: Don't throw away damaged materials before the adjuster documents them. Don't start demolition before your claim is filed. Don't hire the first contractor who shows up at your door (storm chasers target damage events). Don't assume your insurance won't cover it — file the claim and let the adjuster decide.",
+      "The most common cause of bathroom water damage in Hamilton County homes is supply line failures — the flexible hoses connecting your toilet or faucet to the wall. These should be replaced every 5-7 years with braided stainless steel lines. If yours are the original white plastic lines from when the house was built, replace them this weekend. It's a $20 part that can prevent a $30,000 restoration.",
+      "Need help after water damage? Call HomeStar at (317) 279-4798. We provide insurance restoration throughout Fishers, Carmel, Noblesville, Westfield, Zionsville, and all of Hamilton County."
+    ]},
+  { slug:"kitchen-water-damage-insurance-guide", title: "Kitchen Water Damage Insurance Claims: A Hamilton County Homeowner's Guide", date: "Apr 23, 2026", read: "7 min", cat: "Insurance", excerpt: "Dishwasher leak? Refrigerator water line failure? Kitchen sink overflow? Here's how the insurance claim process works for kitchen water damage in Indiana, and how to maximize your restoration.",
+    body: [
+      "Kitchen water damage is one of the most common insurance claims in Hamilton County. Dishwasher failures, refrigerator water line leaks, garbage disposal malfunctions, and sink overflows can send water across hardwood floors, into subfloors, and down into basements within minutes. The good news: your homeowner's insurance almost always covers sudden kitchen water damage. Here's how the process works.",
+      "First, understand what's covered. Homeowner's insurance covers sudden, accidental water damage — a dishwasher hose that ruptures, a refrigerator water line that splits, a supply line under the sink that fails. It generally does NOT cover damage from gradual leaks you knew about but didn't fix, or damage caused by lack of maintenance. The key word is 'sudden.'",
+      "When you file your claim, the insurance company sends an adjuster to document the damage and create an estimate. Here's where many homeowners lose money: the adjuster's initial estimate is often based on the cheapest possible repair — replacing 'like with like' using the most basic materials. You have the right to get your own estimate from a licensed contractor.",
+      "This is where working with an experienced restoration contractor matters. At HomeStar, we provide detailed scopes of work that capture the full extent of the damage and the proper repair methods. If your kitchen floor needs to be replaced because water damaged the subfloor, we document exactly what's needed — not just a surface patch. Our estimates are itemized line-by-line, which is exactly what adjusters need to process approval.",
+      "The restoration itself is an opportunity. When insurance pays to rebuild your damaged kitchen floor, you're getting a new floor. When water damage requires removing cabinets and countertops, that's a chance to upgrade the kitchen you've been meaning to remodel anyway. Insurance pays for the restoration portion, and you can choose to invest the difference for upgrades. Many Hamilton County homeowners use a water damage claim as the catalyst for the kitchen remodel they've been planning.",
+      "Common kitchen damage scenario: The dishwasher supply line fails on a Tuesday while you're at work. By the time you come home, water has been running for hours. The hardwood floor in the kitchen is warped and buckled. Water has spread into the dining room. The subfloor is saturated. Mold risk is high. Total restoration cost: $25,000-$45,000 — covered by insurance.",
+      "Timeline for kitchen water damage restoration: Day 1 — emergency water extraction and drying setup. Days 2-5 — industrial fans and dehumidifiers dry the space (your restoration company or a remediation specialist handles this). Days 5-7 — adjuster assessment and scope agreement. Weeks 2-4 — demolition, subfloor replacement, and restoration. Weeks 4-6 — new flooring, trim, paint, final touches.",
+      "One critical tip: keep receipts for everything. Hotel stays if you can't live in the home, meals out, storage costs for displaced belongings — these are typically covered under your policy's 'additional living expenses' provision. Many homeowners don't realize this and leave thousands of dollars on the table.",
+      "Need kitchen restoration after water damage? Call HomeStar at (317) 279-4798. We handle the entire restoration process and work with your insurance company throughout."
+    ]},
+  { slug:"storm-damage-repair-hamilton-county", title: "Storm Damage Repair in Hamilton County: What Homeowners Need to Know", date: "Apr 24, 2026", read: "7 min", cat: "Insurance", excerpt: "Indiana storms can cause serious damage to your home — roof leaks, siding damage, fallen trees, water intrusion. Here's how to navigate the repair process and insurance claim for storm damage in Hamilton County.",
+    body: [
+      "Hamilton County gets its share of severe weather — thunderstorms, high winds, hail, and the occasional tornado warning. When a storm damages your home, the repair process can feel overwhelming. Here's what you need to know about storm damage repair in Fishers, Carmel, Noblesville, and surrounding communities.",
+      "The most common storm damage in Hamilton County includes roof damage from hail or fallen branches, siding damage from wind-driven debris, window damage, water intrusion through compromised roofs or walls, basement flooding from overwhelmed drainage systems, and deck or fence damage from falling trees.",
+      "After a storm, safety comes first. Don't enter rooms with sagging ceilings — water-logged drywall is extremely heavy and can collapse. Stay away from downed power lines. If you smell gas, leave immediately and call the utility company. Once it's safe, start documenting damage with photos and video from every angle.",
+      "Filing your insurance claim for storm damage: Contact your insurance company within 24-48 hours. Most policies require prompt reporting. The adjuster will schedule an inspection — be present for this if possible. Walk them through every area of damage you've documented. Get everything in writing.",
+      "Beware of storm chasers. After major storms in Hamilton County, out-of-state contractors flood the area offering quick repairs. Many are unlicensed, uninsured, and will be gone before you discover the work is substandard. Always verify Indiana licensing, ask for proof of insurance, check Google reviews, and get a written estimate before signing anything.",
+      "When storm damage leads to interior water intrusion — roof leaks that soak ceilings, walls, and floors — the repair often extends far beyond just fixing the roof. Water that enters through a damaged roof can saturate insulation, drywall, and framing throughout the upper level. This is where HomeStar's restoration expertise applies: we handle the complete interior rebuild after the roofing company fixes the exterior.",
+      "Storm damage restoration often reveals pre-existing issues. When we open up water-damaged walls after a storm, we sometimes find inadequate insulation, previous water damage that was never addressed, or substandard wiring. Insurance covers the storm damage repair, and addressing these pre-existing issues during the restoration protects your home long-term.",
+      "A typical storm damage timeline: Week 1 — emergency tarping, documentation, claim filing. Weeks 2-3 — adjuster inspection and scope agreement. Weeks 3-6 — exterior repairs (roofing, siding). Weeks 4-8 — interior restoration (drywall, painting, flooring, any bathroom or kitchen repairs needed due to water intrusion).",
+      "Storm damage doesn't wait and neither should your repair. Call HomeStar at (317) 279-4798 for storm damage assessment and insurance restoration in Hamilton County."
+    ]},
 ];
 
 const VIDEOS = [
@@ -916,6 +953,7 @@ function OurProcess(){
   const[ref,vis]=useVis();
   return(
     <section id="process" className="sec" style={{background:C.cream}} ref={ref}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HowTo",name:"How HomeStar's Remodeling Process Works",description:"Our 3-step process takes your remodeling project from initial consultation to completed build with transparent pricing and daily communication.",step:PROCESS.map((p,i)=>({"@type":"HowToStep",position:i+1,name:p.title,text:p.text}))})}}/>
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:60}}>
           <div className="lab">How We Work</div>
@@ -1085,6 +1123,7 @@ function Videos(){
   const[ref,vis]=useVis();
   return(
     <section id="videos" className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}} ref={ref}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(VIDEOS.map(v=>({"@context":"https://schema.org","@type":"VideoObject",name:v.title,description:v.desc,thumbnailUrl:`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`,uploadDate:"2025-01-01",contentUrl:`https://www.youtube.com/watch?v=${v.id}`,embedUrl:`https://www.youtube.com/embed/${v.id}`,publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})))}}/>
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:52}}>
           <div className="lab">See Our Work in Action</div>
@@ -1277,6 +1316,7 @@ function GuidesAndTools(){
     {title:"Basement Finishing Guide",slug:"basement-finishing-hamilton-county",desc:"Layouts, moisture management, costs, and smart investment tips."},
     {title:"Outdoor Living Guide",slug:"outdoor-living-hamilton-county",desc:"Composite vs wood, costs, design ideas, and Indiana weather considerations."},
     {title:"Hiring a Contractor",slug:"hiring-contractor-indiana",desc:"12 questions to ask, red flags, and what quality actually costs."},
+    {title:"Insurance Restoration",slug:"insurance-restoration-hamilton-county",desc:"Water, fire, or storm damage? Navigate claims and rebuild right."},
   ];
   return(
     <section id="guides" className="sec" style={{background:C.cream}} ref={ref}>
@@ -1505,7 +1545,7 @@ function Footer({isCity}){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Guides & Resources</h4>
-            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
+            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
@@ -1797,6 +1837,15 @@ const SERVICE_CITY_ALIASES = {
   "flooring-services-pendleton-in": {s:"flooring-services",c:"home-remodeling-pendleton-in"},
   "painting-services-pendleton-in": {s:"painting-services",c:"home-remodeling-pendleton-in"},
   "deck-builder-pendleton-in": {s:"decks-outdoor-living",c:"home-remodeling-pendleton-in"},
+  "insurance-restoration-fishers-in": {s:"insurance-restoration",c:"home-remodeling-fishers-in"},
+  "insurance-restoration-carmel-in": {s:"insurance-restoration",c:"home-remodeling-carmel-in"},
+  "insurance-restoration-noblesville-in": {s:"insurance-restoration",c:"home-remodeling-noblesville-in"},
+  "insurance-restoration-westfield-in": {s:"insurance-restoration",c:"home-remodeling-westfield-in"},
+  "insurance-restoration-zionsville-in": {s:"insurance-restoration",c:"home-remodeling-zionsville-in"},
+  "insurance-restoration-fortville-in": {s:"insurance-restoration",c:"home-remodeling-fortville-in"},
+  "insurance-restoration-mccordsville-in": {s:"insurance-restoration",c:"home-remodeling-mccordsville-in"},
+  "insurance-restoration-geist-in": {s:"insurance-restoration",c:"home-remodeling-geist-in"},
+  "insurance-restoration-pendleton-in": {s:"insurance-restoration",c:"home-remodeling-pendleton-in"},
 };
 
 /* ─── Neighborhoods (42 pages) ────────────────────── */
@@ -2569,6 +2618,51 @@ const SERVICE_PAGES = {
     ],
     cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"],
   },
+  "insurance-restoration": {
+    service: "Insurance Restoration",
+    title: "Insurance Restoration & Damage Repair in Hamilton County, IN",
+    metaDesc: "Water damage, fire damage, storm damage repair in Hamilton County. We work directly with your insurance adjuster as your advocate. Detailed damage assessments, Schluter Pro Certified rebuilds, licensed contractors. (317) 279-4798",
+    heroHeading: "Insurance Restoration & Damage Repair in Hamilton County",
+    heroSub: "When disaster strikes, you need more than a contractor — you need an advocate. HomeStar works directly with your insurance adjuster, provides detailed damage assessments, and rebuilds your home better than before with certified craftsmanship.",
+    intro: "A burst pipe, kitchen leak, house fire, or storm can turn your life upside down overnight. You're dealing with damage, displacement, and an insurance process that feels overwhelming. At HomeStar Services & Contracting, we do more than fix what's broken — we become your advocate throughout the entire restoration. We work directly with your insurance adjuster, providing the meticulous damage documentation and detailed scopes of work that get your claim fully approved. Then we rebuild your space with Schluter Pro Certified quality and licensed tradespeople — not a patch job, but a restoration that makes your home better than it was before the damage.",
+    highlights: [
+      {title:"Your Insurance Advocate",desc:"We work directly with your insurance adjuster from day one. We walk the damaged area together, document every detail with photos, moisture readings, and measurements, and provide line-item scopes of work in the exact format adjusters need. We advocate for the full scope of restoration your home requires — not the minimum the carrier wants to pay. You shouldn't have to fight your insurance company alone."},
+      {title:"Meticulous Damage Assessment",desc:"Insurance claims live and die on documentation. We photograph every surface, test moisture levels behind walls, identify hidden damage that a quick walkthrough misses, and produce detailed reports that leave nothing to interpretation. Our assessments regularly identify 20-40% more damage than the initial adjuster estimate — damage that would have been missed without a thorough contractor inspection."},
+      {title:"Schluter Pro Certified Rebuild",desc:"When your bathroom or kitchen needs to be rebuilt after water damage, we install the complete Schluter waterproofing system — Ditra on floors, Kerdi on walls — so the restored space is genuinely better protected than the original. Your insurance is paying for the rebuild. We make sure what goes back is built to last 25+ years."},
+      {title:"Licensed Trades, Code Compliant",desc:"Water and fire damage often compromise plumbing and electrical systems. All repair work is performed by licensed plumbers and licensed electricians — critical for both safety and insurance compliance. Every restoration passes inspection because every trade is done by licensed professionals."},
+    ],
+    whatWeDoIntro: "We handle every type of insurance restoration — from a single water-damaged bathroom to a whole-home rebuild after fire. Throughout the process, we communicate directly with your adjuster so you don't have to.",
+    whatWeDo: [
+      "Direct adjuster coordination — we attend inspections, present documentation, and advocate for full restoration scope",
+      "Comprehensive damage assessment with photo documentation, moisture mapping, and hidden damage identification",
+      "Water damage restoration — burst pipes, supply line failures, appliance leaks, flooding",
+      "Fire and smoke damage repair — kitchen fires, electrical fires, structural damage",
+      "Storm damage repair — roof leaks leading to interior water damage, wind damage, hail damage",
+      "Complete bathroom rebuilds with Schluter waterproofing system (25-year warranty)",
+      "Kitchen restoration after fire or water damage",
+      "Basement restoration after flooding or sewer backup",
+      "Supplement negotiation — we work with your adjuster when the initial scope underestimates the needed repairs",
+      "Detailed progress documentation throughout the project for your insurance file",
+    ],
+    costIntro: "Insurance restoration costs are typically covered by your homeowner's insurance policy. We work directly with your adjuster to ensure your claim reflects the true scope of needed repairs:",
+    costs: [
+      {level:"Minor Water Damage",range:"$5,000 – $15,000",desc:"Single room affected — drywall, flooring, paint. We document and present to your adjuster for full coverage."},
+      {level:"Major Water / Fire Damage",range:"$15,000 – $50,000",desc:"Multiple rooms — full bathroom or kitchen rebuild, structural drying, complete restoration. Our detailed assessment ensures nothing is missed in the claim."},
+      {level:"Catastrophic Damage",range:"$50,000 – $150,000+",desc:"Whole-floor or whole-home restoration. We manage the entire adjuster relationship and rebuild process from start to finish."},
+    ],
+    projectCats: ["Bathroom","Kitchen","Basement"],
+    faq: [
+      {q:"Do you work directly with insurance adjusters?",a:"Yes — this is one of our core strengths. We attend the adjuster inspection with you, walk the damage together, and present our detailed documentation and scope of work directly. We speak the adjuster's language and provide everything they need in the format they require. Many homeowners tell us this is the most valuable part of working with HomeStar — you have a knowledgeable advocate in the room who understands both construction and insurance."},
+      {q:"What if the adjuster's estimate is too low?",a:"It happens frequently. Initial adjuster estimates often miss hidden damage — moisture behind walls, compromised subfloors, affected areas in adjacent rooms. Our meticulous damage assessment catches what a quick walkthrough misses. We present a detailed supplement to the adjuster with photo evidence and measurements, and in most cases, the scope is approved at the correct level. We advocate for you — that's what we do."},
+      {q:"How quickly can you respond to damage?",a:"We typically schedule an initial assessment within 24-48 hours. For active water damage, we'll guide you through immediate steps over the phone to minimize further damage while we mobilize. Time matters in water damage — the sooner we document and begin mitigation, the better the outcome for both your home and your claim."},
+      {q:"Will my home be better than before after restoration?",a:"That's our commitment. When insurance covers a bathroom rebuild after water damage, we install the complete Schluter waterproofing system — something most homes never had. Your restored bathroom will have a 25-year waterproofing warranty. Licensed plumbers handle all plumbing. Licensed electricians handle all wiring. The rebuilt space is genuinely superior to what was there before."},
+      {q:"Do I need to find a separate remediation company?",a:"For significant mold or structural issues, a dedicated remediation company handles the initial cleanup and drying. Once the space is cleared and certified, we handle the complete rebuild. We work alongside remediation companies regularly and can recommend trusted partners in Hamilton County. We coordinate the handoff so there are no gaps in the process."},
+      {q:"What should I do immediately after water damage?",a:"First, stop the water — shut off the valve for that fixture or your main water supply. Second, document everything with photos and video BEFORE touching anything — your adjuster needs to see the original damage. Third, call your insurance company to open a claim. Fourth, call HomeStar at (317) 279-4798. We'll guide you through next steps and schedule our assessment. Do NOT throw away damaged materials until your adjuster has documented them."},
+      {q:"How long does an insurance restoration take?",a:"Minor water damage: 1-3 weeks. Major bathroom or kitchen rebuild: 3-6 weeks. Whole-home restoration: 2-4 months. The biggest variable is insurance approval timing, which is why our detailed upfront documentation matters — thorough submissions get approved faster."},
+      {q:"Do you handle the insurance paperwork?",a:"We handle everything on the construction side — detailed scopes of work, line-item estimates, photo documentation, moisture reports, supplement requests, and direct communication with your adjuster. You handle the policy side (filing the initial claim with your carrier). Once the claim is open, we take it from there."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"],
+  },
 };
 
 function ServicePage({data,slug}){
@@ -2782,7 +2876,7 @@ function ServicePage({data,slug}){
 
       {/* Link to Guide */}
       {(()=>{
-        const guideMap={"bathroom-remodeling":"bathroom-remodeling-hamilton-county","basement-finishing":"basement-finishing-hamilton-county","kitchen-remodeling":"kitchen-remodeling-hamilton-county","decks-outdoor-living":"outdoor-living-hamilton-county"};
+        const guideMap={"bathroom-remodeling":"bathroom-remodeling-hamilton-county","basement-finishing":"basement-finishing-hamilton-county","kitchen-remodeling":"kitchen-remodeling-hamilton-county","decks-outdoor-living":"outdoor-living-hamilton-county","insurance-restoration":"insurance-restoration-hamilton-county"};
         const guideSlug=guideMap[slug];
         if(!guideSlug)return null;
         return(
@@ -2797,6 +2891,25 @@ function ServicePage({data,slug}){
           </section>
         );
       })()}
+
+      {/* Insurance Restoration Cross-Link (for bathroom, kitchen, basement) */}
+      {["bathroom-remodeling","kitchen-remodeling","basement-finishing"].includes(slug)&&(
+        <section className="sec" style={{background:`linear-gradient(135deg,${C.navyDark},${C.navy})`}}>
+          <div className="sec-in" style={{maxWidth:800,textAlign:"center"}}>
+            <div style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(214,106,106,.15)",borderRadius:50,padding:"7px 16px",marginBottom:16}}>
+              <div style={{width:7,height:7,borderRadius:"50%",background:"#D46A6A"}}/>
+              <span style={{color:"#D46A6A",fontWeight:700,fontSize:12,letterSpacing:".06em"}}>INSURANCE RESTORATION</span>
+            </div>
+            <h3 className="display" style={{color:"#fff",fontSize:22,marginBottom:12}}>Had Water or Fire Damage?</h3>
+            <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.7,marginBottom:24,maxWidth:600,margin:"0 auto 24px"}}>We work directly with your insurance adjuster as your advocate — providing detailed damage assessments, meticulous documentation, and certified rebuilds that make your {slug==="bathroom-remodeling"?"bathroom":slug==="kitchen-remodeling"?"kitchen":"basement"} better than before.</p>
+            <a href="/insurance-restoration" style={{display:"inline-flex",alignItems:"center",gap:8,padding:"14px 28px",borderRadius:10,background:"#D46A6A",color:"#fff",fontWeight:700,fontSize:14,textDecoration:"none",transition:"all .3s"}}
+              onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow="0 8px 24px rgba(0,0,0,.2)"}}
+              onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
+              Learn About Insurance Restoration {I.arrow}
+            </a>
+          </div>
+        </section>
+      )}
 
       <ServiceCityLinks currentService={data.service}/>
 
@@ -2813,6 +2926,7 @@ const SERVICE_SLUG_MAP = {
   "flooring-services":"flooring-services",
   "painting-services":"painting-services",
   "deck-builder":"decks-outdoor-living",
+  "insurance-restoration":"insurance-restoration",
 };
 
 const SVC_CITY_TPL = {
@@ -2851,6 +2965,12 @@ const SVC_CITY_TPL = {
     intro:(c,n)=>`Your ${c} backyard should be an extension of your home. HomeStar Services & Contracting designs and builds custom decks, covered pavilions, stamped concrete patios, and outdoor living spaces for homeowners across ${c} — from ${n.slice(0,3).join(", ")} and throughout the community. We build with materials and methods specifically suited for Indiana's four-season climate.`,
     whyUs:(c,pCount)=>pCount>0?`We've already completed outdoor living projects in the ${c} area — from composite deck builds to custom pavilions with stone columns and covered bar areas. Every exterior project is built with proper footings, weather-resistant hardware, and materials chosen to handle Indiana's freeze-thaw cycles, humidity, and heavy rains. Licensed electricians handle all landscape lighting and outdoor outlets.`:`Our outdoor living projects across Hamilton County showcase the quality we bring to every deck, patio, and pavilion we build. From composite decking to stamped concrete to covered structures, we select materials and construction methods that stand up to Indiana weather year after year. Licensed electricians handle all outdoor electrical work.`,
     costIntro:(c)=>`Here's what ${c} homeowners typically invest in outdoor living:`,
+  },
+  "insurance-restoration":{
+    adj:"Emergency",badge:"INSURANCE ADJUSTER ADVOCACY",schemaType:"GeneralContractor",
+    intro:(c,n)=>`When water damage, fire, or storm damage strikes your ${c} home, you need more than a repair crew — you need an advocate. HomeStar Services & Contracting works directly with your insurance adjuster, providing meticulous damage assessments and detailed scopes of work that ensure your claim is fully covered. We serve homeowners in ${n.slice(0,3).join(", ")} and all of ${c} with Schluter Pro Certified rebuilds and licensed tradespeople. Your adjuster gets the documentation they need. Your home gets the restoration it deserves.`,
+    whyUs:(c,pCount)=>`Most contractors show up, give a number, and wait for the check. We show up with moisture meters, cameras, and a detailed eye for damage your adjuster might miss. We attend the adjuster inspection with you, walk every affected area together, and present a comprehensive scope of work that captures the full extent of the damage — including hidden moisture behind walls, compromised subfloors, and affected adjacent areas. When we rebuild a water-damaged bathroom in ${c}, we install the complete Schluter waterproofing system that your home never had before. All plumbing by licensed plumbers, all electrical by licensed electricians. Your restored home isn't just repaired — it's upgraded.`,
+    costIntro:(c)=>`Insurance restoration costs in ${c} are typically covered by your homeowner's policy. Here are typical project ranges:`,
   },
 };
 
@@ -3459,6 +3579,26 @@ const GUIDES = {
       {q:"What warranty should I expect?",a:"A quality contractor offers a written workmanship warranty of 1-2 years minimum. For bathroom tile work, ask about manufacturer warranties on the waterproofing system."},
     ],
     relatedPosts:["how-to-choose-remodeling-contractor-indiana","hamilton-county-remodeling-trends-2026"],
+  },
+  "insurance-restoration-hamilton-county":{
+    title:"The Complete Guide to Insurance Restoration in Hamilton County",
+    metaDesc:"Your Hamilton County home was damaged by water, fire, or storms. Here's everything you need to know about the insurance claim process, restoration timeline, and how to make sure your home is rebuilt right.",
+    service:"Insurance Restoration",serviceSlug:"insurance-restoration",
+    sections:[
+      {h:"Understanding Your Insurance Claim",p:["When water damage, fire, or storm damage hits your Hamilton County home, your homeowner's insurance policy is designed to restore it to pre-loss condition. The process starts with filing a claim, which assigns an adjuster to document the damage and create an estimate. Here's the critical part most homeowners don't know: the adjuster's initial estimate is often based on the minimum repair — not the full restoration your home needs. You have every right to get your own contractor's assessment, and you should.","At HomeStar, we don't just provide estimates — we become your advocate. We attend the adjuster inspection with you, walk every damaged area together, and present our own detailed documentation: photos, moisture readings, measurements, and a line-item scope of work that captures the full extent of the damage. Our assessments regularly identify 20-40% more damage than the initial adjuster estimate — hidden moisture behind walls, compromised subfloors, affected areas in adjacent rooms that a quick walkthrough misses."]},
+      {h:"How We Work With Your Insurance Adjuster",p:["This is what sets HomeStar apart from other restoration contractors. We work directly with your adjuster throughout the entire process — not just at the initial inspection. Here's what that looks like: First, we conduct our own thorough damage assessment with photo documentation, moisture mapping, and measurements. Then we attend the adjuster's inspection and present our findings side-by-side. If the adjuster's scope underestimates the needed repairs, we prepare and submit a detailed supplement with evidence. We communicate with your adjuster directly so you don't have to translate between construction language and insurance language.","Many homeowners are surprised to learn that insurance adjusters actually appreciate working with detailed contractors. A thorough, well-documented scope of work makes their job easier and leads to faster claim approvals. Vague estimates and missing documentation are what cause delays and denials. Our reputation with Hamilton County adjusters is built on being meticulous, honest, and thorough — which benefits you directly."]},
+      {h:"Water Damage: The Most Common Insurance Claim",p:["Supply line failures, burst pipes, appliance leaks, and plumbing failures are the most common causes of water damage in Hamilton County homes. When water damages your bathroom, kitchen, or basement, the restoration involves water extraction, structural drying, demolition of damaged materials, mold assessment, and complete rebuild.","When we rebuild a water-damaged bathroom, we install the complete Schluter waterproofing system — Ditra on floors, Kerdi on walls — so the restored bathroom is actually better protected than the original. Your insurance pays for the restoration; you get a bathroom with a 25-year waterproofing warranty."]},
+      {h:"Fire & Smoke Damage Restoration",p:["Kitchen fires, electrical fires, and furnace malfunctions can cause devastating damage — not just from flames but from smoke, soot, and water used to extinguish the fire. Restoration involves structural assessment, smoke and soot cleaning, demolition of damaged areas, complete rebuild of affected rooms, and odor elimination.","Fire damage restoration is complex and typically involves multiple specialists — structural engineers, remediation companies, and rebuilding contractors. HomeStar handles the rebuilding phase, working with your insurance company and remediation partners to deliver a seamless restoration."]},
+      {h:"Storm Damage in Indiana",p:["Indiana's severe weather — thunderstorms, high winds, hail, and occasional tornadoes — can damage roofs, siding, windows, and cause water intrusion into your home. When storm damage leads to interior water damage, the restoration extends beyond just fixing the exterior. We handle complete interior restoration after storm damage: drywall replacement, flooring, painting, and rebuilding any damaged bathrooms or kitchens."]},
+      {h:"The Restoration Timeline",p:["Minor water damage (single room): 1-3 weeks. Major water or fire damage (multiple rooms): 3-6 weeks. Catastrophic damage (whole floor or whole home): 2-4 months. The biggest variable isn't construction time — it's insurance approval. We provide thorough documentation to accelerate the approval process."]},
+      {h:"How to Get Started After Damage",p:["Call HomeStar at (317) 279-4798 for a damage assessment. We'll document everything, provide a detailed scope of work for your insurance company, and begin restoration as soon as your claim is approved. We serve Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, and all of Hamilton County."]},
+    ],
+    faq:[
+      {q:"Does insurance cover water damage repair?",a:"Homeowner's insurance typically covers sudden, accidental water damage — burst pipes, supply line failures, appliance leaks. It generally does not cover gradual leaks or flood water from outside (that requires separate flood insurance)."},
+      {q:"How long do I have to file an insurance claim?",a:"Most policies require prompt reporting — ideally within 24-48 hours. Document everything with photos and video before any cleanup begins, then contact your insurance company."},
+      {q:"Will my insurance premium increase if I file a claim?",a:"It depends on your carrier and claim history. Most single claims do not significantly increase premiums. The cost of NOT filing — paying $30,000+ out of pocket — is almost always worse than a modest premium increase."},
+    ],
+    relatedPosts:["bathroom-flooded-what-to-do","kitchen-water-damage-insurance-guide","storm-damage-repair-hamilton-county"],
   },
 };
 
