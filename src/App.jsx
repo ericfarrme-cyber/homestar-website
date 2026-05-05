@@ -1166,7 +1166,7 @@ function Blog(){
           <p className="sub" style={{margin:"0 auto"}}>Helpful guides, project inspiration, and homeowner tips from our team.</p>
         </div>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:22}}>
-          {BLOG.map((b,i)=>
+          {[...BLOG].reverse().map((b,i)=>
             <a key={b.slug} href={`/blog/${b.slug}`} className={vis?`fu d${i+1}`:""} style={{borderRadius:14,overflow:"hidden",border:`1px solid ${C.sand}`,transition:"all .3s",cursor:"pointer",textDecoration:"none",display:"block"}}
               onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.07)"}}
               onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
@@ -1920,14 +1920,16 @@ function NeighborhoodPage({hood}){
   useJobberForm();
 
   const services=[
-    {name:"Bathroom Remodeling",slug:"bathroom-remodeling",desc:"Custom tile, walk-in showers, frameless glass, Schluter waterproofing with 25-year warranty."},
-    {name:"Kitchen Remodeling",slug:"kitchen-remodeling",desc:"Custom cabinetry, quartz countertops, modern lighting, and layouts designed for how you live."},
-    {name:"Basement Finishing",slug:"basement-finishing",desc:"Entertainment areas, guest suites, home offices — transforming unused space into your favorite room."},
+    {name:"Bathroom Remodeling",slug:"bathroom-remodeling",desc:"Custom tile, walk-in showers, frameless glass, Schluter waterproofing with 25-year warranty.",hasHoodCombo:true},
+    {name:"Kitchen Remodeling",slug:"kitchen-remodeling",desc:"Custom cabinetry, quartz countertops, modern lighting, and layouts designed for how you live.",hasHoodCombo:true},
+    {name:"Basement Finishing",slug:"basement-finishing",desc:"Entertainment areas, guest suites, home offices — transforming unused space into your favorite room.",hasHoodCombo:true},
     {name:"Flooring Services",slug:"flooring-services",desc:"Luxury vinyl plank, hardwood, tile — installed with precision for a flawless finish."},
     {name:"Painting Services",slug:"painting-services",desc:"Interior and exterior painting with meticulous prep work and premium materials."},
     {name:"Decks & Outdoor Living",slug:"deck-builder",desc:"Composite and wood decks, patios, and outdoor living spaces built to last."},
+    {name:"Insurance Restoration",slug:"insurance-restoration",desc:"Water damage, fire damage, storm damage — we work directly with your adjuster and rebuild better than before."},
   ];
   const citySlugShort=hood.city.toLowerCase().replace(/ /g,"-");
+  const isLuxuryHood=LUXURY_HOODS.includes(hoodKey);
   const sameCity=Object.entries(NEIGHBORHOODS).filter(([k,v])=>v.citySlug===hood.citySlug&&v!==hood);
 
   /* Tier-based content generation */
@@ -2030,15 +2032,18 @@ function NeighborhoodPage({hood}){
             <p className="sub" style={{margin:"0 auto"}}>Every service backed by licensed professionals, certified craftsmanship, and transparent pricing.</p>
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:18}}>
-            {services.map(s=>
-              <a key={s.name} href={`/${s.slug}-${citySlugShort}-in`} style={{padding:"28px 24px",borderRadius:14,background:C.cream,border:`1px solid ${C.sand}`,textDecoration:"none",transition:"all .3s",display:"block"}}
+            {services.map(s=>{
+              const hoodComboUrl=s.hasHoodCombo&&isLuxuryHood?`/${s.slug}-${hoodKey}-${citySlugShort}-in`:null;
+              const cityComboUrl=`/${s.slug==="deck-builder"?"deck-builder":s.slug}-${citySlugShort}-in`;
+              const href=hoodComboUrl||cityComboUrl;
+              return <a key={s.name} href={href} style={{padding:"28px 24px",borderRadius:14,background:C.cream,border:`1px solid ${C.sand}`,textDecoration:"none",transition:"all .3s",display:"block"}}
                 onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.06)"}}
                 onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="none"}}>
                 <h4 className="display" style={{color:C.navy,fontSize:16,marginBottom:8}}>{s.name}</h4>
                 <p style={{color:C.gray,fontSize:13,lineHeight:1.7,marginBottom:14}}>{s.desc}</p>
-                <span style={{color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:5}}>{s.name} in {hood.city} {I.arrow}</span>
-              </a>
-            )}
+                <span style={{color:C.green,fontWeight:700,fontSize:13,display:"flex",alignItems:"center",gap:5}}>{s.name} in {hoodComboUrl?hood.name:hood.city} {I.arrow}</span>
+              </a>;
+            })}
           </div>
         </div>
       </section>
@@ -2238,6 +2243,7 @@ function CityPage({data}){
               {name:"Flooring Services",slug:"flooring-services",desc:"Luxury vinyl plank, hardwood, tile — installed with precision for a flawless finish."},
               {name:"Painting Services",slug:"painting-services",desc:"Interior and exterior painting with meticulous prep work and premium materials."},
               {name:"Decks & Outdoor Living",slug:"deck-builder",desc:"Composite and wood decks, patios, and outdoor living spaces built to last."},
+              {name:"Insurance Restoration",slug:"insurance-restoration",desc:"Water damage, fire, storm damage — we work directly with your adjuster and rebuild better than before."},
             ].map(s=>
               <a key={s.name} href={`/${s.slug}-${data.city.toLowerCase().replace(/ /g,"-")}-in`} style={{padding:"28px 24px",borderRadius:14,background:C.cream,border:`1px solid ${C.sand}`,textDecoration:"none",transition:"all .3s",display:"block"}}
                 onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.transform="translateY(-3px)";e.currentTarget.style.boxShadow="0 10px 36px rgba(0,0,0,.06)"}}
