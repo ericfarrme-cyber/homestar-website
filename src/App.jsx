@@ -310,6 +310,7 @@ const PROJECTS = [
 /* ─── SEO Helpers ─────────────────────────────────── */
 function useCanonical(path){
   useEffect(()=>{
+    if(path===null)return; /* null = don't set canonical, let page component handle it */
     let link=document.querySelector('link[rel="canonical"]');
     if(!link){link=document.createElement("link");link.rel="canonical";document.head.appendChild(link);}
     link.href="https://www.thehomestarservice.com"+(path?"/"+path:"");
@@ -4052,7 +4053,10 @@ export default function HomestarSite(){
   const[guidePage,setGuidePage]=useState(null);
   const[calcPage,setCalcPage]=useState(false);
   const[hoodSvcPage,setHoodSvcPage]=useState(null);
-  useCanonical("");
+
+  /* Canonical: null initially so sub-pages set their own. Homepage sets "" after router confirms no match. */
+  const isSubPage=blogPost||projectPage||authorPage||guidePage||calcPage||hoodSvcPage||neighborhoodPage||serviceCityPage||cityPage||servicePage;
+  useCanonical(isSubPage?null:"");
 
   useEffect(()=>{
     const path=window.location.pathname.replace(/^\//,"").replace(/\/$/,"");

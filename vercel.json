@@ -34,7 +34,19 @@
     { "source": "/contact/", "destination": "/#contact", "permanent": true },
     { "source": "/contact", "destination": "/#contact", "permanent": true },
     { "source": "/about/", "destination": "/#about", "permanent": true },
-    { "source": "/about", "destination": "/#about", "permanent": true }
+    { "source": "/about", "destination": "/#about", "permanent": true },
+    { "source": "/our-process/", "destination": "/#process", "permanent": true },
+    { "source": "/our-process", "destination": "/#process", "permanent": true },
+    { "source": "/request-estimate/", "destination": "/#estimate", "permanent": true },
+    { "source": "/request-estimate", "destination": "/#estimate", "permanent": true },
+    { "source": "/opt-out-preferences/", "destination": "/", "permanent": true },
+    { "source": "/opt-out-preferences", "destination": "/", "permanent": true },
+    { "source": "/privacy-policy/", "destination": "/", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/", "permanent": true },
+    { "source": "/portfolio-items/:path*", "destination": "/", "permanent": true },
+    { "source": "/portfolio_category/:path*", "destination": "/", "permanent": true },
+    { "source": "/services/flooring-services/", "destination": "/flooring-services", "permanent": true },
+    { "source": "/services/flooring-services", "destination": "/flooring-services", "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
