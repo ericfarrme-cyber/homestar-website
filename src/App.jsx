@@ -58,6 +58,59 @@ const PROCESS = [
  */
 const PROJECTS = [
   {
+    title: "Wet Room Master Bathroom Remodel in Fishers", slug: "wet-room-bathroom-fishers", city: "Fishers", service: "Bathroom Remodeling",
+    cat: "Bathroom",
+    color: "#7A8B7A",
+    desc: "A stunning wet room master bathroom remodel in Fishers featuring floor-to-ceiling stacked vertical tile, tiled shower ceiling, dual showerheads with Delta raincan system, frameless glass panels, penny mosaic floor, and champagne bronze Delta trim throughout.",
+    story: {challenge:"These Fishers homeowners built their home several years ago and plan to stay — but their master bathroom needed a massive upgrade. They wanted a true wet room experience with premium finishes while being smart about where to invest, choosing to retain their existing vanity and focus the budget on the shower transformation.",approach:"We removed the existing tub and opened the space into a full wet room with floor-to-ceiling stacked vertical tile — including the shower ceiling. Floor-to-ceiling frameless glass panels open the space wide while containing water. A penny mosaic tile floor adds texture underfoot. We installed a Delta raincan dual showerhead system so no one fights over the rainfall, plus a dedicated heated vent fan inside the shower so the space stays comfortable from the first step in to the last towel-off. Champagne bronze Delta trim ties everything together. Outside the shower, a full tile splash climbs from countertop to ceiling behind the double vanity — turning the back wall into a true design moment. Oval mirrors and brass-accented sconces complete the look. The complete Schluter waterproofing system was installed throughout — critical for a wet room where every surface is exposed to water. All plumbing by licensed plumber, all electrical by licensed electrician.",result:"This is what a true master bath should feel like — a complete wet room transformation that turned a dated builder-grade bathroom into a spa-worthy retreat. The homeowners saved smart by keeping their vanity while investing where it matters most: the shower experience, premium tile work, and proper Schluter waterproofing that protects their investment for 25+ years."},
+    images: [
+      { src: "/images/fishers-wetroom-1.jpg", alt: "Wet room master bathroom remodel in Fishers Indiana" },
+      { src: "/images/fishers-wetroom-2.jpg", alt: "Floor-to-ceiling tile wet room Fishers IN" },
+      { src: "/images/fishers-wetroom-3.jpg", alt: "Delta raincan shower system wet room Fishers Indiana" },
+      { src: "/images/fishers-wetroom-4.jpg", alt: "Champagne bronze shower fixtures wet room Fishers IN" },
+      { src: "/images/fishers-wetroom-5.jpg", alt: "Frameless glass panel wet room bathroom Fishers Indiana" },
+      { src: "/images/fishers-wetroom-6.jpg", alt: "Penny mosaic tile floor wet room Fishers IN" },
+      { src: "/images/fishers-wetroom-7.jpg", alt: "Stacked vertical tile shower ceiling Fishers Indiana" },
+      { src: "/images/fishers-wetroom-8.jpg", alt: "Double vanity with full tile splash Fishers IN wet room" },
+      { src: "/images/fishers-wetroom-9.jpg", alt: "Oval mirrors brass sconces wet room bathroom Fishers Indiana" },
+      { src: "/images/fishers-wetroom-10.jpg", alt: "Completed wet room master bathroom remodel Fishers IN" },
+    ],
+  },
+  {
+    title: "Three-Bathroom Remodel in Geist, Fishers", slug: "three-bathroom-remodel-geist", city: "Fishers", service: "Bathroom Remodeling",
+    cat: "Bathroom",
+    color: "#4A5A8B",
+    desc: "A whole-home bathroom transformation near Geist — master bath with navy crackle-glaze picket tile, freestanding soaker tub, and reconfigured layout, plus two children's bathroom remodels with coordinated finishes throughout.",
+    story: {challenge:"This Geist-area family wanted to upgrade all three bathrooms at once — the master bath plus both bathrooms for their teenage and college-aged children. The kids' bathrooms were dated and due for a refresh, but the master presented the bigger challenge: the existing layout wasn't conducive to a large shower, with an awkward entry door and linen closet eating up valuable space.",approach:"We tackled all three bathrooms as one unified project. In the master, we modified the entry door location and reconfigured the linen closet to create a much more efficient use of space — unlocking room for the large shower the homeowners wanted. The master became a top-to-bottom transformation: vaulted ceilings, double vanities with backlit mirrors, a custom storage tower built as the room's anchor, and a freestanding soaker tub positioned exactly where the morning light hits. The navy crackle-glaze picket tile — hand-glazed with a finish that makes every tile one-of-a-kind — became the signature of the space. Every detail was intentional: champagne bronze fixtures for warmth, matte black hardware for contrast, herringbone-laid floor tile for movement, heated floors for cold Indiana mornings, and a vintage pendant over the tub to tie it all together. The children's bathrooms received their own complete remodels with warm wood-tone vanities and coordinated finishes. The complete Schluter waterproofing system was installed across all three bathrooms. All plumbing by licensed plumber, all electrical by licensed electrician.",result:"Three beautifully remodeled bathrooms that transformed the entire home — a stunning master bath with navy crackle-glaze tile, freestanding tub, and a layout that finally works, plus two refreshed bathrooms for the kids. This is the kind of project we live for at HomeStar — where craftsmanship, design, and trust come together to create something homeowners will love for decades. Every surface protected by the Schluter waterproofing system and 25-year warranty."},
+    images: [
+      { src: "/images/geist-three-bath-1.jpg", alt: "Three-bathroom remodel near Geist Fishers Indiana" },
+      { src: "/images/geist-three-bath-2.jpg", alt: "Blue tile bathroom remodel Geist Fishers IN" },
+      { src: "/images/geist-three-bath-3.jpg", alt: "Wood vanity double sink bathroom Geist area" },
+      { src: "/images/geist-three-bath-4.jpg", alt: "Master bathroom remodel near Geist Fishers Indiana" },
+      { src: "/images/geist-three-bath-5.jpg", alt: "Freestanding tub blue tile accent wall Geist IN" },
+      { src: "/images/geist-three-bath-6.jpg", alt: "Guest bathroom remodel Geist Fishers Indiana" },
+      { src: "/images/geist-three-bath-7.jpg", alt: "Blue tile shower enclosure Geist bathroom remodel" },
+      { src: "/images/geist-three-bath-8.jpg", alt: "Wood tone vanity bathroom renovation Geist IN" },
+      { src: "/images/geist-three-bath-9.jpg", alt: "Three-bathroom renovation project Geist Fishers Indiana" },
+      { src: "/images/geist-three-bath-10.jpg", alt: "Completed three-bathroom remodel near Geist Fishers IN" },
+    ],
+  },
+  {
+    title: "Basement Bathroom Remodel in Carmel", slug: "basement-bathroom-carmel", city: "Carmel", service: "Bathroom Remodeling",
+    cat: "Bathroom",
+    color: "#6A7B8B",
+    desc: "A 20-year-old Carmel basement bathroom transformed with marble-look porcelain tile flooring, glass shower with brushed gold accents, dark vanity with quartz top, and warm transitional design throughout.",
+    story: {challenge:"After 20 years, this Carmel basement bathroom was long overdue for an upgrade. With their kids coming home from college for the summer, the homeowners wanted to surprise them with a completely refreshed space — turning a dated basement bath into something that felt fresh, modern, and welcoming.",approach:"We gave this basement bathroom a full glow-up with a clean, modern design and warm transitional touches. Marble-look polished porcelain tile flooring brightens the space, while a glass shower with brushed gold accents adds an elevated feel. A rich, dark vanity paired with a crisp quartz top creates the perfect contrast, and a round mirror with soft lighting brings warmth and balance. The complete Schluter waterproofing system was installed throughout — especially critical in a below-grade basement bathroom where moisture management is essential. All plumbing by licensed plumber, all electrical by licensed electrician.",result:"A cohesive, luxury basement bath that feels both fresh and timeless — the perfect surprise for kids coming home from college. What was a dated 20-year-old bathroom is now one of the nicest rooms in the house, built on proper Schluter waterproofing with a 25-year warranty."},
+    images: [
+      { src: "/images/carmel-basement-bath-1.jpg", alt: "Basement bathroom remodel in Carmel Indiana" },
+      { src: "/images/carmel-basement-bath-2.jpg", alt: "Marble-look porcelain tile basement bathroom Carmel IN" },
+      { src: "/images/carmel-basement-bath-3.jpg", alt: "Glass shower brushed gold accents basement bath Carmel Indiana" },
+      { src: "/images/carmel-basement-bath-4.jpg", alt: "Dark vanity quartz top basement bathroom Carmel IN" },
+      { src: "/images/carmel-basement-bath-5.jpg", alt: "Transitional design basement bathroom remodel Carmel Indiana" },
+      { src: "/images/carmel-basement-bath-6.jpg", alt: "Completed basement bathroom renovation Carmel IN" },
+    ],
+  },
+  {
     title: "Custom Green Tile Bathroom Remodel in Carmel",
     slug: "green-tile-bathroom-carmel",
     cat: "Bathroom", city: "Carmel", service: "Bathroom Remodeling",
@@ -310,7 +363,6 @@ const PROJECTS = [
 /* ─── SEO Helpers ─────────────────────────────────── */
 function useCanonical(path){
   useEffect(()=>{
-    if(path===null)return; /* null = don't set canonical, let page component handle it */
     let link=document.querySelector('link[rel="canonical"]');
     if(!link){link=document.createElement("link");link.rel="canonical";document.head.appendChild(link);}
     link.href="https://www.thehomestarservice.com"+(path?"/"+path:"");
@@ -743,12 +795,12 @@ function Nav({isCity}){
 /* ─── Hero ─────────────────────────────────────────── */
 /* ─── Hero Photo Showcase ──────────────────────────── */
 const HERO_PHOTOS = [
-  { src: "/images/fishers-spa-retreat-1.jpg", alt: "Spa retreat bathroom remodel in Fishers Indiana" },
+  { src: "/images/fishers-wetroom-2.jpg", alt: "Wet room master bathroom remodel in Fishers Indiana" },
+  { src: "/images/geist-three-bath-1.jpg", alt: "Three-bathroom remodel near Geist Fishers Indiana" },
+  { src: "/images/carmel-basement-bath-1.jpg", alt: "Basement bathroom remodel in Carmel Indiana" },
   { src: "/images/bathroom-green-tile-1.jpg", alt: "Custom green tile bathroom in Carmel Indiana" },
   { src: "/images/geist-upper-level-1.jpg", alt: "Upper level home remodel in Geist Indiana" },
   { src: "/images/zionsville-jack-and-jill-1.jpg", alt: "Jack and Jill bathroom remodel Zionsville Indiana" },
-  { src: "/images/fishers-double-shower-1.jpg", alt: "Double shower remodel in Fishers Indiana" },
-  { src: "/images/modern-farmhouse-1.jpg", alt: "Modern farmhouse bathroom Fishers Indiana" },
 ];
 
 function HeroShowcase(){
@@ -3232,6 +3284,9 @@ const PROJECT_STORIES = {
   "stamped-concrete-fishers":{challenge:"The backyard needed a durable, attractive patio surface that could handle Indiana weather while providing a great space for outdoor entertaining.",approach:"We designed and installed a stamped concrete patio with a pattern and color that complements the home's exterior. Proper grading ensures water drainage away from the foundation.",result:"A beautiful stamped concrete patio that provides years of low-maintenance outdoor living space — durable enough for Indiana weather, attractive enough for weekend entertaining."},
   "stamped-concrete-noblesville":{challenge:"A Noblesville homeowner wanted a patio that looked like natural stone without the maintenance — a durable surface for outdoor living.",approach:"We installed stamped concrete with a natural stone pattern, proper drainage grading, and a durable sealer to protect against Indiana's freeze-thaw cycles.",result:"A stamped concrete patio that delivers the look of natural stone with the durability and low maintenance of concrete — a smart investment for Indiana outdoor living."},
   "composite-deck-fishers":{challenge:"The homeowner wanted a spacious outdoor space for entertaining but was tired of the annual staining and maintenance that comes with a wood deck.",approach:"We designed and built a premium composite deck with white railing, dual staircases, and a layout optimized for entertaining. Composite decking requires zero staining or sealing and lasts 25-30 years.",result:"A beautiful, spacious composite deck that will look this good for 25+ years — zero annual maintenance, no staining, no sealing. Just outdoor living space the homeowner can actually enjoy instead of maintain."},
+  "wet-room-bathroom-fishers":{challenge:"These Fishers homeowners built their home several years ago and plan to stay — but their master bathroom needed a massive upgrade. They wanted a true wet room experience with premium finishes while being smart about where to invest, choosing to retain their existing vanity and focus the budget on the shower transformation.",approach:"We removed the existing tub and opened the space into a full wet room with floor-to-ceiling stacked vertical tile — including the shower ceiling. Floor-to-ceiling frameless glass panels open the space wide while containing water. A penny mosaic tile floor adds texture underfoot. We installed a Delta raincan dual showerhead system plus a dedicated heated vent fan inside the shower. Champagne bronze Delta trim ties everything together. Outside the shower, a full tile splash climbs from countertop to ceiling behind the double vanity. Oval mirrors and brass-accented sconces complete the look. The complete Schluter waterproofing system was installed throughout — critical for a wet room. All plumbing by licensed plumber, all electrical by licensed electrician.",result:"This is what a true master bath should feel like — a complete wet room transformation that turned a dated builder-grade bathroom into a spa-worthy retreat. The homeowners saved smart by keeping their vanity while investing where it matters most: the shower experience, premium tile work, and proper Schluter waterproofing that protects their investment for 25+ years."},
+  "three-bathroom-remodel-geist":{challenge:"This Geist-area family wanted to upgrade all three bathrooms at once — the master bath plus both bathrooms for their teenage and college-aged children. The kids' bathrooms were dated, and the master layout wasn't conducive to a large shower with an awkward entry door and linen closet eating up valuable space.",approach:"We modified the master's entry door location and reconfigured the linen closet to unlock room for the large shower. The master became a top-to-bottom transformation: vaulted ceilings, double vanities with backlit mirrors, a custom storage tower, freestanding soaker tub, navy crackle-glaze picket tile, champagne bronze fixtures, matte black hardware, herringbone floor tile, heated floors, and a vintage pendant over the tub. The children's bathrooms received complete remodels with warm wood-tone vanities and coordinated finishes. The complete Schluter waterproofing system was installed across all three bathrooms. All plumbing by licensed plumber, all electrical by licensed electrician.",result:"Three beautifully remodeled bathrooms that transformed the entire home — a stunning master bath with navy crackle-glaze tile, freestanding tub, and a layout that finally works, plus two refreshed bathrooms for the kids. Every surface protected by Schluter waterproofing and 25-year warranty."},
+  "basement-bathroom-carmel":{challenge:"After 20 years, this Carmel basement bathroom was long overdue for an upgrade. With their kids coming home from college for the summer, the homeowners wanted to surprise them with a completely refreshed space.",approach:"We gave this basement bathroom a full glow-up with marble-look polished porcelain tile flooring, a glass shower with brushed gold accents, a rich dark vanity with crisp quartz top, round mirror, and soft lighting. The complete Schluter waterproofing system was installed — especially critical in a below-grade basement bathroom. All plumbing by licensed plumber, all electrical by licensed electrician.",result:"A cohesive, luxury basement bath that feels both fresh and timeless — the perfect surprise for kids coming home from college. Built on proper Schluter waterproofing with a 25-year warranty."},
 };
 
 /* ─── Project Case Study Pages (19 pages) ─────────── */
@@ -3629,7 +3684,7 @@ function GuidePage({guide}){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Guides",url:"/#guides"},{name:guide.title}]}/>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Guides"},{name:guide.title}]}/>
       <FaqSchema faqs={guide.faq}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Article",headline:guide.title,description:guide.metaDesc,author:{"@type":"Person",name:"Eric Farr",url:"https://www.thehomestarservice.com/about/eric-farr"},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
 
@@ -3810,7 +3865,7 @@ function CostCalculator(){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Guides & Tools",url:"/#guides"},{name:"Cost Calculator"}]}/>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Tools"},{name:"Cost Calculator"}]}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"WebApplication",name:"Hamilton County Remodel Cost Calculator",applicationCategory:"HomeImprovement",operatingSystem:"Web",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},provider:{"@type":"Organization",name:"HomeStar Services & Contracting"}})}}/>
 
       <Nav isCity/>
@@ -4053,10 +4108,7 @@ export default function HomestarSite(){
   const[guidePage,setGuidePage]=useState(null);
   const[calcPage,setCalcPage]=useState(false);
   const[hoodSvcPage,setHoodSvcPage]=useState(null);
-
-  /* Canonical: null initially so sub-pages set their own. Homepage sets "" after router confirms no match. */
-  const isSubPage=blogPost||projectPage||authorPage||guidePage||calcPage||hoodSvcPage||neighborhoodPage||serviceCityPage||cityPage||servicePage;
-  useCanonical(isSubPage?null:"");
+  useCanonical("");
 
   useEffect(()=>{
     const path=window.location.pathname.replace(/^\//,"").replace(/\/$/,"");
