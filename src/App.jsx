@@ -376,7 +376,7 @@ function LeadForm(){
     const handler=(e)=>{
       if(e.data&&e.data.type==="homestar-form-height"){
         const iframe=document.getElementById("homestar-lead-form");
-        if(iframe)iframe.style.height=(e.data.height+20)+"px";
+        if(iframe)iframe.style.height=e.data.height+"px";
       }
     };
     window.addEventListener("message",handler);
