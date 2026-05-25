@@ -1557,13 +1557,8 @@ function Contact(){
               </p>
             </div>
             {/* Lead Form */}
-            <div id="estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Request a Free Estimate</h3>
-              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
+            <div id="estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px"}}>
               <LeadForm/>
-              <p style={{color:C.gray,fontSize:10,lineHeight:1.6,marginTop:14,textAlign:"center"}}>
-                By submitting this form, you agree to receive project-related text messages from HomeStar Services & Contracting. Message frequency varies. Msg & data rates may apply. Reply <strong>STOP</strong> to opt out. Reply <strong>HELP</strong> for help. Consent is not a condition of service. View our <a href="/privacy-policy.html" style={{color:C.green,textDecoration:"underline",fontSize:10}}>Privacy Policy</a> and <a href="/terms-and-conditions.html" style={{color:C.green,textDecoration:"underline",fontSize:10}}>Terms & Conditions</a>.
-              </p>
             </div>
           </div>
         </div>
@@ -2182,9 +2177,7 @@ function NeighborhoodPage({hood}){
                 <a href={`/${hood.citySlug}`} style={{color:C.green,fontWeight:600,fontSize:13,textDecoration:"none"}}>← Back to {hood.city} services</a>
               </div>
             </div>
-            <div id="hood-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
-              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Serving {hood.name} and all of {hood.city}, IN</p>
+            <div id="hood-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px"}}>
               <LeadForm/>
             </div>
           </div>
@@ -2412,9 +2405,7 @@ function CityPage({data}){
                 <a href="/" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← Back to main site</a>
               </div>
             </div>
-            <div id="city-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate in {data.city}</h3>
-              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
+            <div id="city-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px"}}>
               <LeadForm/>
             </div>
           </div>
@@ -2923,9 +2914,7 @@ function ServicePage({data,slug}){
                 <a href="/" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← Back to main site</a>
               </div>
             </div>
-            <div id="service-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free {data.service} Estimate</h3>
-              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
+            <div id="service-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px"}}>
               <LeadForm/>
             </div>
           </div>
@@ -3246,9 +3235,7 @@ function ServiceCityPage({svcData,cityData,svcKey}){
                 <a href={`/home-remodeling-${city.toLowerCase().replace(/ /g,"-")}-in`} style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← All {city} services</a>
               </div>
             </div>
-            <div id="svc-city-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free {svcData.service} Estimate in {city}</h3>
-              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
+            <div id="svc-city-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px"}}>
               <LeadForm/>
             </div>
           </div>
@@ -3422,9 +3409,7 @@ function ProjectPage({project}){
                 <a href="/#projects" style={{color:"rgba(255,255,255,.4)",fontWeight:600,fontSize:13,textDecoration:"none"}}>All Projects</a>
               </div>
             </div>
-            <div style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
-              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Tell us about your project.</p>
+            <div style={{background:"#fff",borderRadius:16,padding:"28px 24px"}}>
               <LeadForm/>
             </div>
           </div>
@@ -3813,9 +3798,7 @@ function GuidePage({guide}){
                 <a href="mailto:eric@thehomestarservice.com" style={{color:"#fff",fontSize:15,textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>{I.mail||"✉"} eric@thehomestarservice.com</a>
               </div>
             </div>
-            <div style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
-              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Serving all of Hamilton County, IN</p>
+            <div style={{background:"#fff",borderRadius:16,padding:"28px 24px"}}>
               <LeadForm/>
             </div>
           </div>
@@ -4081,9 +4064,7 @@ function HoodServicePage({hood,svc}){
                 <a href="mailto:eric@thehomestarservice.com" style={{color:"#fff",fontSize:15,textDecoration:"none",display:"flex",alignItems:"center",gap:10}}>{I.mail||"✉"} eric@thehomestarservice.com</a>
               </div>
             </div>
-            <div id="hsvc-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
-              <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
-              <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>{svc.name} in {hood.name}, {hood.city}</p>
+            <div id="hsvc-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px"}}>
               <LeadForm/>
             </div>
           </div>
