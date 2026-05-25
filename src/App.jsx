@@ -369,21 +369,20 @@ function useCanonical(path){
   },[path]);
 }
 
-function useJobberForm(){
+function useJobberForm(){} /* Legacy — replaced by LeadForm component */
+
+function LeadForm(){
   useEffect(()=>{
-    /* CSS — only add once */
-    if(!document.querySelector('link[href*="work_request_embed.css"]')){
-      const link=document.createElement("link");link.rel="stylesheet";link.href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css";link.media="screen";document.head.appendChild(link);
-    }
-    /* Script — remove old and re-add to force re-initialization */
-    const old=document.querySelector('script[src*="work_request_embed_snippet"]');
-    if(old)old.remove();
-    const s=document.createElement("script");
-    s.src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js";
-    s.setAttribute("clienthub_id","53500fa6-27db-4da1-a477-d8eaf804d81e-1520740");
-    s.setAttribute("form_url","https://clienthub.getjobber.com/client_hubs/53500fa6-27db-4da1-a477-d8eaf804d81e/public/work_request/embedded_work_request_form?form_id=1520740");
-    document.body.appendChild(s);
+    const handler=(e)=>{
+      if(e.data&&e.data.type==="homestar-form-height"){
+        const iframe=document.getElementById("homestar-lead-form");
+        if(iframe)iframe.style.height=(e.data.height+20)+"px";
+      }
+    };
+    window.addEventListener("message",handler);
+    return()=>window.removeEventListener("message",handler);
   },[]);
+  return <iframe id="homestar-lead-form" src="https://homestar-project-manager.vercel.app/?form=lead&company=homestar" width="100%" height="800" frameBorder="0" style={{maxWidth:700,margin:"0 auto",display:"block",border:"none"}} scrolling="no"/>;
 }
 
 function FaqSchema({faqs}){
@@ -1557,11 +1556,11 @@ function Contact(){
                 By texting us, you agree to receive project reminders and updates from HomeStar Services & Contracting. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out at any time. View our <a href="/privacy-policy.html" style={{color:"rgba(255,255,255,.4)",textDecoration:"underline"}}>Privacy Policy</a> and <a href="/terms-and-conditions.html" style={{color:"rgba(255,255,255,.4)",textDecoration:"underline"}}>Terms & Conditions</a>.
               </p>
             </div>
-            {/* Jobber form */}
+            {/* Lead Form */}
             <div id="estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
               <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Request a Free Estimate</h3>
               <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
-              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+              <LeadForm/>
               <p style={{color:C.gray,fontSize:10,lineHeight:1.6,marginTop:14,textAlign:"center"}}>
                 By submitting this form, you agree to receive project-related text messages from HomeStar Services & Contracting. Message frequency varies. Msg & data rates may apply. Reply <strong>STOP</strong> to opt out. Reply <strong>HELP</strong> for help. Consent is not a condition of service. View our <a href="/privacy-policy.html" style={{color:C.green,textDecoration:"underline",fontSize:10}}>Privacy Policy</a> and <a href="/terms-and-conditions.html" style={{color:C.green,textDecoration:"underline",fontSize:10}}>Terms & Conditions</a>.
               </p>
@@ -2186,7 +2185,7 @@ function NeighborhoodPage({hood}){
             <div id="hood-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
               <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
               <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Serving {hood.name} and all of {hood.city}, IN</p>
-              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+              <LeadForm/>
             </div>
           </div>
         </div>
@@ -2397,7 +2396,7 @@ function CityPage({data}){
         </div>
       </section>
 
-      {/* CTA + Jobber Form */}
+      {/* CTA + Lead Form */}
       <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
         <div className="sec-in">
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:48}}>
@@ -2416,7 +2415,7 @@ function CityPage({data}){
             <div id="city-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
               <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate in {data.city}</h3>
               <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
-              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+              <LeadForm/>
             </div>
           </div>
         </div>
@@ -2908,7 +2907,7 @@ function ServicePage({data,slug}){
         </div>
       </section>
 
-      {/* CTA + Jobber Form */}
+      {/* CTA + Lead Form */}
       <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
         <div className="sec-in">
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:48}}>
@@ -2927,7 +2926,7 @@ function ServicePage({data,slug}){
             <div id="service-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
               <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free {data.service} Estimate</h3>
               <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
-              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+              <LeadForm/>
             </div>
           </div>
         </div>
@@ -3230,7 +3229,7 @@ function ServiceCityPage({svcData,cityData,svcKey}){
         </div>
       </section>
 
-      {/* CTA + Jobber Form */}
+      {/* CTA + Lead Form */}
       <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
         <div className="sec-in">
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:48}}>
@@ -3250,7 +3249,7 @@ function ServiceCityPage({svcData,cityData,svcKey}){
             <div id="svc-city-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
               <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free {svcData.service} Estimate in {city}</h3>
               <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Fill out the form and we'll get back to you quickly.</p>
-              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+              <LeadForm/>
             </div>
           </div>
         </div>
@@ -3426,7 +3425,7 @@ function ProjectPage({project}){
             <div style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
               <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
               <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Tell us about your project.</p>
-              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+              <LeadForm/>
             </div>
           </div>
         </div>
@@ -3817,7 +3816,7 @@ function GuidePage({guide}){
             <div style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
               <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
               <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>Serving all of Hamilton County, IN</p>
-              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+              <LeadForm/>
             </div>
           </div>
         </div>
@@ -4085,7 +4084,7 @@ function HoodServicePage({hood,svc}){
             <div id="hsvc-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px",minHeight:400}}>
               <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:6,textAlign:"center"}}>Free Estimate</h3>
               <p style={{color:C.gray,fontSize:13,marginBottom:20,textAlign:"center"}}>{svc.name} in {hood.name}, {hood.city}</p>
-              <div id="53500fa6-27db-4da1-a477-d8eaf804d81e-1520740"></div>
+              <LeadForm/>
             </div>
           </div>
         </div>
