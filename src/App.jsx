@@ -3399,6 +3399,8 @@ function ProjectPage({project}){
               </div>
             </div>
           )}
+        </div>
+      </section>
 
       {/* Related Projects */}
       {related.length>0&&(
