@@ -58,6 +58,29 @@ const PROCESS = [
  */
 const PROJECTS = [
   {
+    title: "Luxury Basement Transformation in Westfield", slug: "westfield-basement-masterpiece", city: "Westfield", service: "Basement Finishing",
+    cat: "Basement",
+    color: "#5A6B7A",
+    desc: "A breathtaking lower-level transformation in Westfield featuring a full custom bar with porcelain brick backsplash and kegerator, a 14-foot stained red oak mantle above an electric fireplace, tongue-and-groove wood ceilings, faux beam wraps, dedicated gym and theater spaces, and a complete entertainment area. Designed in partnership with Dovetail Group.",
+    story: {challenge:"These Westfield homeowners had an expansive but unfinished lower level — a blank canvas with enormous potential. They wanted more than a typical finished basement; they envisioned a true destination within their home where family and friends could gather, entertain, work out, and unwind. They partnered with Dovetail Group, one of the premier interior design firms in the Indianapolis area, to develop the vision — and brought in HomeStar as one of Dovetail's preferred contractors to execute it.",approach:"This was a full demo and rebuild from the ground up. We installed new LVP flooring throughout for durability and a seamless, high-end look. The ceiling became a showpiece with tongue-and-groove wood and stained red oak faux beam wraps that bring warmth and architectural character to the entire space. The crown jewel is a 14-foot custom stained red oak mantle above an electric fireplace — a true statement piece. We built out a full custom bar with porcelain brick tile backsplash, a kegerator, beverage fridge, and integrated LED shelving. Wall features include \"chairs and squares\" wainscoting, custom bulkheads, and a black metal industrial stair railing. A complete lighting package ties it all together — pendants, sconces, and LED tape lighting throughout. The space includes dedicated zones for a games area with ping-pong, a home gym, a media/theater area, and comfortable lounge seating around the fireplace. All electrical by licensed electrician, all plumbing for the bar by licensed plumber.",result:"This is what happens when vision meets craftsmanship. A dramatic, magazine-worthy lower level that functions as entertainment hub, gym, theater, and gathering space all in one. Every cut, every detail, every finish was built to last and built to impress. The partnership with Dovetail Group produced a space that elevates the entire home — and stands as a showcase of what a true custom basement finish can be."},
+    designPartner: {name:"Dovetail Group", url:"https://dovetailgroupindy.com/"},
+    images: [
+      { src: "/images/westfield-basement-masterpiece-1.jpg", alt: "Luxury custom basement bar in Westfield Indiana" },
+      { src: "/images/westfield-basement-masterpiece-2.jpg", alt: "Basement entertainment area with wood ceiling Westfield IN" },
+      { src: "/images/westfield-basement-masterpiece-3.jpg", alt: "Finished basement lounge and games area Westfield Indiana" },
+      { src: "/images/westfield-basement-masterpiece-4.jpg", alt: "Custom bar with porcelain brick backsplash Westfield IN basement" },
+      { src: "/images/westfield-basement-masterpiece-5.jpg", alt: "Basement bar build-out with LED shelving Westfield Indiana" },
+      { src: "/images/westfield-basement-masterpiece-6.jpg", alt: "Stained red oak mantle electric fireplace Westfield IN basement" },
+      { src: "/images/westfield-basement-masterpiece-7.jpg", alt: "Custom basement bar kegerator Westfield Indiana" },
+      { src: "/images/westfield-basement-masterpiece-8.jpg", alt: "Basement ping pong games area Westfield IN" },
+      { src: "/images/westfield-basement-masterpiece-9.jpg", alt: "Home gym in finished basement Westfield Indiana" },
+      { src: "/images/westfield-basement-masterpiece-10.jpg", alt: "Basement home gym and fitness space Westfield IN" },
+      { src: "/images/westfield-basement-masterpiece-11.jpg", alt: "Basement bathroom with tile shower Westfield Indiana" },
+      { src: "/images/westfield-basement-masterpiece-12.jpg", alt: "Tongue and groove wood ceiling basement Westfield IN" },
+      { src: "/images/westfield-basement-masterpiece-13.jpg", alt: "Chairs and squares wainscoting basement feature wall Westfield Indiana" },
+    ],
+  },
+  {
     title: "Wet Room Master Bathroom Remodel in Fishers", slug: "wet-room-bathroom-fishers", city: "Fishers", service: "Bathroom Remodeling",
     cat: "Bathroom",
     color: "#7A8B7A",
@@ -161,6 +184,7 @@ const PROJECTS = [
     cat: "Whole Home",
     color: "#7B5A4A",
     desc: "Complete upper level transformation in a beautiful Geist residence — every room reimagined with modern finishes.",
+    designPartner: {name:"Dovetail Group", url:"https://dovetailgroupindy.com/"},
     images: [
       { src: "/images/geist-upper-level-1.jpg", alt: "Upper level home remodel in Geist Indiana" },
       { src: "/images/geist-upper-level-2.jpg", alt: "Geist home renovation upper level IN" },
@@ -218,6 +242,7 @@ const PROJECTS = [
     cat: "Bathroom",
     color: "#5A8B6A",
     desc: "A shared Jack & Jill bathroom gets a complete makeover with dual vanities and modern finishes in Zionsville.",
+    designPartner: {name:"Dovetail Group", url:"https://dovetailgroupindy.com/"},
     images: [
       { src: "/images/zionsville-jack-and-jill-1.jpg", alt: "Jack and Jill bathroom remodel in Zionsville Indiana" },
       { src: "/images/zionsville-jack-and-jill-2.jpg", alt: "Jack and Jill bathroom renovation Zionsville IN" },
@@ -794,11 +819,11 @@ function Nav({isCity}){
 /* ─── Hero ─────────────────────────────────────────── */
 /* ─── Hero Photo Showcase ──────────────────────────── */
 const HERO_PHOTOS = [
-  { src: "/images/fishers-wetroom-2.jpg", alt: "Wet room master bathroom remodel in Fishers Indiana" },
+  { src: "/images/westfield-basement-masterpiece-1.jpg", alt: "Luxury custom basement remodel in Westfield Indiana" },
   { src: "/images/geist-three-bath-1.jpg", alt: "Three-bathroom remodel near Geist Fishers Indiana" },
-  { src: "/images/carmel-basement-bath-1.jpg", alt: "Basement bathroom remodel in Carmel Indiana" },
-  { src: "/images/bathroom-green-tile-1.jpg", alt: "Custom green tile bathroom in Carmel Indiana" },
   { src: "/images/geist-upper-level-1.jpg", alt: "Upper level home remodel in Geist Indiana" },
+  { src: "/images/fishers-wetroom-2.jpg", alt: "Wet room master bathroom remodel in Fishers Indiana" },
+  { src: "/images/bathroom-green-tile-1.jpg", alt: "Custom green tile bathroom in Carmel Indiana" },
   { src: "/images/zionsville-jack-and-jill-1.jpg", alt: "Jack and Jill bathroom remodel Zionsville Indiana" },
 ];
 
@@ -807,7 +832,7 @@ function HeroShowcase(){
   useEffect(()=>{
     /* Preload first 2 images immediately */
     HERO_PHOTOS.slice(0,2).forEach(p=>{const img=new Image();img.src=p.src;});
-    const timer=setInterval(()=>setIdx(i=>(i+1)%HERO_PHOTOS.length),4000);
+    const timer=setInterval(()=>setIdx(i=>(i+1)%HERO_PHOTOS.length),5500);
     return()=>clearInterval(timer);
   },[]);
   return(
@@ -3366,8 +3391,14 @@ function ProjectPage({project}){
             <div><div style={{color:C.gray,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Waterproofing</div><div style={{color:C.navy,fontWeight:700,fontSize:15}}>Schluter Pro Certified</div></div>
             <div><div style={{color:C.gray,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Licensed Trades</div><div style={{color:C.navy,fontWeight:700,fontSize:15}}>Plumbing & Electrical</div></div>
           </div>
-        </div>
-      </section>
+          {project.designPartner&&(
+            <div style={{marginTop:20,padding:"20px 24px",borderRadius:12,background:`linear-gradient(135deg,${C.navyDark},${C.navy})`,display:"flex",alignItems:"center",gap:14,flexWrap:"wrap"}}>
+              <div style={{flex:"1 1 300px"}}>
+                <div style={{color:C.green,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Design Partner</div>
+                <p style={{color:"rgba(255,255,255,.85)",fontSize:14,lineHeight:1.6,margin:0}}>Designed in collaboration with <a href={project.designPartner.url} target="_blank" rel="noopener noreferrer" style={{color:"#fff",fontWeight:700,textDecoration:"underline"}}>{project.designPartner.name}</a>, one of the premier interior design firms in the Indianapolis area. HomeStar is proud to be one of their preferred contractors.</p>
+              </div>
+            </div>
+          )}
 
       {/* Related Projects */}
       {related.length>0&&(
