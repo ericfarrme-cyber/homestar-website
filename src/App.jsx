@@ -763,7 +763,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:${C.text};overflow-x:hidde
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:${C.cream}}::-webkit-scrollbar-thumb{background:${C.navy};border-radius:3px}
 
 @media(max-width:900px){.desk{display:none!important}.mob-btn{display:flex!important}.hero-grid{grid-template-columns:1fr!important;gap:32px!important}}
-@media(max-width:760px){#hero{display:block!important;min-height:auto!important;padding-bottom:0!important}.hero-content{padding:130px 24px 50px!important}.hero-trustbar{position:static!important;backdrop-filter:none!important;background:rgba(17,29,53,.95)!important;padding:20px 24px!important}.hero-trustbar-inner{display:grid!important;grid-template-columns:1fr 1fr!important;gap:16px 20px!important;justify-content:start!important}.hero-trust-item{flex-direction:column!important;align-items:flex-start!important;gap:2px!important}.hero-dots{display:none!important}}
+@media(max-width:760px){#hero{display:block!important;min-height:auto!important;padding-bottom:0!important}.hero-bg-img{height:78vh!important}.hero-overlay{height:78vh!important}.hero-content{padding:120px 22px 44px!important;min-height:78vh!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}.hero-trustbar{position:static!important;backdrop-filter:none!important;background:#0d1830!important;padding:24px 22px!important;border-top:2px solid #5CB832!important}.hero-trustbar-inner{display:grid!important;grid-template-columns:1fr 1fr!important;gap:20px 18px!important;justify-content:start!important}.hero-trust-item{flex-direction:column!important;align-items:flex-start!important;gap:1px!important}.hero-dots{display:none!important}}
 @media(min-width:901px){.mob-btn{display:none!important}.mob-menu{display:none!important}}
 `;
 
@@ -840,12 +840,12 @@ function Hero(){
     <section id="hero" style={{position:"relative",minHeight:"100vh",display:"flex",alignItems:"center",background:C.navyDark,overflow:"hidden"}}>
       {/* Full-bleed background image carousel */}
       {HERO_PHOTOS.map((p,i)=>(
-        <img key={p.src} src={p.src} alt={p.alt} loading={i<2?"eager":"lazy"} fetchpriority={i===0?"high":undefined}
-          style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",opacity:idx===i?1:0,transition:"opacity 1.4s ease-in-out",zIndex:0}}/>
+        <img key={p.src} src={p.src} alt={p.alt} loading={i<2?"eager":"lazy"} fetchpriority={i===0?"high":undefined} className="hero-bg-img"
+          style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",objectFit:"cover",opacity:idx===i?1:0,transition:"opacity 1.4s ease-in-out",zIndex:0}}/>
       ))}
       {/* Dark gradient overlay for text legibility */}
-      <div style={{position:"absolute",inset:0,zIndex:1,background:`linear-gradient(100deg,${C.navyDark}f2 0%,${C.navyDark}e0 32%,${C.navyDark}80 60%,${C.navyDark}30 100%)`}}/>
-      <div style={{position:"absolute",inset:0,zIndex:1,background:`linear-gradient(to top,${C.navyDark}cc 0%,transparent 30%)`}}/>
+      <div className="hero-overlay" style={{position:"absolute",top:0,left:0,right:0,height:"100%",zIndex:1,background:`linear-gradient(100deg,${C.navyDark}f2 0%,${C.navyDark}e0 32%,${C.navyDark}80 60%,${C.navyDark}30 100%)`}}/>
+      <div className="hero-overlay" style={{position:"absolute",top:0,left:0,right:0,height:"100%",zIndex:1,background:`linear-gradient(to top,${C.navyDark}cc 0%,transparent 30%)`}}/>
 
       {/* Hero content */}
       <div className="hero-content" style={{maxWidth:1160,margin:"0 auto",padding:"120px 24px 130px",position:"relative",zIndex:2,width:"100%"}}>
@@ -871,12 +871,12 @@ function Hero(){
       </div>
 
       {/* Slim trust bar pinned to bottom */}
-      <div className="fu d5 hero-trustbar" style={{position:"absolute",bottom:0,left:0,right:0,zIndex:3,background:"rgba(17,29,53,.72)",backdropFilter:"blur(8px)",borderTop:"1px solid rgba(255,255,255,.1)",padding:"16px 24px"}}>
+      <div className="hero-trustbar" style={{position:"absolute",bottom:0,left:0,right:0,zIndex:3,background:"rgba(13,24,48,.82)",backdropFilter:"blur(8px)",borderTop:"1px solid rgba(92,184,50,.4)",padding:"16px 24px"}}>
         <div className="hero-trustbar-inner" style={{maxWidth:1160,margin:"0 auto",display:"flex",flexWrap:"wrap",gap:"14px 40px",alignItems:"center",justifyContent:"center"}}>
           {[{n:"100+",l:"Projects Completed"},{n:"5.0★",l:"Google Rating"},{n:"25-Year",l:"Waterproofing Warranty"},{n:"1-Year",l:"Workmanship Warranty"},{n:"100%",l:"Licensed & Insured"}].map(b=>
             <div key={b.l} className="hero-trust-item" style={{display:"flex",alignItems:"baseline",gap:8}}>
-              <span className="display" style={{color:C.green,fontSize:20,fontWeight:800}}>{b.n}</span>
-              <span style={{color:"rgba(255,255,255,.65)",fontSize:12.5,fontWeight:600,letterSpacing:".02em"}}>{b.l}</span>
+              <span className="display" style={{color:"#6FD13C",fontSize:20,fontWeight:800}}>{b.n}</span>
+              <span style={{color:"rgba(255,255,255,.92)",fontSize:12.5,fontWeight:600,letterSpacing:".02em"}}>{b.l}</span>
             </div>
           )}
         </div>
