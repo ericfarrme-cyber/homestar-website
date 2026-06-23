@@ -763,6 +763,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:${C.text};overflow-x:hidde
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:${C.cream}}::-webkit-scrollbar-thumb{background:${C.navy};border-radius:3px}
 
 @media(max-width:900px){.desk{display:none!important}.mob-btn{display:flex!important}.hero-grid{grid-template-columns:1fr!important;gap:32px!important}}
+@media(max-width:760px){.hero-trustbar{position:static!important;backdrop-filter:none!important}.hero-trustbar>div{gap:12px 24px!important}.hero-dots{display:none!important}#hero{min-height:auto!important;padding-bottom:0!important}}
 @media(min-width:901px){.mob-btn{display:none!important}.mob-menu{display:none!important}}
 `;
 
@@ -827,73 +828,66 @@ const HERO_PHOTOS = [
   { src: "/images/zionsville-jack-and-jill-1.jpg", alt: "Jack and Jill bathroom remodel Zionsville Indiana" },
 ];
 
-function HeroShowcase(){
+function Hero(){
   const[idx,setIdx]=useState(0);
   useEffect(()=>{
     /* Preload first 2 images immediately */
     HERO_PHOTOS.slice(0,2).forEach(p=>{const img=new Image();img.src=p.src;});
-    const timer=setInterval(()=>setIdx(i=>(i+1)%HERO_PHOTOS.length),5500);
+    const timer=setInterval(()=>setIdx(i=>(i+1)%HERO_PHOTOS.length),6000);
     return()=>clearInterval(timer);
   },[]);
   return(
-    <div className="fu d3" style={{position:"relative",width:"100%",height:"100%",minHeight:420,borderRadius:20,overflow:"hidden",boxShadow:"0 20px 60px rgba(0,0,0,.3)"}}>
+    <section id="hero" style={{position:"relative",minHeight:"100vh",display:"flex",alignItems:"center",background:C.navyDark,overflow:"hidden"}}>
+      {/* Full-bleed background image carousel */}
       {HERO_PHOTOS.map((p,i)=>(
         <img key={p.src} src={p.src} alt={p.alt} loading={i<2?"eager":"lazy"} fetchpriority={i===0?"high":undefined}
-          style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",opacity:idx===i?1:0,transition:"opacity 1.2s ease-in-out"}}/>
+          style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",opacity:idx===i?1:0,transition:"opacity 1.4s ease-in-out",zIndex:0}}/>
       ))}
-      {/* Subtle gradient overlay at bottom */}
-      <div style={{position:"absolute",bottom:0,left:0,right:0,height:100,background:"linear-gradient(transparent,rgba(17,29,53,.6))"}}/>
-      {/* Photo counter */}
-      <div style={{position:"absolute",bottom:16,right:16,display:"flex",gap:6}}>
-        {HERO_PHOTOS.map((_,i)=>(
-          <div key={i} style={{width:idx===i?20:6,height:6,borderRadius:3,background:idx===i?"#fff":"rgba(255,255,255,.35)",transition:"all .4s ease"}}/>
-        ))}
-      </div>
-    </div>
-  );
-}
+      {/* Dark gradient overlay for text legibility */}
+      <div style={{position:"absolute",inset:0,zIndex:1,background:`linear-gradient(100deg,${C.navyDark}f2 0%,${C.navyDark}e0 32%,${C.navyDark}80 60%,${C.navyDark}30 100%)`}}/>
+      <div style={{position:"absolute",inset:0,zIndex:1,background:`linear-gradient(to top,${C.navyDark}cc 0%,transparent 30%)`}}/>
 
-function Hero(){
-  return(
-    <section id="hero" style={{position:"relative",minHeight:"100vh",display:"flex",alignItems:"center",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`,overflow:"hidden"}}>
-      <div style={{position:"absolute",top:-80,right:-80,width:500,height:500,borderRadius:"50%",background:"radial-gradient(circle,rgba(92,184,50,.1) 0%,transparent 70%)"}}/>
-      <div style={{position:"absolute",bottom:-120,left:-120,width:550,height:550,borderRadius:"50%",background:"radial-gradient(circle,rgba(92,184,50,.06) 0%,transparent 65%)"}}/>
-      <div style={{position:"absolute",inset:0,opacity:.025,backgroundImage:"linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)",backgroundSize:"64px 64px"}}/>
-
-      <div style={{maxWidth:1160,margin:"0 auto",padding:"140px 24px 100px",position:"relative",zIndex:2,width:"100%"}}>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:48,alignItems:"center"}} className="hero-grid">
-          {/* Left: Text */}
-          <div>
-            <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:26}}>
-              <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
-              <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>FAMILY-OWNED • HAMILTON COUNTY, IN</span>
-            </div>
-
-            <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(36px,5.5vw,60px)",lineHeight:1.06,marginBottom:22}}>
-              Major Projects.<br/><span style={{color:C.green}}>Master Craftsmanship.</span>
-            </h1>
-
-            <p className="fu d3" style={{color:"rgba(255,255,255,.6)",fontSize:18,lineHeight:1.7,maxWidth:520,marginBottom:36}}>
-              Full-service home remodeling for Hamilton County, Indiana and the surrounding communities. Licensed contractors, honest pricing, and results that speak for themselves.
-            </p>
-
-            <div className="fu d4" style={{display:"flex",flexWrap:"wrap",gap:14}}>
-              <a href="#estimate" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
-              <a href="#services" className="btn-o">View Our Services</a>
-            </div>
-
-            <div className="fu d5" style={{display:"flex",flexWrap:"wrap",gap:36,marginTop:52}}>
-              {[{n:"100+",l:"Projects Completed"},{n:"1-Year",l:"Workmanship Warranty"},{n:"5.0★",l:"Google Rating"},{n:"25-Year",l:"Schluter Waterproofing Warranty"},{n:"100%",l:"Licensed & Insured"}].map(b=>
-                <div key={b.l}><div className="display" style={{color:C.green,fontSize:26,fontWeight:800}}>{b.n}</div><div style={{color:"rgba(255,255,255,.4)",fontSize:12,fontWeight:600,letterSpacing:".03em",marginTop:2}}>{b.l}</div></div>
-              )}
-            </div>
+      {/* Hero content */}
+      <div style={{maxWidth:1160,margin:"0 auto",padding:"120px 24px 130px",position:"relative",zIndex:2,width:"100%"}}>
+        <div style={{maxWidth:680}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(92,184,50,.18)",border:"1px solid rgba(92,184,50,.35)",borderRadius:50,padding:"7px 16px",marginBottom:26}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:"#9ED463",fontWeight:700,fontSize:12,letterSpacing:".06em"}}>FAMILY-OWNED • HAMILTON COUNTY, IN</span>
           </div>
 
-          {/* Right: Photo showcase */}
-          <HeroShowcase/>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(40px,6vw,68px)",lineHeight:1.04,marginBottom:24,textShadow:"0 2px 30px rgba(0,0,0,.4)"}}>
+            Major Projects.<br/><span style={{color:C.green}}>Master Craftsmanship.</span>
+          </h1>
+
+          <p className="fu d3" style={{color:"rgba(255,255,255,.82)",fontSize:19,lineHeight:1.7,maxWidth:540,marginBottom:36,textShadow:"0 1px 16px rgba(0,0,0,.5)"}}>
+            Full-service home remodeling for Hamilton County, Indiana and the surrounding communities. Licensed contractors, honest pricing, and results that speak for themselves.
+          </p>
+
+          <div className="fu d4" style={{display:"flex",flexWrap:"wrap",gap:14}}>
+            <a href="#estimate" className="btn-g" style={{fontSize:15,padding:"16px 34px"}}>Get a Free Estimate {I.arrow}</a>
+            <a href="#services" className="btn-o">View Our Services</a>
+          </div>
         </div>
       </div>
-      <div style={{position:"absolute",bottom:-2,left:0,right:0,height:70,background:"#fff",clipPath:"polygon(0 100%,100% 100%,100% 0)"}}/>
+
+      {/* Slim trust bar pinned to bottom */}
+      <div className="fu d5 hero-trustbar" style={{position:"absolute",bottom:0,left:0,right:0,zIndex:3,background:"rgba(17,29,53,.72)",backdropFilter:"blur(8px)",borderTop:"1px solid rgba(255,255,255,.1)",padding:"16px 24px"}}>
+        <div style={{maxWidth:1160,margin:"0 auto",display:"flex",flexWrap:"wrap",gap:"14px 40px",alignItems:"center",justifyContent:"center"}}>
+          {[{n:"100+",l:"Projects Completed"},{n:"5.0★",l:"Google Rating"},{n:"25-Year",l:"Waterproofing Warranty"},{n:"1-Year",l:"Workmanship Warranty"},{n:"100%",l:"Licensed & Insured"}].map(b=>
+            <div key={b.l} style={{display:"flex",alignItems:"baseline",gap:8}}>
+              <span className="display" style={{color:C.green,fontSize:20,fontWeight:800}}>{b.n}</span>
+              <span style={{color:"rgba(255,255,255,.65)",fontSize:12.5,fontWeight:600,letterSpacing:".02em"}}>{b.l}</span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Carousel position indicators */}
+      <div style={{position:"absolute",bottom:90,right:24,zIndex:3,display:"flex",gap:6}} className="hero-dots">
+        {HERO_PHOTOS.map((_,i)=>(
+          <div key={i} style={{width:idx===i?20:6,height:6,borderRadius:3,background:idx===i?"#fff":"rgba(255,255,255,.4)",transition:"all .4s ease"}}/>
+        ))}
+      </div>
     </section>
   );
 }
