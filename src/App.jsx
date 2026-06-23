@@ -826,6 +826,7 @@ const HERO_PHOTOS = [
   { src: "/images/fishers-wetroom-2.jpg", alt: "Wet room master bathroom remodel in Fishers Indiana" },
   { src: "/images/bathroom-green-tile-1.jpg", alt: "Custom green tile bathroom in Carmel Indiana" },
   { src: "/images/zionsville-jack-and-jill-1.jpg", alt: "Jack and Jill bathroom remodel Zionsville Indiana" },
+  { src: "/images/geist-three-bath-6.jpg", alt: "Three-bathroom remodel near Geist Fishers Indiana" },
 ];
 
 function Hero(){
