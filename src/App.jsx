@@ -496,6 +496,33 @@ function ServiceCityLinks({currentService,currentCity}){
 }
 
 const BLOG = [
+  { slug:"basement-finishing-cost-hamilton-county", title: "How Much Does It Cost to Finish a Basement in Hamilton County? (2026 Real Numbers)", date: "Jun 25, 2026", read: "9 min", cat: "Basement", excerpt: "Real basement finishing costs for Fishers, Carmel, Westfield, and Noblesville — broken down by tier, per square foot, add-ons, permits, and ROI. Honest numbers from a local licensed contractor.",
+    body: [
+      "If you've searched \"how much does it cost to finish a basement\" you've probably found wildly different answers — everything from $20,000 to $200,000. That's because basement finishing costs depend entirely on size, layout, and finish level. As a licensed contractor that finishes basements across Hamilton County every month, here are the real, current numbers for 2026.",
+      "The short answer: basement finishing in Hamilton County typically costs $45,000 to $200,000+, with most homeowners investing between $55,000 and $95,000 for a fully finished lower level. Below, we break that down by tier so you can see exactly where your project would land.",
+      "Tier 1 — Essential Finish: $45,000 to $65,000. This is an open-concept living space with LVP flooring, drywall, recessed lighting, paint, and egress compliance — no bathroom or bar. It works out to roughly $55 to $75 per square foot. This tier is ideal for a family room, play area, or simple bonus space. It's the most budget-friendly way to add finished square footage, but at HomeStar this still includes licensed electrical, proper moisture management, and full permitting.",
+      "Tier 2 — Premium Finish: $65,000 to $95,000. This is the most popular tier for Hamilton County families. It includes multiple defined rooms plus a full bathroom, custom built-ins, an upgraded lighting package, and a wet bar rough-in. Expect about $75 to $110 per square foot. This is the level where your basement becomes a true extension of your home — a guest suite, a home office, a gym, or a combination.",
+      "Tier 3 — Luxury Custom: $95,000 to $200,000+. This is a full custom build. Our Westfield Masterpiece project came in around $150,000 and included a full custom bar with a kegerator and porcelain brick backsplash, a 14-foot stained red oak mantle above an electric fireplace, tongue-and-groove wood ceilings, a home theater area, a dedicated gym, \"chairs and squares\" wainscoting, and designer finishes throughout — designed in partnership with Dovetail Group. Luxury custom basements run roughly $110 to $175 per square foot.",
+      "Common add-on costs. Many homeowners add features beyond the base build. Here's what they typically cost in Hamilton County: a full bathroom (Schluter waterproofed) runs $18,000 to $30,000; a wet bar or kitchenette runs $12,000 to $28,000; an egress window to make a legal bedroom runs $4,000 to $7,000; a home theater build-out runs $10,000 to $25,000; and a custom fireplace with a mantle feature runs $6,000 to $15,000.",
+      "What drives the cost up or down? Five main factors: square footage (larger basements need more materials and labor), the number of rooms (more walls, doors, and defined spaces add cost), plumbing and electrical (adding a bathroom or wet bar requires licensed trades and permits), finish level (LVP versus tile, basic versus designer lighting, stock versus custom built-ins), and structural needs (egress windows, ceiling height adjustments, or moisture remediation).",
+      "Permit costs in Hamilton County. Finishing a basement requires permits in Fishers, Carmel, Noblesville, Westfield, Zionsville, and surrounding municipalities for framing, electrical, plumbing, and HVAC. Permit costs typically total $200 to $500. HomeStar handles the entire permitting and inspection process and pays for required permits as part of your project — you don't have to navigate the municipal office yourself.",
+      "How long does it take? An essential finish takes 4 to 6 weeks. A premium finish with a bathroom and multiple rooms takes 6 to 10 weeks. A full luxury custom build-out takes 10 to 16+ weeks. We provide a detailed timeline before any work begins so you know exactly what to expect.",
+      "Is it worth it? The ROI question. A finished basement in Hamilton County typically recoups 70 to 75% of its cost at resale while adding 600 to 1,500+ square feet of usable living space. Because the foundation and shell already exist, it's the lowest cost-per-square-foot way to add living space — far cheaper than a home addition. In competitive markets like Carmel, Fishers, and Westfield, a finished basement is often the feature that gets a home sold faster and at a higher price.",
+      "Why the contractor you choose changes the price. The cheapest bid is rarely the best value in a basement. Low-cost contractors often use moisture-prone materials, subcontract the licensed trades to the lowest bidder, or skip proper waterproofing — which leads to mold, failed inspections, and expensive rework. At HomeStar, every basement includes design and 3D renderings, framing, licensed electrical, licensed plumbing, HVAC, flooring, permits, inspections, and final finishes — all handled in-house, backed by a 1-year workmanship warranty. Basement bathrooms use the Schluter waterproofing system with a 25-year manufacturer's warranty.",
+      "Ready for a real number on your basement? Every home is different, so the best way to get an accurate figure is a free in-home consultation where we assess your space, discuss your vision, and provide a detailed estimate. Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com. We finish basements in Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville, McCordsville, and Pendleton."
+    ]},
+  { slug:"basement-finishing-permits-hamilton-county", title: "Basement Finishing Permits in Hamilton County: Costs, Timeline & What to Know", date: "Jun 22, 2026", read: "7 min", cat: "Basement", excerpt: "Do you need a permit to finish your basement in Fishers or Carmel? Yes. Here's exactly what's required, what it costs, how long inspections take, and why skipping permits is a costly mistake.",
+    body: [
+      "One of the first questions homeowners ask us about finishing a basement is whether they really need a permit. The answer is yes — and understanding why protects your investment, your safety, and your home's resale value. Here's everything Hamilton County homeowners need to know about basement permits in 2026.",
+      "Do you need a permit to finish a basement in Hamilton County? Yes. Finishing a basement requires permits in every Hamilton County municipality — Fishers, Carmel, Noblesville, Westfield, Zionsville, and the surrounding towns. Any project that adds framing, electrical wiring, plumbing, or HVAC modifications triggers permit requirements. Since finishing a basement involves all of these, a permit is non-negotiable.",
+      "What permits are required? Most basement finishing projects need a building permit (for framing, walls, and egress) plus separate trade permits for electrical, plumbing, and HVAC work. If you're adding a bathroom or wet bar, the plumbing permit becomes especially important. Each permit corresponds to an inspection at the appropriate stage of the project.",
+      "How much do basement permits cost? In Hamilton County, basement permits typically total $200 to $500 depending on the municipality and the scope of trade work involved. This is a small fraction of the overall project cost — and at HomeStar, we pay for required permits and handle the entire process as part of your project. You never have to visit a municipal office or fill out a permit application yourself.",
+      "Why permits matter more than you think. Skipping permits to save a few hundred dollars is one of the most expensive mistakes a homeowner can make. Here's why: unpermitted work can fail to count as legal finished square footage when you sell, meaning you lose the resale value you paid for. Unpermitted electrical and plumbing can void your homeowner's insurance if a problem occurs. And if a future buyer's inspector discovers unpermitted work, you may be forced to tear out finished walls to expose the work for retroactive inspection — turning a $300 permit into a five-figure problem.",
+      "The inspection process and timeline. Inspections happen at key stages: after rough-in (framing, electrical, and plumbing are in place but before drywall) and at final completion. The rough-in inspection is critical because it verifies that wiring, plumbing, and framing meet code before they're covered up. Scheduling inspections adds a few days to the timeline, which is why working with an experienced contractor who knows the local inspectors and process keeps your project moving smoothly.",
+      "Egress requirements — the safety rule that's easy to miss. If your finished basement includes a bedroom, code requires an egress window or door — a legally sized opening that allows escape in an emergency and entry for first responders. Many homeowners don't realize a basement room can't be marketed or counted as a bedroom without proper egress. Adding an egress window runs $4,000 to $7,000, and we handle the structural cutting, well installation, and code compliance.",
+      "Why HomeStar handles all of it. Permitting is one of the biggest reasons to hire a licensed full-service contractor rather than piecing the work together yourself. We pull the permits, schedule and meet the inspectors, and ensure every stage passes code. Our electrical work is done by licensed electricians and our plumbing by licensed plumbers — which means inspections pass the first time. When your basement is done, it's legal, safe, fully permitted finished square footage that adds real value to your home.",
+      "Planning a basement project in Hamilton County? We handle design, permits, construction, and inspections from start to finish across Fishers, Carmel, Noblesville, Westfield, Zionsville, and surrounding areas. Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com."
+    ]},
   { slug:"bathroom-tile-failure-prevention", title: "Why Your Bathroom Tile Might Fail in 5 Years (And How to Prevent It)", date: "Mar 5, 2026", read: "7 min", cat: "Bathroom", excerpt: "Most tile failures aren't about the tile — they're about what's underneath. Learn why the Schluter waterproofing system outperforms standard cement board and protects your remodel for decades.",
     body: [
       "Most homeowners spend weeks choosing the perfect tile for their bathroom remodel. They agonize over color, texture, pattern, and size. But here's what almost nobody talks about: what goes under that tile matters more than the tile itself.",
@@ -1326,6 +1353,19 @@ function BlogPostPage({post}){
             <p className="display" style={{color:C.navy,fontSize:18,marginBottom:12}}>Ready to start your project?</p>
             <a href="/#estimate" className="btn-g">Get a Free Estimate {I.arrow}</a>
           </div>
+
+          {post.cat==="Basement"&&(
+            <div style={{marginTop:32,padding:"28px 32px",background:"#fff",border:`1px solid ${C.sand}`,borderRadius:14}}>
+              <h3 style={{color:C.navy,fontWeight:700,fontSize:16,marginBottom:16}}>More Basement Finishing Resources</h3>
+              <div style={{display:"flex",flexDirection:"column",gap:10}}>
+                <a href="/basement-finishing" style={{color:C.green,fontWeight:600,fontSize:15,textDecoration:"none"}}>→ Basement Finishing in Hamilton County — costs, process & FAQs</a>
+                <a href="/projects/westfield-basement-masterpiece" style={{color:C.green,fontWeight:600,fontSize:15,textDecoration:"none"}}>→ See our Westfield Basement Masterpiece (custom bar, theater, gym)</a>
+                <a href="/guide/basement-finishing-hamilton-county" style={{color:C.green,fontWeight:600,fontSize:15,textDecoration:"none"}}>→ Complete Basement Finishing Guide for Hamilton County</a>
+                <a href="/basement-finishing-fishers-in" style={{color:C.green,fontWeight:600,fontSize:15,textDecoration:"none"}}>→ Basement Finishing in Fishers, IN</a>
+                <a href="/basement-finishing-carmel-in" style={{color:C.green,fontWeight:600,fontSize:15,textDecoration:"none"}}>→ Basement Finishing in Carmel, IN</a>
+              </div>
+            </div>
+          )}
 
           {related.length>0&&(
             <div style={{marginTop:48}}>
@@ -2508,20 +2548,31 @@ const SERVICE_PAGES = {
       "Laundry room additions and upgrades",
       "Full basement bathrooms with custom tile showers",
     ],
-    costIntro: "Basement finishing costs in Hamilton County depend on the size of your basement and the scope of the build. Here's what homeowners in Fishers, Carmel, and Westfield typically invest:",
+    costIntro: "Basement finishing in Hamilton County typically costs $45,000 to $200,000+ depending on size, layout, and finish level. Most Fishers, Carmel, and Westfield homeowners invest between $55,000 and $95,000 for a fully finished lower level. Here's how the tiers break down:",
     costs: [
-      {level:"Basic Finish",range:"$20,000 – $30,000",desc:"Open-concept layout with drywall, flooring, recessed lighting, and paint. Great for a simple family room or play area."},
-      {level:"Mid-Range Build",range:"$30,000 – $45,000",desc:"Multiple rooms, upgraded flooring (LVP or carpet), bathroom rough-in or full bath, improved lighting, and built-in storage."},
-      {level:"Full Build-Out",range:"$45,000 – $65,000+",desc:"Complete lower level with guest suite, full bathroom, wet bar or kitchenette, home office, and premium finishes throughout."},
+      {level:"Essential Finish",range:"$45,000 – $65,000",desc:"Open-concept living space with LVP flooring, drywall, recessed lighting, paint, and egress compliance. Roughly $55–$75 per square foot. Ideal for a family room, play area, or simple bonus space."},
+      {level:"Premium Finish",range:"$65,000 – $95,000",desc:"Multiple defined rooms plus a full bathroom, custom built-ins, upgraded lighting, and a wet bar rough-in. About $75–$110 per square foot. The most popular tier for Hamilton County families wanting a guest suite, office, or gym."},
+      {level:"Luxury Custom",range:"$95,000 – $200,000+",desc:"Full custom build like our Westfield Masterpiece (~$150,000): custom bar with kegerator, statement fireplace and mantle, home theater, gym, tongue-and-groove ceilings, and designer finishes throughout. Roughly $110–$175 per square foot."},
+    ],
+    addOnsIntro: "Many homeowners add features to their basement build. Here's what common add-ons typically cost in Hamilton County:",
+    addOns: [
+      {name:"Full Bathroom (Schluter waterproofed)",range:"$18,000 – $30,000"},
+      {name:"Wet Bar / Kitchenette",range:"$12,000 – $28,000"},
+      {name:"Egress Window (for a legal bedroom)",range:"$4,000 – $7,000"},
+      {name:"Home Theater Build-Out",range:"$10,000 – $25,000"},
+      {name:"Custom Fireplace + Mantle Feature",range:"$6,000 – $15,000"},
     ],
     projectCats: ["Basement"],
     faq: [
-      {q:"How long does a basement finish take?",a:"Most basement finishes in Hamilton County take 6 to 12 weeks depending on scope. A basic open-concept finish is on the shorter end, while a full build-out with bathroom, wet bar, and multiple rooms takes closer to 10-12 weeks. We provide a detailed project timeline before work begins."},
-      {q:"Do I need a permit to finish my basement?",a:"Yes — finishing a basement requires permits in all Hamilton County municipalities for framing, electrical, plumbing, and HVAC work. We handle the entire permitting and inspection process for you in Fishers, Carmel, Noblesville, Westfield, and Zionsville."},
-      {q:"Will finishing my basement add value to my home?",a:"Absolutely. A finished basement in Hamilton County typically recoups 70-80% of its cost at resale while making your home significantly more attractive to buyers. In competitive markets like Carmel, Fishers, and Westfield, a finished basement can be the differentiator that gets your home sold faster."},
-      {q:"What about moisture and waterproofing?",a:"Indiana basements can have moisture issues, so we address this upfront during our initial walkthrough. We use proper vapor barriers, moisture-resistant materials, and drainage solutions as needed. If there's an existing water issue, we'll identify it and recommend a solution before finishing begins."},
-      {q:"Can you add a bathroom to my basement?",a:"Yes — adding a basement bathroom is one of our most popular requests. If your home has a bathroom rough-in (pre-plumbed drain lines), the cost is lower. If not, our licensed plumbers can install new drain lines. Every basement bathroom we build uses our Schluter waterproofing system with a 25-year warranty."},
-      {q:"What flooring works best in a basement?",a:"Luxury vinyl plank (LVP) is the most popular choice for Hamilton County basements because it's waterproof, durable, and looks great. Carpet is also popular for bedrooms and entertainment areas. We help you choose the right material for each zone of your basement based on how you'll use the space."},
+      {q:"How much does it cost to finish a basement in Hamilton County, Indiana?",a:"Basement finishing in Hamilton County typically costs $45,000 to $200,000+, with most homeowners investing between $55,000 and $95,000 for a fully finished lower level. An essential open-concept finish runs $45,000–$65,000 ($55–$75 per square foot), a premium finish with a bathroom and built-ins runs $65,000–$95,000, and a luxury custom build like our Westfield project runs $95,000–$200,000+. Your final cost depends on square footage, number of rooms, whether you add a bathroom or wet bar, and your finish level."},
+      {q:"How much does it cost to add a bathroom to a basement?",a:"Adding a full bathroom to a basement in Hamilton County typically costs $18,000 to $30,000. The price depends on whether your home already has a bathroom rough-in (pre-plumbed drain lines), which lowers the cost. If not, our licensed plumbers install new drain lines. Every basement bathroom we build uses the Schluter waterproofing system, backed by a 25-year manufacturer's warranty."},
+      {q:"How long does it take to finish a basement?",a:"Most basement finishes in Hamilton County take 4 to 16 weeks depending on scope. An essential open-concept finish takes 4–6 weeks, a premium finish with a bathroom and multiple rooms takes 6–10 weeks, and a full luxury custom build-out takes 10–16+ weeks. We provide a detailed project timeline before work begins."},
+      {q:"Do I need a permit to finish my basement in Hamilton County?",a:"Yes — finishing a basement requires permits in Fishers, Carmel, Noblesville, Westfield, Zionsville, and surrounding municipalities for framing, electrical, plumbing, and HVAC work. Permit costs typically run $200–$500 total. HomeStar handles the entire permitting and inspection process and pays for required permits as part of your project."},
+      {q:"Is finishing a basement worth it? What's the ROI?",a:"Yes. A finished basement in Hamilton County typically recoups 70–75% of its cost at resale while adding 600–1,500+ square feet of usable living space. In competitive markets like Carmel, Fishers, and Westfield, a finished basement is often the differentiator that gets a home sold faster and at a higher price. Beyond resale, it's the lowest cost-per-square-foot way to add living space since the foundation and shell already exist."},
+      {q:"What about moisture and waterproofing in an Indiana basement?",a:"Indiana basements can have moisture issues, so we address this upfront during our initial walkthrough with a moisture assessment. We use proper vapor barriers, moisture-resistant materials, and drainage solutions as needed. If there's an existing water issue, we identify it and recommend a solution before finishing begins. All basement bathrooms use our Schluter waterproofing system."},
+      {q:"Can you build a custom basement with a bar, theater, and gym?",a:"Yes — luxury custom basements are a specialty. Our Westfield Masterpiece (approximately $150,000) featured a full custom bar with kegerator and porcelain brick backsplash, a 14-foot stained red oak mantle above an electric fireplace, tongue-and-groove wood ceilings, a home theater area, a dedicated gym, and designer finishes throughout — designed in partnership with Dovetail Group. We handle every trade in-house, from framing to licensed electrical and plumbing."},
+      {q:"What flooring works best in a basement?",a:"Luxury vinyl plank (LVP) is the most popular choice for Hamilton County basements because it's waterproof, durable, and looks high-end. Carpet is also popular for bedrooms and entertainment zones. We help you choose the right material for each area of your basement based on how you'll use the space."},
+      {q:"What's included in a HomeStar basement finishing project?",a:"Everything, in-house: design and 3D renderings, framing, insulation, drywall, licensed electrical, licensed plumbing, HVAC, flooring, lighting, permits and inspections, and all final finishes. You get one contractor and one point of contact for the entire project — we don't subcontract out the licensed trades. Every finish is backed by our 1-year workmanship warranty."},
     ],
     cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"],
   },
@@ -2845,6 +2896,19 @@ function ServicePage({data,slug}){
               </div>
             )}
           </div>
+          {data.addOns&&(
+            <div style={{marginTop:40,maxWidth:760,marginLeft:"auto",marginRight:"auto"}}>
+              {data.addOnsIntro&&<p style={{color:"rgba(255,255,255,.55)",fontSize:15,lineHeight:1.7,textAlign:"center",marginBottom:24}}>{data.addOnsIntro}</p>}
+              <div style={{borderRadius:14,overflow:"hidden",border:"1px solid rgba(255,255,255,.1)"}}>
+                {data.addOns.map((a,i)=>
+                  <div key={a.name} style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,padding:"16px 24px",background:i%2===0?"rgba(255,255,255,.03)":"transparent",borderBottom:i<data.addOns.length-1?"1px solid rgba(255,255,255,.07)":"none"}}>
+                    <span style={{color:"rgba(255,255,255,.8)",fontSize:15,fontWeight:500}}>{a.name}</span>
+                    <span className="display" style={{color:C.green,fontSize:17,fontWeight:700,whiteSpace:"nowrap"}}>{a.range}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
