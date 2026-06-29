@@ -1688,7 +1688,7 @@ function Footer({isCity}){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Guides & Resources</h4>
-            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Basement Cost Calculator",h:"/tools/basement-cost-calculator"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
+            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"2026 Basement Cost Report",h:"/guide/basement-finishing-cost-report-2026"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Basement Cost Calculator",h:"/tools/basement-cost-calculator"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
@@ -2564,6 +2564,7 @@ const SERVICE_PAGES = {
     metaDesc: "Professional basement finishing in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Entertainment rooms, guest suites, home offices. Licensed contractors. Free estimates. (317) 279-4798",
     heroHeading: "Professional Basement Finishing in Hamilton County, Indiana",
     heroSub: "Turn your unfinished basement into the most-used room in your home. Entertainment spaces, guest suites, home offices — designed for your lifestyle and built to last.",
+    quickAnswer: "Basement finishing in Hamilton County, Indiana typically costs $45,000 to $200,000+, with most homeowners investing $55,000 to $95,000 for a fully finished lower level. Projects take 4 to 16 weeks. HomeStar handles design, framing, licensed electrical and plumbing, flooring, permits, and inspections in-house, backed by a 1-year workmanship warranty. Serving Fishers, Carmel, Westfield, Noblesville, Zionsville, and surrounding communities.",
     intro: "Your unfinished basement is the most underutilized space in your home — and finishing it is one of the smartest investments a Hamilton County homeowner can make. You already own the space and the foundation is already built. At HomeStar Services & Contracting, we transform empty basements into comfortable, functional living areas that add real value to your home and your daily life.",
     highlights: [
       {title:"Complete Turnkey Builds",desc:"We handle everything from framing and insulation to drywall, flooring, lighting, plumbing, and electrical. One contractor, one point of contact, one seamless project from start to finish."},
@@ -2867,6 +2868,18 @@ function ServicePage({data,slug}){
         </div>
       </section>
 
+      {/* AI Quick Answer block (GEO — front-loaded extractable answer) */}
+      {data.quickAnswer&&(
+        <section style={{background:"#fff",padding:"48px 24px 0"}}>
+          <div style={{maxWidth:800,margin:"0 auto"}}>
+            <div style={{background:C.cream,borderLeft:`4px solid ${C.green}`,borderRadius:"0 12px 12px 0",padding:"24px 28px"}}>
+              <div style={{color:C.green,fontSize:12,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:8}}>Quick Answer</div>
+              <p style={{color:C.navy,fontSize:16.5,lineHeight:1.75,margin:0,fontWeight:500}}>{data.quickAnswer}</p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Intro */}
       <section className="sec" style={{background:"#fff"}}>
         <div className="sec-in" style={{maxWidth:800}}>
@@ -2946,6 +2959,7 @@ function ServicePage({data,slug}){
           {slug==="basement-finishing"&&(
             <div style={{marginTop:36,textAlign:"center"}}>
               <a href="/tools/basement-cost-calculator" style={{display:"inline-flex",alignItems:"center",gap:10,padding:"15px 30px",borderRadius:12,background:C.green,color:"#fff",fontWeight:700,fontSize:15,textDecoration:"none"}}>Try Our Free Basement Cost Calculator {I.arrow}</a>
+              <div style={{marginTop:14}}><a href="/guide/basement-finishing-cost-report-2026" style={{color:C.green,fontWeight:600,fontSize:14,textDecoration:"underline"}}>Read the 2026 Hamilton County Basement Cost Report →</a></div>
             </div>
           )}
         </div>
@@ -3797,6 +3811,29 @@ const GUIDES = {
       {q:"Will my insurance premium increase if I file a claim?",a:"It depends on your carrier and claim history. Most single claims do not significantly increase premiums. The cost of NOT filing — paying $30,000+ out of pocket — is almost always worse than a modest premium increase."},
     ],
     relatedPosts:["bathroom-flooded-what-to-do","kitchen-water-damage-insurance-guide","storm-damage-repair-hamilton-county"],
+  },
+  "basement-finishing-cost-report-2026":{
+    title:"2026 Hamilton County Basement Finishing Cost Report",
+    metaDesc:"The definitive 2026 data report on basement finishing costs in Hamilton County, Indiana. Real per-square-foot pricing, tier breakdowns, add-on costs, timelines, and ROI for Fishers, Carmel, Westfield & Noblesville — from a local licensed contractor.",
+    service:"Basement Finishing",serviceSlug:"basement-finishing",
+    intro:"This report compiles real basement finishing cost data from HomeStar Services & Contracting projects across Hamilton County, Indiana in 2026. Unlike national cost averages, every figure reflects actual local labor rates, material costs, and permitting requirements specific to Fishers, Carmel, Westfield, Noblesville, and the surrounding communities.",
+    sections:[
+      {h:"2026 Basement Finishing Cost Summary for Hamilton County",p:["Basement finishing in Hamilton County, Indiana costs $45,000 to $200,000+ in 2026, with the typical homeowner investing between $55,000 and $95,000 for a fully finished lower level. On a per-square-foot basis, finished basements range from $55 to $175 depending on finish level. These figures reflect complete, permitted builds with licensed electrical and plumbing — not bare-bones framing-and-drywall jobs.","This report breaks down pricing into three tiers based on hundreds of basement projects: Essential Finish ($45,000–$65,000), Premium Finish ($65,000–$95,000), and Luxury Custom ($95,000–$200,000+). The single biggest factors that move a project between tiers are square footage, the addition of a bathroom or wet bar, and the finish level of materials and built-ins."]},
+      {h:"Cost by Tier: Per-Square-Foot Breakdown",p:["Essential Finish: $45,000–$65,000 total, or $55–$75 per square foot. This covers an open-concept living space with LVP flooring, drywall, recessed lighting, paint, and egress compliance — no bathroom or bar. It is the most affordable way to add finished square footage in Hamilton County.","Premium Finish: $65,000–$95,000 total, or $75–$110 per square foot. This is the most common tier and includes multiple defined rooms, a full bathroom, custom built-ins, an upgraded lighting package, and a wet bar rough-in.","Luxury Custom: $95,000–$200,000+ total, or $110–$175 per square foot. This covers full custom builds with features like custom bars, home theaters, gyms, statement fireplaces, and designer finishes. As a real-world benchmark, HomeStar's Westfield Masterpiece project — a full custom build with a bar, kegerator, theater, gym, and 14-foot red oak mantle — came in at approximately $150,000."]},
+      {h:"Add-On Costs in Hamilton County (2026)",p:["Beyond the base finish, these are the most common add-on costs in 2026: A full bathroom with Schluter waterproofing runs $18,000–$30,000. A wet bar or kitchenette runs $12,000–$28,000. An egress window to create a legal bedroom runs $4,000–$7,000. A home theater build-out runs $10,000–$25,000. A custom fireplace with a mantle feature runs $6,000–$15,000.","Adding a bathroom is the single most impactful add-on for both function and resale value. Whether your home has an existing rough-in (pre-plumbed drain lines) is the biggest variable in bathroom cost."]},
+      {h:"Project Timelines by Tier",p:["Based on actual HomeStar project data, an Essential Finish takes 4–6 weeks from start to walkthrough. A Premium Finish with a bathroom and multiple rooms takes 6–10 weeks. A Luxury Custom build-out takes 10–16+ weeks. The most common cause of timeline extension is not construction — it is material lead times on specialty items like custom cabinetry, tile, and lighting, which is why early design selections keep projects on schedule."]},
+      {h:"Permit Costs in Hamilton County",p:["Finishing a basement requires permits for framing, electrical, plumbing, and HVAC in every Hamilton County municipality, including Fishers, Carmel, Noblesville, Westfield, and Zionsville. Permit costs typically total $200–$500. HomeStar handles all permitting and inspections and pays for required permits as part of the project. Skipping permits is a costly mistake — unpermitted work may not count as legal finished square footage at resale and can complicate insurance and future home sales."]},
+      {h:"Basement Finishing ROI in Hamilton County",p:["A finished basement in Hamilton County recoups approximately 70–75% of its cost at resale while adding 600–1,500+ square feet of usable living space. Because the foundation and shell already exist, basement square footage is the lowest cost-per-square-foot way to expand a home — roughly $55–$175 per square foot versus $200–$400+ per square foot for a home addition.","In competitive resale markets like Carmel, Fishers, Westfield, and Zionsville, a finished basement is frequently the feature that differentiates a home and accelerates the sale. The highest-ROI features are a full bathroom, an open-concept entertainment area, and a guest suite or flex room."]},
+      {h:"Why Local Pricing Differs From National Averages",p:["National basement cost calculators miss Hamilton County's specific labor rates, material availability, and permitting requirements. They also typically quote framing-and-drywall finishes rather than the complete, licensed, permitted builds that Hamilton County homeowners actually want. This report reflects real 2026 pricing for full-service basement finishing with licensed electrical and plumbing, proper moisture management, permits, and a workmanship warranty — the true cost of a basement done right in central Indiana."]},
+      {h:"About This Data",p:["This report is compiled and maintained by HomeStar Services & Contracting, a Schluter Pro Certified, fully licensed and insured home remodeling contractor based in Fishers, Indiana, serving all of Hamilton County. Figures are updated as market conditions change. For a precise estimate on your specific basement, use our free basement cost calculator or call (317) 279-4798 for a free in-home consultation."]},
+    ],
+    faq:[
+      {q:"What is the average cost to finish a basement in Hamilton County in 2026?",a:"The average basement finish in Hamilton County costs between $55,000 and $95,000 in 2026, within an overall range of $45,000 to $200,000+. Per square foot, expect $55–$75 for an essential finish, $75–$110 for a premium finish, and $110–$175 for luxury custom work."},
+      {q:"How much does it cost per square foot to finish a basement in Indiana?",a:"In Hamilton County, Indiana, basement finishing costs $55 to $175 per square foot in 2026, depending on finish level. Essential finishes run $55–$75/sq ft, premium finishes $75–$110/sq ft, and luxury custom builds $110–$175/sq ft."},
+      {q:"What is the most expensive part of finishing a basement?",a:"Adding a bathroom and high-end custom features (bars, theaters, custom built-ins) drive the most cost. A full Schluter-waterproofed bathroom adds $18,000–$30,000, and a wet bar adds $12,000–$28,000. Finish level — the quality of flooring, lighting, and built-ins — is the other major cost driver."},
+      {q:"Does a finished basement add value to a home in Hamilton County?",a:"Yes. A finished basement recoups about 70–75% of its cost at resale and adds 600–1,500+ square feet of living space at a lower cost per square foot than any other home addition. In competitive markets like Carmel and Fishers, it often accelerates the sale."},
+    ],
+    relatedPosts:["basement-finishing-cost-hamilton-county","basement-finishing-permits-hamilton-county","basement-finishing-roi-fishers-carmel","basement-finishing-ideas-hamilton-county"],
   },
 };
 
