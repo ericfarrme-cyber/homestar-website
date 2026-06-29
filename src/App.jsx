@@ -2097,7 +2097,7 @@ function NeighborhoodPage({hood}){
       <style>{css}</style>
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:`${hood.city}, IN`,url:"/"+hood.citySlug},{name:hood.name}]}/>
       <FaqSchema faqs={hood.faq}/>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:`Expert home remodeling in ${hood.name}, ${hood.city}, Indiana.`,url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",areaServed:{"@type":"Place",name:`${hood.name}, ${hood.city}, IN`},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"}})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:`Expert home remodeling in ${hood.name}, ${hood.city}, Indiana.`,url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",areaServed:{"@type":"Place",name:`${hood.name}, ${hood.city}, IN`},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"62"}})}}/>
 
       <Nav isCity/>
 
@@ -2302,7 +2302,7 @@ function CityPage({data}){
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
       {/* Schema.org for this city */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:data.metaDesc,url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:data.city,addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:data.lat,longitude:data.lng},areaServed:{"@type":"City",name:data.city},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"},priceRange:"$$"})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:data.metaDesc,url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:data.city,addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:data.lat,longitude:data.lng},areaServed:{"@type":"City",name:data.city},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"62"},priceRange:"$$"})}}/>
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Service Areas",url:"/#areas"},{name:`${data.city}, IN`}]}/>
       <FaqSchema faqs={data.faq}/>
 
@@ -2840,7 +2840,7 @@ function ServicePage({data,slug}){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:data.service,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"}},areaServed:data.cities.map(c=>({"@type":"City",name:c})),description:data.metaDesc})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:data.service,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"62"}},areaServed:data.cities.map(c=>({"@type":"City",name:c})),description:data.metaDesc})}}/>
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Services",url:"/#services"},{name:data.service}]}/>
       <FaqSchema faqs={data.faq}/>
 
@@ -2995,6 +2995,42 @@ function ServicePage({data,slug}){
           )}
         </div>
       </section>
+
+      {/* Service Areas */}
+      {/* Near Me — service-area block (all services) */}
+      {(()=>{
+        const nearMe={
+          "bathroom-remodeling":{prefix:"bathroom-remodeling",label:"Bathroom Remodeling",cities:["Fishers","Carmel","Westfield","Noblesville","Zionsville","Geist","Fortville","McCordsville","Pendleton"]},
+          "kitchen-remodeling":{prefix:"kitchen-remodeling",label:"Kitchen Remodeling",cities:["Fishers","Carmel","Westfield","Noblesville","Zionsville","Geist","Fortville","McCordsville","Pendleton"]},
+          "basement-finishing":{prefix:"basement-finishing",label:"Basement Finishing",cities:["Fishers","Carmel","Westfield","Noblesville","Zionsville","Geist","Fortville","McCordsville","Pendleton"]},
+          "flooring-services":{prefix:"flooring-services",label:"Flooring",cities:["Fishers","Carmel","Westfield","Noblesville","Zionsville","Geist","Fortville","McCordsville","Pendleton"]},
+          "painting-services":{prefix:"painting-services",label:"Painting",cities:["Fishers","Carmel","Westfield","Noblesville","Zionsville","Geist","Fortville","McCordsville","Pendleton"]},
+          "decks-outdoor-living":{prefix:"deck-builder",label:"Deck & Outdoor Living",cities:["Fishers","Carmel","Westfield","Noblesville","Zionsville","Geist","Fortville","McCordsville","Pendleton"]},
+          "insurance-restoration":{prefix:"insurance-restoration",label:"Insurance Restoration",cities:["Fishers","Carmel","Westfield","Noblesville","Zionsville","Geist","Fortville","McCordsville","Pendleton"]},
+        };
+        const nm=nearMe[slug];
+        if(!nm)return null;
+        return(
+          <section className="sec" style={{background:C.navyDark}}>
+            <div className="sec-in" style={{maxWidth:900}}>
+              <div style={{textAlign:"center",marginBottom:28}}>
+                <div className="lab" style={{color:C.green}}>{nm.label} Near You</div>
+                <h2 className="ttl ttl-w">Looking for {nm.label} Near You in Hamilton County?</h2>
+                <p style={{color:"rgba(255,255,255,.55)",fontSize:16,lineHeight:1.8,maxWidth:680,margin:"14px auto 0"}}>HomeStar Services & Contracting is based right here in Fishers, Indiana — in the heart of Hamilton County. Unlike the big Central Indiana and Indianapolis-based firms, we're your genuinely local {nm.label.toLowerCase()} contractor. When you search "{nm.label.toLowerCase()} near me," you want a team that knows your community, pulls your local permits, and is just minutes away. Choose your city:</p>
+              </div>
+              <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:12}}>
+                {nm.cities.map(c=>
+                  <a key={c} href={`/${nm.prefix}-${c.toLowerCase().replace(/ /g,"-")}-in`} style={{padding:"12px 22px",borderRadius:50,background:"rgba(255,255,255,.06)",border:"1px solid rgba(255,255,255,.15)",color:"#fff",fontWeight:600,fontSize:14,textDecoration:"none",transition:"all .3s"}}
+                    onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.background="rgba(92,184,50,.15)"}}
+                    onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,.15)";e.currentTarget.style.background="rgba(255,255,255,.06)"}}>
+                    {nm.label} in {c}, IN
+                  </a>
+                )}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Service Areas */}
       <section className="sec" style={{background:C.cream}}>
@@ -3204,7 +3240,7 @@ function ServiceCityPage({svcData,cityData,svcKey}){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":tpl.schemaType||"Service",name:`${svcData.service} in ${city}, IN`,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:city,addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"}},areaServed:{"@type":"City",name:city},description:metaDesc})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":tpl.schemaType||"Service",name:`${svcData.service} in ${city}, IN`,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:city,addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"62"}},areaServed:{"@type":"City",name:city},description:metaDesc})}}/>
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:svcData.service,url:"/"+SERVICE_SLUG_MAP[svcKey]},{name:`${city}, IN`}]}/>
       <FaqSchema faqs={cityFaqs}/>
 
@@ -4568,7 +4604,7 @@ export default function HomestarSite(){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Family-owned home remodeling company serving Hamilton County, Indiana. Kitchen & bath remodeling, basement finishing, flooring, painting, decks & outdoor living.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Carmel",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9784,longitude:-86.1180},areaServed:[{name:"Carmel"},{name:"Fishers"},{name:"Geist"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),serviceArea:{"@type":"GeoCircle",geoMidpoint:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},geoRadius:"40000"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"127"},openingHours:["Mo-Fr 07:00-18:00","Sa 08:00-14:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/"],founder:[{"@type":"Person",name:"Robb"},{"@type":"Person",name:"Eric"}],hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Family-owned home remodeling company based in Fishers, serving Hamilton County, Indiana. Kitchen & bath remodeling, basement finishing, flooring, painting, decks & outdoor living.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},areaServed:[{name:"Fishers"},{name:"Carmel"},{name:"Geist"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),serviceArea:{"@type":"GeoCircle",geoMidpoint:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},geoRadius:"40000"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"62"},openingHours:["Mo-Fr 08:00-17:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/"],founder:[{"@type":"Person",name:"Robb Rice"},{"@type":"Person",name:"Eric Farr"}],hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
       <Nav/>
       <Hero/>
       <Services/>
