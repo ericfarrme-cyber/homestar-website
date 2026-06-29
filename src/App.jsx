@@ -64,6 +64,7 @@ const PROJECTS = [
     desc: "A breathtaking lower-level transformation in Westfield featuring a full custom bar with porcelain brick backsplash and kegerator, a 14-foot stained red oak mantle above an electric fireplace, tongue-and-groove wood ceilings, faux beam wraps, dedicated gym and theater spaces, and a complete entertainment area. Designed in partnership with Dovetail Group.",
     story: {challenge:"These Westfield homeowners had an expansive but unfinished lower level — a blank canvas with enormous potential. They wanted more than a typical finished basement; they envisioned a true destination within their home where family and friends could gather, entertain, work out, and unwind. They partnered with Dovetail Group, one of the premier interior design firms in the Indianapolis area, to develop the vision — and brought in HomeStar as one of Dovetail's preferred contractors to execute it.",approach:"This was a full demo and rebuild from the ground up. We installed new LVP flooring throughout for durability and a seamless, high-end look. The ceiling became a showpiece with tongue-and-groove wood and stained red oak faux beam wraps that bring warmth and architectural character to the entire space. The crown jewel is a 14-foot custom stained red oak mantle above an electric fireplace — a true statement piece. We built out a full custom bar with porcelain brick tile backsplash, a kegerator, beverage fridge, and integrated LED shelving. Wall features include \"chairs and squares\" wainscoting, custom bulkheads, and a black metal industrial stair railing. A complete lighting package ties it all together — pendants, sconces, and LED tape lighting throughout. The space includes dedicated zones for a games area with ping-pong, a home gym, a media/theater area, and comfortable lounge seating around the fireplace. All electrical by licensed electrician, all plumbing for the bar by licensed plumber.",result:"This is what happens when vision meets craftsmanship. A dramatic, magazine-worthy lower level that functions as entertainment hub, gym, theater, and gathering space all in one. Every cut, every detail, every finish was built to last and built to impress. The partnership with Dovetail Group produced a space that elevates the entire home — and stands as a showcase of what a true custom basement finish can be."},
     designPartner: {name:"Dovetail Group", url:"https://dovetailgroupindy.com/"},
+    investment: "~$150,000",
     images: [
       { src: "/images/westfield-basement-masterpiece-1.jpg", alt: "Luxury custom basement bar in Westfield Indiana" },
       { src: "/images/westfield-basement-masterpiece-2.jpg", alt: "Basement entertainment area with wood ceiling Westfield IN" },
@@ -522,6 +523,39 @@ const BLOG = [
       "Egress requirements — the safety rule that's easy to miss. If your finished basement includes a bedroom, code requires an egress window or door — a legally sized opening that allows escape in an emergency and entry for first responders. Many homeowners don't realize a basement room can't be marketed or counted as a bedroom without proper egress. Adding an egress window runs $4,000 to $7,000, and we handle the structural cutting, well installation, and code compliance.",
       "Why HomeStar handles all of it. Permitting is one of the biggest reasons to hire a licensed full-service contractor rather than piecing the work together yourself. We pull the permits, schedule and meet the inspectors, and ensure every stage passes code. Our electrical work is done by licensed electricians and our plumbing by licensed plumbers — which means inspections pass the first time. When your basement is done, it's legal, safe, fully permitted finished square footage that adds real value to your home.",
       "Planning a basement project in Hamilton County? We handle design, permits, construction, and inspections from start to finish across Fishers, Carmel, Noblesville, Westfield, Zionsville, and surrounding areas. Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com."
+    ]},
+  { slug:"basement-finishing-roi-fishers-carmel", title: "Is Finishing a Basement Worth It in Fishers & Carmel? (ROI Breakdown)", date: "Jun 20, 2026", read: "8 min", cat: "Basement", excerpt: "A finished basement returns 70–75% of its cost and adds 600–1,500+ sq ft. Here's the real ROI math for Fishers, Carmel, and Hamilton County homeowners — and why it beats moving or building an addition.",
+    body: [
+      "If you're weighing whether to finish your basement, the real question underneath is simple: will I get my money back? As a contractor finishing basements across Hamilton County, here's the honest ROI math for Fishers, Carmel, Westfield, and Noblesville homeowners in 2026 — including the factors most online calculators ignore.",
+      "The headline number: 70–75% ROI. A finished basement in Hamilton County typically recoups 70 to 75% of its cost at resale. On a $70,000 premium finish, that's roughly $49,000 to $52,500 in added home value recovered directly. But the resale percentage alone undersells the real return, because it ignores the years of use you get out of the space before you ever sell.",
+      "The square footage math is what makes it a winner. A finished basement adds 600 to 1,500+ square feet of usable living space. Because the foundation, walls, and roof already exist, you're paying only to finish the interior — which makes basement square footage dramatically cheaper than any other way to add space. A premium basement finish runs $75 to $110 per square foot. A home addition in Hamilton County runs $200 to $400+ per square foot once you factor in foundation, framing, roofing, and exterior work. The basement delivers the same usable space at a fraction of the cost.",
+      "Basement vs. moving to a bigger home. Many Fishers and Carmel families consider finishing a basement specifically to avoid moving. The math strongly favors staying. Moving costs add up fast: realtor commissions (5–6% of your sale price), closing costs, moving expenses, and the higher mortgage on a larger home — often $40,000 to $60,000+ in transaction costs alone before you've gained a single square foot. A $70,000 basement finish gives you the extra space without uprooting your family, changing school districts, or paying a higher interest rate on a new mortgage.",
+      "Why Hamilton County is a strong basement-ROI market. Carmel, Fishers, Westfield, and Zionsville consistently rank among Indiana's most desirable communities, with strong and rising home values. In competitive resale markets like these, a finished basement is frequently the feature that gets a home sold faster and at a higher price. Buyers comparing two similar homes will choose the one with the finished, move-in-ready lower level — and they'll pay for it.",
+      "Which basement features add the most value? Not all finishes return equally. The highest-ROI additions are a full bathroom (which makes the basement function as true living space and supports a legal bedroom), an open-concept entertainment area (universally appealing to buyers), and a guest suite or flex room (valuable for multi-generational living and remote work). Ultra-custom features like a high-end home theater or elaborate bar add tremendous lifestyle value but return a smaller percentage at resale — so build those for your own enjoyment, not purely for ROI.",
+      "The hidden ROI: years of use. Resale percentage misses the biggest return of all — the use you get from the space every single day. A finished basement that serves as your family's entertainment hub, home gym, guest suite, or home office for 5, 10, or 15 years before you sell delivers enormous value that never shows up in a resale calculation. You're not just adding home value; you're adding home.",
+      "When a basement finish might not pay off. Honesty matters: a basement finish returns less if your home has unresolved moisture issues that aren't addressed first, if ceiling height is too low for comfortable living space, or if you dramatically over-improve relative to your neighborhood. A good contractor will tell you upfront whether your basement is a strong candidate — and HomeStar always assesses moisture and structure before recommending a finish.",
+      "The bottom line for Hamilton County homeowners. A finished basement is one of the smartest investments you can make in your home: 70–75% recouped at resale, 600–1,500+ sq ft added at the lowest cost-per-square-foot of any home improvement, years of daily use, and a strong edge in a competitive resale market. For most Fishers and Carmel families, it beats both moving and building an addition.",
+      "Want to know what your basement would cost and what it could return? Try our free Hamilton County basement cost calculator, or call HomeStar at (317) 279-4798 for a free in-home consultation. We finish basements across Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville, McCordsville, and Pendleton."
+    ]},
+  { slug:"basement-finishing-ideas-hamilton-county", title: "15 Basement Finishing Ideas for Hamilton County Homes (With Real Examples)", date: "Jun 18, 2026", read: "8 min", cat: "Basement", excerpt: "From custom bars and home theaters to guest suites and gyms — real basement finishing ideas with examples from actual Fishers, Carmel, and Westfield projects. Get inspired, then get a cost estimate.",
+    body: [
+      "Staring at an unfinished basement and wondering what it could become? You're looking at the most flexible square footage in your home. As a contractor that finishes basements across Hamilton County, here are 15 ideas our Fishers, Carmel, and Westfield clients love most — with examples from real projects we've built.",
+      "1. The custom entertainment bar. A full wet bar transforms a basement into the house everyone wants to gather in. Our Westfield Masterpiece featured a custom bar with a porcelain brick tile backsplash, a kegerator, a beverage fridge, and integrated LED shelving. A wet bar or kitchenette typically adds $12,000 to $28,000 and is one of the highest-impact features you can include.",
+      "2. The home theater. Dedicated movie spaces with tiered seating, a projector or large display, and proper lighting control are a perennial favorite. A home theater build-out runs $10,000 to $25,000 depending on AV and seating. Even a simple media area with a large TV wall and comfortable lounge seating delivers most of the experience.",
+      "3. The home gym. With remote and hybrid work here to stay, a basement gym saves time and membership fees. Durable flooring, good lighting, mirrors, and ventilation are the essentials. Our Westfield project included a dedicated fitness zone alongside the entertainment and theater areas.",
+      "4. The guest suite. A bedroom with a full bathroom and closet turns your basement into comfortable space for visiting family or multi-generational living. To count as a legal bedroom, it needs an egress window ($4,000 to $7,000). A guest suite is also one of the highest-ROI basement features at resale.",
+      "5. The home office. A quiet, finished basement office with natural light from egress windows, built-in shelving, and proper electrical for your setup is invaluable for remote workers. Many Hamilton County families combine an office with another use like a gym or guest space.",
+      "6. The kids' play and teen hangout zone. Durable LVP flooring, fun finishes, built-in storage, and an open layout make basements ideal for growing families. As kids get older, the same space easily transitions into a teen hangout or game room.",
+      "7. The statement fireplace wall. A custom fireplace with a stained wood mantle becomes the anchor of the whole space. Our Westfield project's crown jewel was a 14-foot stained red oak mantle above an electric fireplace. A custom fireplace and mantle feature runs $6,000 to $15,000.",
+      "8. Tongue-and-groove wood ceilings. Instead of a basic drywall or drop ceiling, a tongue-and-groove wood ceiling adds warmth and architectural character that elevates the entire basement. Paired with stained faux beam wraps, it makes a finished basement feel like a designed living space, not an afterthought.",
+      "9. The games room. Space for a pool table, ping-pong, shuffleboard, or arcade machines makes a basement the family's favorite destination. This pairs naturally with a bar and lounge area for the ultimate entertainment level.",
+      "10. The wine room or beverage area. For Carmel and Zionsville homeowners who entertain, a dedicated wine display or beverage station with custom shelving and lighting adds a refined touch.",
+      "11. Built-in lounge and reading nooks. Custom built-in seating, bookshelves, and cozy corners make a basement feel intentional and warm. \"Chairs and squares\" wainscoting and custom bulkheads, like those in our Westfield build, add the architectural detail that separates a custom finish from a basic one.",
+      "12. The multi-zone open concept. Many of our favorite Hamilton County basements combine several uses in one open layout — a bar, a lounge around the fireplace, a games area, and a theater corner — all flowing together. This is exactly how we designed the Westfield Masterpiece.",
+      "13. The flex/hobby room. A dedicated space for crafts, music, a home studio, or a workshop gives a hobby room that the main floor can't accommodate.",
+      "14. The second laundry or mudroom. Practical but valuable — adding laundry or storage to a finished basement increases everyday function, especially for larger families.",
+      "15. The full custom build. When you combine many of these ideas into one cohesive, designed space — like our ~$150,000 Westfield Masterpiece with its bar, theater, gym, fireplace, and lounge — you get a lower level that functions as an entire second home and becomes the showpiece of the house.",
+      "Ready to turn your ideas into a real plan? Every great basement starts with a vision and a realistic budget. Try our free Hamilton County basement cost calculator to estimate your project, browse our basement project gallery for inspiration, or call HomeStar at (317) 279-4798 for a free in-home consultation. We finish basements across Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, and surrounding communities."
     ]},
   { slug:"bathroom-tile-failure-prevention", title: "Why Your Bathroom Tile Might Fail in 5 Years (And How to Prevent It)", date: "Mar 5, 2026", read: "7 min", cat: "Bathroom", excerpt: "Most tile failures aren't about the tile — they're about what's underneath. Learn why the Schluter waterproofing system outperforms standard cement board and protects your remodel for decades.",
     body: [
@@ -1654,7 +1688,7 @@ function Footer({isCity}){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Guides & Resources</h4>
-            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
+            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Basement Cost Calculator",h:"/tools/basement-cost-calculator"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
@@ -2909,6 +2943,11 @@ function ServicePage({data,slug}){
               </div>
             </div>
           )}
+          {slug==="basement-finishing"&&(
+            <div style={{marginTop:36,textAlign:"center"}}>
+              <a href="/tools/basement-cost-calculator" style={{display:"inline-flex",alignItems:"center",gap:10,padding:"15px 30px",borderRadius:12,background:C.green,color:"#fff",fontWeight:700,fontSize:15,textDecoration:"none"}}>Try Our Free Basement Cost Calculator {I.arrow}</a>
+            </div>
+          )}
         </div>
       </section>
 
@@ -3107,6 +3146,18 @@ const SVC_CITY_TPL = {
   },
 };
 
+const BASEMENT_CITY_CONTEXT = {
+  "Fishers":"Fishers is one of the fastest-growing communities in Indiana, and many homes built in the last 20-30 years have full, unfinished basements with the ceiling height and egress potential ideal for finishing. Growing Fishers families most often finish their basements for entertainment areas, kids' play and teen hangout spaces, home gyms, and guest suites. Most Fishers basement projects land in our Premium tier ($65,000–$95,000), often with a full bathroom added.",
+  "Carmel":"Carmel consistently ranks among the best places to live in America, and its larger luxury homes lend themselves to higher-end basement builds. Carmel homeowners frequently invest in our Premium and Luxury Custom tiers — full custom bars, home theaters, wine areas, golf simulators, and designer finishes throughout. A finished basement in a Carmel home is often the feature that sets it apart at resale in this competitive market.",
+  "Westfield":"Westfield is booming, with new neighborhoods like Chatham Hills and Bridgewater driving demand for premium basement finishes. Our Westfield Masterpiece project (~$150,000) — a full custom build with a bar, kegerator, theater, gym, and a 14-foot red oak mantle — is a showcase of what's possible in a Westfield lower level. Westfield families value spaces built for entertaining and multi-generational living.",
+  "Noblesville":"Noblesville blends established neighborhoods with new construction, and its homes offer excellent basement-finishing potential. Noblesville homeowners typically finish basements for family rooms, home offices, guest suites, and dedicated hobby or workout spaces. Most Noblesville projects fall in our Essential to Premium range ($45,000–$95,000).",
+  "Zionsville":"Zionsville's upscale homes and strong property values make basement finishing a smart investment. Zionsville homeowners lean toward Premium and Luxury Custom builds — guest suites, home theaters, wet bars, and refined entertainment spaces. A finished basement adds significant livable square footage to these already-desirable homes.",
+  "Geist":"Geist-area homes, many on or near the reservoir, are prime candidates for premium basement finishes that take advantage of walkout levels and lake views. Geist homeowners frequently invest in entertainment-focused builds — bars, theaters, and lounge spaces — in our Premium and Luxury Custom tiers.",
+  "Fortville":"Fortville's mix of established and newer homes offers great basement-finishing potential at strong value. Fortville homeowners typically finish basements for family living space, home offices, and recreation areas in our Essential to Premium range ($45,000–$95,000).",
+  "McCordsville":"McCordsville is one of the area's fastest-growing communities, with many newer homes featuring full basements ready to finish. McCordsville families most often add entertainment areas, guest suites, and home gyms, with most projects landing in our Essential to Premium tiers.",
+  "Pendleton":"Pendleton homeowners enjoy the space and value of the area, and finishing a basement is a smart way to add functional square footage. Pendleton basement projects most often fall in our Essential to Premium range, finished for family rooms, offices, and recreation spaces.",
+};
+
 function ServiceCityPage({svcData,cityData,svcKey}){
   const tpl=SVC_CITY_TPL[svcKey]||SVC_CITY_TPL["bathroom-remodeling"];
   const city=cityData.city;
@@ -3230,6 +3281,12 @@ function ServiceCityPage({svcData,cityData,svcKey}){
               </div>
             )}
           </div>
+          {svcKey==="basement-finishing"&&BASEMENT_CITY_CONTEXT[city]&&(
+            <div style={{maxWidth:760,margin:"32px auto 0",textAlign:"center"}}>
+              <p style={{color:"rgba(255,255,255,.6)",fontSize:15.5,lineHeight:1.85}}>{BASEMENT_CITY_CONTEXT[city]}</p>
+              <a href="/tools/basement-cost-calculator" style={{display:"inline-flex",alignItems:"center",gap:8,marginTop:20,padding:"13px 26px",borderRadius:10,background:C.green,color:"#fff",fontWeight:700,fontSize:14,textDecoration:"none"}}>Estimate Your {city} Basement Cost {I.arrow}</a>
+            </div>
+          )}
         </div>
       </section>
 
@@ -3449,6 +3506,7 @@ function ProjectPage({project}){
             <div><div style={{color:C.gray,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Location</div><div style={{color:C.navy,fontWeight:700,fontSize:15}}>{project.city}, Indiana</div></div>
             <div><div style={{color:C.gray,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Waterproofing</div><div style={{color:C.navy,fontWeight:700,fontSize:15}}>Schluter Pro Certified</div></div>
             <div><div style={{color:C.gray,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Licensed Trades</div><div style={{color:C.navy,fontWeight:700,fontSize:15}}>Plumbing & Electrical</div></div>
+            {project.investment&&<div><div style={{color:C.gray,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Investment</div><div style={{color:C.green,fontWeight:800,fontSize:15}}>{project.investment}</div></div>}
           </div>
           {project.designPartner&&(
             <div style={{marginTop:20,padding:"20px 24px",borderRadius:12,background:`linear-gradient(135deg,${C.navyDark},${C.navy})`,display:"flex",alignItems:"center",gap:14,flexWrap:"wrap"}}>
@@ -3905,6 +3963,172 @@ function GuidePage({guide}){
 }
 
 /* ─── Cost Calculator ─────────────────────────────── */
+function BasementCostCalculator(){
+  const[sqft,setSqft]=useState(800);
+  const[finish,setFinish]=useState("premium");
+  const[bathroom,setBathroom]=useState("none");
+  const[wetbar,setWetbar]=useState(false);
+  const[egress,setEgress]=useState(false);
+  const[theater,setTheater]=useState(false);
+  const[fireplace,setFireplace]=useState(false);
+  useCanonical("tools/basement-cost-calculator");
+
+  useEffect(()=>{
+    document.title="Basement Finishing Cost Calculator | Hamilton County, IN | HomeStar";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content","Free basement finishing cost calculator for Fishers, Carmel, Westfield & Hamilton County, Indiana. Estimate your basement cost by square footage, finish level, bathroom, wet bar & more. Built by a local licensed contractor.");
+    window.scrollTo(0,0);
+  },[]);
+
+  /* Per-sq-ft ranges by finish tier (HomeStar real pricing) */
+  const finishRates={
+    essential:{lo:55,hi:75,name:"Essential Finish",desc:"Open-concept living space, LVP flooring, drywall, recessed lighting, paint, egress compliance."},
+    premium:{lo:75,hi:110,name:"Premium Finish",desc:"Multiple defined rooms, full bathroom rough-in, custom built-ins, upgraded lighting, wet bar rough-in."},
+    luxury:{lo:110,hi:175,name:"Luxury Custom",desc:"Custom bar, statement fireplace, home theater, gym, tongue-and-groove ceilings, designer finishes."},
+  };
+  const addOnCosts={
+    bathroom:{none:[0,0],half:[12000,18000],full:[18000,30000]},
+    wetbar:[12000,28000],
+    egress:[4000,7000],
+    theater:[10000,25000],
+    fireplace:[6000,15000],
+  };
+
+  const base=[Math.round(sqft*finishRates[finish].lo),Math.round(sqft*finishRates[finish].hi)];
+  let lo=base[0],hi=base[1];
+  const lineItems=[{label:`${finishRates[finish].name} (${sqft} sq ft)`,range:base}];
+  if(bathroom!=="none"){const b=addOnCosts.bathroom[bathroom];lo+=b[0];hi+=b[1];lineItems.push({label:bathroom==="full"?"Full Bathroom (Schluter waterproofed)":"Half Bathroom",range:b});}
+  if(wetbar){lo+=addOnCosts.wetbar[0];hi+=addOnCosts.wetbar[1];lineItems.push({label:"Wet Bar / Kitchenette",range:addOnCosts.wetbar});}
+  if(egress){lo+=addOnCosts.egress[0];hi+=addOnCosts.egress[1];lineItems.push({label:"Egress Window (legal bedroom)",range:addOnCosts.egress});}
+  if(theater){lo+=addOnCosts.theater[0];hi+=addOnCosts.theater[1];lineItems.push({label:"Home Theater Build-Out",range:addOnCosts.theater});}
+  if(fireplace){lo+=addOnCosts.fireplace[0];hi+=addOnCosts.fireplace[1];lineItems.push({label:"Custom Fireplace + Mantle",range:addOnCosts.fireplace});}
+
+  const fmt=n=>"$"+n.toLocaleString();
+
+  const calcFaq=[
+    {q:"How much does it cost to finish a basement in Hamilton County?",a:"Basement finishing in Hamilton County typically costs $45,000 to $200,000+, with most homeowners investing between $55,000 and $95,000. An essential open-concept finish runs $55–$75 per square foot, a premium finish with a bathroom runs $75–$110 per square foot, and a luxury custom build runs $110–$175 per square foot. Use the calculator above to estimate your specific project."},
+    {q:"How much does it cost to add a bathroom to a basement?",a:"A full Schluter-waterproofed basement bathroom in Hamilton County typically costs $18,000 to $30,000, depending on whether your home has existing rough-in plumbing. A half bath runs $12,000 to $18,000."},
+    {q:"Does this basement calculator include permits?",a:"Permit costs in Hamilton County typically run $200 to $500 and are handled by HomeStar as part of your project. The calculator estimates construction cost; permits are included in your final detailed quote."},
+    {q:"How accurate is the basement cost calculator?",a:"This calculator provides a realistic planning-level estimate based on HomeStar's actual Hamilton County project pricing. Your final cost depends on the specific condition of your basement, finish selections, and structural needs. For an exact figure, request a free in-home consultation."},
+  ];
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Tools",url:"/tools/basement-cost-calculator"},{name:"Basement Cost Calculator"}]}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"WebApplication",name:"Hamilton County Basement Finishing Cost Calculator",applicationCategory:"HomeImprovement",operatingSystem:"Web",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},provider:{"@type":"Organization",name:"HomeStar Services & Contracting"}})}}/>
+      <FaqSchema faqs={calcFaq}/>
+
+      <Nav isCity/>
+
+      <section style={{position:"relative",padding:"160px 24px 60px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`}}>
+        <div style={{maxWidth:760,margin:"0 auto",textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>FREE TOOL · BUILT BY A LOCAL CONTRACTOR</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(28px,4.5vw,42px)",lineHeight:1.15,marginBottom:16}}>Basement Finishing Cost Calculator</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.55)",fontSize:17,lineHeight:1.6}}>Estimate your basement finishing cost in Fishers, Carmel, Westfield, and Hamilton County. Built with HomeStar's real 2026 project pricing — not generic national averages.</p>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:900}}>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:32}} className="hero-grid">
+            {/* Inputs */}
+            <div>
+              <div style={{marginBottom:28}}>
+                <label style={{display:"block",color:C.navy,fontWeight:700,fontSize:15,marginBottom:10}}>Basement Size: {sqft} sq ft</label>
+                <input type="range" min="300" max="2500" step="50" value={sqft} onChange={e=>setSqft(Number(e.target.value))} style={{width:"100%",accentColor:C.green}}/>
+                <div style={{display:"flex",justifyContent:"space-between",color:C.gray,fontSize:12,marginTop:4}}><span>300</span><span>2,500 sq ft</span></div>
+              </div>
+
+              <div style={{marginBottom:28}}>
+                <label style={{display:"block",color:C.navy,fontWeight:700,fontSize:15,marginBottom:10}}>Finish Level</label>
+                {Object.entries(finishRates).map(([k,v])=>
+                  <button key={k} onClick={()=>setFinish(k)} style={{display:"block",width:"100%",textAlign:"left",padding:"14px 16px",marginBottom:8,borderRadius:10,border:`1.5px solid ${finish===k?C.green:C.sand}`,background:finish===k?C.greenMuted:"#fff",cursor:"pointer",transition:"all .2s"}}>
+                    <div style={{fontWeight:700,fontSize:14,color:finish===k?C.green:C.navy}}>{v.name} · ${v.lo}–${v.hi}/sq ft</div>
+                    <div style={{fontSize:12.5,color:C.gray,lineHeight:1.5,marginTop:3}}>{v.desc}</div>
+                  </button>
+                )}
+              </div>
+
+              <div style={{marginBottom:24}}>
+                <label style={{display:"block",color:C.navy,fontWeight:700,fontSize:15,marginBottom:10}}>Bathroom</label>
+                <div style={{display:"flex",gap:8}}>
+                  {[{k:"none",l:"None"},{k:"half",l:"Half Bath"},{k:"full",l:"Full Bath"}].map(o=>
+                    <button key={o.k} onClick={()=>setBathroom(o.k)} style={{flex:1,padding:"10px",borderRadius:8,border:`1.5px solid ${bathroom===o.k?C.green:C.sand}`,background:bathroom===o.k?C.greenMuted:"#fff",color:bathroom===o.k?C.green:C.gray,fontWeight:600,fontSize:13,cursor:"pointer"}}>{o.l}</button>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <label style={{display:"block",color:C.navy,fontWeight:700,fontSize:15,marginBottom:10}}>Add-Ons</label>
+                {[{k:wetbar,set:setWetbar,l:"Wet Bar / Kitchenette"},{k:egress,set:setEgress,l:"Egress Window (legal bedroom)"},{k:theater,set:setTheater,l:"Home Theater"},{k:fireplace,set:setFireplace,l:"Custom Fireplace + Mantle"}].map(o=>
+                  <button key={o.l} onClick={()=>o.set(!o.k)} style={{display:"flex",alignItems:"center",gap:12,width:"100%",textAlign:"left",padding:"12px 14px",marginBottom:8,borderRadius:8,border:`1.5px solid ${o.k?C.green:C.sand}`,background:o.k?C.greenMuted:"#fff",cursor:"pointer"}}>
+                    <div style={{width:20,height:20,borderRadius:5,border:`2px solid ${o.k?C.green:C.sand}`,background:o.k?C.green:"#fff",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{o.k&&<span style={{color:"#fff",fontSize:13,fontWeight:900}}>✓</span>}</div>
+                    <span style={{fontSize:14,fontWeight:600,color:o.k?C.green:C.navy}}>{o.l}</span>
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Estimate Output */}
+            <div>
+              <div style={{position:"sticky",top:100,borderRadius:16,overflow:"hidden",border:`1px solid ${C.sand}`,background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+                <div style={{padding:"28px 28px 20px"}}>
+                  <div style={{color:C.green,fontSize:12,fontWeight:700,letterSpacing:".06em",marginBottom:8}}>ESTIMATED PROJECT COST</div>
+                  <div className="display" style={{color:"#fff",fontSize:32,fontWeight:800,lineHeight:1.1}}>{fmt(lo)} – {fmt(hi)}</div>
+                  <div style={{color:"rgba(255,255,255,.5)",fontSize:13,marginTop:6}}>{finishRates[finish].name} · {sqft} sq ft in Hamilton County</div>
+                </div>
+                <div style={{padding:"0 28px 8px"}}>
+                  {lineItems.map((li,i)=>
+                    <div key={i} style={{display:"flex",justifyContent:"space-between",gap:12,padding:"10px 0",borderTop:i===0?"none":"1px solid rgba(255,255,255,.08)"}}>
+                      <span style={{color:"rgba(255,255,255,.7)",fontSize:13.5}}>{li.label}</span>
+                      <span style={{color:"#fff",fontSize:13.5,fontWeight:600,whiteSpace:"nowrap"}}>{fmt(li.range[0])}–{fmt(li.range[1])}</span>
+                    </div>
+                  )}
+                </div>
+                <div style={{padding:"18px 28px 28px"}}>
+                  <a href="/#estimate" className="btn-g" style={{display:"block",textAlign:"center",width:"100%",boxSizing:"border-box"}}>Get My Exact Quote {I.arrow}</a>
+                  <p style={{color:"rgba(255,255,255,.4)",fontSize:11.5,lineHeight:1.5,marginTop:14,textAlign:"center"}}>Planning estimate based on HomeStar's real Hamilton County pricing. Permits ($200–$500) handled by us. Final cost confirmed with a free in-home consultation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Context / SEO content */}
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:780}}>
+          <h2 className="ttl" style={{textAlign:"center",marginBottom:32}}>How Much Does It Cost to Finish a Basement in Hamilton County?</h2>
+          <div style={{color:C.grayDark,fontSize:16,lineHeight:1.9}}>
+            <p style={{marginBottom:18}}>Basement finishing in Hamilton County typically costs <strong>$45,000 to $200,000+</strong>, with most Fishers, Carmel, and Westfield homeowners investing between <strong>$55,000 and $95,000</strong> for a fully finished lower level. The calculator above uses HomeStar's actual 2026 project pricing — not generic national averages that miss our local labor and material costs.</p>
+            <p style={{marginBottom:18}}>Your final cost comes down to five factors: square footage, finish level, the number of rooms, whether you add a bathroom or wet bar, and any structural needs like egress windows. An essential open-concept finish runs $55–$75 per square foot, a premium finish with a bathroom and built-ins runs $75–$110 per square foot, and a luxury custom build like our <a href="/projects/westfield-basement-masterpiece" style={{color:C.green,fontWeight:600}}>Westfield Masterpiece</a> (~$150,000) runs $110–$175 per square foot.</p>
+            <p style={{marginBottom:0}}>Every HomeStar basement includes design and 3D renderings, framing, licensed electrical, licensed plumbing, HVAC, flooring, permits, and inspections — all handled in-house and backed by our 1-year workmanship warranty. Basement bathrooms use the Schluter waterproofing system with a 25-year manufacturer's warranty. <a href="/basement-finishing" style={{color:C.green,fontWeight:600}}>Learn more about our basement finishing services</a> or <a href="/blog/basement-finishing-cost-hamilton-county" style={{color:C.green,fontWeight:600}}>read our full cost breakdown</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:780}}>
+          <div style={{textAlign:"center",marginBottom:40}}><div className="lab">Calculator FAQ</div><h2 className="ttl">Common Questions</h2></div>
+          {calcFaq.map((f,i)=>
+            <div key={i} style={{padding:"22px 0",borderBottom:i<calcFaq.length-1?`1px solid ${C.sand}`:"none"}}>
+              <h3 style={{color:C.navy,fontWeight:700,fontSize:16,marginBottom:8}}>{f.q}</h3>
+              <p style={{color:C.grayDark,fontSize:15,lineHeight:1.8}}>{f.a}</p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
+
 function CostCalculator(){
   const[service,setService]=useState("bathroom");
   const[scope,setScope]=useState("mid");
@@ -4181,6 +4405,7 @@ export default function HomestarSite(){
   const[authorPage,setAuthorPage]=useState(null);
   const[guidePage,setGuidePage]=useState(null);
   const[calcPage,setCalcPage]=useState(false);
+  const[basementCalcPage,setBasementCalcPage]=useState(false);
   const[hoodSvcPage,setHoodSvcPage]=useState(null);
   useCanonical("");
 
@@ -4211,6 +4436,7 @@ export default function HomestarSite(){
     }
     /* Cost calculator */
     if(path==="tools/remodel-cost-calculator"){setCalcPage(true);return;}
+    if(path==="tools/basement-cost-calculator"){setBasementCalcPage(true);return;}
     /* Neighborhood pages */
     if(path.startsWith("remodeling-")){
       const hoodPath=path.replace(/^remodeling-/,"").replace(/-in$/,"");
@@ -4276,6 +4502,10 @@ export default function HomestarSite(){
 
   if(calcPage){
     return <CostCalculator/>;
+  }
+
+  if(basementCalcPage){
+    return <BasementCostCalculator/>;
   }
 
   if(hoodSvcPage&&NEIGHBORHOODS[hoodSvcPage.hood]){
