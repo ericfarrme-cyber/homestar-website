@@ -65,6 +65,10 @@ const PROJECTS = [
     story: {challenge:"These Westfield homeowners had an expansive but unfinished lower level — a blank canvas with enormous potential. They wanted more than a typical finished basement; they envisioned a true destination within their home where family and friends could gather, entertain, work out, and unwind. They partnered with Dovetail Group, one of the premier interior design firms in the Indianapolis area, to develop the vision — and brought in HomeStar as one of Dovetail's preferred contractors to execute it.",approach:"This was a full demo and rebuild from the ground up. We installed new LVP flooring throughout for durability and a seamless, high-end look. The ceiling became a showpiece with tongue-and-groove wood and stained red oak faux beam wraps that bring warmth and architectural character to the entire space. The crown jewel is a 14-foot custom stained red oak mantle above an electric fireplace — a true statement piece. We built out a full custom bar with porcelain brick tile backsplash, a kegerator, beverage fridge, and integrated LED shelving. Wall features include \"chairs and squares\" wainscoting, custom bulkheads, and a black metal industrial stair railing. A complete lighting package ties it all together — pendants, sconces, and LED tape lighting throughout. The space includes dedicated zones for a games area with ping-pong, a home gym, a media/theater area, and comfortable lounge seating around the fireplace. All electrical by licensed electrician, all plumbing for the bar by licensed plumber.",result:"This is what happens when vision meets craftsmanship. A dramatic, magazine-worthy lower level that functions as entertainment hub, gym, theater, and gathering space all in one. Every cut, every detail, every finish was built to last and built to impress. The partnership with Dovetail Group produced a space that elevates the entire home — and stands as a showcase of what a true custom basement finish can be."},
     designPartner: {name:"Dovetail Group", url:"https://dovetailgroupindy.com/"},
     investment: "~$150,000",
+    videoId: "-_IHCWRv8jI",
+    videoTitle: "Luxury Basement Finishing in Westfield, IN | Custom Bar, Theater & Gym Tour",
+    videoDesc: "Full tour of a $150K luxury basement finishing project in Westfield, Indiana — custom bar with kegerator, home theater, gym, 14-foot red oak mantle, and tongue-and-groove ceilings. Designed with Dovetail Group.",
+    videoDate: "2026-06-25",
     images: [
       { src: "/images/westfield-basement-masterpiece-1.jpg", alt: "Luxury custom basement bar in Westfield Indiana" },
       { src: "/images/westfield-basement-masterpiece-2.jpg", alt: "Basement entertainment area with wood ceiling Westfield IN" },
@@ -107,6 +111,11 @@ const PROJECTS = [
     cat: "Bathroom",
     color: "#4A5A8B",
     desc: "A whole-home bathroom transformation near Geist — master bath with navy crackle-glaze picket tile, freestanding soaker tub, and reconfigured layout, plus two children's bathroom remodels with coordinated finishes throughout.",
+    videoId: "2gHi1dCsuUk",
+    videoVertical: false,
+    videoTitle: "Three-Bathroom Remodel in Geist, Fishers IN | Master Bath + Two Kids' Baths Tour",
+    videoDesc: "Tour a complete whole-home bathroom remodel near Geist in Fishers, Indiana — master bathroom with navy crackle-glaze picket tile, freestanding soaker tub, and reconfigured layout, plus two children's bathroom remodels with coordinated finishes. By HomeStar Services & Contracting.",
+    videoDate: "2026-06-28",
     story: {challenge:"This Geist-area family wanted to upgrade all three bathrooms at once — the master bath plus both bathrooms for their teenage and college-aged children. The kids' bathrooms were dated and due for a refresh, but the master presented the bigger challenge: the existing layout wasn't conducive to a large shower, with an awkward entry door and linen closet eating up valuable space.",approach:"We tackled all three bathrooms as one unified project. In the master, we modified the entry door location and reconfigured the linen closet to create a much more efficient use of space — unlocking room for the large shower the homeowners wanted. The master became a top-to-bottom transformation: vaulted ceilings, double vanities with backlit mirrors, a custom storage tower built as the room's anchor, and a freestanding soaker tub positioned exactly where the morning light hits. The navy crackle-glaze picket tile — hand-glazed with a finish that makes every tile one-of-a-kind — became the signature of the space. Every detail was intentional: champagne bronze fixtures for warmth, matte black hardware for contrast, herringbone-laid floor tile for movement, heated floors for cold Indiana mornings, and a vintage pendant over the tub to tie it all together. The children's bathrooms received their own complete remodels with warm wood-tone vanities and coordinated finishes. The complete Schluter waterproofing system was installed across all three bathrooms. All plumbing by licensed plumber, all electrical by licensed electrician.",result:"Three beautifully remodeled bathrooms that transformed the entire home — a stunning master bath with navy crackle-glaze tile, freestanding tub, and a layout that finally works, plus two refreshed bathrooms for the kids. This is the kind of project we live for at HomeStar — where craftsmanship, design, and trust come together to create something homeowners will love for decades. Every surface protected by the Schluter waterproofing system and 25-year warranty."},
     images: [
       { src: "/images/geist-three-bath-1.jpg", alt: "Three-bathroom remodel near Geist Fishers Indiana" },
@@ -768,6 +777,7 @@ const BLOG = [
 ];
 
 const VIDEOS = [
+  { title: "Luxury Basement Finishing in Westfield, IN | Custom Bar, Theater & Gym Tour", id: "-_IHCWRv8jI", desc: "Full tour of a $150K luxury basement finishing project in Westfield, Indiana — featuring a custom bar with kegerator, home theater, gym, 14-foot red oak mantle, and tongue-and-groove ceilings. Designed with Dovetail Group." },
   { title: "Floor-to-Ceiling Bathroom Remodel in Noblesville, IN", id: "7ww8YOK33B8", desc: "Complete bathroom transformation from floor to ceiling in a Noblesville home." },
   { title: "Full Upper Level Home Remodel in Geist, IN", id: "coWQF-AMLsw", desc: "Watch the full upper level renovation of this beautiful Geist residence." },
   { title: "Luxury Double Shower Bathroom Remodel in Carmel, IN", id: "EM4UCRyGCYs", desc: "A luxurious double shower installation in this stunning Carmel bathroom remodel." },
@@ -1224,10 +1234,10 @@ function Projects(){
 }
 
 /* ─── Videos ───────────────────────────────────────── */
-function YouTubeFacade({id,title}){
+function YouTubeFacade({id,title,vertical=true}){
   const[play,setPlay]=useState(false);
   return(
-    <div style={{position:"relative",width:"100%",paddingTop:"177.78%",background:C.navyDark}}>
+    <div style={{position:"relative",width:"100%",paddingTop:vertical?"177.78%":"56.25%",background:C.navyDark}}>
       {play?(
         <iframe
           src={`https://www.youtube.com/embed/${id}?autoplay=1`}
@@ -3522,6 +3532,22 @@ function ProjectPage({project}){
           )}
         </div>
       </section>
+
+      {/* Project Video */}
+      {project.videoId&&(
+        <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"VideoObject",name:project.videoTitle||project.title,description:project.videoDesc||project.desc,thumbnailUrl:`https://img.youtube.com/vi/${project.videoId}/hqdefault.jpg`,uploadDate:project.videoDate||"2026-06-01",contentUrl:`https://www.youtube.com/watch?v=${project.videoId}`,embedUrl:`https://www.youtube.com/embed/${project.videoId}`,publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
+          <div className="sec-in" style={{maxWidth:900}}>
+            <div style={{textAlign:"center",marginBottom:36}}>
+              <div className="lab" style={{color:C.green}}>Video Tour</div>
+              <h2 className="ttl ttl-w">Watch the Full Walkthrough</h2>
+            </div>
+            <div style={{maxWidth:project.videoVertical===false?720:360,margin:"0 auto",borderRadius:16,overflow:"hidden",border:"1px solid rgba(255,255,255,.1)"}}>
+              <YouTubeFacade id={project.videoId} title={project.videoTitle||project.title} vertical={project.videoVertical!==false}/>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Project Story */}
       {story&&(
