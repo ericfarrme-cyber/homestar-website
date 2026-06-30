@@ -116,6 +116,10 @@ const PROJECTS = [
     videoTitle: "Three-Bathroom Remodel in Geist, Fishers IN | Master Bath + Two Kids' Baths Tour",
     videoDesc: "Tour a complete whole-home bathroom remodel near Geist in Fishers, Indiana — master bathroom with navy crackle-glaze picket tile, freestanding soaker tub, and reconfigured layout, plus two children's bathroom remodels with coordinated finishes. By HomeStar Services & Contracting.",
     videoDate: "2026-06-28",
+    testimonialId: "k6XhQcUEHh0",
+    testimonialTitle: "HomeStar Client Testimonial — Three-Bathroom Remodel in Geist, Fishers IN",
+    testimonialDesc: "A HomeStar Services & Contracting client shares her experience with a whole-home, three-bathroom remodel near Geist in Fishers, Indiana — from the master bath to the two children's bathrooms.",
+    testimonialDate: "2026-06-29",
     story: {challenge:"This Geist-area family wanted to upgrade all three bathrooms at once — the master bath plus both bathrooms for their teenage and college-aged children. The kids' bathrooms were dated and due for a refresh, but the master presented the bigger challenge: the existing layout wasn't conducive to a large shower, with an awkward entry door and linen closet eating up valuable space.",approach:"We tackled all three bathrooms as one unified project. In the master, we modified the entry door location and reconfigured the linen closet to create a much more efficient use of space — unlocking room for the large shower the homeowners wanted. The master became a top-to-bottom transformation: vaulted ceilings, double vanities with backlit mirrors, a custom storage tower built as the room's anchor, and a freestanding soaker tub positioned exactly where the morning light hits. The navy crackle-glaze picket tile — hand-glazed with a finish that makes every tile one-of-a-kind — became the signature of the space. Every detail was intentional: champagne bronze fixtures for warmth, matte black hardware for contrast, herringbone-laid floor tile for movement, heated floors for cold Indiana mornings, and a vintage pendant over the tub to tie it all together. The children's bathrooms received their own complete remodels with warm wood-tone vanities and coordinated finishes. The complete Schluter waterproofing system was installed across all three bathrooms. All plumbing by licensed plumber, all electrical by licensed electrician.",result:"Three beautifully remodeled bathrooms that transformed the entire home — a stunning master bath with navy crackle-glaze tile, freestanding tub, and a layout that finally works, plus two refreshed bathrooms for the kids. This is the kind of project we live for at HomeStar — where craftsmanship, design, and trust come together to create something homeowners will love for decades. Every surface protected by the Schluter waterproofing system and 25-year warranty."},
     images: [
       { src: "/images/geist-three-bath-1.jpg", alt: "Three-bathroom remodel near Geist Fishers Indiana" },
@@ -1451,13 +1455,17 @@ function Testimonials(){
   },[]);
   return(
     <section id="reviews" className="sec" style={{background:C.cream}} ref={ref}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"VideoObject",name:"HomeStar Client Testimonial — Three-Bathroom Remodel in Geist, Fishers IN",description:"A HomeStar Services & Contracting client shares her experience with a whole-home, three-bathroom remodel near Geist in Fishers, Indiana.",thumbnailUrl:"https://img.youtube.com/vi/k6XhQcUEHh0/hqdefault.jpg",uploadDate:"2026-06-29",contentUrl:"https://www.youtube.com/watch?v=k6XhQcUEHh0",embedUrl:"https://www.youtube.com/embed/k6XhQcUEHh0",publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
       <div className="sec-in">
         <div style={{textAlign:"center",marginBottom:52}}>
           <div className="lab">Trusted by Homeowners</div>
           <h2 className="ttl">What Our Clients Say</h2>
           <p className="sub" style={{margin:"0 auto"}}>Real reviews from real homeowners across Hamilton County.</p>
         </div>
-        <div className={vis?"fu d1":""}>
+        <div className={vis?"fu d1":""} style={{maxWidth:720,margin:"0 auto 52px",borderRadius:16,overflow:"hidden",border:`1px solid ${C.sand}`,boxShadow:"0 10px 40px rgba(27,42,74,.08)"}}>
+          <YouTubeFacade id="k6XhQcUEHh0" title="HomeStar Client Testimonial — Three-Bathroom Remodel in Geist, Fishers IN" vertical={false}/>
+        </div>
+        <div className={vis?"fu d2":""}>
           <div className="elfsight-app-aa4b2192-d931-4bb1-9f22-53adc2e6ed5e" data-elfsight-app-lazy></div>
         </div>
       </div>
@@ -3544,6 +3552,23 @@ function ProjectPage({project}){
             </div>
             <div style={{maxWidth:project.videoVertical===false?720:360,margin:"0 auto",borderRadius:16,overflow:"hidden",border:"1px solid rgba(255,255,255,.1)"}}>
               <YouTubeFacade id={project.videoId} title={project.videoTitle||project.title} vertical={project.videoVertical!==false}/>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Client Testimonial Video */}
+      {project.testimonialId&&(
+        <section className="sec" style={{background:"#fff"}}>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"VideoObject",name:project.testimonialTitle||`${project.title} — Client Testimonial`,description:project.testimonialDesc||`A HomeStar client shares her experience with the ${project.title} project.`,thumbnailUrl:`https://img.youtube.com/vi/${project.testimonialId}/hqdefault.jpg`,uploadDate:project.testimonialDate||"2026-06-01",contentUrl:`https://www.youtube.com/watch?v=${project.testimonialId}`,embedUrl:`https://www.youtube.com/embed/${project.testimonialId}`,publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
+          <div className="sec-in" style={{maxWidth:900}}>
+            <div style={{textAlign:"center",marginBottom:36}}>
+              <div className="lab" style={{color:C.green}}>In Their Words</div>
+              <h2 className="ttl">Hear From This Client</h2>
+              <p className="sub" style={{margin:"12px auto 0"}}>A homeowner shares her experience working with HomeStar on this project.</p>
+            </div>
+            <div style={{maxWidth:720,margin:"0 auto",borderRadius:16,overflow:"hidden",border:`1px solid ${C.sand}`,boxShadow:"0 10px 40px rgba(27,42,74,.08)"}}>
+              <YouTubeFacade id={project.testimonialId} title={project.testimonialTitle||`${project.title} — Client Testimonial`} vertical={false}/>
             </div>
           </div>
         </section>
