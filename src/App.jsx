@@ -837,7 +837,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:${C.text};overflow-x:hidde
 
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:${C.cream}}::-webkit-scrollbar-thumb{background:${C.navy};border-radius:3px}
 
-@media(max-width:900px){.desk{display:none!important}.mob-btn{display:flex!important}.hero-grid{grid-template-columns:1fr!important;gap:32px!important}}
+@media(max-width:900px){.desk{display:none!important}.mob-btn{display:flex!important}.hero-grid{grid-template-columns:1fr!important;gap:32px!important}.testimonial-pair{grid-template-columns:1fr!important;gap:20px!important}}
 @media(max-width:760px){#hero{display:block!important;min-height:auto!important;padding-bottom:0!important}.hero-bg-img{height:78vh!important}.hero-overlay{height:78vh!important}.hero-content{padding:120px 22px 44px!important;min-height:78vh!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}.hero-trustbar{position:static!important;backdrop-filter:none!important;background:#0d1830!important;padding:24px 22px!important;border-top:2px solid #5CB832!important}.hero-trustbar-inner{display:grid!important;grid-template-columns:1fr 1fr!important;gap:20px 18px!important;justify-content:start!important}.hero-trust-item{flex-direction:column!important;align-items:flex-start!important;gap:1px!important}.hero-dots{display:none!important}}
 @media(min-width:901px){.mob-btn{display:none!important}.mob-menu{display:none!important}}
 `;
@@ -855,7 +855,7 @@ function Nav({isCity}){
   const[sc,setSc]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>50);window.addEventListener("scroll",h,{passive:true});return()=>window.removeEventListener("scroll",h)},[]);
   const p=isCity?"/":"";
-  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Videos",h:p+"#videos"},{l:"Blog",h:p+"#blog"},{l:"Guides",h:p+"#guides"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
+  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Videos",h:p+"#videos"},{l:"Reviews",h:p+"#reviews"},{l:"Blog",h:p+"#blog"},{l:"Guides",h:p+"#guides"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
 
   return(
     <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000,background:sc?"rgba(27,42,74,.97)":"transparent",backdropFilter:sc?"blur(14px)":"none",transition:"all .35s",borderBottom:sc?"1px solid rgba(255,255,255,.06)":"none"}}>
@@ -1457,13 +1457,30 @@ function Testimonials(){
     <section id="reviews" className="sec" style={{background:C.cream}} ref={ref}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"VideoObject",name:"HomeStar Client Testimonial — Three-Bathroom Remodel in Geist, Fishers IN",description:"A HomeStar Services & Contracting client shares her experience with a whole-home, three-bathroom remodel near Geist in Fishers, Indiana.",thumbnailUrl:"https://img.youtube.com/vi/k6XhQcUEHh0/hqdefault.jpg",uploadDate:"2026-06-29",contentUrl:"https://www.youtube.com/watch?v=k6XhQcUEHh0",embedUrl:"https://www.youtube.com/embed/k6XhQcUEHh0",publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
       <div className="sec-in">
-        <div style={{textAlign:"center",marginBottom:52}}>
+        <div style={{textAlign:"center",marginBottom:44}}>
           <div className="lab">Trusted by Homeowners</div>
-          <h2 className="ttl">What Our Clients Say</h2>
-          <p className="sub" style={{margin:"0 auto"}}>Real reviews from real homeowners across Hamilton County.</p>
+          <h2 className="ttl">See the Work. Hear the Story.</h2>
+          <p className="sub" style={{margin:"0 auto"}}>Watch a real Hamilton County project come to life — then hear directly from the homeowner about her experience with HomeStar.</p>
         </div>
-        <div className={vis?"fu d1":""} style={{maxWidth:720,margin:"0 auto 52px",borderRadius:16,overflow:"hidden",border:`1px solid ${C.sand}`,boxShadow:"0 10px 40px rgba(27,42,74,.08)"}}>
-          <YouTubeFacade id="k6XhQcUEHh0" title="HomeStar Client Testimonial — Three-Bathroom Remodel in Geist, Fishers IN" vertical={false}/>
+        <div className={`${vis?"fu d1":""} testimonial-pair`} style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:24,maxWidth:1040,margin:"0 auto 56px"}}>
+          <div style={{borderRadius:16,overflow:"hidden",border:`1px solid ${C.sand}`,boxShadow:"0 10px 40px rgba(27,42,74,.08)",background:"#fff"}}>
+            <YouTubeFacade id="2gHi1dCsuUk" title="Three-Bathroom Remodel in Geist, Fishers IN — Project Walkthrough" vertical={false}/>
+            <div style={{padding:"16px 20px"}}>
+              <div style={{color:C.green,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:5}}>The Project</div>
+              <div className="display" style={{color:C.navy,fontSize:15,fontWeight:700,lineHeight:1.35}}>Three-Bathroom Remodel in Geist, Fishers</div>
+            </div>
+          </div>
+          <div style={{borderRadius:16,overflow:"hidden",border:`1px solid ${C.sand}`,boxShadow:"0 10px 40px rgba(27,42,74,.08)",background:"#fff"}}>
+            <YouTubeFacade id="k6XhQcUEHh0" title="HomeStar Client Testimonial — Three-Bathroom Remodel in Geist, Fishers IN" vertical={false}/>
+            <div style={{padding:"16px 20px"}}>
+              <div style={{color:C.green,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:5}}>The Client's Words</div>
+              <div className="display" style={{color:C.navy,fontSize:15,fontWeight:700,lineHeight:1.35}}>Hear About Her Experience</div>
+            </div>
+          </div>
+        </div>
+        <div style={{textAlign:"center",marginBottom:40}}>
+          <h3 className="display" style={{color:C.navy,fontSize:22}}>What Our Clients Say</h3>
+          <p className="sub" style={{margin:"6px auto 0"}}>Real reviews from real homeowners across Hamilton County.</p>
         </div>
         <div className={vis?"fu d2":""}>
           <div className="elfsight-app-aa4b2192-d931-4bb1-9f22-53adc2e6ed5e" data-elfsight-app-lazy></div>
