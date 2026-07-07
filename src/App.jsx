@@ -955,6 +955,9 @@ function Hero(){
               <span style={{color:"rgba(255,255,255,.92)",fontSize:12.5,fontWeight:600,letterSpacing:".02em"}}>{b.l}</span>
             </div>
           )}
+          <a href="https://www.bbb.org/us/in/fishers/profile/general-contractor/homestar-services-and-contracting-inc-0382-90065629/#sealclick" target="_blank" rel="nofollow" style={{display:"flex",alignItems:"center"}}>
+            <img src="https://seal-indy.bbb.org/seals/blue-seal-200-42-whitetxt-bbb-90065629.png" style={{border:0,height:34}} alt="Homestar Services and Contracting, Inc. BBB Business Review"/>
+          </a>
         </div>
       </div>
 
@@ -1712,6 +1715,9 @@ function Footer({isCity}){
               <div><div className="display" style={{color:"#fff",fontSize:14,fontWeight:800}}>HOMESTAR</div><div style={{color:C.green,fontSize:8,fontWeight:700,letterSpacing:".1em"}}>SERVICES & CONTRACTING</div></div>
             </div>
             <p style={{color:"rgba(255,255,255,.3)",fontSize:12,lineHeight:1.7,maxWidth:260}}>Licensed, bonded, and insured home remodeling for Hamilton County, Indiana. Quality craftsmanship, clear pricing, and a 1-year workmanship warranty on every project.</p>
+            <a href="https://www.bbb.org/us/in/fishers/profile/general-contractor/homestar-services-and-contracting-inc-0382-90065629/#sealclick" target="_blank" rel="nofollow" style={{display:"inline-block",marginTop:18}}>
+              <img src="https://seal-indy.bbb.org/seals/blue-seal-200-42-whitetxt-bbb-90065629.png" style={{border:0}} alt="Homestar Services and Contracting, Inc. BBB Business Review"/>
+            </a>
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Services</h4>
@@ -3720,6 +3726,22 @@ function ProjectPage({project}){
               </div>
             </div>
           )}
+          {(()=>{
+            const svcSlugMap={"Bathroom Remodeling":"bathroom-remodeling","Kitchen Remodeling":"kitchen-remodeling","Basement Finishing":"basement-finishing","Flooring Services":"flooring-services","Painting Services":"painting-services","Decks & Outdoor Living":"deck-builder"};
+            const svcSlug=svcSlugMap[project.service];
+            const cityHubs=["Fishers","Carmel","Westfield","Noblesville","Zionsville","Geist","Fortville","McCordsville","Pendleton"];
+            if(!svcSlug||!cityHubs.includes(project.city))return null;
+            const url=`/${svcSlug}-${project.city.toLowerCase().replace(/ /g,"-")}-in`;
+            return(
+              <div style={{marginTop:20,padding:"24px 28px",borderRadius:12,border:`1.5px solid ${C.green}`,background:C.greenMuted,display:"flex",alignItems:"center",justifyContent:"space-between",gap:16,flexWrap:"wrap"}}>
+                <div style={{flex:"1 1 320px"}}>
+                  <div style={{color:C.navy,fontWeight:700,fontSize:16,marginBottom:4}}>Looking for {project.service} in {project.city}?</div>
+                  <p style={{color:C.grayDark,fontSize:14,lineHeight:1.6,margin:0}}>See our full {project.service.toLowerCase()} services in {project.city}, Indiana — costs, process, FAQs, and more.</p>
+                </div>
+                <a href={url} className="btn-g" style={{whiteSpace:"nowrap"}}>{project.service} in {project.city} {I.arrow}</a>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
@@ -4758,7 +4780,7 @@ export default function HomestarSite(){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Family-owned home remodeling company based in Fishers, serving Hamilton County, Indiana. Kitchen & bath remodeling, basement finishing, flooring, painting, decks & outdoor living.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},areaServed:[{name:"Fishers"},{name:"Carmel"},{name:"Geist"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),serviceArea:{"@type":"GeoCircle",geoMidpoint:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},geoRadius:"40000"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"62"},openingHours:["Mo-Fr 08:00-17:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/"],founder:[{"@type":"Person",name:"Robb Rice"},{"@type":"Person",name:"Eric Farr"}],hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Family-owned home remodeling company based in Fishers, serving Hamilton County, Indiana. Kitchen & bath remodeling, basement finishing, flooring, painting, decks & outdoor living.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},areaServed:[{name:"Fishers"},{name:"Carmel"},{name:"Geist"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),serviceArea:{"@type":"GeoCircle",geoMidpoint:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},geoRadius:"40000"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"62"},openingHours:["Mo-Fr 08:00-17:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/","https://www.bbb.org/us/in/fishers/profile/general-contractor/homestar-services-and-contracting-inc-0382-90065629"],founder:[{"@type":"Person",name:"Robb Rice"},{"@type":"Person",name:"Eric Farr"}],hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
       <Nav/>
       <Hero/>
       <Services/>
