@@ -212,6 +212,20 @@ const PROJECTS = [
     ],
   },
   {
+    title: "Marble Master Bath Transformation in Fishers", slug: "marble-master-bathroom-fishers", city: "Fishers", service: "Bathroom Remodeling",
+    cat: "Bathroom",
+    color: "#8A8B95",
+    desc: "A builder-basic master bath transformed into an elevated retreat with Carrara marble tile, a mosaic flower-pattern accent niche, a frameless glass shower enclosure, and a double marble vanity in Fishers.",
+    story: {challenge:"These Fishers homeowners had a builder-basic master bathroom that felt dated and uninspired. They wanted to elevate the space with classic, timeless materials — but with clean, modern lines that would feel fresh rather than fussy. The goal was a master bath that felt like a true retreat, where quality stone and thoughtful detailing took center stage.",approach:"We transformed the space from the ground up. The shower features a Carrara marble subway tile surround with a marble floor, anchored by a striking mosaic flower-pattern accent — used both in a built-in niche and on the shower floor — that ties the whole space together. A frameless glass enclosure keeps the view open so all that natural stone shines. We installed a brushed nickel rainfall shower head with a handheld, a double vanity topped with marble countertops, and warm neutral tile flooring throughout to balance the cool tones of the marble. Every surface was properly waterproofed with the Schluter system, and all plumbing and electrical was handled by our licensed trades.",result:"This is what happens when classic materials meet clean, modern lines. The finished master bath went from builder-basic to genuinely elevated — a bright, serene retreat where the Carrara marble and mosaic detailing do the talking. Another beautiful bathroom transformation in the books here in Hamilton County."},
+    images: [
+      { src: "/images/marble-master-bathroom-fishers-1.jpg", alt: "Marble master bathroom with double vanity in Fishers Indiana" },
+      { src: "/images/marble-master-bathroom-fishers-2.jpg", alt: "Carrara marble subway tile shower in Fishers IN" },
+      { src: "/images/marble-master-bathroom-fishers-3.jpg", alt: "Marble shower with mosaic floor accent Fishers Indiana" },
+      { src: "/images/marble-master-bathroom-fishers-4.jpg", alt: "Mosaic flower pattern accent niche marble bathroom Fishers IN" },
+      { src: "/images/marble-master-bathroom-fishers-5.jpg", alt: "Frameless glass marble master bathroom remodel Fishers Indiana" },
+    ],
+  },
+  {
     title: "Basement Bathroom Remodel in Carmel", slug: "basement-bathroom-carmel", city: "Carmel", service: "Bathroom Remodeling",
     cat: "Bathroom",
     color: "#6A7B8B",
