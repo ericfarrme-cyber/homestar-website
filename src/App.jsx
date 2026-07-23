@@ -635,7 +635,7 @@ const BLOG = [
       "Permits are required for deck construction in most Hamilton County municipalities. We handle the entire permitting process and ensure everything meets current building codes. A properly permitted deck protects your investment and avoids issues when you sell your home.",
       "Start planning now and you'll be hosting cookouts by Memorial Day. Call HomeStar at (317) 279-4798 or visit thehomestarservice.com to request a free estimate."
     ]},
-  { slug:"bathroom-remodel-cost-hamilton-county", title: "How Much Does a Bathroom Remodel Cost in Hamilton County, Indiana?", date: "Mar 29, 2026", read: "8 min", cat: "Bathroom", excerpt: "From basic refreshes to full spa-level renovations, here's what bathroom remodels actually cost in Fishers, Carmel, Noblesville, and surrounding areas — with real numbers from local projects.",
+  { slug:"bathroom-remodel-cost-hamilton-county", title: "Bathroom Remodel Cost in Hamilton County (2026): Real Prices From a Fishers Contractor", date: "Mar 29, 2026", read: "8 min", cat: "Bathroom", excerpt: "Real 2026 bathroom remodel prices from a local Fishers contractor — $15K refreshes to $50K+ spa builds, with actual project numbers for Carmel, Noblesville & Westfield. No vague national averages.",
     body: [
       "If you're a homeowner in Hamilton County thinking about remodeling your bathroom, the first question on your mind is probably: how much is this going to cost? It's a fair question — and unfortunately, the answer you'll find online is usually a vague national average that has nothing to do with what you'll actually pay in Fishers, Carmel, Noblesville, or Westfield.",
       "We're going to break it down honestly based on what we see every day as a local remodeling company working in Hamilton County homes. No vague ranges, no bait-and-switch. Just real numbers for real projects.",
@@ -3925,8 +3925,8 @@ function AuthorPage({author}){
 /* ─── Pillar/Hub Guide Pages (5 pages) ────────────── */
 const GUIDES = {
   "bathroom-remodeling-hamilton-county":{
-    title:"The Complete Guide to Bathroom Remodeling in Hamilton County",
-    metaDesc:"Everything Hamilton County homeowners need to know about bathroom remodeling — costs, timelines, materials, waterproofing, and how to choose a contractor. From Fishers to Zionsville.",
+    title:"Bathroom Remodeling in Hamilton County: 2026 Costs, Timeline & Contractor Guide",
+    metaDesc:"2026 bathroom remodeling guide for Hamilton County: real costs ($15K–$50K+), week-by-week timeline, Schluter waterproofing, and how to pick a contractor in Fishers, Carmel & Westfield.",
     service:"Bathroom Remodeling",serviceSlug:"bathroom-remodeling",
     sections:[
       {h:"What Does a Bathroom Remodel Cost in Hamilton County?",p:["Bathroom remodeling costs in Hamilton County vary significantly by scope. A basic refresh — new vanity, faucet, mirror, light fixture, and paint — typically runs $8,000 to $12,000. A mid-range remodel with full gut, new tile shower, vanity, fixtures, and lighting runs $15,000 to $30,000. High-end spa-level renovations with custom tile, frameless glass, freestanding tubs, heated floors, and premium fixtures range from $30,000 to $50,000+.","The biggest cost variable is tile. A standard subway tile shower costs significantly less than a floor-to-ceiling large-format installation. The scope of plumbing changes also matters — relocating a shower valve or adding a drain line costs more than replacing fixtures in place."]},
