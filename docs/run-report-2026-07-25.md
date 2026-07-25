@@ -42,9 +42,17 @@ The 32 "Alternate page with proper canonical" failures were **not fully fixed** 
 
 **Held for Eric (post-deploy, outward):** after this ships, re-run "Validate Fix" on the 32-page canonical group in GSC and Request Indexing on verified pages. Crawled-not-indexed (18): treat thin pages first. Golden rule respected — nothing resubmitted unchanged.
 
-## Phase 5 — Deploy pipeline (COMMITTED; PUSH PENDING via GitHub Desktop)
+## Phase 5 — Deploy pipeline (COMPLETE ✅)
 
-Eric approved "do all." Commit `154fa54` created locally with the content + canonical fix; a second commit records the published reviews/GBP + these doc updates. **The CLI push hung (no push auth) — Eric pushes via GitHub Desktop.** Once pushed & Vercel deploys: IndexNow POST the changed URLs + GSC Request Indexing on the changed URLs (rest to `indexing-queue.txt`), then Validate Fix the canonical group. **These are HELD until the deploy is live** (they only help post-crawl) — I'll run them once Eric confirms the push.
+- Eric pushed the 3 commits via GitHub Desktop. **Verified live:** `origin/main` at `eb301cc`; the live homepage no longer serves the static canonical (curl confirms the fix is deployed); site returns 200.
+- **IndexNow:** POSTed 6 changed URLs (homepage, 3 kitchen city pages, signs blog, Carmel bathroom) — HTTP 200 accepted; key file verified reachable.
+- **GSC Request Indexing:** all 5 priority content URLs submitted to the priority crawl queue (kitchen Zionsville/Westfield/Carmel, signs blog, Carmel bathroom).
+
+## Phase 4 addendum — canonical bug confirmed on a REAL page
+
+While requesting indexing, URL Inspection on **`/kitchen-remodeling-carmel-in`** showed "Crawled – currently not indexed" with **User-declared canonical = `https://www.thehomestarservice.com/`** (the homepage) from Google's last pre-fix crawl. That's the bug caught on an actual content page we care about — not just legacy URLs — and direct validation that the `index.html` fix targets the right thing. Once re-crawled with the fix live, it should self-canonicalize and become eligible to index.
+
+**On the 32-page canonical group:** the example URLs are mostly legacy patterns (`/portfolio-items/...`, `/remodeling-<city>-proper-in`) that likely hit the SPA homepage fallback, so some may legitimately stay excluded even after the fix (they're effectively dead URLs). GSC did not present a "Validate Fix" button in the current UI state; re-validation of that group is on the watch list for next run once Google re-crawls. Net: the fix most helps the *real* content pages (like kitchen-carmel above), which is what matters.
 
 ## Phase 6 — GBP + reviews (PUBLISHED ✅)
 
