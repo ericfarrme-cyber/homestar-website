@@ -5,11 +5,13 @@ Last run: 2026-07-25 (Run #1 — prepare-then-confirm mode)
 - Captured GSC data: 335 clicks / 76.8K impr / 0.4% CTR / pos 16.7 (3-mo). Clicks ~3× the master-plan baseline. Indexing flat at 220/60.
 - Content (in `src/App.jsx`): added unique kitchen city content for Zionsville/Westfield/Carmel; deepened `signs-bathroom-needs-remodel` blog (5→8 min, 7 signs); added a Carmel shower-installation paragraph.
 - **Indexing root cause fixed:** removed the hardcoded homepage `<link rel="canonical">` from `index.html` that made every SPA route look like a duplicate of the homepage (the real driver of the 32 canonical failures).
-- Read all 9 new GBP reviews (all 5★) and drafted replies; drafted next GBP post. **Nothing published/deployed** — staged for Eric.
+- Read all 9 new GBP reviews (all 5★), **published** all 9 replies + **published** the Geist 3-bathroom GBP post.
+- **DEPLOYED** (Eric pushed via GitHub Desktop, verified live): content + canonical fix are live. **IndexNow** POSTed 6 changed URLs (200). **GSC Request Indexing** done on 5 priority pages (kitchen Zionsville/Westfield/Carmel, signs blog, Carmel bathroom).
+- Confirmed the canonical bug on a REAL page: URL Inspection showed `/kitchen-remodeling-carmel-in` "crawled – not indexed" with User-declared canonical = the homepage (pre-fix crawl). Validates the index.html fix.
 
 ## Current priorities (next run)
 1. **Judge the CTR title fixes** on `/blog/bathroom-remodel-cost-hamilton-county` (+243% impr) and `/guide/bathroom-remodeling-hamilton-county` — need 30-day CTR. If a fixed title is still <0.3% on page 1, re-angle it.
-2. **Re-validate the canonical group** in GSC once the `index.html` fix is live (Validate Fix on the 32; Request Indexing on verified). Target not-indexed <20 by October. **Decision (Eric, 2026-07-25): deploy the static-canonical removal and WATCH 2–4 weeks (judge ~2026-08-22). If the 32 don't clear, do the lighter per-route `<head>`-injection build fix — NOT full puppeteer prerender.**
+2. **Re-check the canonical group** in GSC (fix is LIVE; IndexNow + 5 reindex requests already fired this run). Target not-indexed <20 by October. **Decision (Eric, 2026-07-25): WATCH 2–4 weeks (judge ~2026-08-22).** NOTE: the 32-page group is mostly legacy URLs (`/portfolio-items/...`, `/remodeling-*-proper-in`) that hit the SPA homepage fallback, so some may legitimately stay excluded — don't expect the full 32 to clear. The fix mainly rescues REAL pages like kitchen-carmel. GSC didn't expose a "Validate Fix" button this run; retry it next run. If real pages still don't clear, do the lighter per-route `<head>`-injection build fix — NOT full puppeteer prerender.
 3. **Kitchen proof** — pages are now differentiated but have no project gallery. Needs Eric's kitchen photos/case studies to actually rank.
 4. Treat crawled-not-indexed (18) thin pages next.
 
