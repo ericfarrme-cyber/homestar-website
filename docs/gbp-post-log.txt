@@ -1,0 +1,4 @@
+# GBP Post Log
+# Format: DATE | project/topic | status
+2026-06 | westfield-basement-masterpiece | posted (manual)
+2026-07 | marble-master-bathroom-fishers | caption written, confirm posted
