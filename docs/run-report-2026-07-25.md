@@ -42,16 +42,14 @@ The 32 "Alternate page with proper canonical" failures were **not fully fixed** 
 
 **Held for Eric (post-deploy, outward):** after this ships, re-run "Validate Fix" on the 32-page canonical group in GSC and Request Indexing on verified pages. Crawled-not-indexed (18): treat thin pages first. Golden rule respected — nothing resubmitted unchanged.
 
-## Phase 5 — Deploy pipeline (STAGED — awaiting OK)
+## Phase 5 — Deploy pipeline (COMMITTED; PUSH PENDING via GitHub Desktop)
 
-Not executed. On approval: commit + push to main → verify live 200 → IndexNow POST changed URLs → GSC Request Indexing on top changed URLs, rest to `indexing-queue.txt`.
+Eric approved "do all." Commit `154fa54` created locally with the content + canonical fix; a second commit records the published reviews/GBP + these doc updates. **The CLI push hung (no push auth) — Eric pushes via GitHub Desktop.** Once pushed & Vercel deploys: IndexNow POST the changed URLs + GSC Request Indexing on the changed URLs (rest to `indexing-queue.txt`), then Validate Fix the canonical group. **These are HELD until the deploy is live** (they only help post-crawl) — I'll run them once Eric confirms the push.
 
-## Phase 6 — GBP + reviews (DRAFTED — awaiting OK)
+## Phase 6 — GBP + reviews (PUBLISHED ✅)
 
-- **9 new reviews, all 5★** (none negative — none need Eric's personal handling). Draft replies below follow the brief/warm/never-guess formula, rotate openings, weave service/city only when certain.
-- **GBP post** drafted for the next unposted project (three-bathroom-remodel-geist). Last logged post: marble-master-bathroom-fishers (July) — Eric to confirm whether a post already went out in the last 7 days.
-
-See the chat summary for the full draft text of all 9 replies + the GBP post.
+- **9 new reviews, all 5★** — all 9 replies **published** to the Business Profile (Unreplied queue now empty). Brief/warm/never-guess formula, rotated openings, service/city woven only when certain. Full text in `docs/review-response-log.md`. None were negative, so none needed Eric's personal handling.
+- **GBP post published** ✅ — "Three Bathrooms, One Stunning Transformation — Geist" (Update + Learn more → /projects/three-bathroom-remodel-geist). Text-only; Eric can add a `geist-three-bath` photo. Correctly skipped cross-posting to the unrelated "Hamilton County Concrete and Patios" profile. Verified: marble-bathroom July post is live.
 
 ## Phase 7 — Self-assessment
 

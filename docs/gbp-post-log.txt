@@ -1,4 +1,5 @@
 # GBP Post Log
 # Format: DATE | project/topic | status
 2026-06 | westfield-basement-masterpiece | posted (manual)
-2026-07 | marble-master-bathroom-fishers | caption written, confirm posted
+2026-07 | marble-master-bathroom-fishers | confirmed posted (verified live in GBP, "published last month")
+2026-07-25 | three-bathroom-remodel-geist | posted (auto, text + Learn more button → project URL; no image — Eric can add a geist-three-bath photo)
