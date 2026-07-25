@@ -972,6 +972,12 @@ function Hero(){
           <a href="https://www.bbb.org/us/in/fishers/profile/general-contractor/homestar-services-and-contracting-inc-0382-90065629/#sealclick" target="_blank" rel="nofollow" style={{display:"flex",alignItems:"center"}}>
             <img src="https://seal-indy.bbb.org/seals/blue-seal-200-42-whitetxt-bbb-90065629.png" style={{border:0,height:34}} alt="Homestar Services and Contracting, Inc. BBB Business Review"/>
           </a>
+          <a href="https://www.angi.com/companylist/us/in/carmel/homestar-services-and-contracting-construction-contracting-thehomestarservicecom-reviews-149521817.htm" target="_blank" rel="nofollow" style={{display:"flex",alignItems:"center"}}>
+            <img src="/images/angi-badge.png" style={{border:0,height:34}} alt="HomeStar Services and Contracting on Angi — 5.0 Rated"/>
+          </a>
+          <a href="https://directory.bagi.com/directory/Details/homestar-services-and-contracting-4883083" target="_blank" rel="nofollow" style={{display:"flex",alignItems:"center"}}>
+            <img src="/images/bagi-badge.png" style={{border:0,height:34}} alt="HomeStar member of Builders Association of Greater Indianapolis BAGI"/>
+          </a>
         </div>
       </div>
 
@@ -1732,6 +1738,14 @@ function Footer({isCity}){
             <a href="https://www.bbb.org/us/in/fishers/profile/general-contractor/homestar-services-and-contracting-inc-0382-90065629/#sealclick" target="_blank" rel="nofollow" style={{display:"inline-block",marginTop:18}}>
               <img src="https://seal-indy.bbb.org/seals/blue-seal-200-42-whitetxt-bbb-90065629.png" style={{border:0}} alt="Homestar Services and Contracting, Inc. BBB Business Review"/>
             </a>
+            <div style={{display:"flex",gap:10,marginTop:12,flexWrap:"wrap"}}>
+              <a href="https://www.angi.com/companylist/us/in/carmel/homestar-services-and-contracting-construction-contracting-thehomestarservicecom-reviews-149521817.htm" target="_blank" rel="nofollow" style={{display:"inline-flex",alignItems:"center"}}>
+                <img src="/images/angi-badge.png" style={{border:0,height:40}} alt="HomeStar Services and Contracting on Angi — 5.0 Rated"/>
+              </a>
+              <a href="https://directory.bagi.com/directory/Details/homestar-services-and-contracting-4883083" target="_blank" rel="nofollow" style={{display:"inline-flex",alignItems:"center"}}>
+                <img src="/images/bagi-badge.png" style={{border:0,height:40}} alt="HomeStar member of Builders Association of Greater Indianapolis BAGI"/>
+              </a>
+            </div>
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Services</h4>
@@ -4794,7 +4808,7 @@ export default function HomestarSite(){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Family-owned home remodeling company based in Fishers, serving Hamilton County, Indiana. Kitchen & bath remodeling, basement finishing, flooring, painting, decks & outdoor living.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},areaServed:[{name:"Fishers"},{name:"Carmel"},{name:"Geist"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),serviceArea:{"@type":"GeoCircle",geoMidpoint:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},geoRadius:"40000"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"62"},openingHours:["Mo-Fr 08:00-17:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/","https://www.bbb.org/us/in/fishers/profile/general-contractor/homestar-services-and-contracting-inc-0382-90065629"],founder:[{"@type":"Person",name:"Robb Rice"},{"@type":"Person",name:"Eric Farr"}],hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Family-owned home remodeling company based in Fishers, serving Hamilton County, Indiana. Kitchen & bath remodeling, basement finishing, flooring, painting, decks & outdoor living.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},areaServed:[{name:"Fishers"},{name:"Carmel"},{name:"Geist"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),serviceArea:{"@type":"GeoCircle",geoMidpoint:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},geoRadius:"40000"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"62"},openingHours:["Mo-Fr 08:00-17:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/","https://www.bbb.org/us/in/fishers/profile/general-contractor/homestar-services-and-contracting-inc-0382-90065629","https://www.angi.com/companylist/us/in/carmel/homestar-services-and-contracting-construction-contracting-thehomestarservicecom-reviews-149521817.htm","https://directory.bagi.com/directory/Details/homestar-services-and-contracting-4883083"],founder:[{"@type":"Person",name:"Robb Rice"},{"@type":"Person",name:"Eric Farr"}],memberOf:{"@type":"Organization",name:"Builders Association of Greater Indianapolis (BAGI)",url:"https://bagi.com"},hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
       <Nav/>
       <Hero/>
       <Services/>
