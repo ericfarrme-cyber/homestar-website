@@ -20,7 +20,7 @@ _Rewritten every orchestrator run from that run's data. Last: 2026-07-25 (Run #1
 
 ## WATCHING (experiments in flight, with judge date)
 - **CTR title fixes** on `/blog/bathroom-remodel-cost-hamilton-county` (+243% impr) & `/guide/bathroom-remodeling-hamilton-county` — judge CTR ~**2026-08-25** (30-day). Re-angle any title still <0.3% on page 1.
-- **Canonical fix** — judge not-indexed count after next crawl/validation (~2–4 weeks post-deploy).
+- **Canonical fix — DEPLOY & WATCH (Eric's call, 2026-07-25).** Static homepage canonical removed from index.html; watch the not-indexed count for 2–4 weeks (**judge ~2026-08-22**). If the 32 canonical-failure pages clear, done. If they DON'T clear, implement the lighter **per-route `<head>` injection** at build (NOT full puppeteer prerender) — write one static index.html per route with correct canonical/title/meta, no headless browser, verified on a Vercel preview first. Full DOM prerender is off the table unless SSR is wanted later.
 - **Kitchen Zionsville/Westfield/Carmel content** — judge position movement on kitchen-city queries next run.
 - **Carmel shower-installation** — judge `shower installation carmel` position next run.
 

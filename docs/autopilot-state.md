@@ -9,7 +9,7 @@ Last run: 2026-07-25 (Run #1 — prepare-then-confirm mode)
 
 ## Current priorities (next run)
 1. **Judge the CTR title fixes** on `/blog/bathroom-remodel-cost-hamilton-county` (+243% impr) and `/guide/bathroom-remodeling-hamilton-county` — need 30-day CTR. If a fixed title is still <0.3% on page 1, re-angle it.
-2. **Re-validate the canonical group** in GSC once the `index.html` fix is live (Validate Fix on the 32; Request Indexing on verified). Target not-indexed <20 by October.
+2. **Re-validate the canonical group** in GSC once the `index.html` fix is live (Validate Fix on the 32; Request Indexing on verified). Target not-indexed <20 by October. **Decision (Eric, 2026-07-25): deploy the static-canonical removal and WATCH 2–4 weeks (judge ~2026-08-22). If the 32 don't clear, do the lighter per-route `<head>`-injection build fix — NOT full puppeteer prerender.**
 3. **Kitchen proof** — pages are now differentiated but have no project gallery. Needs Eric's kitchen photos/case studies to actually rank.
 4. Treat crawled-not-indexed (18) thin pages next.
 
