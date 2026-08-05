@@ -16,3 +16,19 @@
 VERDICT: fix is partially working. Aggregate 220/60 is stale (report last updated 7/23, pre-deploy) so it
 proves nothing either way. Eric's standing decision is WATCH until ~2026-08-22; evidence above is grounds
 to pull the head-injection fix forward if he wants it sooner.
+
+## 2026-08-05 — ROOT CAUSE FIXED AT SOURCE (per-route canonical injection shipped)
+Eric approved building the per-route <head> injection immediately rather than waiting for 8/22.
+`scripts/build-route-heads.mjs` now runs after `vite build` and emits one static HTML file per
+sitemap URL (228) carrying that route's own self-referencing canonical + og:url. Deployed and
+verified live: random sample of 12 routes, 12/12 serving their correct canonical.
+
+Regression caught and fixed the same day: the first version also wrote a homepage canonical into
+the root dist/index.html. Because vercel.json rewrites /(.*) to that file, every unknown/junk URL
+briefly declared itself a duplicate of the homepage — the exact July bug. Verified live at
+/this-route-does-not-exist-xyz, fixed, redeployed, re-verified (unknown routes now declare nothing).
+
+NEXT RUN — first thing to check: re-inspect /kitchen-remodeling-zionsville-in in GSC.
+That page was "Duplicate without user-selected canonical / User-declared canonical: None". It now
+serves a correct canonical without needing a JS render. If it clears, the fix is proven end-to-end.
+Judge the aggregate not-indexed count ~2026-09-05 (full re-crawl cycle) rather than 8/22.

@@ -37,27 +37,26 @@ _Rewritten every orchestrator run from that run's data. Last: 2026-08-05 (Run #2
    McCordsville, Pendleton) once the first four show movement.
 5. **Crawled-not-indexed (18): treat thin pages, then resubmit only what changed.** Golden rule holds.
 
-## NEEDS ERIC'S DECISION (yes/no)
+## DECISIONS MADE 2026-08-05 (all three resolved same day)
 
-1. **Do you have a completed kitchen project — photos + story — I can build into a flagship case
-   study?** *This is the single biggest missing piece of the kitchen cluster.* There are 0 kitchen
-   entries in `PROJECTS` (vs 12 bathroom, 3 basement), so every kitchen city page ships with zero
-   proof while the bathroom pages have galleries. I did not invent one. **Y/N** — and if yes, is
-   there an investment figure you're willing to publish?
-2. **Pull the per-route `<head>`-injection canonical fix forward now, or hold to the 8/22 judgment
-   date?** New evidence: `/kitchen-remodeling-carmel-in` is now indexed ✅ but
-   `/kitchen-remodeling-zionsville-in` reads "Duplicate without user-selected canonical / User-declared
-   canonical: None". Every deep route still serves the **homepage title** and no canonical pre-JS.
-   **Y/N.**
-3. **Delete the kitchen GBP post?** It was published and verified live before you asked to skip GBP.
-   **Y/N.**
+1. **Kitchen flagship project — Eric confirmed he HAS one.** ⏳ **Blocked on materials.** Needed:
+   photos (before shots too), city/neighborhood + whether it can be named, scope (cabinets, counters,
+   island, layout change, wall removal, flooring, lighting), timeline, whether an investment figure is
+   publishable, design partner to credit, client quote. **Building this page is the #1 content
+   priority of the next run** — the kitchen cluster currently has zero proof behind it.
+2. **Per-route canonical fix — Eric said BUILD IT NOW.** ✅ Shipped and verified live the same day.
+3. **Kitchen GBP post — Eric deleted it manually.** GBP weekly posting is **paused** until he says
+   otherwise; do not auto-publish.
 
 ## WATCHING (experiments in flight, with judgment dates)
 
 - **Geo-disambiguation on the two bathroom-cost pages** — judge **~2026-09-05**. If it fails, do NOT
   write a fourth title; reclassify those impressions as unqualified instead.
-- **Canonical fix** — judge **~2026-08-22** per your standing decision. Aggregate 220/60 is stale
-  (GSC last updated 7/23, pre-deploy) and will stay uninformative until Google re-crawls.
+- **Per-route canonical injection (shipped 2026-08-05)** — **first check next run:** re-inspect
+  `/kitchen-remodeling-zionsville-in` in GSC. It was the confirmed "Duplicate without user-selected
+  canonical" page and now serves a static self-referencing canonical on first fetch. If it clears, the
+  fix is proven end-to-end. Judge the overall not-indexed count **~2026-09-05** (a full re-crawl cycle),
+  which supersedes the old 8/22 watch-only date.
 - **Kitchen cluster** — judge position movement on kitchen city queries and `/kitchen-remodeling`
   next run. Pre-cluster baseline recorded in the run report and share-of-voice log.
 - **Kitchen in GBP discovery terms** — currently **absent** from the top 5 (bathroom and basement

@@ -21,9 +21,14 @@ Last run: 2026-08-05 (Run #2 — "Distance the Lead", autonomous execution)
 - [ ] Houzz: add Westfield basement + marble bath projects; send profile URL for schema `sameAs`
 
 ## Open questions for Eric (yes/no)
-1. Kitchen flagship project — do you have one? (photos + story, investment figure optional)
-2. Pull the per-route `<head>`-injection canonical fix forward, or hold to 8/22?
-3. Delete the kitchen GBP post published 2026-08-05? (published before the "skip GBP" instruction)
+1. **Kitchen flagship project — Eric confirmed YES (2026-08-05). AWAITING MATERIALS:** photos,
+   city/neighborhood (and whether it can be named), scope (cabinets/counters/island/layout change/
+   wall removal/flooring/lighting), timeline in weeks, whether an investment figure may be published,
+   design partner to credit, client quote. **Build the project page as soon as these arrive — this is
+   the top content priority of the next run.**
+2. ~~Per-route `<head>` canonical fix~~ — **Eric said BUILD IT NOW. Done and deployed 2026-08-05.**
+3. ~~Delete the kitchen GBP post~~ — **Eric deleted it manually 2026-08-05.** GBP weekly-post cadence
+   is **PAUSED**; do not auto-publish GBP posts in future runs unless Eric re-enables it.
 
 ## What run #2 did
 - **Kitchen Domination Cluster shipped and deployed**: 4 city treatments (new Fishers; Carmel/
@@ -71,10 +76,21 @@ Audit script confirms: **zero sub-$25K figures on any kitchen-context line.**
   is. Removed from the human-only list 2026-08-05; do not re-add.
 
 ## Open issues (with owner)
-- **[code — highest leverage]** Every deep route serves the **homepage `<title>` and no canonical**
-  pre-JS. Confirmed by curling live HTML. This sits underneath both the indexing problem and possibly
-  the CTR problem. Fix = per-route `<head>` injection at build (NOT puppeteer prerender). Awaiting
-  Eric's go/hold decision.
+- **[code — RESOLVED 2026-08-05]** Per-route canonical injection **shipped and verified live**.
+  `scripts/build-route-heads.mjs` runs after `vite build` and writes one static HTML file per sitemap
+  URL (228) carrying that route's own self-referencing canonical + og:url. Random live sample of 12
+  routes: 12/12 correct.
+  **Two rules that must not be broken by future edits:**
+  1. **Never write a canonical into the root `dist/index.html`.** `vercel.json` rewrites `/(.*)` to it,
+     so it is the fallback for every unknown/junk URL. The first version of the script did this and it
+     briefly re-created the July bug live (every unknown URL declared itself a homepage duplicate).
+     Caught and fixed the same day. The verify script now asserts this.
+  2. **`index.html` must stay canonical-free at source**, or per-route files would carry two canonicals.
+     The script aborts the build if it detects one.
+  Note: titles are still NOT injected per route (deliberate — the app sets them at runtime and Google
+  renders them correctly; static titles would risk being worse). Only the canonical was broken.
+  **`npm run build` now depends on `public/sitemap.xml` being present and current** — new URLs must be
+  added to the sitemap or they get no static canonical.
 - **[code — quick win]** Schema `aggregateRating.reviewCount` says **62**; GBP now shows **78 / 5.0**.
 - **[human/Eric]** kitchen has zero project entries — biggest limiter on the new kitchen cluster.
 - **[Google-time]** canonical + reindex results only meaningful after re-crawl; judge ~2026-08-22.
@@ -84,6 +100,13 @@ Audit script confirms: **zero sub-$25K figures on any kitchen-context line.**
 7/23/26, *before* the 7/25 canonical fix deployed. Spot-checks tell the real story:
 - `/kitchen-remodeling-carmel-in` → **indexed ✅** (was the confirmed broken page at run #1)
 - `/kitchen-remodeling-zionsville-in` → "Duplicate without user-selected canonical", canonical: None ❌
+
+**As of 2026-08-05 the second page's root cause is fixed at the source** — it now serves a static
+self-referencing canonical on first fetch, no JS render required. **Next run: re-inspect
+`/kitchen-remodeling-zionsville-in` in GSC.** If it clears, the fix is proven end-to-end and the
+remaining canonical-group pages should follow as Google re-crawls. Judge the not-indexed count
+~2026-09-05 (allow a full re-crawl cycle), not 8/22 — the 8/22 date was set for the *old* watch-only
+plan, which this supersedes.
 
 ## Tooling
 - **Syntax gate:** repo has **no `node_modules`**, so esbuild is unavailable. `@babel/parser` is
