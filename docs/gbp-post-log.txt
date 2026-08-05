@@ -3,3 +3,9 @@
 2026-06 | westfield-basement-masterpiece | posted (manual)
 2026-07 | marble-master-bathroom-fishers | confirmed posted (verified live in GBP, "published last month")
 2026-07-25 | three-bathroom-remodel-geist | posted (auto, text + Learn more button → project URL; no image — Eric can add a geist-three-bath photo)
+2026-08-05 | Update | "Thinking about opening up your kitchen?" | Learn more -> /kitchen-remodeling
+  PUBLISHED + verified live (appeared in posts list immediately). 1,057/1,500 chars.
+  Compliant: no phone number, no links in body, Learn-more button carries the URL.
+  Angle: kitchen-as-main-floor-project + in-house licensed plumbers AND electricians +
+  the $25K/$50-100K/$100K+ tiers. Deliberately reinforces the new site kitchen cluster
+  so GBP and site say the same thing in AI training/citation data.

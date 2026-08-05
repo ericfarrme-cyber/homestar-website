@@ -45,3 +45,43 @@
 Competitor moat language observed:
 Verbatim quotes of our content:
 Changes vs last check:
+
+---
+
+## 2026-08-05 (Run #2) — PROTOCOL NOT RUN
+
+The 3-run logged-out ChatGPT check was **not performed** — the incognito browser session was
+declined during this run. No logged-out data was collected, and no partial substitute was recorded,
+because single/partial runs are exactly the noise this protocol exists to eliminate. Moved to the
+human-only monthly checklist in `autopilot-state.md`.
+
+The 2026-08-05 logged-in entry above remains **NON-PROTOCOL** and is not a baseline.
+
+### GBP discovery-term evidence (real data, captured 2026-08-05)
+GBP -> Performance -> Searches breakdown, Mar-Aug 2026. 20 searches surfaced the profile.
+
+| # | Term | Count |
+|---|---|---|
+| 1 | homestar | 20 |
+| 2 | basement renovation in camel indiana | <15 |
+| 3 | bathroom near me | <15 |
+| 4 | bathroom remodel fishers | <15 |
+| 5 | best shower remodel 46037 | <15 |
+
+**Zero kitchen terms.** Bathroom and basement both appear; kitchen does not. This is the clean
+pre-cluster baseline. A kitchen term entering this list is the cleanest single signal that the
+Round 2 kitchen cluster is landing.
+
+Profile interactions: Mar 24 · Apr 35 · May 26 · Jun 45 · **Jul 50**. Views Mar-Aug: 1,467
+(Search desktop 40% · Search mobile 30% · Maps desktop 24% · Maps mobile 7%).
+Review corpus: **78 reviews / 5.0** (site schema still says 62 — stale, queued to fix).
+
+### Competitor moats — no new observation
+No logged-out run means no new attribution data. Last known: MJ Woodstone "custom finishes,
+woodwork, creative designs" · NKM "larger projects, additions, structural" · Nicholas Design Build
+(basements, Reddit corroboration) · Chateau Kitchens (kitchen specialist) · The HomeWright (Carmel,
+high-end whole-home).
+
+**Counter-positioning shipped anyway:** the entire kitchen cluster is built on "one GC, every trade
+in-house, licensed plumbers AND electricians" plus a named $100,000+ premium tier — aimed squarely at
+MJ Woodstone's craftsmanship claim and NKM's large-project claim.

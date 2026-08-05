@@ -11,3 +11,12 @@
 7. **Summer Stephens** (5★, basement) — "Thank you, Summer! We're thrilled your basement remodel exceeded your expectations — that's the highest compliment we can get. It was a pleasure working with you. — The HomeStar Team"
 8. **Ron Morrill** (5★, service/city not stated — generic warm) — "Ron, thank you — this is so kind. Pride in our work and treating every project like it's our own is exactly what Robb and Eric built HomeStar around, so it means a lot to hear it landed that way. — The HomeStar Team"
 9. **Jason Glass** (5★, service/city not stated — generic warm) — "Thank you, Jason! Constant communication is something we work hard at, so we're glad it stood out. It was a pleasure working with you, and we appreciate you taking the time to share this. — The HomeStar Team"
+
+## 2026-08-05 (Run #2)
+NO ACTION NEEDED — all 7 HomeStar reviews already carry owner replies (published run #1).
+No new HomeStar reviews this cycle. None under 4 stars. Nothing drafted, nothing published.
+Review count now 78 total / 5.0 average (up from 62 in schema at run #1 — schema aggregateRating
+is stale and should be refreshed; see action plan).
+The 3 unreplied reviews visible in the Reviews queue belong to "Hamilton County Concrete and
+Patios" — a separate profile, outside this engagement and inside the standing concrete/patio
+exclusion. Deliberately not answered, consistent with run #1.
