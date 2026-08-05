@@ -24,6 +24,27 @@ _Rewritten every orchestrator run from that run's data. Last: 2026-08-05 (Run #2
 - **Shipped:** 2 commits, deploy verified in the live JS bundle, sitemap 223→229, IndexNow 17 URLs
   (200), GSC reindex 11 URLs.
 
+## THE BIGGEST FINDING OF THIS RUN (12-run logged-out ChatGPT protocol)
+
+**Kitchen is 0/3, not #3.** HomeStar does not appear at all for kitchen queries in Fishers — no map
+pack, no list, no summary, across three phrasings. July's "#3" came from a single run and was wrong.
+
+**And more content will not fix it.** MJ Woodstone outranks us on kitchen with **21 reviews to our
+79**. Every ChatGPT map-pack entry labels HomeStar *"Bathroom remodeler"* — we are never categorised
+as a kitchen remodeler, so we are not retrieved for kitchen queries regardless of on-site content.
+The Round 2 kitchen cluster was necessary but is not sufficient.
+
+**Two levers that are now higher-priority than any further kitchen content:**
+1. **GBP categories** — add Kitchen Remodeler + Basement Remodeling Service. *Needs Eric.*
+2. **Houzz** — the most-cited source across all 12 runs. Everything Home beats us in every query and
+   is cited through Houzz nearly every time.
+
+Also: **our own site was never cited once in 12 runs.** For basement pricing ChatGPT quoted *Angi's*
+$30–80K rather than our published $45K–$200K+, despite our cost report, calculator and four articles.
+Third-party platforms are outranking our first-party content as AI citation sources.
+
+Full detail, competitor table and verbatim quotes: `docs/ai-share-of-voice-log.md`.
+
 ## AUTONOMOUS QUEUE (next 1–2 runs — system executes)
 
 1. **Judge the geo-disambiguation experiment ~2026-09-05.** Measure *clicks* and qualified-query
@@ -34,8 +55,12 @@ _Rewritten every orchestrator run from that run's data. Last: 2026-08-05 (Run #2
    `bathroom remodeling noblesville in` 111 @14.1 · `bathroom remodeling near me` 93 @10.8 ·
    `basement contractor fishers` 66 @10.4 · `home remodeling westfield in` 71 @12.0.
 4. **Extend kitchen city content to the remaining 5 cities** (Noblesville, Geist, Fortville,
-   McCordsville, Pendleton) once the first four show movement.
-5. **Crawled-not-indexed (18): treat thin pages, then resubmit only what changed.** Golden rule holds.
+   McCordsville, Pendleton) — **deprioritised.** The 0/3 kitchen result shows the constraint is
+   category association and third-party citation, not on-site kitchen coverage. Do the GBP category
+   and Houzz work first and re-measure before writing more kitchen pages.
+5. **Re-run the 3-run ChatGPT protocol monthly** (now automated). Watch specifically for HomeStar
+   entering kitchen results at all, and for Building Concepts on basement.
+6. **Crawled-not-indexed (18): treat thin pages, then resubmit only what changed.** Golden rule holds.
 
 ## DECISIONS MADE 2026-08-05 (all three resolved same day)
 

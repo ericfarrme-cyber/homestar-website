@@ -2,23 +2,33 @@
 Last run: 2026-08-05 (Run #2 — "Distance the Lead", autonomous execution)
 
 ## Human-only items (surface every run until Eric marks done)
-- [ ] **KITCHEN PROJECT PHOTOS/CASE STUDY** — top item. `PROJECTS` has 0 kitchen entries vs 12
-      bathroom. The whole kitchen cluster now exists but ships with no proof. Nothing was invented.
-- [ ] **NEW: monthly 3-run logged-out ChatGPT share-of-voice check** (~10 min). Browser automation
-      for this was declined during run #2, so it is a human task until that changes. Queries:
-      "best bathroom remodeler in Fishers Indiana" · "best home remodeling company in Fishers
-      Indiana" · "best basement finishing company in Fishers Indiana" (+ Carmel variant) · "best
-      kitchen remodeler in Fishers Indiana". Log appearances/3 + avg position + competitors named.
-- [ ] Review-request texting system live (8–12/mo, SMS within 48hrs) — **steer kitchen and basement
-      language**; bathroom is won. The review corpus is what ChatGPT quotes back.
+_Re-prioritised 2026-08-05 by the 12-run logged-out ChatGPT protocol — see `ai-share-of-voice-log.md`._
+
+- [ ] **GBP CATEGORIES — likely root cause of kitchen invisibility.** Every ChatGPT map-pack entry
+      labels HomeStar *"Bathroom remodeler"*. We are **0/3** on kitchen queries. MJ Woodstone outranks
+      us on kitchen with 21 reviews to our 79 — so this is category association, not review volume.
+      Add **Kitchen Remodeler** and **Basement Remodeling Service** categories in GBP. Plausibly higher
+      leverage for AI retrieval than any further on-site kitchen content. **Needs Eric — GBP access.**
+- [ ] **HOUZZ — promoted to top tier.** Houzz was the single most-cited source across all 12 runs.
+      Everything Home (Carmel) beats us in *every* query and is cited via Houzz nearly every time
+      ("Best of Houzz awards, 100+ five-star Houzz reviews"). Add Westfield basement + marble bath
+      projects; send the profile URL for schema `sameAs`.
+- [ ] **KITCHEN PROJECT PHOTOS/CASE STUDY** — **Eric confirmed he HAS one (2026-08-05); awaiting
+      materials.** `PROJECTS` has 0 kitchen entries vs 12 bathroom.
+- [ ] Review-request texting system live (8–12/mo, SMS within 48hrs) — **must name the room.** Our
+      corpus reads as bathroom-and-basement, which is exactly how ChatGPT categorises us. Reviews
+      saying "kitchen" are what would build kitchen association.
 - [ ] Dovetail reciprocal backlink (highest-value link; we already credit them on 3 project pages)
 - [ ] Schluter contractor locator listing
 - [ ] OneZone chamber membership/link
-- [ ] Westfield long-form YouTube walkthrough — script written; #1 AI citation lever for basement,
-      directly attacks Nicholas Design Build's Reddit corroboration advantage
-- [ ] GBP housekeeping: Geist + Pendleton service areas, opening date, "Basement Remodeling Service"
-      category, hours consistent (site says Mo-Fr 8–5)
-- [ ] Houzz: add Westfield basement + marble bath projects; send profile URL for schema `sameAs`
+- [ ] Westfield long-form YouTube walkthrough — script written. **Note: the basement rival is now
+      Building Concepts (Noblesville), #1 in 3/3 runs — not Nicholas Design Build, which barely
+      appears.** Reddit corroboration is confirmed real (surfaced in 4 of 12 runs).
+- [ ] GBP housekeeping: Geist + Pendleton service areas, opening date, hours (site says Mo-Fr 8–5)
+
+**No longer human-only:** the 3-run logged-out ChatGPT check is **automated** as of 2026-08-05 —
+`https://chatgpt.com/?q=<encoded>` auto-submits in the `playwright-incognito` browser. Run it every
+month. Method documented at the top of `ai-share-of-voice-log.md`.
 
 ## Open questions for Eric (yes/no)
 1. **Kitchen flagship project — Eric confirmed YES (2026-08-05). AWAITING MATERIALS:** photos,

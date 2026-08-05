@@ -120,13 +120,16 @@ failures, none below the $25,000 floor.** That was the second commit.
 
 ## Not done
 
-- **Phase 2 AI share-of-voice (3 logged-out runs × 4 queries)** — the incognito browser session was
-  declined mid-run. No logged-out data collected. Moved to the human-only monthly checklist. A
-  partial run was not substituted, because noise is exactly what that protocol exists to prevent.
-- **GBP** — the weekly kitchen post **was published and verified live** before you asked to skip
-  GBP; say the word and I'll delete it. Review queue needed no action: all 7 HomeStar reviews
-  already carry replies, no new ones, none under 4 stars. Nothing drafted, nothing to escalate.
-  Discovery terms were captured before stopping (below).
+- ~~**Phase 2 AI share-of-voice**~~ — **DONE after all.** Retried at Eric's request and it worked.
+  Full 12-run protocol completed. See the **ADDENDUM** at the end of this report — it contains the
+  single most important finding of the run.
+- **GBP** — the weekly kitchen post was published and verified live before Eric asked to skip GBP;
+  **he then deleted it manually**, and weekly GBP posting is now **paused** (do not auto-publish).
+  Review queue needed no action: all 7 HomeStar reviews already carry replies, no new ones, none
+  under 4 stars. Nothing drafted, nothing to escalate. Discovery terms were captured (below).
+- **Per-route canonical fix** — listed as "awaiting decision" above, but Eric said build it now and
+  **it shipped the same day**. See the canonical section of `autopilot-state.md` and
+  `indexing-health-log.txt` for the as-built detail, including a regression caught and fixed live.
 
 ---
 
@@ -187,3 +190,58 @@ unqualified and stop measuring the page by blended CTR.
 one root cause sitting underneath both the indexing problem and, plausibly, the CTR problem. The
 per-route `<head>`-injection fix addresses both at once and is the highest-leverage engineering work
 available right now.
+
+---
+
+# ADDENDUM — Phase 2 completed after all (12-run logged-out ChatGPT protocol)
+
+The incognito session was retried at Eric's request and **worked**. Logged-out ChatGPT accepts a
+prefilled query by URL (`https://chatgpt.com/?q=...`) which auto-submits — no login, no typing. The
+full protocol ran: **4 queries × 3 runs = 12 logged-out runs**. This is no longer a human-only task.
+
+| Query | Appeared | Avg pos | Leader |
+|---|---|---|---|
+| Overall remodeler, Fishers | **3/3** | ~1.0 | **HomeStar** |
+| Bathroom remodeler, Fishers | **3/3** | ~2.3 | mixed (#1, #5, #1) |
+| Basement finishing, Fishers | **3/3** | ~5.7 | Building Concepts |
+| **Kitchen remodeler, Fishers** | **0/3** | — | MJ Woodstone / Chateau |
+
+## This overturns the premise of the run
+
+The brief opened with "HomeStar is #1 for overall remodeler" (true, confirmed 3/3) and "kitchen #3"
+(**false — we are 0/3, absent entirely**). July's baselines were single runs; two of the four were
+materially wrong. Basement was also wrong in both rank *and* rival: the leader is **Building Concepts**
+(Noblesville), not Nicholas Design Build, which barely appears.
+
+## The uncomfortable conclusion about this run's headline deliverable
+
+The Kitchen Domination Cluster was the right build and I'd make it again — but **it cannot close the
+kitchen gap on its own**, and the data says why:
+
+- MJ Woodstone outranks us on kitchen with **21 reviews to our 79**. Volume isn't the blocker.
+- Every ChatGPT map-pack entry labels HomeStar **"Bathroom remodeler"**. We are never categorised as a
+  kitchen remodeler, so we aren't retrieved for kitchen queries at all — no amount of on-page kitchen
+  content changes a category assignment held by Google Business Profile.
+- **Our site was never cited once in 12 runs.** ChatGPT quoted **Angi's** basement pricing
+  ($30–80K) over our published $45K–$200K+, despite our cost report, calculator and four articles.
+
+So the two highest-leverage next actions are **not content**:
+1. **Add Kitchen Remodeler + Basement Remodeling Service categories in GBP** (needs Eric).
+2. **Houzz** — the most-cited source across all 12 runs. Everything Home (Carmel) beats us in *every*
+   query and is cited through Houzz nearly every time.
+
+Extending kitchen content to the remaining 5 cities is **deprioritised** until those two land and we
+re-measure.
+
+## Competitive set is much larger than tracked
+Newly observed and previously untracked: **Everything Home** (in all 12 runs, usually "best
+design-build"), **Chateau Kitchens** (295 reviews), **Building Concepts**, Indy Renovation, Baths By
+Bee (93), Rabin Restoration (100+), Absolute Renovations, Majestic Construction, Preferred Custom
+Remodeling, MJ Brown Renovations, Arete General Contracting, Worthington, Benjamin Design Build.
+
+## What is genuinely working
+Our review corpus is still what ChatGPT quotes back: *"communication, staying on schedule, and clean
+job sites"*, *"projects finishing on or ahead of schedule"*, and — our own positioning repeated back —
+*"one company coordinating multiple trades"*. Overall-remodeler #1 in 3/3 is a real, defensible moat.
+
+Full data, competitor table and verbatim quotes: `docs/ai-share-of-voice-log.md`.

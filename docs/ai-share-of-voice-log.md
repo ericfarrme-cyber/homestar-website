@@ -6,9 +6,95 @@
 - **Avg position** = mean rank across runs where we appear
 - **Moat evidence** = any sentence where ChatGPT quotes or paraphrases OUR site/review content
 
+## How to run it (solved 2026-08-05 — automation works)
+Logged-out ChatGPT accepts a prefilled query by URL: `https://chatgpt.com/?q=<url-encoded question>`
+— it auto-submits, so no login and no typing. Use the `playwright-incognito` MCP server so the
+persistent Google profile can't contaminate a "logged-out" run. Vary phrasing slightly across the 3
+runs of a query; that's the point, it tests robustness rather than one exact string.
+**This is no longer a human-only task.**
+
 ---
 
-## 2026-08-05 — PROVISIONAL ENTRY (single logged-in run, NON-PROTOCOL — treat as anecdote until 3-run check)
+# ✅ 2026-08-05 — FULL 3-RUN PROTOCOL (12 logged-out runs, incognito, desktop)
+
+| Query | Appeared | Avg pos | Leader | Notes |
+|---|---|---|---|---|
+| Overall remodeler, Fishers | **3/3** | **~1.0** | **HomeStar** | #1 in all three runs |
+| Bathroom remodeler, Fishers | **3/3** | ~2.3 | mixed | #1, #5, #1 — named "Best overall" in 2 of 3 |
+| Basement finishing, Fishers | **3/3** | ~5.7 | Building Concepts | honorable-mention/8th, #4, #5 |
+| **Kitchen remodeler, Fishers** | **0/3** | **—** | MJ Woodstone / Chateau | **Absent entirely — no map pack, no list, no summary** |
+
+## Headline: kitchen is 0/3, not #3
+
+July's baseline said kitchen "#3". Under a real 3-run logged-out protocol HomeStar does not appear
+**at all**, across three different phrasings. Materially worse than the single-run baseline implied —
+and the strongest possible justification for the Round 2 kitchen cluster.
+
+**But content alone will not close it:**
+
+| Competitor | Reviews | ChatGPT's attributed moat |
+|---|---|---|
+| Chateau Kitchens (Carmel) | **295** | "largest and most established kitchen specialist", "custom cabinetry" |
+| Everything Home (Carmel) | 68 | "design-build", "Best of Houzz awards, 100+ five-star Houzz reviews" |
+| MJ Woodstone (Fishers) | 21 | "craftsmanship", "down-to-the-studs remodels", "boutique, hands-on" |
+| The HomeWright (Carmel) | 39 | "project management, communication, staying on schedule" |
+| Indy Renovation (Fishers) | 23 | "quality workmanship, tile work, responsiveness" |
+| **HomeStar** | **79** | — (absent from kitchen entirely) |
+
+MJ Woodstone outranks us on kitchen with **21 reviews against our 79**. Review volume is not the
+blocker — **category association** is. Every map-pack entry labels HomeStar *"Bathroom remodeler"*.
+We are never categorised as a kitchen remodeler, so we aren't retrieved for kitchen queries no matter
+how strong the on-site content is.
+
+## Three competitors we were not tracking
+1. **Everything Home** (Carmel, 4.9, 68) — appeared in **every query, all 12 runs**, repeatedly given
+   "best design-build" / "best overall". Cited via **Houzz** nearly every time.
+2. **Chateau Kitchens** — 295 reviews, the kitchen category leader.
+3. **Building Concepts** (Noblesville) — #1 for basement in 3/3. Nicholas Design Build, our assumed
+   basement rival, barely appears; Building Concepts has effectively replaced it.
+
+Also newly observed: Indy Renovation, Baths By Bee (93 reviews), Rabin Restoration (100+), Absolute
+Renovations, Majestic Construction, Preferred Custom Remodeling, MJ Brown Renovations, Arete General
+Contracting, Worthington Design & Remodeling, Benjamin Design Build. The real competitive set is far
+larger than the 4–5 names previously tracked.
+
+## Moat evidence — our review corpus is still what gets quoted
+- "communication, staying on schedule, and clean job sites"
+- "communication, detailed project planning, and keeping projects on schedule"
+- "projects finishing on or ahead of schedule"
+- "family-owned", "one company coordinating multiple trades"
+
+That last one is our own positioning repeated back — "one GC coordinating everything" is landing.
+
+## Citation sources ChatGPT actually used
+**Houzz** (constantly, especially for Everything Home) · **Reddit** (threads naming Nicholas Design
+Build, MJ Woodstone, Fishers Fixer Upper, CMH Builders, Centennial Construction) · Angi · BBB.
+
+**Our own site was never cited in any of the 12 runs.** For basement pricing ChatGPT quoted **Angi's**
+"$30,000 to $80,000+" instead of our published $45,000–$200,000+ — despite our cost report, calculator,
+and four basement articles. Third-party platforms are outranking our first-party content as sources.
+
+## What this changes
+1. **Houzz is no longer a nice-to-have.** Most-cited source in the data set, and the competitor beating
+   us everywhere is cited through it. Promote to the top of the human checklist.
+2. **The GBP primary category is the likely root cause for kitchen.** Every entry labels us "Bathroom
+   remodeler". Adding kitchen/basement GBP categories is plausibly higher-leverage for AI retrieval
+   than any further on-site kitchen content. **Needs Eric — GBP access.**
+3. **Reddit corroboration is real and measurable** — surfaced in 4 of 12 runs.
+4. **Review requests must name the room.** Our corpus currently reads as bathroom-and-basement.
+
+## GBP discovery-term evidence (captured same day, corroborating)
+GBP → Performance → Searches breakdown, Mar–Aug 2026. 20 searches surfaced the profile:
+`homestar` (20) · `basement renovation in camel indiana` · `bathroom near me` · `bathroom remodel
+fishers` · `best shower remodel 46037` — all <15.
+**Zero kitchen terms.** Bathroom and basement appear; kitchen does not. Same story as the ChatGPT data,
+from an independent source.
+Interactions: Mar 24 · Apr 35 · May 26 · Jun 45 · **Jul 50**. Views Mar–Aug 1,467.
+Reviews **78/5.0** (site schema still says 62 — stale).
+
+---
+
+## 2026-08-05 — PROVISIONAL ENTRY (single logged-in run, NON-PROTOCOL — SUPERSEDED by the 3-run data above)
 
 **Query: overall home remodeler, Fishers**
 - HomeStar: **#1 — "Probably my best all-around recommendation"**
@@ -24,11 +110,16 @@
 
 ---
 
-## July 2026 baseline (from handoff, for reference)
-- Bathroom remodeler Fishers: **#1**
-- Overall remodeler Fishers: **#1** ("Best overall")
-- Basement Fishers: **#3** (behind Nicholas Design Build — Reddit corroboration)
-- Kitchen Fishers: **#3** (behind Chateau Kitchens, MJ Woodstone)
+## July 2026 baseline (from handoff — now known to be single-run and partly WRONG)
+- Bathroom remodeler Fishers: **#1** — *3-run check: 3/3 at avg 2.3. Broadly holds.*
+- Overall remodeler Fishers: **#1** — *3-run check: 3/3 at #1. Confirmed.*
+- Basement Fishers: **#3** (behind Nicholas Design Build) — *3-run check: avg ~5.7, and the leader is
+  **Building Concepts**, not Nicholas Design Build. Both the rank and the rival were wrong.*
+- Kitchen Fishers: **#3** (behind Chateau Kitchens, MJ Woodstone) — ***3-run check: 0/3. We do not
+  appear at all. The baseline was wrong.***
+
+**Lesson:** every one of these came from single runs. Two of the four were materially wrong. This is
+exactly why the 3-run protocol exists — do not record single-run results as baselines again.
 
 ---
 
@@ -46,42 +137,3 @@ Competitor moat language observed:
 Verbatim quotes of our content:
 Changes vs last check:
 
----
-
-## 2026-08-05 (Run #2) — PROTOCOL NOT RUN
-
-The 3-run logged-out ChatGPT check was **not performed** — the incognito browser session was
-declined during this run. No logged-out data was collected, and no partial substitute was recorded,
-because single/partial runs are exactly the noise this protocol exists to eliminate. Moved to the
-human-only monthly checklist in `autopilot-state.md`.
-
-The 2026-08-05 logged-in entry above remains **NON-PROTOCOL** and is not a baseline.
-
-### GBP discovery-term evidence (real data, captured 2026-08-05)
-GBP -> Performance -> Searches breakdown, Mar-Aug 2026. 20 searches surfaced the profile.
-
-| # | Term | Count |
-|---|---|---|
-| 1 | homestar | 20 |
-| 2 | basement renovation in camel indiana | <15 |
-| 3 | bathroom near me | <15 |
-| 4 | bathroom remodel fishers | <15 |
-| 5 | best shower remodel 46037 | <15 |
-
-**Zero kitchen terms.** Bathroom and basement both appear; kitchen does not. This is the clean
-pre-cluster baseline. A kitchen term entering this list is the cleanest single signal that the
-Round 2 kitchen cluster is landing.
-
-Profile interactions: Mar 24 · Apr 35 · May 26 · Jun 45 · **Jul 50**. Views Mar-Aug: 1,467
-(Search desktop 40% · Search mobile 30% · Maps desktop 24% · Maps mobile 7%).
-Review corpus: **78 reviews / 5.0** (site schema still says 62 — stale, queued to fix).
-
-### Competitor moats — no new observation
-No logged-out run means no new attribution data. Last known: MJ Woodstone "custom finishes,
-woodwork, creative designs" · NKM "larger projects, additions, structural" · Nicholas Design Build
-(basements, Reddit corroboration) · Chateau Kitchens (kitchen specialist) · The HomeWright (Carmel,
-high-end whole-home).
-
-**Counter-positioning shipped anyway:** the entire kitchen cluster is built on "one GC, every trade
-in-house, licensed plumbers AND electricians" plus a named $100,000+ premium tier — aimed squarely at
-MJ Woodstone's craftsmanship claim and NKM's large-project claim.
