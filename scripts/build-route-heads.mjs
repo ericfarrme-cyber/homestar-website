@@ -77,8 +77,23 @@ for (const loc of locs) {
 
   const clean = path.replace(/^\/+/, '').replace(/\/+$/, '');
 
-  // Homepage keeps the plain built index.html, but still gets an explicit canonical.
-  const canonical = clean ? `${ORIGIN}/${clean}` : `${ORIGIN}/`;
+  // CRITICAL: never write a canonical into the root dist/index.html.
+  //
+  // vercel.json rewrites /(.*) -> /index.html, so that one file is also the fallback
+  // served for every URL that has no static file — i.e. every unknown/legacy/junk URL.
+  // Baking a homepage canonical into it would make each of those URLs declare itself a
+  // duplicate of the homepage, which is exactly the bug removed from index.html in July
+  // 2026 (it caused 32 "Alternate page with proper canonical" failures).
+  //
+  // Leaving it canonical-free means the real homepage self-canonicalizes (its own URL is
+  // the homepage, so this is correct and is how it has always behaved), and unknown URLs
+  // declare nothing at all — the safe pre-existing behaviour.
+  if (!clean) {
+    skipped++;
+    continue;
+  }
+
+  const canonical = `${ORIGIN}/${clean}`;
 
   // Files already emitted by the build (e.g. privacy-policy.html) must not be clobbered.
   if (clean.includes('.')) {
@@ -96,7 +111,7 @@ for (const loc of locs) {
     `$1"${escapeAttr(canonical)}"`
   );
 
-  const outPath = clean ? join(dist, clean, 'index.html') : indexPath;
+  const outPath = join(dist, clean, 'index.html');
   mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(outPath, html, 'utf8');
   written++;
