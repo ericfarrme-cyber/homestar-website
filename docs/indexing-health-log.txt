@@ -2,3 +2,17 @@
 # Format: DATE | Indexed | Not indexed
 2026-07-09 | 220 | 60  (baseline from GSC export)
 2026-07-25 | 220 | 60  (run 1 — read from GSC Overview; unchanged vs baseline)
+2026-08-05 | 220 | 60  (run 2 — UNCHANGED. GSC "Last update: 7/23/26" = data predates the 7/25 canonical-fix deploy, so this reading cannot reflect the fix. Not evidence of failure.)
+             Breakdown: Alternate canonical 32 (validation FAILED, pre-fix) | Crawled-not-indexed 18 (FAILED, pre-fix) | Redirect 7 | noindex 2 | Discovered-not-indexed 1 | 404 0 | Dup-Google-chose-different 0
+
+## URL Inspection spot-checks, 2026-08-05 (canonical group verification)
+- /kitchen-remodeling-carmel-in  -> "URL is on Google / Page is indexed" ✅
+  (At run #1 this was "Crawled - not indexed" with User-declared canonical = HOMEPAGE. The index.html fix rescued it. This is the proof the fix targets the right thing.)
+- /kitchen-remodeling-zionsville-in -> "Duplicate without user-selected canonical" ❌
+  User-declared canonical: None. Last crawl Jul 25 2026 3:17 PM.
+  Interpretation: static homepage canonical is confirmed GONE (fix is live), but this page now declares
+  NO canonical pre-render, and Google did not self-canonicalize it — it grouped it as a duplicate.
+  This is the exact failure mode the per-route <head>-injection build fix would solve.
+VERDICT: fix is partially working. Aggregate 220/60 is stale (report last updated 7/23, pre-deploy) so it
+proves nothing either way. Eric's standing decision is WATCH until ~2026-08-22; evidence above is grounds
+to pull the head-injection fix forward if he wants it sooner.

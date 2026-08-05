@@ -87,6 +87,12 @@
   <url><loc>https://www.thehomestarservice.com/blog/basement-finishing-permits-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/basement-finishing-roi-fishers-carmel</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/basement-finishing-ideas-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Kitchen Blog Cluster (4) -->
+  <url><loc>https://www.thehomestarservice.com/blog/kitchen-remodel-cost-hamilton-county-2026</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/blog/kitchen-remodel-permits-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/blog/kitchen-remodel-roi-fishers-carmel</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/blog/kitchen-design-ideas-hamilton-county-2026</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/deck-season-outdoor-living-planning</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/bathroom-remodel-cost-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/schluter-vs-cement-board-waterproofing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -193,9 +199,10 @@
   <url><loc>https://www.thehomestarservice.com/guide/outdoor-living-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/guide/hiring-contractor-indiana</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <!-- Cost Calculator (1) -->
+  <!-- Cost Calculators (3) -->
   <url><loc>https://www.thehomestarservice.com/tools/remodel-cost-calculator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/tools/basement-cost-calculator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/tools/kitchen-cost-calculator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
 
   <!-- Neighborhood-Service Combos (45) -->
@@ -213,6 +220,7 @@
   <url><loc>https://www.thehomestarservice.com/insurance-restoration-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/guide/insurance-restoration-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/guide/basement-finishing-cost-report-2026</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/guide/kitchen-remodeling-cost-report-2026</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/bathroom-flooded-what-to-do</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/kitchen-water-damage-insurance-guide</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/storm-damage-repair-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

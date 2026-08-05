@@ -18,6 +18,35 @@ Last run: 2026-07-25 (Run #1 — prepare-then-confirm mode)
 ## Content exclusions (Eric's decisions — do not build)
 - Home repair / handyman content — declined July 2026
 - Concrete / patio / driveway content — declined July 2026
+- **Angi profile work — declined July 2026 (standing).** Keep the Angi badge + schema `sameAs` citation exactly as-is. Never recommend or perform Angi profile refinement. Removed from the human-only list 2026-08-05; do not re-add.
+
+## KITCHEN PRICING — Eric's numbers, 2026-08-05 (AUTHORITATIVE, execute next run)
+**Minimum kitchen project is $25,000.** Official tiers, direct from Eric:
+| Tier | Range |
+|---|---|
+| Cosmetic / Basic | **$25,000 – $50,000** |
+| Mid-Range / Full | **$50,000 – $100,000** |
+| Premium Full | **$100,000+** |
+
+Headline band for quickAnswer/AI-citable copy: **"Kitchen remodeling in Hamilton County starts at $25,000 and typically runs $50,000–$100,000 for a full remodel, with premium custom kitchens $100,000+."**
+
+These supersede all previously published kitchen figures. **Sites-wide sweep required — every sub-$25K kitchen figure must go:**
+1. `SERVICE_PAGES["kitchen-remodeling"].costs` — 3 tiers (~App.jsx:2748–2750): $10–20K / $25–50K / $50–80K+ → replace with the table above.
+2. **`CostCalculator` kitchen matrix (~App.jsx:4444)** — `basic:{s:[8000,14000],m:[12000,18000],l:[15000,22000]}` is entirely below the $25K floor; `mid` starts at $22,000. Rebuild all three scope tiers inside the new bands.
+3. `CITY_SVC_CONTENT` quick answers for **kitchen-remodeling-Carmel / -Westfield / -Zionsville** (shipped run #1) — all say "cosmetic refreshes starting around $10,000" and "$50,000 to $80,000+". Rewrite to the new tiers.
+4. `GUIDES["kitchen-remodeling-hamilton-county"]` — contains $10,000.
+5. Carmel city page FAQ (~App.jsx:1881) — "Minor updates start around $15,000... can reach $75,000+".
+
+Neighborhood FAQ kitchen figures are all already ≥$25K (Thorpe Creek $25–55K, Admirals Pointe $30–60K, Holliday Farms $40–80K+) — no violation, but consider raising the ultra-tier hoods (Holliday Farms, Promontory) into the $100K+ premium band.
+
+**Why this matters beyond consistency:** a published $25K floor is a lead-qualification signal, and a named $100K+ premium tier is the direct counter to NKM's "larger projects" and MJ Woodstone's "high-end custom" moats in ChatGPT results (see `ai-share-of-voice-log.md`). The old $10K cosmetic tier argued the opposite case for us.
+
+## Tooling (browser automation — added 2026-08-05)
+Run #2 opened with **no browser tool available** (`mcpServers` was empty), which blocks GSC, GBP, and ChatGPT phases. Two MCP servers are now registered at **user scope** in `~/.claude.json`:
+- **`playwright`** — `npx -y @playwright/mcp@latest`. Uses installed Google Chrome with a **persistent profile** (`%LOCALAPPDATA%\ms-playwright\mcp-chrome-profile`). Google logins persist across runs — log in once. Use for GSC, GBP, Bing Webmaster Tools.
+- **`playwright-incognito`** — same, plus `--isolated` (fresh context each run, no cookies). **Use this one for the Phase 2 logged-out ChatGPT share-of-voice protocol** — the persistent profile would otherwise contaminate "logged-out" runs.
+
+MCP servers load at session start, so a config change requires restarting Claude Code before the tools appear.
 
 ## Open issues (with owner)
 - **[code — FIXED this run, verify post-deploy]** static homepage canonical removed from index.html; confirm live pages now self-canonicalize correctly.
@@ -33,7 +62,6 @@ Last run: 2026-07-25 (Run #1 — prepare-then-confirm mode)
 
 ## Human-only items (surface every run until Eric marks done)
 - [ ] **KITCHEN PROJECT PHOTOS/CASE STUDIES** — new top item: supply real kitchen job photos so kitchen city pages have proof and can compete (currently 0 kitchen projects in the codebase).
-- [ ] ANGI PROFILE FIXES: warranties = YES (1-yr workmanship + 25-yr Schluter), add all services (kitchen, flooring, painting, decks, insurance restoration), richer description w/ Schluter + cities, website URL to https://www.thehomestarservice.com
 - [ ] Review-request texting system live (8–12/month target) — 9 new reviews came in this cycle; velocity is good, keep it going.
 - [ ] Dovetail reciprocal backlink
 - [ ] Schluter contractor locator listing
