@@ -4618,12 +4618,16 @@ function KitchenCostCalculator(){
 
   /* Per-sq-ft ranges by tier, derived from HomeStar's real Hamilton County kitchen tiers.
      Floor is enforced at $25,000 — our published minimum kitchen project. */
+  /* clampLo/clampHi keep the sqft-scaled result inside the published tier band, so the
+     estimate can never contradict the tier label at the extremes of the size slider.
+     Premium is intentionally uncapped on the high side ($100,000+). */
   const tierRates={
-    basic:{lo:115,hi:210,name:"Cosmetic / Basic",band:"$25,000 – $50,000",desc:"Existing footprint kept. New countertops, cabinet refacing or stock-to-semi-custom cabinetry, hardware, backsplash, sink, refreshed lighting. Licensed trades, permits, inspections included."},
-    mid:{lo:230,hi:420,name:"Mid-Range / Full",band:"$50,000 – $100,000",desc:"Full gut. New cabinetry, quartz or stone counters, flooring, backsplash, designed lighting plan, and layout changes including island additions and sink or range relocation."},
-    premium:{lo:440,hi:760,name:"Premium Full",band:"$100,000+",desc:"Full custom cabinetry, premium stone with waterfall edges, integrated high-end appliances, designer lighting, structural changes, finish carpentry throughout."},
+    basic:{lo:115,hi:210,name:"Cosmetic / Basic",band:"$25,000 – $50,000",clampLo:[25000,42000],clampHi:[32000,50000],desc:"Existing footprint kept. New countertops, cabinet refacing or stock-to-semi-custom cabinetry, hardware, backsplash, sink, refreshed lighting. Licensed trades, permits, inspections included."},
+    mid:{lo:230,hi:420,name:"Mid-Range / Full",band:"$50,000 – $100,000",clampLo:[50000,82000],clampHi:[64000,100000],desc:"Full gut. New cabinetry, quartz or stone counters, flooring, backsplash, designed lighting plan, and layout changes including island additions and sink or range relocation."},
+    premium:{lo:440,hi:760,name:"Premium Full",band:"$100,000+",clampLo:[100000,220000],clampHi:[128000,380000],desc:"Full custom cabinetry, premium stone with waterfall edges, integrated high-end appliances, designer lighting, structural changes, finish carpentry throughout."},
   };
   const MIN_PROJECT=25000;
+  const clamp=(v,[min,max])=>Math.min(Math.max(v,min),max);
   const addOnCosts={
     island:[8000,20000],
     appliances:[9000,25000],
@@ -4631,8 +4635,11 @@ function KitchenCostCalculator(){
     lighting:[3500,9000],
   };
 
-  const rawBase=[Math.round(sqft*tierRates[tier].lo),Math.round(sqft*tierRates[tier].hi)];
-  const base=[Math.max(rawBase[0],MIN_PROJECT),Math.max(rawBase[1],MIN_PROJECT+8000)];
+  const t=tierRates[tier];
+  const base=[
+    Math.max(clamp(Math.round(sqft*t.lo),t.clampLo),MIN_PROJECT),
+    Math.max(clamp(Math.round(sqft*t.hi),t.clampHi),MIN_PROJECT+8000),
+  ];
   let lo=base[0],hi=base[1];
   const lineItems=[{label:`${tierRates[tier].name} (${sqft} sq ft)`,range:base}];
   if(island){lo+=addOnCosts.island[0];hi+=addOnCosts.island[1];lineItems.push({label:"Island Addition (plumbing + electrical)",range:addOnCosts.island});}
