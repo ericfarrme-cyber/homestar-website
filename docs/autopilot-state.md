@@ -1,5 +1,19 @@
 # Autopilot State — HomeStar SEO
-Last run: 2026-08-05 (Run #2 — "Distance the Lead", autonomous execution)
+Last run: 2026-08-05 (Run #2 — "Distance the Lead", autonomous execution) — **PAUSED at Eric's request, all work committed and deployed**
+
+## ⏭️ START HERE NEXT RUN
+1. **Houzz reviews — the standing #1 item.** Still 1 review vs Everything Home's 100+. Surface it first,
+   every run, until it is meaningfully above 10–15. (Also in persistent memory.)
+2. **Re-inspect `/kitchen-remodeling-zionsville-in` in GSC.** It was "Duplicate without user-selected
+   canonical"; the per-route canonical fix shipped 2026-08-05 should have cleared it. This is the single
+   check that proves the fix end-to-end.
+3. **GSC manual index requests** for `/whole-home-renovation`, `/guide/renovation-sequencing-guide`,
+   `/tools/renovation-sequence-planner` — IndexNow submitted, manual queue pending (see indexing-queue.txt).
+4. **Kitchen flagship project** — Eric confirmed he has one; still awaiting photos + details.
+5. **Eric's whole-home price floor** — the pillar deliberately publishes no whole-home range. Ask for
+   the smallest genuine whole-home/multi-room figure and the typical main-level number.
+6. **Judge ~2026-09-05:** the geo-disambiguation experiment (measure clicks, not blended CTR) and the
+   not-indexed count after a full re-crawl cycle.
 
 ## Human-only items (surface every run until Eric marks done)
 _Re-prioritised 2026-08-05 by the 12-run logged-out ChatGPT protocol — see `ai-share-of-voice-log.md`._
@@ -15,10 +29,12 @@ _Re-prioritised 2026-08-05 by the 12-run logged-out ChatGPT protocol — see `ai
       *every* query — has **100+ plus multiple Best of Houzz awards**. We have MORE Google reviews than
       they do (78 vs 68). This is purely a distribution gap on one platform. **Ask past clients to post
       their review on Houzz too.** Even 10–15 would move us from invisible to credible there.
-- [ ] **HOUZZ PROJECTS — 6 missing, incl. the $150K Westfield basement masterpiece.** Full
-      reconciliation, naming/location mismatches and priority order in
-      `docs/houzz-reconciliation-2026-08-05.md`. Photos are ready in `public/images/`. Needs Eric's
-      Houzz login. ✅ Profile URL found and added to schema `sameAs` this run.
+- [x] ~~**HOUZZ PROJECTS — 6 missing**~~ — **DONE 2026-08-05. All 6 uploaded with photos,
+      descriptions, style, keywords and deep links. Houzz now shows 24 projects, matching the website.**
+      The "Spa-Like Modern Bathroom Retreat" rename is also done. Profile URL added to schema `sameAs`.
+      Remaining on Houzz for Eric: the About Us bio still says "62+ reviews" (actual 78), and Project
+      Year is blank on the 6 new uploads — Eric said he'd handle both. Details in
+      `docs/houzz-reconciliation-2026-08-05.md`.
 - [ ] **KITCHEN PROJECT PHOTOS/CASE STUDY** — **Eric confirmed he HAS one (2026-08-05); awaiting
       materials.** `PROJECTS` has 0 kitchen entries vs 12 bathroom.
 - [ ] Review-request texting system live (8–12/mo, SMS within 48hrs) — **must name the room.** Our
@@ -45,6 +61,34 @@ month. Method documented at the top of `ai-share-of-voice-log.md`.
 2. ~~Per-route `<head>` canonical fix~~ — **Eric said BUILD IT NOW. Done and deployed 2026-08-05.**
 3. ~~Delete the kitchen GBP post~~ — **Eric deleted it manually 2026-08-05.** GBP weekly-post cadence
    is **PAUSED**; do not auto-publish GBP posts in future runs unless Eric re-enables it.
+
+## Whole-home / multi-room position — built 2026-08-05 (second half of run #2)
+Strategic pivot from the 12-run ChatGPT protocol: we are 3/3 #1 for "overall remodeler" and 0/3 for
+kitchen. Chateau Kitchens owns kitchen with 295 reviews. Nobody owns "one contractor for the whole
+project" — and an in-house-licensed-trades GC is the genuine answer to it. Full reasoning in
+`docs/ai-search-strategy.md`.
+
+Shipped and verified live:
+- **`/whole-home-renovation`** — the missing 8th service pillar, 10 AI-citable FAQs.
+- **`/guide/renovation-sequencing-guide`** — sequencing logic nobody in this market publishes,
+  including a "When You Should NOT Hire One Contractor" section.
+- **`/tools/renovation-sequence-planner`** — room selection → real construction sequence, phase
+  durations, what's out of service, living-in-house toggle that staggers bathrooms. Engine verified
+  across 1,024 room/condition combinations.
+- **9 city pages repositioned** around multi-room, each with a unique city-specific paragraph
+  (verified 0 duplicates), all funneling into the pillar.
+- Optional secondary `cats` on PROJECTS so genuinely multi-room jobs surface on the pillar.
+- sitemap 229 → 232. IndexNow submitted for all new + changed URLs.
+
+**Note:** the `services` array on CITIES entries is dead data — it is not rendered anywhere. Adding
+Whole-Home to those lists had no effect. Don't rely on it.
+
+## Image page-weight fix — 2026-08-05
+26 project photos were oversized (wet-room set was 16320×12240 at 13–20MB each; the wet-room project
+page alone served ~143MB). Capped everything at 2400px wide, quality 88: **193.0 MB → 13.8 MB, a 93%
+reduction.** Verified live. Also removed a dead `modern-farmhouse-2.jpg` reference that was returning
+the SPA fallback HTML instead of a 404 — a visibly broken image that passed status-code checks.
+Originals recoverable from git history.
 
 ## What run #2 did
 - **Kitchen Domination Cluster shipped and deployed**: 4 city treatments (new Fishers; Carmel/
