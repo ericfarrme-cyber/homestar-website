@@ -4,15 +4,21 @@ Last run: 2026-08-05 (Run #2 — "Distance the Lead", autonomous execution)
 ## Human-only items (surface every run until Eric marks done)
 _Re-prioritised 2026-08-05 by the 12-run logged-out ChatGPT protocol — see `ai-share-of-voice-log.md`._
 
-- [ ] **GBP CATEGORIES — likely root cause of kitchen invisibility.** Every ChatGPT map-pack entry
-      labels HomeStar *"Bathroom remodeler"*. We are **0/3** on kitchen queries. MJ Woodstone outranks
-      us on kitchen with 21 reviews to our 79 — so this is category association, not review volume.
-      Add **Kitchen Remodeler** and **Basement Remodeling Service** categories in GBP. Plausibly higher
-      leverage for AI retrieval than any further on-site kitchen content. **Needs Eric — GBP access.**
-- [ ] **HOUZZ — promoted to top tier.** Houzz was the single most-cited source across all 12 runs.
-      Everything Home (Carmel) beats us in *every* query and is cited via Houzz nearly every time
-      ("Best of Houzz awards, 100+ five-star Houzz reviews"). Add Westfield basement + marble bath
-      projects; send the profile URL for schema `sameAs`.
+- [x] ~~**GBP CATEGORIES**~~ — **CLOSED 2026-08-05, no action. Eric confirmed Kitchen and Basement are
+      ALREADY secondary categories; Bathroom is primary.** My earlier "add the categories" recommendation
+      was wrong — they exist. And the primary must **NOT** change: bathroom produces **~8 leads/week**
+      and sits 3/3 at avg 2.3 in ChatGPT. Trading a proven lead engine for a speculative kitchen gain is
+      a bad trade with no way to A/B it. **The category lever is already pulled as far as is safe.**
+      Kitchen therefore has to be won through review language, Houzz, and project proof — not categories.
+- [ ] **HOUZZ REVIEWS — now the single highest-leverage item on this list.** Houzz was the most-cited
+      source across all 12 ChatGPT runs. We have **1 Houzz review**; Everything Home — which beats us in
+      *every* query — has **100+ plus multiple Best of Houzz awards**. We have MORE Google reviews than
+      they do (78 vs 68). This is purely a distribution gap on one platform. **Ask past clients to post
+      their review on Houzz too.** Even 10–15 would move us from invisible to credible there.
+- [ ] **HOUZZ PROJECTS — 6 missing, incl. the $150K Westfield basement masterpiece.** Full
+      reconciliation, naming/location mismatches and priority order in
+      `docs/houzz-reconciliation-2026-08-05.md`. Photos are ready in `public/images/`. Needs Eric's
+      Houzz login. ✅ Profile URL found and added to schema `sameAs` this run.
 - [ ] **KITCHEN PROJECT PHOTOS/CASE STUDY** — **Eric confirmed he HAS one (2026-08-05); awaiting
       materials.** `PROJECTS` has 0 kitchen entries vs 12 bathroom.
 - [ ] Review-request texting system live (8–12/mo, SMS within 48hrs) — **must name the room.** Our

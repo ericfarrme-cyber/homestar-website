@@ -41,10 +41,16 @@ and the strongest possible justification for the Round 2 kitchen cluster.
 | Indy Renovation (Fishers) | 23 | "quality workmanship, tile work, responsiveness" |
 | **HomeStar** | **79** | — (absent from kitchen entirely) |
 
-MJ Woodstone outranks us on kitchen with **21 reviews against our 79**. Review volume is not the
-blocker — **category association** is. Every map-pack entry labels HomeStar *"Bathroom remodeler"*.
-We are never categorised as a kitchen remodeler, so we aren't retrieved for kitchen queries no matter
-how strong the on-site content is.
+MJ Woodstone outranks us on kitchen with **21 reviews against our 79**. Review *volume* is not the
+blocker — **category and corpus association** is. Every map-pack entry labels HomeStar *"Bathroom
+remodeler"*, because that is our GBP **primary** category.
+
+**Important correction (Eric, 2026-08-05):** Kitchen and Basement are **already secondary GBP
+categories**. The categories aren't missing. And the primary is **not** changing — bathroom produces
+~8 leads/week and sits 3/3 at avg 2.3 here; trading that for a speculative kitchen gain is a bad trade
+that can't be A/B tested. So the category lever is already at its safe maximum, and kitchen has to be
+won on the other three inputs: **review language that names the room, Houzz presence, and project
+proof** (we have zero kitchen projects anywhere).
 
 ## Three competitors we were not tracking
 1. **Everything Home** (Carmel, 4.9, 68) — appeared in **every query, all 12 runs**, repeatedly given
@@ -75,11 +81,18 @@ Build, MJ Woodstone, Fishers Fixer Upper, CMH Builders, Centennial Construction)
 and four basement articles. Third-party platforms are outranking our first-party content as sources.
 
 ## What this changes
-1. **Houzz is no longer a nice-to-have.** Most-cited source in the data set, and the competitor beating
-   us everywhere is cited through it. Promote to the top of the human checklist.
-2. **The GBP primary category is the likely root cause for kitchen.** Every entry labels us "Bathroom
-   remodeler". Adding kitchen/basement GBP categories is plausibly higher-leverage for AI retrieval
-   than any further on-site kitchen content. **Needs Eric — GBP access.**
+1. **Houzz is no longer a nice-to-have — it is now the top item.** Most-cited source in the data set,
+   and the competitor beating us everywhere is cited through it. Verified 2026-08-05: **we have 1 Houzz
+   review; Everything Home has 100+ and multiple Best of Houzz awards** — while we have MORE Google
+   reviews than them (78 vs 68). Pure distribution gap on one platform, and the cheapest fix on the
+   board. See `docs/houzz-reconciliation-2026-08-05.md`.
+2. ~~**The GBP primary category is the likely root cause for kitchen.**~~ **CORRECTED 2026-08-05 by
+   Eric: Kitchen and Basement are ALREADY secondary GBP categories.** So the categories are not
+   missing — the *primary* is Bathroom, and that is what shows in the map pack. Changing the primary
+   is **rejected**: bathroom generates ~8 leads/week and sits 3/3 at avg 2.3 here. Trading a proven
+   lead engine for a speculative kitchen gain is a bad trade, and it can't be A/B tested — you'd only
+   learn by losing the leads. **The category lever is already at its safe maximum.** Kitchen must be
+   won through review language, Houzz presence, and project proof instead.
 3. **Reddit corroboration is real and measurable** — surfaced in 4 of 12 runs.
 4. **Review requests must name the room.** Our corpus currently reads as bathroom-and-basement.
 
@@ -90,7 +103,7 @@ fishers` · `best shower remodel 46037` — all <15.
 **Zero kitchen terms.** Bathroom and basement appear; kitchen does not. Same story as the ChatGPT data,
 from an independent source.
 Interactions: Mar 24 · Apr 35 · May 26 · Jun 45 · **Jul 50**. Views Mar–Aug 1,467.
-Reviews **78/5.0** (site schema still says 62 — stale).
+Reviews **78/5.0**. *(Site schema said 62 — corrected to 78 in code 2026-08-05. The Houzz "About Us" bio still says "62+ reviews" and needs editing — Eric.)*
 
 ---
 
