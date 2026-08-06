@@ -1931,7 +1931,7 @@ function Footer({isCity}){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Guides & Resources</h4>
-            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"2026 Basement Cost Report",h:"/guide/basement-finishing-cost-report-2026"},{l:"2026 Kitchen Cost Report",h:"/guide/kitchen-remodeling-cost-report-2026"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Basement Cost Calculator",h:"/tools/basement-cost-calculator"},{l:"Kitchen Cost Calculator",h:"/tools/kitchen-cost-calculator"},{l:"Renovation Sequence Planner",h:"/tools/renovation-sequence-planner"},{l:"Renovation Sequencing Guide",h:"/guide/renovation-sequencing-guide"},{l:"Working With Your Designer",h:"/working-with-your-designer"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
+            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"2026 Basement Cost Report",h:"/guide/basement-finishing-cost-report-2026"},{l:"2026 Kitchen Cost Report",h:"/guide/kitchen-remodeling-cost-report-2026"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Basement Cost Calculator",h:"/tools/basement-cost-calculator"},{l:"Kitchen Cost Calculator",h:"/tools/kitchen-cost-calculator"},{l:"Renovation Sequence Planner",h:"/tools/renovation-sequence-planner"},{l:"Renovation Sequencing Guide",h:"/guide/renovation-sequencing-guide"},{l:"Working With Your Designer",h:"/working-with-your-designer"},{l:"The Client Portal",h:"/client-portal"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
@@ -4764,6 +4764,31 @@ function BasementCostCalculator(){
   );
 }
 
+/* ─── Client Portal / Customer Experience ───────────────
+   The system behind what our reviews already credit us for: communication,
+   staying on schedule, clean job sites. Designers and architects get access too. */
+const PORTAL_PAGE = {
+  stages: [
+    {k:"Your estimate, readable and permanent",d:"Not a line item on a carbon copy. A detailed scope of work you can open any time — every phase spelled out, allowances marked, and options priced separately so you decide what is in and what is out. Photorealistic renderings show the finished space before we swing a hammer. Revisions live at the same link, so you are never comparing three PDFs wondering which is current. It stays available for the life of the project, so when you are mid-remodel asking “was that included?” the answer is one tap away."},
+    {k:"Your Design Studio",d:"When the project is approved, your portal opens a guided selections experience built from your actual scope. Every decision — tile, vanity, fixtures, finishes, colour — becomes a card with your exact allowance on it and plain-English math. Go over the allowance and you pay only the difference. Come in under and that money is credited back to you at final invoice. Showroom selections happen in person with our designer alongside you — we work regularly with the Ferguson showroom in Carmel, where we have a dedicated representative who knows our projects, and with Virginia Tile for tile selections. Your appointment shows right on the card. Everything else you can shop from your couch: paste a product link and watch the budget update in real time. Our own recommendations sit on each card so you are not staring at the whole internet."},
+    {k:"Deadlines that explain themselves",d:"Every decision date carries its reason: “Decide by Aug 7 — your tile takes two weeks to arrive before installation starts.” No arbitrary pressure, just the honest physics of your schedule. When the last selection lands, the Studio flips into an arrivals timeline so you can watch your tub, tile and fixtures converge on your start date."},
+    {k:"The road to construction",d:"Between signing and demo day most contractors go quiet. Your portal lays out the pre-construction roadmap — deposit, design, permits, ordering, scheduling — so you always know which mile marker you are at and what happens next."},
+    {k:"Construction with nothing hidden",d:"Every phase live with dates and real-time status. Inspections, deliveries and walkthroughs visible from day one. “On my way” messages when the crew heads to your home rather than a four-hour window. Messages go straight to the people building your project, with the full history in one thread. Progress photos land in the portal as the work happens."},
+    {k:"Change orders in writing, always",d:"If the scope changes you see it priced, in writing, and signed electronically before work continues. No surprise invoices. It is in our terms and it is enforced by our software rather than by memory."},
+    {k:"Money with no mysteries",d:"Your payment schedule lives in the portal — every milestone tied to real progress. You always know what has been paid, what is next, and what triggers it. Because selections tracked every dollar against every allowance, the final invoice arrives with a line-by-line reconciliation, including any allowance money coming back to you."},
+    {k:"The finish line, and after",d:"Final walkthrough and punch list run through the portal — you flag it, we fix it, you watch it clear. Your warranties live where everything else does: 25 years on Schluter waterproofing, one year on workmanship, documented and accessible for good."},
+  ],
+  faq: [
+    {q:"How do I know what my remodel is actually costing as it goes?",a:"Every selection you make is tracked against its allowance in real time, so the budget is never a surprise you discover at the end. Go over an allowance and you pay only the difference; come in under and that money is credited back to you at final invoice — it does not stay with the contractor. Your payment schedule is tied to real construction milestones, and the final invoice arrives with a line-by-line reconciliation of every allowance. HomeStar clients see all of this in a private project portal from the estimate onward."},
+    {q:"How do remodeling contractors handle change orders?",a:"Badly, in the common case — a verbal agreement on site that becomes a disputed line on the final invoice. The standard you should insist on is that no change proceeds until it is priced in writing and you have approved it. At HomeStar that is contractual and enforced in software: a change order is drafted, priced, and electronically signed in your portal before the work continues. If a contractor cannot show you how they document changes, assume they do not."},
+    {q:"Will I get updates during my remodel, or do I have to chase the contractor?",a:"You should not have to chase anyone. HomeStar clients get a private project portal showing every phase with live status, key dates for inspections and deliveries, progress photos as the work happens, and a single message thread that goes to the people actually building the project. You also get an “on my way” message when the crew heads to your home instead of a four-hour window."},
+    {q:"What is a remodeling allowance, and what happens if I spend less than mine?",a:"An allowance is a budgeted amount for a category you have not chosen yet — tile, fixtures, vanity. Many contractors keep the difference if you come in under. We credit it back to you at final invoice. If you go over, you pay only the difference, and you can see exactly where you stand before you commit, because every selection updates your budget in real time."},
+    {q:"Can my interior designer or architect access the project portal?",a:"Yes. Designers and architects working with us get portal access on the projects they are involved in — the same selections, allowances, schedule, phase status and message thread the homeowner sees. It removes the usual friction of a designer working blind to the construction schedule, or finding out about a substitution after it has been installed. This applies to every project size, from a single bathroom to a whole-home renovation."},
+    {q:"Where do I pick out tile, fixtures and finishes for my remodel?",a:"Both in person and from home, depending on the category. For plumbing fixtures we work regularly with the Ferguson showroom in Carmel, where we have a dedicated representative who knows our projects and our clients — so you are not starting from scratch with whoever is on the floor that day. Tile selections are typically made at Virginia Tile. Our designer attends showroom appointments with you, and the appointment appears on your selection card in the portal. For everything else you can shop from home, paste a product link into the portal, and see immediately how it affects your allowance."},
+      {q:"Do I need to download an app to use the portal?",a:"No. It opens from a link in your browser on a phone, tablet or laptop — nothing to install and nothing to keep updated."},
+  ],
+};
+
 /* ─── Designer / Architect Collaboration ────────────────
    Data for /working-with-your-designer. Anchored on the real Dovetail Group partnership —
    every project referenced here has an existing case study page with designPartner set. */
@@ -4791,6 +4816,127 @@ const DESIGNER_PAGE = {
     {q:"Do you offer a referral or trade partnership for designers in Hamilton County?",a:"Yes. We work with design firms across Fishers, Carmel, Westfield, Zionsville, Noblesville and Geist, and the Dovetail Group relationship is the model: they develop the vision, we execute it, and their client's finished space reflects their work rather than ours. We do not compete with our design partners for design fees, we credit them publicly on completed project pages, and we bring them in when a homeowner comes to us needing design help. Call (317) 279-4798 to start a conversation."},
   ],
 };
+
+function ClientPortalPage(){
+  const[faqOpen,setFaqOpen]=useState(null);
+  const P=PORTAL_PAGE;
+  useCanonical("client-portal");
+  useEffect(()=>{
+    document.title="The HomeStar Client Portal | Your Project, In Your Pocket";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content","Every HomeStar client gets a private project portal — live phase status, selections with real-time allowance tracking, progress photos, e-signed change orders and a line-by-line final reconciliation. Unused allowance money is credited back to you. Interior designers get access too. Fishers, Indiana. (317) 279-4798");
+    window.scrollTo(0,0);
+  },[]);
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"The Client Portal"}]}/>
+      <FaqSchema faqs={P.faq}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:"HomeStar Client Project Portal",serviceType:"Remodeling project management and client communication",provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"78"}},areaServed:["Fishers","Carmel","Noblesville","Westfield","Zionsville","Geist"].map(c=>({"@type":"City",name:c})),description:"A private project portal given to every HomeStar remodeling client, covering estimate, selections with allowance tracking, construction phase status, change orders and final reconciliation."})}}/>
+
+      <Nav isCity/>
+
+      <section style={{position:"relative",padding:"160px 24px 60px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`}}>
+        <div style={{maxWidth:820,margin:"0 auto",textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>EVERY PROJECT · EVERY CLIENT</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(28px,4.5vw,42px)",lineHeight:1.15,marginBottom:16}}>Your Project, In Your Pocket</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.55)",fontSize:17,lineHeight:1.6}}>Most contractors hand you a paper quote and a phone number. Every HomeStar client gets a private project portal — from first estimate to final walkthrough. Your designer gets access too.</p>
+        </div>
+      </section>
+
+      <section style={{background:"#fff",padding:"48px 24px 0"}}>
+        <div style={{maxWidth:800,margin:"0 auto"}}>
+          <div style={{background:C.cream,borderLeft:`4px solid ${C.green}`,borderRadius:"0 12px 12px 0",padding:"24px 28px"}}>
+            <div style={{color:C.green,fontSize:12,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:8}}>Quick Answer</div>
+            <p style={{color:C.navy,fontSize:16.5,lineHeight:1.75,margin:0,fontWeight:500}}>Every HomeStar remodeling client gets a private project portal covering the whole job — a detailed estimate that stays available, a guided selections studio where every choice is tracked against its allowance in real time, live construction phase status, progress photos, electronically signed change orders before any scope change proceeds, and a final invoice with line-by-line allowance reconciliation. <strong>If you come in under an allowance, that money is credited back to you</strong> rather than kept by the contractor. It works the same on a single bathroom or a whole-home renovation, and interior designers and architects working with us get access too.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:840}}>
+          <div style={{textAlign:"center",marginBottom:40}}><div className="lab">Start to Finish</div><h2 className="ttl">What You Actually See</h2></div>
+          {P.stages.map((s,i)=>
+            <div key={s.k} style={{display:"flex",gap:18,marginBottom:4}}>
+              <div style={{display:"flex",flexDirection:"column",alignItems:"center",flexShrink:0}}>
+                <div style={{width:34,height:34,borderRadius:"50%",background:C.green,color:"#fff",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:800,fontSize:14}}>{i+1}</div>
+                {i<P.stages.length-1&&<div style={{width:2,flex:1,background:C.sand,minHeight:22}}/>}
+              </div>
+              <div style={{paddingBottom:26,flex:1}}>
+                <h3 style={{color:C.navy,fontWeight:700,fontSize:16.5,margin:"4px 0 6px"}}>{s.k}</h3>
+                <p style={{color:C.grayDark,fontSize:15.5,lineHeight:1.8,margin:0}}>{s.d}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:840}}>
+          <div style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,borderRadius:16,padding:"34px 38px"}}>
+            <div className="lab" style={{color:C.green}}>For Designers &amp; Architects</div>
+            <h2 className="ttl ttl-w" style={{marginTop:6}}>Your Clients' Projects, Visible to You</h2>
+            <p style={{color:"rgba(255,255,255,.82)",fontSize:16,lineHeight:1.85}}>Designers and architects working with us get portal access on their projects — the same selections, allowances, schedule, phase status and message thread the homeowner sees. No working blind to the construction schedule. No discovering a substitution after it is installed. If a specified item goes back-ordered, you see it when we do and you approve the alternate.</p>
+            <p style={{color:"rgba(255,255,255,.82)",fontSize:16,lineHeight:1.85,marginBottom:0}}>We have completed three projects with <a href="https://dovetailgroupindy.com/" target="_blank" rel="noopener noreferrer" style={{color:"#fff",fontWeight:700,textDecoration:"underline"}}>Dovetail Group</a> on this basis. <a href="/working-with-your-designer" style={{color:C.green,fontWeight:700}}>See how we collaborate with design firms →</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <div style={{textAlign:"center",marginBottom:40}}><div className="lab">FAQ</div><h2 className="ttl">Common Questions</h2></div>
+          {P.faq.map((f,i)=>
+            <div key={i} style={{background:"#fff",borderRadius:12,marginBottom:10,border:`1px solid ${C.sand}`,overflow:"hidden"}}>
+              <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} style={{width:"100%",textAlign:"left",padding:"18px 22px",background:"none",border:"none",cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",gap:14}}>
+                <span style={{color:C.navy,fontWeight:700,fontSize:15.5}}>{f.q}</span>
+                <span style={{color:C.green,fontWeight:800,fontSize:20,flexShrink:0}}>{faqOpen===i?"−":"+"}</span>
+              </button>
+              {faqOpen===i&&<div style={{padding:"0 22px 20px"}}><p style={{color:C.grayDark,fontSize:15,lineHeight:1.85,margin:0}}>{f.a}</p></div>}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <h2 className="ttl" style={{textAlign:"center",marginBottom:24}}>Why We Built It</h2>
+          <div style={{color:C.grayDark,fontSize:16,lineHeight:1.9}}>
+            <p style={{marginBottom:18}}>A remodel should not feel like handing a stranger your house keys and hoping. It should feel like what it is — a professional team working a clear plan, with you informed and in control the whole way.</p>
+            <p style={{marginBottom:0}}>The portal runs on every project we take, from a single <a href="/bathroom-remodeling" style={{color:C.green,fontWeight:600}}>bathroom</a> to a <a href="/whole-home-renovation" style={{color:C.green,fontWeight:600}}>whole-home renovation</a>. On multi-room work it matters most, because that is where schedule and selections get complicated — see the <a href="/guide/renovation-sequencing-guide" style={{color:C.green,fontWeight:600}}>renovation sequencing guide</a> for how we order the work.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in">
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:48}}>
+            <div>
+              <div className="lab">Get Started</div>
+              <h2 className="ttl ttl-w">See It On Your Own Project</h2>
+              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:28}}>Request a free, no-obligation estimate. Your detailed scope arrives in the portal — readable, itemised, and yours to keep.</p>
+              <div style={{display:"flex",flexDirection:"column",gap:18}}>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.phone}</div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>(317) 279-4798</div></div>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.mail}</div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>eric@thehomestarservice.com</div></div>
+              </div>
+              <div style={{marginTop:28}}>
+                <a href="/" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← Back to main site</a>
+              </div>
+            </div>
+            <div id="portal-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px"}}>
+              <LeadForm/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
 
 function DesignerCollaborationPage(){
   const[faqOpen,setFaqOpen]=useState(null);
@@ -4891,6 +5037,7 @@ function DesignerCollaborationPage(){
                 {t:"You get public credit",d:"Completed projects are published crediting and linking your firm — as all three Dovetail projects are."},
                 {t:"Licensed trades in-house",d:"Our own plumbers and electricians, so your schedule is not hostage to an outside sub's calendar."},
                 {t:"We refer work back",d:"When a homeowner reaches us needing design help beyond our scope, we bring in a design partner."},
+                {t:"Portal access on your projects",d:"You see the same selections, allowances, schedule and message thread the homeowner sees — no working blind to the build."},
               ].map(b=>
                 <div key={b.t} style={{background:"rgba(255,255,255,.06)",borderRadius:12,padding:"18px 20px"}}>
                   <div style={{color:C.green,fontWeight:700,fontSize:14.5,marginBottom:6}}>{b.t}</div>
@@ -5570,6 +5717,7 @@ export default function HomestarSite(){
   const[kitchenCalcPage,setKitchenCalcPage]=useState(false);
   const[seqPlannerPage,setSeqPlannerPage]=useState(false);
   const[designerPage,setDesignerPage]=useState(false);
+  const[portalPage,setPortalPage]=useState(false);
   const[hoodSvcPage,setHoodSvcPage]=useState(null);
   useCanonical("");
 
@@ -5604,6 +5752,7 @@ export default function HomestarSite(){
     if(path==="tools/kitchen-cost-calculator"){setKitchenCalcPage(true);return;}
     if(path==="tools/renovation-sequence-planner"){setSeqPlannerPage(true);return;}
     if(path==="working-with-your-designer"){setDesignerPage(true);return;}
+    if(path==="client-portal"){setPortalPage(true);return;}
     /* Neighborhood pages */
     if(path.startsWith("remodeling-")){
       const hoodPath=path.replace(/^remodeling-/,"").replace(/-in$/,"");
@@ -5685,6 +5834,10 @@ export default function HomestarSite(){
 
   if(designerPage){
     return <DesignerCollaborationPage/>;
+  }
+
+  if(portalPage){
+    return <ClientPortalPage/>;
   }
 
   if(hoodSvcPage&&NEIGHBORHOODS[hoodSvcPage.hood]){
