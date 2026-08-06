@@ -1893,7 +1893,7 @@ function Footer({isCity}){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Guides & Resources</h4>
-            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"2026 Basement Cost Report",h:"/guide/basement-finishing-cost-report-2026"},{l:"2026 Kitchen Cost Report",h:"/guide/kitchen-remodeling-cost-report-2026"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Basement Cost Calculator",h:"/tools/basement-cost-calculator"},{l:"Kitchen Cost Calculator",h:"/tools/kitchen-cost-calculator"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
+            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"2026 Basement Cost Report",h:"/guide/basement-finishing-cost-report-2026"},{l:"2026 Kitchen Cost Report",h:"/guide/kitchen-remodeling-cost-report-2026"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Basement Cost Calculator",h:"/tools/basement-cost-calculator"},{l:"Kitchen Cost Calculator",h:"/tools/kitchen-cost-calculator"},{l:"Renovation Sequence Planner",h:"/tools/renovation-sequence-planner"},{l:"Renovation Sequencing Guide",h:"/guide/renovation-sequencing-guide"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
@@ -3264,6 +3264,12 @@ function ServicePage({data,slug}){
               </div>
             </div>
           )}
+          {slug==="whole-home-renovation"&&(
+            <div style={{marginTop:36,textAlign:"center"}}>
+              <a href="/tools/renovation-sequence-planner" style={{display:"inline-flex",alignItems:"center",gap:10,padding:"15px 30px",borderRadius:12,background:C.green,color:"#fff",fontWeight:700,fontSize:15,textDecoration:"none"}}>Plan Your Renovation Sequence {I.arrow}</a>
+              <div style={{marginTop:14}}><a href="/guide/renovation-sequencing-guide" style={{color:C.green,fontWeight:600,fontSize:14,textDecoration:"underline"}}>Read the Renovation Sequencing Guide — what order to remodel, and how to live through it →</a></div>
+            </div>
+          )}
           {slug==="kitchen-remodeling"&&(
             <div style={{marginTop:36,textAlign:"center"}}>
               <a href="/tools/kitchen-cost-calculator" style={{display:"inline-flex",alignItems:"center",gap:10,padding:"15px 30px",borderRadius:12,background:C.green,color:"#fff",fontWeight:700,fontSize:15,textDecoration:"none"}}>Try Our Free Kitchen Cost Calculator {I.arrow}</a>
@@ -4305,6 +4311,33 @@ const GUIDES = {
     ],
     relatedPosts:["basement-finishing-cost-hamilton-county","basement-finishing-permits-hamilton-county","basement-finishing-roi-fishers-carmel","basement-finishing-ideas-hamilton-county"],
   },
+  "renovation-sequencing-guide":{
+    title:"The Renovation Sequencing Guide: What Order to Remodel, and How to Live Through It",
+    metaDesc:"The order you remodel rooms in decides what your renovation costs and whether you can stay in the house. A Hamilton County, Indiana general contractor's honest guide to sequencing a multi-room renovation — including when to phase, when not to, and when you should not hire one contractor at all.",
+    service:"Whole-Home & Multi-Room Renovation",serviceSlug:"whole-home-renovation",
+    intro:"Nobody publishes this. Contractors talk about finishes and budgets because those are the fun parts, but the thing that actually determines what a multi-room renovation costs, how long it takes, and whether your family can stay in the house is the sequence — the order the rooms and trades happen in. Get the sequence right and rooms subsidize each other. Get it wrong and you pay twice to open the same wall. This guide is the sequencing logic we use on real Hamilton County projects, written plainly, including the parts that argue against hiring us.",
+    sections:[
+      {h:"The One Rule That Governs Everything: Open Each Wall Once",p:["Almost every expensive renovation mistake reduces to opening the same wall twice. A homeowner finishes a bathroom in the spring, then decides in the fall to redo the kitchen on the other side of that wall — and the plumbing for the new kitchen sink runs through the bay that was just closed, tiled, and painted. The second project pays to demolish the first project's finished work.","This is why we design the entire scope before building any of it, even when the build is deliberately spread over years. Designing everything up front costs nothing extra. It lets us rough in plumbing and electrical for later phases while walls are already open, order flooring as one continuous run, and choose finishes once. Phasing a project that was planned as a whole is efficient. Phasing a project that was never planned is just paying twice, slowly."]},
+      {h:"The Correct Order, and Why Each Step Is Where It Is",p:["Work top-down and dirty-to-clean. The specific order:","**1. Structural work and anything above.** Roof, windows, load-bearing changes, additions. Everything below depends on the envelope being closed and the structure being final. Removing a wall between a kitchen and living room belongs here, not in the kitchen phase — it is structural work that happens to be in the kitchen.","**2. Basement, if it is in scope.** Counterintuitive, but basements are the ideal first build in an occupied home: the work is isolated from daily life, it is the dirtiest phase, and finishing it early can give you a functioning second living area to retreat into while the main floor is torn up. It also puts the mechanical room work first, which everything else depends on.","**3. Rough-in for every room at once.** All plumbing, all electrical, all HVAC, across the entire scope, in one phase. This is the single largest efficiency in multi-room work and the one homeowners most often lose by doing rooms sequentially. It also means one rough-in inspection instead of several.","**4. Drywall and substrate.** Once, everywhere. Drywall dust travels through an entire house regardless of containment, so you want it happening one time, not once per room.","**5. Tile and wet areas.** Showers, tub surrounds, backsplashes. Waterproofing assemblies need to cure and be tested before anything downstream of them is finished.","**6. Flooring, continuously.** Flooring installed in two phases almost never lines up. Plank runs, grout lines, and transitions are laid out across the whole floor plan at once or they betray the seam forever.","**7. Cabinetry and trim carpentry.** After flooring, so bases sit correctly and toe kicks land clean.","**8. Paint, then fixtures and hardware, last.** Paint after trim, fixtures after paint. Anything installed before paint gets masked, and masking is where the finish quality goes to die."]},
+      {h:"What Actually Breaks When the Order Is Wrong",p:["**Finishing one room completely before starting the next.** The most common and most expensive mistake, and it feels like the responsible approach. The second room's demolition dust, trade traffic, and material handling then damage the finished first room. We have been called in to repair brand-new floors that were destroyed by the next room's project.","**Flooring before wet trades.** Tile saws, drywall mud, and plumbing tests will find new flooring. Flooring goes down after the mess.","**Cabinets before flooring.** Now the flooring is cut around the cabinet bases instead of running under them, appliance heights are wrong, and any future flooring change requires pulling cabinets.","**Paint before trim and drywall repair.** Every subsequent trade nicks the walls. Painting first means painting twice.","**Separate contractors on adjacent rooms.** The rough-in efficiency disappears entirely, because two companies' plumbers will not schedule a single combined rough-in for each other's benefit."]},
+      {h:"Living in the House: What It Is Actually Like",p:["Homeowners ask how bad it will be. Honestly:","**Weeks 1–2, demolition.** The loudest and most disruptive stretch, and the one people underestimate. Dust containment helps but does not eliminate. If anyone in the house works from home or naps on a schedule, plan around these weeks specifically.","**Rough-in.** Quieter, but this is when water and power get shut off intermittently and without much notice. Expect a day or two without a working kitchen sink or a particular circuit.","**Drywall.** Dust everywhere, including rooms not being renovated. This is the phase that reaches the whole house no matter what.","**Tile, flooring, cabinetry.** Steadily less disruptive. The house starts feeling like a house again.","**Paint and fixtures.** Largely tolerable. Fumes are the main consideration; low-VOC products make this manageable for most families.","The two questions that decide whether you can stay: do you keep a working bathroom, and do you keep a way to prepare food. If a project takes both away simultaneously, staying is genuinely miserable and most families should not attempt it."]},
+      {h:"Bathrooms: Never All at Once in an Occupied Home",p:["If you are renovating multiple bathrooms and living in the house, they get staggered — always. One finished and functional before the next comes out of service. This is slower and slightly more expensive than gutting them together, and it is almost always the right trade.","The exception is a household with a bathroom that is not in scope. If you have three bathrooms and are renovating two, they can run concurrently, which saves real time and money. Tell your contractor early which bathroom is your fallback, because it changes the sequence rather than just the schedule.","Our Three-Bathroom Remodel in Geist is a worked example: three bathrooms in one project, sequenced so the family always had a functioning bathroom, with finishes coordinated across all three because they were designed together."]},
+      {h:"When to Phase, and When Phasing Costs You Money",p:["**Phase when:** budget is the constraint and you would rather do fewer rooms excellently than all of them thinly; you are staying in the home and cannot lose kitchen and bathrooms at once; or part of the scope depends on a decision you have not made yet.","**Do not phase when:** the rooms share a wall, share plumbing, or share a continuous floor. Adjacent rooms are the case where phasing costs the most, because the shared systems get opened, closed, and reopened.","**The compromise that usually wins:** design and permit the entire scope, complete the rough-in for everything while walls are open, then finish rooms in phases as budget allows. Rough-in is cheap relative to finishes and it is the part that is ruinous to redo. Finishes are expensive and trivially deferrable."]},
+      {h:"When You Should NOT Hire One Contractor",p:["We are a general contractor arguing for general contractors, so here is the honest boundary.","**One self-contained room, no layout change.** A single bathroom refresh with fixtures staying put, or a cabinet-and-countertop kitchen swap in the existing footprint — a good specialist will often be faster and cheaper, and there is no sequencing benefit to capture.","**Highly specialized single-trade work.** Refinishing hardwood floors, resurfacing a tub, or a standalone tub-to-shower conversion. Companies that do only that thing do it very well.","**You genuinely enjoy running the project and have the time.** Some homeowners are excellent general contractors for their own homes. If you have the schedule flexibility and the temperament, coordinating trades directly can save the GC margin. Be honest with yourself about the time — it is a real part-time job for the duration.","The case for one contractor is strongest exactly where the sequencing complexity is: multiple rooms, shared systems, structural changes, or a household that needs to keep living in the house. That is the work we are built for."]},
+      {h:"How Sequencing Shows Up in the Price",p:["Multi-room projects are cheaper than the same rooms done separately, and the savings are almost entirely sequencing savings: one mobilization instead of several, one permit cycle, one rough-in phase, one drywall phase, one flooring run, and one design process instead of finishes matched after the fact.","The savings are largest when rooms are adjacent or share systems, and smallest when rooms are far apart in the house and mechanically independent. A kitchen and the bathroom directly above it share far more than a kitchen and a detached-garage conversion.","For real per-room numbers in Hamilton County, see our bathroom, kitchen and basement cost reports. For how a specific combination sequences, use the planner below or call (317) 279-4798 — we will walk the space and give you an order before we give you a price."]},
+    ],
+    faq:[
+      {q:"What order should you remodel rooms in?",a:"Work top-down and dirty-to-clean: structural work first, then the basement if it is in scope, then plumbing and electrical rough-in for every room at once, then drywall, then tile and wet areas, then flooring continuously across all rooms, then cabinetry and trim, then paint, then fixtures and hardware last. The most common expensive mistake is finishing one room completely before starting the next — the second room's demolition and trade traffic then damages the finished one."},
+      {q:"Can you live in your house during a whole-home renovation?",a:"For a multi-room renovation, usually yes. For a true whole-home renovation, often no. It comes down to two questions: do you keep a working bathroom, and do you keep a way to prepare food. If a project removes both at once, staying is genuinely miserable. Renovations can be sequenced specifically so a family can stay — staggering bathrooms so one is always functional, and keeping the existing kitchen usable until the new one is close — but that has to be planned from the start because it changes the order, not just the schedule."},
+      {q:"Should you remodel multiple bathrooms at the same time?",a:"If you are living in the house, no — stagger them so one is always functional, unless you have a bathroom outside the project scope to fall back on. If the house is empty or you have a spare bathroom, doing them concurrently saves real money through a shared rough-in, one drywall phase, and coordinated finishes."},
+      {q:"Is it cheaper to remodel several rooms at once or one at a time?",a:"Several at once, and the savings come almost entirely from sequencing: one mobilization, one permit cycle, one plumbing and electrical rough-in, one drywall phase, one continuous flooring run, and one design process. Savings are largest when rooms are adjacent or share plumbing and smallest when rooms are far apart and mechanically independent."},
+      {q:"How do you phase a renovation to spread out the cost?",a:"Design and permit the entire scope up front, complete the rough-in for everything while walls are open, then finish rooms in phases as budget allows. Rough-in is inexpensive relative to finishes and ruinous to redo; finishes are expensive and easy to defer. Phasing a project that was never designed as a whole is where homeowners pay twice to open the same wall."},
+      {q:"Should flooring be installed before or after cabinets?",a:"Before. Flooring runs under the cabinets, which sets correct appliance heights, avoids cutting flooring around cabinet bases, and means a future flooring change does not require pulling cabinetry. Flooring goes in after tile and wet trades but before cabinetry and trim."},
+      {q:"When should you not hire a general contractor?",a:"For one self-contained room with no layout change — a single bathroom refresh with fixtures staying put, or a cabinet-and-countertop kitchen swap in the existing footprint — a specialist is often faster and cheaper, and there is no sequencing benefit to capture. The same is true for specialized single-trade work like hardwood refinishing or a standalone tub-to-shower conversion. A general contractor earns their margin where sequencing complexity is: multiple rooms, shared systems, structural changes, or a household that needs to keep living in the house."},
+      {q:"How long does a multi-room renovation take?",a:"Less than its rooms would take end-to-end, but more than the largest single room. Two connected rooms commonly run 8–12 weeks, a main-level renovation 12–20 weeks, and a whole-home renovation several months depending on scope and phasing. The dominant variable is material lead time rather than construction speed — cabinetry commonly runs 6–10 weeks — which is why selections for every room are finalized before demolition starts on any of them."},
+    ],
+    relatedPosts:["kitchen-remodel-cost-hamilton-county-2026","basement-finishing-cost-hamilton-county","bathroom-remodel-timeline-week-by-week","how-to-choose-remodeling-contractor-indiana"],
+  },
   "kitchen-remodeling-cost-report-2026":{
     title:"2026 Hamilton County Kitchen Remodeling Cost Report",
     metaDesc:"The definitive 2026 data report on kitchen remodeling costs in Hamilton County, Indiana. Real tier pricing ($25K minimum, $50K–$100K typical, $100K+ premium), cost drivers, permits, timelines, and ROI for Fishers, Carmel, Westfield & Zionsville — from a local licensed general contractor.",
@@ -4649,6 +4682,176 @@ function BasementCostCalculator(){
           <div style={{textAlign:"center",marginBottom:40}}><div className="lab">Calculator FAQ</div><h2 className="ttl">Common Questions</h2></div>
           {calcFaq.map((f,i)=>
             <div key={i} style={{padding:"22px 0",borderBottom:i<calcFaq.length-1?`1px solid ${C.sand}`:"none"}}>
+              <h3 style={{color:C.navy,fontWeight:700,fontSize:16,marginBottom:8}}>{f.q}</h3>
+              <p style={{color:C.grayDark,fontSize:15,lineHeight:1.8}}>{f.a}</p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
+
+/* Renovation Sequence Planner — takes a room selection and returns the real construction
+   order a GC would build it in, what is unusable during each phase, and where the schedule
+   changes because the family is staying in the house. */
+function SequencePlanner(){
+  const[rooms,setRooms]=useState({kitchen:true,masterBath:true,hallBath:false,kidsBath:false,basement:false,flooring:true,painting:false,deck:false});
+  const[wallRemoval,setWallRemoval]=useState(true);
+  const[living,setLiving]=useState(true);
+  useCanonical("tools/renovation-sequence-planner");
+
+  useEffect(()=>{
+    document.title="Renovation Sequence Planner | What Order to Remodel | HomeStar";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content","Free renovation sequence planner for Hamilton County, Indiana. Choose your rooms and get the real construction order a general contractor would build them in — what happens when, what's unusable during each phase, and how the plan changes if you're living in the house.");
+    window.scrollTo(0,0);
+  },[]);
+
+  const toggle=k=>setRooms(r=>({...r,[k]:!r[k]}));
+  const baths=["masterBath","hallBath","kidsBath"].filter(k=>rooms[k]);
+  const wet=[...baths,...(rooms.kitchen?["kitchen"]:[])];
+  const any=Object.values(rooms).some(Boolean)||wallRemoval;
+
+  /* Build the phase list from the real dependency order. */
+  const phases=[];
+  if(wallRemoval)phases.push({n:"Structural & Openings",wks:"1–2 weeks",what:"Confirm whether the wall is load-bearing, install the beam and support, reroute anything running inside it, then structural inspection.",out:"The connected rooms are unusable and the house is at its loudest.",why:"Structure is first because everything downstream sits on it. Wall removal belongs here, not in the kitchen phase — it is structural work that happens to be in the kitchen."});
+  if(rooms.basement)phases.push({n:"Basement Build-Out",wks:"4–8 weeks",what:"Framing, moisture management, licensed electrical and plumbing, drywall, flooring and finishes in the lower level.",out:"Basement only. Main-floor living is unaffected.",why:"Basements go early in an occupied home: the work is isolated from daily life, it is the dirtiest phase, and finishing it first can give you somewhere to retreat while the main floor is torn up."});
+  if(wet.length)phases.push({n:"Rough-In — All Rooms Together",wks:"1–2 weeks",what:`Plumbing, electrical and HVAC rough-in for ${wet.length===1?"the ":"all "}${wet.length} wet room${wet.length>1?"s":""} in one pass, then a single rough-in inspection.`,out:"Intermittent water and power shutoffs, often with little notice.",why:"This is the single largest efficiency in multi-room work, and the one homeowners lose by doing rooms one at a time. One trade mobilization, one inspection."});
+  if(wet.length||rooms.basement)phases.push({n:"Drywall",wks:"1–2 weeks",what:"Hang, tape, mud and sand across the entire scope at once.",out:"Dust reaches the whole house regardless of containment — including rooms not being renovated.",why:"Done once, everywhere. Drywall dust travels, so you want to live through it a single time."});
+  if(baths.length){
+    if(living&&baths.length>1)phases.push({n:`Bathrooms — Staggered (${baths.length})`,wks:`${baths.length*2}–${baths.length*3} weeks`,what:"Waterproofing, tile, fixtures and glass — one bathroom fully finished and back in service before the next comes out.",out:"One bathroom at a time. You always keep a working one.",why:"STAGGERED BECAUSE YOU ARE STAYING IN THE HOUSE. Slower and slightly more expensive than gutting them together — and almost always the right trade.",flag:true});
+    else phases.push({n:`Bathrooms — Concurrent (${baths.length})`,wks:baths.length>1?"3–5 weeks":"2–3 weeks",what:"Waterproofing, tile, fixtures and glass across all bathrooms in scope at once.",out:baths.length>1?"All selected bathrooms simultaneously.":"The bathroom in scope.",why:baths.length>1?"Running them together is the cheaper, faster option and it works here because you are not depending on these bathrooms day to day.":"Single bathroom — no staggering needed."});
+  }
+  if(rooms.kitchen)phases.push({n:"Kitchen Tile & Wet Areas",wks:"1 week",what:"Backsplash and any tiled surfaces, after waterproofing assemblies have cured.",out:"Kitchen unusable. Temporary kitchen needed from demolition onward.",why:"Wet areas cure and get tested before anything downstream of them is finished."});
+  if(rooms.flooring)phases.push({n:"Flooring — Continuous Run",wks:"1–2 weeks",what:"Laid out and installed across every room in one continuous run, after wet trades and before cabinetry.",out:"Rooms are walked minimally while it sets.",why:"Flooring installed in two phases almost never lines up. Plank runs and transitions get laid out across the whole plan at once — and it runs under the cabinets, not around them."});
+  if(rooms.kitchen)phases.push({n:"Cabinetry & Trim Carpentry",wks:"1–2 weeks",what:"Cabinet set, countertop template and install, trim and finish carpentry.",out:"Kitchen still out of service; countertop template adds a gap of 1–2 weeks mid-phase.",why:"After flooring so bases sit correctly and toe kicks land clean. Cabinet lead times of 6–10 weeks are ordered long before this phase."});
+  if(rooms.painting)phases.push({n:"Paint",wks:"1 week",what:"Prep, patch and paint after all trim and drywall repair is complete.",out:"Room-by-room access; fumes are the main consideration.",why:"After trim, because every trade before this nicks the walls. Painting first means painting twice."});
+  phases.push({n:"Fixtures, Hardware & Punch List",wks:"3–5 days",what:"Fixtures, hardware, final adjustments and the walkthrough punch list.",out:"Minimal.",why:"Last, so nothing finished gets masked, scratched or worked around."});
+  if(rooms.deck)phases.push({n:"Deck / Outdoor — Parallel Track",wks:"2–3 weeks",what:"Exterior build running alongside interior work, weather permitting.",out:"Nothing indoors.",why:"Exterior work is mechanically independent of the interior, so it runs in parallel rather than adding to the critical path.",parallel:true});
+
+  /* Duration: interior phases are sequential; the deck runs alongside. */
+  const interior=phases.filter(p=>!p.parallel);
+  const lo=interior.reduce((s,p)=>s+(parseFloat(p.wks)||0.7),0);
+  const hi=interior.reduce((s,p)=>{const m=p.wks.match(/–(\d+)/);return s+(m?+m[1]:1);},0);
+
+  const warnings=[];
+  if(living&&rooms.kitchen&&baths.length&&baths.length===3)warnings.push("You have selected every bathroom plus the kitchen while staying in the house. That removes both food preparation and bathroom capacity at points in the schedule. Most families should either keep one bathroom out of scope or plan to be elsewhere for part of the project.");
+  else if(living&&rooms.kitchen)warnings.push("Staying in the house with the kitchen in scope means a temporary kitchen — microwave, coffee maker, portable cooktop — from demolition until cabinetry and appliances are in. Plan for roughly the full project duration, not a few days.");
+  if(living&&baths.length>1)warnings.push("Your bathrooms are staggered rather than concurrent because you are staying in the house. If you have a bathroom outside this scope to fall back on, tell us — running them together would save real time and money.");
+  if(!rooms.flooring&&rooms.kitchen&&wallRemoval)warnings.push("You are opening a wall between rooms but flooring is not in scope. Where the wall was, the two floors will meet — and existing floors on either side rarely match. Worth pricing continuous flooring before you commit.");
+  if(phases.length<=1)warnings.push("Select at least one room to see a sequence.");
+
+  const planFaq=[
+    {q:"What order should you remodel rooms in?",a:"Top-down and dirty-to-clean: structural work first, then the basement if in scope, then plumbing and electrical rough-in for every room at once, then drywall, then tile and wet areas, then flooring continuously, then cabinetry and trim, then paint, then fixtures last. The most common expensive mistake is finishing one room completely before starting the next — the second room's demolition and trade traffic then damages the finished one."},
+    {q:"Why does this planner stagger bathrooms when I say I'm living in the house?",a:"Because you need a working bathroom every day of the project. Staggering means one bathroom is finished and back in service before the next comes out. It is slower and slightly more expensive than gutting them together, and it is almost always the right trade — unless you have a bathroom outside the project scope to fall back on, in which case running them concurrently saves real money."},
+    {q:"How accurate are these timelines?",a:"They are realistic planning bands from actual Hamilton County projects, not guarantees. The dominant variable is material lead time rather than construction speed — cabinetry commonly runs 6–10 weeks — which is why selections for every room are finalized before demolition starts on any of them. Your exact schedule comes from a walkthrough."},
+    {q:"Can I do these rooms in phases instead of all at once?",a:"Yes, and it is often smart. The key is designing and permitting the entire scope up front, completing rough-in for everything while walls are open, then finishing rooms as budget allows. Rough-in is inexpensive relative to finishes and ruinous to redo. Phasing a project that was never designed as a whole is where homeowners pay twice to open the same wall."},
+  ];
+
+  const opts=[{k:"kitchen",l:"Kitchen"},{k:"masterBath",l:"Master Bathroom"},{k:"hallBath",l:"Hall / Guest Bathroom"},{k:"kidsBath",l:"Children's Bathroom"},{k:"basement",l:"Basement Finishing"},{k:"flooring",l:"Flooring (continuous)"},{k:"painting",l:"Interior Painting"},{k:"deck",l:"Deck / Outdoor Living"}];
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Tools",url:"/tools/renovation-sequence-planner"},{name:"Renovation Sequence Planner"}]}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"WebApplication",name:"Renovation Sequence Planner — Hamilton County, Indiana",applicationCategory:"HomeImprovement",operatingSystem:"Web",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},provider:{"@type":"Organization",name:"HomeStar Services & Contracting"}})}}/>
+      <FaqSchema faqs={planFaq}/>
+
+      <Nav isCity/>
+
+      <section style={{position:"relative",padding:"160px 24px 60px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`}}>
+        <div style={{maxWidth:800,margin:"0 auto",textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>FREE TOOL · BUILT BY A LOCAL GENERAL CONTRACTOR</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(28px,4.5vw,42px)",lineHeight:1.15,marginBottom:16}}>Renovation Sequence Planner</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.55)",fontSize:17,lineHeight:1.6}}>Pick your rooms and see the order a general contractor would actually build them in — what happens when, what's unusable during each phase, and how the plan changes if your family is staying in the house.</p>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:1000}}>
+          <div style={{display:"grid",gridTemplateColumns:"340px 1fr",gap:36}} className="hero-grid">
+            <div>
+              <label style={{display:"block",color:C.navy,fontWeight:700,fontSize:15,marginBottom:10}}>Rooms in scope</label>
+              {opts.map(o=>
+                <button key={o.k} onClick={()=>toggle(o.k)} style={{display:"flex",alignItems:"center",gap:12,width:"100%",textAlign:"left",padding:"11px 14px",marginBottom:7,borderRadius:8,border:`1.5px solid ${rooms[o.k]?C.green:C.sand}`,background:rooms[o.k]?C.greenMuted:"#fff",cursor:"pointer"}}>
+                  <div style={{width:20,height:20,borderRadius:5,border:`2px solid ${rooms[o.k]?C.green:C.sand}`,background:rooms[o.k]?C.green:"#fff",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{rooms[o.k]&&<span style={{color:"#fff",fontSize:13,fontWeight:900}}>✓</span>}</div>
+                  <span style={{fontSize:14,fontWeight:600,color:rooms[o.k]?C.green:C.navy}}>{o.l}</span>
+                </button>
+              )}
+
+              <label style={{display:"block",color:C.navy,fontWeight:700,fontSize:15,margin:"22px 0 10px"}}>Project conditions</label>
+              {[{v:wallRemoval,set:setWallRemoval,l:"Removing a wall / opening rooms up"},{v:living,set:setLiving,l:"We'll be living in the house"}].map(o=>
+                <button key={o.l} onClick={()=>o.set(!o.v)} style={{display:"flex",alignItems:"center",gap:12,width:"100%",textAlign:"left",padding:"11px 14px",marginBottom:7,borderRadius:8,border:`1.5px solid ${o.v?C.green:C.sand}`,background:o.v?C.greenMuted:"#fff",cursor:"pointer"}}>
+                  <div style={{width:20,height:20,borderRadius:5,border:`2px solid ${o.v?C.green:C.sand}`,background:o.v?C.green:"#fff",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>{o.v&&<span style={{color:"#fff",fontSize:13,fontWeight:900}}>✓</span>}</div>
+                  <span style={{fontSize:14,fontWeight:600,color:o.v?C.green:C.navy}}>{o.l}</span>
+                </button>
+              )}
+            </div>
+
+            <div>
+              <div style={{borderRadius:16,overflow:"hidden",border:`1px solid ${C.sand}`,background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,padding:"24px 28px",marginBottom:24}}>
+                <div style={{color:C.green,fontSize:12,fontWeight:700,letterSpacing:".06em",marginBottom:6}}>ESTIMATED PROJECT DURATION</div>
+                <div className="display" style={{color:"#fff",fontSize:30,fontWeight:800,lineHeight:1.1}}>{any?`${Math.round(lo)}–${Math.round(hi)} weeks`:"—"}</div>
+                <div style={{color:"rgba(255,255,255,.5)",fontSize:13,marginTop:6}}>{interior.length} sequential phase{interior.length===1?"":"s"}{rooms.deck?" + exterior running in parallel":""}</div>
+              </div>
+
+              {warnings.map((w,i)=>
+                <div key={i} style={{background:"#FFF8E6",border:"1px solid #E8CE8A",borderRadius:10,padding:"14px 18px",marginBottom:12}}>
+                  <div style={{color:"#8A6A1F",fontSize:11.5,fontWeight:800,letterSpacing:".05em",marginBottom:5}}>WORTH KNOWING</div>
+                  <p style={{color:C.grayDark,fontSize:14.5,lineHeight:1.65,margin:0}}>{w}</p>
+                </div>
+              )}
+
+              <div style={{marginTop:20}}>
+                {phases.map((p,i)=>
+                  <div key={i} style={{display:"flex",gap:16,marginBottom:4}}>
+                    <div style={{display:"flex",flexDirection:"column",alignItems:"center",flexShrink:0}}>
+                      <div style={{width:32,height:32,borderRadius:"50%",background:p.parallel?C.sand:C.green,color:p.parallel?C.navy:"#fff",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:800,fontSize:14}}>{p.parallel?"∥":i+1}</div>
+                      {i<phases.length-1&&<div style={{width:2,flex:1,background:C.sand,minHeight:24}}/>}
+                    </div>
+                    <div style={{paddingBottom:22,flex:1}}>
+                      <div style={{display:"flex",alignItems:"baseline",gap:10,flexWrap:"wrap"}}>
+                        <h3 style={{color:C.navy,fontWeight:700,fontSize:16.5,margin:0}}>{p.n}</h3>
+                        <span style={{color:C.green,fontWeight:700,fontSize:13}}>{p.wks}</span>
+                      </div>
+                      <p style={{color:C.grayDark,fontSize:14.5,lineHeight:1.7,margin:"7px 0 0"}}>{p.what}</p>
+                      <p style={{color:C.gray,fontSize:13.5,lineHeight:1.65,margin:"6px 0 0"}}><strong style={{color:C.navy}}>Out of service:</strong> {p.out}</p>
+                      <p style={{color:p.flag?"#8A6A1F":C.gray,fontSize:13.5,lineHeight:1.65,margin:"6px 0 0",fontStyle:"italic"}}>{p.why}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div style={{marginTop:16,padding:"20px 24px",background:C.cream,borderRadius:12}}>
+                <p style={{color:C.grayDark,fontSize:14.5,lineHeight:1.7,margin:0}}>This is a planning sequence, not a quote. The order is real — it is how we build — but your house will have its own constraints. <a href="/#estimate" style={{color:C.green,fontWeight:700}}>Get a free walkthrough</a> and we'll give you the order before we give you the price.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:780}}>
+          <h2 className="ttl" style={{textAlign:"center",marginBottom:28}}>Why Sequence Decides the Budget</h2>
+          <div style={{color:C.grayDark,fontSize:16,lineHeight:1.9}}>
+            <p style={{marginBottom:18}}>Almost every expensive renovation mistake reduces to <strong>opening the same wall twice</strong>. Finish a bathroom in the spring, decide in the fall to redo the kitchen on the other side of that wall, and the new plumbing runs through the bay you just tiled and painted. The second project pays to demolish the first.</p>
+            <p style={{marginBottom:18}}>Multi-room projects cost less than the same rooms done separately, and the savings are almost entirely sequencing savings — one mobilization, one permit cycle, one rough-in phase, one drywall phase, one continuous flooring run. That is also why doing rooms one at a time feels responsible and quietly costs the most.</p>
+            <p style={{marginBottom:0}}>The full logic, including when to phase and <a href="/guide/renovation-sequencing-guide" style={{color:C.green,fontWeight:600}}>when you should not hire a general contractor at all</a>, is in our sequencing guide. For real per-room numbers, see the <a href="/tools/kitchen-cost-calculator" style={{color:C.green,fontWeight:600}}>kitchen</a> and <a href="/tools/basement-cost-calculator" style={{color:C.green,fontWeight:600}}>basement</a> calculators, or <a href="/whole-home-renovation" style={{color:C.green,fontWeight:600}}>how we run whole-home projects</a>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:780}}>
+          <div style={{textAlign:"center",marginBottom:40}}><div className="lab">Planner FAQ</div><h2 className="ttl">Common Questions</h2></div>
+          {planFaq.map((f,i)=>
+            <div key={i} style={{padding:"22px 0",borderBottom:i<planFaq.length-1?`1px solid ${C.sand}`:"none"}}>
               <h3 style={{color:C.navy,fontWeight:700,fontSize:16,marginBottom:8}}>{f.q}</h3>
               <p style={{color:C.grayDark,fontSize:15,lineHeight:1.8}}>{f.a}</p>
             </div>
@@ -5104,6 +5307,7 @@ export default function HomestarSite(){
   const[calcPage,setCalcPage]=useState(false);
   const[basementCalcPage,setBasementCalcPage]=useState(false);
   const[kitchenCalcPage,setKitchenCalcPage]=useState(false);
+  const[seqPlannerPage,setSeqPlannerPage]=useState(false);
   const[hoodSvcPage,setHoodSvcPage]=useState(null);
   useCanonical("");
 
@@ -5136,6 +5340,7 @@ export default function HomestarSite(){
     if(path==="tools/remodel-cost-calculator"){setCalcPage(true);return;}
     if(path==="tools/basement-cost-calculator"){setBasementCalcPage(true);return;}
     if(path==="tools/kitchen-cost-calculator"){setKitchenCalcPage(true);return;}
+    if(path==="tools/renovation-sequence-planner"){setSeqPlannerPage(true);return;}
     /* Neighborhood pages */
     if(path.startsWith("remodeling-")){
       const hoodPath=path.replace(/^remodeling-/,"").replace(/-in$/,"");
@@ -5209,6 +5414,10 @@ export default function HomestarSite(){
 
   if(kitchenCalcPage){
     return <KitchenCostCalculator/>;
+  }
+
+  if(seqPlannerPage){
+    return <SequencePlanner/>;
   }
 
   if(hoodSvcPage&&NEIGHBORHOODS[hoodSvcPage.hood]){
