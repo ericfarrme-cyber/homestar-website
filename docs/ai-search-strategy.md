@@ -120,3 +120,46 @@ self-published guide.
 ## The one-sentence version
 **Our content is already good enough; our corpus isn't — so spend the next quarter on reviews,
 platforms, and third-party citation rather than on pages.**
+
+---
+
+# Execution log — the whole-home position
+
+## Shipped 2026-08-05
+
+**`/whole-home-renovation`** — the missing pillar. Seven service pages existed and none covered the
+differentiator we're actually #1 for. 10 AI-citable FAQs aimed at the questions where "one contractor"
+*is* the answer. Cost section deliberately prices as the sum of published per-room bands rather than
+inventing a whole-home range.
+
+**`/guide/renovation-sequencing-guide`** — the asset no contractor in this market publishes. Sequencing
+is what actually decides a multi-room budget and whether a family can stay in the house, and nobody
+writes about it because it isn't the fun part. Includes a section titled **"When You Should NOT Hire
+One Contractor."** That candor is the point: it is genuinely useful, it is hard to copy without
+knowing the work, and being the source that tells the truth is exactly what gets quoted.
+
+**`/tools/renovation-sequence-planner`** — select rooms and conditions, get the real construction
+sequence with phase durations, what's out of service when, and why each phase sits where it does. The
+living-in-the-house toggle materially changes the plan (bathrooms stagger so one always works).
+Engine verified across **1,024 room/condition combinations** asserting real construction constraints.
+
+**Distribution:** whole-home added to the homepage service grid and footer; every city page now links
+into the pillar from its Quick Answer; sitemap 229 → 232; IndexNow submitted.
+
+## Why these three, specifically
+
+The 3,488 impressions already sitting on the home-remodeling city pages at positions 18–25 had nowhere
+to go — no pillar, no tool, no supporting content. The category was being searched and we had nothing
+to receive it with.
+
+More importantly, these are **corpus assets, not page assets.** A sequencing guide that answers "what
+order should I remodel in" and "can I live in my house during a renovation" is the kind of thing that
+gets retrieved and quoted, because it is specific, useful, and almost unopposed. Nine more city-service
+pages would not have moved a single AI citation.
+
+## Still to do on this position
+1. **Rewrite the 9 home-remodeling city pages** around multi-room rather than generic remodeling —
+   that is where the existing impressions are. *(Next.)*
+2. **Steer reviews toward multi-room language.** "They did our kitchen and both bathrooms" is the single
+   most valuable sentence a reviewer could write for this position. Same lever as the Houzz reviews.
+3. **Eric's real whole-home project range** — the pillar deliberately does not invent one.
