@@ -75,3 +75,44 @@ invisible to credible on the platform that AI answers actually quote.
 Uploading projects and editing the bio requires being signed into the Houzz pro account, which this
 session is not. All six uploads, the two location corrections, the rename, and the bio review-count fix
 need either Eric's login or Eric doing them. Photos are ready in `public/images/`.
+
+---
+
+# ✅ COMPLETED 2026-08-05 — all 6 projects uploaded
+
+Houzz now shows **24 projects, exactly matching the website.** Verified on the live public profile.
+
+| Project | Houzz ID | Photos | Description |
+|---|---|---|---|
+| Luxury Basement Transformation — Westfield, IN | 7889667 | 13 ✅ | 659 chars ✅ |
+| Three-Bathroom Remodel — Geist, Fishers, IN | 7889669 | 10 ✅ | 642 chars ✅ |
+| Wet Room Master Bathroom Remodel — Fishers, IN | 7889671 | 10 ✅ | 559 chars ✅ |
+| Marble Master Bath Transformation — Fishers, IN | 7889672 | 5 ✅ | 473 chars ✅ |
+| Basement Bathroom Remodel — Carmel, IN | 7889673 | 6 ✅ | 511 chars ✅ |
+| Composite Deck Build — Fishers, IN | 7889674 | 3 ✅ | 309 chars ✅ |
+
+Each carries style, keywords, and a deep link to its matching page on thehomestarservice.com.
+Project **cost was set only on the Westfield basement** ($100,001–$150,000, the one real published
+figure). Year was left blank on all six — we don't have verified completion years, and inventing them
+would breach the authenticity guardrail. **Eric can add years in ~2 minutes if he knows them.**
+
+## 🚨 Problem discovered during upload: the website is serving enormous images
+
+Houzz rejected 9 of 10 wet-room photos with error `-200`. Cause: **`fishers-wetroom-*.jpg` are
+16320 × 12240 pixels, 13–20 MB each.**
+
+They were resized to 2400×1800 (415–751KB) for Houzz and uploaded successfully. **But the originals
+are still what the website serves.** `/projects/wet-room-bathroom-fishers` loads ten of them —
+roughly **150 MB of images on a single page**.
+
+This is a real and serious SEO defect, not a cosmetic one:
+- Core Web Vitals (LCP) will be catastrophic on that page, and Core Web Vitals are a ranking factor
+- On mobile data it is effectively unusable
+- It likely suppresses the whole `/projects/*` cluster, several of which already show 0 clicks
+
+Every other project's photos are fine (1094–1536px, 100–650KB). **Only the 9 wet-room files are
+oversized.** Recommended fix: resize those 9 in `public/images/` to ~2400px wide and redeploy —
+a ~99% byte reduction on that page with no visible quality loss. Resized copies already exist at
+`.playwright-mcp/houzz-resized/` (gitignored) and can be copied straight in.
+
+**Not done automatically** because it overwrites binary source assets — Eric's call.
