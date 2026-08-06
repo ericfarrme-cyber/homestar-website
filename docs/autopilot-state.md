@@ -1,6 +1,32 @@
 # Autopilot State — HomeStar SEO
 Last run: 2026-08-05 (Run #2 — "Distance the Lead", autonomous execution) — **PAUSED at Eric's request, all work committed and deployed**
 
+## 🔴 GEOGRAPHIC CEILING 2026-08-06 — AI visibility is Fishers-only
+ChatGPT returns HomeStar for **Fishers** queries and **not for Carmel or Westfield** — even though our
+flagship ~$150K basement is physically in Westfield with a full case study. Every firm returned for
+those cities has a physical presence there (Everything Home's listing literally reads "Showroom located
+in the Indiana Design Center").
+
+**This explains the GSC anomaly:** the 9 `home-remodeling-{city}-in` pages pull 3,488 impressions and 4
+clicks. Google ranks the pages; AI never surfaces the business outside Fishers. Content was never the
+bottleneck — business address is.
+
+**Implication:** stop expecting AI visibility from more city pages. The map-pack half is likely
+unwinnable without a physical presence. The winnable half is the prose half, which is driven by
+reviews/Reddit/Houzz — so **city-association must come from the review corpus** ("they remodeled our
+Carmel kitchen"). Full detail: `docs/ai-research-round3-2026-08-06.md`.
+
+## 🟡 TRUST OBJECTION — "very new company" is surfaced to every prospect who checks
+ChatGPT on "is HomeStar legit": no complaint pattern ✅, 5.0/79 reviews ✅, BBB Accredited A- ✅ — but
+it flags "very new company… no long track record" from our BBB profile (business started Nov 2024) and
+recommends extra due diligence. We publish no counter-evidence, and Eric's bio ("background in real
+estate and small business") reinforces it. Counter with volume/velocity (100+ projects, 79 reviews in
+<2 years) rather than tenure. **Question for Eric: do you or Robb have prior construction experience
+we can publish?** Do not invent it.
+
+**Data inconsistency to fix:** homepage says "100+ Projects Completed", Eric's author bio says "50+
+Hamilton County Projects Completed". Both public. Which is right?
+
 ## 🔴 TOP FINDING 2026-08-06 — we do not hold the gatekeeper term for whole-home
 On "who should I hire for a whole home renovation in Hamilton County Indiana" ChatGPT opened with
 *"I'd focus on **design-build firms**"* and then listed only design-build firms. **HomeStar was absent.**
