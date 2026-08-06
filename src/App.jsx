@@ -528,7 +528,32 @@ function ServiceCityLinks({currentService,currentCity}){
 }
 
 const BLOG = [
-  { slug:"kitchen-remodel-cost-hamilton-county-2026", title: "How Much Does a Kitchen Remodel Cost in Hamilton County? (2026 Real Numbers)", date: "Aug 5, 2026", read: "9 min", cat: "Kitchen", excerpt: "Real 2026 kitchen remodel costs for Fishers, Carmel, Westfield, and Noblesville — why our floor is $25,000, what $50K–$100K actually buys, and where premium custom kitchens land. Honest numbers from a local licensed general contractor.",
+  /* NOTE: author is normally derived from this array's index parity (even = Eric, odd = Robb).
+     Inserting a post at the top would therefore flip the byline on every existing post, so posts
+     added at the front carry an explicit `author` and BlogPostPage honours it when present. */
+  { slug:"designer-vs-design-build-vs-general-contractor", title:"Designer vs. Design-Build vs. General Contractor: Which Do You Need for Your Fishers Remodel?", date: "Aug 6, 2026", read: "9 min", cat: "General", author:"robb-rice", excerpt: "Three different ways to get a remodel designed and built, and they are not interchangeable. A Hamilton County contractor's plain comparison of hiring an interior designer, a design-build firm, or a general contractor — including which one fits which project, and what each actually costs you in coordination.",
+    quickAnswer: "Hire an interior designer when the design itself is the hard part and you want specialist talent plus an independent check on the builder. Hire a design-build firm when you want one contract and one company accountable for both design and construction. Hire a general contractor directly when you already know what you want built, or you already have a designer and need someone to build their drawings faithfully. For most Fishers and Hamilton County remodels the practical question is not which is best in the abstract — it is whether your project's difficulty sits in the design or in the construction. Kitchens and whole-home renovations usually need real design input; a single bathroom in its existing footprint usually does not.",
+    faq: [
+      {q:"What is the difference between design-build and a general contractor?",a:"A design-build firm both designs and builds under one contract, so there is no coordination gap between designer and builder and one company is accountable for the whole outcome. A general contractor builds — either to drawings you or your designer provide, or to a design they produce in-house. The practical difference is where the design talent sits and how many contracts you hold. HomeStar operates both ways: we design in-house with 3D renderings when a homeowner wants a single contract, and we build to an outside designer's drawings when one is already engaged."},
+      {q:"Do I need an interior designer for a remodel?",a:"It depends on where the difficulty is. If the project is a single bathroom staying in its existing footprint, a good contractor with 3D renderings can usually get you there. If it is a kitchen, a whole floor, or anything where layout, lighting, materials and millwork all have to resolve together, a designer earns their fee — that is genuinely specialist work. The honest test: if you can describe what you want and picture the finished room, you may not need one. If you cannot, you probably do."},
+      {q:"Is design-build cheaper than hiring a designer and contractor separately?",a:"Usually somewhat, because you are paying one company rather than two and there is no coordination overhead. But cheaper is not automatically better value. A separate designer gives you specialist design talent and an independent set of eyes reviewing the builder's work — which on a large project can be worth more than the fee difference. On a smaller, well-understood scope, design-build is normally the more efficient choice."},
+      {q:"Can a general contractor work with my interior designer?",a:"Yes, and good ones do it routinely. HomeStar has completed three projects with Dovetail Group, including a luxury basement in Westfield where we were brought in as one of their preferred contractors. Be wary of a contractor who resists working alongside a designer — it usually signals they intend to substitute their own preferences for the design you paid for."},
+      {q:"Who should I hire first, the designer or the contractor?",a:"Engage both earlier than feels necessary. If the designer comes first, bring the builder in before the drawings are final so structural and mechanical problems surface while they are still cheap to solve on paper. If the contractor comes first, they can tell you honestly whether your scope needs a designer at all. The expensive pattern is a fully finished design that no builder has ever reviewed."},
+    ],
+    body: [
+      "There are three common ways to get a remodel designed and built, and homeowners are often sold whichever one the company they called happens to be. They are not interchangeable, and the right answer depends less on your budget than on where the difficulty in your project actually sits.",
+      "Here is the short version. Hire an **interior designer** when the design is the hard part and you want specialist talent plus an independent set of eyes on the builder. Hire a **design-build firm** when you want one contract and one company accountable for everything. Hire a **general contractor** directly when you already know what you want built, or you already have a designer and need someone to build their drawings faithfully.",
+      "Option 1 — Interior designer plus a separate general contractor. You engage a designer for layout, finishes, fixtures and the overall vision; they produce drawings and a material schedule; a contractor prices and builds it. You hold two relationships. The upside is real: you get specialist design talent, and you get an independent professional reviewing the construction who is not the person doing it. On a large or design-driven project that second set of eyes is worth a great deal. The downside is coordination — someone has to make sure the builder is reading the drawings the way the designer intended, and that someone is often you unless the contractor takes it seriously.",
+      "This is the model behind our work with Dovetail Group, one of the premier interior design firms in the Indianapolis area. On our Westfield luxury basement project, the homeowners engaged Dovetail to develop the vision and brought HomeStar in as one of Dovetail's preferred contractors to execute it. The result was a 14-foot stained red oak mantle over an electric fireplace, a custom bar with kegerator and porcelain brick backsplash, tongue-and-groove ceilings with faux beam wraps, plus theater, gym and lounge zones — roughly a $150,000 build. Dovetail owned the vision. We owned the execution, including all electrical by our licensed electrician and all bar plumbing by our licensed plumber. That division of labor is the whole point of this model when it works.",
+      "Option 2 — Design-build. One company designs and builds. There is a single contract, no gap between the drawings and the crew, and one party accountable when something goes wrong — which removes the most common failure mode of the separate model, where designer and builder each blame the other. It is typically somewhat less expensive because you are not paying two firms and there is no coordination overhead. The tradeoff is that your design is only as good as that firm's in-house design capability, and you lose the independent check. If the builder's designer says a detail is fine, there is nobody with standing to disagree.",
+      "Option 3 — General contractor directly. You skip formal design entirely, or rely on the contractor's in-house renderings. This is the right call more often than the industry admits. A single bathroom staying in its existing footprint, a basement finish with a straightforward program, a flooring and paint refresh across a main level — these are construction problems, not design problems. Paying a design fee to relocate nothing does not improve the result. At HomeStar every project gets 3D renderings before demolition regardless, so you still see the space before it is built.",
+      "How to actually decide. Ask where the difficulty is. If you can describe the finished room and picture it, your difficulty is construction — hire a builder. If layout, lighting, materials and millwork all have to resolve together and you cannot picture it, your difficulty is design — get a designer involved, either separately or through a design-build firm. Scope is the second filter: single room in its existing footprint leans contractor; kitchen, whole floor, or structural changes lean toward real design input.",
+      "The Hamilton County context matters here. A great deal of housing in Fishers, Westfield and McCordsville was built in the 1990s and 2000s to a builder's spec — the layouts are competent and the finishes are generic. That profile often needs less design help than owners expect, because the bones are sound and the work is elevation rather than reinvention. Older stock around downtown Noblesville, Zionsville village and Pendleton is the opposite: character homes where a designer earns their fee resolving how new work relates to what is already there. Carmel sits at the top end, where multi-room scopes and premium finishes make design input close to standard.",
+      "Who is responsible when something goes wrong. This is the question nobody asks until it matters. The designer is responsible for design intent — layout, selections, aesthetics. The contractor is responsible for means, methods, code compliance and workmanship. If a drawing specifies something unbuildable, out of code, or in conflict with what is actually behind the wall, the contractor's job is to flag it before building it — not to build it and bill for the fix afterward. Ask any contractor you are interviewing how they handle a drawing conflict. The good answer involves raising it in writing during pre-construction. The bad answer is a shrug.",
+      "One thing that does not change across all three models: the work behind the finishes. Whichever route you choose, a designer's tile selection only looks right in ten years if the waterproofing beneath it was built correctly. Every bathroom we build uses the complete Schluter system — Ditra for floors, Kerdi for walls — with a 25-year manufacturer's warranty, and all plumbing and electrical is performed by licensed tradespeople on our own payroll rather than subcontracted out. That is true whether the design came from Dovetail, from another firm, or from our own renderings.",
+      "If you already have a designer or architect, here is exactly how we work with them — our process, how we handle drawings and material schedules, and the three completed Dovetail Group projects behind it: read Working With Your Designer or Architect. If you are still deciding, call (317) 279-4798 and describe the project. We will tell you honestly whether you need a designer, and if you do, we can point you toward one.",
+    ]},
+  { slug:"kitchen-remodel-cost-hamilton-county-2026", title: "How Much Does a Kitchen Remodel Cost in Hamilton County? (2026 Real Numbers)", date: "Aug 5, 2026", read: "9 min", cat: "Kitchen", author:"eric-farr", excerpt: "Real 2026 kitchen remodel costs for Fishers, Carmel, Westfield, and Noblesville — why our floor is $25,000, what $50K–$100K actually buys, and where premium custom kitchens land. Honest numbers from a local licensed general contractor.",
     body: [
       "Search \"kitchen remodel cost\" and you'll get national averages that range from $12,000 to $150,000 — a spread so wide it's useless for planning. Worse, the low end of those numbers describes something most Hamilton County homeowners would never actually accept: a partial job, done without permits, with the licensed trades skipped. Here are the real numbers we quote in Fishers, Carmel, Westfield, and Noblesville in 2026.",
       "The short answer: kitchen remodeling in Hamilton County starts at $25,000 and typically runs $50,000 to $100,000 for a full remodel, with premium custom kitchens $100,000+. Our minimum kitchen project is $25,000, and it's worth explaining why that floor exists before breaking down the tiers.",
@@ -542,7 +567,7 @@ const BLOG = [
       "Why the contractor type matters on a kitchen. A kitchen specialist is genuinely good at cabinets and countertops inside an existing footprint. But the moment your project involves moving a drain, adding circuits, or removing a wall, a specialist has to subcontract out the highest-risk parts of the job — and you end up coordinating several companies with several schedules and no single party accountable when they collide. HomeStar is a licensed general contractor with licensed plumbers and licensed electricians on staff. Structural, mechanical, electrical, cabinetry, tile, and finish work all sit with one company, under one schedule, with one warranty.",
       "Ready for a real number on your kitchen? Every kitchen is different, and the only way to get an accurate figure is to walk the space. Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com. We remodel kitchens in Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville, McCordsville, and Pendleton."
     ]},
-  { slug:"kitchen-remodel-permits-hamilton-county", title: "Kitchen Remodel Permits in Hamilton County: What's Required, What It Costs, and What Gets Inspected", date: "Aug 5, 2026", read: "7 min", cat: "Kitchen", excerpt: "Do you need a permit to remodel your kitchen in Fishers or Carmel? Almost certainly yes. Here's exactly what triggers a permit, what inspections you'll face, what it costs, and why unpermitted kitchen work causes real problems at resale.",
+  { slug:"kitchen-remodel-permits-hamilton-county", title: "Kitchen Remodel Permits in Hamilton County: What's Required, What It Costs, and What Gets Inspected", date: "Aug 5, 2026", read: "7 min", cat: "Kitchen", author:"robb-rice", excerpt: "Do you need a permit to remodel your kitchen in Fishers or Carmel? Almost certainly yes. Here's exactly what triggers a permit, what inspections you'll face, what it costs, and why unpermitted kitchen work causes real problems at resale.",
     body: [
       "Homeowners ask us this constantly: \"It's just a kitchen — do I really need a permit?\" In Hamilton County, the answer is almost always yes, and the reason is simple. Permits aren't triggered by the room. They're triggered by the work, and kitchens involve more permit-triggering work than almost any other room in the house.",
       "What triggers a kitchen permit. Any plumbing change — moving a sink, adding an island with a bar sink, relocating a dishwasher drain, or altering supply lines. Any electrical change — adding dedicated appliance circuits, new recessed lighting, under-cabinet LEDs, or relocating outlets to meet current code for counter spacing. Any structural change — removing or altering a wall, adding a header or beam, or modifying floor framing. Any gas line work. And any mechanical change, including range hood venting to the exterior.",
@@ -554,7 +579,7 @@ const BLOG = [
       "The retroactive permit trap. Homeowners sometimes assume they can permit after the fact if it ever becomes an issue. Sometimes you can — but the inspector will require visual verification of the concealed work, which means removing drywall, backsplash tile, and occasionally cabinetry to expose what's behind it. You end up paying to demolish and rebuild finishes you already paid for once.",
       "How HomeStar handles it. We pull all required permits before work begins, schedule and meet every inspection, and provide the documentation at closeout so you have a clean paper trail for resale. Permits are included in your project — not a line item surprise. Call (317) 279-4798 or request a free estimate at thehomestarservice.com. We remodel kitchens throughout Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville, McCordsville, and Pendleton."
     ]},
-  { slug:"kitchen-remodel-roi-fishers-carmel", title: "Is a Kitchen Remodel Worth It in Fishers & Carmel? The 2026 ROI Breakdown", date: "Aug 5, 2026", read: "8 min", cat: "Kitchen", excerpt: "Kitchen remodels recoup 60–75% at resale — but in Fishers and Carmel the resale number isn't the whole story. Here's the real ROI math, which upgrades actually pay, and why an open kitchen is often what decides how fast a home sells.",
+  { slug:"kitchen-remodel-roi-fishers-carmel", title: "Is a Kitchen Remodel Worth It in Fishers & Carmel? The 2026 ROI Breakdown", date: "Aug 5, 2026", read: "8 min", cat: "Kitchen", author:"eric-farr", excerpt: "Kitchen remodels recoup 60–75% at resale — but in Fishers and Carmel the resale number isn't the whole story. Here's the real ROI math, which upgrades actually pay, and why an open kitchen is often what decides how fast a home sells.",
     body: [
       "A kitchen remodel is usually the largest single-room investment a homeowner makes, so the question comes up early and honestly: am I going to get this money back? Here's the straight answer for Fishers, Carmel, and the rest of Hamilton County in 2026 — including the part most ROI articles leave out.",
       "The headline number. Mid-range kitchen remodels typically recoup 60 to 75% of their cost at resale. On a $70,000 kitchen, that's roughly $42,000 to $52,500 returned in home value. That is a real return, but it's lower than a basement finish (70–75%) and lower than a well-executed bathroom. If pure resale arithmetic were the only consideration, the kitchen wouldn't top the list.",
@@ -567,7 +592,7 @@ const BLOG = [
       "The quality variable. ROI assumes the work holds up. A kitchen with failing grout, cabinet doors that sag out of alignment, or electrical that wasn't permitted returns far less than the percentages above — and shows up badly in a buyer's inspection. Every HomeStar kitchen includes licensed plumbing and electrical, full permitting and inspections, 3D design renderings before demolition, and our 1-year workmanship warranty.",
       "Want to know what your specific kitchen would cost and return? Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com. We serve Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville, McCordsville, and Pendleton."
     ]},
-  { slug:"kitchen-design-ideas-hamilton-county-2026", title: "18 Kitchen Design Ideas for Hamilton County Homes (2026)", date: "Aug 5, 2026", read: "8 min", cat: "Kitchen", excerpt: "What Fishers, Carmel, Westfield, and Zionsville homeowners are actually choosing in 2026 — layouts, cabinetry, countertops, lighting, and storage ideas, with honest notes on what each one costs to execute and what it's worth.",
+  { slug:"kitchen-design-ideas-hamilton-county-2026", title: "18 Kitchen Design Ideas for Hamilton County Homes (2026)", date: "Aug 5, 2026", read: "8 min", cat: "Kitchen", author:"robb-rice", excerpt: "What Fishers, Carmel, Westfield, and Zionsville homeowners are actually choosing in 2026 — layouts, cabinetry, countertops, lighting, and storage ideas, with honest notes on what each one costs to execute and what it's worth.",
     body: [
       "These are the kitchen design directions we're actually building in Hamilton County homes in 2026 — not trend-forecast filler, but the choices Fishers, Carmel, Westfield, and Zionsville homeowners are making when they sit down with us and a 3D rendering. We've noted which tier each idea typically belongs to so you can place it against a budget.",
       "1. Open the kitchen to the living space. Still the highest-impact change available in most Hamilton County homes. Removing the wall between kitchen and family room reshapes the entire main floor. Requires structural evaluation, likely a beam, and rerouting anything living inside that wall. Mid-Range/Full tier and up.",
@@ -590,7 +615,7 @@ const BLOG = [
       "18. Designing the kitchen with the rooms it touches. The most consistent thing we see in successful 2026 Hamilton County kitchens: the kitchen wasn't designed in isolation. Cabinet color relates to the trim in the adjoining room, flooring runs continuously, and the lighting plan covers both spaces. This is also the argument for using a general contractor rather than a kitchen specialist — someone has to own the scope on both sides of the opening.",
       "Every HomeStar kitchen starts with 3D renderings so you can see these decisions before demolition rather than guessing from samples. Licensed plumbers and licensed electricians are in-house, permits and inspections are handled, and the work carries our 1-year workmanship warranty. Call (317) 279-4798 or request a free estimate at thehomestarservice.com. Serving Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville, McCordsville, and Pendleton."
     ]},
-  { slug:"basement-finishing-cost-hamilton-county", title: "How Much Does It Cost to Finish a Basement in Hamilton County? (2026 Real Numbers)", date: "Jun 25, 2026", read: "9 min", cat: "Basement", excerpt: "Real basement finishing costs for Fishers, Carmel, Westfield, and Noblesville — broken down by tier, per square foot, add-ons, permits, and ROI. Honest numbers from a local licensed contractor.",
+  { slug:"basement-finishing-cost-hamilton-county", title: "How Much Does It Cost to Finish a Basement in Hamilton County? (2026 Real Numbers)", date: "Jun 25, 2026", read: "9 min", cat: "Basement", author:"eric-farr", excerpt: "Real basement finishing costs for Fishers, Carmel, Westfield, and Noblesville — broken down by tier, per square foot, add-ons, permits, and ROI. Honest numbers from a local licensed contractor.",
     body: [
       "If you've searched \"how much does it cost to finish a basement\" you've probably found wildly different answers — everything from $20,000 to $200,000. That's because basement finishing costs depend entirely on size, layout, and finish level. As a licensed contractor that finishes basements across Hamilton County every month, here are the real, current numbers for 2026.",
       "The short answer: basement finishing in Hamilton County typically costs $45,000 to $200,000+, with most homeowners investing between $55,000 and $95,000 for a fully finished lower level. Below, we break that down by tier so you can see exactly where your project would land.",
@@ -605,7 +630,7 @@ const BLOG = [
       "Why the contractor you choose changes the price. The cheapest bid is rarely the best value in a basement. Low-cost contractors often use moisture-prone materials, subcontract the licensed trades to the lowest bidder, or skip proper waterproofing — which leads to mold, failed inspections, and expensive rework. At HomeStar, every basement includes design and 3D renderings, framing, licensed electrical, licensed plumbing, HVAC, flooring, permits, inspections, and final finishes — all handled in-house, backed by a 1-year workmanship warranty. Basement bathrooms use the Schluter waterproofing system with a 25-year manufacturer's warranty.",
       "Ready for a real number on your basement? Every home is different, so the best way to get an accurate figure is a free in-home consultation where we assess your space, discuss your vision, and provide a detailed estimate. Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com. We finish basements in Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville, McCordsville, and Pendleton."
     ]},
-  { slug:"basement-finishing-permits-hamilton-county", title: "Basement Finishing Permits in Hamilton County: Costs, Timeline & What to Know", date: "Jun 22, 2026", read: "7 min", cat: "Basement", excerpt: "Do you need a permit to finish your basement in Fishers or Carmel? Yes. Here's exactly what's required, what it costs, how long inspections take, and why skipping permits is a costly mistake.",
+  { slug:"basement-finishing-permits-hamilton-county", title: "Basement Finishing Permits in Hamilton County: Costs, Timeline & What to Know", date: "Jun 22, 2026", read: "7 min", cat: "Basement", author:"robb-rice", excerpt: "Do you need a permit to finish your basement in Fishers or Carmel? Yes. Here's exactly what's required, what it costs, how long inspections take, and why skipping permits is a costly mistake.",
     body: [
       "One of the first questions homeowners ask us about finishing a basement is whether they really need a permit. The answer is yes — and understanding why protects your investment, your safety, and your home's resale value. Here's everything Hamilton County homeowners need to know about basement permits in 2026.",
       "Do you need a permit to finish a basement in Hamilton County? Yes. Finishing a basement requires permits in every Hamilton County municipality — Fishers, Carmel, Noblesville, Westfield, Zionsville, and the surrounding towns. Any project that adds framing, electrical wiring, plumbing, or HVAC modifications triggers permit requirements. Since finishing a basement involves all of these, a permit is non-negotiable.",
@@ -617,7 +642,7 @@ const BLOG = [
       "Why HomeStar handles all of it. Permitting is one of the biggest reasons to hire a licensed full-service contractor rather than piecing the work together yourself. We pull the permits, schedule and meet the inspectors, and ensure every stage passes code. Our electrical work is done by licensed electricians and our plumbing by licensed plumbers — which means inspections pass the first time. When your basement is done, it's legal, safe, fully permitted finished square footage that adds real value to your home.",
       "Planning a basement project in Hamilton County? We handle design, permits, construction, and inspections from start to finish across Fishers, Carmel, Noblesville, Westfield, Zionsville, and surrounding areas. Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com."
     ]},
-  { slug:"basement-finishing-roi-fishers-carmel", title: "Is Finishing a Basement Worth It in Fishers & Carmel? (ROI Breakdown)", date: "Jun 20, 2026", read: "8 min", cat: "Basement", excerpt: "A finished basement returns 70–75% of its cost and adds 600–1,500+ sq ft. Here's the real ROI math for Fishers, Carmel, and Hamilton County homeowners — and why it beats moving or building an addition.",
+  { slug:"basement-finishing-roi-fishers-carmel", title: "Is Finishing a Basement Worth It in Fishers & Carmel? (ROI Breakdown)", date: "Jun 20, 2026", read: "8 min", cat: "Basement", author:"eric-farr", excerpt: "A finished basement returns 70–75% of its cost and adds 600–1,500+ sq ft. Here's the real ROI math for Fishers, Carmel, and Hamilton County homeowners — and why it beats moving or building an addition.",
     body: [
       "If you're weighing whether to finish your basement, the real question underneath is simple: will I get my money back? As a contractor finishing basements across Hamilton County, here's the honest ROI math for Fishers, Carmel, Westfield, and Noblesville homeowners in 2026 — including the factors most online calculators ignore.",
       "The headline number: 70–75% ROI. A finished basement in Hamilton County typically recoups 70 to 75% of its cost at resale. On a $70,000 premium finish, that's roughly $49,000 to $52,500 in added home value recovered directly. But the resale percentage alone undersells the real return, because it ignores the years of use you get out of the space before you ever sell.",
@@ -630,7 +655,7 @@ const BLOG = [
       "The bottom line for Hamilton County homeowners. A finished basement is one of the smartest investments you can make in your home: 70–75% recouped at resale, 600–1,500+ sq ft added at the lowest cost-per-square-foot of any home improvement, years of daily use, and a strong edge in a competitive resale market. For most Fishers and Carmel families, it beats both moving and building an addition.",
       "Want to know what your basement would cost and what it could return? Try our free Hamilton County basement cost calculator, or call HomeStar at (317) 279-4798 for a free in-home consultation. We finish basements across Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville, McCordsville, and Pendleton."
     ]},
-  { slug:"basement-finishing-ideas-hamilton-county", title: "15 Basement Finishing Ideas for Hamilton County Homes (With Real Examples)", date: "Jun 18, 2026", read: "8 min", cat: "Basement", excerpt: "From custom bars and home theaters to guest suites and gyms — real basement finishing ideas with examples from actual Fishers, Carmel, and Westfield projects. Get inspired, then get a cost estimate.",
+  { slug:"basement-finishing-ideas-hamilton-county", title: "15 Basement Finishing Ideas for Hamilton County Homes (With Real Examples)", date: "Jun 18, 2026", read: "8 min", cat: "Basement", author:"robb-rice", excerpt: "From custom bars and home theaters to guest suites and gyms — real basement finishing ideas with examples from actual Fishers, Carmel, and Westfield projects. Get inspired, then get a cost estimate.",
     body: [
       "Staring at an unfinished basement and wondering what it could become? You're looking at the most flexible square footage in your home. As a contractor that finishes basements across Hamilton County, here are 15 ideas our Fishers, Carmel, and Westfield clients love most — with examples from real projects we've built.",
       "1. The custom entertainment bar. A full wet bar transforms a basement into the house everyone wants to gather in. Our Westfield Masterpiece featured a custom bar with a porcelain brick tile backsplash, a kegerator, a beverage fridge, and integrated LED shelving. A wet bar or kitchenette typically adds $12,000 to $28,000 and is one of the highest-impact features you can include.",
@@ -650,7 +675,7 @@ const BLOG = [
       "15. The full custom build. When you combine many of these ideas into one cohesive, designed space — like our ~$150,000 Westfield Masterpiece with its bar, theater, gym, fireplace, and lounge — you get a lower level that functions as an entire second home and becomes the showpiece of the house.",
       "Ready to turn your ideas into a real plan? Every great basement starts with a vision and a realistic budget. Try our free Hamilton County basement cost calculator to estimate your project, browse our basement project gallery for inspiration, or call HomeStar at (317) 279-4798 for a free in-home consultation. We finish basements across Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, and surrounding communities."
     ]},
-  { slug:"bathroom-tile-failure-prevention", title: "Why Your Bathroom Tile Might Fail in 5 Years (And How to Prevent It)", date: "Mar 5, 2026", read: "7 min", cat: "Bathroom", excerpt: "Most tile failures aren't about the tile — they're about what's underneath. Learn why the Schluter waterproofing system outperforms standard cement board and protects your remodel for decades.",
+  { slug:"bathroom-tile-failure-prevention", title: "Why Your Bathroom Tile Might Fail in 5 Years (And How to Prevent It)", date: "Mar 5, 2026", read: "7 min", cat: "Bathroom", author:"eric-farr", excerpt: "Most tile failures aren't about the tile — they're about what's underneath. Learn why the Schluter waterproofing system outperforms standard cement board and protects your remodel for decades.",
     body: [
       "Most homeowners spend weeks choosing the perfect tile for their bathroom remodel. They agonize over color, texture, pattern, and size. But here's what almost nobody talks about: what goes under that tile matters more than the tile itself.",
       "We've seen it too many times — a homeowner invests $20,000+ in a beautiful bathroom remodel, only to see cracked grout lines, loose tiles, and water damage show up within a few years. The tile gets blamed, but the tile was never the problem. The problem is what was — or wasn't — underneath it.",
@@ -663,7 +688,7 @@ const BLOG = [
       "If you're planning a bathroom remodel in Hamilton County, ask your contractor: What substrate system are you using? Are your installers certified by the manufacturer? Are your plumbers and electricians licensed? The answers tell you everything about the quality you'll get.",
       "Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com."
     ]},
-  { slug:"signs-bathroom-needs-remodel", title: "7 Signs Your Bathroom Needs a Remodel (and Which Ones Can't Wait)", date: "Feb 18, 2026", read: "8 min", cat: "Bathroom", excerpt: "Failing grout, soft flooring, a foggy mirror that won't clear, a layout that fights you — here are seven signs Hamilton County, Indiana homeowners shouldn't ignore, and which ones point to hidden water damage you need to act on now.",
+  { slug:"signs-bathroom-needs-remodel", title: "7 Signs Your Bathroom Needs a Remodel (and Which Ones Can't Wait)", date: "Feb 18, 2026", read: "8 min", cat: "Bathroom", author:"robb-rice", excerpt: "Failing grout, soft flooring, a foggy mirror that won't clear, a layout that fights you — here are seven signs Hamilton County, Indiana homeowners shouldn't ignore, and which ones point to hidden water damage you need to act on now.",
     quickAnswer: "The seven signs a bathroom needs remodeling are: failing grout or caulk, soft flooring or water damage, persistent moisture and mold, outdated fixtures and an awkward layout, a bathroom that no longer fits your household, embarrassment when guests visit, and a dated bathroom dragging down your home's value. Three of them involve water — soft flooring, ceiling stains, and recurring mold — and those are the ones that get more expensive every month you wait, because water damage spreads into subfloor and framing. The other four are comfort and value decisions you can plan around. A full bathroom remodel in Hamilton County, Indiana runs $15,000 to $50,000, with most homeowners investing $20,000 to $35,000.",
     faq: [
       {q:"What are the signs you need a bathroom remodel?",a:"The most common signs are failing or moldy grout and caulk, soft or spongy flooring, persistent moisture and foggy mirrors from poor ventilation, recurring mold, outdated fixtures, a layout that no longer works for your household, and a dated bathroom that hurts your home's resale value. Signs involving water — soft flooring, ceiling stains, and recurring mold — indicate active damage and should be addressed immediately."},
@@ -687,7 +712,7 @@ const BLOG = [
       "Every HomeStar bathroom is built on the complete Schluter waterproofing system — Ditra for floors, Kerdi for walls — with all plumbing by licensed plumbers and all electrical by licensed electricians, backed by a 25-year waterproofing warranty and our 1-year workmanship warranty. That combination is what keeps the signs on this list from coming back a few years down the road.",
       "If any of these sound familiar — especially soft flooring or ceiling stains — HomeStar Services & Contracting offers free, no-obligation bathroom assessments across Fishers, Carmel, Westfield, Noblesville, Zionsville, and all of Hamilton County. Call (317) 279-4798 or request an estimate at thehomestarservice.com."
     ]},
-  { slug:"kitchen-remodel-roi-indiana", title: "Kitchen Remodel ROI: What Actually Adds Value in Indiana", date: "Feb 4, 2026", read: "6 min", cat: "Kitchen", excerpt: "Not all upgrades are equal. We break down which kitchen improvements deliver the best return for Hamilton County homeowners.",
+  { slug:"kitchen-remodel-roi-indiana", title: "Kitchen Remodel ROI: What Actually Adds Value in Indiana", date: "Feb 4, 2026", read: "6 min", cat: "Kitchen", author:"eric-farr", excerpt: "Not all upgrades are equal. We break down which kitchen improvements deliver the best return for Hamilton County homeowners.",
     body: [
       "You want your kitchen to look amazing — but you also want to know the money you're putting in is well spent. As contractors working in Hamilton County homes every week, we see firsthand which kitchen upgrades deliver real returns.",
       "Cabinet refacing or replacement consistently delivers one of the highest returns. If your boxes are solid, refacing with new doors and hardware gives you a new look at about 40% of the cost of full replacement. New semi-custom cabinets in a modern shaker style offer great value if the boxes are worn.",
@@ -697,7 +722,7 @@ const BLOG = [
       "Based on current market data for the Indianapolis metro area, a mid-range kitchen remodel typically recoups 60-75% of its cost at resale. A minor kitchen remodel with cosmetic updates can return 75-85%. You don't need an $80,000 gut job to add value.",
       "Start with what bothers you most about your current kitchen — layout, storage, or the look. Prioritizing your pain points ensures you spend where it matters most. We offer free in-home consultations across Hamilton County. Call (317) 279-4798."
     ]},
-  { slug:"basement-finishing-best-investment", title: "Why Basement Finishing Is the Best Investment You'll Make This Year", date: "Jan 20, 2026", read: "4 min", cat: "Basement", excerpt: "Extra living space without moving? A finished basement adds square footage, comfort, and serious resale value to your home.",
+  { slug:"basement-finishing-best-investment", title: "Why Basement Finishing Is the Best Investment You'll Make This Year", date: "Jan 20, 2026", read: "4 min", cat: "Basement", author:"robb-rice", excerpt: "Extra living space without moving? A finished basement adds square footage, comfort, and serious resale value to your home.",
     body: [
       "If you're running out of room in your home but don't want to move, look down. Your unfinished basement is probably the most underutilized space in your house — and finishing it is one of the smartest investments a Hamilton County homeowner can make.",
       "A finished basement adds usable square footage to your home without the cost or complexity of a home addition. You already own the space and the foundation is already built. The cost per square foot to finish a basement is significantly less than building out or up.",
@@ -706,7 +731,7 @@ const BLOG = [
       "Common concerns include moisture and waterproofing — which we address with proper drainage, vapor barriers, and the right materials. Ceiling height is another factor; most Hamilton County homes built in the last 20-30 years have adequate ceiling height for a comfortable finished space.",
       "Ready to put that empty space to work? HomeStar handles basement finishes from design through final inspection. Call (317) 279-4798 for a free estimate."
     ]},
-  { slug:"deck-season-outdoor-living-planning", title: "Deck Season Is Coming: How to Plan Your Outdoor Living Space", date: "Jan 8, 2026", read: "3 min", cat: "Outdoor", excerpt: "Spring is the perfect time to start planning your dream deck. Here's how to choose materials, layout, and features that last.",
+  { slug:"deck-season-outdoor-living-planning", title: "Deck Season Is Coming: How to Plan Your Outdoor Living Space", date: "Jan 8, 2026", read: "3 min", cat: "Outdoor", author:"eric-farr", excerpt: "Spring is the perfect time to start planning your dream deck. Here's how to choose materials, layout, and features that last.",
     body: [
       "Indiana winters are long, but spring arrives fast — and when it does, you'll want an outdoor space that's ready for it. If you're thinking about adding or replacing a deck, now is the time to start planning so construction can begin as soon as weather allows.",
       "The biggest decision is material. Pressure-treated wood is the most affordable option and looks great when new, but requires annual maintenance — staining, sealing, and eventually replacing boards as they weather. Composite decking from brands like Trex or TimberTech costs more upfront but requires virtually no maintenance and lasts 25-30 years.",
@@ -715,7 +740,7 @@ const BLOG = [
       "Permits are required for deck construction in most Hamilton County municipalities. We handle the entire permitting process and ensure everything meets current building codes. A properly permitted deck protects your investment and avoids issues when you sell your home.",
       "Start planning now and you'll be hosting cookouts by Memorial Day. Call HomeStar at (317) 279-4798 or visit thehomestarservice.com to request a free estimate."
     ]},
-  { slug:"bathroom-remodel-cost-hamilton-county", title: "Bathroom Remodel Cost in Hamilton County, Indiana (2026 Prices)", date: "Mar 29, 2026", read: "8 min", cat: "Bathroom", excerpt: "Indiana pricing, not national averages: real 2026 bathroom remodel costs for Fishers, Carmel, Noblesville and Westfield, Indiana — $15K refreshes to $50K+ spa builds, with actual project numbers from a licensed Hamilton County, IN contractor. No vague national averages.",
+  { slug:"bathroom-remodel-cost-hamilton-county", title: "Bathroom Remodel Cost in Hamilton County, Indiana (2026 Prices)", date: "Mar 29, 2026", read: "8 min", cat: "Bathroom", author:"robb-rice", excerpt: "Indiana pricing, not national averages: real 2026 bathroom remodel costs for Fishers, Carmel, Noblesville and Westfield, Indiana — $15K refreshes to $50K+ spa builds, with actual project numbers from a licensed Hamilton County, IN contractor. No vague national averages.",
     body: [
       "If you're a homeowner in Hamilton County thinking about remodeling your bathroom, the first question on your mind is probably: how much is this going to cost? It's a fair question — and unfortunately, the answer you'll find online is usually a vague national average that has nothing to do with what you'll actually pay in Fishers, Carmel, Noblesville, or Westfield.",
       "We're going to break it down honestly based on what we see every day as a local remodeling company working in Hamilton County homes. No vague ranges, no bait-and-switch. Just real numbers for real projects.",
@@ -730,7 +755,7 @@ const BLOG = [
       "Our advice to Hamilton County homeowners: start with what bothers you most about your current bathroom. Is it the shower? The vanity? The layout? Prioritizing your biggest pain point ensures your budget goes where it matters most. You don't need to do everything at once — a well-planned phase-one remodel can transform your daily experience while staying on budget.",
       "Ready to get a real number for your bathroom? Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com. We'll visit your home, walk the space with you, and provide a detailed, itemized estimate — no pressure, no vague ranges, just honest numbers."
     ]},
-  { slug:"schluter-vs-cement-board-waterproofing", title: "Kerdi Board vs Cement Board: The Complete Shower Waterproofing Comparison", date: "Apr 10, 2026", read: "10 min", cat: "Bathroom", excerpt: "The material behind your tile determines whether your bathroom lasts 5 years or 25. A detailed, side-by-side comparison of Schluter Kerdi board versus standard cement board — how each handles water, where cement board fails, and what we install in Hamilton County, Indiana bathrooms.",
+  { slug:"schluter-vs-cement-board-waterproofing", title: "Kerdi Board vs Cement Board: The Complete Shower Waterproofing Comparison", date: "Apr 10, 2026", read: "10 min", cat: "Bathroom", author:"eric-farr", excerpt: "The material behind your tile determines whether your bathroom lasts 5 years or 25. A detailed, side-by-side comparison of Schluter Kerdi board versus standard cement board — how each handles water, where cement board fails, and what we install in Hamilton County, Indiana bathrooms.",
     quickAnswer: "The core difference is that Schluter Kerdi board is waterproof and cement board is only water-resistant. Cement board does not absorb water the way drywall does, but it does not stop water either — moisture passes through it to the framing behind, which is why cement board showers commonly fail at 5 to 10 years through cracked grout, loose tile, and hidden mold. Kerdi board is a foam panel with a bonded waterproof membrane that stops water at the surface and also absorbs the small structural movements that crack grout. Kerdi costs more in material and requires certified installation, and it is backed by a 25-year Schluter warranty when installed by a certified installer. HomeStar builds every shower on the complete Kerdi system as standard, not as an upgrade.",
     faq: [
       {q:"Is Kerdi board better than cement board?",a:"For showers, yes. Kerdi board is waterproof; cement board is only water-resistant. Cement board allows moisture to pass through to the framing behind it, which causes the tile failures, mold, and rot that typically show up 5 to 10 years after installation. Kerdi board stops water at the surface and tolerates the minor structural movement that cracks grout. It costs more and requires certified installation, which is why lower bids frequently specify cement board."},
@@ -752,7 +777,7 @@ const BLOG = [
       "If you're comparing bathroom remodeling quotes in Hamilton County, ask every contractor three questions: What waterproofing system do you use? Are your installers certified by the manufacturer? Are your plumbers and electricians individually licensed? The answers will tell you everything about the quality you'll receive.",
       "Ready to learn more? Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com. We serve Fishers, Carmel, Noblesville, Westfield, Zionsville, Fortville, McCordsville, and surrounding Hamilton County communities."
     ]},
-  { slug:"bathroom-remodel-timeline-week-by-week", title: "The Complete Bathroom Remodel Timeline: What to Expect Week by Week in Hamilton County", date: "Apr 12, 2026", read: "9 min", cat: "Bathroom", excerpt: "Wondering how long a bathroom remodel actually takes? Here's a detailed, week-by-week breakdown of what happens during a typical bathroom renovation in Fishers, Carmel, Noblesville, and Hamilton County — from demo day through final walkthrough.",
+  { slug:"bathroom-remodel-timeline-week-by-week", title: "The Complete Bathroom Remodel Timeline: What to Expect Week by Week in Hamilton County", date: "Apr 12, 2026", read: "9 min", cat: "Bathroom", author:"robb-rice", excerpt: "Wondering how long a bathroom remodel actually takes? Here's a detailed, week-by-week breakdown of what happens during a typical bathroom renovation in Fishers, Carmel, Noblesville, and Hamilton County — from demo day through final walkthrough.",
     body: [
       "One of the most common questions we hear from Hamilton County homeowners is: how long will my bathroom remodel take? The honest answer depends on scope, but we can give you a detailed week-by-week timeline based on what we see on every project we complete in Fishers, Carmel, Noblesville, Westfield, and Zionsville.",
       "A mid-range bathroom remodel — full gut, new tile shower, new vanity, new fixtures, new lighting — typically takes 3 to 4 weeks from demolition to final walkthrough. Here's exactly what happens each week and why each phase matters.",
@@ -767,7 +792,7 @@ const BLOG = [
       "What makes HomeStar's timeline reliable: we don't start a project until all materials are on-site or confirmed for delivery. We use our own crews — not subcontractors we've never worked with. All plumbing is by our licensed plumbers and all electrical by our licensed electricians, so there's no waiting on third-party scheduling. We communicate daily — you always know what happened today and what's happening tomorrow.",
       "Ready to plan your bathroom remodel timeline? Call HomeStar at (317) 279-4798 or request a free estimate at thehomestarservice.com. We serve Fishers, Carmel, Noblesville, Westfield, Zionsville, Fortville, McCordsville, and all of Hamilton County."
     ]},
-  { slug:"how-to-choose-remodeling-contractor-indiana", title: "How to Choose a Remodeling Contractor in Indiana: 12 Questions You Must Ask Before Signing", date: "Apr 14, 2026", read: "11 min", cat: "General", excerpt: "Hiring the wrong contractor is the most expensive mistake a homeowner can make. Here are 12 specific questions to ask any remodeling contractor in Hamilton County before you sign a contract — and what their answers reveal about the quality you'll receive.",
+  { slug:"how-to-choose-remodeling-contractor-indiana", title: "How to Choose a Remodeling Contractor in Indiana: 12 Questions You Must Ask Before Signing", date: "Apr 14, 2026", read: "11 min", cat: "General", author:"eric-farr", excerpt: "Hiring the wrong contractor is the most expensive mistake a homeowner can make. Here are 12 specific questions to ask any remodeling contractor in Hamilton County before you sign a contract — and what their answers reveal about the quality you'll receive.",
     body: [
       "Choosing a remodeling contractor is one of the highest-stakes decisions a homeowner can make. A great contractor transforms your home and your daily life. A bad one can cost you tens of thousands of dollars, months of your time, and an enormous amount of stress. After completing dozens of remodeling projects across Hamilton County — in Fishers, Carmel, Noblesville, Westfield, Zionsville, and surrounding areas — we've seen what separates reliable contractors from the ones who leave homeowners frustrated.",
       "Here are 12 specific questions to ask every contractor you're considering, and exactly what to look for in their answers.",
@@ -786,7 +811,7 @@ const BLOG = [
       "At HomeStar Services & Contracting, we welcome every one of these questions. We're licensed, bonded, and insured. Our plumbers and electricians are individually licensed. We're Schluter Pro Certified with a 25-year waterproofing warranty. We provide detailed written estimates, handle all permits, offer 3D renderings, and communicate daily throughout every project. Every project includes our 1-year workmanship warranty.",
       "We also have 62+ Google reviews at a 5.0 rating, a detailed project gallery at thehomestarservice.com, and we're happy to connect you with recent Hamilton County clients. Call (317) 279-4798 for a free estimate in Fishers, Carmel, Noblesville, Westfield, Zionsville, Fortville, McCordsville, or anywhere in Hamilton County."
     ]},
-  { slug:"hamilton-county-remodeling-trends-2026", title: "2026 Home Remodeling Trends in Hamilton County: What Indiana Homeowners Are Choosing", date: "Apr 15, 2026", read: "8 min", cat: "General", excerpt: "Based on real project data from Hamilton County homes, here are the remodeling trends driving decisions in Fishers, Carmel, Noblesville, and surrounding areas in 2026 — from materials and layouts to the upgrades delivering the best return on investment.",
+  { slug:"hamilton-county-remodeling-trends-2026", title: "2026 Home Remodeling Trends in Hamilton County: What Indiana Homeowners Are Choosing", date: "Apr 15, 2026", read: "8 min", cat: "General", author:"robb-rice", excerpt: "Based on real project data from Hamilton County homes, here are the remodeling trends driving decisions in Fishers, Carmel, Noblesville, and surrounding areas in 2026 — from materials and layouts to the upgrades delivering the best return on investment.",
     body: [
       "Every year, remodeling trends shift — and what homeowners in Hamilton County, Indiana are choosing in 2026 reflects a clear set of priorities: durability over flash, smart material choices over impulse upgrades, and investments that improve daily life rather than just resale value. Based on the projects we've completed across Fishers, Carmel, Noblesville, Westfield, and Zionsville, here's what's happening on the ground.",
       "Trend 1: Walk-in showers are replacing bathtubs. The most consistent trend we see in Hamilton County bathrooms is the conversion of tub/shower combos to walk-in showers. Homeowners in their 40s-60s — which represents the majority of remodeling clients in Carmel, Fishers, and Zionsville — are choosing spacious, curbless or low-curb walk-in showers over bathtubs. The reasons are practical: walk-in showers are easier to use, easier to clean, and age-in-place friendly. Freestanding soaking tubs are still popular in luxury remodels as a design feature, but the standard built-in tub is disappearing from master bathrooms across Hamilton County.",
@@ -800,7 +825,7 @@ const BLOG = [
       "What does this mean for Hamilton County homeowners planning a remodel in 2026? Focus on materials and systems over cosmetic upgrades. A well-waterproofed bathroom with quality tile will outlast a flashy bathroom with poor substrate work. Choose versatile, durable materials — quartz countertops, LVP flooring, composite decking — that perform well over decades, not just on installation day. Think about how you use your home today, not how it might look to a future buyer. The remodels that deliver the most satisfaction are the ones designed for the homeowner's actual lifestyle.",
       "At HomeStar Services & Contracting, we help Hamilton County homeowners make smart choices about materials, design, and scope. We're Schluter Pro Certified, use licensed plumbers and electricians on every project, and provide free in-home consultations with 3D design renderings. Call (317) 279-4798 or visit thehomestarservice.com for a free estimate. We serve Fishers, Carmel, Noblesville, Westfield, Zionsville, Fortville, McCordsville, and surrounding communities."
     ]},
-  { slug:"quartz-vs-granite-countertops", title: "Quartz vs Granite Countertops: The Complete Hamilton County Homeowner's Guide", date: "Apr 17, 2026", read: "8 min", cat: "Kitchen", excerpt: "Choosing between quartz and granite for your kitchen or bathroom countertops? Here's a detailed comparison based on what we see in Hamilton County homes — cost, durability, maintenance, and which one delivers better long-term value.",
+  { slug:"quartz-vs-granite-countertops", title: "Quartz vs Granite Countertops: The Complete Hamilton County Homeowner's Guide", date: "Apr 17, 2026", read: "8 min", cat: "Kitchen", author:"eric-farr", excerpt: "Choosing between quartz and granite for your kitchen or bathroom countertops? Here's a detailed comparison based on what we see in Hamilton County homes — cost, durability, maintenance, and which one delivers better long-term value.",
     body: [
       "If you're remodeling a kitchen or bathroom in Hamilton County, the countertop question comes up on every single project: quartz or granite? Both are premium materials. Both look beautiful. And both will last for years. But they're fundamentally different products with different strengths — and the right choice depends on how you live, what you value, and what matters most to you long-term.",
       "Granite is a natural stone quarried from the earth and cut into slabs. Every piece is unique — the veining, color variation, and movement in granite are completely natural and unrepeatable. Quartz countertops (brands like Cambria, Caesarstone, and Silestone) are engineered stone — roughly 90-95% ground natural quartz mixed with resins and pigments, then formed into slabs. The result is a consistent, controlled appearance.",
@@ -810,7 +835,7 @@ const BLOG = [
       "Our recommendation for Hamilton County homeowners: if you want the lowest-maintenance premium countertop that will look exactly the same in 10 years as it does today, choose quartz. If you want a natural, unique surface and you're willing to seal it annually, choose granite. Both are excellent investments — neither is a wrong choice.",
       "At HomeStar, we install both quartz and granite countertops as part of our kitchen and bathroom remodeling services throughout Fishers, Carmel, Noblesville, Westfield, and Zionsville. Call (317) 279-4798 for a free consultation."
     ]},
-  { slug:"composite-vs-wood-decking", title: "Composite vs Wood Decking: Cost Comparison for Indiana Homeowners", date: "Apr 18, 2026", read: "7 min", cat: "Outdoor", excerpt: "Thinking about a new deck? Here's a detailed cost comparison of composite vs pressure-treated wood decking for Indiana homeowners — including upfront cost, maintenance, lifespan, and the 10-year total cost of ownership.",
+  { slug:"composite-vs-wood-decking", title: "Composite vs Wood Decking: Cost Comparison for Indiana Homeowners", date: "Apr 18, 2026", read: "7 min", cat: "Outdoor", author:"robb-rice", excerpt: "Thinking about a new deck? Here's a detailed cost comparison of composite vs pressure-treated wood decking for Indiana homeowners — including upfront cost, maintenance, lifespan, and the 10-year total cost of ownership.",
     body: [
       "When Hamilton County homeowners ask us about building a new deck, the first question is almost always: composite or wood? The answer used to be simple — wood was cheaper, composite was a luxury upgrade. But the math has changed significantly, and for most Indiana homeowners, composite decking is now the smarter financial decision over any reasonable timeframe.",
       "Pressure-treated wood decking costs roughly $15-$25 per square foot for materials, installed. Composite decking (brands like Trex, TimberTech, and Fiberon) costs roughly $30-$45 per square foot installed. On a typical 300-square-foot deck, that's roughly $4,500-$7,500 for wood versus $9,000-$13,500 for composite. Wood wins the upfront cost comparison by a wide margin.",
@@ -821,7 +846,7 @@ const BLOG = [
       "Nearly all of our 2025-2026 deck builds in Fishers and Hamilton County have been composite. The homeowners who choose composite consistently tell us the same thing: they want to enjoy their outdoor space, not maintain it. That's hard to argue with.",
       "Ready to plan your deck? HomeStar builds composite and wood decks throughout Hamilton County. Call (317) 279-4798 for a free estimate."
     ]},
-  { slug:"lvp-vs-hardwood-flooring", title: "LVP vs Hardwood Flooring: Which Is Right for Your Indiana Home?", date: "Apr 19, 2026", read: "7 min", cat: "Flooring", excerpt: "Luxury vinyl plank has exploded in popularity — but is it really better than hardwood? Here's a detailed comparison for Hamilton County homeowners based on what we install in local homes every week.",
+  { slug:"lvp-vs-hardwood-flooring", title: "LVP vs Hardwood Flooring: Which Is Right for Your Indiana Home?", date: "Apr 19, 2026", read: "7 min", cat: "Flooring", author:"eric-farr", excerpt: "Luxury vinyl plank has exploded in popularity — but is it really better than hardwood? Here's a detailed comparison for Hamilton County homeowners based on what we install in local homes every week.",
     body: [
       "Five years ago, recommending luxury vinyl plank (LVP) flooring to a Hamilton County homeowner would have been met with skepticism. Today, it's the most popular flooring material we install — and for good reason. Modern LVP is virtually indistinguishable from real hardwood, costs significantly less, and handles Indiana life (kids, dogs, wet boots, basement moisture) better than wood ever could.",
       "Hardwood flooring — oak, maple, hickory, walnut — remains the gold standard for warmth, character, and long-term home value. Nothing replicates the feel of real wood underfoot or the way hardwood ages with character over decades. In the luxury neighborhoods of Carmel, Zionsville, and Geist, hardwood is still the premium choice for main living areas where buyers expect real wood.",
@@ -831,7 +856,7 @@ const BLOG = [
       "Our recommendation: hardwood on the main level of luxury homes where long-term value matters, LVP everywhere else — basements, bathrooms, laundry rooms, and main levels where durability is the priority. Many Hamilton County homeowners are choosing a hybrid approach: hardwood in the living room and dining room, LVP in the kitchen, mudroom, and basement.",
       "HomeStar installs both hardwood and luxury vinyl plank throughout Hamilton County. Call (317) 279-4798 for a free consultation on the best flooring for your home."
     ]},
-  { slug:"best-tile-bathroom-showers", title: "Best Tile for Bathroom Showers in Indiana: A Contractor's Honest Guide", date: "Apr 20, 2026", read: "8 min", cat: "Bathroom", excerpt: "Not all shower tile is created equal. After installing tile in hundreds of Hamilton County bathrooms, here's our honest assessment of which tile materials, sizes, and styles perform best in Indiana showers — and which ones to avoid.",
+  { slug:"best-tile-bathroom-showers", title: "Best Tile for Bathroom Showers in Indiana: A Contractor's Honest Guide", date: "Apr 20, 2026", read: "8 min", cat: "Bathroom", author:"robb-rice", excerpt: "Not all shower tile is created equal. After installing tile in hundreds of Hamilton County bathrooms, here's our honest assessment of which tile materials, sizes, and styles perform best in Indiana showers — and which ones to avoid.",
     body: [
       "Choosing tile for your shower is one of the most important decisions in a bathroom remodel — and one of the most overwhelming. Walk into any tile showroom in Indianapolis and you're facing hundreds of options. After installing tile in bathrooms across Hamilton County for years, here's what we've learned about which tile actually performs well in Indiana showers and which tile causes problems.",
       "Porcelain tile is the gold standard for shower walls and floors. It's dense, low-porosity, extremely durable, and available in virtually any color, size, or pattern. Porcelain absorbs less than 0.5% water, making it ideal for wet environments. Most of the shower tile we install in Hamilton County is porcelain — it performs flawlessly for decades when installed correctly on a proper waterproofing system.",
@@ -843,7 +868,7 @@ const BLOG = [
       "Our tile recommendations for Hamilton County homeowners: For most budgets, large-format porcelain tile (12x24 or larger) on walls with small mosaic porcelain on the shower floor. For luxury remodels, consider porcelain that mimics natural stone (you get the look without the maintenance). For budget remodels, ceramic on walls with porcelain on the floor. And regardless of tile choice, insist on the Schluter waterproofing system — it's the foundation everything else depends on.",
       "Ready to choose tile for your bathroom remodel? HomeStar provides 3D design renderings so you can see exactly how your tile selection will look before we set a single piece. Call (317) 279-4798 for a free consultation."
     ]},
-  { slug:"bathroom-flooded-what-to-do", title: "Your Bathroom Flooded: What to Do Right Now (Indiana Homeowner's Emergency Guide)", date: "Apr 22, 2026", read: "6 min", cat: "Insurance", excerpt: "A burst pipe, failed supply line, or overflowing toilet just flooded your bathroom. Here's exactly what to do in the first 60 minutes — and how to protect your insurance claim.",
+  { slug:"bathroom-flooded-what-to-do", title: "Your Bathroom Flooded: What to Do Right Now (Indiana Homeowner's Emergency Guide)", date: "Apr 22, 2026", read: "6 min", cat: "Insurance", author:"eric-farr", excerpt: "A burst pipe, failed supply line, or overflowing toilet just flooded your bathroom. Here's exactly what to do in the first 60 minutes — and how to protect your insurance claim.",
     body: [
       "Your bathroom is flooding. Water is spreading into the hallway, soaking the floor, seeping into the subfloor. Whether it's a burst pipe, a failed supply line under the toilet, or a water heater rupture, the next 60 minutes are critical — both for minimizing damage and protecting your insurance claim.",
       "Step one: Stop the water. Find the shutoff valve for the fixture that's leaking and turn it off. If you can't find it, or if the source is unclear, shut off your home's main water supply. Every homeowner should know where their main shutoff is before an emergency happens. In most Hamilton County homes, it's in the basement or crawl space near where the water line enters the house.",
@@ -855,7 +880,7 @@ const BLOG = [
       "The most common cause of bathroom water damage in Hamilton County homes is supply line failures — the flexible hoses connecting your toilet or faucet to the wall. These should be replaced every 5-7 years with braided stainless steel lines. If yours are the original white plastic lines from when the house was built, replace them this weekend. It's a $20 part that can prevent a $30,000 restoration.",
       "Need help after water damage? Call HomeStar at (317) 279-4798. We provide insurance restoration throughout Fishers, Carmel, Noblesville, Westfield, Zionsville, and all of Hamilton County."
     ]},
-  { slug:"kitchen-water-damage-insurance-guide", title: "Kitchen Water Damage Insurance Claims: A Hamilton County Homeowner's Guide", date: "Apr 23, 2026", read: "7 min", cat: "Insurance", excerpt: "Dishwasher leak? Refrigerator water line failure? Kitchen sink overflow? Here's how the insurance claim process works for kitchen water damage in Indiana, and how to maximize your restoration.",
+  { slug:"kitchen-water-damage-insurance-guide", title: "Kitchen Water Damage Insurance Claims: A Hamilton County Homeowner's Guide", date: "Apr 23, 2026", read: "7 min", cat: "Insurance", author:"robb-rice", excerpt: "Dishwasher leak? Refrigerator water line failure? Kitchen sink overflow? Here's how the insurance claim process works for kitchen water damage in Indiana, and how to maximize your restoration.",
     body: [
       "Kitchen water damage is one of the most common insurance claims in Hamilton County. Dishwasher failures, refrigerator water line leaks, garbage disposal malfunctions, and sink overflows can send water across hardwood floors, into subfloors, and down into basements within minutes. The good news: your homeowner's insurance almost always covers sudden kitchen water damage. Here's how the process works.",
       "First, understand what's covered. Homeowner's insurance covers sudden, accidental water damage — a dishwasher hose that ruptures, a refrigerator water line that splits, a supply line under the sink that fails. It generally does NOT cover damage from gradual leaks you knew about but didn't fix, or damage caused by lack of maintenance. The key word is 'sudden.'",
@@ -867,7 +892,7 @@ const BLOG = [
       "One critical tip: keep receipts for everything. Hotel stays if you can't live in the home, meals out, storage costs for displaced belongings — these are typically covered under your policy's 'additional living expenses' provision. Many homeowners don't realize this and leave thousands of dollars on the table.",
       "Need kitchen restoration after water damage? Call HomeStar at (317) 279-4798. We handle the entire restoration process and work with your insurance company throughout."
     ]},
-  { slug:"storm-damage-repair-hamilton-county", title: "Storm Damage Repair in Hamilton County: What Homeowners Need to Know", date: "Apr 24, 2026", read: "7 min", cat: "Insurance", excerpt: "Indiana storms can cause serious damage to your home — roof leaks, siding damage, fallen trees, water intrusion. Here's how to navigate the repair process and insurance claim for storm damage in Hamilton County.",
+  { slug:"storm-damage-repair-hamilton-county", title: "Storm Damage Repair in Hamilton County: What Homeowners Need to Know", date: "Apr 24, 2026", read: "7 min", cat: "Insurance", author:"eric-farr", excerpt: "Indiana storms can cause serious damage to your home — roof leaks, siding damage, fallen trees, water intrusion. Here's how to navigate the repair process and insurance claim for storm damage in Hamilton County.",
     body: [
       "Hamilton County gets its share of severe weather — thunderstorms, high winds, hail, and the occasional tornado warning. When a storm damages your home, the repair process can feel overwhelming. Here's what you need to know about storm damage repair in Fishers, Carmel, Noblesville, and surrounding communities.",
       "The most common storm damage in Hamilton County includes roof damage from hail or fallen branches, siding damage from wind-driven debris, window damage, water intrusion through compromised roofs or walls, basement flooding from overwhelmed drainage systems, and deck or fence damage from falling trees.",
@@ -1468,7 +1493,7 @@ function BlogPostPage({post}){
       <style>{css}</style>
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Blog",url:"/#blog"},{name:post.title}]}/>
       {post.faq&&post.faq.length>0&&<FaqSchema faqs={post.faq}/>}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"BlogPosting",headline:post.title,description:post.excerpt,datePublished:post.date,author:{"@type":"Person",name:BLOG.findIndex(b=>b.slug===post.slug)%2===1?"Robb Rice":"Eric Farr",url:"https://www.thehomestarservice.com/about/"+(BLOG.findIndex(b=>b.slug===post.slug)%2===1?"robb-rice":"eric-farr")},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"BlogPosting",headline:post.title,description:post.excerpt,datePublished:post.date,author:{"@type":"Person",name:(post.author?post.author==="robb-rice":BLOG.findIndex(b=>b.slug===post.slug)%2===1)?"Robb Rice":"Eric Farr",url:"https://www.thehomestarservice.com/about/"+((post.author?post.author==="robb-rice":BLOG.findIndex(b=>b.slug===post.slug)%2===1)?"robb-rice":"eric-farr")},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
 
       <Nav isCity/>
 
@@ -1511,8 +1536,10 @@ function BlogPostPage({post}){
 
           {/* Author Attribution */}
           {(()=>{
+            /* Explicit post.author wins; otherwise fall back to index parity so existing
+               posts keep the byline they have always had. */
             const idx=BLOG.findIndex(b=>b.slug===post.slug);
-            const isRobb=idx%2===1;
+            const isRobb=post.author?post.author==="robb-rice":idx%2===1;
             const authorName=isRobb?"Robb Rice":"Eric Farr";
             const authorSlug=isRobb?"robb-rice":"eric-farr";
             const authorInitials=isRobb?"RR":"EF";
@@ -1546,6 +1573,17 @@ function BlogPostPage({post}){
             </div>
           )}
 
+          {post.slug==="designer-vs-design-build-vs-general-contractor"&&(
+            <div style={{marginTop:32,padding:"28px 32px",background:"#fff",border:`1px solid ${C.sand}`,borderRadius:14}}>
+              <h3 style={{color:C.navy,fontWeight:700,fontSize:16,marginBottom:16}}>Already Working With a Designer or Architect?</h3>
+              <div style={{display:"flex",flexDirection:"column",gap:10}}>
+                <a href="/working-with-your-designer" style={{color:C.green,fontWeight:600,fontSize:15,textDecoration:"none"}}>→ Working With Your Designer or Architect — our process, and 3 projects with Dovetail Group</a>
+                <a href="/projects/westfield-basement-masterpiece" style={{color:C.green,fontWeight:600,fontSize:15,textDecoration:"none"}}>→ Luxury Basement Transformation in Westfield — designed by Dovetail Group</a>
+                <a href="/projects/jack-and-jill-zionsville" style={{color:C.green,fontWeight:600,fontSize:15,textDecoration:"none"}}>→ Jack &amp; Jill Bathroom Remodel in Zionsville</a>
+                <a href="/whole-home-renovation" style={{color:C.green,fontWeight:600,fontSize:15,textDecoration:"none"}}>→ Whole-Home &amp; Multi-Room Renovation — one contractor for the whole project</a>
+              </div>
+            </div>
+          )}
           {post.cat==="Kitchen"&&(
             <div style={{marginTop:32,padding:"28px 32px",background:"#fff",border:`1px solid ${C.sand}`,borderRadius:14}}>
               <h3 style={{color:C.navy,fontWeight:700,fontSize:16,marginBottom:16}}>More Kitchen Remodeling Resources</h3>
@@ -1893,7 +1931,7 @@ function Footer({isCity}){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Guides & Resources</h4>
-            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"2026 Basement Cost Report",h:"/guide/basement-finishing-cost-report-2026"},{l:"2026 Kitchen Cost Report",h:"/guide/kitchen-remodeling-cost-report-2026"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Basement Cost Calculator",h:"/tools/basement-cost-calculator"},{l:"Kitchen Cost Calculator",h:"/tools/kitchen-cost-calculator"},{l:"Renovation Sequence Planner",h:"/tools/renovation-sequence-planner"},{l:"Renovation Sequencing Guide",h:"/guide/renovation-sequencing-guide"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
+            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"2026 Basement Cost Report",h:"/guide/basement-finishing-cost-report-2026"},{l:"2026 Kitchen Cost Report",h:"/guide/kitchen-remodeling-cost-report-2026"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Basement Cost Calculator",h:"/tools/basement-cost-calculator"},{l:"Kitchen Cost Calculator",h:"/tools/kitchen-cost-calculator"},{l:"Renovation Sequence Planner",h:"/tools/renovation-sequence-planner"},{l:"Renovation Sequencing Guide",h:"/guide/renovation-sequencing-guide"},{l:"Working With Your Designer",h:"/working-with-your-designer"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
@@ -2762,7 +2800,7 @@ const SERVICE_PAGES = {
     metaDesc: "Expert bathroom remodeling in Fishers, Carmel, Noblesville & Hamilton County, Indiana. Schluter Pro Certified with 25-year waterproofing warranty. Walk-in showers, custom tile, vanities. Free estimates. (317) 279-4798",
     heroHeading: "Expert Bathroom Remodeling in Hamilton County, Indiana",
     heroSub: "From walk-in showers and custom tile to complete spa-level transformations — our Schluter Pro Certified team delivers bathrooms built to last decades, not just years.",
-    intro: "Your bathroom should be more than functional — it should be a space you enjoy. At HomeStar Services & Contracting, we specialize in bathroom renovations that combine beautiful design with bulletproof construction. Every shower, every floor, every wall is built on our complete Schluter waterproofing system — the same system trusted by luxury builders worldwide.",
+    intro: "Your bathroom should be more than functional — it should be a space you enjoy. At HomeStar Services & Contracting, we specialize in bathroom renovations that combine beautiful design with bulletproof construction. Every shower, every floor, every wall is built on our complete Schluter waterproofing system — the same system trusted by luxury builders worldwide. If you are working with an interior designer, we build to their drawings and finish schedule — their tile layout, their fixtures, their palette — over the complete Schluter waterproofing system that has to be right underneath it. Our Jack & Jill bathroom in Zionsville was built this way with Dovetail Group.",
     highlights: [
       {title:"Schluter Pro Certified",desc:"Our tile installers are factory-certified by Schluter Systems. Every bathroom gets Ditra for floors, Kerdi for walls, and Schluter shower pans — 100% waterproof, backed by a 25-year manufacturer's warranty."},
       {title:"Licensed Plumbers & Electricians",desc:"All plumbing and electrical work is performed by licensed, insured professionals — not general laborers. This means code-compliant work that passes inspection the first time."},
@@ -2804,7 +2842,7 @@ const SERVICE_PAGES = {
     heroHeading: "Professional Basement Finishing in Hamilton County, Indiana",
     heroSub: "Turn your unfinished basement into the most-used room in your home. Entertainment spaces, guest suites, home offices — designed for your lifestyle and built to last.",
     quickAnswer: "Basement finishing in Hamilton County, Indiana typically costs $45,000 to $200,000+, with most homeowners investing $55,000 to $95,000 for a fully finished lower level. Projects take 4 to 16 weeks. HomeStar handles design, framing, licensed electrical and plumbing, flooring, permits, and inspections in-house, backed by a 1-year workmanship warranty. Serving Fishers, Carmel, Westfield, Noblesville, Zionsville, and surrounding communities.",
-    intro: "Your unfinished basement is the most underutilized space in your home — and finishing it is one of the smartest investments a Hamilton County homeowner can make. You already own the space and the foundation is already built. At HomeStar Services & Contracting, we transform empty basements into comfortable, functional living areas that add real value to your home and your daily life.",
+    intro: "Your unfinished basement is the most underutilized space in your home — and finishing it is one of the smartest investments a Hamilton County homeowner can make. You already own the space and the foundation is already built. At HomeStar Services & Contracting, we transform empty basements into comfortable, functional living areas that add real value to your home and your daily life. Basements are where designers have the most room to work, because the space starts as a blank volume and the millwork, lighting and built-ins carry the entire result. Our Westfield luxury basement was designed by Dovetail Group, who brought us in as one of their preferred contractors to execute it.",
     highlights: [
       {title:"Complete Turnkey Builds",desc:"We handle everything from framing and insulation to drywall, flooring, lighting, plumbing, and electrical. One contractor, one point of contact, one seamless project from start to finish."},
       {title:"Licensed Plumbers & Electricians",desc:"All plumbing and electrical work is performed by licensed, insured professionals. This matters especially in basements where proper egress lighting, bathroom rough-ins, and moisture management are critical."},
@@ -2857,7 +2895,7 @@ const SERVICE_PAGES = {
     heroHeading: "Quality Kitchen Remodeling in Hamilton County, Indiana",
     heroSub: "The kitchen is the heart of your home. We build spaces that balance function and beauty — thoughtful layouts, quality cabinetry, and finishes that elevate your everyday routine.",
     quickAnswer: "Kitchen remodeling in Hamilton County, Indiana starts at $25,000 and typically runs $50,000 to $100,000 for a full remodel, with premium custom kitchens $100,000+. Most kitchens take 6 to 12 weeks. HomeStar is a licensed general contractor — not a cabinet specialist — with licensed plumbers and licensed electricians in-house, which matters because kitchens are the most plumbing- and electrical-heavy room in a home. We handle design and 3D renderings, structural changes and wall removal, cabinetry, countertops, tile, flooring, lighting, permits, and inspections, backed by a 1-year workmanship warranty. Serving Fishers, Carmel, Westfield, Noblesville, Zionsville, and surrounding communities.",
-    intro: "A great kitchen remodel isn't just about looks — it's about making your daily life easier, more enjoyable, and more efficient. At HomeStar Services & Contracting, we approach every kitchen project with a focus on smart layouts, durable materials, and finishes that hold up to real family life. Whether you're updating countertops and cabinets or doing a full gut renovation, we bring the same precision and transparency to every kitchen we build.",
+    intro: "A great kitchen remodel isn't just about looks — it's about making your daily life easier, more enjoyable, and more efficient. At HomeStar Services & Contracting, we approach every kitchen project with a focus on smart layouts, durable materials, and finishes that hold up to real family life. Whether you're updating countertops and cabinets or doing a full gut renovation, we bring the same precision and transparency to every kitchen we build. Many of our kitchen projects arrive with an interior designer already engaged, and that works well here — we build to their drawings, their cabinetry and stone specifications, and their lighting plan rather than substituting our own. We have completed three projects with Dovetail Group on exactly that basis.",
     highlights: [
       {title:"Thoughtful Design",desc:"We start with how you actually use your kitchen — cooking habits, family size, entertaining style — then design a layout that works. You'll see 3D renderings before construction begins so every detail is right."},
       {title:"Licensed Plumbers & Electricians",desc:"Kitchen remodels involve gas lines, water supply, drainage, and electrical circuits. All of this work is performed by licensed, insured professionals — ensuring code compliance and safety."},
@@ -3262,6 +3300,11 @@ function ServicePage({data,slug}){
                   </div>
                 )}
               </div>
+            </div>
+          )}
+          {["kitchen-remodeling","bathroom-remodeling","basement-finishing"].includes(slug)&&(
+            <div style={{marginTop:36,padding:"22px 26px",background:C.cream,borderLeft:`4px solid ${C.green}`,borderRadius:"0 12px 12px 0"}}>
+              <p style={{color:C.grayDark,fontSize:15.5,lineHeight:1.8,margin:0}}>Already working with an interior designer or architect? We build to their drawings and finish schedules, and we have completed three projects with <a href="https://dovetailgroupindy.com/" target="_blank" rel="noopener noreferrer" style={{color:C.green,fontWeight:600}}>Dovetail Group</a> on exactly that basis. <a href="/working-with-your-designer" style={{color:C.green,fontWeight:700}}>See how we collaborate with design firms →</a></p>
             </div>
           )}
           {slug==="whole-home-renovation"&&(
@@ -3985,6 +4028,7 @@ function ProjectPage({project}){
               <div style={{flex:"1 1 300px"}}>
                 <div style={{color:C.green,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Design Partner</div>
                 <p style={{color:"rgba(255,255,255,.85)",fontSize:14,lineHeight:1.6,margin:0}}>Designed in collaboration with <a href={project.designPartner.url} target="_blank" rel="noopener noreferrer" style={{color:"#fff",fontWeight:700,textDecoration:"underline"}}>{project.designPartner.name}</a>, one of the premier interior design firms in the Indianapolis area. HomeStar is proud to be one of their preferred contractors.</p>
+                <p style={{color:"rgba(255,255,255,.6)",fontSize:13.5,lineHeight:1.6,margin:"10px 0 0"}}><a href="/working-with-your-designer" style={{color:C.green,fontWeight:700,textDecoration:"none"}}>Learn how we collaborate with design firms →</a></p>
               </div>
             </div>
           )}
@@ -4694,6 +4738,197 @@ function BasementCostCalculator(){
   );
 }
 
+/* ─── Designer / Architect Collaboration ────────────────
+   Data for /working-with-your-designer. Anchored on the real Dovetail Group partnership —
+   every project referenced here has an existing case study page with designPartner set. */
+const DESIGNER_PAGE = {
+  partner: {name:"Dovetail Group", url:"https://dovetailgroupindy.com/"},
+  projects: [
+    {slug:"westfield-basement-masterpiece", title:"Luxury Basement Transformation — Westfield", city:"Westfield", cityHref:"/home-remodeling-westfield-in",
+     blurb:"Dovetail developed the vision for this expansive lower level and brought HomeStar in as one of their preferred contractors to execute it. A 14-foot stained red oak mantle, custom bar with kegerator and porcelain brick backsplash, tongue-and-groove ceilings with faux beam wraps, theater, gym, and a full lighting package — approximately $150,000. All electrical by our licensed electrician, all bar plumbing by our licensed plumber.",
+     service:"Basement Finishing", serviceHref:"/basement-finishing"},
+    {slug:"geist-upper-level-remodel", title:"Full Upper Level Remodel — Geist", city:"Geist", cityHref:"/home-remodeling-geist-in",
+     blurb:"An entire upper level reimagined room by room with Dovetail — the kind of multi-room scope where a designer's finish schedule has to hold consistently across bedrooms, bathrooms and hallways at once. Sequencing every trade under one contractor is what keeps a whole-floor design coherent.",
+     service:"Whole-Home & Multi-Room", serviceHref:"/whole-home-renovation"},
+    {slug:"jack-and-jill-zionsville", title:"Jack & Jill Bathroom Remodel — Zionsville", city:"Zionsville", cityHref:"/home-remodeling-zionsville-in",
+     blurb:"A shared Jack & Jill bathroom rebuilt with dual vanities and modern finishes. Smaller scope, same discipline: the designer's tile and fixture selections executed exactly, over a complete Schluter waterproofing assembly that carries a 25-year manufacturer's warranty.",
+     service:"Bathroom Remodeling", serviceHref:"/bathroom-remodeling"},
+  ],
+  faq: [
+    {q:"Should I hire an interior designer or a remodeler first?",a:"Either order works, but engaging both early works best. If you hire the designer first, bring your contractor in before the drawings are final — a builder reviewing the plan at that stage catches what is structurally or mechanically expensive before it is committed to paper, which is far cheaper than redesigning after bids come back. If you hire the contractor first, they can tell you whether your scope genuinely needs a designer at all. What consistently costs homeowners money is a fully finished design that no builder has ever looked at."},
+    {q:"Do remodeling contractors work with outside interior designers?",a:"Good ones do, routinely. HomeStar has completed three projects in partnership with Dovetail Group, one of the premier interior design firms in the Indianapolis area — a luxury basement in Westfield, a full upper-level remodel in Geist, and a Jack & Jill bathroom in Zionsville. On the Westfield project we were brought in as one of Dovetail's preferred contractors specifically to execute their design. Be cautious of any contractor who resists working alongside a designer; it usually means they intend to substitute their own preferences for the design you paid for."},
+    {q:"What is the difference between design-build and hiring a separate designer and contractor?",a:"Design-build means one company both designs and builds, so there is a single contract and no coordination gap — but the design is only as strong as that firm's in-house design capability, and you lose the independent check on the builder. Hiring a separate designer and contractor gives you specialist design talent and a genuine second set of eyes on the build, at the cost of coordinating two relationships. HomeStar works both ways: we handle full design and 3D renderings in-house when a homeowner wants one contract, and we build faithfully to an outside designer's drawings when a homeowner has already engaged one."},
+    {q:"Who is responsible if the designer's plan has a problem?",a:"Responsibility follows the contract, and this is exactly why the builder should review the drawings before construction. The designer is responsible for the design intent — layout, selections, aesthetics. The contractor is responsible for means, methods, code compliance and workmanship. If a drawing specifies something that is not buildable, is not to code, or conflicts with what is actually behind the wall, the contractor's job is to flag it before building it, not to build it and bill for the fix. We raise those conflicts in writing during pre-construction review, propose alternatives that preserve the design intent, and let the designer and homeowner decide."},
+    {q:"Will you build exactly to my designer's drawings and specifications?",a:"Yes, with one condition: we review the drawings and material schedule first and flag anything that will not perform. We build to the specified layout, finishes and fixtures as drawn. Where we push back it is on performance rather than taste — for example, a tile assembly that needs a proper waterproofing membrane behind it, or a fixture location that requires a drain line where a joist sits. Every HomeStar bathroom is built on the complete Schluter system regardless of what the finish schedule specifies, because that sits behind the designer's tile, not in place of it."},
+    {q:"Do you work with architects as well as interior designers?",a:"Yes. The distinction matters mainly in scope: architects typically drive structural changes, additions and permitting-heavy work, while interior designers drive layout within the existing envelope, finishes and selections. Our role is the same in both cases — review the drawings during pre-construction, build to them faithfully, run every licensed trade in-house so the schedule holds, and raise conflicts before they become change orders."},
+    {q:"Can you work from my designer's drawings and material schedule?",a:"Yes, and we prefer it in writing. Give us the floor plans, elevations, finish schedule and any fixture cut sheets, and we will produce a scope and price against exactly that. Where a drawing is silent we ask rather than assume. During construction we track substitutions formally, so if a specified item is discontinued or back-ordered, the designer approves the alternate rather than discovering it at final walkthrough."},
+    {q:"Do you offer a referral or trade partnership for designers in Hamilton County?",a:"Yes. We work with design firms across Fishers, Carmel, Westfield, Zionsville, Noblesville and Geist, and the Dovetail Group relationship is the model: they develop the vision, we execute it, and their client's finished space reflects their work rather than ours. We do not compete with our design partners for design fees, we credit them publicly on completed project pages, and we bring them in when a homeowner comes to us needing design help. Call (317) 279-4798 to start a conversation."},
+  ],
+};
+
+function DesignerCollaborationPage(){
+  const[faqOpen,setFaqOpen]=useState(null);
+  const D=DESIGNER_PAGE;
+  useCanonical("working-with-your-designer");
+  useEffect(()=>{
+    document.title="Working With Your Designer or Architect | HomeStar Services & Contracting";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content","HomeStar builds to outside interior designers' and architects' drawings across Hamilton County, Indiana. Three completed projects with Dovetail Group. Licensed plumbers and electricians in-house, Schluter Pro Certified waterproofing, faithful execution of your designer's specifications. (317) 279-4798");
+    window.scrollTo(0,0);
+  },[]);
+
+  const steps=[
+    {n:"Pre-construction drawing review",d:"Before we price anything we read the floor plans, elevations, finish schedule and fixture cut sheets, and walk the actual space against them. Anything that will not build as drawn gets flagged here — in writing, with alternatives that preserve the design intent — rather than becoming a change order in week six."},
+    {n:"3D renderings as a shared language",d:"We produce 3D renderings of the space as we intend to build it. For a designer this is the fastest way to confirm we have read the drawings correctly; for the homeowner it is the moment everyone confirms they are picturing the same room. Disagreements are cheap here and expensive after demolition."},
+    {n:"One schedule across every trade",d:"Our plumbers and electricians are HomeStar employees, not subcontractors. A designer's schedule survives contact with reality only if someone controls the trades — we are not waiting on an outside sub to free up before the tile can start."},
+    {n:"Faithful execution of the specification",d:"Specified finishes, fixtures and layouts get built as drawn. Where an item is discontinued or back-ordered we bring the substitution to the designer for approval rather than choosing one ourselves and revealing it at walkthrough."},
+    {n:"Waterproofing behind the design",d:"Every bathroom we build uses the complete Schluter system — Ditra for floors, Kerdi for walls — with a 25-year manufacturer's warranty. That sits behind the designer's tile selection, never in place of it. It is the layer nobody sees and the one that decides whether the design still looks right in a decade."},
+    {n:"Public credit on the finished project",d:"Completed collaborations are published on our project pages crediting and linking the design firm. Our three Dovetail Group projects all carry that credit."},
+  ];
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Working With Your Designer or Architect"}]}/>
+      <FaqSchema faqs={D.faq}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:"Designer & Architect Collaboration — Remodeling Construction Services",serviceType:"General contracting for interior designers and architects",provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"78"}},areaServed:["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"].map(c=>({"@type":"City",name:c})),description:"HomeStar Services & Contracting builds to outside interior designers' and architects' drawings across Hamilton County, Indiana, with licensed plumbers and electricians in-house and Schluter Pro Certified waterproofing."})}}/>
+
+      <Nav isCity/>
+
+      <section style={{position:"relative",padding:"160px 24px 60px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`}}>
+        <div style={{maxWidth:820,margin:"0 auto",textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:22}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>3 COMPLETED PROJECTS WITH DOVETAIL GROUP</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(28px,4.5vw,42px)",lineHeight:1.15,marginBottom:16}}>Working With Your Designer or Architect</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.55)",fontSize:17,lineHeight:1.6}}>Already hired an interior designer or architect? We build to their drawings — faithfully, with licensed trades in-house and one schedule that holds. Major Projects. Master Craftsmanship.</p>
+        </div>
+      </section>
+
+      <section style={{background:"#fff",padding:"48px 24px 0"}}>
+        <div style={{maxWidth:800,margin:"0 auto"}}>
+          <div style={{background:C.cream,borderLeft:`4px solid ${C.green}`,borderRadius:"0 12px 12px 0",padding:"24px 28px"}}>
+            <div style={{color:C.green,fontSize:12,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:8}}>Quick Answer</div>
+            <p style={{color:C.navy,fontSize:16.5,lineHeight:1.75,margin:0,fontWeight:500}}>Yes — HomeStar regularly builds to outside interior designers' and architects' drawings across Hamilton County, Indiana. We have completed three projects in partnership with <a href={D.partner.url} target="_blank" rel="noopener noreferrer" style={{color:C.green,fontWeight:700}}>{D.partner.name}</a>, one of the premier interior design firms in the Indianapolis area, including a luxury basement in Westfield where we were brought in as one of Dovetail's preferred contractors. We review your designer's drawings before pricing, produce 3D renderings so everyone confirms the same room, execute the specified finishes and layout faithfully, and run every licensed trade in-house so the schedule holds. Your designer keeps the design credit; we build it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:840}}>
+          <div style={{textAlign:"center",marginBottom:14}}><div className="lab">Proven Partnership</div><h2 className="ttl">Three Projects Built With Dovetail Group</h2></div>
+          <p style={{color:C.grayDark,fontSize:16,lineHeight:1.85,textAlign:"center",maxWidth:700,margin:"0 auto 40px"}}>This is not a claim that we are open to working with designers. It is three completed Hamilton County projects, each with a published case study crediting the design firm.</p>
+          {D.projects.map((p,i)=>
+            <div key={p.slug} style={{padding:"26px 30px",marginBottom:16,border:`1px solid ${C.sand}`,borderRadius:14,background:i===0?C.cream:"#fff"}}>
+              <div style={{display:"flex",alignItems:"baseline",gap:12,flexWrap:"wrap",marginBottom:8}}>
+                <h3 style={{color:C.navy,fontWeight:700,fontSize:18,margin:0}}>{p.title}</h3>
+                {i===0&&<span style={{background:C.greenMuted,color:C.green,fontWeight:700,fontSize:11,letterSpacing:".05em",padding:"3px 10px",borderRadius:50}}>PREFERRED CONTRACTOR</span>}
+              </div>
+              <p style={{color:C.grayDark,fontSize:15.5,lineHeight:1.8,margin:"0 0 14px"}}>{p.blurb}</p>
+              <div style={{display:"flex",gap:18,flexWrap:"wrap",fontSize:14,fontWeight:600}}>
+                <a href={`/projects/${p.slug}`} style={{color:C.green,textDecoration:"none"}}>→ See the full case study</a>
+                <a href={p.serviceHref} style={{color:C.green,textDecoration:"none"}}>→ {p.service}</a>
+                <a href={p.cityHref} style={{color:C.green,textDecoration:"none"}}>→ Remodeling in {p.city}</a>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:840}}>
+          <div style={{textAlign:"center",marginBottom:40}}><div className="lab">How It Works</div><h2 className="ttl">Our Collaboration Process</h2></div>
+          {steps.map((s,i)=>
+            <div key={s.n} style={{display:"flex",gap:18,marginBottom:4}}>
+              <div style={{display:"flex",flexDirection:"column",alignItems:"center",flexShrink:0}}>
+                <div style={{width:34,height:34,borderRadius:"50%",background:C.green,color:"#fff",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:800,fontSize:14}}>{i+1}</div>
+                {i<steps.length-1&&<div style={{width:2,flex:1,background:C.sand,minHeight:22}}/>}
+              </div>
+              <div style={{paddingBottom:26,flex:1}}>
+                <h3 style={{color:C.navy,fontWeight:700,fontSize:16.5,margin:"4px 0 6px"}}>{s.n}</h3>
+                <p style={{color:C.grayDark,fontSize:15.5,lineHeight:1.8,margin:0}}>{s.d}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:840}}>
+          <div style={{textAlign:"center",marginBottom:32}}><div className="lab">For Designers & Architects</div><h2 className="ttl">Looking for a Build Partner in Hamilton County?</h2></div>
+          <div style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`,borderRadius:16,padding:"34px 38px"}}>
+            <p style={{color:"rgba(255,255,255,.82)",fontSize:16,lineHeight:1.85,marginTop:0}}>If you are a designer or architect looking for a contractor who will build your drawings rather than quietly redesign them, the Dovetail Group relationship is the model. They develop the vision; we execute it; their client's finished space reflects their work.</p>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:18,margin:"24px 0 6px"}}>
+              {[
+                {t:"We don't compete for design fees",d:"We are a general contractor. We are not trying to sell your client design services on the side."},
+                {t:"You get public credit",d:"Completed projects are published crediting and linking your firm — as all three Dovetail projects are."},
+                {t:"Licensed trades in-house",d:"Our own plumbers and electricians, so your schedule is not hostage to an outside sub's calendar."},
+                {t:"We refer work back",d:"When a homeowner reaches us needing design help beyond our scope, we bring in a design partner."},
+              ].map(b=>
+                <div key={b.t} style={{background:"rgba(255,255,255,.06)",borderRadius:12,padding:"18px 20px"}}>
+                  <div style={{color:C.green,fontWeight:700,fontSize:14.5,marginBottom:6}}>{b.t}</div>
+                  <div style={{color:"rgba(255,255,255,.6)",fontSize:14,lineHeight:1.65}}>{b.d}</div>
+                </div>
+              )}
+            </div>
+            <p style={{color:"rgba(255,255,255,.82)",fontSize:15.5,lineHeight:1.8,marginBottom:0}}>We work across Fishers, Carmel, Westfield, Zionsville, Noblesville and Geist. Call <strong style={{color:"#fff"}}>(317) 279-4798</strong> or use the form below to start a conversation about a project or an ongoing referral relationship.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <div style={{textAlign:"center",marginBottom:40}}><div className="lab">FAQ</div><h2 className="ttl">Designers, Architects & Contractors</h2></div>
+          {D.faq.map((f,i)=>
+            <div key={i} style={{background:"#fff",borderRadius:12,marginBottom:10,border:`1px solid ${C.sand}`,overflow:"hidden"}}>
+              <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} style={{width:"100%",textAlign:"left",padding:"18px 22px",background:"none",border:"none",cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",gap:14}}>
+                <span style={{color:C.navy,fontWeight:700,fontSize:15.5}}>{f.q}</span>
+                <span style={{color:C.green,fontWeight:800,fontSize:20,flexShrink:0}}>{faqOpen===i?"−":"+"}</span>
+              </button>
+              {faqOpen===i&&<div style={{padding:"0 22px 20px"}}><p style={{color:C.grayDark,fontSize:15,lineHeight:1.85,margin:0}}>{f.a}</p></div>}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:800}}>
+          <h2 className="ttl" style={{textAlign:"center",marginBottom:28}}>Where This Applies</h2>
+          <div style={{color:C.grayDark,fontSize:16,lineHeight:1.9}}>
+            <p style={{marginBottom:18}}>Designer-led work reaches us most often in three places. <a href="/kitchen-remodeling" style={{color:C.green,fontWeight:600}}>Kitchens</a>, where cabinetry, stone and appliance integration are specified in detail and the tolerances are unforgiving. <a href="/bathroom-remodeling" style={{color:C.green,fontWeight:600}}>Bathrooms</a>, where a designer's tile layout only survives if the waterproofing beneath it was built correctly. And <a href="/basement-finishing" style={{color:C.green,fontWeight:600}}>basement finishing</a>, where a designer is shaping a blank volume and the millwork, lighting and built-ins carry the entire result — exactly the Westfield project.</p>
+            <p style={{marginBottom:0}}>When a designer's scope spans several rooms at once, sequencing becomes the real constraint. See <a href="/whole-home-renovation" style={{color:C.green,fontWeight:600}}>how we run whole-home and multi-room projects</a>, or read the <a href="/guide/renovation-sequencing-guide" style={{color:C.green,fontWeight:600}}>renovation sequencing guide</a> for the order we build in and why.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in">
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(340px,1fr))",gap:48}}>
+            <div>
+              <div className="lab">Get Started</div>
+              <h2 className="ttl ttl-w">Bring Us Your Designer's Drawings</h2>
+              <p style={{color:"rgba(255,255,255,.5)",fontSize:15,lineHeight:1.8,marginBottom:28}}>Send the plans, elevations and finish schedule and we will price against exactly that — flagging anything that will not build as drawn before you commit. Free, no-obligation estimate.</p>
+              <div style={{display:"flex",flexDirection:"column",gap:18}}>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.phone}</div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>(317) 279-4798</div></div>
+                <div style={{display:"flex",gap:14,alignItems:"center"}}><div style={{color:C.green}}>{I.mail}</div><div style={{color:"#fff",fontWeight:700,fontSize:14}}>eric@thehomestarservice.com</div></div>
+              </div>
+              <div style={{marginTop:28}}>
+                <a href="/" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",display:"flex",alignItems:"center",gap:6}}>← Back to main site</a>
+              </div>
+            </div>
+            <div id="designer-estimate" style={{background:"#fff",borderRadius:16,padding:"28px 24px"}}>
+              <LeadForm/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
+
 /* Renovation Sequence Planner — takes a room selection and returns the real construction
    order a GC would build it in, what is unusable during each phase, and where the schedule
    changes because the family is staying in the house. */
@@ -5308,6 +5543,7 @@ export default function HomestarSite(){
   const[basementCalcPage,setBasementCalcPage]=useState(false);
   const[kitchenCalcPage,setKitchenCalcPage]=useState(false);
   const[seqPlannerPage,setSeqPlannerPage]=useState(false);
+  const[designerPage,setDesignerPage]=useState(false);
   const[hoodSvcPage,setHoodSvcPage]=useState(null);
   useCanonical("");
 
@@ -5341,6 +5577,7 @@ export default function HomestarSite(){
     if(path==="tools/basement-cost-calculator"){setBasementCalcPage(true);return;}
     if(path==="tools/kitchen-cost-calculator"){setKitchenCalcPage(true);return;}
     if(path==="tools/renovation-sequence-planner"){setSeqPlannerPage(true);return;}
+    if(path==="working-with-your-designer"){setDesignerPage(true);return;}
     /* Neighborhood pages */
     if(path.startsWith("remodeling-")){
       const hoodPath=path.replace(/^remodeling-/,"").replace(/-in$/,"");
@@ -5418,6 +5655,10 @@ export default function HomestarSite(){
 
   if(seqPlannerPage){
     return <SequencePlanner/>;
+  }
+
+  if(designerPage){
+    return <DesignerCollaborationPage/>;
   }
 
   if(hoodSvcPage&&NEIGHBORHOODS[hoodSvcPage.hood]){
