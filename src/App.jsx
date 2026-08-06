@@ -45,8 +45,8 @@ const SVC = [
 
 const PROCESS = [
   { icon: I.bulb, step: "01", title: "Inspiration & Understanding", sub: "Getting to Know Your Vision.", text: "Every project starts with a conversation. We visit your home, walk the space with you, and take time to understand how you use it and what you'd like to change. No pressure, no sales pitch—just an honest discussion about what's possible.", bullets: ["Walk-through of your space with our team", "Discussion of your goals, style, and priorities", "Clear understanding of budget and timeline", "Expert guidance and realistic recommendations"] },
-  { icon: I.calc, step: "02", title: "Design, Details & Estimate", sub: "Your Vision Takes Shape.", text: "With a clear picture of what you want, we put together a detailed plan—complete with design concepts, material options you can see in person, and a transparent, itemized estimate. No guesswork, no vague numbers.", bullets: ["Design renderings tailored to your space", "Physical material samples to compare", "Itemized estimate with clear, honest pricing", "Defined project timeline from start to finish"] },
-  { icon: I.cal, step: "03", title: "Sign, Schedule & Start", sub: "Your Project, On Your Timeline.", text: "Once the plan feels right, we lock in a start date and prepare everything behind the scenes. Our crew arrives on time, respects your home, and keeps you informed every step of the way.", bullets: ["Finalize and sign your project proposal", "Confirmed start date that works for you", "Pre-project preparation checklist provided", "Consistent communication throughout the build"] },
+  { icon: I.calc, step: "02", title: "Design, Details & Estimate", sub: "Your Vision Takes Shape.", text: "With a clear picture of what you want, we put together a detailed plan—complete with design concepts, material options you can see in person, and a transparent, itemized estimate. No guesswork, no vague numbers.", bullets: ["Design renderings tailored to your space", "Physical material samples to compare", "Itemized estimate with clear, honest pricing", "Defined project timeline from start to finish", "Your estimate delivered in your private project portal — and it stays there for the life of the project"] },
+  { icon: I.cal, step: "03", title: "Sign, Schedule & Start", sub: "Your Project, On Your Timeline.", text: "Once the plan feels right, we lock in a start date and prepare everything behind the scenes. Our crew arrives on time, respects your home, and keeps you informed every step of the way.", bullets: ["Finalize and sign your project proposal", "Confirmed start date that works for you", "Pre-project preparation checklist provided", "Consistent communication throughout the build", "Live phase status, progress photos and signed change orders in your portal"] },
 ];
 
 /*
@@ -1266,6 +1266,14 @@ function OurProcess(){
             </div>
           )}
         </div>
+        {/* Portal — runs through every step above, not a step of its own */}
+        <div style={{marginTop:40,padding:"30px 32px",background:"#fff",border:`1px solid ${C.sand}`,borderLeft:`4px solid ${C.green}`,borderRadius:"0 16px 16px 0"}}>
+          <div className="lab" style={{marginBottom:6}}>Running Through All Three Steps</div>
+          <h3 className="display" style={{color:C.navy,fontSize:21,marginBottom:10}}>Your Project Portal</h3>
+          <p style={{color:C.grayDark,fontSize:15,lineHeight:1.8,marginBottom:14}}>Every step above happens somewhere you can see it. From the first estimate to the final walkthrough, you get a private project portal — your scope and pricing kept permanently, a guided selections studio where every choice is tracked against its allowance in real time, live phase status, progress photos, and change orders priced and signed before any work continues. Come in under an allowance and that money is credited back to you. Your interior designer or architect can be given access too.</p>
+          <a href="/client-portal" style={{color:C.green,fontWeight:700,fontSize:14.5,textDecoration:"none"}}>See how the client portal works {I.arrow}</a>
+        </div>
+
         {/* After project */}
         <div style={{textAlign:"center",marginTop:48,padding:"36px 28px",background:`linear-gradient(135deg,${C.navy},${C.navyLight})`,borderRadius:16}}>
           <div style={{marginBottom:12}}>{I.shield}</div>
