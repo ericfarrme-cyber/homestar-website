@@ -116,3 +116,54 @@ a ~99% byte reduction on that page with no visible quality loss. Resized copies 
 `.playwright-mcp/houzz-resized/` (gitignored) and can be copied straight in.
 
 **Not done automatically** because it overwrites binary source assets — Eric's call.
+
+---
+
+# Follow-up round — corrections applied 2026-08-05
+
+## ✅ Rename done
+`Spa-Like Modern Bathroom Retreat` → **`Floor-to-Ceiling Tile Bathroom Remodel — Noblesville, IN`**
+(project 7734672). The Houzz URL slug updated to match. Now carries the searchable term and matches
+the website.
+
+## ❌ CORRECTION — the two "wrong locations" were NOT wrong. I was.
+My earlier finding said the Geist projects were mislabeled Fortville and McCordsville. Checking the
+actual records:
+- Full Upper Level Home Remodel — address on file: **14634 Faucet Lane, Fortville, IN**
+- Two Children's Bathroom Remodels — address on file: **9738 Reston Lane, McCordsville, IN**
+
+These are **real client street addresses**, and Fortville and McCordsville are genuine municipalities
+bordering Geist Reservoir. Houzz displays the true municipality; the website uses "Geist" as the
+regional marketing name. **Both are accurate** — it is a naming-convention difference, not an error.
+
+**No change made.** Overwriting correct client address data on the strength of a misread would have
+been worse than the imagined problem. Removed from the to-do list.
+
+## ✅ Broken website image found and fixed — Houzz was right, the site was wrong
+The "Houzz is missing a farmhouse photo" finding turned out backwards. `modern-farmhouse-2.jpg` is
+referenced in `PROJECTS` but **does not exist in `public/images`**. Because `vercel.json` rewrites
+`/(.*)` to index.html, the URL returned **HTTP 200 with content-type `text/html`** instead of 404 —
+so it passed a status-code check while rendering as a visibly broken image to real visitors.
+
+Houzz had 3 photos because 3 is all that exists. Dead reference removed; the project now correctly
+shows 3 on both. No substitute photo invented. **Audited all 141 image references sitewide — this was
+the only broken one.**
+
+## ✅ Page-weight defect fixed and deployed
+Applied a 2400px-wide cap across the image library. **26 files: 193.0 MB → 13.8 MB (93% reduction).**
+Verified live:
+- `/projects/wet-room-bathroom-fishers` — **143 MB → 5.3 MB**
+- `/projects/three-bathroom-remodel-geist` — **~42 MB → 4.5 MB**
+- carmel-double-shower, modern-farmhouse also reduced
+
+All 138 images verified to still decode; none now exceeds 2400px or 2MB. Originals recoverable from
+git history.
+
+## ⏳ Still outstanding — needs Eric
+- **Houzz "About Us" bio still says "5.0 Google rating with 62+ reviews"** — actual is **78**. The
+  inline profile editor did not expose the bio field in this session; it is likely behind Houzz Pro.
+  Two-minute manual edit. *(The site's own schema was already corrected to 78 in code.)*
+- **Project Year** is blank on the 6 newly uploaded projects — left deliberately blank rather than
+  guessed. Eric can set them quickly if known.
+- **Houzz reviews: still 1.** Unchanged and still the single highest-leverage item on the board.
+  24 polished projects do not outweigh Everything Home's 100+ Houzz reviews.
