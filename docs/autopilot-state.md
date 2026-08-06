@@ -1,6 +1,18 @@
 # Autopilot State — HomeStar SEO
 Last run: 2026-08-05 (Run #2 — "Distance the Lead", autonomous execution) — **PAUSED at Eric's request, all work committed and deployed**
 
+## 🔴 TOP FINDING 2026-08-06 — we do not hold the gatekeeper term for whole-home
+On "who should I hire for a whole home renovation in Hamilton County Indiana" ChatGPT opened with
+*"I'd focus on **design-build firms**"* and then listed only design-build firms. **HomeStar was absent.**
+The filter was category membership, not quality.
+
+**We qualify and never say it:** in-house design, 3D renderings before demolition, permits, all
+licensed trades on our own payroll, one contract. Two firms beating us have "Design Build" in their
+literal business name.
+
+**Action: claim "design-build" explicitly** on the whole-home pillar, homepage, GBP services and Houzz.
+Costs nothing — the capability already exists. Full research: `docs/ai-research-whole-home-and-designer-2026-08-06.md`.
+
 ## ⏭️ START HERE NEXT RUN
 1. **Houzz reviews — the standing #1 item.** Still 1 review vs Everything Home's 100+. Surface it first,
    every run, until it is meaningfully above 10–15. (Also in persistent memory.)
