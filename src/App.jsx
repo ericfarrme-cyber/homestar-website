@@ -335,7 +335,10 @@ const PROJECTS = [
     desc: "A warm, modern farmhouse-inspired bathroom with shiplap accents, wood-tone vanity, and classic fixtures.",
     images: [
       { src: "/images/modern-farmhouse-1.jpg", alt: "Modern farmhouse bathroom remodel in Fishers Indiana" },
-      { src: "/images/modern-farmhouse-2.jpg", alt: "Farmhouse style bathroom renovation Fishers IN" },
+      /* modern-farmhouse-2.jpg was referenced here but the file does not exist in public/images.
+         It was serving the SPA fallback HTML (content-type text/html) instead of an image, i.e. a
+         visibly broken photo on this project page. Removed 2026-08-05. If the original photo turns
+         up, add the file and restore this line. */
       { src: "/images/modern-farmhouse-3.jpg", alt: "Farmhouse bathroom with shiplap Fishers Indiana" },
       { src: "/images/modern-farmhouse-4.jpg", alt: "Completed farmhouse bathroom remodel Fishers IN" },
     ],
