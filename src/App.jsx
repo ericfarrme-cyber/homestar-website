@@ -33,6 +33,7 @@ const I = {
 };
 
 const SVC = [
+  { title: "Whole-Home & Multi-Room", tag: "One contractor for the whole project", desc: "Renovating more than one room? Most contractors hand off the trades and hope the schedules line up. We employ our own licensed plumbers and electricians — so your kitchen, bathrooms, basement and flooring run on one schedule, with one point of contact and one warranty.", color: "#5A8BC4", href: "/whole-home-renovation" },
   { title: "Bathroom Remodeling", tag: "Schluter Pro Certified", desc: "Our Schluter Pro Certified team delivers premium bathroom renovations backed by a 25-year waterproofing warranty. Walk-in showers, custom vanities, heated floors — built with materials that protect your investment for decades.", color: "#6A9FD4", href: "/bathroom-remodeling" },
   { title: "Basement Finishing", tag: "Unlock hidden potential", desc: "That unused square footage below your main floor? It's ready for a promotion. We convert unfinished basements into entertainment spaces, guest suites, home offices, and more.", color: "#8B7EC4", href: "/basement-finishing" },
   { title: "Kitchen Remodeling", tag: "Where great meals begin", desc: "The kitchen is the heart of every home. We build spaces that balance function and beauty—thoughtful layouts, quality cabinetry, and finishes that elevate your everyday routine.", color: "#D4A76A", href: "/kitchen-remodeling" },
@@ -108,7 +109,7 @@ const PROJECTS = [
   },
   {
     title: "Three-Bathroom Remodel in Geist, Fishers", slug: "three-bathroom-remodel-geist", city: "Fishers", service: "Bathroom Remodeling",
-    cat: "Bathroom",
+    cat: "Bathroom", cats: ["Whole Home"],
     color: "#4A5A8B",
     desc: "A whole-home bathroom transformation near Geist — master bath with navy crackle-glaze picket tile, freestanding soaker tub, and reconfigured layout, plus two children's bathroom remodels with coordinated finishes throughout.",
     videoId: "2gHi1dCsuUk",
@@ -253,7 +254,7 @@ const PROJECTS = [
   },
   {
     title: "Two Children's Bathroom Remodels in Geist", slug: "childrens-bathrooms-geist", city: "Geist", service: "Bathroom Remodeling",
-    cat: "Children's Bathroom",
+    cat: "Children's Bathroom", cats: ["Whole Home"],
     color: "#6A5A8B",
     desc: "Fun, functional, and kid-friendly — two children's bathrooms completely redesigned in a Geist home.",
     images: [
@@ -2559,6 +2560,7 @@ function CityPage({data}){
             <div style={{background:C.cream,borderLeft:`4px solid ${C.green}`,borderRadius:"0 12px 12px 0",padding:"24px 28px"}}>
               <div style={{color:C.green,fontSize:12,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:8}}>Quick Answer</div>
               <p style={{color:C.navy,fontSize:16.5,lineHeight:1.75,margin:0,fontWeight:500}}>{data.quickAnswer}</p>
+              <p style={{color:C.grayDark,fontSize:15,lineHeight:1.7,margin:"14px 0 0"}}>Renovating more than one room in {data.city}? <a href="/whole-home-renovation" style={{color:C.green,fontWeight:600}}>See how we run whole-home and multi-room projects</a> — one contractor, licensed plumbers and electricians in-house, and one schedule across every room.</p>
             </div>
           </div>
         </section>
@@ -3025,6 +3027,60 @@ const SERVICE_PAGES = {
     ],
     cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"],
   },
+  "whole-home-renovation": {
+    service: "Whole-Home & Multi-Room Renovation",
+    title: "Whole-Home & Multi-Room Renovation in Hamilton County, IN",
+    metaDesc: "One contractor for your entire renovation in Fishers, Carmel, Westfield & Hamilton County, Indiana. Licensed plumbers AND electricians in-house — kitchen, bathrooms, basement and flooring under a single schedule and one warranty. Free estimates. (317) 279-4798",
+    heroHeading: "One Contractor for the Whole Project",
+    heroSub: "Renovating more than one room? Most contractors hand off the trades and hope the schedules line up. We employ our own licensed plumbers and electricians — so your kitchen, bathrooms, basement and flooring run on one schedule, with one point of contact and one warranty.",
+    quickAnswer: "For a multi-room or whole-home renovation in Hamilton County, Indiana, hiring one general contractor is almost always better than hiring separate specialists per room. A multi-room project shares demolition, permitting, inspections, plumbing and electrical rough-in, and finish trades across rooms — so when one company owns all of it, the work sequences correctly and nobody is waiting on another contractor's subcontractor. HomeStar is a licensed general contractor based in Fishers with licensed plumbers AND licensed electricians on staff rather than subcontracted, which is what makes single-contractor sequencing actually possible. We handle design and 3D renderings, structural changes, all licensed trades, permits, inspections and finishes, backed by a 1-year workmanship warranty. Serving Fishers, Carmel, Westfield, Noblesville, Zionsville and surrounding communities.",
+    intro: "Single-room remodels are straightforward. Multi-room renovations are where projects go wrong — not because any one room is hard, but because the handoffs between rooms and trades are. When the kitchen contractor's plumber is booked the week the bathroom needs rough-in, everything stops. At HomeStar Services & Contracting, every licensed trade is on our own payroll, which means we control the sequence rather than negotiate it. That is the entire reason homeowners hire us for the whole project instead of piece by piece.",
+    highlights: [
+      {title:"Licensed Trades In-House, Not Subcontracted",desc:"Our plumbers and electricians are HomeStar employees. On a multi-room job that is the difference between a schedule we control and a schedule we hope holds — most contractors are waiting on the same overbooked subs everyone else is."},
+      {title:"One Schedule, One Point of Contact",desc:"You talk to Eric and Robb, not to four companies who each blame the other. One sequence covers every room, so demolition, rough-in, inspection and finish happen in the right order across the whole project."},
+      {title:"One Warranty Across Every Room",desc:"When several contractors split a house, warranty gaps appear exactly where their scopes met — and that is usually where problems show up. Our 1-year workmanship warranty covers the entire project as one piece of work."},
+      {title:"Permits and Inspections Coordinated Together",desc:"Multi-room work often means multiple permits and inspections. We pull them all, schedule them together, and meet the inspector — instead of each contractor pulling their own on their own timeline."},
+    ],
+    whatWeDoIntro: "Most of our largest projects combine several of these. If you're weighing more than one room, they're usually cheaper and faster done together than done sequentially.",
+    whatWeDo: [
+      "Kitchen opened into a living or hearth room (structural + multi-room finish work)",
+      "Kitchen and bathrooms renovated in the same phase",
+      "Multiple bathrooms at once — master, hall, and children's",
+      "Whole upper-level or whole main-level renovations",
+      "Basement finishing combined with main-floor updates",
+      "Flooring carried continuously across multiple rooms",
+      "Whole-home flooring, paint, trim and lighting packages",
+      "Phased renovations planned as one project and built in stages",
+    ],
+    costIntro: "A multi-room renovation is priced as the sum of its rooms, less the efficiencies of doing them together. We publish real per-room ranges rather than a vague whole-home number, because your total depends entirely on which rooms are in scope:",
+    costs: [
+      {level:"Two Connected Rooms",range:"Combined room ranges",desc:"The most common starting point — typically a kitchen opened into a living space, or a kitchen plus a bathroom. Uses our published per-room pricing: bathrooms $15,000–$50,000+, kitchens from $25,000 (typically $50,000–$100,000), basements $45,000–$200,000+."},
+      {level:"Main Level or Upper Level",range:"Combined room ranges",desc:"Several rooms renovated as one project — for example a kitchen, two bathrooms and continuous flooring. Shared demolition, permitting, trade mobilization and finish work make this meaningfully less expensive than commissioning the same rooms separately."},
+      {level:"Whole-Home Renovation",range:"Quoted per project",desc:"Every room in scope, planned as a single build and often delivered in phases. Because scope varies enormously we quote these individually after a walkthrough rather than publishing a range that would mislead you."},
+    ],
+    addOnsIntro: "Where multi-room projects actually save money versus hiring room by room:",
+    addOns: [
+      {name:"Shared demolition and disposal",range:"One mobilization, not several"},
+      {name:"Combined permitting and inspections",range:"Pulled and scheduled together"},
+      {name:"Single plumbing and electrical rough-in phase",range:"One trade visit across rooms"},
+      {name:"Continuous flooring across rooms",range:"No transition seams or re-mobilization"},
+      {name:"One design process for the whole scope",range:"Finishes coordinated, not matched after the fact"},
+    ],
+    projectCats: ["Whole Home"],
+    faq: [
+      {q:"Should I hire one contractor or separate contractors for a multi-room remodel?",a:"For almost any project involving more than one room, one general contractor is better. Multi-room renovations share demolition, permitting, inspections, plumbing and electrical rough-in, flooring and finish carpentry. When separate contractors own separate rooms, those shared phases have to be negotiated between companies with different schedules and no obligation to each other — and the homeowner ends up as project manager. The exception is a single self-contained room with no structural, plumbing or electrical changes, where a specialist is fine."},
+      {q:"What actually goes wrong when different contractors do different rooms?",a:"Three things, consistently. First, schedule collision: the kitchen contractor's plumber and the bathroom contractor's plumber are different people with different calendars, so rough-in stalls and drywall waits. Second, warranty gaps: when something fails where two scopes met, each company points at the other. Third, finish mismatch — flooring, trim and paint that were selected separately rarely read as one house, and correcting it afterward means redoing finished work."},
+      {q:"How much does a whole-home renovation cost in Hamilton County, Indiana?",a:"It depends entirely on which rooms are in scope, which is why we publish real per-room ranges instead of a single whole-home figure: bathrooms run $15,000–$50,000+, kitchens start at $25,000 and typically run $50,000–$100,000 with premium custom kitchens $100,000+, and basement finishing runs $45,000–$200,000+. A multi-room project is the sum of its rooms minus the efficiencies of doing them together — shared demolition, one permitting cycle, and single trade mobilizations. We quote whole-home projects individually after walking the space."},
+      {q:"What order should rooms be remodeled in?",a:"Work top-down and dirty-to-clean. Structural changes and anything involving the roof or upper floors come first, then plumbing and electrical rough-in across every room at once, then drywall, then flooring, then cabinetry and trim, then paint and fixtures last. The most common and costly mistake homeowners make is finishing one room completely before starting the next — the second room's dust, demolition and trade work then damages the finished one, and flooring installed in two phases rarely lines up."},
+      {q:"Can I live in my house during a whole-home renovation?",a:"Usually yes for a multi-room project, and often no for a true whole-home renovation. The deciding factors are whether you retain a working kitchen, a working bathroom, and heat. We routinely phase projects specifically so a family can stay — finishing one bathroom before starting the next, or holding the old kitchen usable until the new one is close. Tell us early if staying in the home matters, because it changes the sequence, not just the schedule."},
+      {q:"How long does a multi-room renovation take?",a:"Roughly, a multi-room project takes less time than its rooms would take end-to-end but more than the largest single room. Two connected rooms commonly run 8–12 weeks, a main-level renovation 12–20 weeks, and a whole-home renovation several months depending on scope and phasing. The dominant variable is not construction speed — it is material lead times, particularly cabinetry at 6–10 weeks, which is why we finalize selections for every room before demolition starts on any of them."},
+      {q:"Can you do a kitchen and bathrooms at the same time?",a:"Yes, and it is one of the most common projects we take on. Doing them together means one plumbing rough-in phase instead of two, one permit cycle, one inspection sequence, and finishes coordinated across the house rather than matched after the fact. If you are considering both within a couple of years of each other, doing them in one project is normally the less expensive and less disruptive route."},
+      {q:"Do I need a general contractor to remove a wall between my kitchen and living room?",a:"Yes. Removing a wall means determining whether it is load-bearing, installing a beam and proper support if it is, rerouting any electrical, plumbing or HVAC inside it, and then carrying ceiling, flooring and trim finishes across both rooms so the result reads as one space. That is structural, mechanical, electrical and multi-room finish work, it requires permits and inspections, and it sits outside what a cabinet or bath specialist can perform."},
+      {q:"Can a renovation be phased to spread out the cost?",a:"Yes, and it is often the smart approach. The key is designing the entire scope up front even if it is built in stages — that way the plumbing and electrical rough-in for later phases can be roughed in during earlier ones while walls are already open, flooring is ordered as a single continuous run, and finishes are chosen once. Phasing a project that was never planned as a whole is where homeowners end up paying twice to open the same wall."},
+      {q:"What makes HomeStar different for a whole-project renovation?",a:"We are a licensed general contractor with licensed plumbers and licensed electricians as employees rather than subcontractors. On a single-room job that is a nice-to-have. On a multi-room renovation it is the whole difference, because the schedule is the project — and we control our trades' calendars instead of competing for them. You also work directly with owners Eric and Robb throughout, get 3D renderings before demolition, and one 1-year workmanship warranty covering the entire scope."},
+    ],
+    cities: ["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"],
+  },
   "insurance-restoration": {
     service: "Insurance Restoration",
     title: "Insurance Restoration & Damage Repair in Hamilton County, IN",
@@ -3074,7 +3130,9 @@ const SERVICE_PAGES = {
 
 function ServicePage({data,slug}){
   const[faqOpen,setFaqOpen]=useState(null);
-  const filteredProjects=PROJECTS.filter(p=>data.projectCats.includes(p.cat));
+  /* A project has one primary `cat`, but genuinely multi-room jobs also carry a secondary
+     `cats` array so they can surface on the whole-home pillar without being re-filed. */
+  const filteredProjects=PROJECTS.filter(p=>data.projectCats.includes(p.cat)||(p.cats||[]).some(c=>data.projectCats.includes(c)));
   const[activeProject,setActiveProject]=useState(0);
   const[activeImg,setActiveImg]=useState(0);
   useCanonical(slug);
