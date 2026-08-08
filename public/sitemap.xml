@@ -17,7 +17,7 @@
   <!-- Service Pages (10) -->
   <url><loc>https://www.thehomestarservice.com/bathroom-remodeling</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.thehomestarservice.com/basement-finishing</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling</loc><lastmod>2026-08-05</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.thehomestarservice.com/flooring-services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.thehomestarservice.com/painting-services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.thehomestarservice.com/decks-outdoor-living</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -41,11 +41,11 @@
   <url><loc>https://www.thehomestarservice.com/basement-finishing-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/basement-finishing-geist-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/basement-finishing-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-fishers-in</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-carmel-in</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-westfield-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-westfield-in</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-zionsville-in</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-geist-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -90,7 +90,7 @@
 
   <!-- Kitchen Blog Cluster (4) -->
   <url><loc>https://www.thehomestarservice.com/blog/designer-vs-design-build-vs-general-contractor</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/blog/kitchen-remodel-cost-hamilton-county-2026</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/blog/kitchen-remodel-cost-hamilton-county-2026</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/kitchen-remodel-permits-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/kitchen-remodel-roi-fishers-carmel</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/kitchen-design-ideas-hamilton-county-2026</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -203,16 +203,16 @@
   <!-- Cost Calculators + Planners (4) -->
   <url><loc>https://www.thehomestarservice.com/tools/remodel-cost-calculator</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/tools/basement-cost-calculator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/tools/kitchen-cost-calculator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/tools/renovation-sequence-planner</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/tools/kitchen-cost-calculator</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thehomestarservice.com/tools/renovation-sequence-planner</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
 
   <!-- Neighborhood-Service Combos (45) -->
 
   <!-- Insurance Restoration (10 + 1 guide + 3 blog = 14) -->
-  <url><loc>https://www.thehomestarservice.com/whole-home-renovation</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/working-with-your-designer</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/client-portal</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/whole-home-renovation</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/working-with-your-designer</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/client-portal</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.thehomestarservice.com/insurance-restoration</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/insurance-restoration-fishers-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/insurance-restoration-carmel-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -225,8 +225,8 @@
   <url><loc>https://www.thehomestarservice.com/insurance-restoration-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/guide/insurance-restoration-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/guide/basement-finishing-cost-report-2026</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/guide/kitchen-remodeling-cost-report-2026</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thehomestarservice.com/guide/renovation-sequencing-guide</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/guide/kitchen-remodeling-cost-report-2026</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thehomestarservice.com/guide/renovation-sequencing-guide</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/bathroom-flooded-what-to-do</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/kitchen-water-damage-insurance-guide</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thehomestarservice.com/blog/storm-damage-repair-hamilton-county</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
