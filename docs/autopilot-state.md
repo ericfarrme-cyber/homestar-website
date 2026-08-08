@@ -1,6 +1,28 @@
 # Autopilot State — HomeStar SEO
 Last run: 2026-08-05 (Run #2 — "Distance the Lead", autonomous execution) — **PAUSED at Eric's request, all work committed and deployed**
 
+## 🔴 INDEXING GAP FOUND 2026-08-08 — everything new was invisible to Google
+URL Inspection returned **"URL is unknown to Google"** for all five of: `/whole-home-renovation`,
+`/client-portal`, `/blog/designer-vs-design-build-vs-general-contractor`,
+`/guide/renovation-sequencing-guide`, `/tools/renovation-sequence-planner`. Not "crawled and not
+indexed" — **never discovered at all.** Pages were live with correct canonicals the whole time.
+
+**Cause:** GSC last read the sitemap **Aug 4** and still reports 223 pages vs 235 live. Only **3 of
+235** entries carried `<lastmod>`, so Google had no freshness signal and deprioritized re-reading.
+Resubmitting the sitemap does not force a re-read, and the old `google.com/ping` and `bing.com/ping`
+sitemap endpoints are **retired** (404 / 410) — they were deprecated in 2023 and are no longer a lever.
+
+**Fixed Aug 8:** stamped `<lastmod>` on the 14 entries genuinely created/edited this run (dates
+2026-08-05 / 08-06 / 08-08). Deliberately did NOT stamp the other 221 — a uniform date across every
+URL is the fabricated-freshness pattern Google discounts, which would poison the true signals.
+All five URLs manually requested via GSC the same day.
+
+**Watch:** re-inspect these five around **2026-08-15**. If still "unknown to Google" a week after a
+manual request + lastmod, the problem is not discovery and needs a different diagnosis.
+
+**Standing lesson:** IndexNow ≠ Google. IndexNow returns 200 and covers Bing/Copilot only. Google
+discovery runs on sitemap re-reads and manual requests. Never treat an IndexNow 200 as "indexed."
+
 ## 🔴 GEOGRAPHIC CEILING 2026-08-06 — AI visibility is Fishers-only
 ChatGPT returns HomeStar for **Fishers** queries and **not for Carmel or Westfield** — even though our
 flagship ~$150K basement is physically in Westfield with a full case study. Every firm returned for
