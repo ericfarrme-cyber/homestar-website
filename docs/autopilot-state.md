@@ -12,6 +12,14 @@ indexed" — **never discovered at all.** Pages were live with correct canonical
 Resubmitting the sitemap does not force a re-read, and the old `google.com/ping` and `bing.com/ping`
 sitemap endpoints are **retired** (404 / 410) — they were deprecated in 2023 and are no longer a lever.
 
+**Correction (Aug 8, later):** the sitemap resubmit I reported as done had **not** registered.
+I set the input via JS and clicked SUBMIT; the tool returned success but the row still read
+`Submitted: Jul 9 | Last read: Aug 4 | 223`. I attributed the unchanged row to Google's crawl
+schedule — true of *Last read*, but **Submitted updates instantly on success**, so the stale Jul 9
+was proof of failure. Eric submitted it manually: it flipped immediately to
+`Submitted Aug 8 | Last read Aug 8 | **235 pages**`, which is what actually unblocked discovery.
+Lesson recorded in memory as `verify-web-form-actions`.
+
 **Fixed Aug 8:** stamped `<lastmod>` on the 14 entries genuinely created/edited this run (dates
 2026-08-05 / 08-06 / 08-08). Deliberately did NOT stamp the other 221 — a uniform date across every
 URL is the fabricated-freshness pattern Google discounts, which would poison the true signals.
