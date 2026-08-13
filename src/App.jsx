@@ -59,6 +59,27 @@ const PROCESS = [
  */
 const PROJECTS = [
   {
+    title: "Basement Bar, Wine Room & Lounge in Zionsville", slug: "zionsville-basement-bar-wine-room", city: "Zionsville", service: "Basement Finishing",
+    cat: "Basement",
+    cats: ["Whole Home"],
+    color: "#3F4A54",
+    desc: "A daylight lower level in Zionsville finished as a true entertaining floor — a full wet bar under soaring ceilings with a polished black stone countertop and full-height slab backsplash, a walk-in wine room built into the space beneath the stairs, a media lounge, and a full guest bathroom. Designed in collaboration with Holly Johnson Interiors. This is the first completed phase of a larger whole-home renovation.",
+    story: {challenge:"This family relocated from Denver to be closer to relatives and bought a Zionsville home with an enormous unfinished lower level. The space had real advantages most basements never get — a walkout, tall windows on two elevations, and a section where the ceiling rises with the stairwell — but it was raw. They wanted somewhere their family would actually choose to spend time, not a leftover room below the house. They engaged designer Holly Johnson to shape the vision, and brought HomeStar in to build it. The basement is the first phase of a larger whole-home renovation now underway.",approach:"We built to Holly Johnson's drawings and finish schedule. The wet bar is the centerpiece: a polished black natural stone countertop carried up the wall as a full-height slab backsplash rather than tile — a detail that leaves nowhere to hide, since the veining has to run continuously through the sink cutout and the seams have to disappear. Above it, two floating stained-oak shelves with integrated LED lighting, a run of shaker cabinetry, an undercounter dishwasher, a beverage drawer and a glass-front wine refrigerator. Plumbing for the bar sink and the full guest bathroom was run by our own licensed plumbers — below-grade drainage is the part of a basement bar most homeowners never think about and the part that decides whether it works. Electrical for the bar, the recessed lighting, the LED shelf lighting and the chandelier drop was all run by our licensed electricians. The space under the stairs became a walk-in wine room: full-height black metal racking on three walls, a papered ceiling that follows the stair soffit, and warm cognac walls. The lounge sits under a dark feature wall with a mounted television and dedicated media wiring. The guest bathroom is fully tiled with a glass shower enclosure, waterproofed to Schluter Pro standards, with a white oak vanity and matte black fixtures. Wide-plank flooring runs unbroken through every zone so the level reads as one space.",result:"A lower level that carries the same finish level as the main floor — which is the whole point when a basement is meant to be a destination rather than a bonus room. Under the tall windows and the two-tier chandelier the bar reads more like a hotel lounge than a basement, and the wine room turned dead storage under the stairs into the most photographed corner of the house. Because it is phase one of a whole-home renovation, the same crews, the same licensed trades and the same finish standard carry forward into the rest of the home."},
+    designPartner: {name:"Holly Johnson Interiors", blurb:" — an Indianapolis-area interior designer whose work has been featured on DIY Network. HomeStar built to her drawings and finish schedule throughout."},
+    images: [
+      { src: "/images/zionsville-basement-2.jpg", alt: "Basement wet bar with black stone countertop and full height slab backsplash Zionsville IN" },
+      { src: "/images/zionsville-basement-1.jpg", alt: "Finished basement bar and lounge under soaring ceilings Zionsville Indiana" },
+      { src: "/images/zionsville-basement-3.jpg", alt: "Full height polished black stone backsplash with floating LED shelves basement bar Zionsville IN" },
+      { src: "/images/zionsville-basement-4.jpg", alt: "Undermount bar sink with matte black faucet and stone slab backsplash Zionsville Indiana basement" },
+      { src: "/images/zionsville-basement-6.jpg", alt: "Walk-in wine room built under the stairs with floor to ceiling racking Zionsville IN basement" },
+      { src: "/images/zionsville-basement-7.jpg", alt: "Basement media lounge with dark feature wall Zionsville Indiana" },
+      { src: "/images/zionsville-basement-8.jpg", alt: "Finished basement lounge seating and television wall Zionsville IN" },
+      { src: "/images/zionsville-basement-9.jpg", alt: "Basement guest bathroom with tiled glass shower and white oak vanity Zionsville Indiana" },
+      { src: "/images/zionsville-basement-5.jpg", alt: "Basement card table and seating area with wide plank flooring Zionsville IN" },
+      { src: "/images/zionsville-basement-10.jpg", alt: "Floating shelf and mirror detail in finished basement Zionsville Indiana" },
+    ],
+  },
+  {
     title: "Luxury Basement Transformation in Westfield", slug: "westfield-basement-masterpiece", city: "Westfield", service: "Basement Finishing",
     cat: "Basement",
     color: "#5A6B7A",
@@ -4066,7 +4087,7 @@ function ProjectPage({project}){
             <div style={{marginTop:20,padding:"20px 24px",borderRadius:12,background:`linear-gradient(135deg,${C.navyDark},${C.navy})`,display:"flex",alignItems:"center",gap:14,flexWrap:"wrap"}}>
               <div style={{flex:"1 1 300px"}}>
                 <div style={{color:C.green,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Design Partner</div>
-                <p style={{color:"rgba(255,255,255,.85)",fontSize:14,lineHeight:1.6,margin:0}}>Designed in collaboration with <a href={project.designPartner.url} target="_blank" rel="noopener noreferrer" style={{color:"#fff",fontWeight:700,textDecoration:"underline"}}>{project.designPartner.name}</a>, one of the premier interior design firms in the Indianapolis area. HomeStar is proud to be one of their preferred contractors.</p>
+                <p style={{color:"rgba(255,255,255,.85)",fontSize:14,lineHeight:1.6,margin:0}}>Designed in collaboration with {project.designPartner.url?<a href={project.designPartner.url} target="_blank" rel="noopener noreferrer" style={{color:"#fff",fontWeight:700,textDecoration:"underline"}}>{project.designPartner.name}</a>:<strong style={{color:"#fff",fontWeight:700}}>{project.designPartner.name}</strong>}{project.designPartner.blurb||", one of the premier interior design firms in the Indianapolis area. HomeStar is proud to be one of their preferred contractors."}</p>
                 <p style={{color:"rgba(255,255,255,.6)",fontSize:13.5,lineHeight:1.6,margin:"10px 0 0"}}><a href="/working-with-your-designer" style={{color:C.green,fontWeight:700,textDecoration:"none"}}>Learn how we collaborate with design firms →</a></p>
               </div>
             </div>
