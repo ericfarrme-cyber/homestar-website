@@ -984,6 +984,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:${C.text};overflow-x:hidde
 
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:${C.cream}}::-webkit-scrollbar-thumb{background:${C.navy};border-radius:3px}
 
+@media(min-width:901px) and (max-width:1160px){.desk{gap:15px!important}.desk a{font-size:12.5px!important}}
 @media(max-width:900px){.desk{display:none!important}.mob-btn{display:flex!important}.hero-grid{grid-template-columns:1fr!important;gap:32px!important}.testimonial-pair{grid-template-columns:1fr!important;gap:20px!important}}
 @media(max-width:760px){#hero{display:block!important;min-height:auto!important;padding-bottom:0!important}.hero-bg-img{height:78vh!important}.hero-overlay{height:78vh!important}.hero-content{padding:120px 22px 44px!important;min-height:78vh!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}.hero-trustbar{position:static!important;backdrop-filter:none!important;background:#0d1830!important;padding:24px 22px!important;border-top:2px solid #5CB832!important}.hero-trustbar-inner{display:grid!important;grid-template-columns:1fr 1fr!important;gap:20px 18px!important;justify-content:start!important}.hero-trust-item{flex-direction:column!important;align-items:flex-start!important;gap:1px!important}.hero-dots{display:none!important}}
 @media(min-width:901px){.mob-btn{display:none!important}.mob-menu{display:none!important}}
@@ -1002,7 +1003,7 @@ function Nav({isCity}){
   const[sc,setSc]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>50);window.addEventListener("scroll",h,{passive:true});return()=>window.removeEventListener("scroll",h)},[]);
   const p=isCity?"/":"";
-  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Videos",h:p+"#videos"},{l:"Reviews",h:p+"#reviews"},{l:"Blog",h:p+"#blog"},{l:"Guides",h:p+"#guides"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
+  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Design",h:p+"#design"},{l:"Projects",h:p+"#projects"},{l:"Videos",h:p+"#videos"},{l:"Reviews",h:p+"#reviews"},{l:"Blog",h:p+"#blog"},{l:"Guides",h:p+"#guides"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
 
   return(
     <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000,background:sc?"rgba(27,42,74,.97)":"transparent",backdropFilter:sc?"blur(14px)":"none",transition:"all .35s",borderBottom:sc?"1px solid rgba(255,255,255,.06)":"none"}}>
@@ -1361,6 +1362,54 @@ function Carousel({ images, color, title }) {
 }
 
 /* ─── Projects ─────────────────────────────────────── */
+function DesignSection(){
+  const[ref,vis]=useVis();
+  const paths = [
+    { t:"Bring your own designer",
+      d:"Already working with an interior designer or architect — here or in another state? We build to their drawings and finish schedule. They keep the design credit and portal access; we run the trades and hold the schedule.",
+      tag:"Most common" },
+    { t:"Use our in-house design",
+      d:"No designer yet and don't want to hire one? Our own design team handles layout, selections and 3D renderings before demolition, so you approve the finished room before a wall moves.",
+      tag:"One contract" },
+    { t:"Let us introduce you",
+      d:"Want a designer but don't know where to start? We'll connect you with design firms we have built for and let you pick. No obligation to use ours.",
+      tag:"Your choice" },
+  ];
+  return(
+    <section id="design" className="sec" style={{background:C.cream}} ref={ref}>
+      <div className="sec-in">
+        <div style={{textAlign:"center",marginBottom:48}}>
+          <div className="lab">Design</div>
+          <h2 className="ttl">Design Your Way, Built By One Team</h2>
+          <p className="sub" style={{margin:"0 auto"}}>We are a design-build remodeler — design, permits, licensed trades and construction under one contract. What we don't do is force you to use our designer to get our builders.</p>
+        </div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(300px,1fr))",gap:22}}>
+          {paths.map((x,i)=>
+            <div key={x.t} className={vis?`fu d${i+1}`:""} style={{background:"#fff",borderRadius:16,padding:"30px 28px",boxShadow:"0 2px 16px rgba(0,0,0,.04)",border:`1px solid ${C.sand}`,display:"flex",flexDirection:"column"}}>
+              <div style={{display:"inline-flex",alignSelf:"flex-start",background:C.greenMuted,color:C.green,borderRadius:50,padding:"5px 12px",fontSize:11,fontWeight:700,letterSpacing:".05em",textTransform:"uppercase",marginBottom:14}}>{x.tag}</div>
+              <h3 className="display" style={{color:C.navy,fontSize:19,fontWeight:700,marginBottom:10}}>{x.t}</h3>
+              <p style={{color:C.grayDark,fontSize:14.5,lineHeight:1.75,margin:0}}>{x.d}</p>
+            </div>
+          )}
+        </div>
+        <div style={{marginTop:30,background:`linear-gradient(135deg,${C.navyDark},${C.navy})`,borderRadius:16,padding:"30px 34px"}}>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:26,alignItems:"center"}}>
+            <div>
+              <div className="lab" style={{color:C.green}}>Design Partners</div>
+              <h3 className="display" style={{color:"#fff",fontSize:20,margin:"6px 0 10px"}}>Designers We've Built For</h3>
+              <p style={{color:"rgba(255,255,255,.75)",fontSize:14.5,lineHeight:1.75,margin:0}}>Three completed projects with <a href="https://dovetailgroupindy.com/" target="_blank" rel="noopener noreferrer" style={{color:"#fff",fontWeight:700}}>Dovetail Group</a> of Carmel, and a Zionsville lower level built to the drawings of <a href="https://www.hollyjohnsonrealestate.com" target="_blank" rel="noopener noreferrer" style={{color:"#fff",fontWeight:700}}>Holly Johnson</a> — the homeowners' own designer, working with us from Denver.</p>
+            </div>
+            <div style={{display:"flex",flexDirection:"column",gap:12}}>
+              <a href="/working-with-your-designer" className="btn-g" style={{textAlign:"center",textDecoration:"none"}}>How We Work With Designers {I.arrow}</a>
+              <a href="/blog/designer-vs-design-build-vs-general-contractor" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",textAlign:"center"}}>Designer vs. design-build vs. GC — which do you need? →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Projects(){
   const[ref,vis]=useVis();
   const[filter,setFilter]=useState("All");
@@ -1927,7 +1976,7 @@ function Contact(){
 /* ─── Footer ───────────────────────────────────────── */
 function Footer({isCity}){
   const p=isCity?"/":"";
-  const companyLinks=[{l:"About Us",h:p+"#about"},{l:"Our Process",h:p+"#process"},{l:"Projects",h:p+"#projects"},{l:"Blog",h:p+"#blog"},{l:"Videos",h:p+"#videos"},{l:"Contact",h:p+"#contact"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Meet Eric Farr",h:"/about/eric-farr"},{l:"Meet Robb Rice",h:"/about/robb-rice"},{l:"Request Estimate",h:isCity?"#city-estimate":p+"#estimate"}];
+  const companyLinks=[{l:"About Us",h:p+"#about"},{l:"Our Process",h:p+"#process"},{l:"Design",h:p+"#design"},{l:"Projects",h:p+"#projects"},{l:"Blog",h:p+"#blog"},{l:"Videos",h:p+"#videos"},{l:"Contact",h:p+"#contact"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Meet Eric Farr",h:"/about/eric-farr"},{l:"Meet Robb Rice",h:"/about/robb-rice"},{l:"Request Estimate",h:isCity?"#city-estimate":p+"#estimate"}];
   return(
     <footer style={{background:C.navyDark,padding:"56px 24px 28px"}}>
       <div style={{maxWidth:1160,margin:"0 auto"}}>
@@ -5905,6 +5954,7 @@ export default function HomestarSite(){
       <Services/>
       <Difference/>
       <OurProcess/>
+      <DesignSection/>
       <Projects/>
       <Videos/>
       <Blog/>
