@@ -286,5 +286,35 @@ geography problem, and it is free to fix.
    competitive win available — far cheaper than closing the 1-vs-122 Houzz gap.
 4. **Re-run this protocol ~4 weeks after the Bing listing is corrected** to measure whether pack
    inclusion follows. This is a clean before/after test.
-5. **Verify the Google side too** — confirm GBP shows a real Fishers street address rather than a
-   hidden service-area configuration. Not yet checked.
+5. ~~Verify the Google side too — confirm GBP shows a real Fishers street address rather than a hidden
+   service-area configuration.~~ **ANSWERED BY ERIC 2026-08-14 — and the framing above was wrong.**
+
+### ⛔ STANDING CONSTRAINT — the address is hidden on purpose. Do not suggest exposing it.
+HomeStar is a **service-area business**. There is no physical office, and the registered address is a
+**personal home address that Eric does not want published**. GBP is configured with a service *area*
+rather than an exact address.
+
+**This is the correct and compliant setup, not a defect.** Google's own guidelines *require* hiding the
+address when you do not serve customers at that location — publishing a home address where customers
+are not received can itself trigger suspension. Any future run that recommends "add your street address
+to rank in the map pack" is recommending both a privacy harm and a policy risk. Do not.
+
+**What it does mean, factually:** a hidden address is still used for ranking. Google and Bing both rank
+local results by proximity to the registered address even when it is not displayed — hiding changes what
+the *public* sees, not what the *index* calculates. Service-area businesses do rank in map packs
+routinely, so SAB status alone does not explain 0/12.
+
+**It does, however, give the Westfield mis-location a plausible mechanism.** With no published street
+address, third-party aggregators derive a location from scraped signals — and the most prominent
+location content across our site and Houzz is the flagship ~$150K **Westfield** basement project. That
+is a hypothesis, not a confirmed cause; see task #2 (NAP consistency audit).
+
+**Therefore the fix is unchanged and still available:** claim the Bing listing *as a service-area
+business*, hide the address there too, and set the correct base city (Fishers). Bing Places supports
+this. The win comes from correcting the city and claiming authority — not from exposing anything.
+
+**One option deliberately NOT recommended:** renting a virtual office or coworking address to gain a
+storefront listing. Google requires the listed address be staffed during stated business hours; a
+mailbox or unstaffed desk violates this and risks suspension of a profile currently producing ~8
+leads/week. Only viable if a genuinely staffed location is ever taken on — a business decision, not
+an SEO tactic.
