@@ -1434,8 +1434,12 @@ function DesignSection(){
 function Projects(){
   const[ref,vis]=useVis();
   const[filter,setFilter]=useState("All");
-  const cats=["All",...new Set(PROJECTS.map(p=>p.cat))];
-  const filtered=filter==="All"?PROJECTS:PROJECTS.filter(p=>p.cat===filter);
+  /* Projects carry one primary `cat` plus an optional `cats` array of secondary categories, so a
+     project can be filed as e.g. Basement AND surface under Whole Home without being re-filed.
+     Both the filter buttons and the filter itself must honour `cats` — matching on `cat` alone
+     hid the multi-phase Zionsville projects from the Whole Home filter. */
+  const cats=["All",...new Set(PROJECTS.flatMap(p=>[p.cat,...(p.cats||[])]))];
+  const filtered=filter==="All"?PROJECTS:PROJECTS.filter(p=>p.cat===filter||(p.cats||[]).includes(filter));
   return(
     <section id="projects" className="sec" style={{background:"#fff"}} ref={ref}>
       <div className="sec-in">
