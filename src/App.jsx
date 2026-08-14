@@ -66,6 +66,7 @@ const PROJECTS = [
     desc: "A daylight lower level in Zionsville finished as a true entertaining floor — a full wet bar under soaring ceilings with a polished black stone countertop and full-height slab backsplash, a walk-in wine room built into the space beneath the stairs, a media lounge, and a full guest bathroom. Designed in collaboration with the homeowners' own Denver-based designer, Holly Johnson. This is the first completed phase of a larger whole-home renovation.",
     story: {challenge:"This family relocated from Denver to be closer to relatives and bought a Zionsville home with an enormous unfinished lower level. The space had real advantages most basements never get — a walkout, tall windows on two elevations, and a section where the ceiling rises with the stairwell — but it was raw. They wanted somewhere their family would actually choose to spend time, not a leftover room below the house. They kept working with Holly Johnson, their designer from Denver, and brought HomeStar in to build what she drew — which meant running the whole project with a designer two time zones away. The basement is the first phase of a larger whole-home renovation now underway.",approach:"We built to Holly Johnson's drawings and finish schedule, coordinating with her remotely from Denver throughout — selections, substitutions and site photos all routed to her for approval before anything was installed. The wet bar is the centerpiece: a polished black natural stone countertop carried up the wall as a full-height slab backsplash rather than tile — a detail that leaves nowhere to hide, since the veining has to run continuously through the sink cutout and the seams have to disappear. Above it, two floating stained-oak shelves with integrated LED lighting, a run of shaker cabinetry, an undercounter dishwasher, a beverage drawer and a glass-front wine refrigerator. Plumbing for the bar sink and the full guest bathroom was run by our own licensed plumbers — below-grade drainage is the part of a basement bar most homeowners never think about and the part that decides whether it works. Electrical for the bar, the recessed lighting, the LED shelf lighting and the chandelier drop was all run by our licensed electricians. The space under the stairs became a walk-in wine room: full-height black metal racking on three walls, a papered ceiling that follows the stair soffit, and warm cognac walls. The lounge sits under a dark feature wall with a mounted television and dedicated media wiring. The guest bathroom is fully tiled with a glass shower enclosure, waterproofed to Schluter Pro standards, with a white oak vanity and matte black fixtures. Wide-plank flooring runs unbroken through every zone so the level reads as one space.",result:"A lower level that carries the same finish level as the main floor — which is the whole point when a basement is meant to be a destination rather than a bonus room. Under the tall windows and the two-tier chandelier the bar reads more like a hotel lounge than a basement, and the wine room turned dead storage under the stairs into the most photographed corner of the house. Because it is phase one of a whole-home renovation, the same crews, the same licensed trades and the same finish standard carry forward into the rest of the home."},
     designPartner: {name:"Holly Johnson", url:"https://www.hollyjohnsonrealestate.com", blurb:" — a Denver-based Realtor, stager and interior designer with more than 30 years in interior design and over 100 completed residential and commercial projects. The homeowners moved here from Denver and kept working with their own designer; HomeStar built to her drawings and finish schedule from 1,000 miles away."},
+    relatedPhase: {slug:"zionsville-kitchen-main-level", title:"Kitchen & Main-Level Renovation", label:"Phase Two", note:"The main floor of the same home — kitchen, butler's bar, dining room, study and great room. Same homeowners, same designer, same crews, and the same full-height stone slab detail carried upstairs in light marble."},
     images: [
       { src: "/images/zionsville-basement-2.jpg", alt: "Basement wet bar with black stone countertop and full height slab backsplash Zionsville IN" },
       { src: "/images/zionsville-basement-1.jpg", alt: "Finished basement bar and lounge under soaring ceilings Zionsville Indiana" },
@@ -77,6 +78,26 @@ const PROJECTS = [
       { src: "/images/zionsville-basement-9.jpg", alt: "Basement guest bathroom with tiled glass shower and white oak vanity Zionsville Indiana" },
       { src: "/images/zionsville-basement-5.jpg", alt: "Basement card table and seating area with wide plank flooring Zionsville IN" },
       { src: "/images/zionsville-basement-10.jpg", alt: "Floating shelf and mirror detail in finished basement Zionsville Indiana" },
+    ],
+  },
+  {
+    title: "Kitchen & Main-Level Renovation in Zionsville", slug: "zionsville-kitchen-main-level", city: "Zionsville", service: "Kitchen Remodeling",
+    cat: "Kitchen",
+    cats: ["Whole Home"],
+    color: "#8B6A4A",
+    desc: "A main-floor renovation in Zionsville — a reworked kitchen with a full-height stone slab backsplash and a custom painted hood, a butler's bar niche, a dining room under a dark botanical mural, a chocolate-brown study lined with built-ins, and an open great room tying it all together. Phase two of the whole-home renovation that began in this family's lower level, again built to the drawings of their Denver-based designer, Holly Johnson.",
+    story: {challenge:"With the lower level finished, this Zionsville family turned to the floor they actually live on. The main level had good bones — a two-story great room, a tray-ceilinged dining room, tall windows across the back elevation — but it read as a series of separate builder rooms rather than one connected floor, and the kitchen sitting at the centre of it was the weakest link. The brief was to bring the main floor up to the finish level the basement now had, without the house feeling like two different houses stacked on top of each other. Holly Johnson, their designer in Denver, stayed on for this phase, so we were again building to drawings from 1,000 miles away — this time in an occupied home, with the family living around the work.",approach:"The kitchen holds the floor together. Cream raised-panel cabinetry with a hand-applied glaze runs the perimeter and returns on a long island topped in soft-veined white stone. Rather than tile, that stone is carried up the wall behind the cooktop as a full-height slab — the same move we made on the basement bar in polished black, repeated here in light marble so the two floors speak to each other. A custom painted hood, trimmed with layered crown and a deep bottom band, replaces the builder arrangement and conceals task lighting that washes straight down the slab. Three seeded-glass lanterns banded in matte black and brass hang over the island, and that mixed-metal pairing repeats in the cabinet hardware and again in the dining chandelier. A large stainless workstation sink and gooseneck pull-down faucet sit under the window run. All plumbing and electrical was performed by our own licensed tradespeople.\n\nOff the kitchen, a niche became a butler's bar — two black floating shelves above a stone counter with dark cabinetry below, deliberately echoing the floating shelves in the basement bar one floor down. The dining room carries the drama: a dark botanical mural panel behind the table, a tray ceiling painted deep bronze, and a two-tier brass and glass-rod chandelier centred over a long trestle table. The study went the other way entirely — chocolate brown on both the walls and the ceiling, floor-to-ceiling stained built-ins with cabinet bases wrapping three sides, and a dark fireplace surround, lit by a brass and glass cylinder fixture. The great room was kept open to the kitchen so the sightline from the seating through to the island stays clear, with iron balusters and dark rails carried up to the landing above.",result:"A main level that finally reads as one floor. The kitchen is the hinge — light, quiet and workable — and the rooms around it are allowed to be dark and dramatic precisely because the centre is not. The full-height slab behind the cooktop and the floating shelves in the bar niche are details this family already knew from the lower level, which is what keeps a two-phase renovation from looking like two separate projects. Phase one proved the crews and the remote design process worked; the main level is the payoff, and the same licensed trades and the same finish standard carry forward into the rest of the home."},
+    designPartner: {name:"Holly Johnson", url:"https://www.hollyjohnsonrealestate.com", blurb:" — the homeowners' own Denver-based Realtor, stager and interior designer, with more than 30 years in interior design and over 100 completed residential and commercial projects. She drew the lower level for this family and stayed on for the main floor; HomeStar built both phases to her drawings and finish schedule from 1,000 miles away."},
+    relatedPhase: {slug:"zionsville-basement-bar-wine-room", title:"Basement Bar, Wine Room & Lounge", label:"Phase One", note:"The daylight lower level we finished for this family before moving up to the main floor — same homeowners, same designer, same crews. The full-height stone slab and floating shelves you see upstairs started down there."},
+    images: [
+      { src: "/images/zionsville-kitchen-main-level-1.jpeg", alt: "Renovated kitchen with marble island and full height stone slab backsplash Zionsville IN" },
+      { src: "/images/zionsville-kitchen-main-level-3.jpeg", alt: "Custom painted range hood over full height marble slab backsplash Zionsville Indiana kitchen" },
+      { src: "/images/zionsville-kitchen-main-level-7.jpeg", alt: "Dining room with dark botanical mural bronze tray ceiling and brass chandelier Zionsville IN" },
+      { src: "/images/zionsville-kitchen-main-level-8.jpeg", alt: "Two story great room open to renovated kitchen Zionsville Indiana main level" },
+      { src: "/images/zionsville-kitchen-main-level-4.jpeg", alt: "Butler bar niche with black floating shelves and stone counter Zionsville IN" },
+      { src: "/images/zionsville-kitchen-main-level-5.jpeg", alt: "Chocolate brown study with floor to ceiling built-ins and fireplace Zionsville Indiana" },
+      { src: "/images/zionsville-kitchen-main-level-6.jpeg", alt: "Home office built-in bookcases and brass glass chandelier Zionsville IN" },
+      { src: "/images/zionsville-kitchen-main-level-2.jpeg", alt: "Seeded glass lantern pendants in matte black and brass over kitchen island Zionsville Indiana" },
     ],
   },
   {
@@ -4110,7 +4131,9 @@ function ProjectPage({project}){
               <div>
                 <div className="lab">Our Approach</div>
                 <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:12}}>How We Built It</h3>
-                <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85}}>{story.approach}</p>
+                {/* Split on blank lines so longer, multi-room approaches can run as real paragraphs.
+                    Single-paragraph entries are unaffected. */}
+                {String(story.approach).split(/\n\n+/).map((para,i)=><p key={i} style={{color:C.grayDark,fontSize:15,lineHeight:1.85}}>{para}</p>)}
               </div>
               <div>
                 <div className="lab">The Result</div>
@@ -4141,6 +4164,24 @@ function ProjectPage({project}){
               </div>
             </div>
           )}
+          {project.relatedPhase&&(()=>{
+            /* Two-phase whole-home projects (e.g. the Zionsville basement and the main level above it)
+               cross-link each other so a visitor landing on either phase can see the rest of the home. */
+            const rp=project.relatedPhase;
+            const other=PROJECTS.find(p=>p.slug===rp.slug);
+            const thumb=other&&other.images&&other.images[0];
+            return(
+              <a href={`/projects/${rp.slug}`} style={{marginTop:20,padding:"20px 24px",borderRadius:12,background:"#fff",border:`2px solid ${C.green}`,display:"flex",alignItems:"center",gap:18,flexWrap:"wrap",textDecoration:"none",boxShadow:"0 2px 10px rgba(0,0,0,.05)"}}>
+                {thumb&&<img src={thumb.src} alt={thumb.alt} loading="lazy" style={{width:96,height:96,objectFit:"cover",borderRadius:10,flexShrink:0}}/>}
+                <div style={{flex:"1 1 260px"}}>
+                  <div style={{color:C.green,fontSize:11,fontWeight:700,letterSpacing:".06em",textTransform:"uppercase",marginBottom:6}}>Same Home · {rp.label}</div>
+                  <div style={{color:C.navy,fontWeight:800,fontSize:17,marginBottom:6}}>{rp.title}</div>
+                  <p style={{color:C.grayDark,fontSize:14,lineHeight:1.6,margin:0}}>{rp.note}</p>
+                  <div style={{color:C.green,fontWeight:700,fontSize:13.5,marginTop:10}}>See {rp.label.toLowerCase()} →</div>
+                </div>
+              </a>
+            );
+          })()}
           {(()=>{
             const svcSlugMap={"Bathroom Remodeling":"bathroom-remodeling","Kitchen Remodeling":"kitchen-remodeling","Basement Finishing":"basement-finishing","Flooring Services":"flooring-services","Painting Services":"painting-services","Decks & Outdoor Living":"deck-builder"};
             const svcSlug=svcSlugMap[project.service];
