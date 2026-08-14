@@ -1,5 +1,14 @@
 # Autopilot State — HomeStar SEO
-Last run: 2026-08-05 (Run #2 — "Distance the Lead", autonomous execution) — **PAUSED at Eric's request, all work committed and deployed**
+Last run: 2026-08-14 (Run #3) — **RESUMED.** Eric turned autopilot back on 2026-08-14 and asked not
+to be prompted for permission mid-run.
+
+**Scope of "auto", stated explicitly so no future run has to guess:** autopilot = work this queue
+during a session. **GBP weekly auto-posting stays OFF** — Eric re-confirmed this 2026-08-14 when it
+was raised. It is a separate switch he paused after deleting an auto-post; do not fold it into a
+general "turn on auto". See `docs/gbp-post-log.txt`.
+
+Prior: Run #2 2026-08-05 ("Distance the Lead", autonomous execution) — paused at Eric's request, all
+work committed and deployed.
 
 ## 🔴 INDEXING GAP FOUND 2026-08-08 — everything new was invisible to Google
 URL Inspection returned **"URL is unknown to Google"** for all five of: `/whole-home-renovation`,
@@ -54,8 +63,11 @@ estate and small business") reinforces it. Counter with volume/velocity (100+ pr
 <2 years) rather than tenure. **Question for Eric: do you or Robb have prior construction experience
 we can publish?** Do not invent it.
 
-**Data inconsistency to fix:** homepage says "100+ Projects Completed", Eric's author bio says "50+
-Hamilton County Projects Completed". Both public. Which is right?
+**Data inconsistency — RESOLVED 2026-08-14.** Eric confirmed **100+** is correct. The author bio
+credential (`src/App.jsx`, AUTHORS → eric-farr) was changed from "50+ Hamilton County Projects
+Completed" to "100+", so it now agrees with the homepage stat and with the volume/velocity counter
+to the tenure objection above. Note: `outputs/App.jsx` still carries the old "50+" string — it is a
+gitignored stale copy, not a build artifact of current source. Do not treat it as a live surface.
 
 ## 🔴 TOP FINDING 2026-08-06 — we do not hold the gatekeeper term for whole-home
 On "who should I hire for a whole home renovation in Hamilton County Indiana" ChatGPT opened with
@@ -69,6 +81,14 @@ literal business name.
 **Action: claim "design-build" explicitly** on the whole-home pillar, homepage, GBP services and Houzz.
 Costs nothing — the capability already exists. Full research: `docs/ai-research-whole-home-and-designer-2026-08-06.md`.
 
+**STATUS 2026-08-14 — the website half is DONE; verified in source, not assumed.** The homepage now
+opens the positioning with "We are a design-build remodeler" (`src/App.jsx:1384`), and the whole-home
+pillar carries an explicit Q&A — "Is HomeStar a design-build firm?" → "Yes" (`src/App.jsx:3192`) —
+plus a hero subhead and a three-ways-to-design-it block naming in-house design-build first
+(`src/App.jsx:3154`, `:3158`, `:3397`). 18 occurrences across the file. **Still open: GBP services
+and Houzz**, which are off-site surfaces this doc cannot verify from the repo. Do not re-do the
+website work — a future run reading only the action line above will otherwise repeat finished work.
+
 ## ⏭️ START HERE NEXT RUN
 1. **Houzz reviews — the standing #1 item.** Still 1 review vs Everything Home's 100+. Surface it first,
    every run, until it is meaningfully above 10–15. (Also in persistent memory.)
@@ -78,6 +98,8 @@ Costs nothing — the capability already exists. Full research: `docs/ai-researc
 3. **GSC manual index requests** for `/whole-home-renovation`, `/guide/renovation-sequencing-guide`,
    `/tools/renovation-sequence-planner` — IndexNow submitted, manual queue pending (see indexing-queue.txt).
 4. **Kitchen flagship project** — Eric confirmed he has one; still awaiting photos + details.
+4b. **Claim design-build on GBP services and Houzz** — the website half shipped (see TOP FINDING
+   status above). These two off-site surfaces are the remainder.
 5. **Eric's whole-home price floor** — the pillar deliberately publishes no whole-home range. Ask for
    the smallest genuine whole-home/multi-room figure and the typical main-level number.
 6. **Judge ~2026-09-05:** the geo-disambiguation experiment (measure clicks, not blended CTR) and the

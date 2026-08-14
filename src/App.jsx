@@ -4219,7 +4219,7 @@ const AUTHORS = {
   "eric-farr":{
     name:"Eric Farr",slug:"eric-farr",role:"Co-Founder",
     bio:"Eric co-founded HomeStar Services & Contracting with a clear mission: deliver the kind of remodeling quality that homeowners in Hamilton County deserve — honest pricing, certified craftsmanship, and results that last. With a background in real estate and small business, Eric brings a homeowner's perspective to every project. He understands that a remodeling project isn't just about tile and fixtures — it's about trust, communication, and protecting one of your biggest investments.",
-    credentials:["Schluter Pro Certified","Licensed & Insured Contractor","Member, Better Business Bureau","50+ Hamilton County Projects Completed"],
+    credentials:["Schluter Pro Certified","Licensed & Insured Contractor","Member, Better Business Bureau","100+ Hamilton County Projects Completed"],
     philosophy:"Every home we work on gets treated like it's our own. That means no shortcuts on waterproofing, no unlicensed tradespeople, and no vague estimates. We show you exactly what you're getting before we start — with 3D renderings, itemized pricing, and a timeline we actually stick to.",
     email:"eric@thehomestarservice.com",
   },
