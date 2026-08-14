@@ -14,29 +14,44 @@
  *   User-declared canonical: None.
  *
  * This script writes one static HTML file per sitemap URL, identical to the built
- * index.html except that it carries that route's OWN self-referencing canonical and
- * og:url. Content still renders via JavaScript exactly as before — the crawler just
- * gets the correct identity on first contact.
+ * index.html except that it carries that route's OWN canonical, og:url, <title>,
+ * <meta description> and OG/Twitter title+description.
  *
  * Vercel resolves the filesystem before applying the SPA rewrite in vercel.json, so
  * dist/<route>/index.html is served directly for /<route>. Unknown routes still fall
  * through the rewrite to the plain index.html, which declares no canonical and lets
  * Google self-canonicalize — the same (safe) behaviour as before this script existed.
  *
- * Deliberately NOT done here: per-route <title>/<meta description> injection. The app
- * sets those at runtime and Google demonstrably renders them (pages rank for their
- * correct queries), so baking in statically-derived titles would risk shipping worse
- * titles than the ones already working. Canonical is the signal that is actually
- * broken, so canonical is what this fixes.
+ * TITLES/DESCRIPTIONS — REVERSED 2026-08-14
+ * -----------------------------------------
+ * This script previously declined to inject per-route <title>/<meta description>,
+ * on the reasoning that "the app sets those at runtime and Google demonstrably
+ * renders them, so baking in statically-derived titles would risk shipping worse
+ * titles than the ones already working."
+ *
+ * That reasoning was correct ABOUT GOOGLE and is now insufficient. Verified
+ * 2026-08-14: the raw HTML for every route is ~3.7KB with an empty <div id="root">
+ * and the GENERIC homepage title + description. Anything that reads raw HTML without
+ * executing JavaScript — GPTBot, ClaudeBot, PerplexityBot, CCBot, dataset builders,
+ * social unfurls — therefore learns nothing specific about any of our 236 pages.
+ *
+ * The old objection is answered rather than ignored: titles are derived from
+ * App.jsx's OWN exported data (SEO_SOURCE) using the SAME formulas the runtime
+ * components use, so the static value equals the rendered value instead of being a
+ * guess. Any route this script cannot derive with certainty keeps the generic
+ * fallback — never a worse guess — and is reported in the build output so the
+ * coverage gap stays visible rather than silent.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { build as esbuild } from 'esbuild';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const ORIGIN = 'https://www.thehomestarservice.com';
+const SUFFIX = ' | HomeStar Services & Contracting';
 
 const indexPath = join(dist, 'index.html');
 if (!existsSync(indexPath)) {
@@ -60,10 +75,143 @@ if (/<link[^>]+rel=["']canonical["']/i.test(template)) {
   process.exit(1);
 }
 
-const escapeAttr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+/* ── Load the app's own SEO data ──────────────────────────────────────────────
+   App.jsx imports only React hooks and has no top-level side effects, so bundling
+   it for Node and importing it is safe: the data consts evaluate, the components
+   are merely defined. This is what keeps static and runtime metadata identical. */
+const tmp = join(root, 'node_modules', '.cache-seo-source.mjs');
+let SEO = null;
+try {
+  await esbuild({
+    entryPoints: [join(root, 'src', 'App.jsx')],
+    bundle: true, format: 'esm', platform: 'node',
+    // Vite uses the automatic JSX runtime, so App.jsx never imports React itself.
+    // Matching that here avoids emitting bare React.createElement calls, which would
+    // throw "React is not defined" the moment the module is imported.
+    jsx: 'automatic',
+    external: ['react', 'react-dom', 'react/jsx-runtime'],
+    outfile: tmp, logLevel: 'silent',
+  });
+  ({ SEO_SOURCE: SEO } = await import(pathToFileURL(tmp).href));
+} catch (err) {
+  console.warn(`[route-heads] could not load SEO source (${err.message}). Falling back to canonical-only injection.`);
+} finally {
+  try { rmSync(tmp, { force: true }); } catch {}
+}
+
+/* ── Literal-title routes ─────────────────────────────────────────────────────
+   A handful of pages (the calculators, the client portal, the designer page) set a
+   hardcoded title and description inside their component rather than deriving them
+   from data. Rather than copy those strings into this file — which would silently
+   drift the moment someone edits the component — read them back out of App.jsx on
+   every build. The pattern is: useCanonical("<slug>") followed by a literal
+   document.title= and a literal setAttribute("content", …). Anything computed from
+   a variable or template simply will not match, so this only ever picks up the
+   genuinely static ones. */
+const LITERAL_META = (() => {
+  const out = {};
+  try {
+    const src = readFileSync(join(root, 'src', 'App.jsx'), 'utf8');
+    const re = /useCanonical\(\s*"([^"]+)"\s*\)/g;
+    let m;
+    while ((m = re.exec(src))) {
+      const slug = m[1];
+      const win = src.slice(m.index, m.index + 2500);
+      const t = win.match(/document\.title\s*=\s*"((?:[^"\\]|\\.)*)"/);
+      const d = win.match(/setAttribute\(\s*"content"\s*,\s*"((?:[^"\\]|\\.)*)"\s*\)/);
+      if (t && d) out[slug] = { title: JSON.parse(`"${t[1]}"`), description: JSON.parse(`"${d[1]}"`) };
+    }
+  } catch { /* leave empty — those routes keep the generic fallback */ }
+  return out;
+})();
+
+/* ── Route -> {title, description} ────────────────────────────────────────────
+   Each branch mirrors the formula in the corresponding App.jsx component. Keep
+   them in step; a mismatch here ships a title that disagrees with the page. */
+function metaFor(clean) {
+  if (LITERAL_META[clean]) return LITERAL_META[clean];
+  if (!SEO) return null;
+  const { PROJECTS, BLOG, GUIDES, CITIES, SERVICE_PAGES, AUTHORS, NEIGHBORHOODS, SERVICE_SLUG_MAP, SVC_CITY_TPL, SERVICE_CITY_ALIASES, HOOD_SVCS } = SEO;
+  const seg = clean.split('/');
+
+  // /projects/<slug>  — App.jsx ProjectPage
+  if (seg[0] === 'projects' && seg[1]) {
+    const p = (PROJECTS || []).find((x) => x.slug === seg[1]);
+    if (p) return { title: p.title + SUFFIX, description: `${p.desc} Schluter Pro Certified. Free estimates. (317) 279-4798` };
+  }
+  // /blog/<slug>  — App.jsx BlogPost
+  if (seg[0] === 'blog' && seg[1]) {
+    const post = (BLOG || []).find((x) => x.slug === seg[1]);
+    if (post) return { title: post.title + SUFFIX, description: post.excerpt };
+  }
+  // /guide/<slug>  — App.jsx GuidePage
+  if (seg[0] === 'guide' && seg[1]) {
+    const g = (GUIDES || {})[seg[1]];
+    if (g) return { title: g.title + SUFFIX, description: g.metaDesc };
+  }
+  // /about/<slug>  — App.jsx AuthorPage
+  if (seg[0] === 'about' && seg[1]) {
+    const a = (AUTHORS || {})[seg[1]];
+    if (a) return { title: `${a.name} — ${a.role}${SUFFIX}`, description: `${a.name}, ${a.role} of HomeStar Services & Contracting. Schluter Pro Certified home remodeling in Hamilton County, Indiana.` };
+  }
+  if (seg.length === 1) {
+    // City hub  — App.jsx CityPage
+    const city = (CITIES || {})[clean];
+    if (city && city.title) return { title: city.title + SUFFIX, description: city.metaDesc };
+    // Service pillar  — App.jsx ServicePage
+    const svc = (SERVICE_PAGES || {})[clean];
+    if (svc && svc.title) return { title: svc.title + SUFFIX, description: svc.metaDesc };
+    // Neighborhood  — App.jsx NeighborhoodPage.
+    // The route is not the NEIGHBORHOODS key: App.jsx:2428 builds it as
+    // "remodeling-" + hoodKey + "-" + city(lowercased, spaces->dashes) + "-in".
+    // Rebuild the same slug per entry and match on that.
+    const hood = Object.entries(NEIGHBORHOODS || {}).find(
+      ([k, h]) => `remodeling-${k}-${String(h.city).toLowerCase().replace(/ /g, '-')}-in` === clean
+    )?.[1];
+    if (hood) return { title: `Home Remodeling in ${hood.name}, ${hood.city}, IN${SUFFIX}`, description: `Expert home remodeling in ${hood.name}, ${hood.city}, Indiana. ${String(hood.character).split('.')[0]}. Schluter Pro Certified. Free estimates. (317) 279-4798` };
+    // Neighborhood x service  — App.jsx HoodServicePage (line ~5704).
+    // Slug is `${svc.slug}-${hoodKey}-${city}-in`. NOTE the title suffix here is the
+    // short " | HomeStar", not the full company suffix — matching the component exactly.
+    for (const svc of HOOD_SVCS || []) {
+      if (!clean.startsWith(svc.slug + '-')) continue;
+      const hit = Object.entries(NEIGHBORHOODS || {}).find(
+        ([k, h]) => `${svc.slug}-${k}-${String(h.city).toLowerCase().replace(/ /g, '-')}-in` === clean
+      );
+      if (hit) {
+        const h = hit[1];
+        return {
+          title: `${svc.name} in ${h.name}, ${h.city}, IN | HomeStar`,
+          description: `Expert ${svc.name.toLowerCase()} in ${h.name}, ${h.city}, Indiana. Schluter Pro Certified. Licensed plumbers & electricians. 25-year warranty. Free estimates. (317) 279-4798`,
+        };
+      }
+    }
+
+    // Service x city  — App.jsx ServiceCityPage.
+    // Mirrors the routing at App.jsx:5907 exactly: the alias gives {s,c}; svcData and
+    // cityData key off those directly, and svcKey is the SERVICE_SLUG_MAP key whose
+    // VALUE matches alias.s (the map is key->value, not route->pair).
+    const m = (SERVICE_CITY_ALIASES || {})[clean];
+    if (m) {
+      const svcData = (SERVICE_PAGES || {})[m.s];
+      const cityData = (CITIES || {})[m.c];
+      const svcKey = Object.keys(SERVICE_SLUG_MAP || {}).find((k) => SERVICE_SLUG_MAP[k] === m.s) || m.s;
+      const tpl = (SVC_CITY_TPL || {})[svcKey] || (SVC_CITY_TPL || {})['bathroom-remodeling'];
+      if (svcData && cityData && tpl && svcData.highlights && svcData.highlights[0]) {
+        const pageTitle = `${svcData.service} in ${cityData.city}, IN`;
+        return { title: pageTitle + SUFFIX, description: `${tpl.adj} ${svcData.service.toLowerCase()} in ${cityData.city}, Indiana. ${String(svcData.highlights[0].desc).split('.')[0]}. Free estimates. (317) 279-4798` };
+      }
+    }
+  }
+  return null;
+}
+
+const escapeAttr = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+const escapeText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 let written = 0;
 let skipped = 0;
+let withMeta = 0;
+const noMeta = [];
 
 for (const loc of locs) {
   let path;
@@ -84,10 +232,6 @@ for (const loc of locs) {
   // Baking a homepage canonical into it would make each of those URLs declare itself a
   // duplicate of the homepage, which is exactly the bug removed from index.html in July
   // 2026 (it caused 32 "Alternate page with proper canonical" failures).
-  //
-  // Leaving it canonical-free means the real homepage self-canonicalizes (its own URL is
-  // the homepage, so this is correct and is how it has always behaved), and unknown URLs
-  // declare nothing at all — the safe pre-existing behaviour.
   if (!clean) {
     skipped++;
     continue;
@@ -111,6 +255,34 @@ for (const loc of locs) {
     `$1"${escapeAttr(canonical)}"`
   );
 
+  const meta = metaFor(clean);
+  if (meta && meta.title && meta.description) {
+    html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeText(meta.title)}</title>`);
+    html = html.replace(
+      /(<meta\s+name=["']description["']\s+content=)["'][^"']*["']/i,
+      `$1"${escapeAttr(meta.description)}"`
+    );
+    html = html.replace(
+      /(<meta\s+property=["']og:title["']\s+content=)["'][^"']*["']/i,
+      `$1"${escapeAttr(meta.title)}"`
+    );
+    html = html.replace(
+      /(<meta\s+property=["']og:description["']\s+content=)["'][^"']*["']/i,
+      `$1"${escapeAttr(meta.description)}"`
+    );
+    html = html.replace(
+      /(<meta\s+name=["']twitter:title["']\s+content=)["'][^"']*["']/i,
+      `$1"${escapeAttr(meta.title)}"`
+    );
+    html = html.replace(
+      /(<meta\s+name=["']twitter:description["']\s+content=)["'][^"']*["']/i,
+      `$1"${escapeAttr(meta.description)}"`
+    );
+    withMeta++;
+  } else {
+    noMeta.push(clean);
+  }
+
   const outPath = join(dist, clean, 'index.html');
   mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(outPath, html, 'utf8');
@@ -118,3 +290,9 @@ for (const loc of locs) {
 }
 
 console.log(`[route-heads] wrote ${written} per-route HTML files (${skipped} skipped) from ${locs.length} sitemap URLs.`);
+console.log(`[route-heads] per-route title+description: ${withMeta}/${written} routes.`);
+if (noMeta.length) {
+  // Not a failure: these keep the generic fallback, which is exactly the old behaviour.
+  // Logged so the gap stays visible instead of silently persisting.
+  console.log(`[route-heads] generic fallback still used on ${noMeta.length}: ${noMeta.slice(0, 12).join(', ')}${noMeta.length > 12 ? ` … +${noMeta.length - 12} more` : ''}`);
+}

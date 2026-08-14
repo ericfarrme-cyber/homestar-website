@@ -6022,3 +6022,13 @@ export default function HomestarSite(){
     </div>
   );
 }
+
+/* ─── Build-time SEO data export ───────────────────────────────────────────────
+   scripts/build-route-heads.mjs imports this to derive each route's <title> and
+   <meta description> from the SAME data the runtime uses, so the static head and
+   the rendered page cannot drift apart. Runtime behaviour is unaffected — this is
+   a plain re-export of already-defined consts, evaluated at module load. */
+export const SEO_SOURCE = {
+  PROJECTS, BLOG, GUIDES, CITIES, SERVICE_PAGES, AUTHORS, NEIGHBORHOODS,
+  SERVICE_SLUG_MAP, SVC_CITY_TPL, SERVICE_CITY_ALIASES, HOOD_SVCS,
+};
