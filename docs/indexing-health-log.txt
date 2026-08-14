@@ -127,3 +127,45 @@ so it is Eric's call):
  current fallback, then widen.
  The larger version of this is prerendering actual body content (SSG), which would make the site
  legible to non-rendering crawlers entirely. That is a real project, not a patch.
+
+=== 2026-08-14 (final) — per-route head tags shipped, 8 dead sitemap URLs repaired ===
+
+SHIPPED (commit 1287c5b), verified live:
+ - All 236 routes now serve their OWN <title>, <meta description>, og:title,
+   og:description, twitter:title, twitter:description in RAW HTML, before any JS runs.
+ - Was: 1 distinct title and 1 distinct description across the entire site.
+   Now: 236 unique titles, 236 unique descriptions, 0 empty, 0 wrong canonicals.
+ - Derived from App.jsx's own data via a new SEO_SOURCE export, using the same formulas
+   the components use. Pages that hardcode their title (calculators, client portal,
+   designer page) have those literals read back out of App.jsx source at build time, so
+   nothing is transcribed into the build script and nothing can drift.
+ - VERIFIED static == rendered on 10 route types: project, blog, guide, author, service
+   pillar, service-city, neighborhood, neighborhood-service, calculator, client portal.
+   Title AND description matched exactly in all 10. Note neighborhood-service pages use a
+   shorter " | HomeStar" suffix; that quirk was matched to the component, not assumed.
+
+BUG FOUND AND FIXED — 8 sitemap URLs pointed at pages that do not exist:
+ Neighborhood slugs are remodeling-<key>-<city>-in. Eight NEIGHBORHOODS keys already end
+ in their city, so the app actually serves e.g. /remodeling-rural-zionsville-zionsville-in.
+ The sitemap advertised the single form. Confirmed in a browser: the advertised URL falls
+ through to the SPA fallback and renders the HOMEPAGE with canonical
+ https://www.thehomestarservice.com/ — so we were submitting 8 URLs that each declared
+ themselves a homepage duplicate, while the 8 real neighborhood pages were in no sitemap
+ at all. Repaired the sitemap to the URLs the app serves. Did NOT change the app's slug
+ logic — altering URL structure is a bigger decision than a sitemap repair.
+ Affected: rural-zionsville, bridgewater-westfield, downtown-fortville, geist-mccordsville,
+ downtown-pendleton, south-pendleton, mccordsville-proper, pendleton-heights.
+
+INDEXING ACTIONS:
+ [OK]   GSC manual index request on /projects/zionsville-kitchen-main-level — CONFIRMED,
+        dialog read "URL was added to a priority crawl queue". Read the dialog, not assumed.
+ [OK]   IndexNow submitted, HTTP 200, covering the new project, the basement project, the
+        Geist project, /whole-home-renovation and the repaired neighborhood URLs.
+ [FAIL] *** GSC SITEMAP RESUBMIT DID NOT REGISTER. *** Tried twice — clicking SUBMIT, and
+        typing + Enter. Confirmed the input actually held "sitemap.xml" before submitting.
+        Row still reads: Submitted Aug 8 | Last read Aug 8 | 235 pages. Live sitemap has 237.
+        Submitted updates INSTANTLY on success, so the stale date is proof of failure — the
+        exact lesson from 2026-08-08, when Eric's manual submit flipped it immediately.
+        *** ERIC MUST RESUBMIT THE SITEMAP MANUALLY. *** Automation cannot do this one.
+        Not blocking for the new project (its manual index request did go through), but it
+        is what tells Google about the 8 repaired URLs and the 2 new ones.
