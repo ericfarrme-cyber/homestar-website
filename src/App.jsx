@@ -131,6 +131,7 @@ const PROJECTS = [
   {
     title: "Beautiful Geist Upper Level Remodel", slug: "geist-upper-level-remodel", city: "Geist", service: "Bathroom Remodeling",
     cat: "Whole Home",
+    catPriority: {"Whole Home": 1},
     color: "#7B5A4A",
     desc: "Complete upper level transformation in a beautiful Geist residence — every room reimagined with modern finishes.",
     designPartner: {name:"Dovetail Group", url:"https://dovetailgroupindy.com/"},
@@ -1431,6 +1432,13 @@ function DesignSection(){
   );
 }
 
+/* Optional per-category ordering. A project can pin itself to the front of one category's list with
+   catPriority:{"Whole Home":1} without moving anywhere else — lower sorts first, anything unset
+   falls back to 99. Array.sort is stable, so unpinned projects keep their natural PROJECTS order
+   and the "All" grid is unaffected. */
+const catRank=(p,cat)=>(p.catPriority&&p.catPriority[cat])||99;
+const sortForCat=(list,cat)=>list.slice().sort((a,b)=>catRank(a,cat)-catRank(b,cat));
+
 function Projects(){
   const[ref,vis]=useVis();
   const[filter,setFilter]=useState("All");
@@ -1439,7 +1447,7 @@ function Projects(){
      Both the filter buttons and the filter itself must honour `cats` — matching on `cat` alone
      hid the multi-phase Zionsville projects from the Whole Home filter. */
   const cats=["All",...new Set(PROJECTS.flatMap(p=>[p.cat,...(p.cats||[])]))];
-  const filtered=filter==="All"?PROJECTS:PROJECTS.filter(p=>p.cat===filter||(p.cats||[]).includes(filter));
+  const filtered=filter==="All"?PROJECTS:sortForCat(PROJECTS.filter(p=>p.cat===filter||(p.cats||[]).includes(filter)),filter);
   return(
     <section id="projects" className="sec" style={{background:"#fff"}} ref={ref}>
       <div className="sec-in">
@@ -3282,7 +3290,7 @@ function ServicePage({data,slug}){
   const[faqOpen,setFaqOpen]=useState(null);
   /* A project has one primary `cat`, but genuinely multi-room jobs also carry a secondary
      `cats` array so they can surface on the whole-home pillar without being re-filed. */
-  const filteredProjects=PROJECTS.filter(p=>data.projectCats.includes(p.cat)||(p.cats||[]).some(c=>data.projectCats.includes(c)));
+  const filteredProjects=sortForCat(PROJECTS.filter(p=>data.projectCats.includes(p.cat)||(p.cats||[]).some(c=>data.projectCats.includes(c))),data.projectCats[0]);
   const[activeProject,setActiveProject]=useState(0);
   const[activeImg,setActiveImg]=useState(0);
   useCanonical(slug);
