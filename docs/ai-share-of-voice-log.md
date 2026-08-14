@@ -150,3 +150,94 @@ Competitor moat language observed:
 Verbatim quotes of our content:
 Changes vs last check:
 
+
+---
+
+# ✅ 2026-08-14 — FULL 3-RUN PROTOCOL (12 logged-out runs, desktop)
+
+**Method note:** the `playwright-incognito` MCP server was not available this session. Runs used the
+`claude-in-chrome` browser instead. Logged-out state was **verified before running** — the page showed
+"Log in / Sign up for free" and one run surfaced "You're using our basic model. Log in or sign up for
+more intelligence." Precise-location sharing was **declined**; ChatGPT inferred "Fishers" from IP,
+which is what a real local prospect gets. So the runs are protocol-valid, just via a different driver.
+
+| Query | Appeared | Avg pos | Positions | vs 2026-08-05 |
+|---|---|---|---|---|
+| Overall remodeler, Fishers | **3/3** | ~2.7 | 1, 1, 6 | ⬇️ was ~1.0 |
+| Bathroom remodeler, Fishers | **3/3** | **~1.0** | 1, 1, 1 | ⬆️ was ~2.3 |
+| Basement finishing, Fishers | **3/3** | ~2.3 | 1, 5, 1 | ⬆️⬆️ was ~5.7 |
+| **Kitchen remodeler, Fishers** | **3/3** | ~2.7 | 4, 2, 2 | ⬆️⬆️⬆️ **was 0/3** |
+
+**Share of voice: 12/12 runs, up from 9/12.** Named the single top pick in 7 of 12.
+
+## Headline: kitchen went 0/3 → 3/3
+
+The Round 2 kitchen cluster worked. On 2026-08-05 HomeStar did not appear in kitchen results at all
+across three phrasings. Now it appears in all three, twice at #2, and is named in the closing
+"get bids from" shortlist in 2 of 3 runs. MJ Woodstone still leads kitchen on 21 reviews vs our 79 —
+category association, not review volume, is still what ranks there.
+
+Bathroom hardened to #1 in all three runs ("🥇 My top pick", "Best overall", "Best overall starting
+point"), one run rendering a full business card with phone and directions. Basement moved from
+honorable-mention to #1 in two of three.
+
+## 🔴 The whole-home gatekeeper problem is NOT fixed
+
+The one regression. On the whole-house framing — *"who should I hire to remodel my house in Fishers
+Indiana?"* — HomeStar fell to **#6** and was **cut from the final "who I'd actually interview" list**
+(Nicholas Design Build + The HomeWright + Carrington + Centennial). ChatGPT's own words:
+
+> HomeStar Services and Contracting — another Fishers-based option, **especially if the project is
+> primarily kitchen/bath/interior remodeling**
+
+That is the Aug 6 finding restated: on whole-home, the filter is **category membership**. The answer
+opened by telling the reader to interview "design-build/general contractors", then named firms
+ChatGPT itself labels design-build — Nicholas Design Build, Building Concepts, Everything Home,
+The HomeWright.
+
+**We shipped the design-build claim to the website (homepage + whole-home pillar) and the AI corpus
+has not absorbed it.** That is expected — corpus lag is real — but it means the website half alone
+does not move this. The off-site half (GBP services, Houzz) is still open and is now the live lever.
+
+## 🔴 NEW STRUCTURAL FINDING — we are in zero map packs
+
+Across all 12 runs, HomeStar appeared in the map pack **0 times**, while being the #1 prose
+recommendation in 7. Map-pack slots went to MJ Woodstone, Everything Home, Nicholas Design Build,
+Carrington, Centennial, Chateau, MJ Brown, Baths By Bee, Indy Renovation, Home Redemption, HomeWright,
+Building Concepts, AY Remodeling, CMH Builders.
+
+Our entire AI visibility is **prose/corpus-driven**, not local-index-driven. This is consistent with
+the Aug 6 geographic thesis and with the GBP primary category being "Bathroom remodeler". It also
+means our AI position is more fragile than the rankings suggest — it rests on the review/directory
+corpus rather than on Google's local index.
+
+## Trust objection — partially self-correcting
+BBB was cited **positively** in 2 runs ("listed as an A-rated BBB-accredited general contractor in
+Fishers") rather than as the newness caution seen on 2026-08-06. Not a fix, but the A- accreditation
+is now doing visible work. The founding-date objection was not raised unprompted in any of the 12.
+
+## Houzz — the standing item, restated with fresh numbers
+Houzz was cited as a source in **8 of 12 runs**, almost always for a competitor:
+- **Everything Home — Houzz 5.0/122 reviews** (was 100+ on Aug 5; still growing) + Best of Houzz
+  through 2026. Cited in kitchen, bathroom, overall.
+- **The HomeWright — Houzz 5.0/76–77 reviews.**
+- HomeStar Houzz reviews: **1.**
+
+Houzz is the single most-cited third-party source in these answers and it is where we are weakest.
+
+## New competitors observed this round
+Yesteryear Construction Services (Angi 4.9/45, called out specifically for kitchens), CMH Builders
+(basement specialist since 2006, **recommended by a homeowner in a Fishers Reddit thread**), R J & E
+Corp (Fishers, 24+ yrs), Home Redemption Construction (Fishers, 5.0/27 — appeared in 3 categories),
+AY Remodeling (5.0/73), Watson's Remodeling (5.0/64), JEM Renovations (5.0/25), Absolute Renovations
+(4.9/80), Centennial Construction (since 1993, HomeAdvisor 4.4/362), Carrington Homes (4.8/52),
+MJ Brown Renovations (5.0/55).
+
+**Reddit was cited directly** in a basement run, both for a contractor recommendation and for a
+Fishers price range ($22k–$80k+). Reddit remains an uncontrolled corpus source we have no presence in.
+
+## Changes vs last check
+- Kitchen 0/3 → 3/3 — the single biggest movement recorded so far.
+- Bathroom 2.3 → 1.0; Basement 5.7 → 2.3.
+- Overall 1.0 → 2.7, entirely from the whole-house framing run.
+- Map-pack absence identified as a structural ceiling, newly measured.
