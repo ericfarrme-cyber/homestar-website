@@ -241,3 +241,50 @@ Fishers price range ($22k–$80k+). Reddit remains an uncontrolled corpus source
 - Bathroom 2.3 → 1.0; Basement 5.7 → 2.3.
 - Overall 1.0 → 2.7, entirely from the whole-house framing run.
 - Map-pack absence identified as a structural ceiling, newly measured.
+
+## 🔴 MAP-PACK DIAGNOSIS 2026-08-14 — the Bing listing is unmanaged and mis-located
+
+Followed up the zero-map-pack finding. Verified on Bing (ChatGPT's local answers are Bing-backed):
+
+**1. Bing has HomeStar in the wrong city.** Searching `"HomeStar Services and Contracting" Fishers
+Indiana` returns the business card as:
+> HomeStar Services and Contracting · **"Bathroom remodeling in Westfield" · Westfield, Indiana · 7.6 mi**
+
+Bing Maps resolves the business to **Westfield, Hamilton Co.** (40.010, -86.140) — roughly 7.6 miles
+northwest of the Fishers address. Google/BBB/Angi/our own site all correctly say Fishers.
+
+**2. It is not just the wrong city — the listing is unmanaged.** The obvious inference would be
+"wrong city, so it ranks in Westfield instead." It does not. `bathroom remodeler Westfield IN` returns
+Mills & Mills, Indigo Renovations and Bowden Ceramic Tile (5/5 from **244** Bing reviews) — **no
+HomeStar.** Absent from the Fishers pack AND the Westfield pack means the listing is almost certainly
+unclaimed/unverified and carries no authority. The wrong city is a *symptom* of an unmanaged listing,
+not the whole cause.
+
+**3. Bing shows zero reviews for us.** Our Bing card carries no star rating at all, while Google shows
+5.0/79. Several competitors in the Fishers Bing pack are equally thin (Superior Bath System 5/5 from
+**3**, Tremain 5/5 from **4**, ACo 4/5 from **17**) — so unlike Houzz, **the bar in Bing is near zero.**
+Bowden's 244 shows the ceiling is real, but the Fishers bathroom pack is winnable with a handful.
+
+### What this changes
+The Aug 6 conclusion — *"the map-pack half is likely unwinnable without a physical presence"* — was
+drawn from **Carmel and Westfield** queries and is still right for those. It does **not** explain being
+out of the pack in **Fishers, where we do have an address.** That is a data-hygiene problem, not a
+geography problem, and it is free to fix.
+
+**Prose and pack are two different systems with two different levers:**
+| Layer | Source | Our state | Lever |
+|---|---|---|---|
+| Prose recommendation | web corpus — site, reviews, BBB, Angi, Houzz, Reddit | **winning** (7/12 top pick) | keep feeding |
+| Map pack | local index — GBP for Google, Bing Places for Bing/ChatGPT | **absent, 0/12** | claim + correct listing |
+
+### Actions
+1. **Claim Bing Places for Business** (bingplaces.com) — correct the address to Fishers, set categories,
+   hours, photos. Highest-leverage item found this run and it costs nothing. **Eric must do this** —
+   it needs account creation and phone/postcard verification.
+2. **Apple Business Connect** — same class of unmanaged-listing risk, feeds Apple Maps. Claim while there.
+3. **Ask for a few Bing/Facebook reviews.** The Fishers Bing pack bar is 3–17 reviews. Cheapest
+   competitive win available — far cheaper than closing the 1-vs-122 Houzz gap.
+4. **Re-run this protocol ~4 weeks after the Bing listing is corrected** to measure whether pack
+   inclusion follows. This is a clean before/after test.
+5. **Verify the Google side too** — confirm GBP shows a real Fishers street address rather than a
+   hidden service-area configuration. Not yet checked.
