@@ -32,3 +32,36 @@ NEXT RUN — first thing to check: re-inspect /kitchen-remodeling-zionsville-in 
 That page was "Duplicate without user-selected canonical / User-declared canonical: None". It now
 serves a correct canonical without needing a JS render. If it clears, the fix is proven end-to-end.
 Judge the aggregate not-indexed count ~2026-09-05 (full re-crawl cycle) rather than 8/22.
+
+=== 2026-08-14 — indexation spot-check (logged-out `site:` queries, NOT GSC) ===
+METHOD CAVEAT: `site:` is a rough proxy. GSC URL Inspection is the authority and needs Eric's
+session. The Aug 8 lesson stands - do not record a proxy result as fact.
+
+LIVE (verified by HTTP, this is solid):
+  /projects/zionsville-kitchen-main-level ....... 200, per-route canonical correct, 8/8 images 200
+  /projects/zionsville-basement-bar-wine-room ... 200
+  sitemap.xml ................................... 200, 237 urls, new project present
+
+INDEXED:
+  [OK]  /kitchen-remodeling-zionsville-in ....... IN INDEX with its own title + description.
+        This is START HERE item #2 and it is now RESOLVED. The page was "Duplicate without
+        user-selected canonical"; the per-route canonical fix shipped 2026-08-05 has cleared it.
+        That is the end-to-end proof the canonical fix worked.
+  [OK]  /tools/renovation-sequence-planner ...... IN INDEX. One of the five that were "unknown to
+        Google" on Aug 8. The lastmod + manual request worked here.
+  [NO]  /whole-home-renovation .................. NOT in index. 6 days after lastmod + manual
+        request. *** WATCH CONDITION FROM AUG 8 IS NOW TRIPPED. *** See task #7.
+  [NO]  /projects/zionsville-basement-bar-wine-room ... not in index, but only live since Aug 13.
+        Too early to mean anything; not a concern yet.
+  [--]  /projects/zionsville-kitchen-main-level .. live for minutes. Cannot be indexed. Not a finding.
+
+READ: discovery is working (sequence-planner made it in), so /whole-home-renovation is a
+page-specific problem rather than a sitemap problem. Worth noting that it is also the page carrying
+our design-build claim, which the Aug 14 AI protocol found the corpus has not absorbed - an
+unindexed page is a plausible mechanical cause.
+
+IndexNow submitted 2026-08-14 (HTTP 200) for: the new kitchen project, the basement project,
+/kitchen-remodeling-zionsville-in, /whole-home-renovation, /projects.
+Standing lesson repeated: IndexNow is Bing/Copilot only. A 200 here is NOT Google indexation.
+It does matter more than it used to, though - Bing backs ChatGPT's local answers, and the Aug 14
+map-pack diagnosis found we are weak there.
