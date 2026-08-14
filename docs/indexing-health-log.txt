@@ -65,3 +65,65 @@ IndexNow submitted 2026-08-14 (HTTP 200) for: the new kitchen project, the basem
 Standing lesson repeated: IndexNow is Bing/Copilot only. A 200 here is NOT Google indexation.
 It does matter more than it used to, though - Bing backs ChatGPT's local answers, and the Aug 14
 map-pack diagnosis found we are weak there.
+
+=== 2026-08-14 (later) — WHY OUR CONTENT IS INVISIBLE TO AI CRAWLERS ===
+Triggered by Eric asking to get the new Zionsville kitchen project indexed "for AI and on Google".
+Checking that surfaced a structural problem bigger than the one page.
+
+WHAT WAS VERIFIED (not inferred):
+1. robots.txt is wide open - "User-agent: * / Allow: /". The wildcard permits GPTBot, ClaudeBot,
+   PerplexityBot, CCBot, Google-Extended and Bingbot. Crawler permission is NOT the blocker.
+2. The raw HTML served for /projects/zionsville-kitchen-main-level is 3,732 bytes and contains
+   ZERO of the project prose. `curl | grep "botanical mural"` returns 0 matches. Body is literally
+   <div id="root"></div>. All content is painted client-side by React.
+3. What a non-rendering crawler actually receives on that route:
+     canonical ............. CORRECT, per-route  (the Aug 5 fix works)
+     og:url ................ CORRECT, per-route
+     <title> ............... GENERIC homepage title
+     meta description ...... GENERIC homepage description
+     og:title / og:desc .... GENERIC homepage copy
+     body content .......... NONE
+
+WHY IT IS LIKE THAT: scripts/build-route-heads.mjs, lines 26-30, deliberately declines to inject
+per-route title/description, reasoning that "the app sets those at runtime and Google demonstrably
+renders them". That reasoning is CORRECT FOR GOOGLE - Googlebot renders JavaScript. It was written
+about Google and it does not carry over to AI crawlers, which mostly do not execute JS. The prior
+decision was not wrong; it was scoped to a constraint that has since changed.
+
+CALIBRATION - do not overstate this:
+ - Bingbot DOES render JS, so the Bing-backed layer of ChatGPT search can still reach our content.
+ - ChatGPT did cite thehomestarservice.com in one of the 12 protocol runs on 2026-08-14.
+ So this is a serious structural handicap, NOT a total blackout. What IS unambiguous, regardless of
+ rendering, is that every one of our 236 routes presents the same generic homepage title and
+ description to any crawler, scraper, dataset builder or social unfurl that reads raw HTML.
+
+WHY IT PLAUSIBLY EXPLAINS THINGS WE ALREADY MEASURED (hypothesis, worth testing):
+ - The design-build claim shipped to the site has not been absorbed by the corpus (task #4).
+ - ChatGPT describes HomeStar via BBB, Angi, Houzz, Reddit and HomeAdvisor - third parties - and
+   rarely via our own copy.
+ - The Aug 5 "moat evidence" quotes all traced to the REVIEW corpus, never to site prose.
+ A site that yields nothing to a non-rendering fetch would produce exactly this pattern.
+
+GSC URL INSPECTION, /projects/zionsville-kitchen-main-level, 2026-08-14:
+   Verdict ............... "URL is not on Google / URL is unknown to Google"  (expected, hours old)
+   Sitemaps .............. "No referring sitemaps detected"  <-- Google has not re-read the sitemap
+                            since the entry was added today. Same pattern as the Aug 8 gap.
+   Referring page ........ "None detected"
+   ACTION TAKEN: clicked REQUEST INDEXING and CONFIRMED the result dialog read
+   "Indexing requested - URL was added to a priority crawl queue."
+   Confirmed by reading the dialog, not assumed from the click - per the verify-web-form-actions
+   lesson. This is the one manual request; it does not index the page, it queues it.
+
+INDEXNOW: submitted twice today, HTTP 200 both times, covering the kitchen project, the basement
+project, the Geist project and /projects. Bing/Copilot only. Not Google.
+
+RECOMMENDED FIX (NOT done - reverses a documented deliberate decision and touches 236 pages,
+so it is Eric's call):
+ Extend build-route-heads.mjs to also inject per-route <title>, <meta description>, og:title and
+ og:description. The objection recorded in the script - that statically derived titles could be
+ worse than the runtime ones - is answerable: derive them from the SAME source the runtime uses, so
+ they come out identical rather than worse. Safest rollout is to do it only for routes where the
+ value can be derived with certainty (project pages from PROJECTS), leaving everything else on the
+ current fallback, then widen.
+ The larger version of this is prerendering actual body content (SSG), which would make the site
+ legible to non-rendering crawlers entirely. That is a real project, not a patch.
