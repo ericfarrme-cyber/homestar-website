@@ -169,3 +169,76 @@ INDEXING ACTIONS:
         *** ERIC MUST RESUBMIT THE SITEMAP MANUALLY. *** Automation cannot do this one.
         Not blocking for the new project (its manual index request did go through), but it
         is what tells Google about the 8 repaired URLs and the 2 new ones.
+
+=== 2026-08-15 — Aug-8 watch re-inspected. Discovery is FIXED; a new duplicate cluster found ===
+
+The five URLs that read "URL is unknown to Google" on 2026-08-08 were re-inspected today, exactly on
+the watch date. **Discovery is no longer the problem.** Four of the five are now known to Google.
+
+  [INDEXED]   /guide/renovation-sequencing-guide   - indexed. Breadcrumbs: 1 INVALID item (see below).
+  [INDEXED]   /tools/renovation-sequence-planner   - indexed, clean, breadcrumbs valid.
+  [DUPLICATE] /whole-home-renovation               - crawled Aug 13. Not indexed.
+  [DUPLICATE] /client-portal                       - crawled Aug 13. Not indexed.
+  [DISCOVERED]/blog/designer-vs-design-build-vs-general-contractor - discovered via sitemap, never crawled.
+
+BONUS CHECK - THE CANONICAL FIX IS PROVEN END TO END:
+ /kitchen-remodeling-zionsville-in is now **INDEXED**, with breadcrumbs and review snippets both
+ valid. This was the page stuck on "Duplicate without user-selected canonical / canonical: None" at
+ run #1 and still broken at run #2. It was the single check that proved the per-route canonical work.
+ It passed. Item #2 on the START HERE list is closed.
+
+*** NEW FINDING - a duplicate cluster, and the cause is already fixed but not yet re-crawled ***
+ Both /whole-home-renovation and /client-portal come back as
+ "Duplicate, Google chose different canonical than user" - and BOTH were assigned the same
+ Google-selected canonical: **https://www.thehomestarservice.com/flooring-services-carmel-in**.
+ Two completely unrelated pages collapsing into one arbitrary third page is the signature of Google
+ seeing no difference between them.
+
+ Cause, and why it is not alarming: **both were crawled Aug 13 - one day BEFORE the per-route head
+ tags shipped on Aug 14** (commit 1287c5b). On Aug 13 every route on the site still served ONE
+ identical <title> and ONE identical <meta description> in raw HTML, on top of a body that is empty
+ until JS runs. Google had literally nothing to tell those URLs apart, so it clustered them and
+ elected one canonical at random. The user-declared canonical was correct and self-referencing the
+ whole time - it was not a canonical bug.
+
+ Verified today against the LIVE raw HTML that the fix is deployed and working:
+   /whole-home-renovation        -> "Whole-Home & Multi-Room Renovation in Hamilton County, IN | ..."
+   /client-portal                -> "The HomeStar Client Portal | Your Project, In Your Pocket"
+   /flooring-services-carmel-in  -> "Flooring Services in Carmel, IN | HomeStar Services & ..."
+ Three genuinely distinct titles and descriptions, served before any JS. The duplicate verdicts are
+ stale by one day. They should resolve on re-crawl - which is what today's index requests are for.
+
+ CAVEAT worth keeping in view: those pages are still only ~4KB of raw HTML with NO body content.
+ The head tags now differentiate them, but the actual prose remains invisible to anything that does
+ not execute JavaScript. Google renders, so this should be enough for Google. It is not enough for
+ non-rendering AI crawlers - the SSG project logged on 2026-08-14 is still the real fix.
+
+INDEXING ACTIONS TAKEN (each CONFIRMED by reading the result dialog, never assumed from the click):
+ [OK] /whole-home-renovation      - "Indexing requested - URL was added to a priority crawl queue."
+ [OK] /client-portal              - same confirmation read.
+ [OK] /blog/designer-vs-design-build-vs-general-contractor - same confirmation read.
+ These are NOT a violation of the "never re-request indexing on unchanged pages" rule: all three
+ genuinely changed on Aug 14, after their last crawl (or were never crawled at all).
+
+ Hazard found while doing this, worth knowing for next time: **GSC keeps every previously inspected
+ URL's panel in the DOM.** A plain selector for the REQUEST INDEXING button matched five buttons
+ across five different URLs. Clicking the wrong one would have silently requested indexing for the
+ wrong page. Scope to the visible panel and re-read the displayed URL before every click.
+
+ Second correction, same lesson as always: the first read of the designer-vs-design-build blog post
+ showed "URL is unknown to Google / No referring sitemaps detected". That was a STALE CACHED PANEL.
+ Re-querying it fresh returned "Discovered - currently not indexed" with sitemap.xml correctly listed
+ as the referring sitemap. There is no sitemap bug. Do not act on the first panel GSC paints.
+
+*** STILL BLOCKED ON ERIC - THE SITEMAP RESUBMIT, SECOND RUN RUNNING ***
+ Checked the Sitemaps report today. It still reads:
+      Submitted Aug 8, 2026 | Last read Aug 8, 2026 | Success | 235 discovered pages
+ The live sitemap serves **237**. Unchanged from the failed attempt on Aug 14. Not retried today -
+ two documented automation attempts have already failed on this exact control and repeating a known
+ failure is not worth the risk of a false positive. ERIC MUST RESUBMIT THE SITEMAP MANUALLY.
+ Until he does, Google has no record of the 8 repaired neighborhood URLs or the 2 new project pages.
+
+NEW MINOR ISSUE FOR THE QUEUE:
+ /guide/renovation-sequencing-guide is indexed but reports **Breadcrumbs: 1 invalid item detected**.
+ Its sibling /tools/renovation-sequence-planner reports 1 VALID item, so the breadcrumb schema is
+ correct in general and wrong specifically on the guide route. Worth a look - it costs a rich result.

@@ -90,14 +90,34 @@ and Houzz**, which are off-site surfaces this doc cannot verify from the repo. D
 website work — a future run reading only the action line above will otherwise repeat finished work.
 
 ## ⏭️ START HERE NEXT RUN
-1. **Houzz reviews — the standing #1 item.** Still 1 review vs Everything Home's 100+. Surface it first,
-   every run, until it is meaningfully above 10–15. (Also in persistent memory.)
-2. **Re-inspect `/kitchen-remodeling-zionsville-in` in GSC.** It was "Duplicate without user-selected
-   canonical"; the per-route canonical fix shipped 2026-08-05 should have cleared it. This is the single
-   check that proves the fix end-to-end.
-3. **GSC manual index requests** for `/whole-home-renovation`, `/guide/renovation-sequencing-guide`,
-   `/tools/renovation-sequence-planner` — IndexNow submitted, manual queue pending (see indexing-queue.txt).
+0. **🔴 ERIC: RESUBMIT THE SITEMAP IN GSC — now blocking two runs in a row.** Re-checked 2026-08-15:
+   still `Submitted Aug 8 | Last read Aug 8 | 235`, live sitemap is **237**. Automation has failed on
+   this control twice and will not be retried. Until Eric does it, Google has no record of the 8
+   repaired neighborhood URLs or the 2 new Zionsville project pages.
+0b. **🔴 ERIC: SIGN IN TO HOUZZ** — both browser profiles are signed out as of 2026-08-15, so the two
+   new Zionsville projects could not be uploaded. Everything else is prepared and waiting:
+   `docs/houzz-upload-package-zionsville-2026-08-15.md` has the exact descriptions, keywords, styles,
+   photo filenames and deep links. It is a ~15-minute job once there is a session.
+1. **Houzz reviews — the standing #1 item.** Still 1 review vs Everything Home's 100+ (re-verified on
+   the live profile 2026-08-15). Surface it first, every run, until it is meaningfully above 10–15.
+   (Also in persistent memory.)
+2. ~~Re-inspect `/kitchen-remodeling-zionsville-in`~~ — **CLOSED 2026-08-15. It is INDEXED**, with
+   breadcrumbs and review snippets both valid. The per-route canonical fix is proven end-to-end.
+3. ~~GSC manual index requests~~ — **DONE 2026-08-15.** Both sequencing pages came back already
+   indexed. Fresh requests confirmed (dialog read, not assumed) for `/whole-home-renovation`,
+   `/client-portal` and `/blog/designer-vs-design-build-vs-general-contractor`.
+3b. **Re-inspect the duplicate cluster ~2026-08-29.** `/whole-home-renovation` and `/client-portal`
+   both return "Duplicate, Google chose different canonical" pointing at `/flooring-services-carmel-in`
+   — but both were crawled **Aug 13, one day before the per-route head tags shipped**. The cause is
+   already fixed and live; these verdicts are stale. If they have NOT cleared after a re-crawl, the
+   head tags were not enough and the empty-body/SSG problem is the real cause. Full detail in
+   `docs/indexing-health-log.txt`.
+3c. **Fix the breadcrumb schema on `/guide/renovation-sequencing-guide`** — indexed but reports
+   "1 invalid item". Its sibling `/tools/renovation-sequence-planner` reports 1 *valid* item, so the
+   bug is specific to the guide route, not the schema in general.
 4. **Kitchen flagship project** — Eric confirmed he has one; still awaiting photos + details.
+   *(Note: the Zionsville kitchen & main-level project shipped 2026-08-14 and is a real kitchen entry —
+   `PROJECTS` is no longer 0-for-kitchen. The flagship is still worth having.)*
 4b. **Claim design-build on GBP services and Houzz** — the website half shipped (see TOP FINDING
    status above). These two off-site surfaces are the remainder.
 5. **Eric's whole-home price floor** — the pillar deliberately publishes no whole-home range. Ask for
