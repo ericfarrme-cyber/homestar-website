@@ -242,3 +242,49 @@ NEW MINOR ISSUE FOR THE QUEUE:
  /guide/renovation-sequencing-guide is indexed but reports **Breadcrumbs: 1 invalid item detected**.
  Its sibling /tools/renovation-sequence-planner reports 1 VALID item, so the breadcrumb schema is
  correct in general and wrong specifically on the guide route. Worth a look - it costs a rich result.
+
+=== 2026-08-15 (later) — /team shipped; full-site IndexNow sweep ===
+
+DEPLOYED. Three commits pushed (127734e..235b3ba); Vercel picked them up in ~15s.
+
+VERIFIED LIVE, not assumed from a status code:
+ /team serves its OWN <title> ("Meet the HomeStar Team | Remodeling Experts in Fishers,
+ Indiana"), its own description and a self-referencing canonical, in raw HTML. All four team
+ images return real image/jpeg (134-300 KB). The Team nav link is present in the live bundle
+ (index-naLci4f5.js, 1 occurrence) — the previous bundle had 0.
+
+ *** THE SPA-FALLBACK TRAP CAUGHT US AGAIN, and this time before it did damage. ***
+ Before the push, https://www.thehomestarservice.com/team returned **HTTP 200** — but with
+ 3,584 bytes and the HOMEPAGE title. That is vercel.json rewriting /(.*) to index.html. A
+ plain status check would have reported the page as live when it did not exist. This is the
+ same mechanism as the 8 dead neighborhood URLs found 2026-08-14 and the dead image reference
+ found 2026-08-05. **Never accept a 200 as proof a route exists — diff the <title>.**
+ It also means: had we submitted /team to IndexNow before deploying, we would have pointed
+ Bing and Copilot at a URL that renders as a homepage duplicate — manufacturing the exact
+ duplicate-canonical problem found on /whole-home-renovation earlier the same day.
+
+INDEXING ACTIONS:
+ [OK] GSC manual index request on /team — CONFIRMED by reading the dialog:
+      "Indexing requested — URL was added to a priority crawl queue."
+      Pre-request state was "URL is unknown to Google", which is correct for a brand-new URL.
+ [OK] IndexNow — **full sitemap sweep, all 238 URLs**, HTTP 200 from BOTH api.indexnow.org
+      and bing.com/indexnow.
+
+      Why all 238 rather than just /team: the per-route head-tag rollout on 2026-08-14
+      rewrote the <title> AND <meta description> of **every one of the 236 routes**, but that
+      day's IndexNow submission covered only ~12 URLs (the new project, the basement project,
+      the Geist project, /whole-home-renovation and the 8 repaired neighborhood URLs). So
+      ~225 pages had genuinely changed, search-visible content that Bing was never told
+      about. A title/description rewrite is exactly the kind of change IndexNow exists for,
+      so this is a legitimate sweep and not a resubmission of unchanged pages. Payload was
+      17.6 KB, far inside the 10,000-URL limit.
+      Standing rule unchanged: **IndexNow is Bing/Copilot only. It is not Google.**
+
+*** STILL BLOCKED ON ERIC — SITEMAP RESUBMIT, now three runs running ***
+ Re-checked immediately after the deploy. Unchanged:
+      Submitted Aug 8, 2026 | Last read Aug 8, 2026 | Success | 235 discovered pages
+ The live sitemap now serves **238** (the 235, plus the 2 repaired/new URLs from Aug 14, plus
+ /team). GSC also reports "No referring sitemaps detected" for /team, which is consistent —
+ Google has never read a sitemap containing it. The manual index request is currently the
+ ONLY route by which Google knows /team exists. ERIC MUST RESUBMIT THE SITEMAP MANUALLY.
+ Not retried by automation: two documented attempts have already failed on this control.
