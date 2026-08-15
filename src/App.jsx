@@ -1017,10 +1017,13 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:${C.text};overflow-x:hidde
   .team-row>div{order:unset!important}
   .team-row>div:first-child{max-width:420px;margin:0 auto;width:100%}
   .team-split{grid-template-columns:1fr!important}
-  .team-split img{max-height:420px!important}
+  /* Stacked: let the square photo be square rather than a cropped letterbox. */
+  .team-split-img{aspect-ratio:1/1;height:auto!important;max-height:none!important;min-height:0!important;object-position:center 22%!important}
 }
-@media(max-width:560px){
-  .team-stats{grid-template-columns:1fr 1fr!important;gap:26px 18px!important}
+/* Between tablet and desktop the text column is tallest, which squeezes the photo
+   cell widest-and-shortest. Hold a floor so faces never get clipped. */
+@media(min-width:861px) and (max-width:1180px){
+  .team-split-img{min-height:460px!important}
 }
 `;
 
@@ -4480,13 +4483,6 @@ function TeamPage(){
           </div>
           <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(32px,5.4vw,52px)",lineHeight:1.08,marginBottom:20,letterSpacing:"-.01em"}}>Meet the HomeStar Team</h1>
           <p className="fu d3" style={{color:"rgba(255,255,255,.58)",fontSize:"clamp(16px,1.9vw,18.5px)",lineHeight:1.65,maxWidth:660,margin:"0 auto"}}>A remodel is only ever as good as the people running it. These are the people who price your project, schedule your trades, pick up the phone, and stand in your house until the work is right.</p>
-          <div className="fu d4 team-stats" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:18,maxWidth:720,margin:"44px auto 0"}}>
-            {[{n:"100+",l:"Projects completed"},{n:"5.0",l:"Rating · 78 reviews"},{n:"20+",l:"Years Eric & Robb"},{n:"Pro",l:"Schluter Certified"}].map(s=>
-              <div key={s.l} style={{textAlign:"center"}}>
-                <div className="display" style={{color:"#fff",fontSize:"clamp(22px,3vw,30px)",lineHeight:1,marginBottom:7}}>{s.n}</div>
-                <div style={{color:"rgba(255,255,255,.42)",fontSize:11.5,fontWeight:600,letterSpacing:".04em"}}>{s.l}</div>
-              </div>)}
-          </div>
         </div>
       </section>
 
@@ -4507,7 +4503,7 @@ function TeamPage(){
         <div style={{maxWidth:820,margin:"0 auto"}}>
           <div style={{background:C.cream,border:`1px solid ${C.sand}`,borderRadius:18,padding:"clamp(26px,4vw,36px)"}}>
             <div className="lab" style={{marginBottom:12}}>Quick Answer</div>
-            <p style={{color:C.navy,fontSize:"clamp(15.5px,1.8vw,17px)",lineHeight:1.8,margin:0,fontWeight:500}}>HomeStar Services &amp; Contracting is co-owned by <strong>Eric Farr</strong> and <strong>Robb Rice</strong>, friends of more than 20 years, and based in Fishers, Indiana. Eric leads estimating, planning and client relationships; Robb focuses on construction quality and resale value. <strong>Kristina W.</strong>, Director of Operations, previously owned her own remodeling business and runs jobsite operations and trade coordination. <strong>Summer S.</strong>, Project Coordinator, brings nearly 10 years in residential design and carries projects from concept through completion. The company is Schluter Pro Certified, licensed and insured, BBB accredited, and has completed 100+ projects across Hamilton County, Indiana.</p>
+            <p style={{color:C.navy,fontSize:"clamp(15.5px,1.8vw,17px)",lineHeight:1.8,margin:0,fontWeight:500}}>HomeStar Services &amp; Contracting is co-owned by <strong>Eric Farr</strong> and <strong>Robb Rice</strong>, friends of more than 20 years, and based in Fishers, Indiana. Eric leads estimating, planning and client relationships; Robb focuses on construction quality, the overall client experience, and the real estate perspective he brings from nearly 10 years as a licensed agent and investor. <strong>Kristina W.</strong>, Director of Operations, previously owned her own remodeling business and runs jobsite operations and trade coordination. <strong>Summer S.</strong>, Project Coordinator, brings nearly 10 years in residential design and carries projects from concept through completion. The company is Schluter Pro Certified, licensed and insured, BBB accredited, and has completed 100+ projects across Hamilton County, Indiana.</p>
           </div>
         </div>
       </section>
@@ -4522,7 +4518,10 @@ function TeamPage(){
       {/* Founders together — full-bleed split, image to the edge */}
       <section style={{background:C.navyDark,overflow:"hidden"}}>
         <div className="team-split" style={{display:"grid",gridTemplateColumns:"minmax(0,1fr) minmax(0,1fr)",alignItems:"stretch"}}>
-          <img src="/images/team-founders.jpg" alt="HomeStar co-founders Eric Farr and Robb Rice in a finished basement bar in Zionsville, Indiana" loading="lazy" width="1400" height="1750" style={{width:"100%",height:"100%",objectFit:"cover",display:"block",minHeight:340,maxHeight:640}}/>
+          {/* Square source + a face-biased focal point. The cell's height is driven by the
+              text column beside it, so it can end up short and wide on large screens; anchoring
+              at 24% keeps both faces in frame instead of cropping heads off. */}
+          <img className="team-split-img" src="/images/team-founders.jpg" alt="HomeStar co-founders Eric Farr and Robb Rice in a finished basement bar in Zionsville, Indiana" loading="lazy" width="1400" height="1400" style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center 24%",display:"block",minHeight:400,maxHeight:660}}/>
           <div style={{padding:"clamp(40px,6vw,76px) clamp(26px,5vw,64px)",display:"flex",flexDirection:"column",justifyContent:"center"}}>
             <div className="lab" style={{marginBottom:12}}>Why HomeStar Exists</div>
             <h2 className="display" style={{color:"#fff",fontSize:"clamp(24px,3.4vw,34px)",lineHeight:1.15,margin:"0 0 20px"}}>Two friends, one standard</h2>
