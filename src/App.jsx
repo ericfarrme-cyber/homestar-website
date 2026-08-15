@@ -4304,10 +4304,10 @@ const TEAM = [
     photo:"/images/team-robb-rice.jpg",
     photoAlt:"Robb Rice, Co-Founder of HomeStar Services & Contracting, Fishers Indiana",
     authorSlug:"robb-rice",
-    focus:"Construction quality and residential real estate value",
+    focus:"Construction quality, industry partner relationships and real estate value",
     bio:"Robb is a lifelong Fishers native with over 25 years of roots in the community and co-owner of HomeStar Services & Contracting. Alongside Eric, he brings a hands-on, quality-first approach to every remodel. His experience in real estate runs deep — a licensed real estate agent and investor with nearly 10 years in the business, he has built a sharp eye for what makes a home both beautiful and valuable, from the studs up to the closing table.",
     personal:"A husband and proud father of two. He coaches his kids' sports teams, travels with his family, and is always up for trying a new restaurant around town. His commitment to the community shows up not just in the homes HomeStar transforms but in the relationships he has built here over two decades.",
-    knowsAbout:["residential construction quality","home resale value","real estate investment","remodeling craftsmanship","Fishers Indiana housing"],
+    knowsAbout:["residential construction quality","industry partner relationships","trade and supplier partnerships","home resale value","real estate investment","remodeling craftsmanship","Fishers Indiana housing"],
   },
   {
     name:"Kristina W.", slug:"kristina-w", role:"Director of Operations",
@@ -4327,7 +4327,7 @@ const TEAM = [
 
 const TEAM_FAQ = [
   {q:"Who owns HomeStar Services & Contracting?",
-   a:"HomeStar Services & Contracting is co-owned by Eric Farr and Robb Rice, friends of more than 20 years who founded the company together. Eric leads estimating, business planning and client relationships. Robb, a lifelong Fishers native and licensed real estate agent, focuses on construction quality, the overall client experience, and the real estate perspective he brings from nearly 10 years as an agent and investor. Both are based in Fishers, Indiana."},
+   a:"HomeStar Services & Contracting is co-owned by Eric Farr and Robb Rice, friends of more than 20 years who founded the company together. Eric leads estimating, business planning and client relationships. Robb, a lifelong Fishers native and licensed real estate agent, focuses on construction quality, industry partner relationship development, and the real estate perspective he brings from nearly 10 years as an agent and investor. Both are based in Fishers, Indiana."},
   {q:"Who manages my remodel day to day?",
    a:"Kristina W., Director of Operations, coordinates schedules, jobsite operations and the trades once construction begins, and is a key point of contact for homeowners through the build. Summer S., Project Coordinator, works with clients, designers and vendors to carry the project from initial concept through completion. You are not handed off to a stranger — the same people stay with your project start to finish."},
   {q:"What certifications and credentials does the HomeStar team hold?",
@@ -4503,7 +4503,7 @@ function TeamPage(){
         <div style={{maxWidth:820,margin:"0 auto"}}>
           <div style={{background:C.cream,border:`1px solid ${C.sand}`,borderRadius:18,padding:"clamp(26px,4vw,36px)"}}>
             <div className="lab" style={{marginBottom:12}}>Quick Answer</div>
-            <p style={{color:C.navy,fontSize:"clamp(15.5px,1.8vw,17px)",lineHeight:1.8,margin:0,fontWeight:500}}>HomeStar Services &amp; Contracting is co-owned by <strong>Eric Farr</strong> and <strong>Robb Rice</strong>, friends of more than 20 years, and based in Fishers, Indiana. Eric leads estimating, business planning and client relationships; Robb focuses on construction quality, the overall client experience, and the real estate perspective he brings from nearly 10 years as a licensed agent and investor. <strong>Kristina W.</strong>, Director of Operations, previously owned her own remodeling business and runs jobsite operations and trade coordination. <strong>Summer S.</strong>, Project Coordinator, brings nearly 10 years in residential design and carries projects from concept through completion. The company is Schluter Pro Certified, licensed and insured, BBB accredited, and has completed 100+ projects across Hamilton County, Indiana.</p>
+            <p style={{color:C.navy,fontSize:"clamp(15.5px,1.8vw,17px)",lineHeight:1.8,margin:0,fontWeight:500}}>HomeStar Services &amp; Contracting is co-owned by <strong>Eric Farr</strong> and <strong>Robb Rice</strong>, friends of more than 20 years, and based in Fishers, Indiana. Eric leads estimating, business planning and client relationships; Robb focuses on construction quality, industry partner relationship development, and the real estate perspective he brings from nearly 10 years as a licensed agent and investor. <strong>Kristina W.</strong>, Director of Operations, previously owned her own remodeling business and runs jobsite operations and trade coordination. <strong>Summer S.</strong>, Project Coordinator, brings nearly 10 years in residential design and carries projects from concept through completion. The company is Schluter Pro Certified, licensed and insured, BBB accredited, and has completed 100+ projects across Hamilton County, Indiana.</p>
           </div>
         </div>
       </section>
