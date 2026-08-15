@@ -96,3 +96,58 @@ similar) as a profile category now that we have a kitchen project to justify it.
   substitutes for it.
 - **"About Us" bio still needs the review count corrected** — it reads "62+ reviews"; actual is 78+.
 - **Project Year blank** on the six projects uploaded 2026-08-05.
+
+---
+
+# ✅ COMPLETED 2026-08-15 — both projects uploaded and verified
+
+Eric signed into Houzz; both projects were created, populated and verified by re-fetching the saved
+record, not assumed from a click.
+
+| Project | Houzz ID | Photos | Description | Style | Keywords | Deep link |
+|---|---|---|---|---|---|---|
+| Basement Bar, Wine Room & Lounge — Zionsville, IN | **7896965** | 10 ✅ | 999 chars ✅ | Transitional | 11 ✅ | ✅ |
+| Kitchen & Main-Level Renovation — Zionsville, IN | **7896971** | 8 ✅ | 979 chars ✅ | Transitional | 10 ✅ | ✅ |
+
+Public profile now reads **26 Projects**, with both new projects at the top of the list.
+Year and Cost deliberately left blank on both — no verified completion year, no published figure.
+
+**HomeStar now has a kitchen project on Houzz for the first time.**
+
+## Things learned doing this — read before the next Houzz upload
+
+1. **The photo uploader is Dropzone.js, and `file_upload` alone does NOT work.** The visible
+   `input[type=file][name=Filedata]` is a legacy `.flash fallback` element that the page ignores.
+   Setting files on it does nothing, and dispatching a synthetic `drop` with a hand-built
+   `DataTransfer` also fails — Chrome ignores `dataTransfer` passed to the `DragEvent` constructor.
+   **What works:** load the files onto the fallback input with `file_upload` (it accepts multiple
+   paths even though the input reports `multiple:false`), then hand them to Dropzone directly:
+   ```js
+   const files=[...document.querySelector('input[type=file]').files];
+   Dropzone.forElement('#hz-dropzone').files.length; // instance exists, maxFiles 100
+   files.forEach(f=>Dropzone.forElement('#hz-dropzone').addFile(f));
+   ```
+2. **"Link to Website" is PRE-FILLED** with `http://www.thehomestarservice.com`. It looks like grey
+   placeholder text but it is a real value. Clicking and typing APPENDS, producing a mangled URL like
+   `http://www.thehomestarservice.comhttps://www.thehomestarservice.com/projects/...`. Always
+   select-all + Delete first. Caught on project 1 and fixed before submitting.
+3. **Typing into Keywords silently failed once.** On project 2 the first attempt produced an empty
+   field; a screenshot caught it and a re-type worked. Do not trust the type action's own success
+   message — look at the chips.
+4. **Project Address does not populate the hidden `city`/`zip` fields.** Selecting a Google
+   autocomplete suggestion left `city=Fishers, zip=46037` (the business defaults) in hidden inputs
+   inside the same submit form, which would have tagged a Zionsville project as Fishers. Checking the
+   Aug-5 uploads showed they were created with the address field **blank** and display correctly,
+   because the city comes from the project NAME. **Leave Project Address blank and put the city in the
+   project name** — that is the proven-safe pattern.
+5. Creating a project is a two-stage flow: the upload form creates the project and lands on a
+   per-photo metadata editor (Close → Done), and only then does the real project ID appear in the URL.
+   The **description is not on the create form at all** — set it afterwards at
+   `/organizeCollection/type=proj/id={ID}/action=edit`, then Save.
+
+## ⚠️ Count discrepancy worth reconciling next run
+Website has **25** projects; Houzz now has **26**. Before today it was 23 vs 24. So Houzz has carried
+one project the website does not have since at least the August round — the 2026-08-05 doc recorded
+"24 vs 24" and appears to have miscounted the website side. Not urgent and nothing is broken, but a
+future run should identify which Houzz project has no website counterpart and decide whether to build
+the page or retire the listing.

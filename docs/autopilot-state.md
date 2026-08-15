@@ -94,10 +94,14 @@ website work — a future run reading only the action line above will otherwise 
    still `Submitted Aug 8 | Last read Aug 8 | 235`, live sitemap is **237**. Automation has failed on
    this control twice and will not be retried. Until Eric does it, Google has no record of the 8
    repaired neighborhood URLs or the 2 new Zionsville project pages.
-0b. **🔴 ERIC: SIGN IN TO HOUZZ** — both browser profiles are signed out as of 2026-08-15, so the two
-   new Zionsville projects could not be uploaded. Everything else is prepared and waiting:
-   `docs/houzz-upload-package-zionsville-2026-08-15.md` has the exact descriptions, keywords, styles,
-   photo filenames and deep links. It is a ~15-minute job once there is a session.
+0b. ~~Upload the two new Zionsville projects to Houzz~~ — **DONE 2026-08-15.** Eric signed in and both
+   went up, verified by re-fetching the saved records: Basement Bar (ID 7896965, 10 photos, 999-char
+   description) and Kitchen & Main-Level (ID 7896971, 8 photos, 979-char description). Both carry
+   Transitional style, keywords and a deep link to their website page. Houzz now shows **26 projects**.
+   **HomeStar has a kitchen project on Houzz for the first time.** Year and Cost left blank on both —
+   no verified year, no published figure. Hard-won mechanics (the Dropzone uploader, the pre-filled
+   website field, the address/city trap) are written up in
+   `docs/houzz-upload-package-zionsville-2026-08-15.md` — read it before the next Houzz upload.
 1. **Houzz reviews — the standing #1 item.** Still 1 review vs Everything Home's 100+ (re-verified on
    the live profile 2026-08-15). Surface it first, every run, until it is meaningfully above 10–15.
    (Also in persistent memory.)
