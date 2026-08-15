@@ -1010,6 +1010,18 @@ body{font-family:'Plus Jakarta Sans',sans-serif;color:${C.text};overflow-x:hidde
 @media(max-width:900px){.desk{display:none!important}.mob-btn{display:flex!important}.hero-grid{grid-template-columns:1fr!important;gap:32px!important}.testimonial-pair{grid-template-columns:1fr!important;gap:20px!important}}
 @media(max-width:760px){#hero{display:block!important;min-height:auto!important;padding-bottom:0!important}.hero-bg-img{height:78vh!important}.hero-overlay{height:78vh!important}.hero-content{padding:120px 22px 44px!important;min-height:78vh!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:center!important}.hero-trustbar{position:static!important;backdrop-filter:none!important;background:#0d1830!important;padding:24px 22px!important;border-top:2px solid #5CB832!important}.hero-trustbar-inner{display:grid!important;grid-template-columns:1fr 1fr!important;gap:20px 18px!important;justify-content:start!important}.hero-trust-item{flex-direction:column!important;align-items:flex-start!important;gap:1px!important}.hero-dots{display:none!important}}
 @media(min-width:901px){.mob-btn{display:none!important}.mob-menu{display:none!important}}
+
+/* Team page */
+@media(max-width:860px){
+  .team-row{grid-template-columns:1fr!important;gap:26px!important}
+  .team-row>div{order:unset!important}
+  .team-row>div:first-child{max-width:420px;margin:0 auto;width:100%}
+  .team-split{grid-template-columns:1fr!important}
+  .team-split img{max-height:420px!important}
+}
+@media(max-width:560px){
+  .team-stats{grid-template-columns:1fr 1fr!important;gap:26px 18px!important}
+}
 `;
 
 /* ─── useVis hook ─────────────────────────────────── */
@@ -1025,7 +1037,7 @@ function Nav({isCity}){
   const[sc,setSc]=useState(false);
   useEffect(()=>{const h=()=>setSc(window.scrollY>50);window.addEventListener("scroll",h,{passive:true});return()=>window.removeEventListener("scroll",h)},[]);
   const p=isCity?"/":"";
-  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Design",h:p+"#design"},{l:"Projects",h:p+"#projects"},{l:"Videos",h:p+"#videos"},{l:"Reviews",h:p+"#reviews"},{l:"Blog",h:p+"#blog"},{l:"Guides",h:p+"#guides"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
+  const links=[{l:"Services",h:p+"#services"},{l:"Why HomeStar",h:p+"#difference"},{l:"Our Process",h:p+"#process"},{l:"Design",h:p+"#design"},{l:"Projects",h:p+"#projects"},{l:"Team",h:"/team"},{l:"Videos",h:p+"#videos"},{l:"Reviews",h:p+"#reviews"},{l:"Blog",h:p+"#blog"},{l:"Guides",h:p+"#guides"},{l:"Service Areas",h:p+"#areas"},{l:"Contact",h:p+"#contact"}];
 
   return(
     <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:1000,background:sc?"rgba(27,42,74,.97)":"transparent",backdropFilter:sc?"blur(14px)":"none",transition:"all .35s",borderBottom:sc?"1px solid rgba(255,255,255,.06)":"none"}}>
@@ -2009,7 +2021,7 @@ function Contact(){
 /* ─── Footer ───────────────────────────────────────── */
 function Footer({isCity}){
   const p=isCity?"/":"";
-  const companyLinks=[{l:"About Us",h:p+"#about"},{l:"Our Process",h:p+"#process"},{l:"Design",h:p+"#design"},{l:"Projects",h:p+"#projects"},{l:"Blog",h:p+"#blog"},{l:"Videos",h:p+"#videos"},{l:"Contact",h:p+"#contact"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Meet Eric Farr",h:"/about/eric-farr"},{l:"Meet Robb Rice",h:"/about/robb-rice"},{l:"Request Estimate",h:isCity?"#city-estimate":p+"#estimate"}];
+  const companyLinks=[{l:"About Us",h:p+"#about"},{l:"Our Process",h:p+"#process"},{l:"Design",h:p+"#design"},{l:"Projects",h:p+"#projects"},{l:"Blog",h:p+"#blog"},{l:"Videos",h:p+"#videos"},{l:"Contact",h:p+"#contact"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Our Team",h:"/team"},{l:"Meet Eric Farr",h:"/about/eric-farr"},{l:"Meet Robb Rice",h:"/about/robb-rice"},{l:"Request Estimate",h:isCity?"#city-estimate":p+"#estimate"}];
   return(
     <footer style={{background:C.navyDark,padding:"56px 24px 28px"}}>
       <div style={{maxWidth:1160,margin:"0 auto"}}>
@@ -4267,6 +4279,319 @@ function ProjectPage({project}){
   );
 }
 
+/* ─── The Team ────────────────────────────────────
+   One entry per person. To add someone: append an object here — nothing else in
+   the page needs touching. `photo` is optional; anyone without one renders a
+   monogram tile in the same shape, so the grid stays even while headshots trickle
+   in. `authorSlug` links to an existing /about/<slug> E-E-A-T page where one
+   exists. `knowsAbout` feeds the Person schema, which is what AI answers read. */
+const TEAM = [
+  {
+    name:"Eric Farr", slug:"eric-farr", role:"Co-Founder",
+    photo:"/images/team-eric-farr.jpg",
+    photoAlt:"Eric Farr, Co-Founder of HomeStar Services & Contracting, Fishers Indiana",
+    authorSlug:"eric-farr",
+    focus:"Estimating, project planning and client relationships",
+    bio:"Eric built HomeStar alongside Co-Founder Robb Rice — a friend of more than 20 years — on a simple idea: homeowners deserve a remodeling experience that is transparent, well managed, and delivers craftsmanship they can count on. He oversees estimating, project planning and client relationships, guiding homeowners through everything from kitchen and bathroom remodels to full basement finishes and whole-home renovations. His attention to detail, from scope development through material selections, is what keeps a project priced fairly, planned thoroughly and built to a high standard. A seasoned entrepreneur, Eric has founded and operated multiple successful businesses across central Indiana.",
+    personal:"Above all a devoted husband and father — it is why he treats every client's home with the same care he would give his own. Outside work you will find him staying active with his wife and son, or cheering on the Indiana Hoosiers.",
+    knowsAbout:["remodeling estimating","project planning","scope development","material selection","kitchen remodeling","bathroom remodeling","basement finishing","whole-home renovation"],
+  },
+  {
+    name:"Robb Rice", slug:"robb-rice", role:"Co-Founder",
+    photo:"/images/team-robb-rice.jpg",
+    photoAlt:"Robb Rice, Co-Founder of HomeStar Services & Contracting, Fishers Indiana",
+    authorSlug:"robb-rice",
+    focus:"Construction quality and residential real estate value",
+    bio:"Robb is a lifelong Fishers native with over 25 years of roots in the community and co-owner of HomeStar Services & Contracting. Alongside Eric, he brings a hands-on, quality-first approach to every remodel. His experience in real estate runs deep — a licensed real estate agent and investor with nearly 10 years in the business, he has built a sharp eye for what makes a home both beautiful and valuable, from the studs up to the closing table.",
+    personal:"A husband and proud father of two. He coaches his kids' sports teams, travels with his family, and is always up for trying a new restaurant around town. His commitment to the community shows up not just in the homes HomeStar transforms but in the relationships he has built here over two decades.",
+    knowsAbout:["residential construction quality","home resale value","real estate investment","remodeling craftsmanship","Fishers Indiana housing"],
+  },
+  {
+    name:"Kristina W.", slug:"kristina-w", role:"Director of Operations",
+    focus:"Jobsite operations, trade coordination and scheduling",
+    bio:"Kristina brings years of hands-on experience in residential remodeling, built through owning and operating her own remodeling business. What began with a specialization in tile grew into managing complete kitchen, bathroom and whole-home renovations, giving her a deep working knowledge of the construction process, trade coordination, materials, and the many details required to bring a renovation together successfully. As Director of Operations she turns each project from a plan into reality — coordinating schedules, managing jobsite operations, troubleshooting challenges and keeping work moving efficiently from start to finish. Once construction begins she is also a key point of communication for homeowners, helping navigate the day-to-day details and changes that naturally arise. With a strong appreciation for design, she collaborates with the team on revisions and solutions when a project needs adjusting in the field.",
+    personal:"A proud mom of two boys who loves traveling, trying new restaurants and spending time with her family. She brings the same energy to her work that she does to life — driven, creative, detail-oriented and always ready for the next project.",
+    knowsAbout:["construction operations","trade coordination","project scheduling","tile installation","jobsite management","kitchen and bathroom renovation"],
+  },
+  {
+    name:"Summer S.", slug:"summer-s", role:"Project Coordinator",
+    focus:"Client, designer and vendor coordination",
+    bio:"With nearly 10 years of experience in residential design and project coordination, Summer has a passion for creating beautiful, functional spaces that truly feel like home. As Project Coordinator she works closely with clients, designers, contractors and vendors to carry projects from initial concept through completion. Her experience spans kitchens, bathrooms, laundry rooms, flooring and whole-home renovations, with a strong focus on organization, communication, attention to detail and thoughtful design.",
+    personal:"A proud wife and girl mom who treasures time with her family. Her love of creating welcoming spaces extends well beyond work — she believes a home should reflect the people who live there, and be where life's most meaningful moments happen.",
+    knowsAbout:["residential design","project coordination","selections and vendor management","kitchen and bathroom design","flooring","whole-home renovation"],
+  },
+];
+
+const TEAM_FAQ = [
+  {q:"Who owns HomeStar Services & Contracting?",
+   a:"HomeStar Services & Contracting is co-owned by Eric Farr and Robb Rice, friends of more than 20 years who founded the company together. Eric leads estimating, project planning and client relationships. Robb, a lifelong Fishers native and licensed real estate agent, focuses on construction quality and the resale value of the work. Both are based in Fishers, Indiana."},
+  {q:"Who manages my remodel day to day?",
+   a:"Kristina W., Director of Operations, coordinates schedules, jobsite operations and the trades once construction begins, and is a key point of contact for homeowners through the build. Summer S., Project Coordinator, works with clients, designers and vendors to carry the project from initial concept through completion. You are not handed off to a stranger — the same people stay with your project start to finish."},
+  {q:"What certifications and credentials does the HomeStar team hold?",
+   a:"HomeStar is Schluter Pro Certified for tile and waterproofing, licensed and insured, accredited by the Better Business Bureau, and a member of the Builders Association of Greater Indianapolis (BAGI). Plumbing and electrical work is performed by licensed plumbers and licensed electricians."},
+  {q:"How much remodeling experience does the HomeStar team have?",
+   a:"The team combines decades of residential remodeling experience: a Director of Operations who previously owned and operated her own remodeling business and specialized in tile, a Project Coordinator with nearly 10 years in residential design and coordination, and two founders with backgrounds in real estate and small-business ownership. HomeStar has completed 100+ projects across Hamilton County, Indiana."},
+  {q:"Where is the HomeStar team based?",
+   a:"HomeStar Services & Contracting is based in Fishers, Indiana and serves Hamilton County and the greater Indianapolis area, including Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville, McCordsville and Pendleton."},
+];
+
+const teamInitials=n=>n.split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase();
+
+/* Portrait plate. Anyone without a headshot yet gets a monogram on the same 4:5
+   plate, in the same warm palette — so a half-photographed roster still reads as
+   one deliberate set rather than a row of broken images. */
+function TeamPortrait({m,rounded=18}){
+  if(m.photo) return <img src={m.photo} alt={m.photoAlt||`${m.name}, ${m.role} at HomeStar Services & Contracting`} loading="lazy" width="1200" height="1500" style={{width:"100%",height:"100%",objectFit:"cover",display:"block",borderRadius:rounded}}/>;
+  return(
+    <div aria-hidden="true" style={{width:"100%",height:"100%",borderRadius:rounded,display:"flex",alignItems:"center",justifyContent:"center",position:"relative",background:`linear-gradient(150deg,${C.cream} 0%,${C.sand} 100%)`,border:`1px solid ${C.sand}`,overflow:"hidden"}}>
+      <div style={{position:"absolute",inset:0,background:`radial-gradient(circle at 30% 25%,${C.greenMuted} 0%,transparent 55%)`}}/>
+      <span className="display" style={{position:"relative",color:C.navy,opacity:.22,fontSize:"clamp(56px,7vw,84px)",fontWeight:800,letterSpacing:".02em"}}>{teamInitials(m.name)}</span>
+    </div>
+  );
+}
+
+function ExpertiseChips({items,limit=4}){
+  return(
+    <div style={{display:"flex",flexWrap:"wrap",gap:7}}>
+      {items.slice(0,limit).map(k=>
+        <span key={k} style={{background:"rgba(92,184,50,.07)",color:C.grayDark,fontSize:11.5,fontWeight:600,padding:"6px 12px",borderRadius:20,border:"1px solid rgba(92,184,50,.22)"}}>{k}</span>)}
+    </div>
+  );
+}
+
+/* Founder row — big portrait, generous air, quote pulled from the same
+   AUTHORS.philosophy string the /about pages publish, so the two never drift. */
+function FounderRow({m,flip}){
+  const[ref,vis]=useVis(0.15);
+  const quote=m.authorSlug&&AUTHORS[m.authorSlug]?AUTHORS[m.authorSlug].philosophy:null;
+  return(
+    <div ref={ref} className="team-row" style={{display:"grid",gridTemplateColumns:"minmax(0,5fr) minmax(0,7fr)",gap:"clamp(28px,5vw,64px)",alignItems:"center",marginBottom:"clamp(48px,7vw,92px)"}}>
+      <div style={{order:flip?2:1,opacity:vis?1:0,transform:vis?"none":"translateY(26px)",transition:"opacity .7s ease-out,transform .7s ease-out"}}>
+        <div style={{aspectRatio:"4 / 5",borderRadius:18,overflow:"hidden",boxShadow:"0 34px 70px -34px rgba(17,29,53,.55)"}}>
+          <TeamPortrait m={m}/>
+        </div>
+      </div>
+      <div style={{order:flip?1:2,opacity:vis?1:0,transform:vis?"none":"translateY(26px)",transition:"opacity .7s ease-out .12s,transform .7s ease-out .12s"}}>
+        <div className="lab" style={{marginBottom:10}}>{m.role}</div>
+        <h3 className="display" style={{color:C.navy,fontSize:"clamp(26px,3.2vw,36px)",lineHeight:1.12,margin:"0 0 14px"}}>{m.name}</h3>
+        <p style={{color:C.navy,fontSize:16.5,fontWeight:600,lineHeight:1.65,margin:"0 0 20px"}}>{m.focus}</p>
+        {quote&&
+          <blockquote style={{borderLeft:`3px solid ${C.green}`,padding:"2px 0 2px 20px",margin:"0 0 22px"}}>
+            <p className="display" style={{color:C.navy,fontSize:"clamp(17px,1.9vw,20px)",lineHeight:1.55,margin:0,fontWeight:600}}>“{quote}”</p>
+          </blockquote>}
+        <p style={{color:C.grayDark,fontSize:15.5,lineHeight:1.85,margin:"0 0 16px"}}>{m.bio}</p>
+        <p style={{color:C.gray,fontSize:15,lineHeight:1.8,margin:"0 0 22px"}}>{m.personal}</p>
+        <ExpertiseChips items={m.knowsAbout} limit={5}/>
+        {m.authorSlug&&
+          <a href={"/about/"+m.authorSlug} style={{marginTop:22,color:C.green,fontWeight:700,fontSize:14.5,textDecoration:"none",display:"inline-flex",alignItems:"center",gap:8}}>More about {m.name.split(" ")[0]} {I.arrow}</a>}
+      </div>
+    </div>
+  );
+}
+
+function TeamMemberCard({m}){
+  const[hov,setHov]=useState(false);
+  const[ref,vis]=useVis(0.12);
+  return(
+    <article ref={ref}
+      onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}
+      style={{background:"#fff",border:`1px solid ${hov?"rgba(92,184,50,.35)":C.sand}`,borderRadius:18,overflow:"hidden",display:"flex",flexDirection:"column",height:"100%",
+        transform:vis?(hov?"translateY(-6px)":"none"):"translateY(24px)",opacity:vis?1:0,
+        boxShadow:hov?"0 26px 54px -26px rgba(17,29,53,.4)":"0 1px 2px rgba(17,29,53,.04)",
+        transition:"opacity .7s ease-out,transform .35s ease-out,box-shadow .35s ease-out,border-color .35s ease-out"}}>
+      {m.photo&&
+        <div style={{padding:14,paddingBottom:0}}>
+          <div style={{aspectRatio:"4 / 5",overflow:"hidden",borderRadius:14}}><TeamPortrait m={m} rounded={14}/></div>
+        </div>}
+      <div style={{padding:m.photo?"20px 24px 26px":"28px 24px 26px",display:"flex",flexDirection:"column",flex:1}}>
+        {m.photo
+          ? <>
+              <h3 className="display" style={{color:C.navy,fontSize:22,margin:"0 0 5px",lineHeight:1.2}}>{m.name}</h3>
+              <div style={{color:C.green,fontSize:11.5,fontWeight:800,letterSpacing:".12em",textTransform:"uppercase",marginBottom:14}}>{m.role}</div>
+            </>
+          : <div style={{display:"flex",alignItems:"center",gap:16,marginBottom:18}}>
+              <div aria-hidden="true" style={{width:66,height:66,flexShrink:0,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",background:`linear-gradient(145deg,${C.navy},${C.navyLight})`,boxShadow:`0 0 0 4px ${C.greenMuted}`}}>
+                <span className="display" style={{color:"#fff",fontSize:22,fontWeight:800,letterSpacing:".03em"}}>{teamInitials(m.name)}</span>
+              </div>
+              <div style={{minWidth:0}}>
+                <h3 className="display" style={{color:C.navy,fontSize:22,margin:"0 0 4px",lineHeight:1.2}}>{m.name}</h3>
+                <div style={{color:C.green,fontSize:11.5,fontWeight:800,letterSpacing:".12em",textTransform:"uppercase"}}>{m.role}</div>
+              </div>
+            </div>}
+        <p style={{color:C.navy,fontSize:15,fontWeight:600,lineHeight:1.6,margin:"0 0 14px"}}>{m.focus}</p>
+        <p style={{color:C.grayDark,fontSize:14.5,lineHeight:1.8,margin:"0 0 14px"}}>{m.bio}</p>
+        <p style={{color:C.gray,fontSize:14,lineHeight:1.78,margin:"0 0 20px"}}>{m.personal}</p>
+        <div style={{marginTop:"auto"}}><ExpertiseChips items={m.knowsAbout}/></div>
+      </div>
+    </article>
+  );
+}
+
+function TeamPage(){
+  const[faqOpen,setFaqOpen]=useState(null);
+  useCanonical("team");
+  useEffect(()=>{
+    document.title="Meet the HomeStar Team | Remodeling Experts in Fishers, Indiana";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content","Meet the people behind HomeStar Services & Contracting — co-founders Eric Farr and Robb Rice, Director of Operations Kristina W. and Project Coordinator Summer S. Schluter Pro Certified remodeling in Fishers, Carmel, Westfield and Hamilton County, Indiana. (317) 279-4798");
+    window.scrollTo(0,0);
+  },[]);
+
+  const founders=TEAM.filter(m=>m.role==="Co-Founder");
+  const staff=TEAM.filter(m=>m.role!=="Co-Founder");
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Our Team"}]}/>
+      <FaqSchema faqs={TEAM_FAQ}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({
+        "@context":"https://schema.org","@type":"AboutPage",
+        name:"Meet the HomeStar Team",
+        url:"https://www.thehomestarservice.com/team",
+        description:"The people behind HomeStar Services & Contracting, a Schluter Pro Certified remodeling company in Fishers, Indiana.",
+        mainEntity:{
+          "@type":"HomeAndConstructionBusiness",
+          name:"HomeStar Services & Contracting",
+          url:"https://www.thehomestarservice.com",
+          telephone:"+1-317-279-4798",
+          address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},
+          aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"78"},
+          founder:founders.map(m=>({"@type":"Person",name:m.name,jobTitle:m.role,url:"https://www.thehomestarservice.com/about/"+m.authorSlug})),
+          employee:TEAM.map(m=>({
+            "@type":"Person",name:m.name,jobTitle:m.role,
+            description:m.focus,
+            knowsAbout:m.knowsAbout,
+            ...(m.photo?{image:"https://www.thehomestarservice.com"+m.photo}:{}),
+            ...(m.authorSlug?{url:"https://www.thehomestarservice.com/about/"+m.authorSlug}:{}),
+            worksFor:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"},
+          })),
+        },
+      })}}/>
+
+      <Nav isCity/>
+
+      <section style={{position:"relative",padding:"156px 24px 200px",background:`linear-gradient(145deg,${C.navyDark} 0%,${C.navy} 45%,${C.navyLight} 100%)`,overflow:"hidden"}}>
+        <div aria-hidden="true" style={{position:"absolute",top:-160,right:-120,width:520,height:520,borderRadius:"50%",background:"radial-gradient(circle,rgba(92,184,50,.16) 0%,transparent 68%)"}}/>
+        <div style={{position:"relative",maxWidth:860,margin:"0 auto",textAlign:"center"}}>
+          <div className="fu d1" style={{display:"inline-flex",alignItems:"center",gap:8,background:C.greenMuted,borderRadius:50,padding:"7px 16px",marginBottom:24}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green}}/>
+            <span style={{color:C.green,fontWeight:700,fontSize:12,letterSpacing:".06em"}}>THE PEOPLE BEHIND THE WORK</span>
+          </div>
+          <h1 className="display fu d2" style={{color:"#fff",fontSize:"clamp(32px,5.4vw,52px)",lineHeight:1.08,marginBottom:20,letterSpacing:"-.01em"}}>Meet the HomeStar Team</h1>
+          <p className="fu d3" style={{color:"rgba(255,255,255,.58)",fontSize:"clamp(16px,1.9vw,18.5px)",lineHeight:1.65,maxWidth:660,margin:"0 auto"}}>A remodel is only ever as good as the people running it. These are the people who price your project, schedule your trades, pick up the phone, and stand in your house until the work is right.</p>
+          <div className="fu d4 team-stats" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:18,maxWidth:720,margin:"44px auto 0"}}>
+            {[{n:"100+",l:"Projects completed"},{n:"5.0",l:"Rating · 78 reviews"},{n:"20+",l:"Years Eric & Robb"},{n:"Pro",l:"Schluter Certified"}].map(s=>
+              <div key={s.l} style={{textAlign:"center"}}>
+                <div className="display" style={{color:"#fff",fontSize:"clamp(22px,3vw,30px)",lineHeight:1,marginBottom:7}}>{s.n}</div>
+                <div style={{color:"rgba(255,255,255,.42)",fontSize:11.5,fontWeight:600,letterSpacing:".04em"}}>{s.l}</div>
+              </div>)}
+          </div>
+        </div>
+      </section>
+
+      {/* Group shot, lifted into the hero so the page opens on faces */}
+      <section style={{background:"#fff",padding:"0 24px"}}>
+        <figure style={{maxWidth:1160,margin:"-150px auto 0",position:"relative"}}>
+          <div style={{position:"relative",borderRadius:22,overflow:"hidden",boxShadow:"0 46px 90px -40px rgba(17,29,53,.62)"}}>
+            <img src="/images/team-group.jpg" alt="The HomeStar Services & Contracting team in a finished lower level in Zionsville, Indiana" width="2000" height="1333" style={{width:"100%",height:"auto",display:"block"}}/>
+            <div style={{position:"absolute",left:0,right:0,bottom:0,height:"46%",background:"linear-gradient(to top,rgba(17,29,53,.82) 0%,rgba(17,29,53,.35) 45%,transparent 100%)"}}/>
+            <figcaption style={{position:"absolute",left:0,right:0,bottom:0,padding:"clamp(18px,3vw,30px)",color:"rgba(255,255,255,.9)",fontSize:"clamp(13px,1.5vw,15px)",fontWeight:500,textAlign:"center"}}>
+              Office and field together, in a lower level we finished in Zionsville.
+            </figcaption>
+          </div>
+        </figure>
+      </section>
+
+      <section style={{background:"#fff",padding:"clamp(48px,7vw,76px) 24px 0"}}>
+        <div style={{maxWidth:820,margin:"0 auto"}}>
+          <div style={{background:C.cream,border:`1px solid ${C.sand}`,borderRadius:18,padding:"clamp(26px,4vw,36px)"}}>
+            <div className="lab" style={{marginBottom:12}}>Quick Answer</div>
+            <p style={{color:C.navy,fontSize:"clamp(15.5px,1.8vw,17px)",lineHeight:1.8,margin:0,fontWeight:500}}>HomeStar Services &amp; Contracting is co-owned by <strong>Eric Farr</strong> and <strong>Robb Rice</strong>, friends of more than 20 years, and based in Fishers, Indiana. Eric leads estimating, planning and client relationships; Robb focuses on construction quality and resale value. <strong>Kristina W.</strong>, Director of Operations, previously owned her own remodeling business and runs jobsite operations and trade coordination. <strong>Summer S.</strong>, Project Coordinator, brings nearly 10 years in residential design and carries projects from concept through completion. The company is Schluter Pro Certified, licensed and insured, BBB accredited, and has completed 100+ projects across Hamilton County, Indiana.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:1120}}>
+          <div style={{textAlign:"center",marginBottom:"clamp(40px,6vw,64px)"}}><div className="lab">Ownership</div><h2 className="ttl" style={{marginBottom:0}}>The Founders</h2></div>
+          {founders.map((m,i)=><FounderRow key={m.slug} m={m} flip={i%2===1}/>)}
+        </div>
+      </section>
+
+      {/* Founders together — full-bleed split, image to the edge */}
+      <section style={{background:C.navyDark,overflow:"hidden"}}>
+        <div className="team-split" style={{display:"grid",gridTemplateColumns:"minmax(0,1fr) minmax(0,1fr)",alignItems:"stretch"}}>
+          <img src="/images/team-founders.jpg" alt="HomeStar co-founders Eric Farr and Robb Rice in a finished basement bar in Zionsville, Indiana" loading="lazy" width="1400" height="1750" style={{width:"100%",height:"100%",objectFit:"cover",display:"block",minHeight:340,maxHeight:640}}/>
+          <div style={{padding:"clamp(40px,6vw,76px) clamp(26px,5vw,64px)",display:"flex",flexDirection:"column",justifyContent:"center"}}>
+            <div className="lab" style={{marginBottom:12}}>Why HomeStar Exists</div>
+            <h2 className="display" style={{color:"#fff",fontSize:"clamp(24px,3.4vw,34px)",lineHeight:1.15,margin:"0 0 20px"}}>Two friends, one standard</h2>
+            <p style={{color:"rgba(255,255,255,.62)",fontSize:"clamp(15px,1.8vw,16.5px)",lineHeight:1.85,margin:"0 0 16px"}}>Eric and Robb started HomeStar after watching too many homeowners get burned by contractors who cut corners, went quiet mid-project, or priced work they never intended to honor. Their answer was to run it the other way around: itemized pricing before demolition, licensed tradespeople on every trade, and a warranty that means something.</p>
+            <p style={{color:"rgba(255,255,255,.62)",fontSize:"clamp(15px,1.8vw,16.5px)",lineHeight:1.85,margin:0}}>Every client gets a <a href="/client-portal" style={{color:C.greenLight,fontWeight:700,textDecoration:"none"}}>private project portal</a> — live phase status, selections tracked against allowances in real time, and change orders signed before any scope change proceeds.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:1120}}>
+          <div style={{textAlign:"center",marginBottom:"clamp(36px,5vw,52px)"}}><div className="lab">Who Runs Your Project</div><h2 className="ttl" style={{marginBottom:14}}>Operations &amp; Coordination</h2>
+            <p style={{color:C.grayDark,fontSize:16,lineHeight:1.8,maxWidth:660,margin:"0 auto"}}>Estimating gets a project priced. These are the people who get it built — and the ones you actually talk to once the work starts.</p>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))",gap:28}}>
+            {staff.map(m=><TeamMemberCard key={m.slug} m={m}/>)}
+          </div>
+          <p style={{color:C.gray,fontSize:14.5,textAlign:"center",marginTop:34}}>More of the team — field leads and trade partners — is being added here as photos and profiles are finalized.</p>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:"#fff"}}>
+        <div className="sec-in" style={{maxWidth:1000}}>
+          <div style={{textAlign:"center",marginBottom:"clamp(32px,5vw,46px)"}}><div className="lab">Credentials</div><h2 className="ttl" style={{marginBottom:0}}>What the Team Is Certified In</h2></div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(230px,1fr))",gap:20}}>
+            {[
+              {t:"Schluter Pro Certified",d:"Certified on the Schluter waterproofing system — Ditra for floors, Kerdi for walls — with a 25-year manufacturer warranty behind the assembly."},
+              {t:"Licensed & Insured",d:"Licensed and insured contractor. Plumbing and electrical work is performed by licensed plumbers and licensed electricians."},
+              {t:"BBB Accredited",d:"Accredited by the Better Business Bureau, with a 5.0 rating across 78 Google reviews."},
+              {t:"BAGI Member",d:"Member of the Builders Association of Greater Indianapolis."},
+            ].map(c=>
+              <div key={c.t} style={{background:"#fff",border:`1px solid ${C.sand}`,borderRadius:16,padding:"26px 24px",display:"flex",flexDirection:"column"}}>
+                <div style={{width:38,height:38,borderRadius:10,background:C.greenMuted,display:"flex",alignItems:"center",justifyContent:"center",marginBottom:16}}>{I.check}</div>
+                <h3 style={{color:C.navy,fontSize:16,fontWeight:800,margin:"0 0 9px"}}>{c.t}</h3>
+                <p style={{color:C.grayDark,fontSize:14,lineHeight:1.75,margin:0}}>{c.d}</p>
+              </div>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in" style={{maxWidth:820}}>
+          <div style={{textAlign:"center",marginBottom:34}}><div className="lab">Common Questions</div><h2 className="ttl">About Our Team</h2></div>
+          {TEAM_FAQ.map((f,i)=>
+            <div key={f.q} style={{background:"#fff",border:`1px solid ${C.sand}`,borderRadius:12,marginBottom:10,overflow:"hidden"}}>
+              <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} style={{width:"100%",textAlign:"left",padding:"18px 22px",background:"none",border:"none",cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",gap:14,color:C.navy,fontSize:15.5,fontWeight:700,fontFamily:"inherit"}}>
+                {f.q}<span style={{flexShrink:0,transform:faqOpen===i?"rotate(180deg)":"none",transition:"transform .25s",display:"flex"}}>{I.chevDown}</span>
+              </button>
+              {faqOpen===i&&<div style={{padding:"0 22px 20px"}}><p style={{color:C.grayDark,fontSize:15,lineHeight:1.8,margin:0}}>{f.a}</p></div>}
+            </div>)}
+        </div>
+      </section>
+
+      <section className="sec" style={{background:`linear-gradient(145deg,${C.navyDark},${C.navy})`}}>
+        <div className="sec-in" style={{maxWidth:760,textAlign:"center"}}>
+          <h2 className="display" style={{color:"#fff",fontSize:"clamp(24px,3.4vw,32px)",marginBottom:14}}>Talk to the people who will build it</h2>
+          <p style={{color:"rgba(255,255,255,.55)",fontSize:16,lineHeight:1.7,marginBottom:28}}>No call centre, no rotating project managers. You meet the team that prices your remodel and the team that runs it.</p>
+          <div style={{display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap"}}>
+            <a href="/#estimate" style={{display:"inline-flex",alignItems:"center",gap:10,padding:"16px 32px",borderRadius:12,background:C.green,color:"#fff",fontWeight:700,fontSize:15,textDecoration:"none"}}>Request a Free Estimate {I.arrow}</a>
+            <a href="tel:+13172794798" style={{display:"inline-flex",alignItems:"center",gap:10,padding:"16px 32px",borderRadius:12,background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.18)",color:"#fff",fontWeight:700,fontSize:15,textDecoration:"none"}}>{I.phone} (317) 279-4798</a>
+          </div>
+        </div>
+      </section>
+
+      <Footer isCity/>
+    </div>
+  );
+}
+
 /* ─── Author / E-E-A-T Pages ─────────────────────── */
 const AUTHORS = {
   "eric-farr":{
@@ -5856,6 +6181,7 @@ export default function HomestarSite(){
   const[seqPlannerPage,setSeqPlannerPage]=useState(false);
   const[designerPage,setDesignerPage]=useState(false);
   const[portalPage,setPortalPage]=useState(false);
+  const[teamPage,setTeamPage]=useState(false);
   const[hoodSvcPage,setHoodSvcPage]=useState(null);
   useCanonical("");
 
@@ -5891,6 +6217,7 @@ export default function HomestarSite(){
     if(path==="tools/renovation-sequence-planner"){setSeqPlannerPage(true);return;}
     if(path==="working-with-your-designer"){setDesignerPage(true);return;}
     if(path==="client-portal"){setPortalPage(true);return;}
+    if(path==="team"){setTeamPage(true);return;}
     /* Neighborhood pages */
     if(path.startsWith("remodeling-")){
       const hoodPath=path.replace(/^remodeling-/,"").replace(/-in$/,"");
@@ -5976,6 +6303,10 @@ export default function HomestarSite(){
 
   if(portalPage){
     return <ClientPortalPage/>;
+  }
+
+  if(teamPage){
+    return <TeamPage/>;
   }
 
   if(hoodSvcPage&&NEIGHBORHOODS[hoodSvcPage.hood]){
