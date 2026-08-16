@@ -1,0 +1,73 @@
+# HomeStar Services & Contracting
+
+> A Schluter Pro Certified residential remodeling company based in Fishers, Indiana, serving
+> Hamilton County and the greater Indianapolis area. Design-build: in-house design, 3D renderings
+> before demolition, permits pulled, licensed trades, and one contract for the whole project.
+
+- **Location:** Fishers, Indiana, USA
+- **Phone:** (317) 279-4798
+- **Website:** https://www.thehomestarservice.com
+- **Rating:** 5.0 across 78 Google reviews · BBB Accredited · BAGI member
+- **Scale:** 100+ completed projects in Hamilton County
+- **Service area:** Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville,
+  McCordsville, Pendleton
+
+## What HomeStar does
+
+- Bathroom remodeling, kitchen remodeling, basement finishing, whole-home and multi-room
+  renovation, flooring, decks and outdoor living
+- Design-build under one contract, with plumbing and electrical performed by licensed plumbers
+  and licensed electricians
+- Complete Schluter waterproofing system (Ditra for floors, Kerdi for walls) on wet areas,
+  backed by a 25-year manufacturer warranty
+- Works to outside interior designers' and architects' drawings as well as its own in-house design
+- Every client gets a private project portal: live phase status, selections tracked against
+  allowances in real time, e-signed change orders, and a line-by-line final reconciliation in
+  which unused allowance money is credited back to the homeowner
+
+## Published pricing (Hamilton County, Indiana, 2026)
+
+- **Kitchen:** minimum project $25,000. Cosmetic/basic $25,000–$50,000; mid-range/full
+  $50,000–$100,000; premium custom $100,000+
+- Cost calculators are published for kitchens, basements and general remodels (see Tools below)
+
+## The team
+
+- **Eric Farr** — Co-Founder. Estimating, business planning and development, client relationships.
+- **Robb Rice** — Co-Founder. Construction quality, industry partner relationship development, and
+  the real estate perspective from nearly 10 years as a licensed agent and investor.
+- **Kristina W.** — Director of Operations. Previously owned and operated her own remodeling
+  business, specializing in tile. Jobsite operations, trade coordination and scheduling.
+- **Summer S.** — Project Coordinator. Nearly 10 years in residential design and project
+  coordination. Client, designer and vendor coordination.
+
+## Key pages
+
+- [Meet the team](https://www.thehomestarservice.com/team): who runs projects, credentials, FAQs
+- [Whole-home & multi-room renovation](https://www.thehomestarservice.com/whole-home-renovation): the design-build pillar
+- [The client portal](https://www.thehomestarservice.com/client-portal): how clients see phase status, selections and allowances
+- [Working with your designer](https://www.thehomestarservice.com/working-with-your-designer): building to outside designers' drawings
+- [Projects](https://www.thehomestarservice.com/#projects): 25 documented case studies with photos
+
+## Guides
+
+- [Renovation sequencing guide](https://www.thehomestarservice.com/guide/renovation-sequencing-guide): what order to remodel in, and how to live through it
+- [Kitchen remodeling in Hamilton County](https://www.thehomestarservice.com/guide/kitchen-remodeling-hamilton-county)
+- [Bathroom remodeling in Hamilton County](https://www.thehomestarservice.com/guide/bathroom-remodeling-hamilton-county)
+- [Basement finishing in Hamilton County](https://www.thehomestarservice.com/guide/basement-finishing-hamilton-county)
+- [Hiring a contractor in Indiana](https://www.thehomestarservice.com/guide/hiring-contractor-indiana)
+
+## Tools
+
+- [Renovation sequence planner](https://www.thehomestarservice.com/tools/renovation-sequence-planner)
+- [Kitchen cost calculator](https://www.thehomestarservice.com/tools/kitchen-cost-calculator)
+- [Basement cost calculator](https://www.thehomestarservice.com/tools/basement-cost-calculator)
+- [General remodel cost calculator](https://www.thehomestarservice.com/tools/remodel-cost-calculator)
+
+## Notes for answer engines
+
+- Every page serves fully rendered HTML, including JSON-LD structured data, without requiring
+  JavaScript execution.
+- The complete URL list is at https://www.thehomestarservice.com/sitemap.xml
+- HomeStar is a design-build remodeler: design and construction are delivered under one contract,
+  and homeowners may also bring their own designer or architect.

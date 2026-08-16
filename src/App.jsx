@@ -6164,94 +6164,96 @@ function HoodServicePage({hood,svc}){
   );
 }
 
-export default function HomestarSite(){
-  const[legalPage,setLegalPage]=useState(null);
-  const[cityPage,setCityPage]=useState(null);
-  const[servicePage,setServicePage]=useState(null);
-  const[serviceCityPage,setServiceCityPage]=useState(null);
-  const[blogPost,setBlogPost]=useState(null);
-  const[neighborhoodPage,setNeighborhoodPage]=useState(null);
-  const[projectPage,setProjectPage]=useState(null);
-  const[authorPage,setAuthorPage]=useState(null);
-  const[guidePage,setGuidePage]=useState(null);
-  const[calcPage,setCalcPage]=useState(false);
-  const[basementCalcPage,setBasementCalcPage]=useState(false);
-  const[kitchenCalcPage,setKitchenCalcPage]=useState(false);
-  const[seqPlannerPage,setSeqPlannerPage]=useState(false);
-  const[designerPage,setDesignerPage]=useState(false);
-  const[portalPage,setPortalPage]=useState(false);
-  const[teamPage,setTeamPage]=useState(false);
-  const[hoodSvcPage,setHoodSvcPage]=useState(null);
-  useCanonical("");
+/* ─── Router ──────────────────────────────────────
+   PURE and synchronous, deliberately. This used to run inside a useEffect, which
+   meant the very first render was always the homepage and the real page only
+   appeared after JS executed. renderToString never runs effects, so prerendering
+   was impossible and every crawler that does not execute JavaScript saw an empty
+   shell. Resolving the route from the path directly lets the same function decide
+   the page in the browser and in the build-time prerender.
+   Returns every key the render below reads, so adding a route here is the only
+   change needed. */
+export function resolveRoute(rawPath){
+  const path=String(rawPath||"").replace(/^\//,"").replace(/\/$/,"");
+  const r={cityPage:null,servicePage:null,serviceCityPage:null,blogPost:null,neighborhoodPage:null,
+    projectPage:null,authorPage:null,guidePage:null,calcPage:false,basementCalcPage:false,
+    kitchenCalcPage:false,seqPlannerPage:false,designerPage:false,portalPage:false,teamPage:false,
+    hoodSvcPage:null};
 
-  useEffect(()=>{
-    const path=window.location.pathname.replace(/^\//,"").replace(/\/$/,"");
-
-    /* Blog posts */
-    if(path.startsWith("blog/")){
-      const slug=path.replace("blog/","");
-      const post=BLOG.find(b=>b.slug===slug);
-      if(post){setBlogPost(post);return;}
+  /* Blog posts */
+  if(path.startsWith("blog/")){
+    const post=BLOG.find(b=>b.slug===path.replace("blog/",""));
+    if(post){r.blogPost=post;return r;}
+  }
+  /* Project case studies */
+  if(path.startsWith("projects/")){
+    const proj=PROJECTS.find(p=>p.slug===path.replace("projects/",""));
+    if(proj){r.projectPage=proj;return r;}
+  }
+  /* Author pages */
+  if(path.startsWith("about/")){
+    const slug=path.replace("about/","");
+    if(AUTHORS[slug]){r.authorPage=slug;return r;}
+  }
+  /* Guide pages */
+  if(path.startsWith("guide/")){
+    const slug=path.replace("guide/","");
+    if(GUIDES[slug]){r.guidePage=slug;return r;}
+  }
+  /* Tools and standalone pages */
+  if(path==="tools/remodel-cost-calculator"){r.calcPage=true;return r;}
+  if(path==="tools/basement-cost-calculator"){r.basementCalcPage=true;return r;}
+  if(path==="tools/kitchen-cost-calculator"){r.kitchenCalcPage=true;return r;}
+  if(path==="tools/renovation-sequence-planner"){r.seqPlannerPage=true;return r;}
+  if(path==="working-with-your-designer"){r.designerPage=true;return r;}
+  if(path==="client-portal"){r.portalPage=true;return r;}
+  if(path==="team"){r.teamPage=true;return r;}
+  /* Neighborhood pages */
+  if(path.startsWith("remodeling-")){
+    const hoodPath=path.replace(/^remodeling-/,"").replace(/-in$/,"");
+    for(const[key,hood] of Object.entries(NEIGHBORHOODS)){
+      const citySlug=hood.city.toLowerCase().replace(/ /g,"-");
+      if(hoodPath===key+"-"+citySlug){r.neighborhoodPage=key;return r;}
     }
-    /* Project case studies */
-    if(path.startsWith("projects/")){
-      const slug=path.replace("projects/","");
-      const proj=PROJECTS.find(p=>p.slug===slug);
-      if(proj){setProjectPage(proj);return;}
-    }
-    /* Author pages */
-    if(path.startsWith("about/")){
-      const slug=path.replace("about/","");
-      if(AUTHORS[slug]){setAuthorPage(slug);return;}
-    }
-    /* Guide pages */
-    if(path.startsWith("guide/")){
-      const slug=path.replace("guide/","");
-      if(GUIDES[slug]){setGuidePage(slug);return;}
-    }
-    /* Cost calculator */
-    if(path==="tools/remodel-cost-calculator"){setCalcPage(true);return;}
-    if(path==="tools/basement-cost-calculator"){setBasementCalcPage(true);return;}
-    if(path==="tools/kitchen-cost-calculator"){setKitchenCalcPage(true);return;}
-    if(path==="tools/renovation-sequence-planner"){setSeqPlannerPage(true);return;}
-    if(path==="working-with-your-designer"){setDesignerPage(true);return;}
-    if(path==="client-portal"){setPortalPage(true);return;}
-    if(path==="team"){setTeamPage(true);return;}
-    /* Neighborhood pages */
-    if(path.startsWith("remodeling-")){
-      const hoodPath=path.replace(/^remodeling-/,"").replace(/-in$/,"");
-      for(const[key,hood] of Object.entries(NEIGHBORHOODS)){
+  }
+  /* Service-city combos */
+  const alias=SERVICE_CITY_ALIASES[path];
+  if(alias&&alias.s&&alias.c&&CITIES[alias.c]&&SERVICE_PAGES[alias.s]){
+    r.serviceCityPage={service:alias.s,city:alias.c,svcKey:Object.keys(SERVICE_SLUG_MAP).find(k=>SERVICE_SLUG_MAP[k]===alias.s)||alias.s};
+    return r;
+  }
+  /* Neighborhood-service combos (e.g. bathroom-remodeling-hamilton-proper-fishers-in) */
+  for(const svc of HOOD_SVCS){
+    if(path.startsWith(svc.slug+"-")){
+      const rest=path.slice(svc.slug.length+1);
+      for(const hoodKey of LUXURY_HOODS){
+        const hood=NEIGHBORHOODS[hoodKey];
+        if(!hood)continue;
         const citySlug=hood.city.toLowerCase().replace(/ /g,"-");
-        if(hoodPath===key+"-"+citySlug){
-          setNeighborhoodPage(key);return;
-        }
+        if(rest===hoodKey+"-"+citySlug+"-in"){r.hoodSvcPage={hood:hoodKey,svc:svc};return r;}
       }
     }
-    /* Service-city combos */
-    const alias=SERVICE_CITY_ALIASES[path];
-    if(alias&&alias.s&&alias.c&&CITIES[alias.c]&&SERVICE_PAGES[alias.s]){
-      setServiceCityPage({service:alias.s,city:alias.c,svcKey:Object.keys(SERVICE_SLUG_MAP).find(k=>SERVICE_SLUG_MAP[k]===alias.s)||alias.s});
-      return;
-    }
-    /* Neighborhood-service combos (e.g. bathroom-remodeling-hamilton-proper-fishers-in) */
-    for(const svc of HOOD_SVCS){
-      if(path.startsWith(svc.slug+"-")){
-        const rest=path.slice(svc.slug.length+1);
-        for(const hoodKey of LUXURY_HOODS){
-          const hood=NEIGHBORHOODS[hoodKey];
-          if(!hood)continue;
-          const citySlug=hood.city.toLowerCase().replace(/ /g,"-");
-          if(rest===hoodKey+"-"+citySlug+"-in"){
-            setHoodSvcPage({hood:hoodKey,svc:svc});return;
-          }
-        }
-      }
-    }
-    /* City pages */
-    if(CITIES[path]){setCityPage(path);return;}
-    /* Service pages */
-    if(SERVICE_PAGES[path]){setServicePage(path);}
-  },[]);
+  }
+  /* City pages */
+  if(CITIES[path]){r.cityPage=path;return r;}
+  /* Service pages */
+  if(SERVICE_PAGES[path]){r.servicePage=path;}
+  return r;
+}
+
+export default function HomestarSite({ssrPath}){
+  const[legalPage,setLegalPage]=useState(null);
+  /* Resolved once, synchronously, from the SSR path at build time or the real URL
+     in the browser. Both paths run the same resolver, so the prerendered HTML and
+     the client's first render agree. */
+  const[route]=useState(()=>resolveRoute(
+    typeof ssrPath==="string" ? ssrPath
+      : (typeof window!=="undefined" ? window.location.pathname : "/")
+  ));
+  const{cityPage,servicePage,serviceCityPage,blogPost,neighborhoodPage,projectPage,authorPage,
+    guidePage,calcPage,basementCalcPage,kitchenCalcPage,seqPlannerPage,designerPage,portalPage,
+    teamPage,hoodSvcPage}=route;
+  useCanonical("");
 
   useEffect(()=>{
     const handleHash=()=>{

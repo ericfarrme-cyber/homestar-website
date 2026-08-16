@@ -47,6 +47,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { build as esbuild } from 'esbuild';
+import { createElement } from 'react';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
@@ -81,6 +82,8 @@ if (/<link[^>]+rel=["']canonical["']/i.test(template)) {
    are merely defined. This is what keeps static and runtime metadata identical. */
 const tmp = join(root, 'node_modules', '.cache-seo-source.mjs');
 let SEO = null;
+let AppComponent = null;
+const prerenderErrors = [];
 try {
   await esbuild({
     entryPoints: [join(root, 'src', 'App.jsx')],
@@ -92,11 +95,53 @@ try {
     external: ['react', 'react-dom', 'react/jsx-runtime'],
     outfile: tmp, logLevel: 'silent',
   });
-  ({ SEO_SOURCE: SEO } = await import(pathToFileURL(tmp).href));
+  const mod = await import(pathToFileURL(tmp).href);
+  SEO = mod.SEO_SOURCE;
+  AppComponent = mod.default;
 } catch (err) {
   console.warn(`[route-heads] could not load SEO source (${err.message}). Falling back to canonical-only injection.`);
 } finally {
   try { rmSync(tmp, { force: true }); } catch {}
+}
+
+/* ── Body prerender (SSG) ─────────────────────────────────────────────────────
+   The head fix above told crawlers what each page IS. This tells them what each
+   page SAYS. Without it the served HTML is a ~4KB shell with an empty
+   <div id="root">, so anything that does not execute JavaScript — GPTBot,
+   ClaudeBot, PerplexityBot, CCBot, dataset builders — sees no body copy, no FAQ
+   answers and, critically, none of the JSON-LD, because every schema block on
+   this site is injected by React at runtime rather than sitting in the template.
+
+   This is only possible because resolveRoute() in App.jsx is now pure and
+   synchronous. renderToString never runs effects, so while routing lived in a
+   useEffect every route would have prerendered as the homepage.
+
+   The client still mounts with createRoot, not hydrateRoot. That is deliberate:
+   React discards the prerendered markup and re-renders, which costs a little work
+   on first paint but makes a hydration mismatch structurally impossible on a
+   6,000-line component tree. Crawlers read the static HTML; users get the same
+   app they had before. */
+let renderToString = null;
+try {
+  ({ renderToString } = await import('react-dom/server'));
+} catch (err) {
+  console.warn(`[route-heads] react-dom/server unavailable (${err.message}); shipping head-only HTML.`);
+}
+
+const ROOT_DIV = /<div id="root"><\/div>/;
+
+function prerenderBody(routePath) {
+  if (!renderToString || !AppComponent) return null;
+  try {
+    const markup = renderToString(createElement(AppComponent, { ssrPath: routePath }));
+    // A near-empty render means the route resolved to nothing useful; better to ship
+    // the shell than to bake in a wrong page.
+    if (!markup || markup.length < 2000) return null;
+    return markup;
+  } catch (err) {
+    prerenderErrors.push(`${routePath}: ${err.message}`);
+    return null;
+  }
 }
 
 /* ── Literal-title routes ─────────────────────────────────────────────────────
@@ -211,6 +256,7 @@ const escapeText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
 let written = 0;
 let skipped = 0;
 let withMeta = 0;
+let prerendered = 0;
 const noMeta = [];
 
 for (const loc of locs) {
@@ -283,14 +329,57 @@ for (const loc of locs) {
     noMeta.push(clean);
   }
 
+  const body = prerenderBody('/' + clean);
+  if (body) {
+    // Only the root div is replaced; the head work above is untouched.
+    html = html.replace(ROOT_DIV, `<div id="root">${body}</div>`);
+    prerendered++;
+  }
+
   const outPath = join(dist, clean, 'index.html');
   mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(outPath, html, 'utf8');
   written++;
 }
 
+/* ── Homepage body ────────────────────────────────────────────────────────────
+   The loop above deliberately skips the root file, so without this the single most
+   important page on the site would be the only one still shipping an empty shell.
+
+   The long-standing rule this respects is specifically about the CANONICAL tag:
+   vercel.json rewrites unknown URLs to dist/index.html, so a canonical baked in
+   here would make every junk URL declare itself a homepage duplicate. That rule is
+   untouched — we inject body markup only, and assert below that no canonical
+   appears.
+
+   Injecting the body is safe for the same reason the canonical is not: an unknown
+   URL already renders homepage content once JS runs, because resolveRoute() finds
+   no match and falls through to the homepage. Prerendering it changes what a
+   non-rendering crawler sees to match what a rendering one already saw. */
+try {
+  const homeBody = prerenderBody('/');
+  if (homeBody) {
+    let homeHtml = readFileSync(indexPath, 'utf8');
+    if (ROOT_DIV.test(homeHtml)) {
+      homeHtml = homeHtml.replace(ROOT_DIV, `<div id="root">${homeBody}</div>`);
+      if (/<link[^>]+rel=["']canonical["']/i.test(homeHtml)) {
+        console.error('[route-heads] refusing to write dist/index.html: prerendered body introduced a canonical.');
+      } else {
+        writeFileSync(indexPath, homeHtml, 'utf8');
+        console.log('[route-heads] prerendered the homepage body into dist/index.html (canonical-free, as required).');
+      }
+    }
+  } else {
+    console.warn('[route-heads] homepage body prerender produced nothing; index.html left as a shell.');
+  }
+} catch (err) {
+  console.warn(`[route-heads] homepage prerender skipped (${err.message}).`);
+}
+
 console.log(`[route-heads] wrote ${written} per-route HTML files (${skipped} skipped) from ${locs.length} sitemap URLs.`);
 console.log(`[route-heads] per-route title+description: ${withMeta}/${written} routes.`);
+console.log(`[route-heads] prerendered body HTML: ${prerendered}/${written} routes.`);
+if (prerenderErrors.length) console.warn(`[route-heads] prerender failed on ${prerenderErrors.length}: ${prerenderErrors.slice(0,5).join(" | ")}`);
 if (noMeta.length) {
   // Not a failure: these keep the generic fallback, which is exactly the old behaviour.
   // Logged so the gap stays visible instead of silently persisting.
