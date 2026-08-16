@@ -4311,6 +4311,8 @@ const TEAM = [
   },
   {
     name:"Kristina W.", slug:"kristina-w", role:"Director of Operations",
+    photo:"/images/team-kristina-w.jpg",
+    photoAlt:"Kristina W., Director of Operations at HomeStar Services & Contracting, Fishers Indiana",
     focus:"Jobsite operations, trade coordination and scheduling",
     bio:"Kristina brings years of hands-on experience in residential remodeling, built through owning and operating her own remodeling business. What began with a specialization in tile grew into managing complete kitchen, bathroom and whole-home renovations, giving her a deep working knowledge of the construction process, trade coordination, materials, and the many details required to bring a renovation together successfully. As Director of Operations she turns each project from a plan into reality — coordinating schedules, managing jobsite operations, troubleshooting challenges and keeping work moving efficiently from start to finish. Once construction begins she is also a key point of communication for homeowners, helping navigate the day-to-day details and changes that naturally arise. With a strong appreciation for design, she collaborates with the team on revisions and solutions when a project needs adjusting in the field.",
     personal:"A proud mom of two boys who loves traveling, trying new restaurants and spending time with her family. She brings the same energy to her work that she does to life — driven, creative, detail-oriented and always ready for the next project.",
@@ -4318,10 +4320,21 @@ const TEAM = [
   },
   {
     name:"Summer S.", slug:"summer-s", role:"Project Coordinator",
+    photo:"/images/team-summer-s.jpg",
+    photoAlt:"Summer S., Project Coordinator at HomeStar Services & Contracting, Fishers Indiana",
     focus:"Client, designer and vendor coordination",
     bio:"With nearly 10 years of experience in residential design and project coordination, Summer has a passion for creating beautiful, functional spaces that truly feel like home. As Project Coordinator she works closely with clients, designers, contractors and vendors to carry projects from initial concept through completion. Her experience spans kitchens, bathrooms, laundry rooms, flooring and whole-home renovations, with a strong focus on organization, communication, attention to detail and thoughtful design.",
     personal:"A proud wife and girl mom who treasures time with her family. Her love of creating welcoming spaces extends well beyond work — she believes a home should reflect the people who live there, and be where life's most meaningful moments happen.",
     knowsAbout:["residential design","project coordination","selections and vendor management","kitchen and bathroom design","flooring","whole-home renovation"],
+  },
+  {
+    name:"Miguel V.", slug:"miguel-v", role:"Carpenter",
+    photo:"/images/team-miguel-v.jpg",
+    photoAlt:"Miguel V., Carpenter at HomeStar Services & Contracting, Fishers Indiana",
+    focus:"Custom carpentry, finish work and on-site problem solving",
+    bio:"Miguel brings nine years of experience in remodeling and carpentry, and a strong passion for quality craftsmanship, to every project. He specializes in custom carpentry, finish work and bringing unique ideas to life, working on high-end remodels throughout Fishers and the surrounding area — kitchens, bathrooms, basements and custom renovations. His hands-on experience lets him approach each project with confidence and creativity, and he is known for working independently, solving problems on the job and adapting when a project calls for a creative solution. Whether it is precise finish work or a custom carpentry detail, he takes pride in craftsmanship that meets the standard of the home and the homeowner.",
+    personal:"Miguel believes a successful remodel is about more than building — it is about building trust. He values clear communication and professionalism, and making sure homeowners feel confident throughout the process.",
+    knowsAbout:["custom carpentry","finish carpentry","trim and millwork","remodeling craftsmanship","kitchen remodeling","bathroom remodeling","basement finishing"],
   },
 ];
 
@@ -4333,7 +4346,7 @@ const TEAM_FAQ = [
   {q:"What certifications and credentials does the HomeStar team hold?",
    a:"HomeStar is Schluter Pro Certified for tile and waterproofing, licensed and insured, accredited by the Better Business Bureau, and a member of the Builders Association of Greater Indianapolis (BAGI). Plumbing and electrical work is performed by licensed plumbers and licensed electricians."},
   {q:"How much remodeling experience does the HomeStar team have?",
-   a:"The team combines decades of residential remodeling experience: a Director of Operations who previously owned and operated her own remodeling business and specialized in tile, a Project Coordinator with nearly 10 years in residential design and coordination, and two founders with backgrounds in real estate and small-business ownership. HomeStar has completed 100+ projects across Hamilton County, Indiana."},
+   a:"The team combines decades of residential remodeling experience: a Director of Operations who previously owned and operated her own remodeling business and specialized in tile, a Project Coordinator with nearly 10 years in residential design and coordination, a carpenter with nine years in remodeling and finish carpentry, and two founders with backgrounds in real estate and small-business ownership. HomeStar has completed 100+ projects across Hamilton County, Indiana."},
   {q:"Where is the HomeStar team based?",
    a:"HomeStar Services & Contracting is based in Fishers, Indiana and serves Hamilton County and the greater Indianapolis area, including Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville, McCordsville and Pendleton."},
 ];
@@ -4503,7 +4516,7 @@ function TeamPage(){
         <div style={{maxWidth:820,margin:"0 auto"}}>
           <div style={{background:C.cream,border:`1px solid ${C.sand}`,borderRadius:18,padding:"clamp(26px,4vw,36px)"}}>
             <div className="lab" style={{marginBottom:12}}>Quick Answer</div>
-            <p style={{color:C.navy,fontSize:"clamp(15.5px,1.8vw,17px)",lineHeight:1.8,margin:0,fontWeight:500}}>HomeStar Services &amp; Contracting is co-owned by <strong>Eric Farr</strong> and <strong>Robb Rice</strong>, friends of more than 20 years, and based in Fishers, Indiana. Eric leads estimating, business planning and development, and client relationships; Robb focuses on construction quality, industry partner relationship development, and the real estate perspective he brings from nearly 10 years as a licensed agent and investor. <strong>Kristina W.</strong>, Director of Operations, previously owned her own remodeling business and runs jobsite operations and trade coordination. <strong>Summer S.</strong>, Project Coordinator, brings nearly 10 years in residential design and carries projects from concept through completion. The company is Schluter Pro Certified, licensed and insured, BBB accredited, and has completed 100+ projects across Hamilton County, Indiana.</p>
+            <p style={{color:C.navy,fontSize:"clamp(15.5px,1.8vw,17px)",lineHeight:1.8,margin:0,fontWeight:500}}>HomeStar Services &amp; Contracting is co-owned by <strong>Eric Farr</strong> and <strong>Robb Rice</strong>, friends of more than 20 years, and based in Fishers, Indiana. Eric leads estimating, business planning and development, and client relationships; Robb focuses on construction quality, industry partner relationship development, and the real estate perspective he brings from nearly 10 years as a licensed agent and investor. <strong>Kristina W.</strong>, Director of Operations, previously owned her own remodeling business and runs jobsite operations and trade coordination. <strong>Summer S.</strong>, Project Coordinator, brings nearly 10 years in residential design and carries projects from concept through completion. <strong>Miguel V.</strong>, Carpenter, has nine years in remodeling and carpentry and handles custom carpentry and finish work. The company is Schluter Pro Certified, licensed and insured, BBB accredited, and has completed 100+ projects across Hamilton County, Indiana.</p>
           </div>
         </div>
       </section>
@@ -4533,8 +4546,8 @@ function TeamPage(){
 
       <section className="sec" style={{background:C.cream}}>
         <div className="sec-in" style={{maxWidth:1120}}>
-          <div style={{textAlign:"center",marginBottom:"clamp(36px,5vw,52px)"}}><div className="lab">Who Runs Your Project</div><h2 className="ttl" style={{marginBottom:14}}>Operations &amp; Coordination</h2>
-            <p style={{color:C.grayDark,fontSize:16,lineHeight:1.8,maxWidth:660,margin:"0 auto"}}>Estimating gets a project priced. These are the people who get it built — and the ones you actually talk to once the work starts.</p>
+          <div style={{textAlign:"center",marginBottom:"clamp(36px,5vw,52px)"}}><div className="lab">Who Runs Your Project</div><h2 className="ttl" style={{marginBottom:14}}>Operations, Coordination &amp; Craft</h2>
+            <p style={{color:C.grayDark,fontSize:16,lineHeight:1.8,maxWidth:660,margin:"0 auto"}}>Estimating gets a project priced. These are the people who get it built — the ones you talk to once work starts, and the ones with the tools in their hands.</p>
           </div>
           <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))",gap:28}}>
             {staff.map(m=><TeamMemberCard key={m.slug} m={m}/>)}
