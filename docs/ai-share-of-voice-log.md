@@ -15,6 +15,80 @@ runs of a query; that's the point, it tests robustness rather than one exact str
 
 ---
 
+# ✅ 2026-08-26 (later) — FULL CATEGORY SWEEP: basement, bathroom, whole-home (9 more logged-out runs)
+
+Eric named basement, bathroom and whole-home as the three categories of concern. Ran the 3-run
+protocol on each. Combined with the kitchen re-test earlier the same day, this is **12 logged-out
+incognito runs**, directly comparable to the 12-run baseline of 2026-08-05.
+
+| Query | 2026-08-05 | 2026-08-26 | Positions this run | Verdict |
+|---|---|---|---|---|
+| Bathroom, Fishers | 3/3 @ ~2.3 | **3/3 @ ~1.7** | **1, 3, 1** | improved |
+| Basement, Fishers | 3/3 @ ~5.7 | **2/3 @ ~1.0** | **1, 1, absent** | **much improved** |
+| Kitchen, Fishers | **0/3** | **3/3** | last, 3, 4 | **absent → present** |
+| Whole-home, Hamilton Co. | **0/3 (absent)** | **1/3** | 3 | first appearance |
+
+**Every category improved versus the August baseline.** Basement went from honourable-mention to
+"my first call" twice. Kitchen and whole-home went from total absence to appearing.
+
+## 🟢 THE WEBSITE IS NOW BEING CITED — this was zero in 12 runs on 2026-08-05
+
+The August baseline recorded that HomeStar's own website was **never cited once in 12 runs**. That
+has changed. This run ChatGPT quoted HomeStar's own site by name:
+- Basement run 1: *"Their site specifically features a Fishers homeowner who used them for a full
+  basement finish with a theater, bar and half bath."*
+- Whole-home run 2: *"they employ their own licensed plumbers and electricians rather than simply
+  handing everything to separate trades"* — source chip `HomeStar Services & Contracting`.
+
+That second one is the whole-home pillar's core positioning, built in run #2, read back verbatim.
+**The content strategy is working.** Keep it.
+
+## 🔴 CONFIRMED ACROSS CATEGORIES: Houzz is the ranking mechanism
+
+The kitchen finding replicates on bathroom. In **every** run where a firm placed above HomeStar in
+bathroom or kitchen, that firm was justified with a **Houzz** citation, and HomeStar was justified
+from its Google listing:
+
+| Run | Firms placed above HomeStar | Cited via |
+|---|---|---|
+| Bathroom #2 (pos 3) | Nicholas Design Build (15 Houzz), Everything Home (122 Houzz) | **Houzz** |
+| Bathroom #3 (pos 1) | — | HomeStar led |
+| Kitchen, all 3 | Everything Home (122), ACo (17), Nicholas (15) | **Houzz** |
+| Whole-home #3 | Everything Home (122), Worthington (49 + 20 Best of Houzz) | **Houzz** |
+
+**And HomeStar's single Houzz review is already being cited.** Basement run 2 put HomeStar first with:
+*"A July 2026 customer specifically reported having a basement remodeled with a bar and
+entertainment area."* — source chip **Houzz**. One review is doing measurable work. This is the
+strongest possible argument that ~15 would be decisive, and it retires any doubt that Houzz reviews
+convert into AI placement.
+
+## 🔴 WHOLE-HOME: the gap is a published price range, not more content
+
+Whole-home is the weakest category (1/3) and the reason is specific. Every firm named was cited from
+**its own website**, not a directory. The #1 pick in both runs where HomeStar lost was Nicholas
+Design Build, and the sentence that won it was:
+
+> *"Their published local range for whole-home remodels is roughly $250K–$750K+, with larger
+> luxury/addition projects potentially exceeding $1M."*
+
+**HomeStar's whole-home pillar deliberately publishes no range** (open question 5). Nicholas gets
+ranked and quoted because it published a number. In run 3 the filter that excluded HomeStar was
+explicit: *"firms that genuinely do design + architecture/planning + construction management, rather
+than a kitchen/bath contractor that happens to advertise 'whole home'."* Claiming design-build is
+necessary but not sufficient — the claim now needs **a price range and completed whole-home project
+proof** behind it.
+
+**Action: get Eric's whole-home / multi-room floor and typical main-level figure, and publish it on
+the pillar.** This is the highest-leverage remaining content change, and it is blocked only on a
+number Eric already knows.
+
+## 🟡 The map pack is still a separate, losing game
+HomeStar was absent from the map-pack block in essentially every run across all four categories while
+appearing in the prose above or below it. This is exactly the split the 2026-08-06 geographic-ceiling
+finding predicted. **Do not chase the map pack.** The prose half is being won; keep spending there.
+
+---
+
 # ✅ 2026-08-26 — KITCHEN RE-TEST (3 logged-out runs, incognito, desktop)
 
 | Query | Appeared | Position | Leader | Change vs 2026-08-05 |

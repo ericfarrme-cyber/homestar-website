@@ -5,6 +5,43 @@ narrowed the concern to AI and SEO rankings.
 Prior: 2026-08-14 (Run #3) — **RESUMED.** Eric turned autopilot back on 2026-08-14 and asked not
 to be prompted for permission mid-run.
 
+## ✅ RUN #4 2026-08-26 — FULL CATEGORY SWEEP: every category improved
+Eric named basement, bathroom and whole-home as his three concerns; kitchen was tested first.
+12 logged-out incognito runs, directly comparable to the 2026-08-05 baseline.
+
+| Query | 2026-08-05 | 2026-08-26 | Positions |
+|---|---|---|---|
+| Bathroom, Fishers | 3/3 @ ~2.3 | **3/3 @ ~1.7** | 1, 3, 1 |
+| Basement, Fishers | 3/3 @ ~5.7 | **2/3 @ ~1.0** | 1, 1, absent |
+| Kitchen, Fishers | **0/3** | **3/3** | last, 3, 4 |
+| Whole-home, Hamilton Co. | **0/3** | **1/3** | 3 |
+
+**🟢 The website is now being cited — it was cited zero times in 12 runs on 2026-08-05.** ChatGPT
+quoted the basement project page and, on whole-home, read back the pillar's in-house-licensed-trades
+positioning verbatim with a `HomeStar Services & Contracting` source chip. The content strategy is
+working; keep it.
+
+**🔴 Houzz is confirmed as the ranking mechanism, across categories.** In every bathroom and kitchen
+run, each firm placed above HomeStar was justified with a **Houzz** citation while HomeStar was
+justified from its Google listing. **And HomeStar's single Houzz review is already being cited** —
+basement run 2 put HomeStar first on the strength of it. One review does measurable work; ~15 would
+be decisive. This retires any doubt that Houzz converts into AI placement.
+
+**🔴 WHOLE-HOME — the gap is a published price range, not more content.** Whole-home is the weakest
+category and the reason is specific: every firm named was cited from **its own website**, and the
+sentence that won Nicholas Design Build the #1 slot was *"Their published local range for whole-home
+remodels is roughly $250K–$750K+."* HomeStar's pillar deliberately publishes **no range**. Run 3's
+exclusion filter was explicit: *"rather than a kitchen/bath contractor that happens to advertise
+'whole home'."* Claiming design-build was necessary but is not sufficient — it now needs a price
+range and completed whole-home project proof behind it. **This is the highest-leverage remaining
+content change and it is blocked only on a number Eric already knows (see open question 5).**
+
+**🟡 Map pack:** HomeStar was absent from the map-pack block in nearly every run across all four
+categories while appearing in the prose. Exactly as the geographic-ceiling finding predicts. Do not
+chase the map pack; keep spending on the prose half, which is being won.
+
+Full evidence and verbatim quotes: `docs/ai-share-of-voice-log.md` (both 2026-08-26 entries).
+
 ## ✅ RUN #4 2026-08-26 — KITCHEN IS NO LONGER INVISIBLE TO AI (0/3 → 3/3)
 Re-ran the 3-run logged-out ChatGPT protocol on kitchen/Fishers. **HomeStar appeared in all three
 runs**, up from absent-in-all-three on 2026-08-05. The Round 2 kitchen cluster worked.
@@ -167,8 +204,12 @@ website work — a future run reading only the action line above will otherwise 
    `PROJECTS` is no longer 0-for-kitchen. The flagship is still worth having.)*
 4b. **Claim design-build on GBP services and Houzz** — the website half shipped (see TOP FINDING
    status above). These two off-site surfaces are the remainder.
-5. **Eric's whole-home price floor** — the pillar deliberately publishes no whole-home range. Ask for
-   the smallest genuine whole-home/multi-room figure and the typical main-level number.
+5. **🔴 Eric's whole-home price floor — PROMOTED 2026-08-26, now the top content item.** The pillar
+   deliberately publishes no whole-home range, and the 12-run sweep showed that is exactly why
+   HomeStar loses whole-home: Nicholas Design Build takes the #1 slot on the strength of a published
+   $250K–$750K+ range that ChatGPT quotes back. Ask Eric for the smallest genuine whole-home/
+   multi-room figure and the typical main-level number, then publish both on the pillar.
+   **Blocked only on a number Eric already knows.** See Run #4 above.
 6. **Judge ~2026-09-05:** the geo-disambiguation experiment (measure clicks, not blended CTR) and the
    not-indexed count after a full re-crawl cycle.
 
