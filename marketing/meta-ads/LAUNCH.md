@@ -497,3 +497,47 @@ Getting there took two corrections worth recording:
 
 The silent masters in `renders/*--reels-video.mp4` stay untouched - those remain
 the versions for YouTube or the website, where this audio is not licensed.
+
+
+---
+
+## V1 ad now runs the music version
+
+Media swapped from `V1-whole-home-three-baths--reels-video.mp4` (silent) to
+`V1wholehomethreebathsmusic.mp4`. Copy, headline, description and the Get quote
+CTA all survived the swap. Still in draft.
+
+### Important: Meta's AI settings reset when you change the media
+
+This is the single thing most likely to spoil the work if it is not watched.
+Swapping the video re-enabled, silently:
+
+- **Video touch-ups** - back ON. This is the one that lets Meta AI alter the
+  footage, the exact thing this account forbids.
+- **Advantage+ creative text generation** - both blocks back ON, regenerating
+  headlines and primary text.
+
+The three enhancements toggled off at the ad level (sticker CTA, text
+improvements, add details to layout) *did* persist. Video touch-ups did not,
+because it is tied to the media.
+
+**Rule: after every media change, re-open Enhancements and Text and confirm all
+four are off before saving.** Do not assume a previous pass holds.
+
+### Translation switched off
+
+Was set to Spanish plus 14 other languages. AI-translating the copy while the
+on-screen text stays in English would have looked broken. Now **0 languages
+selected**. There is a master "Select all other (14 languages)" checkbox that
+clears them in one click.
+
+### Duplicate uploads in the library
+
+The media library now holds two copies each of `V2entertainingfloormusic.mp4`
+and `V2-entertaining-floor--reels-video.mp4`. Harmless, but worth tidying so
+the wrong one is not picked later. The V1 music file uploaded once.
+
+### Remaining
+
+- V2 ad: point it at `V2entertainingfloormusic.mp4` and write its copy
+- 9 still ads across `02 Trust` and `03 Proof and offer`
