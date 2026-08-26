@@ -300,3 +300,66 @@ ad**, or set once account-wide under Advertising settings.
 - **10 more ads and 2 more ad sets.** Fastest route is to **duplicate this ad**
   rather than build from scratch - duplication carries the AI-off settings, the
   CTA and the tracking, leaving only creative, copy and URL to swap.
+
+
+---
+
+## Music - solved, and it is free
+
+**Ads Manager has no music option for this ad type.** Confirmed by inspection:
+Customize media offers exactly four tools - Placements, Crop, Trim, Thumbnail.
+There is no audio anywhere in the ad-level flow. That is a Meta product
+limitation, not a setting anyone missed.
+
+**The answer is Meta Sound Collection** at `business.facebook.com/sound/collection`
+- Meta's own library, free, and tracks are downloadable as files.
+
+The licence (read in full at `business.facebook.com/sound/collection/terms`,
+last modified 16 March 2022) says:
+
+> Meta hereby grants you a non-exclusive, royalty-free licence to use the SC
+> Audio Content for **commercial** or non-commercial purposes in content you
+> create, upload, and distribute **on the Meta Company Products** ... only. You
+> may not perform, distribute, make available or otherwise use the SC Audio
+> Content **separately from the Meta Company Products**.
+
+So:
+
+- **Paid Facebook and Instagram ads are covered.** "Commercial purposes" is
+  explicit, and no royalty is owed.
+- **It cannot travel.** If the same cut is ever posted to YouTube, embedded on
+  thehomestarservice.com, or used anywhere off Meta, that version needs a
+  separately licensed track. Keep two exports if the video is reused.
+
+### Why Eric has to click, not Claude
+
+The collection is gated behind a terms-of-use agreement that states: *"If you
+are accepting on behalf of a legal entity, you represent and warrant that you
+are an authorized representative of such entity with the authority to bind
+it."* That is a legal agreement binding HomeStar Services & Contracting. It is
+Eric's assent to give, so the "I agree" click stays with him.
+
+### The plan once accepted
+
+1. Pick two tracks - low-level ambient or minimal piano. The footage is calm
+   and premium; upbeat corporate pop fights the on-screen text and cheapens
+   the imagery.
+2. Download them, mix under each cut with ffmpeg at a low level so the
+   typography still leads, fade out under the end card.
+3. Re-upload V1 and V2 and swap the media on the two video ads.
+
+Only the two videos need audio - the nine stills have none.
+
+## Ad sets - all three built
+
+| Ad set | Contains |
+|---|---|
+| `01 Whole-home (focal)` | V1 video (complete) |
+| `02 Trust` | duplicated, ready for 02 and 06 |
+| `03 Proof and offer` | duplicated, ready for 03, 04, 05, 07, V2 |
+
+All three carry identical targeting (Carmel +15mi, age 25+), the Facebook
+Pixel, the Lead conversion event, and the AI-off settings. Meta's duplicate
+dialog offers to "Add an image" via AI on each copy - **unchecked both times**.
+
+Still to build: 9 still ads and the V2 video ad, once music is settled.
