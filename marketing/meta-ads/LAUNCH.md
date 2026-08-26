@@ -244,3 +244,59 @@ So the options are:
   posted organically, where Meta's library is not available.
 - **Not** an AI-generated or unlicensed track baked into the file. Music of
   unclear provenance is exactly what gets ads muted or rejected.
+
+
+---
+
+## Build log - ad 1 complete (2026-08-26)
+
+Creative is uploaded and the first ad is fully assembled. Everything is still
+**In draft**; Ads Manager shows "Review and publish (3)" and nothing has been
+published.
+
+### `V1 Three bathrooms (video)` - done
+
+| Field | Value |
+|---|---|
+| Media | V1 video, 1080x1920 |
+| Primary text | Three bathrooms in one Geist home... (full text in `CAMPAIGN.md`) |
+| Headline | Three Bathrooms, One Contractor |
+| Description | Whole-home renovation |
+| CTA | **Get quote** |
+| Destination | `/whole-home-renovation` with UTM tags |
+| Multi-advertiser ads | **Off** |
+
+### Four Meta AI features switched off, deliberately
+
+Meta enables these by default and each one would have damaged the work:
+
+1. **Text improvements** - was generating its own primary text and headlines.
+   One variant read *"WARNING: Most Remodelers Will Lie to You!"* - an
+   unsubstantiated attack on competitors that is both off-brand and a Meta
+   policy risk. Others were generic filler like "Whole-Home Renovations You
+   Can Trust".
+2. **Video touch-ups** (Meta AI) - would let Meta alter the actual footage.
+   This is the exact thing this account's core rule forbids.
+3. **Add details to ad layout** - overlays extra auto-generated text on
+   creatives that are already typeset.
+4. **Create sticker CTA** - pastes an AI sticker over the designed end card.
+
+These are per-ad settings, so **they must be switched off again on every new
+ad**, or set once account-wide under Advertising settings.
+
+### Outstanding
+
+- **Music** - Meta's royalty-free library sits behind the media customization
+  tools. The Ads Manager renderer became unstable (self-zooming, screenshot
+  timeouts) before this could be reached. For these two cuts the right choice
+  is **low-level ambient / minimal piano** from the Chill or Cinematic
+  category: the footage is calm and premium, and upbeat corporate pop would
+  fight the on-screen text and cheapen the imagery. Keep it under the
+  narration-free visuals, never let it peak.
+- **Advantage+ translation** - still set to all languages. Low priority: it
+  only triggers for non-English audiences, and the targeting is English-speaking
+  Hamilton County. Worth switching off so Spanish copy never lands over English
+  text baked into the video.
+- **10 more ads and 2 more ad sets.** Fastest route is to **duplicate this ad**
+  rather than build from scratch - duplication carries the AI-off settings, the
+  CTA and the tracking, leaving only creative, copy and URL to swap.
