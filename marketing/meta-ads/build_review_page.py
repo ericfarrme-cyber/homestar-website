@@ -30,23 +30,55 @@ def _uri(im, width, quality=76):
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
-def _filmstrip(slug):
-    """Pull key frames straight from the encoded ad and lay them side by side."""
+def _frame(slug, t, width=300):
+    """Grab a single frame from an encoded ad, straight to memory."""
     import imageio_ffmpeg
     ff = imageio_ffmpeg.get_ffmpeg_exe()
     mp4 = os.path.join(RENDERS, f"{slug}--reels-video.mp4")
-    frames = []
-    for t in STRIP_FRAMES[slug]:
-        out = subprocess.run(
-            [ff, "-loglevel", "error", "-ss", str(t), "-i", mp4, "-frames:v", "1",
-             "-vf", "scale=300:-1", "-f", "image2pipe", "-vcodec", "mjpeg", "-"],
-            capture_output=True, check=True).stdout
-        frames.append(Image.open(io.BytesIO(out)))
+    out = subprocess.run(
+        [ff, "-loglevel", "error", "-ss", str(t), "-i", mp4, "-frames:v", "1",
+         "-vf", f"scale={width}:-1", "-f", "image2pipe", "-vcodec", "mjpeg", "-"],
+        capture_output=True, check=True).stdout
+    return Image.open(io.BytesIO(out))
+
+
+def _filmstrip(slug):
+    """Key frames laid side by side, for scanning the cut without playing it."""
+    frames = [_frame(slug, t) for t in STRIP_FRAMES[slug]]
     w, h, gap = frames[0].width, frames[0].height, 8
     strip = Image.new("RGB", (len(frames) * w + (len(frames) - 1) * gap, h), (12, 18, 30))
     for i, fr in enumerate(frames):
         strip.paste(fr, (i * (w + gap), 0))
     return strip
+
+
+def _video_uri(slug):
+    """Review-quality copy of the ad, small enough to embed and play inline.
+
+    Built by build_video_previews() below. The full-resolution 1080x1920 file
+    in renders/ is what actually gets uploaded to Meta.
+    """
+    path = os.path.join(HERE, "_preview", f"{slug}.mp4")
+    with open(path, "rb") as fh:
+        return "data:video/mp4;base64," + base64.b64encode(fh.read()).decode()
+
+
+def build_video_previews():
+    """Downscale each ad to a size that can live inside the page."""
+    import imageio_ffmpeg
+    ff = imageio_ffmpeg.get_ffmpeg_exe()
+    out_dir = os.path.join(HERE, "_preview")
+    os.makedirs(out_dir, exist_ok=True)
+    for slug in STRIP_FRAMES:
+        dst = os.path.join(out_dir, f"{slug}.mp4")
+        if os.path.isfile(dst):
+            continue
+        subprocess.run(
+            [ff, "-loglevel", "error", "-y",
+             "-i", os.path.join(RENDERS, f"{slug}--reels-video.mp4"),
+             "-vf", "scale=608:1080", "-c:v", "libx264", "-preset", "slow",
+             "-crf", "30", "-profile:v", "main", "-pix_fmt", "yuv420p",
+             "-movflags", "+faststart", "-an", dst], check=True)
 
 
 def build_thumbs():
@@ -59,9 +91,12 @@ def build_thumbs():
     t["upcmp"] = _uri(Image.open(os.path.join(HERE, "higgsfield-tests", "_upscale-compare.jpg")), 540)
     for slug in STRIP_FRAMES:
         t["strip_" + slug[:2]] = _uri(_filmstrip(slug), 1180)
+        t["poster_" + slug[:2]] = _uri(_frame(slug, 1.5), 500, quality=70)
+        t["video_" + slug[:2]] = _video_uri(slug)
     return t
 
 
+build_video_previews()
 T = build_thumbs()
 
 PLACEMENTS = [("feed", "Feed", "1080×1350"), ("square", "Square", "1080×1080"),
@@ -110,11 +145,19 @@ def video_html(v):
       <p class="concept__photo">Cut from <code>{source}</code> &middot; {length} &middot; silent</p>
     </div>
   </header>
-  <img class="strip" src="{T[strip]}" alt="Filmstrip of the {num} video ad" loading="lazy">
-  <div class="vid__notes">
-    <p class="why">{why}</p>
-    <p class="craft">{craft}</p>
+  <div class="vid__play">
+    <video controls playsinline preload="none" poster="{T['poster_' + num]}"
+           aria-label="{html.escape(hook)} — {length} Reels ad">
+      <source src="{T['video_' + num]}" type="video/mp4">
+      Your browser can't play this preview — open the MP4 in <code>renders/</code>.
+    </video>
+    <div class="vid__aside">
+      <p class="why">{why}</p>
+      <p class="craft">{craft}</p>
+      <p class="craft"><strong>Preview is downscaled to 608&times;1080</strong> so it fits in this page. Upload the full 1080&times;1920 file from <code>renders/</code>.</p>
+    </div>
   </div>
+  <img class="strip" src="{T[strip]}" alt="Filmstrip of the {num} video ad" loading="lazy">
 </article>'''
 
 
@@ -260,8 +303,14 @@ section {{ padding:56px 0; border-bottom:1px solid var(--line); }}
   display:block; width:100%; height:auto; border-radius:8px;
   border:1px solid var(--line); box-shadow:var(--shadow);
 }}
-.vid__notes {{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:24px; margin-top:18px; }}
+.vid__play {{ display:grid; grid-template-columns:300px minmax(0,1fr); gap:28px; align-items:start; }}
+.vid__play video {{
+  width:100%; height:auto; display:block; border-radius:10px;
+  background:#0A1120; border:1px solid var(--line); box-shadow:var(--shadow);
+}}
+.vid__aside {{ display:grid; gap:14px; }}
 .craft {{ margin:0; font-size:14px; color:var(--ink-soft); }}
+.strip {{ margin-top:20px; opacity:.92; }}
 
 .why {{ margin:0 0 18px; font-size:15px; color:var(--ink); border-left:2px solid var(--accent-bright); padding-left:14px; }}
 .fields {{ margin:0; display:grid; gap:4px; }}
@@ -288,7 +337,8 @@ pre {{
 footer {{ padding:34px 0 60px; color:var(--ink-faint); font-size:13px; }}
 
 @media (max-width:860px) {{
-  .verdict, .concept__body {{ grid-template-columns:1fr; }}
+  .verdict, .concept__body, .vid__play {{ grid-template-columns:1fr; }}
+  .vid__play video {{ max-width:300px; }}
   .garble li {{ grid-template-columns:1fr; gap:4px; }}
   .garble .arrow {{ display:none; }}
 }}
@@ -348,7 +398,7 @@ footer {{ padding:34px 0 60px; color:var(--ink-faint); font-size:13px; }}
 <section>
   <div class="sec-head">
     <p class="eyebrow">Video</p>
-    <h2>Two walkthroughs, cut for Reels.</h2>
+    <h2>Two walkthroughs, cut for Reels. Watch them here.</h2>
     <p>Both source files are already 1080&times;1920, so nothing is reframed or generated — the same rule as the stills. Each runs hook &rarr; footage &rarr; brand end card. Filmstrips below; the MP4s are in <code>renders/</code>.</p>
   </div>
   {''.join(video_html(v) for v in VIDEOS)}
