@@ -251,6 +251,15 @@ function metaFor(clean) {
 }
 
 const escapeAttr = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+
+/* Every replacement below is passed as a FUNCTION, never as a template string.
+   String.replace() interprets $1, $&, $` , $' and $$ inside a replacement string
+   as substitution patterns. Our descriptions are full of prices — "$15,000",
+   "$100,000" — so a literal `$1` in the content was consuming capture group 1 and
+   splicing the matched `<meta name="description" content=` back into the middle of
+   the description. Returning from a function disables that expansion entirely.
+   Do not convert these back to string replacements. */
+const attrSub = (value) => (_m, open) => `${open}"${escapeAttr(value)}"`;
 const escapeText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 let written = 0;
@@ -293,36 +302,36 @@ for (const loc of locs) {
 
   let html = template.replace(
     /<title>/i,
-    `<link rel="canonical" href="${escapeAttr(canonical)}" />\n    <title>`
+    () => `<link rel="canonical" href="${escapeAttr(canonical)}" />\n    <title>`
   );
 
   html = html.replace(
     /(<meta\s+property=["']og:url["']\s+content=)["'][^"']*["']/i,
-    `$1"${escapeAttr(canonical)}"`
+    attrSub(canonical)
   );
 
   const meta = metaFor(clean);
   if (meta && meta.title && meta.description) {
-    html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeText(meta.title)}</title>`);
+    html = html.replace(/<title>[\s\S]*?<\/title>/i, () => `<title>${escapeText(meta.title)}</title>`);
     html = html.replace(
       /(<meta\s+name=["']description["']\s+content=)["'][^"']*["']/i,
-      `$1"${escapeAttr(meta.description)}"`
+      attrSub(meta.description)
     );
     html = html.replace(
       /(<meta\s+property=["']og:title["']\s+content=)["'][^"']*["']/i,
-      `$1"${escapeAttr(meta.title)}"`
+      attrSub(meta.title)
     );
     html = html.replace(
       /(<meta\s+property=["']og:description["']\s+content=)["'][^"']*["']/i,
-      `$1"${escapeAttr(meta.description)}"`
+      attrSub(meta.description)
     );
     html = html.replace(
       /(<meta\s+name=["']twitter:title["']\s+content=)["'][^"']*["']/i,
-      `$1"${escapeAttr(meta.title)}"`
+      attrSub(meta.title)
     );
     html = html.replace(
       /(<meta\s+name=["']twitter:description["']\s+content=)["'][^"']*["']/i,
-      `$1"${escapeAttr(meta.description)}"`
+      attrSub(meta.description)
     );
     withMeta++;
   } else {
@@ -332,7 +341,7 @@ for (const loc of locs) {
   const body = prerenderBody('/' + clean);
   if (body) {
     // Only the root div is replaced; the head work above is untouched.
-    html = html.replace(ROOT_DIV, `<div id="root">${body}</div>`);
+    html = html.replace(ROOT_DIV, () => `<div id="root">${body}</div>`);
     prerendered++;
   }
 
@@ -361,7 +370,7 @@ try {
   if (homeBody) {
     let homeHtml = readFileSync(indexPath, 'utf8');
     if (ROOT_DIV.test(homeHtml)) {
-      homeHtml = homeHtml.replace(ROOT_DIV, `<div id="root">${homeBody}</div>`);
+      homeHtml = homeHtml.replace(ROOT_DIV, () => `<div id="root">${homeBody}</div>`);
       if (/<link[^>]+rel=["']canonical["']/i.test(homeHtml)) {
         console.error('[route-heads] refusing to write dist/index.html: prerendered body introduced a canonical.');
       } else {
