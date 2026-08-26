@@ -5,47 +5,48 @@ Build sheet for Ads Manager. Decisions confirmed with Eric on 2026-08-26:
 
 ---
 
-## ⚠️ Read this before spending anything
+## Tracking status
 
-**There is no conversion tracking between Meta and the estimate form.** Three
-separate gaps, all confirmed:
+| | Status |
+|---|---|
+| Meta Pixel `275995906389395` | ✅ **Live.** Installed 2026-08-26, PageView confirmed received in Test Events |
+| Pixel on all 238 site routes | ✅ Verified in the production build |
+| Privacy policy disclosure | ✅ Added |
+| `Lead` event on estimate submit | ⚠️ **Waiting on the form app** — see below |
 
-1. **No Meta Pixel on thehomestarservice.com.** `index.html` loads Google
-   Analytics (`G-TYW2NB8JNY`) and nothing else.
-2. **No Meta Pixel on the form app either.** The form is served from
-   `homestar-project-manager.vercel.app`.
-3. **The form is a cross-origin iframe** (`LeadForm` in `src/App.jsx:474`).
-   Even with a Pixel on the main site, it *cannot* observe a submit that
-   happens inside a third-party iframe. This is a browser security boundary,
-   not a configuration mistake.
+The pixel existed in the ad account but had **never received a single event**
+before today; Events Manager showed "your pixel hasn't received any activity",
+which matched the code exactly. It now fires PageView on every route, so
+retargeting audiences start building immediately.
 
-### What that means in practice
+### The one piece still missing
 
-With the website as the destination and no Pixel, the campaign can only
-optimise for **Landing Page Views** — Meta has no way to learn which people
-actually fill the form in. On a $45K–$200K purchase that is the wrong signal:
-you pay for the cheapest scrollers rather than the people who convert. It is
-the exact failure mode the account structure notes warn about.
+The estimate form is a cross-origin iframe from
+`homestar-project-manager.vercel.app`, so this site physically cannot see a
+submit — that is a browser security boundary, not a config problem. The
+listener is already deployed in `LeadForm` (`src/App.jsx`); the form app just
+has to announce the submit.
 
-### The three ways out, cheapest first
+**Add this to the form app, in its success handler:**
 
-**A. postMessage bridge (recommended).** The iframe already talks to the
-parent — `LeadForm` listens for a `homestar-form-height` message. Add a
-`homestar-form-submitted` message on successful submit, and have the parent
-fire `fbq('track', 'Lead')` when it arrives. Needs: a Pixel ID, a small edit
-to `LeadForm`, and one edit in the `homestar-project-manager` app.
+```js
+// Tell the embedding page a lead was captured, so it can fire
+// the Meta Pixel Lead event. Must run after a successful submit.
+if (window.parent !== window) {
+  window.parent.postMessage(
+    { type: "homestar-form-submitted" },
+    "https://www.thehomestarservice.com"
+  );
+}
+```
 
-**B. Pixel directly on the form app.** Put the Pixel inside
-`homestar-project-manager` and fire `Lead` there. Simpler, but the Pixel then
-lives on an app used by other flows, so scope it carefully.
+That is the whole change. The parent already validates the message origin and
+fires `fbq('track','Lead')` plus a GA4 `generate_lead`, deduplicated so a
+double-submit only counts once.
 
-**C. Conversions API.** Fire `Lead` server-side wherever submissions are
-processed. Most robust, most work, immune to ad blockers and iOS.
-
-**Until one of these is live**, the honest options are to run the website
-campaign optimised for Landing Page Views and accept that Meta is guessing,
-or switch the destination to a **Meta instant lead form**, which needs no
-Pixel at all because the submit happens inside Meta.
+**Until that ships**, the campaign can only optimise for Landing Page Views.
+Build the drafts now by all means, but switch the ad sets to optimise for Leads
+once the event is flowing — drafts can be re-pointed before they ever run.
 
 ---
 
@@ -146,13 +147,12 @@ that lives there. Those pages all carry their own estimate CTA.
 
 ## Access
 
-Ads Manager was not logged in when this was written — the browser landed on
-the Meta login page. Log in to `adsmanager.facebook.com` in Chrome first;
-Claude will not enter credentials.
+Logged in and verified on 2026-08-26. Ad account **530732507357770** (Eric Farr),
+270 existing campaigns. 7 stale unpublished drafts were discarded so the
+pending-changes bucket is clean before anything new is built.
 
-Once logged in, what still needs a human decision:
+Still needs a human decision before the build can finish:
 
-- **Which ad account** to build under, if there is more than one
-- **Payment method** must already be on the account
 - **Page and Instagram account** to run the ads from
-- **Publishing** — everything will be left in draft
+- **Payment method** must already be on the account
+- **Publishing** — everything is left in draft; Eric publishes
