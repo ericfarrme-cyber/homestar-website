@@ -819,3 +819,61 @@ each reset costs several minutes. Four ads remain (04 to finish, 05, 07, V2).
 This is an environment limit, not a Meta one. Doing the last four in one sitting
 in a normal browser window would be faster than continuing to automate through
 a degrading tab.
+
+
+---
+
+## Ad 04 - media restored, copy still wrong
+
+The empty-media problem is fixed. Ad 04 now holds the three correct
+waterproofing creatives, built from a verified empty state so there is no doubt
+about which images it has.
+
+| Field | State |
+|---|---|
+| Name | `04 Waterproofing warranty` |
+| Destination URL | `/bathroom-remodeling?...utm_content=04-waterproofing` |
+| Media | **3 waterproofing creatives** (feed, square, reels) - committed |
+| Translation | 0 languages |
+| Visual touch-ups / Text improvements / Add animation | Off |
+| **Add music** | **ON** - needs turning off |
+| **Add overlays** | **ON** - needs turning off |
+| **Primary text / headline / description** | **Still ad 03's basement copy** |
+
+### To finish ad 04
+
+1. Primary text -> the waterproofing copy from `CAMPAIGN.md`
+2. Headline -> `25-Year Waterproofing Warranty`
+3. Description -> `Schluter Pro Certified`
+4. Enhancements -> turn off **Add music** and **Add overlays**
+
+### A better way to read this UI
+
+Screenshots became unusable, but the DOM stayed responsive throughout. Reading
+`[role=switch]` elements and their `aria-checked` attribute gives the
+enhancement states **directly and unambiguously** - far more reliable than
+looking at a screenshot:
+
+```js
+[...document.querySelectorAll('[role=switch]')].map(s => ({
+  label: /* nearest ancestor text */, checked: s.getAttribute('aria-checked')
+}))
+```
+
+That is how "Add music: true, Add overlays: true" was confirmed without being
+able to see the page. Element references (`find` -> click by ref) also kept
+working long after coordinate clicks stopped landing. **Prefer refs and DOM
+reads over coordinates and screenshots** once a session has been running a
+while.
+
+### Status: 4 complete, 1 partial
+
+| Ad | State |
+|---|---|
+| V1 Three bathrooms (video) | Complete |
+| 02 In-house trades | Complete |
+| 06 Who we are | Complete |
+| 03 Basement square footage | Complete |
+| 04 Waterproofing warranty | **Media + URL right, copy wrong, 2 toggles on** |
+
+Not started: 05 pricing, 07 entertaining floor, V2 video.
