@@ -637,3 +637,52 @@ navigation instead of scrolling, and clicking a stale reference can open the
 wrong dialog (the ad-name template builder rather than the media picker).
 Re-resolve references after any page change, and prefer clicking by coordinate
 from a fresh screenshot.
+
+
+---
+
+## Ad 06 complete - and duplication IS the shortcut, with one caveat
+
+`06 Who we are` is finished: founders creative in all three placements, full
+copy, headline "A Fishers Remodeler, Owner-Run", description
+"Family-owned - Hamilton County", Get quote CTA, and the `/team` URL with UTMs.
+
+### The efficiency finding
+
+**Duplicating an ad preserves the AI-off state.** All four Meta AI features
+(Visual touch-ups, Add music, Text improvements, Add animation) came through the
+duplicate already off, and Advantage+ text generation showed "0 of 5" without
+intervention. Translation stayed at 0 languages too.
+
+That is the opposite of what happens when you change an existing ad's media,
+which silently re-enables Video touch-ups and both text-generation blocks.
+
+**So the fast path is: build one ad properly, then duplicate it for each new
+concept and swap only creative, copy and URL.** That removes roughly half the
+per-ad work.
+
+**The caveat: a duplicate inherits the source ad's destination URL**, and it is
+easy to miss. Every duplicate needs its URL replaced - triple-click the field,
+then type.
+
+### Ad-building recipe that works
+
+1. Duplicate an existing finished ad (uncheck "Add music to Reels" in the dialog)
+2. Rename it
+3. Change selections -> search the concept slug -> select feed, square, reels
+   (the grid reorders after each click, so re-screenshot between clicks)
+4. Clear the previous concept's media: search its slug, click each selected tile
+5. Text step: triple-click each field and type
+6. Confirm the four enhancements are still off
+7. **Replace the destination URL** - triple-click, then type
+
+### Status
+
+| Ad set | Ad | State |
+|---|---|---|
+| 01 Whole-home (focal) | V1 Three bathrooms (video) | Complete |
+| 02 Trust | 02 In-house trades | Complete |
+| 02 Trust | 06 Who we are | **Complete** |
+| 03 Proof and offer | (unconverted duplicate) | Still the copied V1 video ad |
+
+Remaining: 03, 04, 05, 07 and the V2 video ad - all in `03 Proof and offer`.
