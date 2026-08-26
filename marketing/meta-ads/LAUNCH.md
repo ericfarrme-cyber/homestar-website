@@ -769,3 +769,53 @@ The other three stayed off. So after any media change, check those two.
 
 Remaining: 04 waterproofing, 05 pricing, 07 entertaining floor, V2 video -
 all to be duplicated from ad 03 inside `03 Proof and offer`.
+
+
+---
+
+## STOP POINT - ad 04 is incomplete, do not publish it
+
+`04 Waterproofing warranty` is **half-built and currently has no media**:
+
+| Field | State |
+|---|---|
+| Name | Set - `04 Waterproofing warranty` |
+| Destination URL | Set and verified - `/bathroom-remodeling?...utm_content=04-waterproofing` |
+| **Media** | **EMPTY** - removed and not yet re-added |
+| Copy | Still ad 03's basement text, headline and description |
+| CTA | Learn more (inherited, correct) |
+
+Meta requires media on an ad, so it cannot publish in this state - it will be
+blocked rather than run wrong. But it must be finished before the campaign goes
+live, and it should not be left as-is.
+
+### Why the media ended up empty
+
+The duplicate inherited ad 03's basement creatives. Swapping them proved
+unreliable: the selection counter reported 3, then 5, then 3 again for the same
+state, and the tiles gave no readable selected/unselected attribute, so there
+was no safe way to tell which three were selected. Rather than guess and risk
+the wrong images going live, the media was cleared with **Remove media** to get
+a deterministic empty state - but the browser degraded before the correct three
+could be added back.
+
+### To finish ad 04
+
+1. Ad creative -> **Add media** -> Images -> search `04-waterproofing` ->
+   select 1080x1350, then 1080x1080, then 1080x1920
+2. Primary text: the waterproofing copy from `CAMPAIGN.md`
+3. Headline: `25-Year Waterproofing Warranty`
+4. Description: `Schluter Pro Certified`
+5. Re-check the four AI toggles (a media change re-enables text generation and
+   Add music)
+
+### The real blocker
+
+The Ads Manager tab degrades within roughly 15 minutes of active use - self-
+zooming, screenshot timeouts, refs resolving to the wrong elements (a click
+landed on the Help menu). A brand new tab fixes it, but the cycle repeats, and
+each reset costs several minutes. Four ads remain (04 to finish, 05, 07, V2).
+
+This is an environment limit, not a Meta one. Doing the last four in one sitting
+in a normal browser window would be faster than continuing to automate through
+a degrading tab.
