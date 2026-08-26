@@ -62,37 +62,70 @@ Aim for **13+ sends** to land ~15 total. Expect some non-response; over-ask rath
 
 ## The message — paste this over Houzz's default
 
-> Hi — Eric from HomeStar Services & Contracting.
->
-> You were kind enough to leave us a review after your project, and I have a small favour to ask.
-> We're building out our profile on Houzz, which is where a lot of Hamilton County homeowners start
-> when they're looking for a remodeler, and we've only got a couple of reviews there so far.
->
-> If you have five minutes, would you post a version of your review on Houzz as well? The link below
-> goes straight to it.
->
-> Three things that genuinely help someone deciding:
->
-> - **Name the room and your town** — "our Carmel kitchen", "the basement in Westfield". It's how
->   people searching for that exact work actually find us.
-> - **Add a photo or two** of the finished space if you have any handy. Houzz is a visual site and
->   photos get read far more than text alone.
-> - **Say what the project was actually like to live through** — the schedule, the crew, how problems
->   got handled. That's what people are really trying to find out.
->
-> Write it however you found it — I'm asking for your honest experience, not a particular verdict.
->
-> Thank you either way. The early projects are what got us here.
->
-> — Eric
+**Format note:** the Houzz message box is a plain textarea and sends ONE message to every recipient
+at once. No markdown, no merge tags, no names. Plain line breaks only.
 
-### Rules this message deliberately follows
+### Recommended version (use this for most clients)
+
+```text
+Hi — Eric from HomeStar.
+
+You let us work in your home for a few weeks, which is not a small thing
+to hand over to anyone. Thank you for that.
+
+I've got a favor to ask. We're building up our Houzz profile — it's where
+a lot of Hamilton County homeowners start when they're looking for a
+remodeler — and we've only got a couple of reviews there so far. If you
+have five minutes, the link below goes straight to the review page.
+
+Two things that make a review genuinely useful to the next person
+reading it:
+
+Mention the room and your town — "our Carmel kitchen," "the basement in
+Westfield." That's how people searching for that specific work actually
+find us.
+
+Add a photo of the finished space if you have one handy. Houzz is a
+visual site, and photos get read far more than words do.
+
+Write it however you found it. I'd rather have honest than flattering.
+
+Thanks either way — the early projects are what got us here.
+
+Eric Farr
+HomeStar Services & Contracting
+(317) 279-4798
+```
+
+### Short version (for older projects)
+
+```text
+Hi — Eric from HomeStar.
+
+Quick favor. We're building up our Houzz profile and only have a couple
+of reviews there so far. If you have five minutes, the link below goes
+straight to it.
+
+If you do write one, mentioning the room and your town — "our Carmel
+kitchen," "the basement in Westfield" — is what helps people find us. A
+photo of the finished space helps even more.
+
+Honest is more useful to me than flattering. Thanks either way.
+
+Eric Farr
+HomeStar Services & Contracting
+```
+
+### Rules these messages deliberately follow
 - **No incentive of any kind.** Offering anything for a review violates Houzz and Google policy and
   can get reviews stripped and the profile penalised.
-- **No rating steering.** It asks for an honest review, not a 5-star one. Review gating is a
-  policy violation and it is also the thing that makes a review corpus read as fake.
-- **It asks for room + town** because that is the specific gap: category and city association.
-- **It asks for photos** because Houzz's own algorithm and readers weight them.
+- **No rating steering.** "Honest is more useful than flattering" rather than asking for 5 stars.
+  Gating for positive reviews is a policy violation, and a uniformly glowing corpus is what reads
+  as purchased.
+- **The room-and-town line is the point.** It targets the two gaps the 2026-08-26 sweep found:
+  HomeStar is categorised as bathroom-and-basement, and is invisible outside Fishers. Review
+  language is the cheapest fix for both.
+- **Photos** because Houzz's own guidance and its readers weight them heavily.
 
 ---
 
