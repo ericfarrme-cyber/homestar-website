@@ -296,8 +296,12 @@ website work — a future run reading only the action line above will otherwise 
    the live page, not assumed. This line sat here stale for weeks and would have sent a run off to
    rebuild finished work. **The open whole-home question is not pricing — it is portfolio evidence
    and whether to compete for luxury whole-home at all.** See Run #4 above.
-6. **Judge ~2026-09-05:** the geo-disambiguation experiment (measure clicks, not blended CTR) and the
-   not-indexed count after a full re-crawl cycle.
+6. **Judgment dates — BOTH MOVED 2026-08-26. Do not use 09-05.**
+   - **Geo-disambiguation experiment → judge ~2026-09-26**, measuring clicks, not blended CTR. It ran
+     inside a **corrupted meta description** until 2026-08-26 (see the meta-corruption section at the
+     top). Judging it on 09-05 would read a build bug as a failed strategy.
+   - **Not-indexed count → judge ~2026-09-26 as well.** Google only received the full 238-URL sitemap
+     on 2026-08-26; a re-crawl cycle starts from there, not from 08-05.
 
 ## Human-only items (surface every run until Eric marks done)
 _Re-prioritised 2026-08-05 by the 12-run logged-out ChatGPT protocol — see `ai-share-of-voice-log.md`._
@@ -408,8 +412,13 @@ Audit script confirms: **zero sub-$25K figures on any kitchen-context line.**
   established *why*: they rank page 1 (pos 7.6 / 9.6) with ~0 clicks because 4,279 impressions come
   from `*bathroom remodel cost hamilton` queries belonging to other Hamiltons (OH/TN/NJ), 95% US.
   Run #2 used a different mechanism — **geographic disambiguation**, "Indiana" leading title+meta.
-  If that fails at ~2026-09-05, do NOT write a fourth title. Reclassify those impressions as
-  unqualified and stop judging the page on blended CTR.
+  **⚠️ AMENDED 2026-08-26 — READ BEFORE RETIRING THIS PAGE.** The geo rewrite has never actually been
+  tested. Both of these pages served a **corrupted meta description** — the "Indiana"-leading copy was
+  live but spliced through with a literal `<meta name="description" content=` fragment, because a
+  build bug expanded the `$1` in "$15,000". Repaired and deployed 2026-08-26. So the geo mechanism
+  gets its **first real trial now**, and the verdict is due **~2026-09-26**, not 09-05.
+  If it fails *then*, do NOT write a fourth title: reclassify those impressions as unqualified and
+  stop judging the page on blended CTR. Until 09-26, this tactic is under test, not retired.
 - **Re-requesting indexing on unchanged pages.** Golden rule stands.
 
 ## Content exclusions (Eric's decisions — do not build)
@@ -451,6 +460,11 @@ self-referencing canonical on first fetch, no JS render required. **Next run: re
 remaining canonical-group pages should follow as Google re-crawls. Judge the not-indexed count
 ~2026-09-05 (allow a full re-crawl cycle), not 8/22 — the 8/22 date was set for the *old* watch-only
 plan, which this supersedes.
+
+**⚠️ AMENDED 2026-08-26: the not-indexed judgment moves to ~2026-09-26.** Google did not hold the
+full sitemap until Eric resubmitted it on 08-26 (`Submitted Aug 26 | Last read Aug 26 | 238`). A
+re-crawl cycle is only meaningful from that date, so 09-05 would be measuring a crawl that had never
+seen most of these URLs listed.
 
 ## Tooling
 - **Syntax gate:** repo has **no `node_modules`**, so esbuild is unavailable. `@babel/parser` is
