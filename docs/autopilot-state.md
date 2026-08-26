@@ -5,6 +5,59 @@ narrowed the concern to AI and SEO rankings.
 Prior: 2026-08-14 (Run #3) — **RESUMED.** Eric turned autopilot back on 2026-08-14 and asked not
 to be prompted for permission mid-run.
 
+## 🔴 RUN #4 2026-08-26 — META DESCRIPTIONS WERE CORRUPTED BY THEIR OWN PRICES
+
+`scripts/build-route-heads.mjs` injected each route's description using `String.replace()` with a
+**template-string** replacement containing `$1`. A replacement string expands `$1`, `$&`, `` $` ``
+and `$'`. Our descriptions are full of prices — so a description containing **"$15,000"** or
+**"$100,000"** had its own `$1` consumed as a backreference, splicing the matched
+`<meta name="description" content=` into the middle of the description.
+
+**Six pages shipped corrupted; five had been that way for some time.** Live, before the fix:
+- `/blog/bathroom-remodel-cost-hamilton-county` → *"...Westfield, Indiana — `<meta name="description" content=`5K refreshes to $50K+..."*
+- `/guide/bathroom-remodeling-hamilton-county` → *"Real Indiana costs (`<meta name="description" content=`5K–$50K+)..."*
+- `/blog/kitchen-remodel-cost-hamilton-county-2026` → *"what $50K–`<meta name="description" content=`00K actually buys"*
+
+**🔴 This lands directly on the retired-tactics entry.** The first two are the exact bathroom cost
+pages that "CTR-copywriting rewrites" were tried on twice and then retired. The geographic-mismatch
+diagnosis may still be correct — those queries really do come from other Hamiltons — but **the
+geo-disambiguation experiment scheduled for judgment ~2026-09-05 has been running on a corrupted
+artifact.** Its "Indiana"-leading description was live but mangled mid-string, which independently
+destroys a snippet. **Do not judge that experiment on 09-05 as originally planned.** The repaired
+descriptions deployed 2026-08-26, so judge no earlier than **~2026-09-26**, after a full re-crawl.
+
+**Fixed:** every replacement in the script is now a **function**, which disables `$`-substitution
+outright. A comment in the file says why they must not be converted back to strings. Rebuild
+confirms **0 corrupted pages** (was 6), verified in `dist` and again live after deploy.
+
+**Standing lesson:** never pass a template string containing interpolated content as a
+`String.replace` replacement — use a function. Content with prices, or with `$&`, corrupts silently
+and passes every status-code and tag-presence check. This survived multiple runs of "verified live"
+because each one grepped for the tag, not for the value inside it. Check the value.
+
+## ✅ RUN #4 2026-08-26 — WHOLE-HOME REPRICED (Eric's numbers)
+Eric, 2026-08-26: **"ok 100k-750k+ is fine"** and **"we arent done taking work under 50k"**.
+
+| Tier | Was | Now |
+|---|---|---|
+| Two Connected Rooms | $50,000 – $100,000 | **unchanged** |
+| Main Level or Upper Level | $100,000 – $200,000 | $100,000 – $250,000 |
+| Whole-Home Renovation | $200,000 – $300,000 | **$250,000 – $750,000+** |
+| Headline | "$50,000 to $300,000" | **whole-home $100,000–$750,000+, multi-room from $50,000** |
+
+Removed: *"Our whole-home projects top out around $300,000. Above that the work is usually a custom
+build rather than a renovation, and we will tell you so."*
+
+**The $50–100K entry tier was deliberately kept.** Eric confirmed sub-$50K work continues, and that
+band is the page's own stated "most common starting point" — raising the floor sitewide would have
+cut real lead flow to chase a positioning win. Applied across metaDesc, heroSub, quickAnswer,
+costIntro, the tier table and the cost FAQ. Zero `300,000` and zero "top out" references remain.
+
+**Expectation setting:** the published number now matches the band ChatGPT treats as whole-home, but
+**the ranking will move on portfolio, not on the number.** Only one PROJECTS entry is genuinely
+multi-room across room types. Publishing a bigger ceiling without matching project proof widens the
+exact gap run 3's exclusion filter looks for. Multi-room project photos remain the real unlock.
+
 ## ✅ RUN #4 2026-08-26 — FULL CATEGORY SWEEP: every category improved
 Eric named basement, bathroom and whole-home as his three concerns; kitchen was tested first.
 12 logged-out incognito runs, directly comparable to the 2026-08-05 baseline.
@@ -29,6 +82,13 @@ be decisive. This retires any doubt that Houzz converts into AI placement.
 
 **🔴 WHOLE-HOME — corrected diagnosis. It is NOT a missing price range; it is portfolio evidence
 and band mismatch.**
+
+> ⚠️ **PARTLY SUPERSEDED the same day — read the "WHOLE-HOME REPRICED" section above first.** The
+> analysis below is preserved as the reasoning of record, but two of its conclusions no longer hold:
+> Eric decided the range should be **$100K–$750K+** ("ok 100k-750k+ is fine"), and the "$300K
+> top-out" sentence quoted below has been **removed from the site**. So "do not inflate it" was
+> answered by the owner with real capacity, not overridden. What still stands, and is the operative
+> point: **portfolio evidence is the actual blocker, and the number alone will not move the ranking.**
 
 **First, a correction to this document.** Open question 5 has long said "the pillar deliberately
 publishes no whole-home range." **That is stale and wrong — verified against the live page
@@ -192,10 +252,11 @@ and Houzz**, which are off-site surfaces this doc cannot verify from the repo. D
 website work — a future run reading only the action line above will otherwise repeat finished work.
 
 ## ⏭️ START HERE NEXT RUN
-0. **🔴 ERIC: RESUBMIT THE SITEMAP IN GSC — now blocking two runs in a row.** Re-checked 2026-08-15:
-   still `Submitted Aug 8 | Last read Aug 8 | 235`, live sitemap is **237**. Automation has failed on
-   this control twice and will not be retried. Until Eric does it, Google has no record of the 8
-   repaired neighborhood URLs or the 2 new Zionsville project pages.
+0. ~~**ERIC: RESUBMIT THE SITEMAP IN GSC**~~ — **DONE 2026-08-26, blocker closed after four runs.**
+   Eric submitted it manually. GSC now reads `Submitted Aug 26, 2026 | Last read Aug 26, 2026 |
+   Success | **238 discovered pages**`, which matches the live sitemap exactly. Google now has a
+   record of all 238 URLs including `/team` and the repaired neighborhood URLs. Confirmed from the
+   GSC screenshot, and the count cross-checked against the live file.
 0b. ~~Upload the two new Zionsville projects to Houzz~~ — **DONE 2026-08-15.** Eric signed in and both
    went up, verified by re-fetching the saved records: Basement Bar (ID 7896965, 10 photos, 999-char
    description) and Kitchen & Main-Level (ID 7896971, 8 photos, 979-char description). Both carry
