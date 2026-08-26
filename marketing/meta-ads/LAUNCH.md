@@ -363,3 +363,49 @@ Pixel, the Lead conversion event, and the AI-off settings. Meta's duplicate
 dialog offers to "Add an image" via AI on each copy - **unchecked both times**.
 
 Still to build: 9 still ads and the V2 video ad, once music is settled.
+
+
+---
+
+## Music - done and mixed
+
+Terms accepted 2026-08-26. Track pulled from Meta Sound Collection:
+
+**"Deepest Blue" - Company Money - Ambient, Slow, 1:09**
+
+Mixed into both cuts:
+
+- Trimmed to each video's exact length, resampled to 48 kHz
+- `loudnorm` to -16 LUFS, then measured at **mean -18.2 dB, peak -8.3 dB** - a
+  bed that supports the visuals rather than competing with the typography
+- 1.2s fade in, 2.2s fade out landing under the brand end card
+
+Files:
+
+| | Path |
+|---|---|
+| Masters | `renders/V1-whole-home-three-baths--reels-video-music.mp4` (13MB), `renders/V2-entertaining-floor--reels-video-music.mp4` (15MB) |
+| Upload copies | `_upload/V1-whole-home-three-baths-music.mp4` (6.7MB), `_upload/V2-entertaining-floor-music.mp4` (7.6MB) |
+| Source track | `assets/music-deepest-blue.m4a` |
+
+### Two honest caveats
+
+1. **Claude cannot hear the track.** It was chosen on genre, tempo and length
+   metadata - Ambient, Slow - not by listening. Eric should approve it by ear.
+2. **Only one track downloaded.** Chrome blocked the repeated automatic
+   downloads after the first, so "Luminous Stillness", "Rose Petals" and
+   "Collective Dream" never landed. Both videos currently share the same bed.
+   To get alternates, allow multiple downloads for business.facebook.com and
+   click the download arrow on those rows.
+
+### Licence reminder
+
+Meta Sound Collection audio is licensed for Meta platforms **only**. These
+music versions must not go on YouTube or be embedded on thehomestarservice.com.
+The silent masters in `renders/` remain the versions for anywhere off Meta.
+
+### Re-upload needed
+
+The music versions are new files, so they have to go into the Meta media
+library the same way the originals did - drag-and-drop, because the uploader
+hands off to the native OS picker. Then swap the media on the two video ads.
