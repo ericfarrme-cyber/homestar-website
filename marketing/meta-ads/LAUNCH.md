@@ -724,3 +724,48 @@ the recipe above, since duplication now carries the AI-off state.
 
 The URL is already correct:
 `/basement-finishing?...utm_content=03-basement-sqft`
+
+
+---
+
+## Ad 03 complete - 4 of 11
+
+`03 Basement square footage` is finished: three placements of the basement
+creative, full copy, headline "Finish The Space You Already Own", description
+"$45K-$200K - Real numbers", **Learn more** CTA (it lands on the service page,
+not a quote form, so Get quote would over-promise), and the
+`/basement-finishing` URL with UTMs.
+
+### Fixing the renderer
+
+Opening a **brand new tab** cleared the self-zooming and screenshot timeouts
+completely. The old tab was unrecoverable; a fresh one is instant. Worth doing
+every 3-4 ads rather than waiting for it to degrade.
+
+### The translation preview proves the point
+
+On this ad Meta's own preview showed the failure mode side by side: Spanish
+body copy above an image whose baked-in English headline stays English, with
+Meta's own warning *"The overlay for this image can't be translated into all
+selected languages."* Turned off, as on every other ad.
+
+### Two AI features come back on a media change
+
+Confirmed again here. After swapping media:
+- **Advantage+ text generation** returned on both the primary-text and headline
+  blocks
+- **Add music** returned under Media enhancements
+
+The other three stayed off. So after any media change, check those two.
+
+### Status
+
+| Ad set | Ad | State |
+|---|---|---|
+| 01 Whole-home (focal) | V1 Three bathrooms (video) | Complete |
+| 02 Trust | 02 In-house trades | Complete |
+| 02 Trust | 06 Who we are | Complete |
+| 03 Proof and offer | 03 Basement square footage | **Complete** |
+
+Remaining: 04 waterproofing, 05 pricing, 07 entertaining floor, V2 video -
+all to be duplicated from ad 03 inside `03 Proof and offer`.
