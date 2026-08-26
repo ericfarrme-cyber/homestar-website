@@ -598,3 +598,42 @@ they sit behind the **Edit** button on the ad summary.
 
 Worth a deliberate pass over both groups before anything publishes, and worth
 checking whether Essential enhancements can be disabled at all.
+
+
+---
+
+## Build status (end of session)
+
+| Ad set | Ad | State |
+|---|---|---|
+| 01 Whole-home (focal) | `V1 Three bathrooms (video)` | **Complete** - music version, full copy, Get quote, UTM URL, AI off |
+| 02 Trust | `02 In-house trades` | **Complete** - 3 placements, full copy, Get quote, correct UTM URL, AI off, translation off |
+| 02 Trust | `06 Who we are` | Created and renamed only. Still needs media, copy and URL |
+| 03 Proof and offer | (unconverted duplicate) | Still the copied V1 video ad |
+
+Still to build: 06 (finish), 03, 04, 05, 07 and the V2 video ad.
+
+### The URL fix that works
+
+The destination URL resists both plain typing and programmatic setting - React
+reverts it. What works: scroll the field into view, **triple-click directly on
+the field** so its text is selected, then type. Verified on ad 02, which now
+correctly points at `?...utm_content=02-in-house-trades#estimate` rather than
+the inherited V1 URL.
+
+Worth checking every duplicated ad for this: a duplicate silently inherits the
+source ad's URL, so an unchecked ad will send people to the wrong page.
+
+### Duplicating an ad re-offers AI
+
+Meta's duplicate dialog now offers **"Add music to Reels"**, pre-checked, with a
+"Higher clickthrough rate" badge. Uncheck it, the same as the ad set duplicate's
+"Add an image".
+
+### UI notes
+
+`scroll_to` on a resolved element reference intermittently opens the left
+navigation instead of scrolling, and clicking a stale reference can open the
+wrong dialog (the ad-name template builder rather than the media picker).
+Re-resolve references after any page change, and prefer clicking by coordinate
+from a fresh screenshot.
