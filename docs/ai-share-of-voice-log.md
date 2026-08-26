@@ -62,25 +62,40 @@ entertainment area."* — source chip **Houzz**. One review is doing measurable 
 strongest possible argument that ~15 would be decisive, and it retires any doubt that Houzz reviews
 convert into AI placement.
 
-## 🔴 WHOLE-HOME: the gap is a published price range, not more content
+## 🔴 WHOLE-HOME: corrected — the gap is portfolio evidence and band mismatch, NOT a missing price
 
-Whole-home is the weakest category (1/3) and the reason is specific. Every firm named was cited from
-**its own website**, not a directory. The #1 pick in both runs where HomeStar lost was Nicholas
-Design Build, and the sentence that won it was:
+**Correction to the first draft of this entry.** I wrote that HomeStar publishes no whole-home price
+range, taking the autopilot doc's open question 5 at face value. **That was wrong.** Verified against
+the live page: `/whole-home-renovation` publishes **$50,000–$300,000** five times in the prerendered
+HTML, plus a full three-tier table — Two Connected Rooms $50–100K, Main Level or Upper Level
+$100–200K, Whole-Home Renovation $200–300K. The range has been there all along.
 
-> *"Their published local range for whole-home remodels is roughly $250K–$750K+, with larger
-> luxury/addition projects potentially exceeding $1M."*
+So why does ChatGPT quote Nicholas Design Build's range and not HomeStar's? Two reasons, neither
+fixed by writing more copy:
 
-**HomeStar's whole-home pillar deliberately publishes no range** (open question 5). Nicholas gets
-ranked and quoted because it published a number. In run 3 the filter that excluded HomeStar was
-explicit: *"firms that genuinely do design + architecture/planning + construction management, rather
-than a kitchen/bath contractor that happens to advertise 'whole home'."* Claiming design-build is
-necessary but not sufficient — the claim now needs **a price range and completed whole-home project
-proof** behind it.
+**1. Band mismatch.** Nicholas publishes **$250K–$750K+**, over $1M with additions. HomeStar
+publishes **$50K–$300K** and explicitly opts out of the top of the market:
 
-**Action: get Eric's whole-home / multi-room floor and typical main-level figure, and publish it on
-the pillar.** This is the highest-leverage remaining content change, and it is blocked only on a
-number Eric already knows.
+> *"Our whole-home projects top out around $300,000. Above that the work is usually a custom build
+> rather than a renovation, and we will tell you so."*
+
+ChatGPT frames whole-home as a major high-end project — moving walls, reworking the floor plan,
+high-end finishes. HomeStar's own page says that is not the work it does. **That sentence is honest
+and good for lead quality. Do not inflate it to chase a ranking.**
+
+**2. Portfolio evidence.** Only four `PROJECTS` entries carry `cats: ["Whole Home"]`, and three are
+single-room-type jobs — a basement, a three-bathroom job, two children's bathrooms. **Exactly one,
+"Kitchen & Main-Level Renovation in Zionsville", is genuinely multi-room across room types.** Run 3
+excluded HomeStar with *"rather than a kitchen/bath contractor that happens to advertise 'whole
+home'."* Against this portfolio that is an accurate read, not a model error.
+
+**Strategic implication: whole-home may be the wrong target.** The luxury whole-home query is not
+honestly winnable at a self-published $300K ceiling. The winnable and already-proven band is
+**multi-room / main-level at $50–200K**. Competing there explicitly beats chasing a query the
+company has, in its own words, said it does not serve. That is Eric's call.
+
+**What would actually move whole-home:** more genuinely multi-room project pages. Blocked on photos
+and details, not on copy.
 
 ## 🟡 The map pack is still a separate, losing game
 HomeStar was absent from the map-pack block in essentially every run across all four categories while
