@@ -877,3 +877,53 @@ while.
 | 04 Waterproofing warranty | **Media + URL right, copy wrong, 2 toggles on** |
 
 Not started: 05 pricing, 07 entertaining floor, V2 video.
+
+
+---
+
+## Ad 04 complete - 5 of 11
+
+`04 Waterproofing warranty` is finished and verified by reading the DOM rather
+than trusting screenshots:
+
+| Field | Value |
+|---|---|
+| Media | 3 waterproofing creatives (feed, square, reels) |
+| Primary text | Schluter waterproofing copy |
+| Headline | `25-Year Waterproofing Warranty` |
+| Description | `Schluter Pro Certified` |
+| CTA | Learn more |
+| URL | `/bathroom-remodeling?...utm_content=04-waterproofing` |
+| AI enhancements | **All 5 off** - "Turned off: Add overlays, Visual touch-ups, Add music and 2 more" |
+| AI text variants | 0 selected (verified - the only checked boxes on the page were UI state) |
+| Translation | 0 languages |
+
+### "Add overlays" is reachable after all
+
+Earlier this was recorded as sitting behind the ad summary and hard to reach.
+It is actually in the **Advanced preview** dialog, opened from the *Edit* button
+beside the "Advantage+ creative enhancements" summary. That dialog shows all
+five toggles side by side - Add overlays, Visual touch-ups, Add music, Text
+improvements, Add animation - and a single Save commits them.
+
+**This is the fastest way to set all five at once**, rather than hunting them
+across the creative wizard's tabs.
+
+### Still not disableable
+
+"Essential enhancements" remain on and offer no toggle:
+`Relevant comments, Enhance CTA, Adjust brightness and contrast and 1 more`.
+**Adjust brightness and contrast does modify the photograph.** It appears to be
+mandatory on this ad type - worth raising with Meta support if it matters.
+
+### Status
+
+| Ad | State |
+|---|---|
+| V1 Three bathrooms (video) | Complete |
+| 02 In-house trades | Complete |
+| 06 Who we are | Complete |
+| 03 Basement square footage | Complete |
+| 04 Waterproofing warranty | **Complete** |
+
+Remaining: 05 pricing, 07 entertaining floor, V2 video.
