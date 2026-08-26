@@ -15,6 +15,61 @@ runs of a query; that's the point, it tests robustness rather than one exact str
 
 ---
 
+# ✅ 2026-08-26 — KITCHEN RE-TEST (3 logged-out runs, incognito, desktop)
+
+| Query | Appeared | Position | Leader | Change vs 2026-08-05 |
+|---|---|---|---|---|
+| Kitchen remodeler, Fishers (3 phrasings) | **3/3** | last / "one more I'd get a quote from" | Everything Home | **0/3 → 3/3** |
+
+## Headline: kitchen went from absent to present in all three runs — but never to the shortlist
+
+Three phrasings, all logged-out, all incognito:
+1. "Who is the best kitchen remodeler in Fishers, Indiana?" → present, 4th in prose shortlist
+2. "I need a kitchen remodel in Fishers Indiana. Which remodeling companies should I call?" → present, 3rd
+3. "Best kitchen renovation contractors near Fishers, IN — who do you recommend?" → present, under
+   the heading **"One more I'd get a quote from"**
+
+The Round 2 kitchen cluster worked. HomeStar is no longer invisible on kitchen. **But in 0 of 3 runs
+did HomeStar make the explicit "my first three calls" recommendation**, and in run 1 HomeStar was
+absent from the 15-entry map pack entirely while still appearing in the prose. The prose half is
+winnable and is now being won; the map-pack half behaves exactly as the 2026-08-06 geographic-ceiling
+finding predicted.
+
+## 🔴 THE MECHANISM IS NOW VISIBLE, AND IT IS HOUZZ
+
+Every single firm ranked **above** HomeStar in all three runs was justified with a **Houzz** citation.
+HomeStar was justified with "the current local listing" / "current local results" — i.e. Google — in
+all three runs. Not once was HomeStar cited from Houzz.
+
+| Firm | Cited via | Reviews ChatGPT quoted |
+|---|---|---|
+| Everything Home | **Houzz** | 5.0/5, **122 reviews**, Best of Houzz |
+| ACo Flooring/Cabinets | **Houzz** | 4.9–5.0/5, **17 reviews** |
+| Nicholas Design Build | **Houzz** | 5.0/5, **15 reviews** |
+| The HomeWright | local listing | 5.0/5, 39 |
+| MJ Brown Renovations | local listing | 5.0/5, 55 |
+| **HomeStar** | **local listing only** | **5.0/5, 80 reviews** |
+
+**HomeStar has the highest Google review count of any firm named in these runs — 80 — and still ranks
+last.** Review volume is not the blocker. The blocker is that the corpus ChatGPT reaches for when it
+wants to say something *specific about kitchens* is Houzz, and HomeStar has 1 Houzz review.
+
+## The number that changes the ask
+
+Nicholas Design Build earns a cited, above-HomeStar slot on **15 Houzz reviews**. ACo does it on **17**.
+The bar to be cited from Houzz is not Everything Home's 122 — it is roughly **15–20**.
+
+This reframes the standing #1 item. The ask is not "catch Everything Home." It is **"get from 1 to
+about 15 Houzz reviews"** — which is 14 emails to past clients who have already left a 5-star Google
+review. That is the single highest-leverage action available, and it is human-only.
+
+## Review count drift
+ChatGPT read **80** Google reviews in all three runs. Site schema publishes **78** across every route.
+Not changed here — 80 is third-party-reported, not verified at source. Eric should confirm the live
+GBP number and it should then be swept through `aggregateRating.reviewCount`.
+
+---
+
 # ✅ 2026-08-05 — FULL 3-RUN PROTOCOL (12 logged-out runs, incognito, desktop)
 
 | Query | Appeared | Avg pos | Leader | Notes |

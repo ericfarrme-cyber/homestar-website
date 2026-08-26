@@ -1,6 +1,46 @@
 # Autopilot State — HomeStar SEO
-Last run: 2026-08-14 (Run #3) — **RESUMED.** Eric turned autopilot back on 2026-08-14 and asked not
+Last run: 2026-08-26 (Run #4). Eric opened the run reporting **no inbound leads for a while**, then
+narrowed the concern to AI and SEO rankings.
+
+Prior: 2026-08-14 (Run #3) — **RESUMED.** Eric turned autopilot back on 2026-08-14 and asked not
 to be prompted for permission mid-run.
+
+## ✅ RUN #4 2026-08-26 — KITCHEN IS NO LONGER INVISIBLE TO AI (0/3 → 3/3)
+Re-ran the 3-run logged-out ChatGPT protocol on kitchen/Fishers. **HomeStar appeared in all three
+runs**, up from absent-in-all-three on 2026-08-05. The Round 2 kitchen cluster worked.
+
+**But HomeStar placed last in every run** ("one more I'd get a quote from") and made the explicit
+"my first three calls" shortlist **0 of 3 times**. In run 1 it was missing from the 15-entry map
+pack while still appearing in the prose — exactly the split the geographic-ceiling finding predicts.
+
+**🔴 The mechanism is now visible and it is Houzz.** Every firm ranked above HomeStar was justified
+with a **Houzz** citation. HomeStar was justified from the Google listing in all three runs and was
+**never once cited from Houzz**. HomeStar has **80 Google reviews — the most of any firm named** —
+and still ranks last. Volume is not the blocker; the kitchen-specific corpus is, and that corpus is
+Houzz.
+
+**The number that changes the ask:** Nicholas Design Build earns a cited, above-HomeStar slot on
+**15 Houzz reviews**; ACo on **17**. The bar is ~15–20, not Everything Home's 122. The standing #1
+item is therefore **"get from 1 to ~15 Houzz reviews"** — about 14 asks to clients who already left
+a 5-star Google review. Full evidence: `docs/ai-share-of-voice-log.md` (2026-08-26 entry).
+
+**Shipped this run** (commit `f6ef4eb`, deployed and verified live):
+- **Breadcrumb schema fixed on all 9 `/guide/*` routes + `/tools/remodel-cost-calculator`.** Root
+  cause: a *middle* `BreadcrumbList` item with no `item` URL is invalid — `item` is optional only on
+  the final crumb. `GuidePage`'s "Guides" crumb and `CostCalculator`'s "Tools" crumb both omitted it.
+  This was filed as a single-page bug (item 3c, `/guide/renovation-sequencing-guide`); it was
+  actually 10 pages. Verified in the live HTML, not assumed.
+- Two stale "62+ Google reviews" prose strings aligned to the 78 already published sitewide. These
+  are the strings AI assistants quote.
+
+**Lead form checked and healthy** — every `LeadForm` on the site is one iframe to
+`homestar-project-manager.vercel.app`, a single point of failure for the whole site. It renders,
+mounts, and is not frame-blocked. **Not verified: that a submission actually delivers.** Testing that
+means putting a fake lead in the CRM, so it needs Eric's OK first.
+
+**Review-count drift:** ChatGPT read **80** Google reviews in all 3 runs; schema publishes **78**.
+Not changed on third-party say-so — Eric should confirm the live GBP number, then sweep
+`aggregateRating.reviewCount`.
 
 **Scope of "auto", stated explicitly so no future run has to guess:** autopilot = work this queue
 during a session. **GBP weekly auto-posting stays OFF** — Eric re-confirmed this 2026-08-14 when it
@@ -102,8 +142,11 @@ website work — a future run reading only the action line above will otherwise 
    no verified year, no published figure. Hard-won mechanics (the Dropzone uploader, the pre-filled
    website field, the address/city trap) are written up in
    `docs/houzz-upload-package-zionsville-2026-08-15.md` — read it before the next Houzz upload.
-1. **Houzz reviews — the standing #1 item.** Still 1 review vs Everything Home's 100+ (re-verified on
-   the live profile 2026-08-15). Surface it first, every run, until it is meaningfully above 10–15.
+1. **Houzz reviews — the standing #1 item, and Run #4 proved the mechanism.** Still 1 review.
+   Everything Home is now at **122** (ChatGPT quoted it, 2026-08-26). **Target ~15**, not 122 —
+   competitors are earning cited slots above us on 15 and 17 Houzz reviews. This is the difference
+   between HomeStar being the "one more I'd get a quote from" and being in the first three calls.
+   ~14 asks to clients who already left a 5-star Google review. Surface first, every run.
    (Also in persistent memory.)
 2. ~~Re-inspect `/kitchen-remodeling-zionsville-in`~~ — **CLOSED 2026-08-15. It is INDEXED**, with
    breadcrumbs and review snippets both valid. The per-route canonical fix is proven end-to-end.
@@ -116,7 +159,7 @@ website work — a future run reading only the action line above will otherwise 
    already fixed and live; these verdicts are stale. If they have NOT cleared after a re-crawl, the
    head tags were not enough and the empty-body/SSG problem is the real cause. Full detail in
    `docs/indexing-health-log.txt`.
-3c. **Fix the breadcrumb schema on `/guide/renovation-sequencing-guide`** — indexed but reports
+3c. ~~Fix the breadcrumb schema on `/guide/renovation-sequencing-guide`~~ — **DONE 2026-08-26, and it was 10 pages, not 1.** See Run #4 above. Original note follows: it was indexed but reported
    "1 invalid item". Its sibling `/tools/renovation-sequence-planner` reports 1 *valid* item, so the
    bug is specific to the guide route, not the schema in general.
 4. **Kitchen flagship project** — Eric confirmed he has one; still awaiting photos + details.
