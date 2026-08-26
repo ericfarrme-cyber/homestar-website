@@ -156,3 +156,53 @@ Still needs a human decision before the build can finish:
 - **Page and Instagram account** to run the ads from
 - **Payment method** must already be on the account
 - **Publishing** — everything is left in draft; Eric publishes
+
+---
+
+## Build progress (2026-08-26)
+
+**Tracking — complete.**
+- Meta Pixel `275995906389395` live on all 238 routes; PageView confirmed
+  received in Events Manager Test Events.
+- `homestar-project-manager` deployed with the postMessage on submit. Verified
+  the shipped bundle contains the message and the specific parent origin (no
+  wildcard). The chain is now: form submit → postMessage → parent verifies
+  origin → `fbq('track','Lead')` + GA4 `generate_lead`.
+- The first real form submission will register the Lead in Events Manager.
+  Nothing has fired one yet, so `Lead` still shows under "Inactive events".
+
+**Campaign — built as a draft, nothing published.**
+
+| Layer | State |
+|---|---|
+| Campaign `HomeStar - Hamilton County - 2026-08` | Leads objective, Auction, **$50/day** campaign budget (Advantage+ on), no end date |
+| Ad set `01 Whole-home (focal)` | Conversion location **Website**, performance goal **Maximize number of leads**, conversion event **Lead**, Facebook Page **HomeStar Services and Contracting**, location **Carmel, Indiana +15mi** (audience 1.4M–1.7M) |
+| Ad `New Leads Ad` | placeholder, not yet configured |
+
+The 7 stale unpublished drafts that were sitting in this account were discarded
+first, so the pending-changes bucket contains only this campaign.
+
+### Still to do
+
+1. **Minimum age** — still 18, wants 33. The dropdown fought repeated attempts
+   and the renderer began timing out; left rather than risk a misclick.
+2. **Instagram account** — link `@thehomestarservice` at the ad level.
+3. **Ad sets 2 and 3** — Trust (02, 06) and Proof & offer (03, 04, 05, 07, V2),
+   duplicating ad set 1's targeting.
+4. **The 11 ads** — creative upload, copy from `CAMPAIGN.md`, destination URLs
+   above, CTA per ad, and a track from Meta's royalty-free library on the two
+   videos.
+
+### On adding audio
+
+Higgsfield cannot generate music — its audio tool is speech-only and explicitly
+refuses standalone music, and its music model is reserved for another pipeline.
+So the options are:
+
+- **Meta's royalty-free library, chosen per ad in Ads Manager.** Free, licensed
+  for paid placements, nothing to re-render, and it cannot trigger a rights
+  claim. This is the recommendation.
+- **A licensed stock track** (Epidemic Sound, Artlist) if the same cut is also
+  posted organically, where Meta's library is not available.
+- **Not** an AI-generated or unlicensed track baked into the file. Music of
+  unclear provenance is exactly what gets ads muted or rejected.
