@@ -409,3 +409,49 @@ The silent masters in `renders/` remain the versions for anywhere off Meta.
 The music versions are new files, so they have to go into the Meta media
 library the same way the originals did - drag-and-drop, because the uploader
 hands off to the native OS picker. Then swap the media on the two video ads.
+
+
+---
+
+## Can other tools curate the music?
+
+Asked and answered properly rather than assumed.
+
+**Higgsfield cannot.** Its audio tool is speech-only and its own contract is
+explicit: *"it cannot generate music or sound effects for general use, and
+there is no standalone music/SFX model here - decline general music or
+sound-effect requests rather than substituting a speech model."* Its music
+model is reserved for a separate game pipeline and must not be used here. So
+Higgsfield can neither generate nor select music for these ads.
+
+**Higgsfield can analyse the finished cut.** `virality_predictor` scores hook
+strength, attention, retention risk and creative performance, and
+`video_analysis_create` does a scene-by-scene read. Neither judges music
+directly, but running the same cut with different beds would give a comparative
+signal. Worth doing only after a human has narrowed the field by ear.
+
+**The best curation tool was already in front of us: Meta's own filters.**
+The first track was picked from a plain text search for "ambient" with no mood
+filter, which is why it was a guess. Sound Collection actually filters on
+Genres, Moods, Durations, Vocals and Tempos.
+
+Filtering **Moods = Confident** and **Tempos = Slow** produces a completely
+different, far better-matched shortlist - "Confident" is the register that fits
+*Major Projects. Master Craftsmanship.*
+
+### Shortlist and comparison mixes
+
+| Track | Artist | Genre | Why |
+|---|---|---|---|
+| **New Diggs** | Lightbox Music | Cinematic, Slow, 1:13 | Cinematic weight for a reveal; the name is a happy accident for a remodeler |
+| **Looking Around** | cloud cover | Cinematic, Slow, 1:08 | Fits a walkthrough tour exactly |
+| **Spacious Fields** | Fellow Travelers | Ambient, Slow, 1:03 | Airy and unobtrusive under typography |
+| Deepest Blue | Company Money | Ambient, Slow, 1:09 | The original guess, kept for comparison |
+
+All four mixed onto the identical V1 cut with identical settings
+(-16 LUFS, 1.2s fade in, 2.2s fade out) so the comparison is fair. Files in
+`_compare/`, source tracks in `assets/`.
+
+**Claude still cannot hear any of them.** The shortlist is curated on Meta's
+own mood, genre and tempo metadata, which is a real signal, but the final call
+is Eric's ear.
