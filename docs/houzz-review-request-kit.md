@@ -108,3 +108,54 @@ Aim for **13+ sends** to land ~15 total. Expect some non-response; over-ask rath
 | Date | Requests sent | Houzz review count after |
 |---|---|---|
 | 2026-08-26 | — (kit created) | **2** |
+
+---
+
+## Pulling the client list out of PMHub
+
+Client data lives in the PMHub Supabase project (`C:\Users\ericf\my-app`). **The `jobs` table is
+`(id, data)` — every field is a key inside a JSONB blob**, not a real column. The app reads it as
+`{ id: r.id, ...r.data }`. Selecting `client_name` directly fails with `42703 column does not exist`;
+use `data->>'client_name'`.
+
+Run in the Supabase SQL editor, set the row limit to **No limit**, export CSV:
+
+```sql
+select
+  data->>'client_name'  as client_name,
+  data->>'client_email' as client_email,
+  data->>'address'      as address,
+  data->>'city'         as city,
+  data->>'status'       as status
+from jobs
+where data->>'company' = 'homestar'
+  and data->>'status'  = 'Complete'
+  and coalesce(trim(data->>'client_email'), '') <> ''
+order by data->>'city', data->>'client_name';
+```
+
+To confirm key names without exposing any client data:
+
+```sql
+select key, count(*) as jobs_with_key
+from jobs, lateral jsonb_object_keys(data) as key
+group by key order by key;
+```
+
+### Non-obvious filters
+- **`company = 'homestar'` is required.** HCC is the concrete/patio business; those clients have no
+  experience of the remodeling work this Houzz profile represents.
+- **`backups/*.json` in PMHub are LEADS, not jobs.** Prospects who may never have hired us. Wrong list.
+- **Dedupe by email** — repeat clients have multiple job rows.
+- `status = 'Complete'` is the last value in `JOB_STATUSES`
+  (`Bidding, In Design, Pending Schedule, Scheduled, In Progress, Punch List, On Hold, Complete`).
+
+### Credentials
+There is no `.env` in the PMHub repo; `SUPABASE_SERVICE_ROLE_KEY` lives in Vercel. **Do not
+`vercel env pull` just to read email addresses** — that key bypasses every RLS policy in
+`SECURITY_RLS_DESIGN.md` and would then sit on disk. Eric runs the query in the SQL editor instead.
+
+### Who sends
+**Eric.** The Houzz request form has a reCAPTCHA, so the send cannot be automated, and this is
+outbound contact with real clients either way. Claude assembles and prioritises the list; Eric
+reviews it and presses send.
