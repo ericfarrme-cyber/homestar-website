@@ -455,3 +455,45 @@ All four mixed onto the identical V1 cut with identical settings
 **Claude still cannot hear any of them.** The shortlist is curated on Meta's
 own mood, genre and tempo metadata, which is a real signal, but the final call
 is Eric's ear.
+
+
+---
+
+## Music - final, approved by ear
+
+Eric chose, after listening to four beds on the identical cut:
+
+| Video | Track | Artist | Genre |
+|---|---|---|---|
+| **V1 - Three bathrooms** | **Spacious Fields** | Fellow Travelers | Ambient, Slow, 1:03 |
+| **V2 - Entertaining floor** | **New Diggs** | Lightbox Music | Cinematic, Slow, 1:13 |
+
+Cinematic weight for the basement reveal, airy and unobtrusive for the
+bathrooms. Both from Meta Sound Collection, so both are licensed for paid
+Facebook and Instagram placements at no cost.
+
+### Mix
+
+Both normalised to **-20 LUFS** with a 1.2s fade in and a 2.2s fade out landing
+under the brand end card. Measured peaks -4.8 dB and -5.3 dB, so roughly 5 dB
+of headroom before Meta's own transcode.
+
+Getting there took two corrections worth recording:
+
+1. A first pass at -16 LUFS left peaks at -1.2 dB - too hot for a bed that
+   sits under typography, and close enough to clipping to risk artefacts after
+   Meta re-encodes.
+2. Adding `alimiter` to fix it made things worse, not better: the limiter
+   applies makeup gain by default, which pushed peaks up to -0.4 dB. Removing
+   it and simply lowering the loudnorm target was the correct fix.
+
+### Files
+
+| | Path |
+|---|---|
+| Masters | `renders/V1-whole-home-three-baths--reels-video-music.mp4`, `renders/V2-entertaining-floor--reels-video-music.mp4` |
+| Upload copies | `_upload/V1-whole-home-three-baths-music.mp4` (6.7MB), `_upload/V2-entertaining-floor-music.mp4` (7.6MB) |
+| Source tracks | `assets/spacious-fields.m4a`, `assets/new-diggs.m4a` |
+
+The silent masters in `renders/*--reels-video.mp4` stay untouched - those remain
+the versions for YouTube or the website, where this audio is not licensed.
