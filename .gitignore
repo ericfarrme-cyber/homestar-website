@@ -11,3 +11,4 @@ public/images/*.mp4
 public/images/*.mov
 __pycache__/
 marketing/meta-ads/_*
+marketing/meta-ads/upload-to-meta/

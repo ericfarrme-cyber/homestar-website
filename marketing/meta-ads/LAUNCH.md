@@ -182,16 +182,54 @@ Still needs a human decision before the build can finish:
 The 7 stale unpublished drafts that were sitting in this account were discarded
 first, so the pending-changes bucket contains only this campaign.
 
-### Still to do
+### Resolved since
 
-1. **Minimum age** — still 18, wants 33. The dropdown fought repeated attempts
-   and the renderer began timing out; left rather than risk a misclick.
-2. **Instagram account** — link `@thehomestarservice` at the ad level.
-3. **Ad sets 2 and 3** — Trust (02, 06) and Proof & offer (03, 04, 05, 07, V2),
-   duplicating ad set 1's targeting.
-4. **The 11 ads** — creative upload, copy from `CAMPAIGN.md`, destination URLs
-   above, CTA per ad, and a track from Meta's royalty-free library on the two
-   videos.
+- **Instagram** — already linked. `thehomestarservice` populates automatically
+  from the Facebook Page; nothing to connect.
+- **Minimum age** — 25 is Meta's ceiling, not a bug. With Advantage+ audience
+  on you can only set a *minimum* age and it caps at 25. Reaching 33+ means
+  switching Advantage+ audience off and using original targeting, which for
+  lead gen usually delivers worse. With a 15-mile radius already constraining
+  the audience, 25 is the right call — age is a weak proxy for "homeowner with
+  $60K" anyway.
+- **Multi-advertiser ads** — turned off. A premium remodeler should not appear
+  in a shared ad unit beside competitors.
+- **Call button** — Meta pre-filled (317) 279-4798 with Mon–Sat 8am–6pm
+  business hours on the ad. Left on; it is a free second conversion path.
+
+### BLOCKED: creative upload needs a human
+
+Meta's media uploader does not keep an `input[type=file]` in the DOM. It builds
+one transiently on click and hands straight off to the **native OS file
+picker**, which browser automation cannot see or drive. Verified: zero file
+inputs in the document before and after clicking Upload, and no iframe holding
+one. This is not a workaround-able limitation.
+
+**What Eric needs to do, once:**
+
+Open the media picker in any ad (Ad creative → Set up creative → Video ad or
+Image ad → Upload) and drag in everything from:
+
+```
+marketing/meta-ads/upload-to-meta/
+```
+
+29 files, 21MB total — all 27 stills plus both videos, re-encoded to 6.3MB and
+7.2MB so they upload quickly. Meta re-encodes every upload anyway, so the
+smaller files are visually identical once transcoded.
+
+Once those sit in the account's media library, the thumbnails are ordinary
+clickable elements and everything else can be finished by automation: selecting
+creative per ad, primary text, headlines, descriptions, destination URLs, CTA
+buttons, library music on the videos, and duplicating the ad set twice for
+Trust and Proof & offer.
+
+### Then still to do
+
+1. **Ad sets 2 and 3** — Trust (02, 06) and Proof & offer (03, 04, 05, 07, V2),
+   duplicated from ad set 1 so targeting matches.
+2. **The 11 ads** — creative, copy from `CAMPAIGN.md`, destination URLs above,
+   CTA per ad, and a track from Meta's royalty-free library on the two videos.
 
 ### On adding audio
 
