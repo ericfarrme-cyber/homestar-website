@@ -541,3 +541,60 @@ the wrong one is not picked later. The V1 music file uploaded once.
 
 - V2 ad: point it at `V2entertainingfloormusic.mp4` and write its copy
 - 9 still ads across `02 Trust` and `03 Proof and offer`
+
+
+---
+
+## Ad 02 built - and a deeper layer of Meta AI found
+
+Ad `02 In-house trades` in the Trust ad set now has:
+
+- All three placements selected (1080x1350 feed, 1080x1080 square, 1080x1920 reels)
+- Correct primary text, headline "Our Licensed Trades Are In-House",
+  description, and the Get quote CTA
+- Advantage+ text generation off (both blocks)
+- Translation off (0 languages)
+
+**Outstanding on this ad: the destination URL is still V1's.** It inherited
+`/whole-home-renovation?...utm_content=V1-three-baths` from the duplicate and
+resisted three attempts to change it - typing did not land, and setting it
+programmatically was reverted by React's controlled input. It must be corrected
+to the 02 URL before this ad runs, or it will send people to the wrong page.
+
+### Image ads have their own three AI features, all on by default
+
+Different from the video ad's set:
+
+| Feature | What it does |
+|---|---|
+| **Visual touch-ups** | Alters the photograph. Off. |
+| **Add music** | Meta AI adds a track to a still ad. Off. |
+| **Add animation** | Animates the still, moving the typeset creative. Off. |
+
+Turning off **Add music** opens a dialog demanding a reason before it will
+comply; "I need more control over these optimizations" is the honest one.
+
+Note this partly answers the earlier music question: Meta *does* offer to add
+music, but only as an AI auto-add on **image** ads. There is still no library
+picker for a video ad.
+
+### A second tier exists that is harder to reach
+
+After saving, the ad summary reveals more than the wizard showed:
+
+```
+Advantage+ creative enhancements (1/5)
+  Turned off: Visual touch-ups, Add music, Text improvements and 1 more
+  Turned on:  Add overlays
+Essential enhancements (4/4)
+  Turned on:  Relevant comments, Enhance CTA, Adjust brightness and contrast
+              and 1 more
+```
+
+**"Add overlays" is still on**, and the four "Essential enhancements" include
+**"Adjust brightness and contrast"** - another feature that modifies the
+photograph. These are not surfaced in the creative wizard's Enhancements step;
+they sit behind the **Edit** button on the ad summary.
+
+Worth a deliberate pass over both groups before anything publishes, and worth
+checking whether Essential enhancements can be disabled at all.
