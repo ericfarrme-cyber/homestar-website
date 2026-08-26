@@ -4,3 +4,10 @@ dist/
 node_modules/
 outputs/
 source-photos/
+
+# Raw project walkthrough footage — hundreds of MB each, and public/ ships
+# to Vercel. Ad cuts live in marketing/meta-ads/renders/ instead.
+public/images/*.mp4
+public/images/*.mov
+__pycache__/
+marketing/meta-ads/_*
