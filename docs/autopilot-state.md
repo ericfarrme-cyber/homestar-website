@@ -76,9 +76,9 @@ working; keep it.
 
 **🔴 Houzz is confirmed as the ranking mechanism, across categories.** In every bathroom and kitchen
 run, each firm placed above HomeStar was justified with a **Houzz** citation while HomeStar was
-justified from its Google listing. **And HomeStar's single Houzz review is already being cited** —
-basement run 2 put HomeStar first on the strength of it. One review does measurable work; ~15 would
-be decisive. This retires any doubt that Houzz converts into AI placement.
+justified from its Google listing. **And HomeStar's tiny Houzz corpus is already being cited** —
+basement run 2 put HomeStar first on the strength of it. (Count re-verified live 2026-08-26: it is
+**2**, not 1 as recorded earlier.) Two reviews do measurable work; ~15 would be decisive. This retires any doubt that Houzz converts into AI placement.
 
 **🔴 WHOLE-HOME — corrected diagnosis. It is NOT a missing price range; it is portfolio evidence
 and band mismatch.**
@@ -265,7 +265,13 @@ website work — a future run reading only the action line above will otherwise 
    no verified year, no published figure. Hard-won mechanics (the Dropzone uploader, the pre-filled
    website field, the address/city trap) are written up in
    `docs/houzz-upload-package-zionsville-2026-08-15.md` — read it before the next Houzz upload.
-1. **Houzz reviews — the standing #1 item, and Run #4 proved the mechanism.** Still 1 review.
+1. **Houzz reviews — the standing #1 item, and Run #4 proved the mechanism.** **2 reviews** as of
+   2026-08-26 (verified on the live profile — was recorded as 1; the second is a bathroom review).
+   **📋 `docs/houzz-review-request-kit.md` has the whole thing ready to go:** Houzz's built-in
+   request tool takes a comma-separated email list and one message, so this is a single sitting, not
+   14 emails. The kit has the URL, the priority order for who to ask (kitchen first, then multi-room,
+   then Carmel/Westfield/Zionsville), and the message text to paste. **Eric must send it — there is a
+   reCAPTCHA, and this is outbound contact with his clients.**
    Everything Home is now at **122** (ChatGPT quoted it, 2026-08-26). **Target ~15**, not 122 —
    competitors are earning cited slots above us on 15 and 17 Houzz reviews. This is the difference
    between HomeStar being the "one more I'd get a quote from" and being in the first three calls.
@@ -313,7 +319,7 @@ _Re-prioritised 2026-08-05 by the 12-run logged-out ChatGPT protocol — see `ai
       a bad trade with no way to A/B it. **The category lever is already pulled as far as is safe.**
       Kitchen therefore has to be won through review language, Houzz, and project proof — not categories.
 - [ ] **HOUZZ REVIEWS — now the single highest-leverage item on this list.** Houzz was the most-cited
-      source across all 12 ChatGPT runs. We have **1 Houzz review**; Everything Home — which beats us in
+      source across all 12 ChatGPT runs. We have **2 Houzz reviews** (re-verified live 2026-08-26; this line said 1); Everything Home — which beats us in
       *every* query — has **100+ plus multiple Best of Houzz awards**. We have MORE Google reviews than
       they do (78 vs 68). This is purely a distribution gap on one platform. **Ask past clients to post
       their review on Houzz too.** Even 10–15 would move us from invisible to credible there.
