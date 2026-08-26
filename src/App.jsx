@@ -471,12 +471,29 @@ function useCanonical(path){
 
 function useJobberForm(){} /* Legacy — replaced by LeadForm component */
 
+const FORM_ORIGIN="https://homestar-project-manager.vercel.app";
+
 function LeadForm(){
   useEffect(()=>{
+    /* The estimate form is a cross-origin iframe, so nothing on this page can
+       observe a submit directly — the form app has to tell us. It already posts
+       "homestar-form-height"; on submit it must also post
+       { type: "homestar-form-submitted" }. Until it does, no Lead event fires
+       and paid campaigns can only optimise for Landing Page Views. */
+    let counted=false;
     const handler=(e)=>{
-      if(e.data&&e.data.type==="homestar-form-height"){
+      if(!e.data)return;
+      /* Height stays origin-agnostic so a domain change can't silently freeze
+         the iframe at its default height. The Lead event is origin-checked,
+         because a forged one would corrupt conversion data and ad spend. */
+      if(e.data.type==="homestar-form-height"){
         const iframe=document.getElementById("homestar-lead-form");
         if(iframe)iframe.style.height=e.data.height+"px";
+      }
+      if(e.data.type==="homestar-form-submitted"&&e.origin===FORM_ORIGIN&&!counted){
+        counted=true;  /* one Lead per mount, not one per re-render of the form */
+        if(window.fbq)window.fbq("track","Lead",{content_name:"Estimate request"});
+        if(window.gtag)window.gtag("event","generate_lead",{form:"estimate"});
       }
     };
     window.addEventListener("message",handler);

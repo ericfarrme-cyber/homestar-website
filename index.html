@@ -13,6 +13,26 @@
       gtag('config', 'G-TYW2NB8JNY');
     </script>
 
+    <!-- Meta Pixel.
+         PageView fires here; the Lead event is fired by LeadForm in App.jsx when
+         the estimate form iframe reports a submit. Without that bridge Meta can
+         only optimise paid campaigns for Landing Page Views, which is the wrong
+         signal on a $45K-$200K purchase. See marketing/meta-ads/LAUNCH.md. -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '275995906389395');
+      fbq('track', 'PageView');
+    </script>
+    <!-- No <noscript> fallback pixel: it is invalid inside <head>, and this is
+         a React SPA that renders nothing without JS, so it could never fire. -->
+
     <!-- Primary SEO -->
     <title>HomeStar Services & Contracting | Home Remodeling in Carmel, Fishers & Hamilton County IN</title>
     <meta name="description" content="Family-owned home remodeling company serving Hamilton County, Indiana. Bathroom & kitchen remodeling, basement finishing, flooring, painting, decks & outdoor living. Schluter Pro Certified. Free estimates. (317) 279-4798" />
