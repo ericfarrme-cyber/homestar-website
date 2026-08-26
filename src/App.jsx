@@ -852,7 +852,7 @@ const BLOG = [
       "Question 11: How do you communicate during the project? Communication is the number one source of frustration in remodeling projects. Ask: How will I receive updates? How quickly do you return calls or texts? Will I know what's happening each day? The best contractors communicate proactively — you shouldn't have to chase them for information about work happening in your own home.",
       "Question 12: Can I speak with recent clients as references? Any contractor worth hiring can connect you with 2-3 recent clients who had projects similar to yours. When you call those references, ask: Was the project completed on time and on budget? How was communication? Were there any surprises? Would you hire them again? Online reviews on Google, Houzz, and the BBB also give you a picture of consistent quality over time.",
       "At HomeStar Services & Contracting, we welcome every one of these questions. We're licensed, bonded, and insured. Our plumbers and electricians are individually licensed. We're Schluter Pro Certified with a 25-year waterproofing warranty. We provide detailed written estimates, handle all permits, offer 3D renderings, and communicate daily throughout every project. Every project includes our 1-year workmanship warranty.",
-      "We also have 62+ Google reviews at a 5.0 rating, a detailed project gallery at thehomestarservice.com, and we're happy to connect you with recent Hamilton County clients. Call (317) 279-4798 for a free estimate in Fishers, Carmel, Noblesville, Westfield, Zionsville, Fortville, McCordsville, or anywhere in Hamilton County."
+      "We also have 78+ Google reviews at a 5.0 rating, a detailed project gallery at thehomestarservice.com, and we're happy to connect you with recent Hamilton County clients. Call (317) 279-4798 for a free estimate in Fishers, Carmel, Noblesville, Westfield, Zionsville, Fortville, McCordsville, or anywhere in Hamilton County."
     ]},
   { slug:"hamilton-county-remodeling-trends-2026", title: "2026 Home Remodeling Trends in Hamilton County: What Indiana Homeowners Are Choosing", date: "Apr 15, 2026", read: "8 min", cat: "General", author:"robb-rice", excerpt: "Based on real project data from Hamilton County homes, here are the remodeling trends driving decisions in Fishers, Carmel, Noblesville, and surrounding areas in 2026 — from materials and layouts to the upgrades delivering the best return on investment.",
     body: [
@@ -4802,7 +4802,7 @@ const GUIDES = {
       {h:"The 12 Questions Every Homeowner Should Ask",p:["Before signing any contract, ask: Are you licensed, bonded, and insured? Are your plumbers and electricians individually licensed? What waterproofing system do you use? Can you provide a detailed, itemized written estimate? Do you handle permits and inspections? What is your project timeline? Who will be on-site doing the work? Can I see completed projects similar to mine? Do you offer 3D design renderings? What warranty do you offer? How do you communicate during the project? Can I speak with recent clients?"]},
       {h:"Red Flags to Watch For",p:["Be wary of contractors who: suggest skipping permits, can't show proof of insurance, give vague verbal estimates instead of detailed written ones, ask for more than 10-15% upfront, have no portfolio of completed work, won't provide references, or pressure you into signing quickly. A quality contractor welcomes scrutiny."]},
       {h:"What Quality Costs — And Why It's Worth It",p:["The cheapest bid is almost never the best value. Low bids often mean unlicensed tradespeople, inadequate waterproofing, and corners cut where you can't see them. A bathroom that fails in 3 years because of poor waterproofing costs far more than paying slightly more for certified installation with a 25-year warranty."]},
-      {h:"About HomeStar Services & Contracting",p:["We welcome every one of these questions. We're licensed, bonded, and insured. Our plumbers and electricians are individually licensed. We're Schluter Pro Certified with a 25-year waterproofing warranty. We provide detailed written estimates, handle all permits, offer 3D renderings, and communicate daily. 62+ Google reviews at 5.0 rating. Call (317) 279-4798 for a free estimate."]},
+      {h:"About HomeStar Services & Contracting",p:["We welcome every one of these questions. We're licensed, bonded, and insured. Our plumbers and electricians are individually licensed. We're Schluter Pro Certified with a 25-year waterproofing warranty. We provide detailed written estimates, handle all permits, offer 3D renderings, and communicate daily. 78+ Google reviews at 5.0 rating. Call (317) 279-4798 for a free estimate."]},
     ],
     faq:[
       {q:"How do I verify a contractor is licensed in Indiana?",a:"Ask for their license number and verify it with the Indiana Professional Licensing Agency. Also ask for their certificate of insurance and verify it's current."},
@@ -4928,7 +4928,7 @@ function GuidePage({guide}){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Guides"},{name:guide.title}]}/>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Guides",url:"/#guides"},{name:guide.title}]}/>
       <FaqSchema faqs={guide.faq}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Article",headline:guide.title,description:guide.metaDesc,author:{"@type":"Person",name:"Eric Farr",url:"https://www.thehomestarservice.com/about/eric-farr"},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
 
@@ -5948,7 +5948,7 @@ function CostCalculator(){
   return(
     <div style={{overflowX:"hidden"}}>
       <style>{css}</style>
-      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Tools"},{name:"Cost Calculator"}]}/>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Tools",url:"/tools/remodel-cost-calculator"},{name:"Cost Calculator"}]}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"WebApplication",name:"Hamilton County Remodel Cost Calculator",applicationCategory:"HomeImprovement",operatingSystem:"Web",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},provider:{"@type":"Organization",name:"HomeStar Services & Contracting"}})}}/>
 
       <Nav isCity/>
