@@ -686,3 +686,41 @@ then type.
 | 03 Proof and offer | (unconverted duplicate) | Still the copied V1 video ad |
 
 Remaining: 03, 04, 05, 07 and the V2 video ad - all in `03 Proof and offer`.
+
+
+---
+
+## Session end status
+
+| Ad set | Ad | State |
+|---|---|---|
+| 01 Whole-home (focal) | `V1 Three bathrooms (video)` | **Complete** |
+| 02 Trust | `02 In-house trades` | **Complete** |
+| 02 Trust | `06 Who we are` | **Complete** |
+| 03 Proof and offer | `03 Basement square footage` | Renamed, URL set. **Media and copy still needed** - it still carries the V1 video and V1 copy |
+
+Not started: 04 waterproofing, 05 pricing, 07 entertaining floor, V2 video.
+
+### Why it stopped here
+
+The Ads Manager tab degraded over a long session: the page began self-zooming
+between actions, and `Page.captureScreenshot` started timing out repeatedly
+while the DOM itself stayed responsive. Clicking blind in a live ad account is
+not worth the risk, so work stopped rather than continuing without being able
+to see the result.
+
+A full page reload clears the zoom temporarily but the timeouts return. **A
+fresh browser session is the fix**; the remaining ads should go quickly with
+the recipe above, since duplication now carries the AI-off state.
+
+### Ad 03 - exactly what remains
+
+1. Change selections -> deselect the V1 video -> Images tab -> search
+   `03-basement-sqft` -> select 1080x1350, 1080x1080, 1080x1920
+2. Primary text, headline "Finish The Space You Already Own",
+   description "$45K-$200K - Real numbers"
+3. CTA -> Learn more
+4. Confirm the four AI enhancements are still off
+
+The URL is already correct:
+`/basement-finishing?...utm_content=03-basement-sqft`
