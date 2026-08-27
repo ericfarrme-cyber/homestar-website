@@ -1482,3 +1482,51 @@ never spent. Campaign name, $20/day budget, Leads objective, Website conversion
 on the Lead event, and the Hamilton County targeting are all set. Its ad is
 still empty. It can be finished, repurposed, or deleted — but as a *placement*
 solution it is a dead end.
+
+---
+
+## Per-placement customization does not satisfy the validator — definitive
+
+The clean combination was tested on V1, with every piece verified in place
+before checking:
+
+| Asset | Placements |
+|-------|-----------|
+| `V1wholehomethreebathsmusic.mp4` (1080x1920, **primary**) | **Feeds unchecked** |
+| `V1-whole-home-three-baths--feed-video-music.mp4` (1080x1350) | **Stories unchecked** |
+
+Both assets showed the *Edited* badge, Placements read *Edited*, and the preview
+pane rendered correctly per asset — the 9:16 under Instagram/Facebook Stories,
+the 4:5 under Facebook/Instagram Feed. Exactly what the exclusions are supposed
+to produce.
+
+`Review and publish` still rejects it with the same error:
+
+> The video you uploaded is only eligible for Instagram Stories. To be eligible
+> for Instagram Feed, videos must have an aspect ratio ranging from 4:5 to
+> 1.91:1.
+
+**So the exclusion is honoured for delivery but ignored by validation.** Meta
+checks the primary asset against every placement the ad set is eligible for,
+regardless of the per-asset exclusions it just accepted and saved. Every route
+Meta's own error message and Placements notice point at has now been tried and
+none of them clears publish.
+
+### What is actually left
+
+Only **Account controls -> Excluded placements**, which is account-wide.
+Excluding Instagram Feed there would let both videos publish — at the cost of
+pulling the eight live image ads out of Instagram Feed too. They would keep
+Facebook Feed, Reels, Stories, Search and Audience Network.
+
+That is a real trade with a real cost to ads that are currently delivering, so
+it is Eric's call, not one to make on his behalf.
+
+### Not worth trying again
+
+- Manual placements at ad set level — removed from this account.
+- A separate campaign — same restriction applies.
+- Per-asset placement exclusion — saves correctly, ignored by validation.
+- Re-ordering primary media — swaps which of the two errors fires.
+- A single 9:16 asset — exclusions lock, since it is then the only media able to
+  serve a placement group.
