@@ -927,3 +927,53 @@ mandatory on this ad type - worth raising with Meta support if it matters.
 | 04 Waterproofing warranty | **Complete** |
 
 Remaining: 05 pricing, 07 entertaining floor, V2 video.
+
+
+---
+
+## Ad 05 - renamed shell only, DO NOT PUBLISH
+
+`05 Price transparency` exists but is **still a duplicate of ad 04 in every
+respect except its name**:
+
+| Field | State |
+|---|---|
+| Name | `05 Price transparency` |
+| Media | ad 04's waterproofing creatives |
+| Copy | ad 04's waterproofing text, headline, description |
+| URL | `/bathroom-remodeling?...utm_content=04-waterproofing` |
+| AI enhancements | all off (inherited from 04) |
+
+If published as-is it would run as a **second identical waterproofing ad**
+pointing at the bathroom page. It is coherent, not broken - but it is wrong.
+
+### To finish ad 05
+
+1. Media -> Remove media, then Add media -> Images -> `05-price-transparency`
+   -> select feed, square, reels
+2. Primary text -> the pricing copy from `CAMPAIGN.md`
+3. Headline -> `Real 2026 Remodeling Prices`
+4. Description -> `Itemized - No surprises`
+5. URL -> `https://www.thehomestarservice.com/?utm_source=facebook&utm_medium=paid_social&utm_campaign=homestar-2026-08&utm_content=05-pricing#estimate`
+6. Re-check the five AI toggles via Advanced preview
+
+### Two techniques worth keeping
+
+**JS `element.click()` succeeds where coordinate clicks fail.** That is how the
+duplicate was finally created after two coordinate attempts silently did
+nothing. It works for buttons, checkboxes and menu items.
+
+**But `element.value = x` does NOT work** - React's controlled inputs revert it,
+even with input/change events dispatched. Text still requires a real
+triple-click plus typing, which is exactly what stops working when the renderer
+degrades. That asymmetry is the core problem: buttons stay drivable, text
+fields do not.
+
+### Honest assessment of the automation
+
+Completion rate is now roughly one ad per two or three fresh tabs, and falling.
+Each tab survives about ten minutes. Five ads took most of a session; the
+remaining two and a half would likely take as long again.
+
+Everything needed to finish by hand is written down: exact copy in
+`CAMPAIGN.md`, exact URLs and the per-ad recipe here.
