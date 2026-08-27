@@ -1326,3 +1326,53 @@ marketing/meta-ads/renders/V2-entertaining-floor--feed-video-music.mp4
 Once they are in the account library, the remaining work is mechanical: select
 the 4:5 cut **first** so it becomes primary, keep the 9:16 second, then Done.
 Same primary-media rule that fixed the eight image ads.
+
+---
+
+## The video ads are blocked by two mutually exclusive rules
+
+The 4:5 cuts uploaded fine and both are attached. The ads still will not
+validate, and the reason is now fully characterised.
+
+**Whichever asset is primary is validated against every placement**, and the two
+placements demand opposite shapes:
+
+| Placement | Required video aspect ratio |
+|-----------|----------------------------|
+| Instagram Feed | 4:5 to 1.91:1 (0.80 - 1.91) |
+| Stories / Reels | smaller than or equal to 9:16 (<= 0.5625) |
+
+No single ratio satisfies both. The errors simply swap:
+
+- 9:16 primary -> *"only eligible for Instagram Stories... must have an aspect
+  ratio ranging from 4:5 to 1.91:1"*
+- 4:5 primary -> *"Story media aspect ratio has to be smaller than or equal to
+  9:16"*
+
+**Per-asset placement exclusion does not satisfy the validator** — the same
+behaviour as the in-stream check on the image ads. Excluding Stories from the
+4:5 primary, verified saved and re-read after a reload, left the Story error in
+place.
+
+Note the images are not subject to this: their 1:1 primary is 1.0, well above
+0.5625, and no Story error is raised. This check applies to video.
+
+### One UI trap worth recording
+
+In Customize media, **edit one asset and Save immediately.** Switching to
+another asset in the thumbnail strip discards the pending change on the first —
+V1's Stories exclusion silently reverted that way, and only the asset carrying
+the "Edited" badge had actually been written.
+
+### Where this leaves the videos
+
+Inside this Advantage+ campaign the levers are exhausted: it exposes no ad-set
+Placements section, and per-asset exclusion is ignored by the validator.
+
+The clean fix is a **separate campaign for video with manual placements set to
+Reels and Stories only**, running the 9:16 cuts. That is also where CAMPAIGN.md
+says video earns its keep: *"Video is the cheapest reach on Reels."* It needs
+its own budget line, which is Eric's call.
+
+The 4:5 renders are not wasted — they are the Feed-eligible masters if the
+videos ever run in a feed placement.
