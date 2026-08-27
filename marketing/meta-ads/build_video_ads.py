@@ -29,10 +29,30 @@ SRC = os.path.join(B.REPO, "public", "images")
 OUT = os.path.join(HERE, "renders")
 TMP = os.path.join(HERE, "_vtmp")
 
-W, H = 1080, 1920
-SAFE_TOP, SAFE_BOTTOM = 250, 420
+# Output formats. Overlays are composited at output size *after* the crop, so a
+# 4:5 render re-lays the type for the new frame. Cropping a finished 9:16 render
+# down to 4:5 would instead slice 285px off each end and take the hook with it.
+FORMATS = {
+    "reels": dict(w=1080, h=1920, safe_top=250, safe_bottom=420,
+                  suffix="reels-video"),
+    # Reels/Stories UI covers the top and bottom of the frame. In-feed video
+    # does not, so 4:5 needs only enough margin to keep type off the edges.
+    "feed": dict(w=1080, h=1350, safe_top=48, safe_bottom=110,
+                 suffix="feed-video"),
+}
+
+W = H = SAFE_TOP = SAFE_BOTTOM = SUFFIX = None
 FPS = 30
 S = B.S
+
+
+def use_format(name):
+    """Rebind the frame globals that the plate builders read."""
+    global W, H, SAFE_TOP, SAFE_BOTTOM, SUFFIX
+    f = FORMATS[name]
+    W, H = f["w"], f["h"]
+    SAFE_TOP, SAFE_BOTTOM = f["safe_top"], f["safe_bottom"]
+    SUFFIX = f["suffix"]
 
 
 def ffmpeg_exe():
@@ -132,9 +152,10 @@ def build(ad):
         print(f"  ! missing source: {ad['video']}")
         return None
 
-    chrome = plate_chrome(ad, os.path.join(TMP, f"{ad['slug']}-chrome.png"))
-    hook = plate_hook(ad, os.path.join(TMP, f"{ad['slug']}-hook.png"))
-    end = plate_endcard(ad, os.path.join(TMP, f"{ad['slug']}-end.png"))
+    tag = f"{ad['slug']}-{SUFFIX}"
+    chrome = plate_chrome(ad, os.path.join(TMP, f"{tag}-chrome.png"))
+    hook = plate_hook(ad, os.path.join(TMP, f"{tag}-hook.png"))
+    end = plate_endcard(ad, os.path.join(TMP, f"{tag}-end.png"))
 
     segs = ad["segments"]
     end_dur = ad.get("end_dur", 3.0)
@@ -163,7 +184,7 @@ def build(ad):
     parts.append(f"[o1][ch]overlay=0:0:enable='lt(t,{body_dur:.2f})'[o2]")
     parts.append(f"[o2]fade=t=in:st=0:d=0.4,format=yuv420p[out]")
 
-    out = os.path.join(OUT, f"{ad['slug']}--reels-video.mp4")
+    out = os.path.join(OUT, f"{ad['slug']}--{SUFFIX}.mp4")
     cmd = [
         ff, "-y", "-loglevel", "error",
         "-i", src,
@@ -181,6 +202,48 @@ def build(ad):
     return out, body_dur + end_dur
 
 
+# ── Music ──────────────────────────────────────────────────────────
+# Meta Sound Collection tracks: licensed for Meta platforms only, so the silent
+# masters stay the versions for YouTube or thehomestarservice.com.
+#
+# -20 LUFS, not -16. A first pass at -16 left peaks at -1.2 dB, and adding
+# alimiter made it worse (its makeup gain pushed peaks to -0.4 dB). Lowering the
+# target was the fix.
+MUSIC_LUFS = -20
+FADE_IN = 1.2
+FADE_OUT = 2.2
+
+
+def mux_music(video, ad, dur):
+    track = ad.get("music")
+    if not track:
+        return None
+    src = os.path.join(HERE, "assets", track)
+    if not os.path.isfile(src):
+        print(f"  ! missing track: {track}")
+        return None
+
+    out = video.replace(".mp4", "-music.mp4")
+    # aresample goes *after* loudnorm: loudnorm resamples internally and will
+    # otherwise hand back 96k/192k, which is not what the masters ship at.
+    af = (
+        f"atrim=duration={dur:.2f},"
+        f"afade=t=in:st=0:d={FADE_IN},"
+        f"afade=t=out:st={max(dur - FADE_OUT, 0):.2f}:d={FADE_OUT},"
+        f"loudnorm=I={MUSIC_LUFS}:TP=-2:LRA=11,aresample=48000"
+    )
+    subprocess.run([
+        ffmpeg_exe(), "-y", "-loglevel", "error",
+        "-i", video, "-i", src,
+        "-filter_complex", f"[1:a]{af}[a]",
+        "-map", "0:v", "-map", "[a]",
+        "-c:v", "copy", "-c:a", "aac", "-b:a", "160k",
+        "-shortest", "-movflags", "+faststart",
+        out,
+    ], check=True)
+    return out
+
+
 # ── Cuts ───────────────────────────────────────────────────────────────
 VIDEO_ADS = [
     {
@@ -196,6 +259,7 @@ VIDEO_ADS = [
         "cta": "GET A FREE ESTIMATE",
         "badge_r": "5.0 ★ GOOGLE",
         "end_dur": 3.4,
+        "music": "spacious-fields.m4a",
     },
     {
         "slug": "V2-entertaining-floor",
@@ -210,21 +274,31 @@ VIDEO_ADS = [
         "cta": "TOUR THIS BASEMENT",
         "badge_r": "5.0 ★ GOOGLE",
         "end_dur": 3.4,
+        "music": "new-diggs.m4a",
     },
 ]
 
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    flt = sys.argv[1].lower() if len(sys.argv) > 1 else None
-    for ad in VIDEO_ADS:
-        if flt and flt not in ad["slug"].lower():
-            continue
-        res = build(ad)
-        if res:
+    args = [a.lower() for a in sys.argv[1:]]
+    fmts = [a for a in args if a in FORMATS] or list(FORMATS)
+    flt = next((a for a in args if a not in FORMATS), None)
+
+    for name in fmts:
+        use_format(name)
+        print(f"{name}  {W}x{H}")
+        for ad in VIDEO_ADS:
+            if flt and flt not in ad["slug"].lower():
+                continue
+            res = build(ad)
+            if not res:
+                continue
             path, dur = res
-            mb = os.path.getsize(path) / 1024 / 1024
-            print(f"  {os.path.basename(path):<40} {dur:.1f}s  {mb:.1f} MB")
+            for f in (path, mux_music(path, ad, dur)):
+                if f:
+                    mb = os.path.getsize(f) / 1024 / 1024
+                    print(f"  {os.path.basename(f):<46} {dur:.1f}s  {mb:.1f} MB")
 
 
 if __name__ == "__main__":
