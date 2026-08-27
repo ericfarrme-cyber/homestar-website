@@ -977,3 +977,70 @@ remaining two and a half would likely take as long again.
 
 Everything needed to finish by hand is written down: exact copy in
 `CAMPAIGN.md`, exact URLs and the per-ad recipe here.
+
+
+---
+
+## BREAKTHROUGH: type without coordinates
+
+The blocker all along was that text entry needed a healthy renderer, because it
+depended on clicking a field at the right pixel. It does not.
+
+**Focus the field with JavaScript, then type.** The `type` action goes to
+`document.activeElement`, so no coordinates are involved and the zoom bug
+becomes irrelevant:
+
+```js
+// contenteditable (Primary text)
+const el = [...document.querySelectorAll('[contenteditable="true"]')]
+  .find(x => /some text already in it/.test(x.textContent||''));
+el.focus();
+const r = document.createRange(); r.selectNodeContents(el);
+const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+// then: computer type "new text"
+
+// input / textarea (Headline, Description, URL)
+el.focus();
+el.setSelectionRange(0, el.value.length);
+// then: computer type "new text"
+```
+
+This is **not** the same as `el.value = x`, which React reverts. Here the field
+is only focused and selected; the typing itself is real keyboard input, so
+React sees genuine events.
+
+Using it, ad 05's primary text, headline and description were all set in three
+quick steps on an already-degraded tab that could not be scrolled or clicked.
+
+**This should be the default method for every remaining text field.**
+
+## Ad 05 - copy done, media outstanding
+
+| Field | State |
+|---|---|
+| Name | `05 Price transparency` |
+| URL | `/?...utm_content=05-pricing#estimate` |
+| Primary text | Pricing copy |
+| Headline | `Real 2026 Remodeling Prices` |
+| Description | `Itemized - No surprises` |
+| CTA | Learn more |
+| **Media** | **EMPTY** - cleared, not yet re-added |
+
+Meta blocks publishing an ad with no media, so it cannot run wrong.
+
+**To finish:** Add media -> Add image -> search `05-price-transparency` ->
+select feed, square, reels. Then re-check the five AI toggles via Advanced
+preview, since a media change re-enables text generation and Add music.
+
+## Status: 5 complete, 1 nearly there
+
+| Ad | State |
+|---|---|
+| V1 Three bathrooms (video) | Complete |
+| 02 In-house trades | Complete |
+| 06 Who we are | Complete |
+| 03 Basement square footage | Complete |
+| 04 Waterproofing warranty | Complete |
+| 05 Price transparency | Everything except media |
+
+Remaining: 05's media, then 07 entertaining floor and V2 video.
