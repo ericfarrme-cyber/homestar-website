@@ -1283,3 +1283,46 @@ so the Lead event wired through the postMessage bridge is what the campaign is
 optimising against. Spend starts as soon as review clears.
 
 `Review and publish (2)` is the remaining draft count — the two videos.
+
+---
+
+## 4:5 video cuts built — upload is the handoff
+
+`build_video_ads.py` now carries a `FORMATS` table instead of hardcoded
+dimensions, and emits both frames:
+
+| Format | Size | Safe zones | Why |
+|--------|------|-----------|-----|
+| `reels` | 1080x1920 | 250 / 420 | Reels and Stories UI covers both ends |
+| `feed` | 1080x1350 | 48 / 110 | In-feed video has no such chrome |
+
+The overlays are composited at output size **after** the crop, so the 4:5 pass
+re-lays the hook and end card for the new frame. Cropping a finished 9:16 render
+would have taken 285px off each end and the hook with it.
+
+Music muxing moved into the script rather than remaining an ad hoc step, at the
+settled **-20 LUFS**, 1.2s in / 2.2s out. One correction: `aresample` runs
+*after* `loudnorm`, not before — loudnorm resamples internally and the first
+pass shipped 96 kHz instead of 48.
+
+Verified on both cuts: 1080x1350 DAR 4:5, 48 kHz, peaks -4.5 dB and -5.3 dB
+(the reels masters sit at -4.8 / -5.3), hook and end card intact. The 9:16
+masters were not re-rendered and are unchanged.
+
+### What is blocked
+
+**Meta's uploader needs a real file picker.** There is no `input[type=file]` in
+the media dialog until *Upload* is clicked, and a scripted click cannot open a
+file dialog — browsers require a trusted user gesture. Same wall as the first
+round, when Eric uploaded the videos himself.
+
+Files to drag into **Videos -> Upload**:
+
+```
+marketing/meta-ads/renders/V1-whole-home-three-baths--feed-video-music.mp4
+marketing/meta-ads/renders/V2-entertaining-floor--feed-video-music.mp4
+```
+
+Once they are in the account library, the remaining work is mechanical: select
+the 4:5 cut **first** so it becomes primary, keep the 9:16 second, then Done.
+Same primary-media rule that fixed the eight image ads.
