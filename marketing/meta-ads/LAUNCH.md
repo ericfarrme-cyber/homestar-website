@@ -1530,3 +1530,50 @@ it is Eric's call, not one to make on his behalf.
 - Re-ordering primary media — swaps which of the two errors fires.
 - A single 9:16 asset — exclusions lock, since it is then the only media able to
   serve a placement group.
+
+---
+
+## Every in-ad configuration tested. All fail.
+
+The last untried shape was a **single 4:5 video with no 9:16 present**. Tested
+on V1 — it fails too:
+
+> Story media aspect ratio has to be smaller than or equal to 9:16
+
+That completes the matrix. Meta validates the ad against **both** placement
+groups no matter what the ad contains:
+
+| Ad contains | Result |
+|-------------|--------|
+| 9:16 only | Instagram Feed error (needs 4:5-1.91:1) |
+| 4:5 only | Story error (needs <= 9:16) |
+| Both, 9:16 primary | Instagram Feed error |
+| Both, 4:5 primary | Story error |
+| Both + per-asset placement exclusions | error persists — exclusions ignored at publish |
+
+There is no aspect ratio that satisfies 4:5-1.91:1 **and** <= 9:16, so no video
+can pass while both placement groups are eligible. V1 has been restored to the
+9:16 cut, which is the shape that works the moment Instagram Feed stops being
+eligible.
+
+### So: is account-wide restriction the only way?
+
+Inside Ads Manager's ad builder, yes. But that is not the only way to run these
+videos:
+
+**Boost them as Reels instead.** Posting each cut to the Page / Instagram as a
+Reel and boosting it goes through a different flow that targets Reels
+placements. It never hits this multi-placement validator, and it changes nothing
+about the account or the eight live ads.
+
+What it costs: boosted posts do not use the Lead pixel event the same way, so
+attribution is weaker than the main campaign's. It is a reach-and-awareness
+play, not a tracked-lead play — which is what CAMPAIGN.md already says video is
+for (*"Video is the cheapest reach on Reels"*).
+
+The three options, plainly:
+
+1. **Boost as Reels** — videos run, no account changes, weaker attribution.
+2. **Account-wide Instagram Feed exclusion** — videos run as proper ads with
+   full tracking, but the eight live ads lose Instagram Feed.
+3. **Wait** — Meta's Placements notice says this system is mid-change.
