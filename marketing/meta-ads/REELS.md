@@ -106,3 +106,53 @@ Stopped because the Business Suite tab degraded again — screenshots timing out
 and the floating Meta AI launcher intercepting clicks aimed at the audience edit
 control. Clicking blind next to a Publish button that spends money is not worth
 it.
+
+---
+
+## Both boosts published (2026-08-27)
+
+| | V1 Three bathrooms | V2 This was storage |
+|---|---|---|
+| Status | In review | In review |
+| Daily budget | $7.00 | $7.00 |
+| Duration | 7 days, ends Sep 3 | 7 days, ends Sep 3 |
+| Total | $49.00 | $49.00 |
+| Goal | Get more website visitors | Get more website visitors |
+| Location | Fishers (+25 mi) Indiana | Fishers (+25 mi) Indiana |
+| Optimize locations | **Off** | **Off** |
+| utm_campaign | `reel-boost-v1` | `reel-boost-v2` |
+| Landing | `#estimate` anchor | `#estimate` anchor |
+| Pixel | On, `275995906389395` | On, `275995906389395` |
+
+**$14/day combined, $98 total over 7 days**, on MasterCard ••••4794. Meta
+reviews within 24 hours.
+
+### Two settings worth knowing about
+
+**"Reach more people likely to respond" was ON by default** on both. It shows
+the ad to people merely *interested in* the selected cities, anywhere in the
+country — quiet waste for a local contractor. Turned off on both; the audience
+summary now reads `Optimize locations: Off`.
+
+**Special Ad Category "Housing" left off.** Meta recommends it from the page
+category, but that category is for real-estate sales and rentals; declaring it
+strips targeting controls and forces a wider minimum radius. Remodeling services
+are not housing, and the eight image ads cleared review without it.
+
+### Two things that would not take
+
+- **Radius is 25 mi, not the 15 mi used on the ad set.** The chip's radius
+  editor does not open in the boost dialog. 25 mi from Fishers covers all of
+  Hamilton County plus the north Indianapolis metro — acceptable for a reach
+  play, wider than ideal.
+- **Minimum age is 18, not 25.** The age slider would not accept keyboard or
+  scripted input in this dialog.
+
+Neither is wrong enough to hold the boosts, but both are worth a manual tighten
+if the spend looks loose after a few days.
+
+### Attribution
+
+`utm_campaign=reel-boost-v1` / `-v2` separates these from the main campaign's
+`hamilton-2026-08` in GA, so the Reels experiment can be judged on its own. The
+pixel handles Meta-side attribution and the Lead event.
