@@ -62,3 +62,47 @@ Boost each Reel. Budget to match the video campaign thinking: **$20/day split
 across the two**, or run them one at a time. Attribution is weaker than the
 pixel-tracked campaign — this is reach, which is what CAMPAIGN.md says video is
 for.
+
+---
+
+## Posted (2026-08-27)
+
+Both Reels published, crossposted to the Facebook Page and Instagram:
+
+| Reel | Published | Reach at check |
+|------|-----------|----------------|
+| Three bathrooms in one Geist home... | 3:32pm | 0 |
+| This was storage. Now it's a custo... | 3:45pm | 0 |
+
+Meta's copyright check passed on both — the Meta Sound Collection tracks are
+clear for this use. Auto-captions on, which matters because Reels are watched
+muted.
+
+They went out 13 minutes apart. Eric asked to space them and the request landed
+seconds after the second Share. Reach was 0 on both at the time, so pulling one
+and reposting tomorrow costs nothing but the click.
+
+## Boost — V1 draft, NOT published
+
+Saved as a draft in the boost flow. Correct already:
+
+- Button **Learn more** -> Website
+- **Meta Pixel ON**, ID `275995906389395` — matches the site
+- Phone contact `(317) 279-4798`
+- **Special Ad Category: Housing left OFF.** Meta recommends it from the page
+  category, but that category is for real-estate sales and rentals; it strips
+  targeting controls and forces a wider radius. Remodeling services are not
+  housing, and the eight live image ads cleared review without it.
+
+Still unset — **do not publish until these are fixed**:
+
+1. **Audience is `Location: United States, Minimum age 18`.** At $7/day this
+   would scatter the budget nationwide. Same trap as the video ad set.
+2. **Budget is not yet $7/day.**
+3. Website URL reverted to bare `thehomestarservice.com` on reload — it needs
+   the `#estimate` anchor and `utm_content=V1-reel-boost`.
+
+Stopped because the Business Suite tab degraded again — screenshots timing out,
+and the floating Meta AI launcher intercepting clicks aimed at the audience edit
+control. Clicking blind next to a Publish button that spends money is not worth
+it.
