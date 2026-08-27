@@ -1265,3 +1265,21 @@ re-composed layout, not a crop. A straight centre-crop to 1080x1350 would cut
 | Publishable now | 8 ads — 01, 01b, 01c, 02, 03, 04, 06, 07 |
 | Blocked | V1, V2 (both videos) |
 | Published | **nothing** |
+
+---
+
+## LIVE — 8 ads published (2026-08-27)
+
+Eric authorised publishing the eight clean ads and holding the two videos.
+Published 12 items: the campaign, all 3 ad sets, and 8 ads.
+
+| Ad | State |
+|----|-------|
+| 01 Whole-home, 01b, 01c, 02, 03, 04, 06, 07 | **Processing** — live, in Meta review |
+| V1 Three bathrooms (video), V2 This was storage (video) | In draft, held back |
+
+Delivery rows show `7-day click, 1-day view · All conversions · Website Lead`,
+so the Lead event wired through the postMessage bridge is what the campaign is
+optimising against. Spend starts as soon as review clears.
+
+`Review and publish (2)` is the remaining draft count — the two videos.
