@@ -1207,3 +1207,61 @@ The price-transparency angle is not lost — the copy is still in CAMPAIGN.md an
 the three renders are still in `renders/`, so it can be rebuilt if the pricing
 angle is wanted later. The three images also remain in the Meta account image
 library, where they are now unused by any ad.
+
+---
+
+## The publish blocker, and its actual cause (2026-08-27)
+
+`Review and publish` refused 9 of 10 ads:
+
+> **Images used for in-stream ads cannot be portrait.**
+
+### The cause: primary media order, not the media set
+
+Every ad carries the same three crops — 1:1 square, 4:5 feed, 9:16 reels. Two of
+those three are portrait. Meta's media dialog says it plainly: *"only the first
+image or video you select will appear as the primary media."* **If that first
+asset is portrait, the ad fails in-stream validation.**
+
+`02 In-house trades` was the only ad that passed, and it holds the identical
+three crops with no customization — its primary just happened to be the square.
+Ads 01c and 06 had a 1080x1350 feed image as primary; both failed.
+
+**The fix costs nothing.** Deselect all media, then reselect with the **1:1
+square first**, feed second, reels third. All three crops stay in the ad. Eight
+ads fixed this way; every one went from `Fix error` to clear.
+
+Two dead ends worth not repeating:
+
+- **Placement exclusion at the ad set does not exist here.** This is an
+  Advantage+ leads campaign; it exposes no Placements section at all.
+- **Per-asset placement exclusion does not satisfy this validator.** Excluding
+  "In-stream ads for reels" for the 9:16 asset changed nothing; excluding it for
+  the 4:5 as well changed nothing. Only the reorder worked.
+
+### The video ads are a different error, still open
+
+`V1 Three bathrooms` and `V2 This was storage` fail on their own message:
+
+> The video you uploaded is only eligible for Instagram Stories. To be eligible
+> for Instagram Feed, videos must have an aspect ratio ranging from 4:5 to
+> 1.91:1. Please try a video with an aspect ratio in that range, or remove
+> Instagram Feed as a placement.
+
+Both are 1080x1920. **The remedy Meta suggests is not available** — every
+placement checkbox in Customize media reads `disabled: true` on these ads, group
+level included, so Instagram Feed cannot be removed.
+
+That leaves rendering a Feed-eligible cut. `build_video_ads.py` is hardcoded to
+`W, H = 1080, 1920` with `SAFE_TOP/BOTTOM = 250/420`, and the overlays are
+positioned against those 9:16 safe zones — so this is a re-render with a
+re-composed layout, not a crop. A straight centre-crop to 1080x1350 would cut
+285px off the top and bottom and take the hook text with it.
+
+### Status
+
+| | |
+|---|---|
+| Publishable now | 8 ads — 01, 01b, 01c, 02, 03, 04, 06, 07 |
+| Blocked | V1, V2 (both videos) |
+| Published | **nothing** |
