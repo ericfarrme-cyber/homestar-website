@@ -1044,3 +1044,141 @@ preview, since a media change re-enables text generation and Add music.
 | 05 Price transparency | Everything except media |
 
 Remaining: 05's media, then 07 entertaining floor and V2 video.
+
+---
+
+## Ad 05 finished — and the bug that cost two attempts
+
+Ad 05 Price transparency is complete: three creatives attached, all five AI
+toggles off, still In draft.
+
+**The Advanced preview wizard commits on "Done", not on "Next".**
+
+The steps are Media -> Text -> Image generation -> Enhancements -> Translation.
+"Next" advances; only the final step's **Done** writes the changes back to the
+ad. Two earlier attempts walked forward with Next, never reached Done, and the
+dialog closed discarding *everything* — the media selection and the toggle
+changes both. The ad still read `* Media / Add media` after a full page reload,
+which is what exposed it.
+
+Two related traps, both hit on this ad:
+
+- **The step chips at the top are navigation, not tabs.** Clicking `Media (1)`
+  from the Enhancements step jumps back to wizard step 1 and loses your place.
+- **DOM text extraction of the selection counter is stale.** It reported
+  `0 of 10 selected` while the screenshot showed `3 of 10 selected` and three
+  thumbnails in the tray. For this dialog, trust the screenshot, not innerText.
+  Toggle state via `aria-checked` *is* reliable — read it before and after the
+  click and compare.
+
+`Add music` was ON again at the Enhancements step, as expected after a media
+change. Turned off, verified `before=true` -> `Add music=false`.
+
+### Remaining
+
+| Ad | Ad set | Type |
+|----|--------|------|
+| 01 Whole-home (focal) | 01 Whole-home | still |
+| 01b Four rooms, one schedule | 01 Whole-home | still |
+| 01c One project, not three jobs | 01 Whole-home | still |
+| 07 The entertaining floor | 03 Proof and offer | still |
+| V2 This was storage | 03 Proof and offer | video |
+
+Duplicated ads inherit the source ad's URL — the `utm_content` must be reset on
+every one.
+
+## Ad 07 built — and the Destination field's lazy mount
+
+Ad 07 The entertaining floor is complete and verified after a full reload:
+name, primary text, headline, description, the three `07-entertaining-floor`
+creatives, URL with `utm_content=07-entertaining-floor`, and enhancements 0/5.
+
+**The Website URL field does not exist until you scroll to it.** The Destination
+card sits between *Ad setup* and *Ad creative* and is lazily mounted. Before it
+mounts, the input is in the DOM with the inherited URL but has a 0x0 bounding
+box, 25 ancestors deep — so `focus()` silently fails and typed text lands in
+whatever field still had focus. That is exactly how the URL ended up appended to
+the **Description** field ("Westfield, IN - ~$150Khttps://www...").
+
+Two consequences worth keeping:
+
+- **Scroll the Destination card into view first, confirm the input has a
+  non-zero height, and only then focus and type.** Verify with a reload, not
+  just a read-back.
+- Setting a React-controlled input from JS needs the value tracker cleared
+  (`el._valueTracker.setValue('')`) before the native setter, or React reverts
+  it. But even when that makes the DOM read correct, **it does not reach Meta's
+  save state** — the URL looked right and came back as the old one after a
+  reload. Only real typing into a mounted field persisted.
+
+Also: a duplicate arrives carrying Meta AI text variations ("Transform your
+unfinished basement into a luxury space!", "From drab to fab!"). They are
+*suggestions*, not applied copy — the panel reads **Apply all (0 of 5)** and the
+real field is "Primary text (1 of 5)". Leave them unchecked and they never ship.
+
+**7 of 11 built.** Remaining: 01, 01b, 01c (ad set *01 Whole-home*), and V2.
+
+---
+
+## All 11 ads built — and the audit that caught two real defects
+
+Every concept in CAMPAIGN.md now exists as a draft ad. **Nothing is published.**
+
+| Ad set | Ads |
+|--------|-----|
+| 01 Whole-home (focal) | 01 Whole-home, 01b Four rooms one schedule, 01c One project not three jobs, V1 Three bathrooms (video) |
+| 02 Trust | 02 In-house trades, 06 Who we are |
+| 03 Proof and offer | 03 Basement square footage, 04 Waterproofing warranty, 05 Price transparency, 07 The entertaining floor, V2 This was storage (video) |
+
+Cross-ad-set placement: Meta's Duplicate dialog has **no destination picker** —
+both Duplicate and Quick duplicate stay in the source ad set. To move an ad
+between ad sets, use **Copy on the ad, then Paste on the target ad set**.
+
+### Two defects the audit caught
+
+**1. Headline and description silently reverted on ad 01.** Set them, verified
+them, ran the media wizard, clicked Done — and both came back as ad 07's values
+(the ad it was copied from). The primary text survived; those two did not.
+
+The cause was focus: I typed into a field and moved straight on without
+blurring it. **Press Tab after every field, then verify.** Every ad set after
+that fix held its copy through the wizard and a reload.
+
+**2. Ad 03 had `Add overlays` ON.** Every other ad reads
+`Advantage+ creative enhancements (0/5)`; ad 03 read `(1/5)`. Add overlays lets
+Meta AI stamp its own text over the creative — on stills that already carry a
+designed headline, that is the enhancement most likely to wreck the work. Now
+off; ad 03 reads 0/5.
+
+That toggle lives behind the **Edit** button on the enhancements row, and that
+editor commits on **Save** — not Done, and not Next.
+
+### How to read this UI without being lied to
+
+Three of this session's wrong turns came from trusting a stale read:
+
+- **Selection counters and field values via innerText are stale.** The media
+  dialog reported `0 of 10 selected` while the screenshot showed 3 with
+  thumbnails in the tray.
+- **Values leak between ads.** After clicking a different ad in the tree, the
+  form can still hold the previous ad's headline and description. Reading 01b
+  that way returned ad 01's copy.
+- The fix for both: **filter to elements with a non-zero bounding box.**
+  Unmounted and stale fields have `height === 0`. `.filter(h > 0)` gave a
+  correct read on every ad. A fresh reload plus the ad preview panel is the
+  second opinion.
+
+### Verified per ad (after reload)
+
+Name, primary text, headline, description, `utm_content`, media, and
+enhancements 0/5 (0/4 on the two video ads, which have a different toggle set:
+Create sticker CTA, Video touch-ups, Text improvements, Add details to layout).
+
+V2 uses `V2entertainingfloormusic.mp4` (New Diggs); V1 uses the Spacious Fields
+cut. Both tracks are Meta Sound Collection — licensed for Meta platforms only,
+so neither video may be posted to YouTube or the website.
+
+### Still open
+
+- **Eric publishes.** Everything is In draft; Publish was never clicked.
+- **Houzz: still 1 review against a competitor's 100+.** Standing flag.
