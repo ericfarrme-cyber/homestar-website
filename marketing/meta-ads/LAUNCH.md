@@ -1428,3 +1428,57 @@ Westfield, Zionsville, Noblesville, Geist), minimum age 25, then Placements ->
 manual -> Reels and Stories only. Then build the two ads from `CAMPAIGN.md`
 copy, using the **9:16** cuts (`V1wholehomethreebathsmusic.mp4`,
 `V2entertainingfloormusic.mp4`) with `utm_content=V1-...` / `V2-...`.
+
+---
+
+## Manual placements no longer exist in this account
+
+Targeting is now set on the video ad set — `Fishers (+15 mi)` and
+`Zionsville (+25 mi)`, Indiana, which took the audience from 251M (the whole US)
+down to 2.2M-2.6M. That removed the dangerous item.
+
+But the Placements section carries a notice that undoes the reason this campaign
+was created:
+
+> **Changes to placement settings are coming soon.** Excluding placements,
+> platforms, devices and operating systems will no longer be available for your
+> ad sets.
+>
+> You'll still have options to manage how and where your ads appear:
+> - Increase or decrease your bid for placements in **Placement value rules**
+> - Customize your creative for each placement in **Ad creative**
+> - Manage account-level placement exclusions in **Account controls**
+
+There is no manual placement selection anywhere in the ad set — not even under
+**Manual campaign setup**, which is the whole reason that path was chosen. The
+section shows *Advantage+ on* with no alternative, offering only bid rules,
+account-level exclusions, and per-placement creative.
+
+**So the separate campaign gains nothing over the original.** It was built on
+the assumption that a non-Advantage+ campaign would expose placement controls.
+That assumption was wrong. This also explains, properly this time, why every
+placement checkbox on V1 and V2 read `disabled: true` — not an Advantage+ quirk,
+a product change already live on this account.
+
+### The two remaining levers, and why one is unusable
+
+- **Account controls -> Excluded placements** is account-wide. Excluding Feed
+  there to rescue the videos would pull the eight live image ads out of Feed as
+  well. Not usable.
+- **Per-placement creative customization** is the path Meta itself now points
+  at. It was tested and rejected by the validator — but never in the one clean
+  combination: **9:16 primary, 4:5 second, with the 4:5 excluded from Stories
+  and the 9:16 excluded from Feeds, both exclusions saved one at a time.**
+  Earlier attempts always had one of those pieces missing, because switching
+  assets before saving silently discarded the pending change.
+
+That combination is the one honest thing left to try, and it can be tried on the
+original V1/V2 ads — no separate campaign needed.
+
+### State of the video campaign
+
+`HomeStar - Video (Reels + Stories) - 2026-08` is still **In draft** and has
+never spent. Campaign name, $20/day budget, Leads objective, Website conversion
+on the Lead event, and the Hamilton County targeting are all set. Its ad is
+still empty. It can be finished, repurposed, or deleted — but as a *placement*
+solution it is a dead end.
