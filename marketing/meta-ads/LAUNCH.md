@@ -1376,3 +1376,55 @@ its own budget line, which is Eric's call.
 
 The 4:5 renders are not wasted — they are the Feed-eligible masters if the
 videos ever run in a feed placement.
+
+---
+
+## Video campaign — created as a draft, NOT finished
+
+Campaign **`HomeStar - Video (Reels + Stories) - 2026-08`** exists in the
+account as a draft. Nothing published, nothing spending.
+
+### Done
+
+| Setting | Value |
+|---------|-------|
+| Campaign | `HomeStar - Video (Reels + Stories) - 2026-08` |
+| Setup | **Manual campaign setup** — the path that exposes placement control |
+| Objective | Leads |
+| Daily budget | **$20.00** (max daily $35, max weekly $140) |
+| Ad set | `V1 + V2 - Reels and Stories` |
+| Conversion location | Website |
+| Performance goal | Maximize number of leads |
+| Dataset / event | Facebook Pixel / **Lead** |
+
+`Lead` appears under *Inactive events* because nobody has submitted the estimate
+form since the bridge was wired. That is expected, not a fault.
+
+### NOT done — do not publish until these are fixed
+
+1. **Targeting is still `Inclusion: United States`.** At $20/day this would
+   spray a Hamilton County remodeler's budget across the whole country. This is
+   the one genuinely dangerous item.
+2. **Minimum age is 18**, not 25.
+3. **Placements are still all placements.** The entire reason for this campaign
+   is Reels + Stories only. Until that is set, it has the same problem as the
+   ads it was meant to rescue.
+4. **The ad is an empty `New Leads Ad`** — no video, no copy, no URL, no CTA.
+
+### Why it stopped here
+
+The Ads Manager tab degraded past the point of safe operation — screenshots
+timing out on nearly every call, the Chrome extension disconnecting, and DOM
+queries failing to resolve elements that are visibly on screen. Resetting the
+tab (which fixed this several times earlier) stopped helping.
+
+Clicking blind in an ad account is not worth the risk, so the build stopped with
+the campaign in a known state rather than a guessed one.
+
+### To finish
+
+Ad set: set Locations to the same radius as the live campaign (Carmel, Fishers,
+Westfield, Zionsville, Noblesville, Geist), minimum age 25, then Placements ->
+manual -> Reels and Stories only. Then build the two ads from `CAMPAIGN.md`
+copy, using the **9:16** cuts (`V1wholehomethreebathsmusic.mp4`,
+`V2entertainingfloormusic.mp4`) with `utm_content=V1-...` / `V2-...`.
