@@ -1182,3 +1182,28 @@ so neither video may be posted to YouTube or the website.
 
 - **Eric publishes.** Everything is In draft; Publish was never clicked.
 - **Houzz: still 1 review against a competitor's 100+.** Standing flag.
+
+---
+
+## 05 Price transparency deleted (2026-08-27)
+
+Eric asked for it gone. Deleted from ad set *03 Proof and offer* — Meta warns
+the delete is unrecoverable, and it is. Campaign is now **10 ads**, all still
+In draft.
+
+`02 In-house trades` was briefly named for removal in the same breath and then
+retracted. It is **untouched** — verified still present in *02 Trust* alongside
+`06 Who we are`.
+
+Nothing was published. The `Review and publish (14)` button was never clicked.
+
+| Ad set | Ads |
+|--------|-----|
+| 01 Whole-home (focal) | 01, 01b, 01c, V1 (video) |
+| 02 Trust | 02 In-house trades, 06 Who we are |
+| 03 Proof and offer | 03, 04, 07, V2 (video) |
+
+The price-transparency angle is not lost — the copy is still in CAMPAIGN.md and
+the three renders are still in `renders/`, so it can be rebuilt if the pricing
+angle is wanted later. The three images also remain in the Meta account image
+library, where they are now unused by any ad.
