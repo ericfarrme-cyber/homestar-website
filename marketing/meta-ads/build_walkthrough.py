@@ -48,7 +48,7 @@ AD = {
     "end_sub": "Finished basements in Hamilton County - $45K to $200K.",
     "cta": "TOUR THIS BASEMENT",
     "badge_r": "5.0 \u2605 GOOGLE",
-    "music": "new-diggs.m4a",
+    "music": "stardust.m4a",
     # kind "img": a still, panned. kind "vid": an AI-generated clip that already
     # carries its own camera move, so the crop window sits still on it.
     #

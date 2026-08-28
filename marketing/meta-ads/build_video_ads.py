@@ -16,7 +16,9 @@ Add a track from Meta's own royalty-free library in Ads Manager instead.
 Usage:  python build_video_ads.py [slug-filter]
 """
 
+import json
 import os
+import re
 import subprocess
 import sys
 
@@ -224,16 +226,32 @@ def mux_music(video, ad, dur):
         return None
 
     out = video.replace(".mp4", "-music.mp4")
+    ff = ffmpeg_exe()
+    shape = (f"atrim=duration={dur:.2f},"
+             f"afade=t=in:st=0:d={FADE_IN},"
+             f"afade=t=out:st={max(dur - FADE_OUT, 0):.2f}:d={FADE_OUT}")
+    norm = f"loudnorm=I={MUSIC_LUFS}:TP=-2:LRA=11"
+
+    # Two-pass loudnorm. Single-pass is a rough estimate and undershoots on
+    # quieter, more dynamic tracks - Stardust landed 2.5 dB under target and
+    # 5 dB down on peaks versus the other cuts. Pass 1 measures the *shaped*
+    # audio, pass 2 applies those measurements, which lands on target.
+    probe = subprocess.run(
+        [ff, "-i", src, "-af", f"{shape},{norm}:print_format=json",
+         "-f", "null", "-"],
+        capture_output=True, text=True)
+    blocks = re.findall(r"\{[\s\S]*?\}", probe.stderr)
+    if blocks:
+        d = json.loads(blocks[-1])
+        norm += (f":measured_I={d['input_i']}:measured_TP={d['input_tp']}"
+                 f":measured_LRA={d['input_lra']}:measured_thresh={d['input_thresh']}"
+                 f":offset={d['target_offset']}:linear=true")
+
     # aresample goes *after* loudnorm: loudnorm resamples internally and will
     # otherwise hand back 96k/192k, which is not what the masters ship at.
-    af = (
-        f"atrim=duration={dur:.2f},"
-        f"afade=t=in:st=0:d={FADE_IN},"
-        f"afade=t=out:st={max(dur - FADE_OUT, 0):.2f}:d={FADE_OUT},"
-        f"loudnorm=I={MUSIC_LUFS}:TP=-2:LRA=11,aresample=48000"
-    )
+    af = f"{shape},{norm},aresample=48000"
     subprocess.run([
-        ffmpeg_exe(), "-y", "-loglevel", "error",
+        ff, "-y", "-loglevel", "error",
         "-i", video, "-i", src,
         "-filter_complex", f"[1:a]{af}[a]",
         "-map", "0:v", "-map", "[a]",
