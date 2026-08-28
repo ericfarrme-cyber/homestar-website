@@ -73,6 +73,15 @@ def _down(img, path):
     return path
 
 
+def _shadowed(d, xy, text, font, tracking, S):
+    """Type that survives a bright frame: soft dark pass under the white."""
+    x, y = xy
+    for dx, dy, a in ((0, 3, 150), (0, 6, 90), (2, 2, 110)):
+        B.draw_tracked(d, (x + int(dx * S), y + int(dy * S)), text, font,
+                       (0, 0, 0, a), tracking)
+    B.draw_tracked(d, (x, y), text, font, B.WHITE, tracking)
+
+
 def plate_chrome(ad, path):
     """Persistent wordmark + trust badge, pinned inside the top safe zone."""
     img, d = _layer()
@@ -98,14 +107,14 @@ def plate_hook(ad, path):
 
     # Legibility scrim so the hook reads over any frame of footage.
     scrim_top = max(y - int(150 * S), 0)
-    grad = B.vgradient(W, (H * S - scrim_top) // S, B.NAVY_DARK, 0, 225, ease=1.3)
+    grad = B.vgradient(W, (H * S - scrim_top) // S, B.NAVY_DARK, 0, 248, ease=1.15)
     img.alpha_composite(grad.resize(((W * S), (H * S - scrim_top)), Image.BILINEAR),
                         (0, scrim_top))
 
     d.rectangle([pad, y - int(34 * S), pad + int(74 * S), y - int(27 * S)],
                 fill=B.GREEN + (255,))
     for ln in lines:
-        B.draw_tracked(d, (pad, y), ln, f, B.WHITE, tr)
+        _shadowed(d, (pad, y), ln, f, tr, S)
         y += lh
     return _down(img, path)
 

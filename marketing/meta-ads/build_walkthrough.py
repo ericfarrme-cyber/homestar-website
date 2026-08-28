@@ -32,6 +32,7 @@ OUT = os.path.join(HERE, "renders")
 TMP = os.path.join(HERE, "_wtmp")
 
 FPS = 30
+SS = 2             # supersample factor for still pans
 XFADE = 0.6          # cross-dissolve between shots
 SHOT = 2.6           # seconds per shot
 END_DUR = 3.6
@@ -57,14 +58,14 @@ AD = {
     # drift is worst. Shots 6 and 4 were generated and REJECTED - see
     # ZIONSVILLE-WALKTHROUGH.md - so they fall back to deterministic pans.
     "shots": [
-        ("img", "zionsville-basement-9.jpg", 0.55, 0.45),  # mirror - AI invents faces in it
-        ("vid", "_ai/ai-01.mp4",             0.50, 0.50),  # the reveal - AI found the French doors
+        ("img", "zionsville-basement-9.jpg", 0.53, 0.47),  # mirror - AI invents faces in it
+        ("img", "_ai/reveal-wide.jpg",       0.38, 0.62),  # the reveal, outpainted to full height
         ("vid", "_ai/ai-02.mp4",             0.50, 0.50),  # the bar wall - AI push, verified clean
-        ("img", "zionsville-basement-3.jpg", 1.00, 0.00),  # stone and backlit shelves
-        ("img", "zionsville-basement-4.jpg", 0.40, 0.60),  # craftsmanship - AI drifted too far
-        ("img", "zionsville-basement-6.jpg", 0.00, 0.85),  # wine room - AI put a person in the mirror
-        ("img", "zionsville-basement-7.jpg", 1.00, 0.15),  # the lounge - TV screen, too risky
-        ("img", "zionsville-basement-8.jpg", 0.10, 0.90),  # the lit niche - TV screen
+        ("img", "zionsville-basement-3.jpg", 0.62, 0.38),  # stone and backlit shelves
+        ("img", "zionsville-basement-4.jpg", 0.45, 0.55),  # craftsmanship - AI drifted too far
+        ("img", "zionsville-basement-6.jpg", 0.25, 0.55),  # wine room - AI put a person in the mirror
+        ("img", "zionsville-basement-7.jpg", 0.62, 0.38),  # the lounge - TV screen, too risky
+        ("img", "zionsville-basement-8.jpg", 0.38, 0.62),  # the lit niche - TV screen
         ("vid", "_ai/ai-05.mp4",             0.50, 0.50),  # card room - AI drift, verified clean
     ],
 }
@@ -81,13 +82,13 @@ def plate_beat(ad, path):
     lh = int(f.size * 1.06)
     y = (V.H - V.SAFE_BOTTOM) * S - int(40 * S) - lh * len(lines)
     scrim_top = max(y - int(130 * S), 0)
-    grad = B.vgradient(V.W, (V.H * S - scrim_top) // S, B.NAVY_DARK, 0, 215, ease=1.3)
+    grad = B.vgradient(V.W, (V.H * S - scrim_top) // S, B.NAVY_DARK, 0, 244, ease=1.15)
     img.alpha_composite(grad.resize((V.W * S, V.H * S - scrim_top), Image.BILINEAR),
                         (0, scrim_top))
     d.rectangle([pad, y - int(30 * S), pad + int(74 * S), y - int(23 * S)],
                 fill=B.GREEN + (255,))
     for ln in lines:
-        B.draw_tracked(d, (pad, y), ln, f, B.WHITE, tr)
+        V._shadowed(d, (pad, y), ln, f, tr, S)
         y += lh
     return V._down(img, path)
 
@@ -106,7 +107,8 @@ def build(ad):
     cmd = [ff, "-y", "-loglevel", "error"]
     for kind, name, _, _ in ad["shots"]:
         if kind == "img":
-            cmd += ["-loop", "1", "-t", f"{SHOT:.2f}", "-i", os.path.join(SRC, name)]
+            root = HERE if name.startswith("_ai/") else SRC
+            cmd += ["-loop", "1", "-t", f"{SHOT:.2f}", "-i", os.path.join(root, name)]
         else:
             cmd += ["-i", os.path.join(HERE, name)]
     n = len(ad["shots"])
@@ -122,13 +124,30 @@ def build(ad):
     # across it. iw after scaling is wider than the output, and that surplus
     # is the dolly travel.
     for i, (kind, _, a, b) in enumerate(ad["shots"]):
-        pre = "" if kind == "img" else f"trim=duration={SHOT:.2f},setpts=PTS-STARTPTS,"
-        parts.append(
-            f"[{i}:v]{pre}scale=-2:{V.H}:out_range=tv,"
-            f"crop={V.W}:{V.H}:"
-            f"x='(iw-{V.W})*({a}+({b}-{a})*t/{SHOT:.2f})':y=0,"
-            f"fps={FPS},format=yuv420p,setsar=1[s{i}]"
-        )
+        prog = f"({a}+({b}-{a})*t/{SHOT:.2f})"
+        xy = f"x='(iw-ow)*{prog}':y='(ih-oh)*{prog}'"
+        if kind == "img":
+            # Crop at 2x and downscale. A crop window can only land on whole
+            # pixels, so a slow pan steps one pixel at a time and reads as
+            # judder; doing it at 2x makes each step a half pixel at output.
+            parts.append(
+                f"[{i}:v]scale={V.W*SS}:{V.H*SS}:"
+                f"force_original_aspect_ratio=increase:out_range=tv,"
+                f"crop={V.W*SS}:{V.H*SS}:{xy},"
+                f"scale={V.W}:{V.H}:flags=bicubic,"
+                f"fps={FPS},format=yuv420p,setsar=1[s{i}]"
+            )
+        else:
+            # The AI clips render at 24fps. Forcing them to 30 duplicates every
+            # fifth frame, which is exactly what judder looks like on a slow
+            # dolly. minterpolate builds the in-between frames instead.
+            parts.append(
+                f"[{i}:v]trim=duration={SHOT:.2f},setpts=PTS-STARTPTS,"
+                f"scale={V.W}:{V.H}:force_original_aspect_ratio=increase"
+                f":out_range=tv,crop={V.W}:{V.H}:{xy},"
+                f"minterpolate=fps={FPS}:mi_mode=blend,"
+                f"format=yuv420p,setsar=1[s{i}]"
+            )
     parts.append(f"[{n}:v]scale={V.W}:{V.H}:out_range=tv,fps={FPS},format=yuv420p,setsar=1[ec]")
 
     # Chained cross-dissolves. Offsets accumulate on the *result* length.
