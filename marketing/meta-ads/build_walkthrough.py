@@ -41,7 +41,7 @@ END_DUR = 3.6
 # pan: (start, end) as a fraction of the available horizontal travel.
 # A short throw reads as a hold; a long one as a move.
 AD = {
-    "slug": "Z1-zionsville-walkthrough",
+    "slug": "Z2-zionsville-hybrid",
     "hook": "You expect a basement.",
     "beat": "This is a walkout in Zionsville.",
     "end_head": "This is what a basement can be.",
@@ -49,16 +49,23 @@ AD = {
     "cta": "TOUR THIS BASEMENT",
     "badge_r": "5.0 \u2605 GOOGLE",
     "music": "new-diggs.m4a",
+    # kind "img": a still, panned. kind "vid": an AI-generated clip that already
+    # carries its own camera move, so the crop window sits still on it.
+    #
+    # Which shots got AI motion, and why, is the whole point of the hybrid.
+    # Every clip was frame-checked against its source at the last frame, where
+    # drift is worst. Shots 6 and 4 were generated and REJECTED - see
+    # ZIONSVILLE-WALKTHROUGH.md - so they fall back to deterministic pans.
     "shots": [
-        ("zionsville-basement-9.jpg",  0.55, 0.45),  # the mirror - the stairs
-        ("zionsville-basement-1.jpg",  0.00, 1.00),  # the reveal - toward daylight
-        ("zionsville-basement-2.jpg",  0.20, 0.80),  # the bar wall
-        ("zionsville-basement-3.jpg",  1.00, 0.00),  # stone and backlit shelves
-        ("zionsville-basement-4.jpg",  0.40, 0.60),  # craftsmanship, near-static
-        ("zionsville-basement-6.jpg",  0.00, 0.85),  # the wine room, under the stairs
-        ("zionsville-basement-7.jpg",  1.00, 0.15),  # the lounge
-        ("zionsville-basement-8.jpg",  0.10, 0.90),  # the lit niche
-        ("zionsville-basement-5.jpg",  0.60, 0.40),  # the room keeps going
+        ("img", "zionsville-basement-9.jpg", 0.55, 0.45),  # mirror - AI invents faces in it
+        ("vid", "_ai/ai-01.mp4",             0.50, 0.50),  # the reveal - AI found the French doors
+        ("vid", "_ai/ai-02.mp4",             0.50, 0.50),  # the bar wall - AI push, verified clean
+        ("img", "zionsville-basement-3.jpg", 1.00, 0.00),  # stone and backlit shelves
+        ("img", "zionsville-basement-4.jpg", 0.40, 0.60),  # craftsmanship - AI drifted too far
+        ("img", "zionsville-basement-6.jpg", 0.00, 0.85),  # wine room - AI put a person in the mirror
+        ("img", "zionsville-basement-7.jpg", 1.00, 0.15),  # the lounge - TV screen, too risky
+        ("img", "zionsville-basement-8.jpg", 0.10, 0.90),  # the lit niche - TV screen
+        ("vid", "_ai/ai-05.mp4",             0.50, 0.50),  # card room - AI drift, verified clean
     ],
 }
 
@@ -97,8 +104,11 @@ def build(ad):
     end = V.plate_endcard(ad, os.path.join(TMP, f"{tag}-end.png"))
 
     cmd = [ff, "-y", "-loglevel", "error"]
-    for name, _, _ in ad["shots"]:
-        cmd += ["-loop", "1", "-t", f"{SHOT:.2f}", "-i", os.path.join(SRC, name)]
+    for kind, name, _, _ in ad["shots"]:
+        if kind == "img":
+            cmd += ["-loop", "1", "-t", f"{SHOT:.2f}", "-i", os.path.join(SRC, name)]
+        else:
+            cmd += ["-i", os.path.join(HERE, name)]
     n = len(ad["shots"])
     cmd += ["-loop", "1", "-t", f"{END_DUR:.2f}", "-i", end]
     # Plates are looped for the full runtime. A single still sits at t=0 and
@@ -111,9 +121,10 @@ def build(ad):
     # Scale each still to fill the frame height, then pan the crop window
     # across it. iw after scaling is wider than the output, and that surplus
     # is the dolly travel.
-    for i, (_, a, b) in enumerate(ad["shots"]):
+    for i, (kind, _, a, b) in enumerate(ad["shots"]):
+        pre = "" if kind == "img" else f"trim=duration={SHOT:.2f},setpts=PTS-STARTPTS,"
         parts.append(
-            f"[{i}:v]scale=-2:{V.H}:out_range=tv,"
+            f"[{i}:v]{pre}scale=-2:{V.H}:out_range=tv,"
             f"crop={V.W}:{V.H}:"
             f"x='(iw-{V.W})*({a}+({b}-{a})*t/{SHOT:.2f})':y=0,"
             f"fps={FPS},format=yuv420p,setsar=1[s{i}]"
