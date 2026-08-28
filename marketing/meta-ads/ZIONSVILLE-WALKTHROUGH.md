@@ -84,3 +84,54 @@ Frame 10 is cut. It's styling, not craft.
 
 The shot order above is the deliverable either way. It is what the review
 produced, and it is what makes this a walkthrough rather than a slideshow.
+
+---
+
+## AI motion test — result (2026-08-28)
+
+One clip generated to answer the artifact question with evidence rather than
+opinion. `cinematic_studio_video_v2`, 5s, `mode=pro`, start image
+`zionsville-basement-6.jpg` (the wine room), **7.5 credits**.
+
+### What went right
+
+The motion is genuinely good — a smooth dolly push with real parallax between
+the near and far rack walls. The racks, saddle-leather walls, gold ceiling
+paper, barley-twist table, black vase and sunburst mirror frame all survive
+intact. This is the "smooth and beautiful" that Ken Burns cannot fake: the near
+wall slides past the far wall at a different rate, which is depth, not a zoom.
+
+### What went wrong
+
+**It invented a person.** In the source photo the mirror reflects an empty
+doorway, a wall and a dark hinge. By the last frame the AI clip shows a
+humanoid figure with a raised arm holding a black camera — a photographer that
+does not exist in the room.
+
+The prompt explicitly said *"no people, no new objects, no change to the room."*
+It did it anyway. Reflective surfaces are where these models improvise most,
+because a mirror is where the model has to guess at content it cannot see.
+
+### What this means practically
+
+The risk is **real, localised, and manageable** — not a reason to abandon AI
+motion:
+
+- It concentrates in mirrors, glass and screens. This basement has a mirror in
+  the wine room (6), a mirror in the bath (9), a TV in the lounge (7, 8), and
+  glass shower doors (9).
+- Everything else in the frame held up under inspection.
+
+Mitigations, cheapest first:
+
+1. **Choose shots without reflective surfaces** for AI motion; use deterministic
+   pans on the rest. Frames 1, 2, 3, 4, 5 are largely reflection-free.
+2. **Composite the mirror back.** The camera move is known, so the original
+   mirror region can be tracked and patched over the generated one.
+3. **Shorter clips.** Drift accumulates with time; 3s shows far less than 5s.
+
+### The rule this sets
+
+Every AI clip gets frame-checked against its source before it ships — not
+spot-checked, and specifically at the last frame, where drift is worst. That is
+how this one was caught.
