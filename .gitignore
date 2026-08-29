@@ -10,5 +10,9 @@ source-photos/
 public/images/*.mp4
 public/images/*.mov
 __pycache__/
+# Scratch only. ai-source/ is deliberately NOT ignored: those clips cost
+# credits and cannot be regenerated identically - the model is stochastic,
+# so a re-roll gives different motion and may reintroduce artefacts we
+# already checked out. Losing them means F2, F3 and Z2 cannot be rebuilt.
 marketing/meta-ads/_*
 marketing/meta-ads/upload-to-meta/

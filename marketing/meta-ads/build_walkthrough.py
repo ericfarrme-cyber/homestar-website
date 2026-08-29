@@ -59,14 +59,14 @@ ZIONSVILLE = {
     # ZIONSVILLE-WALKTHROUGH.md - so they fall back to deterministic pans.
     "shots": [
         ("img", "zionsville-basement-9.jpg", 0.53, 0.47),  # mirror - AI invents faces in it
-        ("img", "_ai/reveal-wide.jpg",       0.38, 0.62),  # the reveal, outpainted to full height
-        ("vid", "_ai/ai-02.mp4",             0.50, 0.50),  # the bar wall - AI push, verified clean
+        ("img", "ai-source/reveal-wide.jpg",       0.38, 0.62),  # the reveal, outpainted to full height
+        ("vid", "ai-source/ai-02.mp4",             0.50, 0.50),  # the bar wall - AI push, verified clean
         ("img", "zionsville-basement-3.jpg", 0.62, 0.38),  # stone and backlit shelves
         ("img", "zionsville-basement-4.jpg", 0.45, 0.55),  # craftsmanship - AI drifted too far
         ("img", "zionsville-basement-6.jpg", 0.25, 0.55),  # wine room - AI put a person in the mirror
         ("img", "zionsville-basement-7.jpg", 0.62, 0.38),  # the lounge - TV screen, too risky
         ("img", "zionsville-basement-8.jpg", 0.38, 0.62),  # the lit niche - TV screen
-        ("vid", "_ai/ai-05.mp4",             0.50, 0.50),  # card room - AI drift, verified clean
+        ("vid", "ai-source/ai-05.mp4",             0.50, 0.50),  # card room - AI drift, verified clean
     ],
 }
 
@@ -99,15 +99,15 @@ FISHERS = {
         # said "no people". These prompts instead describe what the reflection
         # should contain - "the mirrors reflect only the empty tiled room and a
         # small window" - and both came back clean.
-        ("vid", "_ai/wr-02.mp4", 0.50, 0.50),  # the long view in
-        ("vid", "_ai/wr-01.mp4", 0.50, 0.50),  # lateral, through the glass
-        ("vid", "_ai/wr-07.mp4", 0.50, 0.50),  # the tilt up - more ceiling tile
-        ("vid", "_ai/wr-05.mp4", 0.50, 0.50),  # rain head and hand shower
-        ("vid", "_ai/wr-04.mp4", 0.50, 0.50),  # brass valve, macro
-        ("vid", "_ai/wr-06.mp4", 0.50, 0.50),  # penny mosaic floor
-        ("vid", "_ai/wr-03.mp4", 0.50, 0.50),  # vanity wall - two mirrors, clean
-        ("vid", "_ai/wr-09.mp4", 0.50, 0.50),  # brass pulls, macro
-        ("vid", "_ai/wr-08.mp4", 0.50, 0.50),  # settle on the mirror - clean
+        ("vid", "ai-source/wr-02.mp4", 0.50, 0.50),  # the long view in
+        ("vid", "ai-source/wr-01.mp4", 0.50, 0.50),  # lateral, through the glass
+        ("vid", "ai-source/wr-07.mp4", 0.50, 0.50),  # the tilt up - more ceiling tile
+        ("vid", "ai-source/wr-05.mp4", 0.50, 0.50),  # rain head and hand shower
+        ("vid", "ai-source/wr-04.mp4", 0.50, 0.50),  # brass valve, macro
+        ("vid", "ai-source/wr-06.mp4", 0.50, 0.50),  # penny mosaic floor
+        ("vid", "ai-source/wr-03.mp4", 0.50, 0.50),  # vanity wall - two mirrors, clean
+        ("vid", "ai-source/wr-09.mp4", 0.50, 0.50),  # brass pulls, macro
+        ("vid", "ai-source/wr-08.mp4", 0.50, 0.50),  # settle on the mirror - clean
     ],
 }
 
@@ -150,7 +150,7 @@ def build(ad):
     cmd = [ff, "-y", "-loglevel", "error"]
     for kind, name, _, _ in ad["shots"]:
         if kind == "img":
-            root = HERE if name.startswith("_ai/") else SRC
+            root = HERE if name.startswith("ai-source/") else SRC
             cmd += ["-loop", "1", "-t", f"{SHOT:.2f}", "-i", os.path.join(root, name)]
         else:
             cmd += ["-i", os.path.join(HERE, name)]
