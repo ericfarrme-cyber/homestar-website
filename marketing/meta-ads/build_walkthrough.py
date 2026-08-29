@@ -41,7 +41,7 @@ END_DUR = 3.6
 # ── The read of the space ──────────────────────────────────────────────
 # pan: (start, end) as a fraction of the available horizontal travel.
 # A short throw reads as a hold; a long one as a move.
-AD = {
+ZIONSVILLE = {
     "slug": "Z2-zionsville-hybrid",
     "hook": "You expect a basement.",
     "beat": "This is a walkout in Zionsville.",
@@ -69,6 +69,41 @@ AD = {
         ("vid", "_ai/ai-05.mp4",             0.50, 0.50),  # card room - AI drift, verified clean
     ],
 }
+
+
+
+# Fishers wet room. Ten frames, so this runs the full nine beats.
+#
+# The angle is what makes it a wet room rather than a big shower: the stacked
+# vertical tile does not stop at the wall, it carries across the ceiling. That
+# is a waterproofing job before it is a tile job, which is exactly where the
+# Schluter 25-year warranty in CAMPAIGN.md earns its place.
+#
+# Sources are 1800x2400 portrait and crop to 9:16 with almost no loss, so these
+# moves can be slower and still cover ground.
+FISHERS = {
+    "slug": "F1-fishers-wetroom",
+    "hook": "The tile doesn't stop at the ceiling.",
+    "beat": "That's what makes it a wet room.",
+    "end_head": "Waterproofed to a 25-year warranty.",
+    "end_sub": "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+    "cta": "GET A FREE ESTIMATE",
+    "badge_r": "5.0 ★ GOOGLE",
+    "music": "stardust.m4a",
+    "shots": [
+        ("img", "fishers-wetroom-2.jpg",  0.42, 0.58),  # the long view in
+        ("img", "fishers-wetroom-1.jpg",  0.58, 0.40),  # inside - glass, bench, window
+        ("img", "fishers-wetroom-7.jpg",  0.45, 0.55),  # look up: tile on the ceiling
+        ("img", "fishers-wetroom-5.jpg",  0.38, 0.60),  # rain head and hand shower
+        ("img", "fishers-wetroom-4.jpg",  0.55, 0.45),  # brass valve, macro
+        ("img", "fishers-wetroom-6.jpg",  0.30, 0.70),  # penny mosaic floor
+        ("img", "fishers-wetroom-3.jpg",  0.62, 0.36),  # the vanity wall
+        ("img", "fishers-wetroom-9.jpg",  0.35, 0.65),  # brass pulls, macro
+        ("img", "fishers-wetroom-8.jpg",  0.40, 0.58),  # settle on the mirror
+    ],
+}
+
+PROJECTS = {"zionsville": ZIONSVILLE, "fishers": FISHERS}
 
 
 def plate_beat(ad, path):
@@ -184,11 +219,13 @@ def build(ad):
 def main():
     args = [a.lower() for a in sys.argv[1:]]
     fmts = [a for a in args if a in V.FORMATS] or list(V.FORMATS)
+    picked = [a for a in args if a in PROJECTS] or ["zionsville"]
+    ad = PROJECTS[picked[0]]
     for name in fmts:
         V.use_format(name)
         print(f"{name}  {V.W}x{V.H}")
-        path, dur = build(AD)
-        for f in (path, V.mux_music(path, AD, dur)):
+        path, dur = build(ad)
+        for f in (path, V.mux_music(path, ad, dur)):
             if f:
                 mb = os.path.getsize(f) / 1024 / 1024
                 print(f"  {os.path.basename(f):<52} {dur:.1f}s  {mb:.1f} MB")
