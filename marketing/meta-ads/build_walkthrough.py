@@ -82,7 +82,7 @@ ZIONSVILLE = {
 # Sources are 1800x2400 portrait and crop to 9:16 with almost no loss, so these
 # moves can be slower and still cover ground.
 FISHERS = {
-    "slug": "F1-fishers-wetroom",
+    "slug": "F2-fishers-wetroom-hybrid",
     "hook": "The tile doesn't stop at the ceiling.",
     "beat": "That's what makes it a wet room.",
     "end_head": "Waterproofed to a 25-year warranty.",
@@ -91,15 +91,17 @@ FISHERS = {
     "badge_r": "5.0 ★ GOOGLE",
     "music": "stardust.m4a",
     "shots": [
-        ("img", "fishers-wetroom-2.jpg",  0.42, 0.58),  # the long view in
-        ("img", "fishers-wetroom-1.jpg",  0.58, 0.40),  # inside - glass, bench, window
-        ("img", "fishers-wetroom-7.jpg",  0.45, 0.55),  # look up: tile on the ceiling
-        ("img", "fishers-wetroom-5.jpg",  0.38, 0.60),  # rain head and hand shower
-        ("img", "fishers-wetroom-4.jpg",  0.55, 0.45),  # brass valve, macro
-        ("img", "fishers-wetroom-6.jpg",  0.30, 0.70),  # penny mosaic floor
-        ("img", "fishers-wetroom-3.jpg",  0.62, 0.36),  # the vanity wall
-        ("img", "fishers-wetroom-9.jpg",  0.35, 0.65),  # brass pulls, macro
-        ("img", "fishers-wetroom-8.jpg",  0.40, 0.58),  # settle on the mirror
+        # AI motion on the four shots with no mirror in frame. Every clip was
+        # frame-checked against its source at the last frame; all four held.
+        ("vid", "_ai/wr-02.mp4",         0.50, 0.50),  # the long view in
+        ("vid", "_ai/wr-01.mp4",         0.50, 0.50),  # lateral, through the glass
+        ("vid", "_ai/wr-07.mp4",         0.50, 0.50),  # the tilt up - more ceiling tile
+        ("vid", "_ai/wr-05.mp4",         0.50, 0.50),  # rain head and hand shower
+        ("img", "fishers-wetroom-4.jpg", 0.55, 0.45),  # brass valve, macro
+        ("img", "fishers-wetroom-6.jpg", 0.30, 0.70),  # penny mosaic floor
+        ("img", "fishers-wetroom-3.jpg", 0.62, 0.36),  # vanity wall - two mirrors, kept deterministic
+        ("img", "fishers-wetroom-9.jpg", 0.35, 0.65),  # brass pulls, macro
+        ("img", "fishers-wetroom-8.jpg", 0.40, 0.58),  # settle on the mirror - deterministic
     ],
 }
 
