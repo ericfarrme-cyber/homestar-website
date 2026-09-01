@@ -584,3 +584,8 @@ Distinguish these from the **narrow plumbing/electrical claims** at lines 613, 2
 which are the actual wedge — do not touch those without confirming. Line 852 (*"not
 subcontractors we've never worked with"*) and line 2190 (*"not the lowest-bid subcontractors"*)
 are already consistent with the mixed model and need no change.
+
+**Resolved same day (`d3292bd`).** Both broad claims reworded to the premium framing: trades are
+chosen for craft and never for lowest bid, with one company accountable for the sequence. The
+narrow plumbing/electrical employee claims were left intact as the wedge. Babel parse and full
+build pass, 237/237 routes retain title and description. **Committed, not yet deployed.**
