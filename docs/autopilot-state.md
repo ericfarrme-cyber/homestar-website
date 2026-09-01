@@ -521,3 +521,40 @@ repo's own analysis identified. Memory corrected.
 **Profile checklist sits at 4 of 7 (57%).** Outstanding: Add Highlights (premium), Add Highlight
 Video (premium), Add FAQs (free, new). FAQs is the only free one and is worth doing — it adds
 crawlable text to a profile whose corpus is the ranking constraint.
+
+## ✅ 2026-09-01 — HOUZZ FAQs PUBLISHED: FIVE ANSWERS, EMITTED AS `FAQPage` SCHEMA
+
+Added the five free FAQs to the Houzz profile. Checklist moved **4 of 7 → 5 of 7**.
+
+**The payoff is bigger than crawlable text.** Houzz renders these into
+`application/ld+json` as **`FAQPage` / `Question` / `Answer`** structured data — verified logged
+out. That is the format Google rich results and AI answer engines consume directly, so this is
+materially better than the plain profile prose it sits beside. Houzz's own dialog says it out
+loud: *"may increase your visibility in AI search engines."* Full logged-out `@type` set now:
+LocalBusiness, PostalAddress, AggregateRating, GeoCoordinates, place, OfferCatalog, PropertyValue,
+BreadcrumbList, ListItem, **FAQPage, Question, Answer**.
+
+**The five questions**, chosen to cover the axes AI engines match on — cost, timeline, trust,
+geography, credentials: bathroom/kitchen/basement cost in Fishers and Hamilton County; how long a
+remodel takes; subcontractors vs. own crews; areas served; licensed/insured and warranty.
+
+**Answers are hard-capped at 500 characters** (`maxLength=500`; the Question field is uncapped).
+The cap is silent — the first answer was pasted at 540 chars and Houzz truncated it mid-word at
+*"after a free i"* with no error. Every answer was then measured before entry and re-read from the
+DOM after. Final lengths: 496 / 490 / 493 / 402 / 493. **This is the "verify the value, not the
+tag" lesson again, in a third system.** Confirmed intact after a reload and in a logged-out
+session, so the truncation was not merely a local artifact.
+
+**Every figure is repo-sourced, not invented** — pricing, timelines, Schluter certification, the
+25-year manufacturer and 1-year workmanship warranties, the on-payroll trades, and the paid-permits
+claim were each grepped out of `src/App.jsx` before being written into public copy.
+
+### ⚠️ Opened by this work: the site contradicts itself on basement pricing
+
+The basement service content states **$45,000–$200,000+, most homeowners $55,000–$95,000**
+($75–$110/sq ft premium, $110–$175/sq ft luxury). The city-page FAQs state materially lower and
+mutually inconsistent numbers for the same work: **Westfield $20,000–$50,000**, Olio-corridor
+Fishers **$25,000–$45,000**, Bridgewater Club **$30,000–$55,000**. Westfield's floor is less than
+half the canonical figure while its own signature Westfield project is described at ~$150,000.
+The Houzz FAQ uses the canonical service-page numbers. The city pages should be reconciled to
+match — a prospect comparing the two pages sees a contractor who cannot quote its own work.
