@@ -494,3 +494,30 @@ BBB (trust bar + footer + schema `sameAs`) · Angi (badge + `sameAs`) · BAGI (b
   completed; CTR failure re-diagnosed as geographic mismatch and fixed with a new mechanism;
   canonical fix confirmed working on one real page and failing on another. See
   `run-report-2026-08-05.md`.
+
+## ✅ 2026-09-01 — HOUZZ REVIEWS: 2 → 5, VERIFIED LIVE AND LOGGED OUT
+
+Eric reported five reviews; verified rather than recorded, because this count has now been wrong
+twice and was corrected both times only by checking.
+
+**`houzz.com/pro/homestarservicesandcontracting` — 5.0 rating, 5 reviews.** Confirmed in the
+signed-in admin view and independently in a logged-out `playwright-incognito` session, which
+rendered *"Average rating: 5 out of 5 stars, 5 Reviews"* alongside a Sign In link.
+
+**The admin view shows a "Private Profile — Only you can see this view" banner. It is not private.**
+That banner labels the editing view. The logged-out check resolves it: the profile, the rating and
+the review count are all publicly visible, and the page carries a "Read Reviews from Fishers
+Homeowners Like You" section. Worth recording so nobody panics at that banner again — if the
+profile really were private, the entire Houzz strategy would be dead and this is how to tell.
+
+**Progress against the real bar.** Run #4 established the bar as **~15–20, not 122** — the firms
+placed above HomeStar sit on 15 and 17. So 5 is a third of the way, not a rounding error. Remaining
+ask is roughly **10 more**, to clients who already left 5-star Google reviews (~80 of those exist).
+
+**Correction to prior sign-offs:** the standing reminder had been carrying "1 review vs a
+competitor's 100+". Both halves were stale — the count had moved, and 100+ was never the bar this
+repo's own analysis identified. Memory corrected.
+
+**Profile checklist sits at 4 of 7 (57%).** Outstanding: Add Highlights (premium), Add Highlight
+Video (premium), Add FAQs (free, new). FAQs is the only free one and is worth doing — it adds
+crawlable text to a profile whose corpus is the ranking constraint.
