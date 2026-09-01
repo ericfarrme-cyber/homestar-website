@@ -588,4 +588,4 @@ are already consistent with the mixed model and need no change.
 **Resolved same day (`d3292bd`).** Both broad claims reworded to the premium framing: trades are
 chosen for craft and never for lowest bid, with one company accountable for the sequence. The
 narrow plumbing/electrical employee claims were left intact as the wedge. Babel parse and full
-build pass, 237/237 routes retain title and description. **Committed, not yet deployed.**
+build pass, 237/237 routes retain title and description. **Deployed and verified live 2026-09-01** (`636ef8c`): new copy present and old claim absent on /basement-finishing, /whole-home-renovation, and the city basement routes (11 routes total), all HTTP 200.
