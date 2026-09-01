@@ -558,3 +558,29 @@ Fishers **$25,000–$45,000**, Bridgewater Club **$30,000–$55,000**. Westfield
 half the canonical figure while its own signature Westfield project is described at ~$150,000.
 The Houzz FAQ uses the canonical service-page numbers. The city pages should be reconciled to
 match — a prospect comparing the two pages sees a contractor who cannot quote its own work.
+
+### Correction, same day — FAQ 3 rewritten: the in-house claim was overstated
+
+Eric corrected the premise: the model is **a mix — licensed trades both on and off payroll, plus
+the most experienced subcontractors in their field** — chosen for the best outcome, not for
+purity. The published answer ("Every licensed trade is on our own payroll... not subcontracted
+out") claimed more than is true and was replaced within the hour. Verified logged out: new text
+public, old claim gone, carried in the `FAQPage` schema.
+
+The question was deliberately kept as *"Do you use subcontractors, or your own crews?"* because
+that is what homeowners actually type. Only the answer changed, from a purity claim to a quality
+claim: the decision rule is which trade produces the better result, never which is cheapest or
+soonest. That is both true and a stronger premium signal — a blanket "we never subcontract" is
+easy to disprove and undersells using the best specialist for a craft.
+
+### ⚠️ The website makes the same overstated claim in two places
+
+`src/App.jsx` states it broadly at **line 3221** (*"every licensed trade is on our own payroll"*)
+and **line 3033** (*"we don't subcontract out the licensed trades"*). Both are contradicted by
+Eric's correction and should be reworded.
+
+Distinguish these from the **narrow plumbing/electrical claims** at lines 613, 2171, 3081 and 3220
+(*"licensed plumbers and electricians are HomeStar employees"*), which Eric did not dispute and
+which are the actual wedge — do not touch those without confirming. Line 852 (*"not
+subcontractors we've never worked with"*) and line 2190 (*"not the lowest-bid subcontractors"*)
+are already consistent with the mixed model and need no change.
