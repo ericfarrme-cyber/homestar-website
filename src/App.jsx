@@ -494,6 +494,10 @@ function LeadForm(){
         counted=true;  /* one Lead per mount, not one per re-render of the form */
         if(window.fbq)window.fbq("track","Lead",{content_name:"Estimate request"});
         if(window.gtag)window.gtag("event","generate_lead",{form:"estimate"});
+        /* No event_id: there is no server-side Conversions API yet, so there is
+           nothing to deduplicate against. If one is added, the form app must
+           send a lead id through the postMessage so both sides can share it. */
+        if(window.oaiq)window.oaiq("measure","lead_created",{});
       }
     };
     window.addEventListener("message",handler);

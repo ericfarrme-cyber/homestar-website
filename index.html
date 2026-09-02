@@ -32,6 +32,28 @@
     </script>
     <!-- No <noscript> fallback pixel: it is invalid inside <head>, and this is
          a React SPA that renders nothing without JS, so it could never fire. -->
+    <!-- OpenAI Ads pixel (ChatGPT Ads) - INERT until OAI_PIXEL_ID is set.
+         While the ID is empty the SDK is never requested: no network call, no
+         cookie, nothing to consent to. Paste the ID from Ads Manager >
+         Conversions to switch the whole integration on in one edit.
+         page_viewed fires here; lead_created is fired by LeadForm in App.jsx
+         off the same iframe bridge that already feeds Meta and GA4.
+         On switch-on, init once with debug:true and confirm page_viewed lands
+         exactly once - the docs do not state whether init emits it itself, and
+         a double count corrupts the cost-per-lead this pixel exists to measure. -->
+    <script>
+      window.OAI_PIXEL_ID = ''; /* <-- paste Pixel ID here to switch on */
+      if (window.OAI_PIXEL_ID) {
+        (function(w,d,s,u){
+          if(w.oaiq)return;
+          var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;
+          var js=d.createElement(s);js.async=!0;js.src=u;
+          var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(js,f);
+        })(window,document,'script','https://bzrcdn.openai.com/sdk/oaiq.min.js');
+        oaiq('init',{pixelId:window.OAI_PIXEL_ID});
+        oaiq('measure','page_viewed',{});
+      }
+    </script>
 
     <!-- Primary SEO -->
     <title>HomeStar Services & Contracting | Home Remodeling in Carmel, Fishers & Hamilton County IN</title>
