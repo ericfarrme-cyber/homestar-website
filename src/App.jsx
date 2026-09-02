@@ -73,7 +73,6 @@ const PROJECTS = [
       { src: "/images/white-oak-primary-bath-fishers-1.jpg", alt: "White oak double vanity with quartz countertop and champagne bronze fixtures primary bathroom Fishers IN" },
       { src: "/images/white-oak-primary-bath-fishers-2.jpg", alt: "Primary bathroom with freestanding soaking tub and frameless glass shower Fishers Indiana" },
       { src: "/images/white-oak-primary-bath-fishers-3.jpg", alt: "Frameless glass shower with built-in bench and hexagon mosaic floor Fishers IN" },
-      { src: "/images/white-oak-primary-bath-fishers-4.jpg", alt: "White oak double vanity and freestanding tub in vaulted primary bathroom Fishers Indiana" },
       { src: "/images/white-oak-primary-bath-fishers-5.jpg", alt: "Freestanding soaking tub with wall mount filler and large format porcelain tile Fishers IN" },
       { src: "/images/white-oak-primary-bath-fishers-6.jpg", alt: "White oak vanity with dual mirrors and fabric shade sconces primary bathroom Fishers Indiana" },
     ],
