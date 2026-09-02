@@ -626,3 +626,28 @@ listing. The worthwhile targets are personal effects: toothbrushes, shampoo bott
 
 **And the free fix still beats all of it: stage the room before shooting.** Two minutes clearing
 counters costs nothing and cannot introduce an artifact.
+
+### Follow-up, same day: the failure mode has a shape
+
+Running the full clean-up pass found the limit, and it is specific enough to be worth writing down.
+
+**Removing an object that overlaps a fixture makes the model draw a second fixture.** The loofah
+hanging on the shower valve came out cleanly in one photo, where it hangs clear of the trim plate
+against plain tile. In another photo, where it is smaller, sits behind glass and overlaps the
+plate, three attempts all produced **a second escutcheon and handle** beside the real valve -
+ghosted on the first pass, a full chrome valve on the second. An explicit instruction naming the
+prohibition (*"do not draw a second valve, escutcheon, handle, spout or knob; there must be
+exactly one valve in the output"*) made it worse, not better.
+
+That is a fabricated fixture in a photo whose job is to show real fixtures, so it was reverted:
+the valve region of that photo is now byte-identical to the original, verified at 0.00 mean
+difference, and the loofah stays. The niches in the same photo are still cleaned.
+
+**Two rules that follow.** Do not attempt removal where the object overlaps a fixture - the
+silhouette reads as hardware and gets completed as hardware. And check the *edges* of every crop:
+the niche pass in that photo clipped the valve and left a ghost of its own, which only showed at
+4x native zoom.
+
+**Eric caught both errors in this session** - first the wrong verdict on the tile, then this
+artifact after I had looked at it and waved it through. Zoom to native pixels on the actual
+edited region, every time. A thumbnail cannot show either failure.
