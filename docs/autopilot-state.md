@@ -590,38 +590,39 @@ chosen for craft and never for lowest bid, with one company accountable for the 
 narrow plumbing/electrical employee claims were left intact as the wedge. Babel parse and full
 build pass, 237/237 routes retain title and description. **Deployed and verified live 2026-09-01** (`636ef8c`): new copy present and old claim absent on /basement-finishing, /whole-home-renovation, and the city basement routes (11 routes total), all HTTP 200.
 
-## ⚠️ 2026-09-02 — GENERATIVE CLEANUP OF PROJECT PHOTOS: TESTED, AND IT FAILS ON TILE
+## ✅ 2026-09-02 — GENERATIVE CLEANUP OF PROJECT PHOTOS: TESTED, AND IT WORKS
 
-Eric asked whether the Fishers bath photos could be cleaned up by removing towels and clutter.
-Tested it properly rather than guessing. **The answer is no for anything against patterned tile,
-and the reason matters more than the verdict.**
+Eric asked whether the Fishers bath photos could be cleaned up by removing clutter. Tested on the
+shower niches — the hardest case, chosen deliberately, because the niche backs are elongated
+hexagon picket tile and reconstructing tile geometry is where generative fill usually fails.
 
-**The test.** Nano Banana 2, 2 credits, on the shower niches — the hardest case, chosen on purpose.
-The model removed the bottles cleanly and then **replaced the small hexagon mosaic with a
-completely different large elongated picket tile**, resized both niche openings, changed the
-surrounding large-format tile veining, and swapped the showerhead for a different one. It did not
-retouch the photograph; it re-imagined it.
+**It held.** Nano Banana 2, 2 credits. The bottles came out and the picket tile behind them was
+continued faithfully: same hexagon shape, same orientation, same proportions, grout lines landing
+where they should. The showerhead is the same fixture. The niche openings are unchanged.
 
-**Why it happened.** The masked path never worked. The catalogue lists a `mask` media role for
-`nano_banana_2`, but the MCP layer rejects it with *"Unknown media role: mask"*, while the backend
-rejects `is_inpaint` without one — *"is_inpaint and mask must be provided together."* With no
-usable mask, every edit regenerates the whole frame. Crop-and-composite was the workaround; the
-model also returned a different aspect ratio (552x1350 in, 1536x2752 out), so it reframed too.
+**Correction, recorded on purpose.** My first read of this test called it a failure — that it had
+swapped the tile for a different profile and changed the showerhead. That was wrong, and Eric
+caught it. The error came from comparing a soft source against a crisp output: the input crop was
+a 3x upscale of a 184px-wide region, so it is genuinely mushy, while the output is clean 2K. I read
+the sharpness difference as a change of material. **Judging fidelity from a downscaled comparison
+is how you reach a confident wrong answer — zoom to native pixels on both sides before calling it.**
 
-**Why this is a hard no, not a quality quibble.** HomeStar sells tile craftsmanship, and the
-25-year Schluter waterproofing warranty is the wedge. Publishing a portfolio photo showing tile
-the company did not install — in a niche it did not build — misrepresents the work in exactly the
-dimension the business competes on. That is a different and worse category than a stray towel.
+**What is actually true about the method.**
+- There is no working mask path. The catalogue lists a `mask` role for `nano_banana_2`, but the MCP
+  layer rejects it with *"Unknown media role: mask"* while the backend refuses `is_inpaint` without
+  one. So every edit regenerates the whole frame rather than patching a region.
+- Crop-and-composite is therefore the workflow: crop tight around the target, edit, paste back at
+  the exact original pixel dimensions. Everything outside the crop is then untouched by construction.
+- The model reframes — 552x1350 in, 1536x2752 out — so the return has to be resized back to the
+  source crop box, not trusted to line up.
+- **The output is sharper than the surrounding photograph.** Pasted back raw it will read as a
+  patch, so the edited region needs its sharpness and grain matched to the host image.
+- Every output still gets eyeballed at native resolution before it ships. Not because the model is
+  unreliable here, but because the failure mode when it does slip is plausible-looking and quiet.
 
-**What is still worth doing.**
-- **Nothing in the shower.** Niches, valve and pan all sit against hex mosaic or fixtures.
-- **Towels and rugs should stay regardless.** They are styling, not clutter. Interior photography
-  puts them in deliberately; a bathroom stripped of soft goods reads as a vacant listing.
-- **Small personal items on plain quartz** (toothbrushes, a soap dispenser, a tissue box) are the
-  only genuinely safe candidates, and would need their own tight crop-and-composite test.
-- **The real fix is upstream and free: stage the room before shooting.** Two minutes clearing
-  counters and hiding the loofah beats any amount of retouching, and cannot invent tile.
+**What is still not worth removing.** Towels and rugs are styling, not clutter — interior
+photography includes them deliberately, and a bathroom stripped of soft goods reads as a vacant
+listing. The worthwhile targets are personal effects: toothbrushes, shampoo bottles, the loofah.
 
-Related standing lesson: run #3 recorded AI inventing a chandelier during outpainting, and a
-photographer in the Zionsville wine-room mirror. This is the third instance of the same failure —
-**generative fill invents plausible detail, and plausible is not the same as true.**
+**And the free fix still beats all of it: stage the room before shooting.** Two minutes clearing
+counters costs nothing and cannot introduce an artifact.
