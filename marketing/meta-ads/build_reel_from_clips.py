@@ -72,6 +72,49 @@ def build():
     return acc
 
 
+# ── music pass ───────────────────────────────────────────────────────────────
+MUSIC = r"C:\Users\ericf\OneDrive\Documents\GitHub\homestar-website\Pending\Quiet Neon.mp3"
+OUT_MUSIC = OUT.replace("--reels-video.mp4", "--reels-video-music.mp4")
+
+# Quiet Neon opens soft - its first six seconds sit ~12 dB under the track average,
+# so starting at 0 would open the Reel almost silent. 70.5s is the loudest, steadiest
+# 18s window in the track (mean -12.2 dBFS, sd 1.4 dB), measured rather than guessed.
+MUSIC_START = 70.5
+MUSIC_LUFS = -20
+FADE_IN, FADE_OUT = 1.2, 2.2
+
+
+def add_music(video_len):
+    shape = (f"afade=t=in:st=0:d={FADE_IN},"
+             f"afade=t=out:st={max(0.0, video_len - FADE_OUT):.2f}:d={FADE_OUT}")
+    norm = f"loudnorm=I={MUSIC_LUFS}:TP=-1.5:LRA=11"
+
+    # Two-pass loudnorm: pass 1 measures the *shaped* audio so the fades are included
+    # in the measurement, pass 2 applies the correction with those numbers.
+    probe = subprocess.run(
+        [FF, "-hide_banner", "-ss", f"{MUSIC_START}", "-t", f"{video_len:.2f}", "-i", MUSIC,
+         "-af", f"{shape},{norm}:print_format=json", "-f", "null", "-"],
+        capture_output=True, text=True)
+    blocks = re.findall(r"\{[\s\S]*?\}", probe.stderr)
+    if blocks:
+        d = json.loads(blocks[-1])
+        norm += (f":measured_I={d['input_i']}:measured_TP={d['input_tp']}"
+                 f":measured_LRA={d['input_lra']}:measured_thresh={d['input_thresh']}"
+                 f":offset={d['target_offset']}:linear=true")
+    # aresample AFTER loudnorm - the other order silently leaves the file at 96 kHz.
+    af = f"{shape},{norm},aresample=48000"
+
+    r = subprocess.run(
+        [FF, "-y", "-hide_banner", "-loglevel", "error",
+         "-i", OUT, "-ss", f"{MUSIC_START}", "-t", f"{video_len:.2f}", "-i", MUSIC,
+         "-filter_complex", f"[1:a]{af}[a]", "-map", "0:v", "-map", "[a]",
+         "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2",
+         "-shortest", "-movflags", "+faststart", OUT_MUSIC],
+        capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stderr[-2500:]); sys.exit(1)
+
+
 expected = build()
 info = subprocess.run([FF, "-hide_banner", "-i", OUT], capture_output=True, text=True).stderr
 dur = re.search(r"Duration: (\d+):(\d+):([\d.]+)", info)
@@ -85,3 +128,14 @@ print(f"  audio      : {'PRESENT - unexpected' if 'Audio:' in info else 'none (s
 print(f"  size       : {os.path.getsize(OUT)/1048576:.1f} MB")
 for i, (src, ss, dur_, note) in enumerate(SEGMENTS, 1):
     print(f"  {i}. {os.path.basename(src)[-10:-4]}  {ss:5.1f}s +{dur_:.1f}s   {note}")
+
+add_music(secs)
+m = subprocess.run([FF, "-hide_banner", "-i", OUT_MUSIC], capture_output=True, text=True).stderr
+mdur = re.search(r"Duration: (\d+):(\d+):([\d.]+)", m)
+astream = re.search(r"Audio: (\w+).*?(\d+) Hz, (\w+)", m)
+msecs = int(mdur.group(2)) * 60 + float(mdur.group(3)) if mdur else 0
+print(f"\nwrote {os.path.basename(OUT_MUSIC)}")
+print(f"  duration   : {msecs:.2f}s  (video {secs:.2f}s)")
+print(f"  audio      : {astream.group(1)} {astream.group(2)} Hz {astream.group(3)}" if astream else "  audio: MISSING")
+print(f"  music from : {MUSIC_START:.1f}s, normalised to {MUSIC_LUFS} LUFS")
+print(f"  size       : {os.path.getsize(OUT_MUSIC)/1048576:.1f} MB")
