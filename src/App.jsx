@@ -64,6 +64,11 @@ const PROJECTS = [
     color: "#8A7A63",
     desc: "A primary bathroom in Fishers built around a white oak double vanity and a quartz countertop with soft grey veining, paired with champagne bronze fixtures throughout. A freestanding soaking tub sits beneath the window on a wall-mounted filler, and the frameless glass shower carries a full-width bench, two recessed niches and a hexagon mosaic floor. Large-format porcelain runs from the floor up to a tiled wainscot beneath the vaulted ceiling.",
     story: {challenge:"This was the builder's original primary bath, and every surface was still the one the house came with. A corner whirlpool tub sat in a tiled deck beneath the window, taking the best light in the room and a large share of its floor. The shower was a framed enclosure with obscure glass, closed off behind a half wall and a fixed privacy panel, so the far corner read as a solid block. A long dark-stained vanity carried a one-piece cultured-marble top with integrated oval sinks under a single full-width builder mirror. Beige ceramic tile ran across the floor, up the tub deck and around the wainscot. The room had good bones, a vaulted ceiling and a wide window, working against finishes that had not aged with them.", approach:"The layout was worth keeping, so we kept it. The vanity stayed on its wall, the tub stayed in the window bay, the shower stayed in the corner. What changed was every surface in between.\n\nThe whirlpool tub and its tiled deck came out, and a freestanding soaking tub went back into the same bay on a wall-mounted filler, giving back the floor the deck had been holding. The framed enclosure and its privacy panel gave way to clear frameless glass, so the shower reads as part of the room instead of a separate box. The knee wall between the two stayed, re-clad and capped in quartz.\n\nInside the shower, large-format porcelain runs over the complete Schluter system with a full-width bench and two recessed niches. The pan is a hexagon mosaic, chosen for grip as much as for looks. Every waterproofing detail is Schluter, which is our standard on every bathroom rather than an upgrade.\n\nThe dark vanity was replaced in white oak under a quartz top with soft grey veining and undermount sinks. The single builder mirror became two framed mirrors, the two small fixtures became three sconces with fabric shades, the chrome went to champagne bronze, and the beige ceramic went to large-format porcelain from the floor up into a tiled wainscot.", result:"The footprint is identical and the room is unrecognisable. The vaulted ceiling and the window finally have finishes to match them, the shower is clear glass rather than an obscured corner, and the freestanding tub sits in the light it always should have had. The work carries our 1-year workmanship warranty, and the waterproofing carries Schluter's 25-year manufacturer warranty."},
+    beforeAfter: [
+      { before: "/images/white-oak-primary-bath-fishers-before-1.jpg", after: "/images/white-oak-primary-bath-fishers-1.jpg", alt: "Primary bathroom vanity wall in Fishers IN", label: "The vanity wall. Dark stained cabinets under a one-piece cultured-marble top, replaced with white oak and quartz." },
+      { before: "/images/white-oak-primary-bath-fishers-before-2.jpg", after: "/images/white-oak-primary-bath-fishers-2.jpg", alt: "Primary bathroom tub and shower in Fishers IN", label: "The corner whirlpool tub and its framed obscure-glass enclosure, replaced with a freestanding soaker and clear frameless glass." },
+      { before: "/images/white-oak-primary-bath-fishers-before-5.jpg", after: "/images/white-oak-primary-bath-fishers-5.jpg", alt: "Freestanding tub under the window in Fishers IN", label: "The same window bay, with the tiled tub deck taken out to give the floor back." },
+    ],
     images: [
       { src: "/images/white-oak-primary-bath-fishers-1.jpg", alt: "White oak double vanity with quartz countertop and champagne bronze fixtures primary bathroom Fishers IN" },
       { src: "/images/white-oak-primary-bath-fishers-2.jpg", alt: "Primary bathroom with freestanding soaking tub and frameless glass shower Fishers Indiana" },
@@ -4203,6 +4208,35 @@ function ProjectPage({project}){
                 <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:12}}>The Finished Space</h3>
                 <p style={{color:C.grayDark,fontSize:15,lineHeight:1.85}}>{story.result}</p>
               </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Before & After. Optional per project: `beforeAfter` holds pairs shot from the
+          same position. Both images render into the same 3:4 box with object-fit:cover, so a
+          near-square phone snap and a 3:4 camera frame still line up beside each other rather
+          than one standing taller than the other. */}
+      {project.beforeAfter?.length>0&&(
+        <section className="sec" style={{background:"#fff"}}>
+          <div className="sec-in" style={{maxWidth:900}}>
+            <div className="lab">{"Before & After"}</div>
+            <h3 className="display" style={{color:C.navy,fontSize:20,marginBottom:8}}>The Same Room, Rebuilt</h3>
+            <p style={{color:C.gray,fontSize:14,lineHeight:1.7,marginBottom:26,maxWidth:580}}>Each pair is framed from roughly the same position, so what changed is the work rather than the camera angle.</p>
+            <div style={{display:"grid",gap:30}}>
+              {project.beforeAfter.map((pair,i)=>(
+                <div key={i}>
+                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+                    {[["Before",pair.before],["After",pair.after]].map(([tag,src])=>(
+                      <figure key={tag} style={{margin:0,position:"relative",borderRadius:12,overflow:"hidden",border:`1px solid ${C.sand}`,background:C.cream}}>
+                        <img src={src} alt={`${pair.alt} \u2014 ${tag.toLowerCase()}`} loading="lazy" style={{display:"block",width:"100%",aspectRatio:"3 / 4",objectFit:"cover"}}/>
+                        <figcaption style={{position:"absolute",top:9,left:9,padding:"4px 10px",borderRadius:999,fontSize:10,fontWeight:800,letterSpacing:".08em",textTransform:"uppercase",color:"#fff",background:tag==="Before"?"rgba(27,42,74,.82)":C.green}}>{tag}</figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                  {pair.label&&<div style={{color:C.gray,fontSize:13,lineHeight:1.6,marginTop:10,textAlign:"center",maxWidth:640,marginLeft:"auto",marginRight:"auto"}}>{pair.label}</div>}
+                </div>
+              ))}
             </div>
           </div>
         </section>
