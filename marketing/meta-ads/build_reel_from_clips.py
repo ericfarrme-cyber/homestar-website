@@ -13,6 +13,10 @@ master also has to serve YouTube Shorts and the project page.
 """
 import json, os, re, subprocess, sys
 import imageio_ffmpeg
+from PIL import Image, ImageDraw, ImageFilter
+
+import build_ads as BRAND
+import build_video_ads as V
 
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 DL = r"C:\Users\ericf\Downloads"
@@ -36,7 +40,36 @@ SEGMENTS = [
 ]
 
 
+# ── corner wordmark ──────────────────────────────────────────────────────────
+# Reuses build_video_ads.plate_chrome, the same lockup already running on the
+# Zionsville and Fishers Reels: HOMESTAR over SERVICES & CONTRACTING top-left,
+# 5.0 GOOGLE badge top-right, both pinned inside the Reels top safe zone. Reused
+# rather than reimplemented so this cut is visually identical to the others.
+LOGO_PNG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_reel_chrome.png")
+
+
+def make_logo_plate():
+    V.use_format("reels")          # binds W/H/SAFE_TOP that the plate builder reads
+    assert (V.W, V.H) == (W, H), f"format mismatch: {(V.W, V.H)} vs {(W, H)}"
+    V.plate_chrome({"badge_r": "5.0 ★ GOOGLE"}, LOGO_PNG)
+
+    # The lockup was designed over a dark basement. This cut is a bright bathroom,
+    # and measured against the pale wall and ceiling the white wordmark drops to
+    # roughly 1.4:1 contrast. Drop a blurred copy of the plate's own alpha behind
+    # it: the lockup itself is untouched, it just stops dissolving into quartz.
+    plate = Image.open(LOGO_PNG).convert("RGBA")
+    shadow = Image.new("RGBA", plate.size, (0, 0, 0, 0))
+    shadow.putalpha(plate.getchannel("A").point(lambda a: int(a * 0.55)))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(7))
+    out = Image.new("RGBA", plate.size, (0, 0, 0, 0))
+    out.alpha_composite(shadow, (0, 3))
+    out.alpha_composite(plate)
+    out.save(LOGO_PNG)
+    return LOGO_PNG
+
+
 def build():
+    make_logo_plate()
     cmd = [FF, "-y", "-hide_banner", "-loglevel", "error"]
     for src, ss, dur, _ in SEGMENTS:
         cmd += ["-ss", f"{ss:.2f}", "-t", f"{dur:.2f}", "-i", src]
@@ -59,6 +92,13 @@ def build():
             f"[{prev}][s{i}]xfade=transition=fade:duration={XFADE}:offset={off:.3f}[{tag}]")
         acc = acc + SEGMENTS[i][2] - XFADE
         prev = tag
+
+    # logo rides the whole cut, easing in so it does not pop on frame one
+    li = len(SEGMENTS)
+    cmd += ["-loop", "1", "-t", f"{acc:.2f}", "-i", LOGO_PNG]
+    parts.append(f"[{li}:v]format=rgba,fade=t=in:st=0.25:d=0.7:alpha=1[lg]")
+    parts.append(f"[{prev}][lg]overlay=0:0:format=auto,format=yuv420p[out]")
+    prev = "out"
 
     cmd += ["-filter_complex", ";".join(parts), "-map", f"[{prev}]", "-an",
             "-c:v", "libx264", "-preset", "slow", "-crf", "19",
