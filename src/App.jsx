@@ -59,6 +59,20 @@ const PROCESS = [
  */
 const PROJECTS = [
   {
+    title: "Primary Bath with White Oak Vanity in Fishers", slug: "white-oak-primary-bath-fishers", city: "Fishers", service: "Bathroom Remodeling",
+    cat: "Bathroom",
+    color: "#8A7A63",
+    desc: "A primary bathroom in Fishers built around a white oak double vanity and a quartz countertop with soft grey veining, paired with champagne bronze fixtures throughout. A freestanding soaking tub sits beneath the window on a wall-mounted filler, and the frameless glass shower carries a full-width bench, two recessed niches and a hexagon mosaic floor. Large-format porcelain runs from the floor up to a tiled wainscot beneath the vaulted ceiling.",
+    images: [
+      { src: "/images/white-oak-primary-bath-fishers-1.jpg", alt: "White oak double vanity with quartz countertop and champagne bronze fixtures primary bathroom Fishers IN" },
+      { src: "/images/white-oak-primary-bath-fishers-2.jpg", alt: "Primary bathroom with freestanding soaking tub and frameless glass shower Fishers Indiana" },
+      { src: "/images/white-oak-primary-bath-fishers-3.jpg", alt: "Frameless glass shower with built-in bench and hexagon mosaic floor Fishers IN" },
+      { src: "/images/white-oak-primary-bath-fishers-4.jpg", alt: "White oak double vanity and freestanding tub in vaulted primary bathroom Fishers Indiana" },
+      { src: "/images/white-oak-primary-bath-fishers-5.jpg", alt: "Freestanding soaking tub with wall mount filler and large format porcelain tile Fishers IN" },
+      { src: "/images/white-oak-primary-bath-fishers-6.jpg", alt: "White oak vanity with dual mirrors and fabric shade sconces primary bathroom Fishers Indiana" },
+    ],
+  },
+  {
     title: "Basement Bar, Wine Room & Lounge in Zionsville", slug: "zionsville-basement-bar-wine-room", city: "Zionsville", service: "Basement Finishing",
     cat: "Basement",
     cats: ["Whole Home"],
