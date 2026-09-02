@@ -589,3 +589,39 @@ are already consistent with the mixed model and need no change.
 chosen for craft and never for lowest bid, with one company accountable for the sequence. The
 narrow plumbing/electrical employee claims were left intact as the wedge. Babel parse and full
 build pass, 237/237 routes retain title and description. **Deployed and verified live 2026-09-01** (`636ef8c`): new copy present and old claim absent on /basement-finishing, /whole-home-renovation, and the city basement routes (11 routes total), all HTTP 200.
+
+## ⚠️ 2026-09-02 — GENERATIVE CLEANUP OF PROJECT PHOTOS: TESTED, AND IT FAILS ON TILE
+
+Eric asked whether the Fishers bath photos could be cleaned up by removing towels and clutter.
+Tested it properly rather than guessing. **The answer is no for anything against patterned tile,
+and the reason matters more than the verdict.**
+
+**The test.** Nano Banana 2, 2 credits, on the shower niches — the hardest case, chosen on purpose.
+The model removed the bottles cleanly and then **replaced the small hexagon mosaic with a
+completely different large elongated picket tile**, resized both niche openings, changed the
+surrounding large-format tile veining, and swapped the showerhead for a different one. It did not
+retouch the photograph; it re-imagined it.
+
+**Why it happened.** The masked path never worked. The catalogue lists a `mask` media role for
+`nano_banana_2`, but the MCP layer rejects it with *"Unknown media role: mask"*, while the backend
+rejects `is_inpaint` without one — *"is_inpaint and mask must be provided together."* With no
+usable mask, every edit regenerates the whole frame. Crop-and-composite was the workaround; the
+model also returned a different aspect ratio (552x1350 in, 1536x2752 out), so it reframed too.
+
+**Why this is a hard no, not a quality quibble.** HomeStar sells tile craftsmanship, and the
+25-year Schluter waterproofing warranty is the wedge. Publishing a portfolio photo showing tile
+the company did not install — in a niche it did not build — misrepresents the work in exactly the
+dimension the business competes on. That is a different and worse category than a stray towel.
+
+**What is still worth doing.**
+- **Nothing in the shower.** Niches, valve and pan all sit against hex mosaic or fixtures.
+- **Towels and rugs should stay regardless.** They are styling, not clutter. Interior photography
+  puts them in deliberately; a bathroom stripped of soft goods reads as a vacant listing.
+- **Small personal items on plain quartz** (toothbrushes, a soap dispenser, a tissue box) are the
+  only genuinely safe candidates, and would need their own tight crop-and-composite test.
+- **The real fix is upstream and free: stage the room before shooting.** Two minutes clearing
+  counters and hiding the loofah beats any amount of retouching, and cannot invent tile.
+
+Related standing lesson: run #3 recorded AI inventing a chandelier during outpainting, and a
+photographer in the Zionsville wine-room mirror. This is the third instance of the same failure —
+**generative fill invents plausible detail, and plausible is not the same as true.**
