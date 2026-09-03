@@ -2,12 +2,11 @@
 
 Beds for Reels. Files live in `Pending/music/` (gitignored - audio stays out of the repo).
 
-**Licensing: all of these are Eric's own Mureka tracks** (confirmed 2026-09-03), so they are
-unconstrained and may be used on any surface - Meta, YouTube Shorts, and the website alike.
-
-That is the reason to reach for these rather than Meta's Sound Collection, whose audio is licensed
-for Meta surfaces only. A Reel master usually has to serve YouTube and the project page as well, and
-a Meta-library bed would quietly make that impossible.
+**Licensing:** "Quiet Neon" is Eric's own Mureka track and is unconstrained. The rest
+were added by Eric on 2026-09-03 and are assumed to be his own generated tracks too -
+**worth confirming before any of them go anywhere other than Meta.** Meta Sound Collection
+audio is licensed for Meta surfaces only and must never be used on a cut that also has to
+serve YouTube or the website.
 
 ## Best 20-second window per track
 
@@ -18,6 +17,8 @@ silent, which is exactly the trap Quiet Neon sets.
 
 | track | length | LUFS | true peak | best start | window mean | spread | intro vs avg |
 |---|---|---|---|---|---|---|---|
+| `American Reveal.mp3` | 150s | -11.1 | 0.1 | **113.0s** | -12.7 dB | 0.7 | -4.4 dB |
+| `Arco d_Avanguardia (1).mp3` | 202s | -10.3 | 0.1 | **138.5s** | -10.9 dB | 1.5 | -11.2 dB |
 | `Arco d_Avanguardia.mp3` | 198s | -9.8 | 0.2 | **69.2s** | -10.7 dB | 1.1 | -8.9 dB |
 | `Before _ After (1).mp3` | 179s | -11.9 | -0.3 | **83.8s** | -12.2 dB | 1.4 | -3.7 dB |
 | `Before _ After.mp3` | 168s | -12.5 | -0.2 | **92.5s** | -12.6 dB | 1.3 | -1.0 dB |

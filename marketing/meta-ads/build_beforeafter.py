@@ -108,7 +108,9 @@ PROJECTS = {
     "westfield-luxury": dict(
         out="FB-westfield-luxury-basement-beforeafter",
         slug="westfield-basement-masterpiece",
-        music=("Arco d_Avanguardia.mp3", 69.2),
+        # American Reveal has the steadiest 20s window in the library - spread 0.7 dB
+        # against 1.1-1.7 for every other track. Least likely to lurch under a reveal.
+        music=("American Reveal.mp3", 113.0),
         ad={
             "hook":     "Bare concrete and studs.",
             "beat":     "Fourteen feet of red oak later.",
