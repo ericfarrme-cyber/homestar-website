@@ -265,3 +265,50 @@ Quiet Neon where 70.5s had been hand-tuned. It also confirms why that mattered �
 
 Worth knowing: **`Arco d'Avanguardia` has a true peak of +0.2 dBTP** — above full scale. Usable, but
 it needs limiting rather than being dropped in as-is.
+
+---
+
+## People in frame: what survives without them
+
+Eric asked what the content looks like if the clips containing crew are avoided. Mapped at
+1-second resolution rather than estimated:
+
+| clip | length | people-free | what survives |
+|---|---|---|---|
+| `geist upper level 2.mp4` | 16.8s | **14.7s** (0-11.5, 13.6-16.8) | new treads going in — the best shot in the batch |
+| `geist upper level.mp4` | 18.9s | **10.0s** (4.6-14.6) | applied wall panelling with glue still showing, hallway, staircase |
+| `geist upper level(1).mp4` | 10.6s | **8.4s** (0-1.8, 4.0-10.6) | the finished landing |
+| `geist upper level 1.mp4` | 14.0s | **5.7s** (0-3.5, 11.8-14.0) | stacked trim, masked balusters |
+| **Geist total** | 60.3s | **38.8s** | |
+| `double shower.mp4` | 13.2s | **~3.0s** (1.0-4.0) | floor tile only |
+
+**Geist loses nothing that matters.** 38.8 seconds is nearly double a Reel's needs and the crew are
+absent from the strongest material. `F8-geist-upper-level-progress` (17.97s) is cut entirely from
+those windows.
+
+**`double shower.mp4` does not survive.** The tiler is in frame from 4s to the end; what is left is
+three seconds before the interesting work starts. That project needs content from finished footage
+instead — the clip itself is only usable with a person in it.
+
+### Embedded dates — none of this is future-dated
+
+Every clip carries a 2025 `creation_time`. Useful beyond that: they date the jobs, and
+**Zionsville runs 2025-08-07 (before) to 2025-10-03 (after) — about eight weeks**, consistent with
+the two-month figure Eric gave for Geist. Real durations, from metadata rather than assumed.
+
+| project | shot |
+|---|---|
+| `floor-to-ceiling-tile-noblesville` | Jun 2025 |
+| `jack-and-jill-zionsville` | Aug 2025 (before) → Oct 2025 (after) |
+| `geist-upper-level-remodel` | Aug 2025 |
+| `spa-retreat-bathroom-fishers` | Oct-Nov 2025 |
+| `basement-finish-westfield` | Oct 2025 |
+| `double-shower-*` | Dec 2025 |
+
+### Copy has to match the frame under it
+
+The first cut's beat read *"Every baluster, taped by hand."* That is true of the footage under the
+**hook**, but the beat lands four seconds later over the stair treads — so the line described a shot
+the viewer had already left. Now *"Rebuilt one tread at a time."*
+
+**Check what is actually on screen when a plate appears, not what is in the clip somewhere.**

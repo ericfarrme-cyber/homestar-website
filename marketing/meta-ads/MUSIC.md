@@ -2,11 +2,12 @@
 
 Beds for Reels. Files live in `Pending/music/` (gitignored - audio stays out of the repo).
 
-**Licensing:** "Quiet Neon" is Eric's own Mureka track and is unconstrained. The rest
-were added by Eric on 2026-09-03 and are assumed to be his own generated tracks too -
-**worth confirming before any of them go anywhere other than Meta.** Meta Sound Collection
-audio is licensed for Meta surfaces only and must never be used on a cut that also has to
-serve YouTube or the website.
+**Licensing: all of these are Eric's own Mureka tracks** (confirmed 2026-09-03), so they are
+unconstrained and may be used on any surface - Meta, YouTube Shorts, and the website alike.
+
+That is the reason to reach for these rather than Meta's Sound Collection, whose audio is licensed
+for Meta surfaces only. A Reel master usually has to serve YouTube and the project page as well, and
+a Meta-library bed would quietly make that impossible.
 
 ## Best 20-second window per track
 
