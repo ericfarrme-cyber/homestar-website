@@ -97,3 +97,25 @@ URL expects `audio/mpeg` and sending M4A bytes under that label would likely fai
 The clone read the same script in **12.75s** against 15.65s for the Reid preset - noticeably
 brisker, which left room to start the voiceover at 2.2s and still finish well clear of the end
 card at 17.87s.
+
+### Voiceover mix — three bugs worth remembering
+
+Eric flagged that the voice started and stopped abruptly. Fixing that surfaced two worse faults
+that a loudness measurement had hidden.
+
+**1. The voice had no fades.** It cut in and out at full level. Now 0.15s in and 0.35s out - short
+enough not to swallow the first or last word.
+
+**2. The duck slammed, then dug a hole.** At `ratio=8, threshold=0.02` the bed dropped to about
+-40 dB, which is a near-mute rather than space for a voice. It is now `ratio=4, threshold=0.05,
+attack=120, release=800`, a 6-8 dB dip, with the sidechain key arriving 0.20s ahead of the voice so
+the bed eases down *before* the first word instead of alongside it.
+
+**3. The music died with the voice, and shipped that way.** `sidechaincompress` ends when its
+shortest input ends, and the key was the voiceover - so the bed terminated at 14.95s and the file
+carried two seconds of digital silence under the end card. **Integrated loudness looked fine**,
+because it averaged straight across a dead tail. The fix pads the key with `apad=whole_dur`, and
+the final mix is padded and trimmed to the video length as well, so the bed cannot end early again.
+
+**The lesson: for audio, measure the timeline, not the average.** An integrated LUFS figure will
+happily report a healthy number for a file that is silent for its last two seconds.
