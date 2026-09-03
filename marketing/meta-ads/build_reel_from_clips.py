@@ -68,8 +68,54 @@ def make_logo_plate():
     return LOGO_PNG
 
 
+# ── text beats ───────────────────────────────────────────────────────────────
+# Same five-field shape the Zionsville and wet-room Reels use: a flat hook, a
+# turn that reframes it, then an end card carrying the claim, the credibility
+# line with the price band, and the CTA.
+AD = {
+    "hook":     "The layout never changed.",
+    "beat":     "Everything you touch did.",
+    "end_head": "Same footprint. New bathroom.",
+    "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+    "cta":      "GET A FREE ESTIMATE",
+    "badge_r":  "5.0 ★ GOOGLE",
+}
+HOOK_OUT, BEAT_IN, BEAT_OUT = 3.4, 8.5, 12.8
+END_DUR = 3.6
+
+HOOK_PNG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_reel_hook.png")
+BEAT_PNG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_reel_beat.png")
+END_PNG  = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_reel_end.png")
+
+
+def make_beat_plate():
+    """Mirror of build_walkthrough.plate_beat - imported rather than reused only
+    because that module runs format setup at import time."""
+    from PIL import ImageDraw as _D
+    img, d = V._layer()
+    Sx = BRAND.S
+    pad = int(56 * Sx)
+    inner = V.W * Sx - pad * 2
+    f, lines, tr = BRAND.fit_lines(d, AD["beat"], "ExtraBold", inner,
+                                   max_px=int(58 * Sx), min_px=int(36 * Sx), max_lines=2)
+    lh = int(f.size * 1.06)
+    y = (V.H - V.SAFE_BOTTOM) * Sx - int(40 * Sx) - lh * len(lines)
+    scrim_top = max(y - int(130 * Sx), 0)
+    grad = BRAND.vgradient(V.W, (V.H * Sx - scrim_top) // Sx, BRAND.NAVY_DARK, 0, 244, ease=1.15)
+    img.alpha_composite(grad.resize((V.W * Sx, V.H * Sx - scrim_top), Image.BILINEAR), (0, scrim_top))
+    d.rectangle([pad, y - int(30 * Sx), pad + int(74 * Sx), y - int(23 * Sx)],
+                fill=BRAND.GREEN + (255,))
+    for ln in lines:
+        V._shadowed(d, (pad, y), ln, f, tr, Sx)
+        y += lh
+    return V._down(img, BEAT_PNG)
+
+
 def build():
     make_logo_plate()
+    V.plate_hook(AD, HOOK_PNG)
+    make_beat_plate()
+    V.plate_endcard(AD, END_PNG)
     cmd = [FF, "-y", "-hide_banner", "-loglevel", "error"]
     for src, ss, dur, _ in SEGMENTS:
         cmd += ["-ss", f"{ss:.2f}", "-t", f"{dur:.2f}", "-i", src]
@@ -93,12 +139,24 @@ def build():
         acc = acc + SEGMENTS[i][2] - XFADE
         prev = tag
 
-    # logo rides the whole cut, easing in so it does not pop on frame one
-    li = len(SEGMENTS)
-    cmd += ["-loop", "1", "-t", f"{acc:.2f}", "-i", LOGO_PNG]
-    parts.append(f"[{li}:v]format=rgba,fade=t=in:st=0.25:d=0.7:alpha=1[lg]")
-    parts.append(f"[{prev}][lg]overlay=0:0:format=auto,format=yuv420p[out]")
+    body = acc
+    n = len(SEGMENTS)
+    # chrome, hook and beat ride the footage; the end card carries its own branding
+    cmd += ["-loop", "1", "-t", f"{body:.2f}", "-i", LOGO_PNG]
+    cmd += ["-loop", "1", "-t", f"{body:.2f}", "-i", HOOK_PNG]
+    cmd += ["-loop", "1", "-t", f"{body:.2f}", "-i", BEAT_PNG]
+    cmd += ["-loop", "1", "-t", f"{END_DUR:.2f}", "-i", END_PNG]
+    parts.append(f"[{n}:v]format=rgba,fade=t=in:st=0.25:d=0.7:alpha=1[lg]")
+    parts.append(f"[{n+1}:v]format=rgba,fade=t=out:st={HOOK_OUT:.2f}:d=0.7:alpha=1[hk]")
+    parts.append(f"[{n+2}:v]format=rgba[bt]")
+    parts.append(f"[{n+3}:v]scale={W}:{H},fps={FPS},format=yuv420p,setsar=1[ec]")
+    parts.append(f"[{prev}][lg]overlay=0:0:format=auto[o1]")
+    parts.append(f"[o1][hk]overlay=0:0:format=auto:enable='lt(t,{HOOK_OUT + 0.7:.2f})'[o2]")
+    parts.append(f"[o2][bt]overlay=0:0:format=auto:enable='between(t,{BEAT_IN:.2f},{BEAT_OUT:.2f})'[o3]")
+    parts.append(f"[o3]format=yuv420p[bod]")
+    parts.append(f"[bod][ec]xfade=transition=fade:duration={XFADE}:offset={body - XFADE:.3f}[out]")
     prev = "out"
+    acc = body + END_DUR - XFADE
 
     cmd += ["-filter_complex", ";".join(parts), "-map", f"[{prev}]", "-an",
             "-c:v", "libx264", "-preset", "slow", "-crf", "19",

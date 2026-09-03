@@ -2,33 +2,50 @@
 
 **Scheduled for:** Thursday 3 September 2026, 9:00 AM
 **Posting to:** HomeStar Services and Contracting (Facebook) + thehomestarservice (Instagram)
-**File:** `marketing/meta-ads/renders/F4-fishers-white-oak-bath--reels-upload.mp4` (8.89 MB, 1080x1920, 18s, Quiet Neon)
+**File:** `marketing/meta-ads/renders/F4-fishers-white-oak-bath--reels-upload.mp4` (8.98 MB, 1080x1920, 21.5s, Quiet Neon)
+
+---
+
+## On-screen text (burned into the video)
+
+Same five-field shape as the Zionsville and wet-room Reels.
+
+| | |
+|---|---|
+| **hook** (0-4.1s) | The layout never changed. |
+| **beat** (8.5-12.8s) | Everything you touch did. |
+| **end_head** | Same footprint. New bathroom. |
+| **end_sub** | Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K. |
+| **cta** | GET A FREE ESTIMATE |
+
+The hook and the beat are a pair: the hook sounds like a limitation, the beat turns it into the
+point. Runtime is 21.5s with the end card, matching V1 and V2 at 22s.
 
 ---
 
 ## Caption — copy everything below the line
 
-Same footprint. Unrecognizable room.
+Same footprint. Nothing else the same.
 
-This Fishers primary bath kept its layout — vanity on the same wall, tub in the same window bay, shower in the same corner. Everything you touch changed.
+The vanity stayed on its wall, the tub stayed in the window bay, the shower stayed in the corner. That's deliberate - moving drains and vents is what makes a bathroom expensive, so keeping the layout put the budget into what you actually touch.
 
-The corner jetted tub and its tiled deck came out, and a freestanding soaker went back into the same bay on a wall-mounted filler. The framed obscure-glass shower became clear frameless glass with a full-width bench and a hexagon mosaic pan. White oak vanity, quartz counters, champagne bronze throughout.
+Out: a corner jetted tub in a tiled deck, a framed shower behind obscure glass, a dark vanity with a cultured-marble top.
 
-Every shower we build goes over the complete Schluter system — a 25-year manufacturer waterproofing warranty, standard, not an upgrade.
+In: a freestanding soaker on a wall-mount filler, clear frameless glass with a bench and a hex mosaic pan, white oak and quartz in champagne bronze.
 
-Free in-home estimates across Hamilton County.
-Call (317) 279-4798
+Every shower goes over the complete Schluter system - 25-year waterproofing warranty, standard, not an upgrade.
 
-#FishersIndiana #HamiltonCounty #BathroomRemodel #PrimaryBathroom #HomeRemodeling #CarmelIndiana #Westfield #Noblesville #Zionsville #WhiteOakVanity #FreestandingTub #SchluterSystem #IndianapolisRemodeling #BeforeAndAfter
+Fishers, Indiana. Free in-home estimates: (317) 279-4798
 
 ---
 
 ## Why this copy
 
-Opens on the line that carries the whole job — the layout was kept and every surface changed.
-That is also the honest through-line of the project story on the website, so the Reel, the project
-page and the Houzz FAQ all say the same thing.
+The second paragraph is the one that earns its place. Moving plumbing is what makes bathrooms
+expensive, so "we kept the layout" stops being a limitation and becomes the reason the money
+showed up on the surfaces. That is the same argument the on-screen hook and beat make, and the
+same one the project page makes.
 
-Every claim is repo-verified: the before-state comes from the client's own before photos, and the
-Schluter warranty language matches the site exactly. No pricing is quoted, deliberately — a Reel
-comment thread is a poor place to defend a number, and the site carries the bands already.
+No hashtags, matching V1 and V2, neither of which uses any. Plain hyphens, not em dashes, also
+matching. No pricing in the caption - the end card already carries the band, and a comment thread
+is a poor place to defend a number.
