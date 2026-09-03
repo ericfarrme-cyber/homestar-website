@@ -290,11 +290,21 @@ those windows.
 three seconds before the interesting work starts. That project needs content from finished footage
 instead — the clip itself is only usable with a person in it.
 
-### Embedded dates — none of this is future-dated
+### Embedded dates — useful, but they are NOT job durations
 
-Every clip carries a 2025 `creation_time`. Useful beyond that: they date the jobs, and
-**Zionsville runs 2025-08-07 (before) to 2025-10-03 (after) — about eight weeks**, consistent with
-the two-month figure Eric gave for Geist. Real durations, from metadata rather than assumed.
+Every clip carries a 2025 `creation_time`.
+
+**Do not publish a build time derived from these dates.** Eric: the before is shot *before the
+project starts*, and the after *a week or two after it finishes*. So the gap between two videos is
+the build **plus** a pre-start buffer **plus** a post-completion tail. It bounds the duration from
+above and never gives it.
+
+Zionsville's clips are eight weeks apart, so the build was **less than eight weeks** — how much
+less, only Eric knows. This is the same error that nearly published "four months later" on the Geist
+Reel off a 3.5-month video gap, and Eric corrected that to two months. The generalised rule:
+
+> **A date on footage says when the camera rolled. Any claim about how long a job took has to come
+> from Eric, not from arithmetic on filenames.**
 
 | project | shot |
 |---|---|
