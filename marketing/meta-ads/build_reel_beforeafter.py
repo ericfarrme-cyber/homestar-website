@@ -1,11 +1,16 @@
 """
 Cut a 9:16 before-and-after Reel.
 
-Source is the only true before-and-after pair in the archive: a dated builder
-primary bath filmed 2026-01-16, and the navy picket tile bath the same room
-became, filmed 2026-05-01. Eric confirmed the pairing; the visual evidence is
-the **same vaulted ceiling** over the vanity wall in both clips, which is what
-makes the match real rather than a shared date.
+Source is the only true before-and-after pair in the archive: the master bath of
+the **Geist three-bathroom project** (`three-bathroom-remodel-geist`), filmed
+2026-01-16 before and 2026-05-01 after. Eric confirmed both the pairing and the
+project. Everything visible in the after clip matches that project page - navy
+crackle-glaze picket tile, backlit mirrors, the custom storage tower, champagne
+bronze, matte black hardware, herringbone floor, the vintage pendant over the
+tub - so this is a confirmed match, not a guess.
+
+Job duration is **two months** (Eric). The gap between the two videos is longer
+than that and is not the build time.
 
 Structure is all-before then all-after, deliberately. Alternating matched pairs
 is more elegant but needs a persistent BEFORE/AFTER label to stay legible on a
@@ -34,7 +39,7 @@ AFTER = os.path.join(ARCH, "_upscaled", "navy-after-topaz-1080.mp4")
 
 OUT_DIR = os.path.join(HERE, "renders")
 os.makedirs(OUT_DIR, exist_ok=True)
-OUT = os.path.join(OUT_DIR, "F6-navy-picket-primary-bath--reels-video.mp4")
+OUT = os.path.join(OUT_DIR, "F6-geist-three-bath-beforeafter--reels-video.mp4")
 
 W, H, FPS = 1080, 1920, 30
 XFADE = 0.4
@@ -56,10 +61,22 @@ SEGMENTS = [
     (AFTER,  43.0, 3.4, "AFTER",  "vanity, LED mirrors - same vaulted ceiling"),
 ]
 
+# The real story, taken from the project page rather than invented: the layout
+# would not accommodate the shower the homeowners wanted, because an awkward
+# entry door and a linen closet were eating the space. HomeStar moved the door
+# and reconfigured the closet. That is a genuine remodelling insight and it is
+# more differentiating than another "look how nice it is now" line.
+#
+# It also sidesteps a claim that cannot yet be verified. The first cut used
+# "Same room. Same ceiling." - the vaulted ceiling is visible in both clips and
+# is real visual proof they are one room. But the project page lists "vaulted
+# ceilings" among the things the remodel delivered, which would make the line
+# wrong if the ceiling was raised rather than existing. Pending Eric confirming
+# which, the copy does not rest on it.
 AD = {
     "hook":     "This was the primary bath.",
-    "beat":     "Same room. Same ceiling.",
-    "end_head": "Nothing else the same.",
+    "beat":     "The shower wouldn't fit.",
+    "end_head": "So we moved the door.",
     "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
     "cta":      "GET A FREE ESTIMATE",
     "badge_r":  "5.0 ★ GOOGLE",

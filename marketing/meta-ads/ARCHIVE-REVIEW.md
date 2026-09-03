@@ -175,3 +175,42 @@ view especially, since it can identify the property. Both avoided in the selecte
 
 `20260116_151342` (oak vanity, pebble pan, black hardware, double shower) is therefore a **separate,
 still-unmatched job** — and a candidate for a project page of its own.
+
+---
+
+## Job match confirmed: the before/after is the Geist three-bathroom project
+
+Eric confirmed it. `20260116_142314` (before) and `VID_20260501_144649` (after) are the **master
+bath of `three-bathroom-remodel-geist`** — "Three-Bathroom Remodel in Geist, Fishers". City is
+**Fishers**, so the end card's Hamilton County line is correct.
+
+Every detail in the after clip matches that project page rather than merely being consistent with
+it: navy crackle-glaze picket tile, double vanities with backlit mirrors, the custom storage tower
+between the sinks, champagne bronze against matte black, herringbone floor tile, and the vintage
+pendant over the freestanding tub. This is a verified match, not a visual guess.
+
+**Job duration is two months (Eric).** The gap between the two videos is 3.5 months and is *not*
+the build time — the before was filmed well ahead of the work. The first caption said "four months
+later" off the video dates, which would have published a wrong number about how long HomeStar takes.
+**Dates on footage describe when it was filmed, nothing else.**
+
+The project page also gave the story the first cut was missing. The master's layout would not
+accommodate the shower the homeowners wanted, because an awkward entry door and a linen closet were
+eating the space; HomeStar relocated the door and reconfigured the closet to unlock it. That is the
+Reel's spine now — *"This was the primary bath." / "The shower wouldn't fit." / "So we moved the
+door."* — and it beats any line invented from looking at the footage.
+
+**Read the project page before writing the copy.** Three of the strongest details in this caption —
+the hand-glazing, the storage tower, the morning light on the tub — are invisible in the footage and
+would never have been recovered from frames alone.
+
+**One question still open:** the project page lists "vaulted ceilings" among what the remodel
+delivered, but the before footage already shows a vaulted ceiling. If it was pre-existing, *"Same
+room. Same ceiling."* is the better on-screen beat and is a two-minute swap. The shipped copy does
+not depend on the answer.
+
+### Still unmatched
+
+`20260116_151342` (oak vanity, pebble-pan double shower, black hardware) — filmed the same
+afternoon as the Geist before, but a **different job**, and it does not correspond to any project
+page yet.

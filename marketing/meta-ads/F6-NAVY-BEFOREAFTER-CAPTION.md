@@ -1,9 +1,13 @@
-# Navy Picket Tile Primary Bath — before-and-after Reel caption
+# Geist Three-Bathroom Remodel — master bath before-and-after Reel
 
 **Status:** built, not scheduled. Awaiting Eric's review.
-**Project:** unmatched — needs a project page, or a match to an existing one
+**Project:** `three-bathroom-remodel-geist` — "Three-Bathroom Remodel in Geist, Fishers" (confirmed by Eric)
 **Source:** `20260116_142314.mp4` (before, true 4K) + `VID_20260501_144649.mp4` (after, Topaz to 1080p)
 **Audio:** Quiet Neon, no voiceover
+**Job duration:** two months (Eric)
+
+The project page already carries a walkthrough (`2gHi1dCsuUk`) and a client testimonial
+(`k6XhQcUEHh0`), but **no before-and-after**. This is the asset that was missing.
 
 ---
 
@@ -13,57 +17,72 @@
 |---|---|
 | **tag** | `BEFORE` (red pill) over the first block, crossfading to `AFTER` (green) at the reveal |
 | **hook** | This was the primary bath. |
-| **beat** | Same room. Same ceiling. |
-| **end_head** | Nothing else the same. |
+| **beat** | The shower wouldn't fit. |
+| **end_head** | So we moved the door. |
 | **end_sub** | Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K. |
 | **cta** | GET A FREE ESTIMATE |
 
-The three text beats read as one sentence across the Reel. "Same ceiling" is not a throwaway —
-the vaulted ceiling is visible in both the before and after vanity shots, and it is the thing
-that proves this is the same room rather than two different bathrooms.
+The three beats read as one sentence and land on an actual remodelling decision rather than a
+compliment. It is taken straight from the project page: the layout would not accommodate the
+shower the homeowners wanted, because an awkward entry door and a linen closet were eating the
+space, so HomeStar relocated the door and reconfigured the closet. Nobody else's Reel says that.
 
-The `BEFORE` / `AFTER` pill exists because Reels are watched muted and scrolled fast. Past tense
-in the hook is not enough on its own to tell a viewer which state they are looking at.
+**Hamilton County is correct here** — the project's city is Fishers, Geist being the area.
 
 ---
 
 ## Caption — copy everything below the line
 
-Twenty-year-old builder bathroom. Same room, four months later.
+The shower they wanted didn't fit. So we moved the door.
 
-What went out: a framed shower behind sliding glass, a corner jetted tub sunk into a tiled deck, and a white raised-panel vanity with a hutch parked on the countertop.
+That was the whole problem with this Geist master bath. An awkward entry door and a linen closet were eating the space, and no amount of finish selection was going to fix it. Reconfigure those two things and suddenly there's room for the shower.
 
-What went in: floor-to-ceiling navy picket tile, brass throughout, a freestanding soaker, a walk-in shower with a bench and recessed shelves, LED-lit mirrors, and a wood double vanity with a tower cabinet between the sinks.
+Out: a framed shower behind sliding glass, a corner jetted tub sunk in a tiled deck, and a white raised-panel vanity with a hutch parked on the counter.
 
-Look at the ceiling in the first shot and the last one. It is the only thing in the room we didn't touch.
+In: navy crackle-glaze picket tile - hand-glazed, so no two tiles are identical - a freestanding soaker set where the morning light lands, double vanities with backlit mirrors, a custom storage tower as the anchor of the room, champagne bronze against matte black, herringbone floor tile, and heated floors for February.
+
+Two months, start to finish. And this was one of three bathrooms we did in this house.
 
 Every shower goes over the complete Schluter system - Ditra on the floor, Kerdi on the walls, waterproofed before a single tile is set. 25-year warranty, standard, not an upgrade.
 
-Free in-home estimates: (317) 279-4798
+Geist, Fishers. Free in-home estimates: (317) 279-4798
 
 ---
 
-## Before publishing — check these
+## Why this copy
 
-1. **"Twenty-year-old" is an assumption.** The fixtures and finishes read early-2000s builder, but
-   nobody has confirmed the house's age. Cut the phrase or replace it with the real number.
-2. **"Four months later" describes the gap between the two videos**, 2026-01-16 to 2026-05-01, not
-   the build duration. If anyone reads it as "the job took four months" and that is wrong, reword.
-3. **The city is unconfirmed**, so the caption does not name one. The end card's Hamilton County
-   line is a service-area statement, consistent with the earlier Reels, not a claim about this job.
-4. **This job has no project page.** Worth adding — a genuine before-and-after is the most
-   persuasive thing the site could carry, and it currently has almost none.
+Every detail is from the project page, not from looking at the footage and guessing: the
+crackle-glaze, the hand-glazing, the storage tower, champagne bronze, matte black, herringbone,
+heated floors, the morning light on the tub. The one thing the footage added was confirmation
+that all of it is actually visible in the clip.
+
+The opening line is the strongest thing HomeStar can say about this job, so it leads. "Two months,
+start to finish" is Eric's number and refers to the **build**, not the gap between the two videos,
+which is longer.
+
+No hashtags, plain hyphens, no pricing in the caption - consistent with the earlier Reels.
+
+---
+
+## One open question before this publishes
+
+**Was the ceiling already vaulted, or did you vault it?**
+
+The first cut's on-screen beat was *"Same room. Same ceiling."* — the vaulted ceiling is clearly
+visible in both the before and after vanity shots and is the best visual proof that these are one
+room rather than two bathrooms. But the project page lists "vaulted ceilings" among what the
+remodel delivered, which would make that line wrong if the ceiling was raised as part of the work.
+
+The current copy does not rest on it, so nothing is blocked. But if the ceiling was already there,
+*"Same room. Same ceiling."* is the better beat and it is a two-minute swap.
 
 ## Privacy — three things kept out of the cut
 
-The before footage is a lived-in room, and two moments in it should never be published:
-
-- **14-16s: the window looks onto the street**, with neighbouring houses and a parked vehicle
-  clearly legible. That can identify the property. Excluded.
-- **21.8-22.6s: the person filming is reflected in the vanity mirror.** Excluded.
-- **2.8s of the after clip: a figure appears in the shower glass.** The first AFTER segment stops
-  at 2.3s for this reason.
+- **Before, 14-16s: the window looks onto the street**, with neighbouring houses and a parked
+  vehicle legible enough to identify the property. Excluded.
+- **Before, 21.8-22.6s: the person filming is reflected in the vanity mirror.** Excluded.
+- **After, 2.8s: a figure appears in the shower glass.** The first AFTER segment stops at 2.3s.
 
 Personal effects — toiletries, medication bottles, a laundry basket, a pet bowl — are visible in
-the wider before shots. That is normal and honest for a before, but it is worth Eric confirming
-the homeowner is comfortable with it before this goes out.
+the wider before shots. Normal and honest for a before, but worth confirming the homeowner is
+comfortable, especially as this family also appears in the testimonial video.
