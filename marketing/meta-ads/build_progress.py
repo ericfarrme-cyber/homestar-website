@@ -148,6 +148,35 @@ PROJECTS = {
         ],
     ),
 
+    # Zionsville is the best-documented job in the library - before, progress AND
+    # finished. F7 already spends the before/after, so this is a second, distinct
+    # asset from the same job: the craft story, built on the star-pattern marble
+    # mosaic floor going down in a room that still has tan walls and no fixtures.
+    #
+    # Music: Arco d'Avanguardia (1), the one track nothing else uses. Spread
+    # 1.5 dB is not the steadiest available, but this cut builds to a reveal
+    # rather than holding a slow pan, and carries the energy. It peaks at
+    # +0.1 dBTP in the source; loudnorm pulls that well clear, as verified on FB.
+    "zionsville-craft": dict(
+        out="FC-zionsville-mosaic-craft",
+        slug="jack-and-jill-zionsville",
+        music=("Arco d_Avanguardia (1).mp3", 138.5),
+        ad={
+            "hook":     "Marble mosaic. Nowhere to hide a bad cut.",
+            "beat":     "Every point has to meet its neighbour.",
+            "end_head": "Detail is patience, applied.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Zionsville and Boone County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (A("zionsville tile.mp4"),     0.6, 3.2, "the mosaic going down, walls still tan"),
+            (A("zionsville tile.mp4"),     5.2, 3.0, "wider - drain set, tape still on"),
+            (A("zionsville progress.mp4"), 1.4, 3.2, "tub surround tiled, niches still raw board"),
+            (A("zionsville tile 2.mp4"),   0.6, 3.0, "the same floor, grouted and polished"),
+            (A("zionsville tile 2.mp4"),   8.4, 3.4, "finished alcove, black fixtures, twin niches"),
+        ],
+    ),
 }
 
 

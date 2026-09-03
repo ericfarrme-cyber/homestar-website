@@ -53,24 +53,35 @@ reservoir area, not a city, and the site phrases it the same way elsewhere.
 
 ## F9 — `floor-to-ceiling-tile-noblesville`
 
-**On screen:** "Under every tile we set." · "Waterproofed before a single tile goes on." · "That's
-the 25-year warranty." · end sub: *Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.*
+**On screen:** "You'll never see this part again." · "Waterproofed before a single tile." · "The
+finish only lasts if this does." · end sub: *Schluter Pro Certified. Bathrooms in Hamilton County -
+$15K to $50K.*
 
-> The most important part of your bathroom is the part you will never see.
+> The most important part of your bathroom is the part you will never see again.
 >
-> Before a single tile goes on, the wet area gets waterproofed - membrane bonded to the substrate, seams sealed, corners detailed. Ditra on the floor, Kerdi on the walls. That is the Schluter system, and it is what the 25-year warranty is actually written against.
+> Before a single tile goes on, the whole wet area gets waterproofed - membrane bonded to the substrate, seams sealed, corners detailed. Ditra on the floor, Kerdi on the walls. That is the Schluter system, and it is what the 25-year warranty is actually written against.
 >
-> Then the tile. Levelling clips on every joint so no edge sits proud of its neighbour, and a laser line so the courses run true across the whole room.
+> Then the tile. Levelling clips on every joint so no edge sits proud of its neighbour, and a laser line so the courses run true across a room that is tiled floor to ceiling.
 >
-> None of this survives into the finished photos. That is rather the point.
+> And then this. A freestanding tub under a beaded chandelier, a backlit mirror over a floating vanity, and light running the length of the shower niche.
+>
+> The last shot is the one people share. The first two are the reason it still looks like that in twenty years.
 >
 > Noblesville, Indiana. Free in-home estimates: (317) 279-4798
 
+**Rewritten 2026-09-03.** The Reel was rebuilt as a full arc once the finished footage was named, so
+the caption had to follow it. The previous version stopped at the tile and ended on "none of this
+survives into the finished photos" - true of that cut, wrong for this one, which ends on the
+finished photos.
+
 **Ditra and Kerdi are named here on purpose, and it is not a contradiction of the on-screen copy.**
-The Reel's plates avoid naming the membranes because *I* cannot identify the green sheet from a
-frame. The caption names them because **the project page states it**: "We installed Ditra on the
-floor and Kerdi on every wall surface." That is HomeStar's own claim about its own job, not a
-product identified off a video still. Different evidence, different licence to state it.
+The plates avoid naming the membranes because a green sheet cannot be identified from a video still.
+The caption names them because **the project page states it**: "We installed Ditra on the floor and
+Kerdi on every wall surface." That is HomeStar's own claim about its own job. Different evidence,
+different licence to state it.
+
+*Since writing this, the Fishers full gut footage settled the wider question anyway - KERDI-BOARD is
+legible on the panel in that clip, so the orange board across these jobs is confirmed Schluter.*
 
 ---
 
