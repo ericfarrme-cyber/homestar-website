@@ -31,6 +31,28 @@ Last updated 2026-09-03.
 | **FC** | `jack-and-jill-zionsville` | 17.4s | **Craft cut.** Star marble mosaic going down, then grouted. Second asset from that job. | `CAPTIONS-F7-FD.md` |
 | **FD** | `fishers-full-gut-walk-in` | 18.8s | **Full arc.** Studs and Kerdi-Board → finished walk-in. Matches the new project page. | `CAPTIONS-F7-FD.md` |
 | **FE** | `double-shower-carmel` | 17.2s | Walkthrough. Charcoal vanity, backlit mirror, grey large-format tile, hex pan. | *needs writing* |
+| **FF** | `wet-room-bathroom-fishers` | 16.8s | Walkthrough. The budget story - kept the vanity, spent it on the shower. | *needs writing* |
+
+## People-in-frame audit — 2026-09-03
+
+**A person's face nearly published.** The first cut of FF ran its last segment to 34.4s of
+`wet room finished 1.mp4`; someone walks into the doorway at 32.4s and is fully face-on by 33.0s.
+The contact sheet that footage was chosen from sampled every 4 seconds and stepped straight over it.
+Trimmed to end at 32.0s.
+
+**Sampling interval is a safety setting, not a convenience one.** A 4-second sheet can miss a person
+who is in frame for two. Every cut was then re-audited frame-by-frame at 0.7s against the rendered
+master rather than the source:
+
+| cut | verdict |
+|---|---|
+| FC Zionsville craft | clean |
+| FE Carmel double | clean |
+| F9 Noblesville | clean |
+| FF wet room (after trim) | clean |
+| F8 Geist progress | clean - built from mapped people-free windows |
+| F6, FB | professionally shot website assets, no crew present |
+| FD Fishers full gut | person at 37.5s of source, already excluded |
 
 ## Open questions blocking publication
 
@@ -99,7 +121,8 @@ track's intro sits under its own average.
 | FB Westfield | **American Reveal @ 113.0s** | steadiest window in the library, spread 0.7 dB - the right bed under a reveal |
 | FC Zionsville craft | Arco d'Avanguardia (1) @ 138.5s | the one track nothing else uses; builds rather than holds, which suits a craft montage |
 | FD Fishers full gut | Before / After @ 92.5s | steadiest intro of any track (-1.0 dB), and this cut opens on a quiet stripped room |
-| FE Carmel double | Arco d'Avanguardia @ 69.2s | second-steadiest window (1.1 dB) and the last unused track |
+| FE Carmel double | Quiet Neon @ 69.2s | Arco read too bold over charcoal and black; Quiet Neon is cooler and more minimal |
+| FF Fishers wet room | Brisa de Nylon @ 48.8s | warm and guitar-led, matching taupe tile and champagne bronze |
 
 ## Site video assets — swept 2026-09-03
 

@@ -271,7 +271,11 @@ PROJECTS = {
             (A("wet room finished 1.mp4"), 19.0, 3.2, "the wet room, raincan head, stacked vertical tile"),
             (A("wet room finished 1.mp4"), 15.0, 2.8, "penny mosaic floor, window"),
             (A("wet room finished 1.mp4"), 23.2, 3.0, "champagne bronze trim against the tile"),
-            (A("wet room finished 1.mp4"), 31.0, 3.4, "wide - glass, ledge, tile to the ceiling"),
+            # Stops at 32.0s. A person walks into the doorway at 32.4 and is fully
+            # face-on by 33.0 - the first cut ran to 34.4 and would have published
+            # an identifiable stranger. The clip has to be watched to its end, not
+            # sampled: a 4-second contact sheet missed this entirely.
+            (A("wet room finished 1.mp4"), 29.0, 3.0, "wide - glass, ledge, tile to the ceiling"),
         ],
     ),
 }
