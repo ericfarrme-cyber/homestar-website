@@ -67,16 +67,18 @@ SEGMENTS = [
 # and reconfigured the closet. That is a genuine remodelling insight and it is
 # more differentiating than another "look how nice it is now" line.
 #
-# It also sidesteps a claim that cannot yet be verified. The first cut used
-# "Same room. Same ceiling." - the vaulted ceiling is visible in both clips and
-# is real visual proof they are one room. But the project page lists "vaulted
-# ceilings" among the things the remodel delivered, which would make the line
-# wrong if the ceiling was raised rather than existing. Pending Eric confirming
-# which, the copy does not rest on it.
+# The end card turns the observation into an offer - Eric's line. It pairs with
+# the CTA directly beneath it, so the card reads as one thought rather than a
+# claim followed by an unrelated button.
+#
+# Ceiling question resolved: Eric confirmed the vaulted ceiling was NOT touched,
+# so it is genuinely the one constant between the two clips. It stays out of the
+# on-screen copy because the door story is the stronger beat, but it earns its
+# place in the caption, where it rewards anyone who noticed it.
 AD = {
     "hook":     "This was the primary bath.",
     "beat":     "The shower wouldn't fit.",
-    "end_head": "So we moved the door.",
+    "end_head": "So we moved the door. And we'd do the same for you.",
     "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
     "cta":      "GET A FREE ESTIMATE",
     "badge_r":  "5.0 ★ GOOGLE",

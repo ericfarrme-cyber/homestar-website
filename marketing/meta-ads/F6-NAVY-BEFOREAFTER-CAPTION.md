@@ -18,7 +18,7 @@ The project page already carries a walkthrough (`2gHi1dCsuUk`) and a client test
 | **tag** | `BEFORE` (red pill) over the first block, crossfading to `AFTER` (green) at the reveal |
 | **hook** | This was the primary bath. |
 | **beat** | The shower wouldn't fit. |
-| **end_head** | So we moved the door. |
+| **end_head** | So we moved the door. And we'd do the same for you. |
 | **end_sub** | Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K. |
 | **cta** | GET A FREE ESTIMATE |
 
@@ -26,6 +26,10 @@ The three beats read as one sentence and land on an actual remodelling decision 
 compliment. It is taken straight from the project page: the layout would not accommodate the
 shower the homeowners wanted, because an awkward entry door and a linen closet were eating the
 space, so HomeStar relocated the door and reconfigured the closet. Nobody else's Reel says that.
+
+Eric's addition — *"And we'd do the same for you."* — is what turns the end card from an
+observation into an offer. It sits directly above the CTA, so the card reads as a single thought
+rather than a claim with a button stuck underneath it.
 
 **Hamilton County is correct here** — the project's city is Fishers, Geist being the area.
 
@@ -40,6 +44,8 @@ That was the whole problem with this Geist master bath. An awkward entry door an
 Out: a framed shower behind sliding glass, a corner jetted tub sunk in a tiled deck, and a white raised-panel vanity with a hutch parked on the counter.
 
 In: navy crackle-glaze picket tile - hand-glazed, so no two tiles are identical - a freestanding soaker set where the morning light lands, double vanities with backlit mirrors, a custom storage tower as the anchor of the room, champagne bronze against matte black, herringbone floor tile, and heated floors for February.
+
+The ceiling is the only thing in that room we didn't touch. Look at the first shot and the last one.
 
 Two months, start to finish. And this was one of three bathrooms we did in this house.
 
@@ -64,17 +70,15 @@ No hashtags, plain hyphens, no pricing in the caption - consistent with the earl
 
 ---
 
-## One open question before this publishes
+## The ceiling — resolved
 
-**Was the ceiling already vaulted, or did you vault it?**
+Eric confirmed the vaulted ceiling was **not touched**. The project page listing "vaulted ceilings"
+among the deliverables describes the finished room, not a change made to it.
 
-The first cut's on-screen beat was *"Same room. Same ceiling."* — the vaulted ceiling is clearly
-visible in both the before and after vanity shots and is the best visual proof that these are one
-room rather than two bathrooms. But the project page lists "vaulted ceilings" among what the
-remodel delivered, which would make that line wrong if the ceiling was raised as part of the work.
-
-The current copy does not rest on it, so nothing is blocked. But if the ceiling was already there,
-*"Same room. Same ceiling."* is the better beat and it is a two-minute swap.
+So it is genuinely the one constant across the two clips, and it is the best visual proof that this
+is one room rather than two bathrooms. It stays out of the on-screen copy — the door story is the
+stronger beat and the screen only holds three — but it earns a line in the caption, where it
+rewards anyone who noticed.
 
 ## Privacy — three things kept out of the cut
 
