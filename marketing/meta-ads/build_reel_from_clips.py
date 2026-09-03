@@ -80,7 +80,8 @@ AD = {
     "cta":      "GET A FREE ESTIMATE",
     "badge_r":  "5.0 ★ GOOGLE",
 }
-HOOK_OUT, BEAT_IN, BEAT_OUT = 3.4, 8.3, 13.2
+HOOK_OUT, BEAT_IN, BEAT_OUT = 3.8, 8.3, 13.2
+HOOK_FADE_IN, HOOK_FADE_OUT = 0.80, 0.75
 BEAT_FADE_IN, BEAT_FADE_OUT = 0.75, 0.85
 END_DUR = 3.6
 
@@ -148,7 +149,12 @@ def build():
     cmd += ["-loop", "1", "-t", f"{body:.2f}", "-i", BEAT_PNG]
     cmd += ["-loop", "1", "-t", f"{END_DUR:.2f}", "-i", END_PNG]
     parts.append(f"[{n}:v]format=rgba,fade=t=in:st=0.25:d=0.7:alpha=1[lg]")
-    parts.append(f"[{n+1}:v]format=rgba,fade=t=out:st={HOOK_OUT:.2f}:d=0.7:alpha=1[hk]")
+    # The hook breathes in rather than being present on frame one, staggered just
+    # behind the wordmark so the two do not arrive together.
+    parts.append(
+        f"[{n+1}:v]format=rgba,"
+        f"fade=t=in:st=0.30:d={HOOK_FADE_IN}:alpha=1,"
+        f"fade=t=out:st={HOOK_OUT:.2f}:d={HOOK_FADE_OUT}:alpha=1[hk]")
     # The beat used to pop in and out on an enable= window, which reads as a hard
     # cut. Alpha fades instead: fade=in holds alpha at 0 until st, so the plate is
     # simply absent before it, and no enable= is needed at all.
@@ -158,7 +164,7 @@ def build():
         f"fade=t=out:st={BEAT_OUT - BEAT_FADE_OUT:.2f}:d={BEAT_FADE_OUT}:alpha=1[bt]")
     parts.append(f"[{n+3}:v]scale={W}:{H},fps={FPS},format=yuv420p,setsar=1[ec]")
     parts.append(f"[{prev}][lg]overlay=0:0:format=auto[o1]")
-    parts.append(f"[o1][hk]overlay=0:0:format=auto:enable='lt(t,{HOOK_OUT + 0.7:.2f})'[o2]")
+    parts.append(f"[o1][hk]overlay=0:0:format=auto[o2]")
     parts.append(f"[o2][bt]overlay=0:0:format=auto[o3]")
     parts.append(f"[o3]format=yuv420p[bod]")
     parts.append(f"[bod][ec]xfade=transition=fade:duration={XFADE}:offset={body - XFADE:.3f}[out]")
