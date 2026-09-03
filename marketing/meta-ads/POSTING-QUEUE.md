@@ -23,13 +23,13 @@ Last updated 2026-09-03.
 |---|---|---|---|---|
 | **F5** | `green-tile-bathroom-carmel` | 20.6s | Finished walkthrough. Topaz-upscaled from the only Carmel footage that exists. | `F5-CARMEL-CAPTION.md` |
 | **F6** | `three-bathroom-remodel-geist` | 20.0s | **Before/after.** Master bath. After rebuilt from the project's own 59 Mbps master. | `F6-NAVY-BEFOREAFTER-CAPTION.md` |
-| **F7** | `jack-and-jill-zionsville` | 19.0s | **Before/after.** Both sides native 4K. "Two kids. One bathroom." | `CAPTIONS-F7-FB.md` |
-| **F8** | `geist-upper-level-remodel` | 18.0s | **Mid-job.** Trim, panelling, oak staircase. Zero people in frame. | `CAPTIONS-F7-FB.md` |
-| **F9** | `floor-to-ceiling-tile-noblesville` | 19.0s | **Full arc.** Membrane → tile → finished room. Rebuilt once the finished footage was named. | `CAPTIONS-F7-FB.md` — **needs a refresh**, it describes the old waterproofing-only cut |
-| **FA** | `spa-retreat-bathroom-fishers` | 17.4s | **Whole job in order:** studs → waterproofing → tile → finished. | `CAPTIONS-F7-FB.md` |
-| **FB** | `westfield-basement-masterpiece` | 19.6s | **Before/after.** Bare slab → finished luxury lower level. Dovetail credit. | `CAPTIONS-F7-FB.md` |
-| **FC** | `jack-and-jill-zionsville` | 17.4s | **Craft cut.** Star marble mosaic going down, then grouted. Second asset from that job. | *needs writing* |
-| **FD** | `fishers-full-gut-walk-in` | 18.8s | **Full arc.** Studs and Kerdi-Board → finished walk-in. Matches the new project page. | *needs writing* |
+| **F7** | `jack-and-jill-zionsville` | 19.0s | **Before/after.** Both sides native 4K. "Two kids. One bathroom." | `CAPTIONS-F7-FD.md` |
+| **F8** | `geist-upper-level-remodel` | 18.0s | **Mid-job.** Trim, panelling, oak staircase. Zero people in frame. | `CAPTIONS-F7-FD.md` |
+| **F9** | `floor-to-ceiling-tile-noblesville` | 19.0s | **Full arc.** Membrane → tile → finished room. Rebuilt once the finished footage was named. | `CAPTIONS-F7-FD.md` — **needs a refresh**, it describes the old waterproofing-only cut |
+| **FA** | `spa-retreat-bathroom-fishers` | 17.4s | **Whole job in order:** studs → waterproofing → tile → finished. | `CAPTIONS-F7-FD.md` |
+| **FB** | `westfield-basement-masterpiece` | 19.6s | **Before/after.** Bare slab → finished luxury lower level. Dovetail credit. | `CAPTIONS-F7-FD.md` |
+| **FC** | `jack-and-jill-zionsville` | 17.4s | **Craft cut.** Star marble mosaic going down, then grouted. Second asset from that job. | `CAPTIONS-F7-FD.md` |
+| **FD** | `fishers-full-gut-walk-in` | 18.8s | **Full arc.** Studs and Kerdi-Board → finished walk-in. Matches the new project page. | `CAPTIONS-F7-FD.md` |
 
 ## Open questions blocking publication
 

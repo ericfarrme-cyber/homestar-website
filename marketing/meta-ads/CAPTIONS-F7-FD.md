@@ -1,6 +1,6 @@
-# Captions — F7 through FB
+# Captions — F7 through FD
 
-Five cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
+Seven cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
 every specific detail traced to the project page rather than inferred from footage.
 
@@ -127,6 +127,57 @@ card**, because there is no published basement band to quote.
 
 **Open:** Eric mentioned "over a thousand" square feet. If that is right it is a stronger end card
 than the current line and worth swapping in - it turns a general argument into this job's number.
+
+---
+
+## FC — `jack-and-jill-zionsville` (craft cut)
+
+**On screen:** "Marble mosaic. Nowhere to hide a bad cut." · "Every point has to meet its
+neighbour." · "Detail is patience, applied." · end sub: *Schluter Pro Certified. Bathrooms in
+Zionsville and Boone County - $15K to $50K.*
+
+> A mosaic floor gives you nowhere to hide.
+>
+> Star-pattern marble, laid while the walls were still tan and the fixtures were still in boxes. Every point of every star has to meet its neighbours across the whole floor. The pattern either lines through or it does not, and there is no trim piece that rescues it.
+>
+> The tub surround went in around it - light stacked tile, twin recessed niches, matte black fixtures.
+>
+> Behind all of it, the complete Schluter waterproofing system. Nobody will ever see that part. It is the reason the rest still looks like this in twenty years.
+>
+> This is the Jack and Jill bath two siblings share, so it also had to survive two people getting ready at the same time every morning.
+>
+> Zionsville, Indiana. Free in-home estimates: (317) 279-4798
+
+**Note:** the second asset from this job. F7 is its before/after; this one is the craft story, so the
+two can run weeks apart without repeating themselves. Boone County again, not Hamilton.
+
+---
+
+## FD — `fishers-full-gut-walk-in`
+
+**On screen:** "Back to the studs." · "Waterproofing you can still read the label on." · "A walk-in
+shower, built from nothing." · end sub: *Schluter Pro Certified. Bathrooms in Hamilton County -
+$15K to $50K.*
+
+> You can still read the manufacturer's name on the walls.
+>
+> That is the only stage of a bathroom where the waterproofing is visible at all. Schluter Kerdi-Board, bonded and sealed at every seam and every fastener, over a sloped pan. All of it installed before a single tile went on, and all of it invisible forever afterwards.
+>
+> This was a full gut. Everything out, back to the studs, and a fresh start on the layout so the shower could be a walk-in rather than a box in the corner.
+>
+> What went back in: a dark stained double vanity on furniture legs under a marble top, champagne bronze widespread faucets, and two octagonal framed mirrors lit by exposed-bulb sconces. In the shower, textured white wall tile, a handheld on a slide bar, and a hexagon marble mosaic floor finished with a decorative square drain instead of a plain grate.
+>
+> The full project is on our site under Projects.
+>
+> Fishers, Indiana. Free in-home estimates: (317) 279-4798
+
+**Note:** this is the job Eric noticed was missing from the website, now live at
+`/projects/fishers-full-gut-walk-in`. The caption points at it without printing a URL, since
+Instagram does not linkify captions.
+
+**Kerdi-Board is named here and on screen**, which is the only cut where the on-screen copy names a
+product. That is allowed because the printing is legible on the panel in the footage - the claim is
+visible, not inferred. Every other cut keeps product names in the caption only.
 
 ---
 
