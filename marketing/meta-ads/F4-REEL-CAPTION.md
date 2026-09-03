@@ -163,3 +163,55 @@ visible in the same screenshot used to declare success, and it already said the 
   `Create post` composer, not the post. The reliable route is
   `latest/posts/scheduled_posts` — a real list view — where clicking the *thumbnail* opens a Post
   details panel whose `Publish now` button works. The row's `...` menu has no publish action at all.
+
+---
+
+## ✅ Republished correctly 2026-09-03, 10:09am
+
+After the bare posts were deleted, the Reel was rebuilt from scratch through
+**Create reel** and published with its caption intact.
+
+| | |
+|---|---|
+| Reel | Thu Sep 3, 10:09am — **crossposted**, one post covering Facebook + Instagram |
+| Caption | present, verified on the live post |
+| Facebook story | Thu Sep 3, 10:15am |
+| Instagram story | Thu Sep 3, 10:16am |
+| File | `F4-fishers-white-oak-bath--reels-upload-vo.mp4` (8.73 MB) — voiceover cut |
+
+### What actually worked
+
+**Compose → Share now, in one pass.** The caption survives this path. It did *not* survive
+schedule → reschedule → publish, which is what produced the bare posts earlier.
+
+**Verification that counts:** the Published list's Title column shows the caption text for a
+captioned post and "Your reel" / "This post has no text" for a bare one. Opening the post shows the
+full caption in the header. Both were checked before declaring success — the step skipped earlier.
+
+### Attaching a file without a native dialog
+
+`Add Video` in the reel composer opens an **OS file picker**, which browser automation cannot drive,
+and no `input[type=file]` exists in the DOM to target — before *or* after clicking it. Eric attached
+that one by hand.
+
+The **story composer is different**: it has a real drag-and-drop zone, and this works —
+
+1. inject `<input type="file">` into the page,
+2. load the file into it with the upload tool,
+3. build a `DataTransfer` from `input.files[0]` and dispatch `dragenter`/`dragover`/`drop` on the
+   zone.
+
+**Fire the drop on the dropzone only.** Firing it on parent elements as well got the event handled
+several times over and produced **three copies** of the same video, which then had to be deleted
+down to one. Remove the injected input afterwards.
+
+### Composer traps, consolidated
+
+- Clicking a card in the Planner **calendar** opens a blank `Create post` composer, not the post.
+  Use `latest/posts/scheduled_posts` — clicking the *thumbnail* there opens a Post details panel
+  with a working `Publish now`.
+- The row `...` menu has no publish action; `Manage post` only offers Edit / Reschedule / Move to
+  Drafts / Delete.
+- The reschedule dialog does not preserve the minute — it reopened at `09:01`.
+- Bulk **Delete** fails on reels ("Posts not moved to trash"), though it may still have applied.
+- Nested submenus (`Manage post >`, `Facebook post >`) frequently will not open under automation.
