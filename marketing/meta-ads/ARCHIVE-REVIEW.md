@@ -82,3 +82,35 @@ cut, and the panelled suite with the LED coffered ceiling is the most premium fo
 
 **Deliberately not first:** the single finished-bathroom clips. They are good, but they are the same
 thing the last Reel already did, and there are eight of them.
+
+---
+
+## Refining the Carmel footage — tested 2026-09-03
+
+**The starting point is better than first reported.** The two good Carmel clips are 1280x720 at
+**1.87 Mbps**. The Fishers bath source that produced the last Reel was 1280x720 at 2.42 Mbps — same
+resolution, about three quarters the bitrate. Not a different quality tier, and the earlier "it will
+be soft" framing overstated it.
+
+| clip | res | dur | bitrate | verdict |
+|---|---|---|---|---|
+| `Messenger_creation_CF3FD133` | 1280x720 | 30.2s | 1.88 Mbps | usable |
+| `Messenger_creation_3F51ECFC` | 1280x720 | 17.2s | 1.86 Mbps | usable |
+| `Messenger_creation_17323097` | 640x368 | 33.2s | 0.78 Mbps | **drop** |
+
+That leaves **47 seconds of usable Carmel footage** — more than enough for a 20s Reel.
+
+**Three upscale routes compared at 1:1 on the same frame:**
+
+- **Straight lanczos to 1080x1920** — soft, mushy edges.
+- **ffmpeg cleanup** (`deblock` + `hqdn3d` + lanczos + `unsharp`) — cleaner edges, but the denoise
+  flattens wood grain. Modest gain.
+- **Topaz Video, 1080p, 9:16** — clearly best. Cabinet handle, panel edges and countertop line are
+  genuinely resolved rather than sharpened-looking. A real step change, not a cosmetic one.
+
+**Method: Topaz-upscale each clip to 1080p before cutting**, then run the normal Reel pipeline.
+Note that upscaling is per-clip and costs credits, and the tool has no cost preflight.
+
+**Also worth knowing:** most of the residual softness is motion blur from the handheld pan, not
+compression. No amount of processing fixes that — the lever is shot selection, choosing the steadiest
+moments, exactly as the Fishers cut did.
