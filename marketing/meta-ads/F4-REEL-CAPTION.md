@@ -2,7 +2,7 @@
 
 **Scheduled for:** Thursday 3 September 2026, 9:00 AM
 **Posting to:** HomeStar Services and Contracting (Facebook) + thehomestarservice (Instagram)
-**File:** `marketing/meta-ads/renders/F4-fishers-white-oak-bath--reels-upload.mp4` (8.98 MB, 1080x1920, 21.5s, Quiet Neon)
+**File:** `marketing/meta-ads/renders/F4-fishers-white-oak-bath--reels-upload.mp4` (9.0 MB, 1080x1920, 21.5s, Quiet Neon)
 
 ---
 
