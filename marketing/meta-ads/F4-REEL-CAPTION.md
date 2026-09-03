@@ -96,3 +96,24 @@ Kept deliberately, in case the voiced cut ever needs replacing:
 | `F4-fishers-white-oak-bath--reels-video.mp4` | silent master |
 | `F4-fishers-white-oak-bath--reels-video-music.mp4` | Quiet Neon only |
 | `F4-fishers-white-oak-bath--reels-upload-music-only.mp4` | Quiet Neon only, 9.22 MB |
+
+### Pushed to Fri 4 September, 2026-09-03
+
+Eric was not sold on the voiceover and asked for the 9:00 AM slot to be pushed. **Rescheduled
+both entries to Friday 4 September 2026, 9:00 AM** — Facebook and Instagram, verified on the
+calendar afterwards (Thu 3 clear, Fri 4 carrying both).
+
+**Reschedule, do not delete.** The Planner's per-post `...` menu has *Reschedule post*, which
+keeps the uploaded video and the caption intact. Deleting and rebuilding would mean re-entering
+the caption through the composer, which is exactly the step that loses it.
+
+Two traps found doing this:
+
+1. **Clicking the post card opens a blank `Create post` composer, not an edit view.** That is a
+   new post, not the scheduled one — backing out without saving is the correct move. The working
+   path is to *hover* the card, which raises a small preview with its own `...` button.
+2. **The reschedule dialog does not preserve the minute.** It reopened defaulted to `09:01 AM`
+   on the second post. The minute field has to be set explicitly or the two platforms drift
+   apart by a minute.
+
+The voiceover question is still open, and `--reels-upload-music-only.mp4` remains the swap.
