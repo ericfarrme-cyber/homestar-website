@@ -114,3 +114,26 @@ Note that upscaling is per-clip and costs credits, and the tool has no cost pref
 **Also worth knowing:** most of the residual softness is motion blur from the handheld pan, not
 compression. No amount of processing fixes that — the lever is shot selection, choosing the steadiest
 moments, exactly as the Fishers cut did.
+
+### Carmel Reel built 2026-09-03
+
+`F5-carmel-green-tile-bath` — 20.57s, 1080x1920, cut in `build_reel_carmel.py`. Both usable clips
+were Topaz-upscaled first (720x1280 / 1.87 Mbps → 1080x1920 / ~18 Mbps) and staged in
+`Pending/Archive/_upscaled/`, which is gitignored along with the rest of the raw client media.
+
+Clip B is the spine — a single clean take that moves shower → tub → vanity. Clip A supplies the two
+shower angles B does not cover.
+
+**Shot selection was measured, and the measurement was wrong on its own.** A per-half-second
+sharpness scan showed edge energy collapsing after ~6.5s in both clips, which reads as the footage
+going soft. It is not: the camera is crossing large areas of plain dark floor tile and blank wall,
+which have no edges to measure. Contact sheets settled it. **Edge energy scores content, not
+quality** — the same trap as judging the Carmel files by resolution instead of looking at them.
+
+Audio verified per-second from raw samples rather than by integrated loudness: steady at ~-21 dB
+through 18s, then the intended fade. No dead tail. `astats` with `reset=` did not actually reset and
+returned a cumulative average that looked like a smooth ramp — decoding to PCM and measuring
+directly is the reliable check.
+
+Three files: silent master, music master, and an 8.72 MB `-upload` copy for the browser upload cap.
+**Not scheduled.** Caption and on-screen text in `F5-CARMEL-CAPTION.md`.
