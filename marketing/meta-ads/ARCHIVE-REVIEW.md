@@ -137,3 +137,41 @@ directly is the reliable check.
 
 Three files: silent master, music master, and an 8.72 MB `-upload` copy for the browser upload cap.
 **Not scheduled.** Caption and on-screen text in `F5-CARMEL-CAPTION.md`.
+
+---
+
+## Correction: the 2026-01-16 before does NOT pair with the 2026-01-16 after
+
+The original review read `20260116_142314` (dated builder bath) and `20260116_151342` (oak vanity,
+pebble-pan double shower) as a before-and-after **because they were shot 50 minutes apart**. Eric
+corrected it: the after that belongs to that before is the **navy picket tile** bath,
+`VID_20260501_144649`.
+
+**Same-day is not the same job.** Eric shoots more than one property in an afternoon, so a shared
+date proves nothing. That is the third time on this archive that a *file property* — resolution,
+edge energy, and now timestamp — has been treated as evidence about *content*. The only reliable
+method is to look at the frames.
+
+The visual evidence for the corrected pairing is structural and much stronger than a timestamp:
+both clips show the **same vaulted ceiling** over the vanity wall, and the room proportions and
+doorway position match. Ceilings do not change in a remodel, which makes them the thing to match on.
+
+| | before | after |
+|---|---|---|
+| file | `20260116_142314.mp4` | `VID_20260501_144649.mp4` |
+| shot | 2026-01-16 | 2026-05-01 |
+| display | **2160x3840 (true 4K)** | 720x1280 |
+| length | 26.5s | 78.5s |
+| room | framed sliding-glass shower, corner jetted tub in a tiled deck, white raised-panel double vanity with a counter hutch, beige tile | navy elongated-picket tile, brass, freestanding tub, large walk-in shower with bench and niche, LED-lit mirrors, wood double vanity with tower cabinet, herringbone floor |
+
+**The quality runs backwards here:** the before is true 4K and the after is 720p, so the *after*
+needs the Topaz lift, not the before. Trimmed to the first 48s before upscaling — everything used
+in the cut sits inside that, and it keeps every timestamp in the edit valid.
+
+**Two privacy notes for this footage.** The before is a lived-in room: toiletries, medication
+bottles, a laundry basket, a pet bowl. And at 14-16s the window looks out onto the street with
+neighbouring houses and a parked vehicle in frame. Neither belongs in a published cut — the street
+view especially, since it can identify the property. Both avoided in the selected segments.
+
+`20260116_151342` (oak vanity, pebble pan, black hardware, double shower) is therefore a **separate,
+still-unmatched job** — and a candidate for a project page of its own.
