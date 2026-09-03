@@ -216,6 +216,33 @@ PROJECTS = {
             (A("fishers full gut finished.mp4"),       1.6, 3.4, "the vanity, octagonal mirrors, sconces"),
         ],
     ),
+    # "carmel double finished" is double-shower-carmel, NOT the green tile Carmel
+    # in F5. Two different Carmel bathrooms, and the filename names a city and a
+    # fixture, not a project - checked the frames before assuming. Charcoal
+    # vanity, LED backlit mirror, grey large-format tile, hex mosaic pan, all
+    # matching that project page.
+    #
+    # Native 4K at 39 Mbps, so nothing needs upscaling. No people in frame.
+    "carmel-double": dict(
+        out="FE-carmel-double-shower",
+        slug="double-shower-carmel",
+        music=("Arco d_Avanguardia.mp3", 69.2),
+        ad={
+            "hook":     "The shower is the whole point.",
+            "beat":     "Big enough for two. Tiled to the ceiling.",
+            "end_head": "Waterproofed like it has to last.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (A("carmel double finished.mp4"),  0.4, 3.2, "charcoal vanity under the backlit mirror"),
+            (A("carmel double finished.mp4"), 18.6, 3.2, "shower interior, rain head, large-format tile"),
+            (A("carmel double finished.mp4"), 11.2, 2.8, "hex mosaic pan, close"),
+            (A("carmel double finished.mp4"), 30.6, 3.4, "the second bay, window and bench"),
+            (A("carmel double finished.mp4"), 23.2, 3.0, "wide - vanity and shower together"),
+        ],
+    ),
 }
 
 
