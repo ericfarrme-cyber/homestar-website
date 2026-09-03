@@ -170,11 +170,50 @@ PROJECTS = {
             "badge_r":  "5.0 ★ GOOGLE",
         },
         segments=[
+            # Order is floor-story then room-story, not strict chronology. The beat
+            # names the mosaic's points meeting, so the grouted floor has to be on
+            # screen when it appears - in the first cut it landed over the subway
+            # tile of the tub surround, describing a shot the viewer was not
+            # looking at. Same fault caught on F8; check the frame under the plate.
             (A("zionsville tile.mp4"),     0.6, 3.2, "the mosaic going down, walls still tan"),
             (A("zionsville tile.mp4"),     5.2, 3.0, "wider - drain set, tape still on"),
-            (A("zionsville progress.mp4"), 1.4, 3.2, "tub surround tiled, niches still raw board"),
             (A("zionsville tile 2.mp4"),   0.6, 3.0, "the same floor, grouted and polished"),
+            (A("zionsville progress.mp4"), 1.4, 3.2, "tub surround tiled, niches still raw board"),
             (A("zionsville tile 2.mp4"),   8.4, 3.4, "finished alcove, black fixtures, twin niches"),
+        ],
+    ),
+    # The project Eric noticed was missing from the site, now published at
+    # /projects/fishers-full-gut-walk-in. Its waterproofing clip is where
+    # KERDI-BOARD is legible on the panel, which is what let the project page
+    # name Schluter as fact rather than inference - so this cut gets to make the
+    # same claim honestly.
+    #
+    # People: a figure appears in the vanity mirror at ~37.5s of the finished
+    # clip. Nothing after 34s is used.
+    "fishers-fullgut": dict(
+        out="FD-fishers-full-gut-walk-in",
+        slug="fishers-full-gut-walk-in",
+        music=("Before _ After.mp3", 92.5),
+        ad={
+            "hook":     "Back to the studs.",
+            "beat":     "Waterproofing you can still read the label on.",
+            "end_head": "A walk-in shower, built from nothing.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            # The beat names the printing on the panel, so the panel has to still
+            # be on screen when it lands. The builder puts beat_in at 5.8s, and
+            # in the first cut segment 2 ended at exactly 5.8 - the label was
+            # crossfading out as the line about it faded in. Segments 1 and 2 are
+            # lengthened so the beat sits in the middle of the KERDI-BOARD shot
+            # rather than at its edge.
+            (A("fishers full gut waterproofing.mp4"),  0.4, 3.6, "stripped back, board up, pan formed"),
+            (A("fishers full gut waterproofing.mp4"), 12.2, 4.0, "KERDI-BOARD legible on the panel"),
+            (A("fishers full gut finished.mp4"),      11.4, 3.0, "finished - pebble floor, decorative drain"),
+            (A("fishers full gut finished.mp4"),      22.0, 3.2, "brass fixtures, niche, textured wall tile"),
+            (A("fishers full gut finished.mp4"),       1.6, 3.4, "the vanity, octagonal mirrors, sconces"),
         ],
     ),
 }

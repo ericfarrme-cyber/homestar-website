@@ -28,6 +28,8 @@ Last updated 2026-09-03.
 | **F9** | `floor-to-ceiling-tile-noblesville` | 19.0s | **Full arc.** Membrane → tile → finished room. Rebuilt once the finished footage was named. | `CAPTIONS-F7-FB.md` — **needs a refresh**, it describes the old waterproofing-only cut |
 | **FA** | `spa-retreat-bathroom-fishers` | 17.4s | **Whole job in order:** studs → waterproofing → tile → finished. | `CAPTIONS-F7-FB.md` |
 | **FB** | `westfield-basement-masterpiece` | 19.6s | **Before/after.** Bare slab → finished luxury lower level. Dovetail credit. | `CAPTIONS-F7-FB.md` |
+| **FC** | `jack-and-jill-zionsville` | 17.4s | **Craft cut.** Star marble mosaic going down, then grouted. Second asset from that job. | *needs writing* |
+| **FD** | `fishers-full-gut-walk-in` | 18.8s | **Full arc.** Studs and Kerdi-Board → finished walk-in. Matches the new project page. | *needs writing* |
 
 ## Open questions blocking publication
 
@@ -94,6 +96,8 @@ track's intro sits under its own average.
 | F9 Noblesville | Before / After (1) @ 83.8s | as originally chosen |
 | FA Spa Retreat | Brisa de Nylon (1) @ 59.2s | as originally chosen |
 | FB Westfield | **American Reveal @ 113.0s** | steadiest window in the library, spread 0.7 dB - the right bed under a reveal |
+| FC Zionsville craft | Arco d'Avanguardia (1) @ 138.5s | the one track nothing else uses; builds rather than holds, which suits a craft montage |
+| FD Fishers full gut | Before / After @ 92.5s | steadiest intro of any track (-1.0 dB), and this cut opens on a quiet stripped room |
 
 ## Site video assets — swept 2026-09-03
 
