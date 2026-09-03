@@ -316,6 +316,62 @@ PROJECTS = {
             (A("geist upper level finished 3.mp4"), 6.4, 3.0, "fluted wood wall, LED-lit floating shelves"),
         ],
     ),
+    # double-shower-fishers. Two heads are plainly visible at 8-10s of the source,
+    # so the project's central claim is on camera rather than asserted.
+    #
+    # Only 12.7s of usable source, the shortest in the library, so this runs
+    # 14.8s rather than the usual 17-19. Better a tight cut than padding with a
+    # shot that does not earn its place.
+    #
+    # Music: American Reveal, steadiest window in the library at 0.7 dB spread.
+    # Bright and clean, matching light oak, white quartz and a lot of daylight.
+    "fishers-double": dict(
+        out="FH-fishers-double-shower",
+        slug="double-shower-fishers",
+        music=("American Reveal.mp3", 113.0),
+        ad={
+            "hook":     "Two heads, not one.",
+            "beat":     "Nobody waits in the cold.",
+            "end_head": "A shower actually big enough for two.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (A("fishers double finished.mp4"), 0.8, 3.2, "light oak vanity, black mirrors and sconces"),
+            (A("fishers double finished.mp4"), 3.6, 2.8, "along the vanity to the shower"),
+            (A("fishers double finished.mp4"), 6.2, 3.2, "frameless glass, pebble mosaic pan"),
+            (A("fishers double finished.mp4"), 8.8, 3.6, "both heads, stacked tile"),
+        ],
+    ),
+    # A second asset from spa-retreat-bathroom-fishers. FA is that job's process
+    # arc - studs, waterproofing, tile, finished - and its finished section runs
+    # on a 14.4s clip. This footage is 38.4s of the same room and much richer:
+    # the tub under the window, the brass detail, the lit niches. Worth its own
+    # cut rather than being crammed into FA.
+    #
+    # Music: Arco d'Avanguardia, free since FE moved to Quiet Neon. Warmer room
+    # than the Carmel bath it was wrong for, and the only track left unused.
+    "spa-finished": dict(
+        out="FI-fishers-spa-retreat-finished",
+        slug="spa-retreat-bathroom-fishers",
+        music=("Arco d_Avanguardia.mp3", 69.2),
+        ad={
+            "hook":     "This is where the day ends.",
+            "beat":     "Warm oak, brass, a tub under the window.",
+            "end_head": "A spa you don't have to book.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (A("fishers spa finished 1.mp4"),  0.6, 3.4, "oak vanity, oval mirrors, brass sconces"),
+            (A("fishers spa finished 1.mp4"), 12.4, 3.0, "along the quartz to the heated towel rail"),
+            (A("fishers spa finished 1.mp4"), 16.6, 3.4, "freestanding tub under the window"),
+            (A("fishers spa finished 1.mp4"), 22.8, 3.2, "walk-in shower, rain head and handheld"),
+            (A("fishers spa finished 1.mp4"), 29.0, 3.0, "twin lit niches, textured tile"),
+        ],
+    ),
 }
 
 
