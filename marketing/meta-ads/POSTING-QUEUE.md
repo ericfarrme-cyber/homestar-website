@@ -23,15 +23,16 @@ Last updated 2026-09-03.
 |---|---|---|---|---|
 | **F5** | `green-tile-bathroom-carmel` | 20.6s | Finished walkthrough. Topaz-upscaled from the only Carmel footage that exists. | `F5-CARMEL-CAPTION.md` |
 | **F6** | `three-bathroom-remodel-geist` | 20.0s | **Before/after.** Master bath. After rebuilt from the project's own 59 Mbps master. | `F6-NAVY-BEFOREAFTER-CAPTION.md` |
-| **F7** | `jack-and-jill-zionsville` | 19.0s | **Before/after.** Both sides native 4K. "Two kids. One bathroom." | `CAPTIONS-F7-FF.md` |
-| **F8** | `geist-upper-level-remodel` | 18.0s | **Mid-job.** Trim, panelling, oak staircase. Zero people in frame. | `CAPTIONS-F7-FF.md` |
-| **F9** | `floor-to-ceiling-tile-noblesville` | 19.0s | **Full arc.** Membrane → tile → finished room. Rebuilt once the finished footage was named. | `CAPTIONS-F7-FF.md` — **needs a refresh**, it describes the old waterproofing-only cut |
-| **FA** | `spa-retreat-bathroom-fishers` | 17.4s | **Whole job in order:** studs → waterproofing → tile → finished. | `CAPTIONS-F7-FF.md` |
-| **FB** | `westfield-basement-masterpiece` | 19.6s | **Before/after.** Bare slab → finished luxury lower level. Dovetail credit. | `CAPTIONS-F7-FF.md` |
-| **FC** | `jack-and-jill-zionsville` | 17.4s | **Craft cut.** Star marble mosaic going down, then grouted. Second asset from that job. | `CAPTIONS-F7-FF.md` |
-| **FD** | `fishers-full-gut-walk-in` | 18.8s | **Full arc.** Studs and Kerdi-Board → finished walk-in. Matches the new project page. | `CAPTIONS-F7-FF.md` |
-| **FE** | `double-shower-carmel` | 17.2s | Walkthrough. Charcoal vanity, backlit mirror, grey large-format tile, hex pan. | `CAPTIONS-F7-FF.md` |
-| **FF** | `wet-room-bathroom-fishers` | 16.8s | Walkthrough. "The vanity stayed. The tub didn't." | `CAPTIONS-F7-FF.md` |
+| **F7** | `jack-and-jill-zionsville` | 19.0s | **Before/after.** Both sides native 4K. "Two kids. One bathroom." | `CAPTIONS-F7-FG.md` |
+| **F8** | `geist-upper-level-remodel` | 18.0s | **Mid-job.** Trim, panelling, oak staircase. Zero people in frame. | `CAPTIONS-F7-FG.md` |
+| **F9** | `floor-to-ceiling-tile-noblesville` | 19.0s | **Full arc.** Membrane → tile → finished room. Rebuilt once the finished footage was named. | `CAPTIONS-F7-FG.md` — **needs a refresh**, it describes the old waterproofing-only cut |
+| **FA** | `spa-retreat-bathroom-fishers` | 17.4s | **Whole job in order:** studs → waterproofing → tile → finished. | `CAPTIONS-F7-FG.md` |
+| **FB** | `westfield-basement-masterpiece` | 19.6s | **Before/after.** Bare slab → finished luxury lower level. Dovetail credit. | `CAPTIONS-F7-FG.md` |
+| **FC** | `jack-and-jill-zionsville` | 17.4s | **Craft cut.** Star marble mosaic going down, then grouted. Second asset from that job. | `CAPTIONS-F7-FG.md` |
+| **FD** | `fishers-full-gut-walk-in` | 18.8s | **Full arc.** Studs and Kerdi-Board → finished walk-in. Matches the new project page. | `CAPTIONS-F7-FG.md` |
+| **FE** | `double-shower-carmel` | 17.2s | Walkthrough. Charcoal vanity, backlit mirror, grey large-format tile, hex pan. | `CAPTIONS-F7-FG.md` |
+| **FF** | `wet-room-bathroom-fishers` | 16.8s | Walkthrough. "The vanity stayed. The tub didn't." | `CAPTIONS-F7-FG.md` |
+| **FG** | `geist-upper-level-remodel` | 17.0s | Finished suite and loft. **Payoff companion to F8 — run F8 first.** | `CAPTIONS-F7-FG.md` |
 
 ## People-in-frame audit — 2026-09-03
 

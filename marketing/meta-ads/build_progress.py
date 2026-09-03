@@ -304,9 +304,12 @@ PROJECTS = {
             "badge_r":  "5.0 ★ GOOGLE",
         },
         segments=[
+            # Fireplace before ceiling, so the beat naming the ceiling is on screen
+            # over the ceiling. In the first cut it landed over the fireplace -
+            # "planked, coffered" describing masonry.
             (A("geist upper level finished 1.mp4"),  1.6, 3.2, "panelled accent wall, cove-lit tray ceiling"),
-            (A("geist upper level finished 1.mp4"),  5.2, 3.0, "the planked coffered ceiling"),
             (A("geist upper level finished 1.mp4"), 10.2, 3.0, "marble fireplace between the windows"),
+            (A("geist upper level finished 1.mp4"),  5.2, 3.2, "the planked coffered ceiling"),
             (A("geist upper level finished 3.mp4"),  6.4, 3.2, "the loft - fluted wall, LED-lit shelves"),
             (A("geist upper level finished 3.mp4"), 13.6, 3.0, "built-ins and the library ladder"),
         ],
@@ -398,6 +401,34 @@ def plates(cfg, tag):
     return logo, hook, beat, end
 
 
+
+def _plate_coverage(segs, hook_out, beat_in, beat_out):
+    """Print which segments each text plate is actually on screen over.
+
+    Four cuts in a row shipped a plate describing a shot the viewer was no
+    longer looking at - a beat about a mosaic floor over subway tile, one about
+    printing on a panel landing after that panel crossfaded out, one about a
+    coffered ceiling over a fireplace. The config never shows this; only the
+    rendered frame does. This makes it visible before the render, not after.
+    """
+    spans, t = [], 0.0
+    for _, _, dur, _ in segs:
+        spans.append((t, t + dur))
+        t += dur - XFADE
+
+    def overlapping(a, b):
+        return [str(i + 1) + ". " + segs[i][3]
+                for i, (s0, s1) in enumerate(spans) if s0 < b and s1 > a]
+
+    print("")
+    print("  plate coverage - does each line describe what is under it?")
+    print("    HOOK  0.30-%.2fs over:" % (hook_out + HOOK_FADE_OUT))
+    for n in overlapping(0.30, hook_out + HOOK_FADE_OUT):
+        print("        " + n)
+    print("    BEAT  %.2f-%.2fs over:" % (beat_in, beat_out))
+    for n in overlapping(beat_in, beat_out):
+        print("        " + n)
+
 def build(key):
     cfg = PROJECTS[key]
     segs = cfg["segments"]
@@ -415,6 +446,8 @@ def build(key):
     hook_out = min(4.2, body - 1.0)
     beat_in = hook_out + 1.6
     beat_out = min(beat_in + 4.4, body - 0.4)
+
+    _plate_coverage(segs, hook_out, beat_in, beat_out)
 
     cmd = [FF, "-y", "-hide_banner", "-loglevel", "error"]
     for src, ss, dur, _ in segs:

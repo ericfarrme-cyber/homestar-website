@@ -1,6 +1,6 @@
-# Captions — F7 through FF
+# Captions — F7 through FG
 
-Nine cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
+Ten cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
 every specific detail traced to the project page rather than inferred from footage.
 
@@ -226,6 +226,32 @@ is a decision rather than a figure, and a viewer still infers where the budget w
 
 The last paragraph is the one that earns its place. Most remodelling copy sells replacement; saying
 plainly that something did not need replacing is more persuasive than another list of new things.
+
+---
+
+## FG — `geist-upper-level-remodel` (finished)
+
+**On screen:** "Look up." · "Planked, coffered, lit from the edges." · "A whole upper level, room by
+room." · end sub: *Schluter Pro Certified. Whole-home remodels across Hamilton County.*
+
+> Look up.
+
+> The ceiling in this primary suite is planked, coffered, and lit from the edges rather than the middle - no fixture in the centre of the room, just a cove of light running the perimeter. It is the kind of detail that costs a fortnight of trim carpentry and that nobody notices consciously. They just find the room calm and cannot say why.
+>
+> Behind the bed, a panelled accent wall. Between the windows, a marble fireplace. In the loft next door, a fluted wood feature wall with LED-lit floating shelves, built-in cabinetry with a corner bench, and a library ladder on a rail.
+>
+> This is one floor of a whole upper level we took room by room - multiple bathrooms, updated finishes throughout, all plumbing and electrical by licensed trades.
+>
+> If you saw our earlier post of this job with every baluster taped by hand, this is what it became.
+>
+> Near Geist, Indiana. Free in-home estimates: (317) 279-4798
+
+**Pairs with F8.** That cut is the middle of this job; this one is the payoff, and it deliberately
+shows rooms F8 never enters - the suite and the loft rather than the stairs and hallway. **Run F8
+first.** The last line only works in that order, and should be cut if they run the other way round.
+
+**"Fortnight of trim carpentry" is a figure of speech, not a schedule.** If that reads as a duration
+claim, change it - job durations come from Eric, never from arithmetic or flourish.
 
 ---
 
