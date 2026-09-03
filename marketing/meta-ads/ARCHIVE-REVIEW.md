@@ -35,7 +35,7 @@ either needs a centre-crop to 9:16 or should be paired with portrait clips from 
 | 2026-04-03 | 3 | Navy vanity, brass hardware, marble-look shower; third clip is **green waterproofing membrane over a tub** | **In progress** |
 | 2026-05-01 | 1 | Navy picket tile feature wall, freestanding tub | 78s, longest clip |
 | 2026-05-05 | 2 | Stacked grey tile shower, pebble floor, brass, window in shower | Two takes, same space |
-| 2026-06-23 | 1 | **Dark green vertical stacked tile**, freestanding tub, mid-build | Likely `green-tile-bathroom-carmel` |
+| 2026-06-23 | 1 | **Green vertical stacked tile**, freestanding tub, mid-build | A *second* green bath, not Carmel |
 | 2026-07-10 | 2 | Dark vanity, marble counter, arched mirrors, pebble shower floor | One is landscape |
 | 2026-08-04 | 1 | Black and white checkerboard floor being set, spacers visible | **In progress** |
 
