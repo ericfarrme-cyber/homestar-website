@@ -214,3 +214,54 @@ not depend on the answer.
 `20260116_151342` (oak vanity, pebble-pan double shower, black hardware) — filmed the same
 afternoon as the Geist before, but a **different job**, and it does not correspond to any project
 page yet.
+
+---
+
+## New batch, 2026-09-03: `Pending/new in progress/` — 14 clips, all native 4K
+
+Eric named these by project, which removes the matching bottleneck entirely. **All 14 are
+2160x3840 portrait at ~41 Mbps** — the best material in the library by a wide margin, six times the
+pixel count of anything cut so far and no upscaling needed.
+
+| Project | Clips | What they show |
+|---|---|---|
+| `geist-upper-level-remodel` | 4 | Trim carpentry, applied wall panelling, a new white-oak staircase going in over dark treads, every baluster individually masked for paint |
+| `spa-retreat-bathroom-fishers` | 3 | Late finishing — quartz in, freestanding tub, heated towel rail, frameless glass, floors still papered |
+| `floor-to-ceiling-tile-noblesville` | 3 | Large-format tile being set with levelling clips and a laser line |
+| `jack-and-jill-zionsville` | 2 | **A before and a finished walkthrough** |
+| `double-shower-*` | 1 | A tiler setting the stacked tile by hand |
+| `basement-finish-westfield` | 1 | Framing, drywall, recessed lighting over bare concrete |
+
+**The folder name is not the stage.** It is called "new in progress", but `zionsville bathroom.mp4`
+is a *before* and `zionsville bath 3.mp4` is a *finished* walkthrough. Every clip still has to be
+looked at. Same lesson as resolution, edge energy and timestamps: the label is not the content.
+
+### Built: `F7-zionsville-jack-and-jill-beforeafter` — 18.97s
+
+First project with a before and after **both native 4K**. Copy is built on the actual problem the
+project page describes — a bathroom two siblings have to share:
+
+> "Two kids. One bathroom." / "So we gave them a sink each." / "Shared. But not a compromise."
+
+**End card names Zionsville and Boone County, not Hamilton.** Zionsville is in Boone County, and
+reusing the Hamilton line there would have read as boilerplate at best and wrong at worst. Local
+specificity is also better for the thing the whole SEO thesis rests on.
+
+Two things the footage forced:
+
+- The before opens on an **empty bedroom**; only 9.2-15.4s is the bathroom. It is cut at 15.0s
+  because **a person walks into the right of frame** just after.
+- The before block was first cut at 3.8s and that was too short — the payoff landed before the
+  viewer had registered the problem. Widened to 5.0s. The Geist cut runs 5.6s, which is about right.
+
+### Also new: a measured music library
+
+`analyse_music.py` catalogues `Pending/music/` and finds the loudest, steadiest window in each
+track, scored as mean level minus level variation. Output in `MUSIC.md`.
+
+It validates against the one window that was picked by ear: it independently chose **69.2s** for
+Quiet Neon where 70.5s had been hand-tuned. It also confirms why that mattered — **Quiet Neon opens
+11.9 dB under its own average**, so starting at zero would open a Reel nearly silent.
+
+Worth knowing: **`Arco d'Avanguardia` has a true peak of +0.2 dBTP** — above full scale. Usable, but
+it needs limiting rather than being dropped in as-is.
