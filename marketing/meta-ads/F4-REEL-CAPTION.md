@@ -62,3 +62,37 @@ simply is not laid out yet.
 
 Order is therefore forced: **attach the video, then the caption, then the schedule.** Nothing in
 the composer is saved as a draft either - navigating away loses the caption entirely.
+
+---
+
+## Scheduled 2026-09-03
+
+Confirmed by Meta: *"Your reel is scheduled to publish on Sep 3, 2026 on Facebook and Sep 3, 2026
+on Instagram after it finishes processing."*
+
+- **Facebook** Sep 3, 2026, 09:00 AM America/Indiana/Indianapolis
+- **Instagram** Sep 3, 2026, 09:00 AM America/Indiana/Indianapolis
+- **File posted:** `F4-fishers-white-oak-bath--reels-vo-eric.mp4` (11.31 MB, the full-quality
+  voiceover cut). Meta's own upload limit is well above the 10 MB cap that applies to the browser
+  upload tool, so the compressed `-upload` master was not needed.
+- Closed captions left on (auto-generated) - Reels are largely watched muted.
+
+### The composer loses the caption between steps
+
+The caption was entered and verified at 733 characters on the Create step, and was **gone** by the
+time the Share step was reached. It had to be re-entered. Two rules follow:
+
+1. **Attach the video first.** The caption field renders at zero width until media is present. It
+   still takes focus, so typing into it silently goes nowhere.
+2. **Go forward only, and verify the caption on the Create step immediately before advancing.**
+   Stepping back appears to clear it. Nothing is saved as a draft either.
+
+### No-voiceover fallback set
+
+Kept deliberately, in case the voiced cut ever needs replacing:
+
+| File | Audio |
+|---|---|
+| `F4-fishers-white-oak-bath--reels-video.mp4` | silent master |
+| `F4-fishers-white-oak-bath--reels-video-music.mp4` | Quiet Neon only |
+| `F4-fishers-white-oak-bath--reels-upload-music-only.mp4` | Quiet Neon only, 9.22 MB |
