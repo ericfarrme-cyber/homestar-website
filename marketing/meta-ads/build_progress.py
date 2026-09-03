@@ -283,18 +283,23 @@ PROJECTS = {
             (A("wet room finished 1.mp4"), 29.0, 3.0, "wide - glass, ledge, tile to the ceiling"),
         ],
     ),
-    # The payoff companion to F8. That cut is the middle of this job - masked
-    # balusters, panelling with the glue showing, treads going in. This one is
-    # what those rooms became, and deliberately shows spaces F8 never enters:
-    # the primary suite and the loft, rather than the stairs and hallway.
+    # The payoff companion to F8. Shows rooms F8 never enters - the suite and
+    # the loft rather than the stairs and hallway.
     #
-    # Music: Arco d'Avanguardia, free again after FE moved to Quiet Neon. It was
-    # too bold over a compact bathroom; over a suite with a marble fireplace and
-    # a coffered ceiling it has the right scale.
+    # NO FIREPLACE. The first cut used two fireplace shots and Eric was right to
+    # reject them: there is no TV above the mantel and the wall reads unfinished.
+    # Worse, one of them was in the edit to make the beat timing work rather than
+    # because the shot was good. Shot quality decides the cut; timing is then
+    # solved around it, never the other way round.
+    #
+    # Music: Brisa de Nylon, warm and nylon-string, against wood, green panelling
+    # and cove light. Arco was wrong for this room - bold and brassy against a
+    # calm space. It is also the bed F8 uses, which makes the pair from this one
+    # job read as deliberate.
     "geist-finished": dict(
         out="FG-geist-upper-level-finished",
         slug="geist-upper-level-remodel",
-        music=("Arco d_Avanguardia.mp3", 69.2),
+        music=("Brisa de Nylon.mp3", 48.8),
         ad={
             "hook":     "Look up.",
             "beat":     "Planked, coffered, lit from the edges.",
@@ -304,14 +309,11 @@ PROJECTS = {
             "badge_r":  "5.0 ★ GOOGLE",
         },
         segments=[
-            # Fireplace before ceiling, so the beat naming the ceiling is on screen
-            # over the ceiling. In the first cut it landed over the fireplace -
-            # "planked, coffered" describing masonry.
-            (A("geist upper level finished 1.mp4"),  1.6, 3.2, "panelled accent wall, cove-lit tray ceiling"),
-            (A("geist upper level finished 1.mp4"), 10.2, 3.0, "marble fireplace between the windows"),
-            (A("geist upper level finished 1.mp4"),  5.2, 3.2, "the planked coffered ceiling"),
-            (A("geist upper level finished 3.mp4"),  6.4, 3.2, "the loft - fluted wall, LED-lit shelves"),
-            (A("geist upper level finished 3.mp4"), 13.6, 3.0, "built-ins and the library ladder"),
+            (A("geist upper level finsihed 2.mp4"), 7.6, 3.4, "dressed bed, wood headboard, panelled wall"),
+            (A("geist upper level finished 1.mp4"), 1.8, 3.2, "the suite wide, cove light around the tray"),
+            (A("geist upper level finished 1.mp4"), 5.2, 3.4, "the planked coffered ceiling"),
+            (A("geist upper level finished 5.mp4"), 8.4, 3.2, "the loft - built-ins, styled shelves, ladder"),
+            (A("geist upper level finished 3.mp4"), 6.4, 3.0, "fluted wood wall, LED-lit floating shelves"),
         ],
     ),
 }
