@@ -40,14 +40,27 @@ either needs a centre-crop to 9:16 or should be paired with portrait clips from 
 | 2026-08-04 | 1 | Black and white checkerboard floor being set, spacers visible | **In progress** |
 
 Four more are re-compressed shares (`Messenger_creation` x3, `Business Suite_creation`), 368x640 to
-720x1280. Not usable as source.
+720x1280.
+
+**Correction: three of those are the Carmel job.** They were first written off as unusable on
+resolution alone, without anyone looking at what was in them. That was the wrong filter - it sorted
+by file property rather than content, and nearly buried the only footage of a project that already
+has a page on the site. **Judge footage by what it shows first, then by whether it is usable.**
+
+The consequence is real though: there is **no 4K footage of Carmel**. The best available is
+720x1280, the same resolution as the Fishers bath source. A Reel can be cut from it, but it will be
+soft next to the 4K material, and it should be reshot if that bathroom is still accessible.
 
 ## Matching to the website
 
 Only **2 of the 27 projects carry any date**, so this cannot be done from metadata. Matching has to
 be visual, and most of it needs Eric to confirm. Best reads so far:
 
-- **2026-06-23 green tile** → almost certainly `green-tile-bathroom-carmel`
+- **The three `Messenger_creation` files ARE `green-tile-bathroom-carmel`.** Confirmed against the
+  project photos: green vertical stacked tile, the black-and-white basketweave shower pan, walnut
+  vanity, arched mirror, brass, plantation shutters, drum pendant, freestanding oval tub.
+- **2026-06-23 is a different green bathroom** - brighter green, wider grout, plain pale shower
+  floor, wood-look flooring. HomeStar has done at least two green tile baths and this is the other one.
 - **2025-10-15 afternoon** → possibly `geist-upper-level-remodel`, which is the only whole-upper-level
   project on the site
 - Everything else is unconfirmed, and several look like **jobs with no project page at all** — which
