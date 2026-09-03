@@ -1,6 +1,6 @@
-# Captions — F7 through FD
+# Captions — F7 through FF
 
-Seven cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
+Nine cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
 every specific detail traced to the project page rather than inferred from footage.
 
@@ -178,6 +178,54 @@ Instagram does not linkify captions.
 **Kerdi-Board is named here and on screen**, which is the only cut where the on-screen copy names a
 product. That is allowed because the printing is legible on the panel in the footage - the claim is
 visible, not inferred. Every other cut keeps product names in the caption only.
+
+---
+
+## FE — `double-shower-carmel`
+
+**On screen:** "The shower is the whole point." · "Big enough for two. Tiled to the ceiling." ·
+"Waterproofed like it has to last." · end sub: *Schluter Pro Certified. Bathrooms in Hamilton
+County - $15K to $50K.*
+
+> The shower is the whole point of this room.
+
+> Everything else is deliberately quiet so it can be. Charcoal cabinetry, a countertop with almost no movement in it, matte black tapware, and a backlit mirror that runs the length of the vanity. Nothing competing.
+>
+> Then the shower: large-format tile floor to ceiling, a hexagon mosaic pan, a rain head and a handheld, and a half wall so the glass stays short and the room stays open.
+>
+> Behind the tile is the complete Schluter system. It is the part that decides whether a shower this size is still perfect in twenty years, and it is the part nobody photographs.
+>
+> Carmel, Indiana. Free in-home estimates: (317) 279-4798
+
+**Note:** this is `double-shower-carmel`, **not** the green tile Carmel bath. HomeStar has done two
+Carmel bathrooms and the footage filename names only the city, so this one was matched by checking
+frames against the project page - charcoal vanity, LED backlit mirror, grey large-format tile, hex
+pan.
+
+---
+
+## FF — `wet-room-bathroom-fishers`
+
+**On screen:** "The vanity stayed." · "The tub didn't." · "Tile to the ceiling. Including the
+ceiling." · end sub: *Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.*
+
+> The vanity stayed. The tub didn't.
+
+> These homeowners built this house years ago and plan to stay in it, so the question was not "what can we replace" but "what is actually worth changing". The answer was the shower, and it meant losing the tub entirely.
+>
+> What replaced it is a true wet room. Stacked vertical tile running floor to ceiling - including the shower ceiling - with floor-to-ceiling frameless glass that opens the space up while still containing the water. A penny mosaic floor for grip underfoot. A raincan and a handheld in champagne bronze, and a heated vent fan inside the shower itself, because a wet room that stays damp is just a damp room.
+>
+> The existing vanity stayed exactly where it was. It did not need replacing, so it was not replaced.
+>
+> Fishers, Indiana. Free in-home estimates: (317) 279-4798
+
+**Note:** the original beat read *"And spent it all on the shower."* Eric flagged it as strange, and
+it was - money talk in a room that should be about the room. The project page had the better turn
+already: the existing tub was removed to open the wet room. **"The vanity stayed. The tub didn't."**
+is a decision rather than a figure, and a viewer still infers where the budget went.
+
+The last paragraph is the one that earns its place. Most remodelling copy sells replacement; saying
+plainly that something did not need replacing is more persuasive than another list of new things.
 
 ---
 
