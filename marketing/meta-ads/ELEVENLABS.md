@@ -73,3 +73,27 @@ playback, so this lands right.
 
 **Not posted.** These are drafts pending a voice choice, and the scheduled Reel remains the
 music-only cut.
+
+---
+
+## Eric's cloned voice — created 2026-09-03
+
+**`voice_id: 12958d49-c447-4ff2-94e2-ee2398acfdd8`, `voice_type: element`**, name
+"Eric Farr - HomeStar". Status completed and audio-eligible on creation, usable immediately.
+
+Use it with `generate_audio`, `model: text2speech_v2`, `variant: elevenlabs`,
+`voice_type: "element"`, and that voice_id.
+
+**Source prep matters, and less is more.** The memo was 3.1 minutes at -19.6 LUFS, mono 48 kHz,
+78% speech, no clipping - good material. It was trimmed to 168s to sit inside the three-minute
+ceiling, starting 0.4s in where speech actually begins.
+
+Nothing else was done to it. A first attempt applied a limiter for peak headroom and that was
+wrong twice over: cloning wants natural dynamics rather than a flattened signal, and the limiter
+actually *raised* true peak from -0.53 to -0.24 dBTP because MP3 encoding introduces inter-sample
+overshoot. The version used is a straight trim, transcoded to MP3 only because the signed upload
+URL expects `audio/mpeg` and sending M4A bytes under that label would likely fail to decode.
+
+The clone read the same script in **12.75s** against 15.65s for the Reid preset - noticeably
+brisker, which left room to start the voiceover at 2.2s and still finish well clear of the end
+card at 17.87s.
