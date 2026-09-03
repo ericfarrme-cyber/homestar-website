@@ -1,0 +1,77 @@
+# Posting queue
+
+Everything built and held for later. **Nothing below is scheduled.** Renders live in
+`marketing/meta-ads/renders/` and are committed to git, so they survive and are versioned.
+
+Every cut is 1080x1920, H.264, music-only (no voiceover), with a `--reels-upload` copy under 10 MB
+for the browser upload path. Music is Eric's own Mureka, so these masters are also clear for
+YouTube Shorts and the website.
+
+Last updated 2026-09-03.
+
+---
+
+## Published
+
+| | project | posted |
+|---|---|---|
+| **F4** | `white-oak-primary-bath-fishers` | Thu 3 Sep, 10:09am — Reel crossposted FB+IG **with caption**; stories both platforms 10:15/10:16am. Voiceover cut. |
+
+## Ready to post — awaiting Eric
+
+| | project | length | what it is | caption |
+|---|---|---|---|---|
+| **F5** | `green-tile-bathroom-carmel` | 20.6s | Finished walkthrough. Topaz-upscaled from the only Carmel footage that exists. | `F5-CARMEL-CAPTION.md` |
+| **F6** | `three-bathroom-remodel-geist` | 19.1s | **Before/after.** Master bath. "So we moved the door. And we'd do the same for you." | `F6-NAVY-BEFOREAFTER-CAPTION.md` |
+| **F7** | `jack-and-jill-zionsville` | 19.0s | **Before/after.** Both sides native 4K. "Two kids. One bathroom." | *needs writing* |
+| **F8** | `geist-upper-level-remodel` | 18.0s | **Mid-job.** Trim, panelling, oak staircase. Zero people in frame. | *needs writing* |
+| **F9** | `floor-to-ceiling-tile-noblesville` | 17.6s | **Mid-job.** The waterproofing membrane — the Schluter claim on camera. | *needs writing* |
+| **FA** | `spa-retreat-bathroom-fishers` | 17.4s | **Whole job in order:** studs → waterproofing → tile → finished. | *needs writing* |
+| **FB** | `basement-finish-westfield` | 17.6s | **Mid-job.** Slab to framed rooms. Budget positioning, no price band. | *needs writing* |
+
+## Open questions blocking publication
+
+1. **Crew in frame.** F5-FB are all clear, but `double shower.mp4` is only usable with the tiler
+   visible. Eric's nod needed before any cut showing crew.
+2. **The green membrane** in the Noblesville footage — the orange is unmistakably Schluter Ditra, the
+   green is not identifiable from the frame. If it is Kerdi, *"Orange for floors. Green for walls."*
+   is a better beat than what shipped.
+3. **Westfield square footage** — Eric mentioned "over a thousand", which would be a strong specific
+   line. Needs confirming before it goes in copy.
+4. **F6 homeowner comfort** — the before footage shows toiletries, medication bottles, a laundry
+   basket. Normal for a before, but that family also appears in the testimonial video.
+
+---
+
+## Rules these were built under
+
+- **Music-only is the default.** No voiceover on a cut unless Eric asks for it on that cut.
+- **A date on footage says when the camera rolled.** The before is shot before work starts and the
+  after a week or two after it finishes, so the gap between clips is an upper bound on the job, never
+  the duration. Any build time in copy comes from Eric.
+- **Read the project page before writing copy.** The hand-glazing, the storage tower, the tub set
+  where the morning light lands - none of it is visible in footage.
+- **A plate must describe the frame under it**, not something elsewhere in the clip.
+- **Verify by reading back the artefact**, not by watching a row move between tabs. For video that
+  means decoding a frame; for a publish it means reading the caption off the live post.
+- **Never claim a product from a frame.** Certifications are verifiable; a sheet of membrane at
+  4K from across a room is not.
+
+## Source material
+
+| folder | what | state |
+|---|---|---|
+| `Pending/new in progress/` | 14 clips, project-named, **all native 4K portrait ~41 Mbps** | best material available; no upscaling needed |
+| `Pending/Archive/` | 36 clips from Drive | mixed; 29 are 4K, Carmel needed Topaz |
+| `Pending/music/` | 6 Mureka tracks | catalogued with best-window analysis in `MUSIC.md` |
+| `Pending/Archive/_upscaled/` | Topaz outputs | Carmel and the Geist after |
+
+`Pending/` is gitignored — raw client media never enters the repo.
+
+## Still unbuilt
+
+- **`double-shower-*`** — in-progress clip unusable without the tiler; needs finished footage instead.
+- **`20260116_151342.mp4`** — oak vanity, pebble-pan double shower. A real job with **no project page**.
+- **Finished walkthroughs** to pair against Noblesville and Westfield, which would give both a
+  before/after as well as the mid-job cut they already have.
+- **Captions** for F7-FB.

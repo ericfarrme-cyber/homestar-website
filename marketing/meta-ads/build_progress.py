@@ -103,6 +103,66 @@ PROJECTS = {
             (G("noblesville bathroom.mp4"),   5.0, 3.4, "floor and wall, joints lining through"),
         ],
     ),
+
+    # The only project in the batch with footage at THREE stages, so the cut is
+    # the whole job in order: studs -> waterproofing -> tile -> finished. That
+    # arc is worth more than any single stage, because it shows the sequence
+    # rather than asserting it.
+    #
+    # People-free windows, mapped at 1s:
+    #   spa retreat fishers 1.mp4    clear 0.8-3.5, 6.5-7.5, 8.6-11.4
+    #   spa retreat fishers(1).mp4   clear 2.6-8.5
+    #   spa retreat fishers.mp4      clear throughout
+    "spa-retreat-progress": dict(
+        out="FA-spa-retreat-fishers-stages",
+        slug="spa-retreat-bathroom-fishers",
+        music=("Brisa de Nylon (1).mp3", 59.2),
+        ad={
+            "hook":     "This was studs and subfloor.",
+            "beat":     "Waterproofing goes on before tile.",
+            "end_head": "Every layer, in the right order.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (G("spa retreat fishers 1.mp4"),   1.0, 2.8, "stripped to studs, plumbing roughed in"),
+            (G("spa retreat fishers(1).mp4"),  3.2, 3.4, "waterproofing board up, seams taped"),
+            (G("spa retreat fishers(1).mp4"),  6.0, 2.6, "floor tile going down over it"),
+            (G("spa retreat fishers.mp4"),     7.6, 3.4, "tub in, filler set, floors still papered"),
+            (G("spa retreat fishers.mp4"),    11.4, 3.6, "the finished shower, bench and window"),
+        ],
+    ),
+
+    # The only non-bathroom in the batch, and the only clip with no people in it
+    # at all - nothing had to be worked around.
+    #
+    # Copy follows this project's own positioning rather than the house
+    # template. Its page leads on budget: "proof that quality doesn't require
+    # overspending". No price band on the end card, because there is no
+    # published basement band to quote and inventing one would be worse than
+    # omitting it. No Schluter line either - that is a tile certification and
+    # means nothing on a basement finish.
+    "westfield-progress": dict(
+        out="FB-westfield-basement-progress",
+        slug="basement-finish-westfield",
+        music=("Quiet Neon.mp3", 69.2),
+        ad={
+            "hook":     "This was empty concrete.",
+            "beat":     "Now it's rooms.",
+            "end_head": "You don't have to overspend to do it right.",
+            "end_sub":  "Basement finishing in Westfield and across Hamilton County.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (G("westfield basement.mp4"),  0.2, 3.0, "bare slab, first walls framed"),
+            (G("westfield basement.mp4"),  2.8, 3.4, "rooms taking shape, cans already in"),
+            (G("westfield basement.mp4"),  8.8, 3.2, "drywall up and painted, egress window"),
+            (G("westfield basement.mp4"), 13.2, 3.2, "framing against finished wall"),
+            (G("westfield basement.mp4"), 17.2, 3.2, "the full run, materials staged"),
+        ],
+    ),
 }
 
 
