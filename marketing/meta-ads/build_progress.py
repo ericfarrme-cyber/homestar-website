@@ -226,7 +226,11 @@ PROJECTS = {
     "carmel-double": dict(
         out="FE-carmel-double-shower",
         slug="double-shower-carmel",
-        music=("Arco d_Avanguardia.mp3", 69.2),
+        # Arco was too bold over this room. Quiet Neon instead - cool and minimal,
+        # which suits charcoal cabinetry, black fixtures and a backlit mirror
+        # better than a guitar-led or brass-heavy bed. 69.2s is its measured best
+        # window; the track opens 11.9 dB under its own average, so never start at 0.
+        music=("Quiet Neon.mp3", 69.2),
         ad={
             "hook":     "The shower is the whole point.",
             "beat":     "Big enough for two. Tiled to the ceiling.",
@@ -241,6 +245,33 @@ PROJECTS = {
             (A("carmel double finished.mp4"), 11.2, 2.8, "hex mosaic pan, close"),
             (A("carmel double finished.mp4"), 30.6, 3.4, "the second bay, window and bench"),
             (A("carmel double finished.mp4"), 23.2, 3.0, "wide - vanity and shower together"),
+        ],
+    ),
+    # The best budget story in the library, and it comes from the project page:
+    # these homeowners kept their existing vanity on purpose and put the money
+    # into the shower. That is a more useful thing to show a prospect than
+    # another full gut, because it answers "where should I spend it".
+    #
+    # "Including the ceiling" is not a flourish - the page says the stacked
+    # vertical tile runs floor to ceiling "including the shower ceiling".
+    "wet-room": dict(
+        out="FF-fishers-wet-room-walkthrough",
+        slug="wet-room-bathroom-fishers",
+        music=("Brisa de Nylon.mp3", 48.8),
+        ad={
+            "hook":     "They kept the vanity.",
+            "beat":     "And spent it all on the shower.",
+            "end_head": "Tile to the ceiling. Including the ceiling.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (A("wet room finished 1.mp4"),  7.4, 3.2, "the vanity they kept - oval mirrors, sconces"),
+            (A("wet room finished 1.mp4"), 19.0, 3.2, "the wet room, raincan head, stacked vertical tile"),
+            (A("wet room finished 1.mp4"), 15.0, 2.8, "penny mosaic floor, window"),
+            (A("wet room finished 1.mp4"), 23.2, 3.0, "champagne bronze trim against the tile"),
+            (A("wet room finished 1.mp4"), 31.0, 3.4, "wide - glass, ledge, tile to the ceiling"),
         ],
     ),
 }
