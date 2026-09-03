@@ -259,8 +259,13 @@ PROJECTS = {
         slug="wet-room-bathroom-fishers",
         music=("Brisa de Nylon.mp3", 48.8),
         ad={
-            "hook":     "They kept the vanity.",
-            "beat":     "And spent it all on the shower.",
+            # "And spent it all on the shower" read as money talk in a room that
+            # should be about the room. The project page has a better turn: the
+            # existing tub was removed to open the wet room. "The vanity stayed. /
+            # The tub didn't." is factual, is a real decision, and never mentions
+            # budget - the restraint still reads without being narrated.
+            "hook":     "The vanity stayed.",
+            "beat":     "The tub didn't.",
             "end_head": "Tile to the ceiling. Including the ceiling.",
             "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
             "cta":      "GET A FREE ESTIMATE",
