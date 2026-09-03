@@ -21,6 +21,7 @@ FF = imageio_ffmpeg.get_ffmpeg_exe()
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 NEW = os.path.join(REPO, "Pending", "new in progress")
+ARCH = os.path.join(REPO, "Pending", "Archive")
 MUSIC_DIR = os.path.join(REPO, "Pending", "music")
 OUT_DIR = os.path.join(HERE, "renders")
 
@@ -33,6 +34,7 @@ MUSIC_LUFS = -20
 FADE_IN, FADE_OUT = 1.2, 2.2
 
 G = lambda n: os.path.join(NEW, n)
+A = lambda n: os.path.join(ARCH, n)
 
 PROJECTS = {
     # Every window below was chosen to contain NO PEOPLE. The crew appear in
@@ -84,23 +86,35 @@ PROJECTS = {
     #
     # People: noblesville bathroom 2 has a hand in frame 8-10s. Avoided.
     "noblesville-progress": dict(
-        out="F9-noblesville-waterproofing-progress",
+        out="F9-noblesville-waterproofing-to-finished",
         slug="floor-to-ceiling-tile-noblesville",
         music=("Before _ After (1).mp3", 83.8),
         ad={
-            "hook":     "Under every tile we set.",
-            "beat":     "Waterproofed before a single tile goes on.",
-            "end_head": "That's the 25-year warranty.",
+            # Rebuilt as a full arc once Eric renamed the archive and
+            # "noblesville finished.mp4" turned up - 2160x3840 at 40.9 Mbps, and
+            # confirmed the same room by the floor-to-ceiling large-format tile.
+            # The first cut ended on a close-up of levelling wedges, which is a
+            # process shot, not a payoff. Now it ends on the room.
+            #
+            # There is no true BEFORE for this job - nothing pre-demolition - so
+            # this is an arc, not a before/after, and it uses no BEFORE/AFTER pill.
+            "hook":     "You'll never see this part again.",
+            "beat":     "Waterproofed before a single tile.",
+            "end_head": "The finish only lasts if this does.",
             "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
             "cta":      "GET A FREE ESTIMATE",
             "badge_r":  "5.0 ★ GOOGLE",
         },
+        # Four progress beats then three reveals, timed so the beat plate has
+        # faded before the first finished shot lands - the copy is about the
+        # hidden work and must not still be on screen over the payoff.
         segments=[
-            (G("noblesville bathroom 3.mp4"), 0.4, 3.2, "membrane sheets stacked, room stripped back"),
-            (G("noblesville bathroom 3.mp4"), 5.4, 3.4, "waterproofing taped up the shower wall"),
-            (G("noblesville bathroom.mp4"),   0.6, 3.0, "tile going on over it, laser line, levelling clips"),
-            (G("noblesville bathroom 2.mp4"), 11.4, 3.0, "close on the wedges holding every joint flat"),
-            (G("noblesville bathroom.mp4"),   5.0, 3.4, "floor and wall, joints lining through"),
+            (G("noblesville bathroom 3.mp4"),  0.4, 3.0, "membrane sheets stacked, room stripped back"),
+            (G("noblesville bathroom 3.mp4"),  5.4, 3.2, "waterproofing taped up the shower wall"),
+            (G("noblesville bathroom.mp4"),    0.6, 2.8, "tile going on over it, laser line, levelling clips"),
+            (G("noblesville bathroom 2.mp4"), 11.4, 2.6, "close on the wedges holding every joint flat"),
+            (A("noblesville finished.mp4"),    2.4, 3.2, "finished - freestanding tub under the chandelier"),
+            (A("noblesville finished.mp4"),    6.4, 3.0, "finished - backlit mirror over the trough vanity"),
         ],
     ),
 

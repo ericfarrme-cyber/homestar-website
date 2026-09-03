@@ -25,7 +25,7 @@ Last updated 2026-09-03.
 | **F6** | `three-bathroom-remodel-geist` | 20.0s | **Before/after.** Master bath. After rebuilt from the project's own 59 Mbps master. | `F6-NAVY-BEFOREAFTER-CAPTION.md` |
 | **F7** | `jack-and-jill-zionsville` | 19.0s | **Before/after.** Both sides native 4K. "Two kids. One bathroom." | `CAPTIONS-F7-FB.md` |
 | **F8** | `geist-upper-level-remodel` | 18.0s | **Mid-job.** Trim, panelling, oak staircase. Zero people in frame. | `CAPTIONS-F7-FB.md` |
-| **F9** | `floor-to-ceiling-tile-noblesville` | 17.6s | **Mid-job.** The waterproofing membrane — the Schluter claim on camera. | `CAPTIONS-F7-FB.md` |
+| **F9** | `floor-to-ceiling-tile-noblesville` | 19.0s | **Full arc.** Membrane → tile → finished room. Rebuilt once the finished footage was named. | `CAPTIONS-F7-FB.md` — **needs a refresh**, it describes the old waterproofing-only cut |
 | **FA** | `spa-retreat-bathroom-fishers` | 17.4s | **Whole job in order:** studs → waterproofing → tile → finished. | `CAPTIONS-F7-FB.md` |
 | **FB** | `westfield-basement-masterpiece` | 19.6s | **Before/after.** Bare slab → finished luxury lower level. Dovetail credit. | `CAPTIONS-F7-FB.md` |
 
@@ -108,8 +108,13 @@ Only two videos live in `public/images/`, both gitignored and therefore local-on
 59 Mbps master sat in `public/images/` unlooked-at. Check the repo's existing assets before
 reaching for reconstruction.
 
-No other project has a local video. Noblesville and the double shower have no finished footage
-available, so neither can become a before/after without a new shoot.
+No other project has a local video. **Superseded 2026-09-03:** once Eric renamed the archive,
+`noblesville finished.mp4` turned up - 2160x3840 at 40.9 Mbps, confirmed the same room by its
+floor-to-ceiling large-format tile. F9 was rebuilt as a full arc ending on the finished room rather
+than on a close-up of levelling wedges.
+
+There is still **no true before** for Noblesville - nothing pre-demolition - so it is an arc, not a
+before/after, and carries no BEFORE/AFTER pill. The double shower remains without finished footage.
 
 ## Still unbuilt
 
