@@ -134,35 +134,6 @@ PROJECTS = {
         ],
     ),
 
-    # The only non-bathroom in the batch, and the only clip with no people in it
-    # at all - nothing had to be worked around.
-    #
-    # Copy follows this project's own positioning rather than the house
-    # template. Its page leads on budget: "proof that quality doesn't require
-    # overspending". No price band on the end card, because there is no
-    # published basement band to quote and inventing one would be worse than
-    # omitting it. No Schluter line either - that is a tile certification and
-    # means nothing on a basement finish.
-    "westfield-progress": dict(
-        out="FB-westfield-basement-progress",
-        slug="basement-finish-westfield",
-        music=("Quiet Neon.mp3", 69.2),
-        ad={
-            "hook":     "This was empty concrete.",
-            "beat":     "Now it's rooms.",
-            "end_head": "You don't have to overspend to do it right.",
-            "end_sub":  "Basement finishing in Westfield and across Hamilton County.",
-            "cta":      "GET A FREE ESTIMATE",
-            "badge_r":  "5.0 ★ GOOGLE",
-        },
-        segments=[
-            (G("westfield basement.mp4"),  0.2, 3.0, "bare slab, first walls framed"),
-            (G("westfield basement.mp4"),  2.8, 3.4, "rooms taking shape, cans already in"),
-            (G("westfield basement.mp4"),  8.8, 3.2, "drywall up and painted, egress window"),
-            (G("westfield basement.mp4"), 13.2, 3.2, "framing against finished wall"),
-            (G("westfield basement.mp4"), 17.2, 3.2, "the full run, materials staged"),
-        ],
-    ),
 }
 
 

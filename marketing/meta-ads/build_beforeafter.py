@@ -28,6 +28,8 @@ ARCH = os.path.join(REPO, "Pending", "Archive")
 NEW = os.path.join(REPO, "Pending", "new in progress")
 MUSIC_DIR = os.path.join(REPO, "Pending", "music")
 OUT_DIR = os.path.join(HERE, "renders")
+# the finished luxury-basement walkthrough already ships on the project page
+MOV = os.path.join(REPO, "public", "images", "westfield-basement-masterpiece-video.mov")
 
 W, H, FPS = 1080, 1920, 30
 XFADE = 0.4
@@ -89,6 +91,39 @@ PROJECTS = {
             (os.path.join(NEW, "zionsville bath 3.mp4"),  4.6, 2.4, "AFTER", "marble star mosaic floor"),
             (os.path.join(NEW, "zionsville bath 3.mp4"), 13.2, 3.6, "AFTER", "alcove tub, stacked tile, twin niches"),
             (os.path.join(NEW, "zionsville bath 3.mp4"),  0.4, 3.0, "AFTER", "black marble with the white vein"),
+        ],
+    ),
+
+    # Eric confirmed the in-progress clip is the LUXURY basement
+    # (westfield-basement-masterpiece), not the budget one. There are two
+    # Westfield basement projects on the site and the filename says only
+    # "westfield basement" - the first cut assumed the budget project and put
+    # "you don't have to overspend to do it right" on a job with a kegerator
+    # and a 14-foot red oak mantle. Exactly wrong.
+    #
+    # AFTER is the finished walkthrough already shipping on the project page,
+    # public/images/westfield-basement-masterpiece-video.mov - 1080x1920, 78.7s,
+    # no people. The AFTER block opens on the wide fireplace shot rather than
+    # the bar so that the beat, which names the mantle, lands over the mantle.
+    "westfield-luxury": dict(
+        out="FB-westfield-luxury-basement-beforeafter",
+        slug="westfield-basement-masterpiece",
+        music=("Arco d_Avanguardia.mp3", 69.2),
+        ad={
+            "hook":     "Bare concrete and studs.",
+            "beat":     "Fourteen feet of red oak later.",
+            "end_head": "The cheapest square footage in your house.",
+            "end_sub":  "Basement finishing in Westfield and across Hamilton County.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (os.path.join(NEW, "westfield basement.mp4"),  0.2, 2.8, "BEFORE", "bare slab, first walls framed"),
+            (os.path.join(NEW, "westfield basement.mp4"),  3.0, 2.8, "BEFORE", "rooms framed, cans in, nothing finished"),
+            (MOV, 34.6, 3.4, "AFTER", "fireplace and the oak mantle, bar behind"),
+            (MOV,  9.0, 3.2, "AFTER", "the bar, backlit shelving"),
+            (MOV, 58.0, 3.2, "AFTER", "the full lower level"),
+            (MOV, 44.0, 3.0, "AFTER", "shuffleboard under the wood ceiling"),
         ],
     ),
 }

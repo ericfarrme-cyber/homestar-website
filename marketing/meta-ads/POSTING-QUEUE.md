@@ -27,7 +27,7 @@ Last updated 2026-09-03.
 | **F8** | `geist-upper-level-remodel` | 18.0s | **Mid-job.** Trim, panelling, oak staircase. Zero people in frame. | *needs writing* |
 | **F9** | `floor-to-ceiling-tile-noblesville` | 17.6s | **Mid-job.** The waterproofing membrane — the Schluter claim on camera. | *needs writing* |
 | **FA** | `spa-retreat-bathroom-fishers` | 17.4s | **Whole job in order:** studs → waterproofing → tile → finished. | *needs writing* |
-| **FB** | `basement-finish-westfield` | 17.6s | **Mid-job.** Slab to framed rooms. Budget positioning, no price band. | *needs writing* |
+| **FB** | `westfield-basement-masterpiece` | 19.6s | **Before/after.** Bare slab → finished luxury lower level. | *needs writing* |
 
 ## Open questions blocking publication
 
@@ -37,7 +37,7 @@ Last updated 2026-09-03.
    green is not identifiable from the frame. If it is Kerdi, *"Orange for floors. Green for walls."*
    is a better beat than what shipped.
 3. **Westfield square footage** — Eric mentioned "over a thousand", which would be a strong specific
-   line. Needs confirming before it goes in copy.
+   line on the FB end card. Needs confirming before it goes in copy.
 4. **F6 homeowner comfort** — the before footage shows toiletries, medication bottles, a laundry
    basket. Normal for a before, but that family also appears in the testimonial video.
 
@@ -67,6 +67,18 @@ Last updated 2026-09-03.
 | `Pending/Archive/_upscaled/` | Topaz outputs | Carmel and the Geist after |
 
 `Pending/` is gitignored — raw client media never enters the repo.
+
+## Corrected along the way
+
+**FB was built for the wrong project.** There are two Westfield basements on the site -
+`basement-finish-westfield` ("on a Budget") and `westfield-basement-masterpiece` ("Luxury
+Transformation") - and the source file is named only `westfield basement.mp4`. The first cut assumed
+the budget project and put *"You don't have to overspend to do it right"* over a job with a
+kegerator and a 14-foot stained red oak mantle.
+
+Eric confirmed it is the luxury one. Rebuilt as a before/after against the finished walkthrough
+already shipping on that project page. **A filename that names a city and a room type does not name
+a project when the company has done two.**
 
 ## Still unbuilt
 
