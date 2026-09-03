@@ -32,7 +32,9 @@ Last updated 2026-09-03.
 | **FD** | `fishers-full-gut-walk-in` | 18.8s | **Full arc.** Studs and Kerdi-Board → finished walk-in. Matches the new project page. | `CAPTIONS-F7-FG.md` |
 | **FE** | `double-shower-carmel` | 17.2s | Walkthrough. Charcoal vanity, backlit mirror, grey large-format tile, hex pan. | `CAPTIONS-F7-FG.md` |
 | **FF** | `wet-room-bathroom-fishers` | 16.8s | Walkthrough. "The vanity stayed. The tub didn't." | `CAPTIONS-F7-FG.md` |
-| **FG** | `geist-upper-level-remodel` | 17.0s | Finished suite and loft. **Payoff companion to F8 — run F8 first.** | `CAPTIONS-F7-FG.md` |
+| **FG** | `geist-upper-level-remodel` | 17.8s | Finished suite and loft. **Payoff companion to F8 — run F8 first.** | `CAPTIONS-F7-FG.md` |
+| **FH** | `double-shower-fishers` | 14.8s | Walkthrough. Two heads plainly on camera. Shortest cut - only 12.7s of source. | *needs writing* |
+| **FI** | `spa-retreat-bathroom-fishers` | 17.6s | Finished walkthrough. Second asset from that job; FA is its process arc. | *needs writing* |
 
 ## People-in-frame audit — 2026-09-03
 
@@ -124,6 +126,9 @@ track's intro sits under its own average.
 | FD Fishers full gut | Before / After @ 92.5s | steadiest intro of any track (-1.0 dB), and this cut opens on a quiet stripped room |
 | FE Carmel double | Quiet Neon @ 69.2s | Arco read too bold over charcoal and black; Quiet Neon is cooler and more minimal |
 | FF Fishers wet room | Brisa de Nylon @ 48.8s | warm and guitar-led, matching taupe tile and champagne bronze |
+| FG Geist finished | Brisa de Nylon @ 48.8s | warm against wood and cove light; Arco was rejected as too brassy. Same bed as F8, which pairs them deliberately |
+| FH Fishers double | American Reveal @ 113.0s | steadiest window in the library, suiting light oak and daylight |
+| FI Spa retreat finished | Arco d'Avanguardia @ 69.2s | free again after FE; a warmer room than the one it was wrong for |
 
 ## Site video assets — swept 2026-09-03
 
@@ -145,6 +150,13 @@ than on a close-up of levelling wedges.
 
 There is still **no true before** for Noblesville - nothing pre-demolition - so it is an arc, not a
 before/after, and carries no BEFORE/AFTER pill. The double shower remains without finished footage.
+
+## Needs Eric before it can be built
+
+**`laundry tile.mp4`** - a black and white marble checkerboard floor going down, levelling clips
+still in. Striking footage, but the filename names a room type and **there are two laundry projects**
+(`laundry-room-noblesville` and `laundry-room-geist`). Not guessing which. It is also tile-laying
+only, with no finished laundry footage anywhere, so on its own it is thin for a standalone cut.
 
 ## Still unbuilt
 
