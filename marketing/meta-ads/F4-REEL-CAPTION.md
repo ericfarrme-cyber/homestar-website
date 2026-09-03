@@ -117,3 +117,49 @@ Two traps found doing this:
    apart by a minute.
 
 The voiceover question is still open, and `--reels-upload-music-only.mp4` remains the swap.
+
+---
+
+## ⚠️ Published 2026-09-03 WITHOUT the caption
+
+Eric asked for the post to be published. Both went live and **both went live bare**:
+
+| | published | caption |
+|---|---|---|
+| Facebook | Thu Sep 3, 9:19am | **none** — list shows "Your reel" |
+| Instagram `thehomestarservice` | Thu Sep 3, 9:21am | **none** — list shows "This post has no text" |
+
+The caption was entered and verified when the post was first scheduled. It did not survive to
+publication. The likely culprit is the **reschedule** on the morning of Sep 3, or the
+`Publish now` path off a scheduled post — not established which.
+
+**Two failures, and the second is the one that matters.**
+
+1. The note added to this file after rescheduling claimed reschedule "keeps the uploaded video and
+   the caption intact." That was **asserted, never checked**. It then got treated as established
+   fact and published on.
+2. After clicking Publish, the check performed was that the posts had *left the Scheduled tab and
+   appeared under Published*. That confirms a post **exists**. It says nothing about whether it is
+   **correct**.
+
+This is the third instance in one day of judging by a proxy rather than the thing itself —
+resolution instead of content, edge energy instead of sharpness, and now existence instead of
+correctness. The pattern is consistent enough to name.
+
+### Rule
+
+**Verifying a publish means reading back the published artefact's own content.** For a Meta post
+that means confirming the caption text is present on the live post, not that a row appeared in a
+table. The Published list makes this cheap: a post with a caption shows the caption text in the
+Title column; a post without one shows "Your reel" or "This post has no text". That column was
+visible in the same screenshot used to declare success, and it already said the answer.
+
+### Also learned
+
+- **Bulk Delete does not work on reels.** Selecting both rows and pressing Delete returns "Posts
+  not moved to trash. Something went wrong." They have to be removed one at a time from each post's
+  own `...` menu.
+- **The Planner calendar cards are a trap for publishing.** Clicking a card usually opens a blank
+  `Create post` composer, not the post. The reliable route is
+  `latest/posts/scheduled_posts` — a real list view — where clicking the *thumbnail* opens a Post
+  details panel whose `Publish now` button works. The row's `...` menu has no publish action at all.
