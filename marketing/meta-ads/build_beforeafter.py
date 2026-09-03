@@ -30,6 +30,11 @@ MUSIC_DIR = os.path.join(REPO, "Pending", "music")
 OUT_DIR = os.path.join(HERE, "renders")
 # the finished luxury-basement walkthrough already ships on the project page
 MOV = os.path.join(REPO, "public", "images", "westfield-basement-masterpiece-video.mov")
+# the Geist project page ships its own finished walkthrough - 1080x1920 native at
+# 59 Mbps, a real master. The first cut of F6 used a Topaz upscale of a 2.42 Mbps
+# phone clip because nobody had looked in public/images. Both these files are
+# gitignored (public/images/*.mp4|mov), so they are local-only sources.
+GEIST_MOV = os.path.join(REPO, "public", "images", "geist-three-bath-video.mp4")
 
 W, H, FPS = 1080, 1920, 30
 XFADE = 0.4
@@ -60,10 +65,10 @@ PROJECTS = {
             (os.path.join(ARCH, "20260116_142314.mp4"),  0.6, 2.4, "BEFORE", "doorway - framed shower, vaulted ceiling"),
             (os.path.join(ARCH, "20260116_142314.mp4"),  9.2, 2.2, "BEFORE", "framed shower panning to the jetted tub"),
             (os.path.join(ARCH, "20260116_142314.mp4"), 23.2, 1.8, "BEFORE", "white raised-panel double vanity"),
-            (os.path.join(ARCH, "_upscaled", "navy-after-topaz-1080.mp4"),  0.2, 2.1, "AFTER", "the same doorway"),
-            (os.path.join(ARCH, "_upscaled", "navy-after-topaz-1080.mp4"), 15.0, 3.4, "AFTER", "navy picket tile, bench and niche"),
-            (os.path.join(ARCH, "_upscaled", "navy-after-topaz-1080.mp4"), 32.6, 3.0, "AFTER", "freestanding tub against the tile"),
-            (os.path.join(ARCH, "_upscaled", "navy-after-topaz-1080.mp4"), 43.0, 3.4, "AFTER", "vanity, LED mirrors - same vaulted ceiling"),
+            (GEIST_MOV,  6.2, 3.4, "AFTER", "navy picket tile, brass shower fixtures"),
+            (GEIST_MOV, 20.5, 3.0, "AFTER", "pendant over the tub"),
+            (GEIST_MOV, 30.5, 3.2, "AFTER", "freestanding tub, wall-mount brass filler"),
+            (GEIST_MOV, 47.5, 3.2, "AFTER", "the double vanity and backlit mirrors"),
         ],
     ),
 

@@ -22,12 +22,12 @@ Last updated 2026-09-03.
 | | project | length | what it is | caption |
 |---|---|---|---|---|
 | **F5** | `green-tile-bathroom-carmel` | 20.6s | Finished walkthrough. Topaz-upscaled from the only Carmel footage that exists. | `F5-CARMEL-CAPTION.md` |
-| **F6** | `three-bathroom-remodel-geist` | 19.1s | **Before/after.** Master bath. "So we moved the door. And we'd do the same for you." | `F6-NAVY-BEFOREAFTER-CAPTION.md` |
-| **F7** | `jack-and-jill-zionsville` | 19.0s | **Before/after.** Both sides native 4K. "Two kids. One bathroom." | *needs writing* |
-| **F8** | `geist-upper-level-remodel` | 18.0s | **Mid-job.** Trim, panelling, oak staircase. Zero people in frame. | *needs writing* |
-| **F9** | `floor-to-ceiling-tile-noblesville` | 17.6s | **Mid-job.** The waterproofing membrane — the Schluter claim on camera. | *needs writing* |
-| **FA** | `spa-retreat-bathroom-fishers` | 17.4s | **Whole job in order:** studs → waterproofing → tile → finished. | *needs writing* |
-| **FB** | `westfield-basement-masterpiece` | 19.6s | **Before/after.** Bare slab → finished luxury lower level. | *needs writing* |
+| **F6** | `three-bathroom-remodel-geist` | 20.0s | **Before/after.** Master bath. After rebuilt from the project's own 59 Mbps master. | `F6-NAVY-BEFOREAFTER-CAPTION.md` |
+| **F7** | `jack-and-jill-zionsville` | 19.0s | **Before/after.** Both sides native 4K. "Two kids. One bathroom." | `CAPTIONS-F7-FB.md` |
+| **F8** | `geist-upper-level-remodel` | 18.0s | **Mid-job.** Trim, panelling, oak staircase. Zero people in frame. | `CAPTIONS-F7-FB.md` |
+| **F9** | `floor-to-ceiling-tile-noblesville` | 17.6s | **Mid-job.** The waterproofing membrane — the Schluter claim on camera. | `CAPTIONS-F7-FB.md` |
+| **FA** | `spa-retreat-bathroom-fishers` | 17.4s | **Whole job in order:** studs → waterproofing → tile → finished. | `CAPTIONS-F7-FB.md` |
+| **FB** | `westfield-basement-masterpiece` | 19.6s | **Before/after.** Bare slab → finished luxury lower level. Dovetail credit. | `CAPTIONS-F7-FB.md` |
 
 ## Open questions blocking publication
 
@@ -79,6 +79,37 @@ kegerator and a 14-foot stained red oak mantle.
 Eric confirmed it is the luxury one. Rebuilt as a before/after against the finished walkthrough
 already shipping on that project page. **A filename that names a city and a room type does not name
 a project when the company has done two.**
+
+## Audio, chosen per clip
+
+Eric's instruction: pick the best track for each cut on its own merits, not by carrying over what
+was used last. `MUSIC.md` gives the measured basis - loudest steadiest window, and how far each
+track's intro sits under its own average.
+
+| cut | track | why |
+|---|---|---|
+| F6 Geist | Quiet Neon @ 70.5s | as originally chosen |
+| F7 Zionsville | Before / After @ 92.5s | as originally chosen |
+| F8 Geist progress | Brisa de Nylon @ 48.8s | quiet and even under slow craft footage |
+| F9 Noblesville | Before / After (1) @ 83.8s | as originally chosen |
+| FA Spa Retreat | Brisa de Nylon (1) @ 59.2s | as originally chosen |
+| FB Westfield | **American Reveal @ 113.0s** | steadiest window in the library, spread 0.7 dB - the right bed under a reveal |
+
+## Site video assets — swept 2026-09-03
+
+Only two videos live in `public/images/`, both gitignored and therefore local-only:
+
+| file | project | use |
+|---|---|---|
+| `geist-three-bath-video.mp4` | `three-bathroom-remodel-geist` | **1080x1920 native, 59.45 Mbps.** Now the AFTER for F6. |
+| `westfield-basement-masterpiece-video.mov` | `westfield-basement-masterpiece` | 1080x1920, 78.7s. The AFTER for FB. |
+
+**F6's after was originally a Topaz upscale of a 2.42 Mbps phone clip** while the project's own
+59 Mbps master sat in `public/images/` unlooked-at. Check the repo's existing assets before
+reaching for reconstruction.
+
+No other project has a local video. Noblesville and the double shower have no finished footage
+available, so neither can become a before/after without a new shoot.
 
 ## Still unbuilt
 
