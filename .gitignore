@@ -16,3 +16,6 @@ __pycache__/
 # already checked out. Losing them means F2, F3 and Z2 cannot be rebuilt.
 marketing/meta-ads/_*
 marketing/meta-ads/upload-to-meta/
+
+# Raw client media staging - originals live in Drive, never in the repo
+Pending/
