@@ -94,6 +94,51 @@ PROJECTS = {
 }
 
 
+
+def _strip_rotation(path):
+    """Remove any inherited display-matrix rotation from a finished file.
+
+    ffmpeg auto-rotates on decode, so the filtered pixels are already upright -
+    but the rotation flag from the source stream sometimes rides through
+    filter_complex onto the output, and a player then rotates the upright
+    pixels again. It is inconsistent: an identical code path produced a clean
+    file for one project and a -90 flag for the next.
+
+    `-display_rotation 0` on the *input* of a stream-copy remux clears it.
+    Setting `rotate=0` metadata or `-map_metadata -1` does not - both were
+    tried and left the flag in place.
+    """
+    tmp = path + ".rot.mp4"
+    r = subprocess.run([FF, "-y", "-hide_banner", "-loglevel", "error",
+                        "-display_rotation", "0", "-i", path,
+                        "-c", "copy", "-movflags", "+faststart", tmp],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stderr[-1500:]); sys.exit(1)
+    os.replace(tmp, path)
+
+
+def _assert_upright(path, w=1080, h=1920):
+    """Decode a real frame and check it comes out portrait.
+
+    Dimensions reported by the container are not enough - a 1080x1920 file
+    carrying a 90-degree rotation flag decodes to 1920x1080 and publishes
+    sideways. This checks the pixels a viewer actually gets.
+    """
+    from PIL import Image as _I
+    q = path + ".probe.png"
+    subprocess.run([FF, "-y", "-loglevel", "error", "-ss", "1", "-i", path,
+                    "-frames:v", "1", q], check=False)
+    if not os.path.exists(q):
+        sys.exit(f"could not decode a frame from {path}")
+    got = _I.open(q).size
+    os.remove(q)
+    if got != (w, h):
+        sys.exit(f"ORIENTATION FAULT: {os.path.basename(path)} decodes to "
+                 f"{got[0]}x{got[1]}, expected {w}x{h}")
+    return got
+
+
 def plates(cfg, tag):
     """Build every overlay PNG for this project. Returns the paths."""
     ad = cfg["ad"]
@@ -219,6 +264,8 @@ def build(key):
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0:
         print(r.stderr[-2500:]); sys.exit(1)
+    _strip_rotation(out)
+    _assert_upright(out)
     return out, body + END_DUR - XFADE, (before_end, after_start, hook_out, beat_in, beat_out)
 
 
@@ -252,6 +299,8 @@ def add_music(cfg, video, video_len):
         capture_output=True, text=True)
     if r.returncode != 0:
         print(r.stderr[-2500:]); sys.exit(1)
+    _strip_rotation(out)
+    _assert_upright(out)
     return out
 
 

@@ -322,3 +322,48 @@ The first cut's beat read *"Every baluster, taped by hand."* That is true of the
 the viewer had already left. Now *"Rebuilt one tread at a time."*
 
 **Check what is actually on screen when a plate appears, not what is in the clip somewhere.**
+
+---
+
+## `F9-noblesville-waterproofing-progress` — 17.57s
+
+**The single most valuable clip in the library is `noblesville bathroom 3.mp4`.** It shows the
+waterproofing membrane going on — orange sheets stacked and installed, green taped up the shower
+wall — *before any tile*.
+
+Every project page claims the complete Schluter system and a 25-year warranty, and **every finished
+photo hides it under tile**. This is the only footage where the claim is visible.
+
+> "Under every tile we set." / "Waterproofed before a single tile goes on." / "That's the 25-year warranty."
+
+**The copy deliberately does not name the membranes.** The orange is unmistakably Schluter Ditra;
+the green sheet on the shower wall is not identifiable from the frame and could be another
+manufacturer. "Schluter Pro Certified" sits in the end card as a certification statement, which is
+verifiable, rather than as a product ID of a sheet nobody has confirmed. **Worth asking Eric what
+the green is** — if it is Kerdi, *"Orange for floors. Green for walls."* is a better beat than the
+one shipped.
+
+### A sideways Reel, caught before it published
+
+The first render of this cut came out **rotated 90 degrees** — footage and overlay both on their
+side — while `F8`, built through identical code minutes earlier, was fine.
+
+**Cause:** ffmpeg auto-rotates on decode, so the filtered pixels are upright, but the source
+stream's display-matrix rotation sometimes rides through `filter_complex` onto the output. A player
+then rotates the already-upright pixels again. It is inconsistent between runs on identical inputs,
+which is what made it dangerous.
+
+**Fix:** `-display_rotation 0` on the input of a stream-copy remux. Two other approaches were tried
+and both silently failed — `-metadata:s:v:0 rotate=0` and `-map_metadata -1` left the flag in place.
+
+**The real fix is the check.** `_assert_upright()` now decodes a real frame after every encode and
+fails the build if it does not come back portrait. Container dimensions are not enough: a 1080x1920
+file carrying a 90-degree flag *reports* 1080x1920 and *decodes* to 1920x1080. Reading the reported
+size would have passed this file.
+
+All 50 renders were then audited. **The first audit reported 14 faults and was wrong** — it
+hardcoded 1080x1920, so it flagged every legitimate 1080x1350 feed cut. Corrected to "decoded size
+must equal coded size, and no rotation flag": **50 files, zero faults**.
+
+A check that can produce false alarms is worse than none, because the next real fault gets read as
+noise.

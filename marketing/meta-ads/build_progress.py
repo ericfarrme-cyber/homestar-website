@@ -68,7 +68,87 @@ PROJECTS = {
             (G("geist upper level(1).mp4"), 4.6, 3.4, "the landing, finished"),
         ],
     ),
+
+    # The Schluter story, which no finished photo can tell. Every project page
+    # claims the complete system and a 25-year warranty, and every finished
+    # photo hides it under tile. noblesville bathroom 3 is the only footage in
+    # the library where the membrane is actually on camera.
+    #
+    # Copy deliberately does NOT name the membranes. The orange is
+    # unmistakably Schluter Ditra, but the green sheet on the shower wall is
+    # not identifiable from the frame and could be another manufacturer.
+    # "Schluter Pro Certified" sits in the end_sub as a certification
+    # statement, which is verifiable, rather than as a product ID of a sheet
+    # nobody has confirmed. Worth asking Eric what the green is - if it is
+    # Kerdi, "orange for floors, green for walls" is a better beat.
+    #
+    # People: noblesville bathroom 2 has a hand in frame 8-10s. Avoided.
+    "noblesville-progress": dict(
+        out="F9-noblesville-waterproofing-progress",
+        slug="floor-to-ceiling-tile-noblesville",
+        music=("Before _ After (1).mp3", 83.8),
+        ad={
+            "hook":     "Under every tile we set.",
+            "beat":     "Waterproofed before a single tile goes on.",
+            "end_head": "That's the 25-year warranty.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (G("noblesville bathroom 3.mp4"), 0.4, 3.2, "membrane sheets stacked, room stripped back"),
+            (G("noblesville bathroom 3.mp4"), 5.4, 3.4, "waterproofing taped up the shower wall"),
+            (G("noblesville bathroom.mp4"),   0.6, 3.0, "tile going on over it, laser line, levelling clips"),
+            (G("noblesville bathroom 2.mp4"), 11.4, 3.0, "close on the wedges holding every joint flat"),
+            (G("noblesville bathroom.mp4"),   5.0, 3.4, "floor and wall, joints lining through"),
+        ],
+    ),
 }
+
+
+
+def _strip_rotation(path):
+    """Remove any inherited display-matrix rotation from a finished file.
+
+    ffmpeg auto-rotates on decode, so the filtered pixels are already upright -
+    but the rotation flag from the source stream sometimes rides through
+    filter_complex onto the output, and a player then rotates the upright
+    pixels again. It is inconsistent: an identical code path produced a clean
+    file for one project and a -90 flag for the next.
+
+    `-display_rotation 0` on the *input* of a stream-copy remux clears it.
+    Setting `rotate=0` metadata or `-map_metadata -1` does not - both were
+    tried and left the flag in place.
+    """
+    tmp = path + ".rot.mp4"
+    r = subprocess.run([FF, "-y", "-hide_banner", "-loglevel", "error",
+                        "-display_rotation", "0", "-i", path,
+                        "-c", "copy", "-movflags", "+faststart", tmp],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        print(r.stderr[-1500:]); sys.exit(1)
+    os.replace(tmp, path)
+
+
+def _assert_upright(path, w=1080, h=1920):
+    """Decode a real frame and check it comes out portrait.
+
+    Dimensions reported by the container are not enough - a 1080x1920 file
+    carrying a 90-degree rotation flag decodes to 1920x1080 and publishes
+    sideways. This checks the pixels a viewer actually gets.
+    """
+    from PIL import Image as _I
+    q = path + ".probe.png"
+    subprocess.run([FF, "-y", "-loglevel", "error", "-ss", "1", "-i", path,
+                    "-frames:v", "1", q], check=False)
+    if not os.path.exists(q):
+        sys.exit(f"could not decode a frame from {path}")
+    got = _I.open(q).size
+    os.remove(q)
+    if got != (w, h):
+        sys.exit(f"ORIENTATION FAULT: {os.path.basename(path)} decodes to "
+                 f"{got[0]}x{got[1]}, expected {w}x{h}")
+    return got
 
 
 def plates(cfg, tag):
@@ -167,6 +247,8 @@ def build(key):
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0:
         print(r.stderr[-2500:]); sys.exit(1)
+    _strip_rotation(out)
+    _assert_upright(out)
     return out, body + END_DUR - XFADE, (hook_out, beat_in, beat_out)
 
 
@@ -199,6 +281,8 @@ def add_music(cfg, video, video_len):
         capture_output=True, text=True)
     if r.returncode != 0:
         print(r.stderr[-2500:]); sys.exit(1)
+    _strip_rotation(out)
+    _assert_upright(out)
     return out
 
 
