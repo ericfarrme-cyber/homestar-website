@@ -1,8 +1,9 @@
 # Fishers White Oak Primary Bath — Reel caption
 
-**Scheduled for:** Thursday 3 September 2026, 9:00 AM
+**Scheduled for:** Thursday 3 September 2026, 9:00 AM (Eric's local time)
 **Posting to:** HomeStar Services and Contracting (Facebook) + thehomestarservice (Instagram)
-**File:** `marketing/meta-ads/renders/F4-fishers-white-oak-bath--reels-upload.mp4` (9.0 MB, 1080x1920, 21.5s, Quiet Neon)
+**File:** `marketing/meta-ads/renders/F4-fishers-white-oak-bath--reels-upload.mp4` (9.22 MB, 1080x1920, 21.5s)
+**Audio:** Quiet Neon bed with Eric's cloned-voice narration, sidechain-ducked
 
 ---
 
@@ -49,3 +50,15 @@ same one the project page makes.
 No hashtags, matching V1 and V2, neither of which uses any. Plain hyphens, not em dashes, also
 matching. No pricing in the caption - the end card already carries the band, and a comment thread
 is a poor place to defend a number.
+
+---
+
+## Composer note: the video has to go in first
+
+Meta's reel composer renders the caption field at **zero width** until a video is attached. It
+still takes focus, so typing into it silently goes nowhere - the field reports one character
+afterwards and nothing is entered. This is not a permissions or React-events problem; the element
+simply is not laid out yet.
+
+Order is therefore forced: **attach the video, then the caption, then the schedule.** Nothing in
+the composer is saved as a draft either - navigating away loses the caption entirely.
