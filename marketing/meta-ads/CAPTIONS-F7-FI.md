@@ -1,4 +1,4 @@
-# Captions — F7 through FK
+# Captions — F7 through FL
 
 Twelve cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
@@ -375,6 +375,46 @@ all 28 frames.
 **Sequencing:** this is the third cut from this one job, after **FA** (the four-stage progression)
 and **FI** (the finished walkthrough). Do not run them close together. FK and FI share their
 strongest shots, so they want the widest spacing of the three.
+
+---
+
+## FL — `three-bathroom-remodel-geist` (navy picket craft cut)
+
+**On screen:** "No two of these tiles match." · "Hand-glazed. On purpose." · "Set one clip at a
+time." · end sub: *Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.*
+
+> Every tile on this wall is slightly different from the one beside it. That is what a crackle glaze does - it is hand-applied, so no two come out the same.
+>
+> Which makes it unforgiving to set. The pattern is a picket, so every tile has a point that has to meet its neighbours, and a glaze that catches the light differently tile to tile will show any drift straight away. Levelling clips on every joint, and they stay in until the mortar has gone off.
+>
+> Under all of it is the complete Schluter system, which went into all three bathrooms on this job.
+>
+> This was the master of a three-bathroom remodel. The layout would not take the shower the family wanted, so we moved the entry door and reconfigured the linen closet to find the room for it.
+>
+> Geist, Fishers. Free in-home estimates: (317) 279-4798
+
+**First cut written from a project page's `story` block rather than from footage.** Those blocks
+carry several hundred words of specific detail per project and had gone unread until the source
+inventory turned them up. The hand-glazing, the one-of-a-kind finish, the moved door and the
+reconfigured linen closet are all HomeStar's own account of its own job - stated, not inferred
+from a video still.
+
+**Sits alongside F6**, which is this project's before/after. F6 is the room; this is the wall being
+built. Either order works, but do not run them in the same week.
+
+**Two plate/frame faults caught before publish.**
+
+1. The Schluter board segment was third, which dropped it under the beat - so "Hand-glazed. On
+   purpose." was describing a sheet of waterproofing board. Moved to second, under the hook.
+2. The finished window was 7.4s +3.2s, which **pans off the tile onto the vanity at 9.0s**. The
+   beat then sat over a window and a sink. Shortened to 6.5 +2.2, which holds on the tile.
+
+The second one matters beyond this cut: `_plate_coverage()` reports which **segments** a plate
+spans and cannot see a shot change subject **inside** a segment. On a moving camera, sample the
+source window before trusting it.
+
+**No people in any frame** - the whole 9.5s tile clip is the wall. Audited at 0.7s across all 22
+frames.
 
 ---
 

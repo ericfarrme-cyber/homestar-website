@@ -13,7 +13,7 @@ Last updated 2026-09-04.
 |---|---|---|
 | **Reels, built and captioned** | 16 | `POSTING-QUEUE.md`. 1080x1920, music-only, upload copies under 10 MB |
 | **Project photos** | 170 | across 28 project pages, already colour-corrected and web-sized |
-| **Before/after pairs on the site** | 4 | `beforeAfter` arrays with written labels — story-ready as-is |
+| **Before/after pairs on the site** | 3 | **Corrected 2026-09-04.** One project carries a `beforeAfter` array - `white-oak-primary-bath-fishers` - and it holds 3 pairs, each with a written label. The earlier count of 4 came from counting code occurrences, not data. |
 | **YouTube videos** | 3 | 2 project walkthroughs + 1 client testimonial |
 | **Blog posts** | 26 | cost, permits, ROI, design ideas — link-sticker material |
 | **Google rating** | 5.0 from 78 | the single strongest trust asset and currently unused socially |

@@ -38,6 +38,8 @@ Last updated 2026-09-03.
 | **FJ** | *(one-off, no project page)* | 14.4s | Marble checkerboard going down. Fishers, per Eric. Named no project on the end card. | `CAPTIONS-F7-FI.md` |
 | **FK** | `spa-retreat-bathroom-fishers` | 19.2s | **Demo → done.** Two-beat reveal: studs, then the finished room. **Pills read DEMO/DONE, not BEFORE/AFTER** — no true before exists for this job. Third asset from it. | `CAPTIONS-F7-FI.md` |
 
+| **FL** | `three-bathroom-remodel-geist` | 15.0s | **Craft cut.** Navy crackle-glaze picket going on with levelling clips over orange Schluter board, then the finished wall. Companion to F6, which is this project's before/after. | `CAPTIONS-F7-FI.md` |
+
 **FA, FI and FK are all the same job - confirmed by Eric 2026-09-04.** Spread them widely. FK and FI share their strongest shots,
 so those two want the most distance of the three.
 

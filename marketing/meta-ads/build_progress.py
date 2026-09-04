@@ -35,6 +35,9 @@ FADE_IN, FADE_OUT = 1.2, 2.2
 
 G = lambda n: os.path.join(NEW, n)
 A = lambda n: os.path.join(ARCH, n)
+# Some projects ship their own finished walkthrough on the site at far higher
+# quality than anything in the archive. These are gitignored, so local only.
+S = lambda n: os.path.join(REPO, "public", "images", n)
 
 PROJECTS = {
     # Every window below was chosen to contain NO PEOPLE. The crew appear in
@@ -390,6 +393,51 @@ PROJECTS = {
     #
     # 11.9s of source, all of it the same subject, so this runs short at 14.4s.
     # Marble checkerboard with levelling clips still in, grey walls unpainted.
+    # The Geist three-bath has a before/after (F6) but no process cut, and
+    # `geist three bath tile.mp4` is the best tile-setting footage in the
+    # library after the Zionsville star floor. Found by inventorying every
+    # clip by frame - see SOURCE-INVENTORY.md.
+    #
+    # Copy comes from the project page's own story block, which I had not been
+    # reading: "The navy crackle-glaze picket tile - hand-glazed with a finish
+    # that makes every tile one-of-a-kind - became the signature of the space."
+    # That sentence is HomeStar's claim about its own job, so "no two match"
+    # is stated rather than inferred from a video still.
+    "geist-tile": dict(
+        out="FL-geist-navy-picket-craft",
+        slug="three-bathroom-remodel-geist",
+        # The one track in the library never used. Arco has drive, which suits
+        # a craft cut; its sibling already carries FC, the Zionsville mosaic.
+        music=("Arco d_Avanguardia.mp3", 69.2),
+        ad={
+            "hook":     "No two of these tiles match.",
+            "beat":     "Hand-glazed. On purpose.",
+            "end_head": "Set one clip at a time.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        # No people anywhere in the tile clip - the whole 9.5s is the wall.
+        # The beat lands on the clips, so a clip-covered frame has to be under
+        # it; the last segment is the orange Schluter board it is bonded to.
+        # Order set by plate coverage, not chronology. First pass put the
+        # orange-board segment third, which dropped it under the beat - so
+        # "Hand-glazed. On purpose." was describing a sheet of waterproofing
+        # board. Moved to second, under the hook, where tile is still in frame.
+        segments=[
+            (A("geist three bath tile.mp4"), 0.4, 3.0, "navy picket up, green levelling clips still in"),
+            (A("geist three bath tile.mp4"), 7.4, 2.0, "the orange Schluter board it is bonded to"),
+            (A("geist three bath tile.mp4"), 4.4, 2.8, "clips across the whole wall, bench built in"),
+            # 6.5 +2.2, not 7.4 +3.2. The longer window pans off the tile onto
+            # the vanity at 9.0s, which put the beat over a window and a sink.
+            # _plate_coverage() checks which SEGMENTS a plate spans; it cannot
+            # see a shot change subject inside one. Sample the source before
+            # trusting a window on a moving camera.
+            (S("geist-three-bath-video.mp4"), 6.5, 2.2, "the same tile grouted, champagne bronze fixtures"),
+            (S("geist-three-bath-video.mp4"), 30.4, 3.4, "wall-mount filler running into the freestanding tub"),
+        ],
+    ),
+
     "laundry-checker": dict(
         out="FJ-checkerboard-floor",
         slug=None,
