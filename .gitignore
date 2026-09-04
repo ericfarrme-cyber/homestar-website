@@ -23,3 +23,6 @@ Pending/
 # two-pass x264 stats files - scratch, regenerated every encode
 marketing/meta-ads/renders/_*.log
 marketing/meta-ads/renders/_*.mbtree
+
+# Meta API token - never commit this
+marketing/meta-ads/.token
