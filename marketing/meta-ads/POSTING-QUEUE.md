@@ -114,6 +114,28 @@ Eric's instruction: pick the best track for each cut on its own merits, not by c
 was used last. `MUSIC.md` gives the measured basis - loudest steadiest window, and how far each
 track's intro sits under its own average.
 
+**Steadiness is not calmness, and that distinction cost two rebuilds.** American Reveal has the
+steadiest window in the library and was chosen for FH on that basis; Eric rejected it. Measuring
+properly - transient density, high-frequency energy ratio, dynamic variation - showed why: it is the
+**brightest** track by a wide margin (0.292 against 0.10-0.19 for everything else) and the second
+busiest at 2.06 onsets per second. Even and forward at once. For a quiet room the measure that
+matters is onsets and brightness, not spread.
+
+| track | onsets/s | brightness | spread | calm |
+|---|---|---|---|---|
+| `Before _ After.mp3` | 1.11 | 0.126 | 0.192 | **0.30** |
+| `Before _ After (1).mp3` | 1.11 | 0.116 | 0.218 | 0.48 |
+| `Arco d_Avanguardia (1).mp3` | 1.00 | 0.183 | 0.218 | 0.78 |
+| `Quiet Neon.mp3` | 1.61 | 0.098 | 0.265 | 0.98 |
+| `Arco d_Avanguardia.mp3` | 1.72 | 0.188 | 0.211 | 1.01 |
+| `American Reveal.mp3` | 2.06 | 0.292 | 0.179 | 1.38 |
+| `Brisa de Nylon.mp3` | 3.50 | 0.103 | 0.266 | 1.70 |
+| `Brisa de Nylon (1).mp3` | 3.78 | 0.119 | 0.292 | 2.11 |
+
+Lower is calmer. Reproduce with the scoring block in the session notes, or re-derive: onsets are
+frame-to-frame level jumps above 1.6x, brightness is mean absolute first-difference over mean
+absolute amplitude.
+
 | cut | track | why |
 |---|---|---|
 | F6 Geist | Quiet Neon @ 70.5s | as originally chosen |
@@ -127,8 +149,8 @@ track's intro sits under its own average.
 | FE Carmel double | Quiet Neon @ 69.2s | Arco read too bold over charcoal and black; Quiet Neon is cooler and more minimal |
 | FF Fishers wet room | Brisa de Nylon @ 48.8s | warm and guitar-led, matching taupe tile and champagne bronze |
 | FG Geist finished | Brisa de Nylon @ 48.8s | warm against wood and cove light; Arco was rejected as too brassy. Same bed as F8, which pairs them deliberately |
-| FH Fishers double | American Reveal @ 113.0s | steadiest window in the library, suiting light oak and daylight |
-| FI Spa retreat finished | Arco d'Avanguardia @ 69.2s | free again after FE; a warmer room than the one it was wrong for |
+| FH Fishers double | Before / After (1) @ 83.8s | second calmest measured - 1.11 onsets/s, 0.116 brightness. American Reveal was rejected: brightest track in the library |
+| FI Spa retreat finished | Before / After @ 92.5s | **calmest track on every measure taken.** Arco was rejected as too busy |
 
 ## Site video assets — swept 2026-09-03
 
