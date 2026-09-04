@@ -152,3 +152,27 @@ true peak because MP3 encoding introduces inter-sample overshoot.
 **That overshoot is exactly what made this take two passes.** At -2 dB the file measured -0.13 dBTP,
 still hot: the MP3 encode had given back roughly 1.8 dB. Measuring after the encode rather than
 before it is the only way to know - the arithmetic does not survive the codec.
+
+### First use of Robb's voice — FH, 2026-09-04
+
+`FH-fishers-double-shower--reels-vo-robb.mp4`. Script written to **add** to the on-screen plates
+rather than read them aloud:
+
+> Most primary showers get built for one person and used by two. So we ran a second head, a second
+> control, and enough room that nobody's standing there waiting their turn.
+
+9.48s of speech from 168 characters. Starts at 1.40s and the last word lands at 10.55s, clear of the
+end card at 11.60s.
+
+**A fourth mix bug, on top of the three from Eric's.** The first attempt measured **-22.3 LUFS** -
+audible but noticeably quiet, where the comparable Eric mix sat at -16.2. Cause: `amix` applies
+**1/n gain by default**, so two inputs come out 6 dB down. `normalize=0` disables it and the limiter
+catches any sum overshoot. Result: **-16.3 LUFS, -2.36 dBTP**.
+
+Everything else carried over from Eric's mix unchanged - voice fades 0.15/0.35, sidechain at
+ratio=4 threshold=0.05 attack=120 release=800, the key delayed 0.20s ahead of the voice, and
+`apad=whole_dur` on both the key and the final mix.
+
+Verified per-half-second rather than by integrated loudness: voice sits -14.7 to -22.6 dB, the bed
+continues -18.8 to -31.5 dB after the voice ends, and the tail is alive. **The music-only cut
+remains the default**; this exists because Eric asked for Robb on this one specifically.
