@@ -328,7 +328,13 @@ PROJECTS = {
     "fishers-double": dict(
         out="FH-fishers-double-shower",
         slug="double-shower-fishers",
-        music=("American Reveal.mp3", 113.0),
+        # Eric rejected American Reveal here. Measured, it is the brightest track
+        # in the library (0.292 on a high-frequency-energy ratio, against 0.10-0.19
+        # for everything else) and the second busiest at 2.06 onsets/second - steady,
+        # but forward and present, which is wrong over a quiet bathroom. Before /
+        # After (1) is the second calmest by that measure: 1.11 onsets/s and 0.116
+        # brightness.
+        music=("Before _ After (1).mp3", 83.8),
         ad={
             "hook":     "Two heads, not one.",
             "beat":     "Nobody waits in the cold.",
@@ -355,7 +361,12 @@ PROJECTS = {
     "spa-finished": dict(
         out="FI-fishers-spa-retreat-finished",
         slug="spa-retreat-bathroom-fishers",
-        music=("Arco d_Avanguardia.mp3", 69.2),
+        # Arco was rejected here too, and the numbers agree - 1.72 onsets/second
+        # and 0.188 brightness. Before / After is the calmest track in the library
+        # on every measure taken: fewest onsets, low brightness, least dynamic
+        # variation. A cut whose end card is "a spa you don't have to book" should
+        # have the calmest bed available under it.
+        music=("Before _ After.mp3", 92.5),
         ad={
             "hook":     "This is where the day ends.",
             "beat":     "Warm oak, brass, a tub under the window.",

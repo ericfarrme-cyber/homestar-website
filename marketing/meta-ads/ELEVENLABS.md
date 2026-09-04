@@ -119,3 +119,36 @@ the final mix is padded and trimmed to the video length as well, so the bed cann
 
 **The lesson: for audio, measure the timeline, not the average.** An integrated LUFS figure will
 happily report a healthy number for a file that is silent for its last two seconds.
+
+---
+
+## Robb's cloned voice — created 2026-09-04
+
+**`voice_id: b62742ce-5536-49f3-829d-46c6e05d8b94`, `voice_type: element`**, name
+"Robb Rice - HomeStar". Completed and audio-eligible on creation.
+
+Use it exactly as Eric's: `generate_audio`, `model: text2speech_v2`, `variant: elevenlabs`,
+`voice_type: "element"`, and that voice_id.
+
+Source kept at `Pending/voice/robb-rice-clone-source.mp3` (gitignored with the rest of `Pending/`).
+
+| | source | prepared |
+|---|---|---|
+| length | 175.0s (2.92 min) | unchanged - inside the 3-minute ceiling, no trim needed |
+| speech | 97% of frames, first word at 0.00s | unchanged |
+| loudness | -16.5 LUFS | -21.1 LUFS |
+| true peak | **+0.11 dBTP** | **-2.13 dBTP** |
+| channels | stereo 48 kHz AAC | mono 44.1 kHz MP3 |
+
+### Gain, not limiting - and it took two passes
+
+The source peaks **above full scale** at +0.11 dBTP, so it could not be handed over untouched.
+
+The fix is a **straight -4 dB gain**, which moves the level without altering the shape of anything.
+That is a different operation from the limiter tried on Eric's clone, which was wrong twice over:
+cloning wants natural dynamics rather than a flattened signal, and the limiter actually *raised*
+true peak because MP3 encoding introduces inter-sample overshoot.
+
+**That overshoot is exactly what made this take two passes.** At -2 dB the file measured -0.13 dBTP,
+still hot: the MP3 encode had given back roughly 1.8 dB. Measuring after the encode rather than
+before it is the only way to know - the arithmetic does not survive the codec.
