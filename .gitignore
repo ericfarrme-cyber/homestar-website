@@ -19,3 +19,7 @@ marketing/meta-ads/upload-to-meta/
 
 # Raw client media staging - originals live in Drive, never in the repo
 Pending/
+
+# two-pass x264 stats files - scratch, regenerated every encode
+marketing/meta-ads/renders/_*.log
+marketing/meta-ads/renders/_*.mbtree
