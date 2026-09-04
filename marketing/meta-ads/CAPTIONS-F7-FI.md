@@ -1,6 +1,6 @@
-# Captions — F7 through FG
+# Captions — F7 through FI
 
-Ten cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
+Twelve cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
 every specific detail traced to the project page rather than inferred from footage.
 
@@ -252,6 +252,51 @@ first.** The last line only works in that order, and should be cut if they run t
 
 **"Fortnight of trim carpentry" is a figure of speech, not a schedule.** If that reads as a duration
 claim, change it - job durations come from Eric, never from arithmetic or flourish.
+
+---
+
+## FH — `double-shower-fishers`
+
+**On screen:** "Two heads, not one." · "Nobody waits in the cold." · "A shower actually big enough
+for two." · end sub: *Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.*
+
+> Most primary showers get built for one person and used by two.
+
+> The old one here was a single head in a cramped corner, which works fine right up until two people need to be ready at the same time. Somebody ends up standing outside the spray, waiting their turn and getting cold.
+>
+> So the layout was reconfigured and new plumbing run to support a genuine double: two heads, two sets of controls, and enough width that neither person is in the other's way. Frameless glass so it reads as part of the room rather than a box in the corner, stacked tile to the ceiling, and a pebble mosaic pan.
+>
+> Behind every tiled surface, the complete Schluter waterproofing system. 25-year warranty, standard, not an upgrade.
+>
+> Fishers, Indiana. Free in-home estimates: (317) 279-4798
+
+**Note:** the shortest cut in the set at 14.8s, because there are only 12.7 seconds of usable
+source. Padding it would have meant including a shot that had not earned its place.
+
+**A voiceover was built for this in Robb's cloned voice and then removed at Eric's request.** The
+clone and the recording are still on file - see `ELEVENLABS.md` - so it can be reinstated in a
+couple of minutes if he changes his mind.
+
+---
+
+## FI — `spa-retreat-bathroom-fishers` (finished)
+
+**On screen:** "This is where the day ends." · "Warm oak, brass, a tub under the window." · "A spa
+you don't have to book." · end sub: *Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.*
+
+> This is where the day ends.
+
+> The brief was not a bathroom, it was somewhere to stop. Warm oak cabinetry rather than white, quartz with almost no movement in it, brass instead of chrome, and oval mirrors that soften a room full of straight lines.
+>
+> A freestanding soaker sits under the window. The walk-in shower has a rain head and a handheld, twin lit niches, and a linear drain so the floor runs flat and unbroken to the glass. There is a heated towel rail, dimmable lighting, and an exhaust fan sized properly for the room - a spa bathroom that stays humid is just a humid bathroom.
+>
+> Every tiled surface sits on the complete Schluter system. 25-year warranty, standard.
+>
+> Fishers, Indiana. Free in-home estimates: (317) 279-4798
+
+**Pairs with FA**, which is this job's process arc - studs, waterproofing, tile, finished. FA proves
+the room was built properly; this one shows what it is for. **Either order works**, unlike F8 and
+FG.
 
 ---
 

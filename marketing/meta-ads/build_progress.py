@@ -383,6 +383,32 @@ PROJECTS = {
             (A("fishers spa finished 1.mp4"), 29.0, 3.0, "twin lit niches, textured tile"),
         ],
     ),
+    # A one-off job rather than one of the site's two laundry projects - Eric's
+    # word - but the checkerboard is a look people respond to, so it earns a cut
+    # on the pattern alone. The end card therefore names no city and no project:
+    # nothing here is attributed to a job that cannot be pointed at.
+    #
+    # 11.9s of source, all of it the same subject, so this runs short at 14.4s.
+    # Marble checkerboard with levelling clips still in, grey walls unpainted.
+    "laundry-checker": dict(
+        out="FJ-checkerboard-floor",
+        slug=None,
+        music=("Before _ After.mp3", 92.5),
+        ad={
+            "hook":     "Checkerboard is unforgiving.",
+            "beat":     "Every corner meets three others.",
+            "end_head": "Get the layout wrong and you see it forever.",
+            "end_sub":  "Schluter Pro Certified. Tile and flooring across Hamilton County.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (A("laundry tile.mp4"),  0.4, 3.2, "marble checkerboard going down, clips still in"),
+            (A("laundry tile.mp4"),  4.0, 3.0, "along the run, grout lines carrying through"),
+            (A("laundry tile.mp4"),  7.2, 3.2, "into the doorway, pattern holding the turn"),
+            (A("laundry tile.mp4"),  9.6, 2.2, "wide - the full floor"),
+        ],
+    ),
 }
 
 
