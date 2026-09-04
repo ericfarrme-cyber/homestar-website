@@ -77,15 +77,16 @@ STORIES = [
          note="Brushed fixture close-up. No finish named - photo alone cannot "
               "prove brass over nickel."),
 
-    dict(key="S6", src="marble-master-bathroom-fishers-4.jpg",
-         head="Anybody can\ntile a wall.\nLook inside the niche.",
-         sub="Fishers marble master bath",
-         note="Replaced the faucet card on Eric's note: a stock gooseneck on "
-              "plain marble showed nothing custom, and a card that displays "
-              "ordinary work argues against us. This is a waterjet marble "
-              "mosaic inside the niche with a solid marble shelf and mitred "
-              "returns - the detail most builders skip by running field tile "
-              "straight through."),
+    dict(key="S6", src="zionsville-basement-4.jpg",
+         head="That backsplash\nisn't tile. It's the\ncountertop, continued.",
+         sub="Zionsville basement bar",
+         bias_x=0.34,
+         note="Second replacement. The marble niche was true but grey on "
+              "grey and it did not stop a thumb. Green quartzite slab run "
+              "full height as the backsplash, matte black tap, integrated "
+              "sink. Claim is visible in frame - the slab and counter are "
+              "the same stone, which tile could not fake. Landscape source "
+              "cropped left of centre because the tap sits left."),
 
     dict(key="S7", src="geist-three-bath-2.jpg",
          head="The tile that\nmade the room.",
@@ -102,28 +103,99 @@ STORIES = [
               "needs the width to read as long. This is the exact plate/frame "
               "mismatch that has bitten the reels four times."),
 
-    dict(key="S9", src="marble-master-bathroom-fishers-3.jpg",
-         head="Centered.\nNot cut to fit.",
-         sub="Fishers marble master bath",
-         note="Replaced the heated rail card - that photo was backlit by the "
-              "window behind it and blown out. Here the mosaic is set so the "
-              "pattern centres on the drain and the field cuts symmetrically "
-              "to all four walls. Claim is about setting out, not the drain, "
-              "so it does not repeat S1."),
+    dict(key="S9", src="noblesville-floor-to-ceiling-tile-1.jpg",
+         head="The light is\ninside the wall.",
+         sub="Noblesville floor to ceiling tile",
+         note="Second replacement. Concealed LED above the feature wall "
+              "and inside the full-width niche - the channels have to be "
+              "roughed in before a single tile goes on, which is the point "
+              "of the line. F9 caption names it: 'light running the length "
+              "of the shower niche'."),
 
     dict(key="S10", src="zionsville-jack-and-jill-2.jpg",
          head="A star cut from marble.\nRepeated across\na whole floor.",
          sub="Zionsville jack and jill",
-         bias=1.0, zoom=2.3,
+         bias=0.42,
          note="Eric's call - the star-pattern marble mosaic beats the plain "
               "penny round it replaced. Cropped hard to the bottom of the "
               "frame because the floor is the subject; the default upward "
               "bias would have framed the ceiling. F7 caption names it: "
               "'A star-pattern marble mosaic floor.'"),
+
+    # ---- second set ----------------------------------------------------
+    # Same rule as above: every headline describes something visible in its
+    # own frame. Where a number or a material would have been the obvious
+    # line, it is left out unless a project page or approved caption states
+    # it - a shuffleboard I cannot measure does not get a length.
+
+    dict(key="S11", src="zionsville-basement-6.jpg",
+         head="Somewhere to put\nthe good bottles.",
+         sub="Zionsville basement",
+         note="Wine wall. No count claimed - the bottles are not all visible "
+              "and the rack may not be full."),
+
+    dict(key="S12", src="zionsville-basement-3.jpg",
+         head="Brass, glass,\nand a slab worth\nlooking at.",
+         sub="Zionsville basement bar",
+         note="Same green stone as S6, shot wide with the shelving. Space "
+              "these two apart when scheduling - same room, same stone."),
+
+    dict(key="S13", src="noblesville-floor-to-ceiling-tile-3.jpg",
+         head="Nothing in this room\nthat doesn't earn it.",
+         sub="Noblesville floor to ceiling tile",
+         note="Freestanding tub, chandelier, narrow window. Deliberately no "
+              "claim about the window - cannot tell backlit from daylight."),
+
+    dict(key="S14", src="geist-upper-level-3.jpg",
+         head="A ladder means\nthe shelves go\nall the way up.",
+         sub="Geist upper level",
+         note="Library ladder on a rail, visible in frame."),
+
+    dict(key="S15", src="westfield-basement-masterpiece-13.jpg",
+         head="The basement got\na shuffleboard court.",
+         sub="Westfield luxury basement",
+         mode="fit",
+         note="Landscape source and the table's length is the subject, so it "
+              "is letterboxed. No dimension claimed - I cannot measure it."),
+
+    dict(key="S16", src="geist-upper-level-6.jpg",
+         head="Panelling is just trim\nuntil somebody gets\nthe spacing right.",
+         sub="Geist upper level",
+         note="Dropped the Fishers black-on-white shower: a shampoo bottle "
+              "sat in the niche and the composition was ordinary. Applied "
+              "wall panelling instead - F8's caption already sells this as "
+              "the work nobody photographs, and the panel layout is the "
+              "whole skill."),
+
+    dict(key="S17", src="modern-farmhouse-3.jpg",
+         head="Farmhouse doesn't\nhave to mean plain.",
+         sub="Modern farmhouse",
+         note="Patterned floor against a simple palette."),
+
+    dict(key="S18", src="fortville-pavilion-3.jpg",
+         head="Look up.\nThat's the whole point.",
+         sub="Fortville pavilion",
+         bias=0.15,
+         note="Exposed timber roof structure. Cropped upward because the "
+              "ceiling is the subject - the inverse of the S10 problem."),
+
+    dict(key="S19", src="white-oak-primary-bath-fishers-2.jpg",
+         head="White oak, and a tub\nput where the\nlight already was.",
+         sub="Fishers white oak primary bath",
+         note="Dropped the stamped concrete: flat overcast light, and the "
+              "stamping did not read at story size, so the headline claimed "
+              "something the photo could not show. White oak is named in "
+              "F4's caption and the project title."),
+
+    dict(key="S20", src="zionsville-kitchen-main-level-4.jpeg",
+         head="The shelf is part\nof the wall, not\nscrewed to it.",
+         sub="Zionsville main level",
+         note="Built-in shelving in a recessed surround - visibly integral "
+              "rather than mounted. No material named."),
 ]
 
 
-def cover(path, bias=0.35, zoom=1.0):
+def cover(path, bias=0.35, zoom=1.0, bias_x=0.5):
     """Fill 1080x1920 without distorting - crop the overflow.
 
     bias is where the crop sits vertically: 0 is the top of the photo, 1 the
@@ -133,7 +205,8 @@ def cover(path, bias=0.35, zoom=1.0):
     over a photo of a ceiling.
 
     zoom > 1 takes a tighter region, for when the subject is a small part of
-    a wide shot.
+    a wide shot. bias_x does the same horizontally - a subject sitting left
+    of centre in a wide shot is lost by a centred crop.
     """
     im = Image.open(path).convert("RGB")
     target = (W * S) / float(H * S)
@@ -145,7 +218,7 @@ def cover(path, bias=0.35, zoom=1.0):
         box_w = box_h * target
 
     box_w, box_h = box_w / zoom, box_h / zoom
-    left = (im.width - box_w) / 2.0
+    left = (im.width - box_w) * min(1.0, max(0.0, bias_x))
     top = (im.height - box_h) * min(1.0, max(0.0, bias))
 
     im = im.crop((int(left), int(top), int(left + box_w), int(top + box_h)))
@@ -198,8 +271,8 @@ def build(card):
 
     fitted = card.get("mode") == "fit"
     canvas = (letterbox(src) if fitted else
-              cover(src, card.get("bias", 0.35),
-                    card.get("zoom", 1.0)).convert("RGBA"))
+              cover(src, card.get("bias", 0.35), card.get("zoom", 1.0),
+                    card.get("bias_x", 0.5)).convert("RGBA"))
 
     f_head = font("PlusJakartaSans-ExtraBold.ttf", 74)
     f_sub = font("PlusJakartaSans-Medium.ttf", 30)
