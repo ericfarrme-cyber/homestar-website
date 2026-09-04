@@ -35,6 +35,11 @@ Last updated 2026-09-03.
 | **FG** | `geist-upper-level-remodel` | 17.8s | Finished suite and loft. **Payoff companion to F8 — run F8 first.** | `CAPTIONS-F7-FI.md` |
 | **FH** | `double-shower-fishers` | 14.8s | Walkthrough. Two heads plainly on camera. Shortest cut - only 12.7s of source. | `CAPTIONS-F7-FI.md` |
 | **FI** | `spa-retreat-bathroom-fishers` | 17.6s | Finished walkthrough. Second asset from that job; FA is its process arc. | `CAPTIONS-F7-FI.md` |
+| **FJ** | *(one-off, no project page)* | 14.4s | Marble checkerboard going down. Fishers, per Eric. Named no project on the end card. | `CAPTIONS-F7-FI.md` |
+| **FK** | `spa-retreat-bathroom-fishers` | 19.2s | **Demo → done.** Two-beat reveal: studs, then the finished room. **Pills read DEMO/DONE, not BEFORE/AFTER** — no true before exists for this job. Third asset from it. | `CAPTIONS-F7-FI.md` |
+
+**FA, FI and FK are all the same job.** Spread them widely. FK and FI share their strongest shots,
+so those two want the most distance of the three.
 
 ## People-in-frame audit — 2026-09-03
 

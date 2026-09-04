@@ -1,4 +1,4 @@
-# Captions — F7 through FJ
+# Captions — F7 through FK
 
 Twelve cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
@@ -327,6 +327,54 @@ is what the footage actually shows. Claiming the membrane here would be inventin
 
 **Eric's framing, 2026-09-04:** "a one off but a popular look with the checkers." So it is written as
 a craft piece rather than as a service we are touting - no offer, no upsell into laundry rooms.
+
+---
+
+## FK — `spa-retreat-bathroom-fishers` (demo to done)
+
+**On screen:** DEMO/DONE pill · "We took it back to nothing." · "Then built a spa in it." ·
+end sub: *Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.*
+
+> We didn't photograph the old bathroom. We photographed the moment there was nothing left of it.
+>
+> Studs, subfloor, and a window with nothing around it.
+>
+> What went back in: a freestanding soaker under the window, warm oak cabinetry rather than white, quartz with almost no movement in it, brass instead of chrome, and twin oval mirrors to soften a room full of straight lines.
+>
+> There is a heated towel rail, a walk-in shower with a rain head and a handheld, and a linear drain so the floor runs flat and unbroken to the glass.
+>
+> Every tiled surface sits on the complete Schluter system. 25-year warranty, standard, not an upgrade.
+>
+> Fishers, Indiana. Free in-home estimates: (317) 279-4798
+
+**This is not sold as a before-and-after, because there is no before.** No pre-demolition footage
+exists for this job, the project page carries no before photos and no `beforeAfter` array, and the
+only genuine befores in the whole library are `geist three bath before.mp4` and three white-oak
+stills. The pills therefore read **DEMO** and **DONE**.
+
+Calling our own demolition "BEFORE" would tell people that homeowner's bathroom looked like a
+building site. It did not - it was a finished, dated bathroom until we took it apart. That is the
+same class of error as pairing the Geist rooms by shared date, or publishing a gap between video
+dates as a job duration. **FB is not a contradiction:** an unfinished basement genuinely is how the
+Westfield homeowner lived with that space, so BEFORE is honest there.
+
+The opening line makes the absence the hook rather than hiding it. It is also true, which the
+alternative was not.
+
+**No duration claimed** anywhere in the cut or the caption - nobody has told me how long this job
+took, and the footage cannot establish it.
+
+**Every specific detail traces to FI**, which is the finished walkthrough of this same job: the oak,
+the quartz, the brass, the oval mirrors, the heated towel rail, the rain head and handheld, the
+linear drain, and the Schluter system with its 25-year warranty.
+
+**No crew in frame.** Both demo segments dodge the man visible around 4.5s and 6.0s of
+`spa retreat fishers 1.mp4`, since crew-in-frame is still an open question. Audited at 0.7s across
+all 28 frames.
+
+**Sequencing:** this is the third cut from this one job, after **FA** (the four-stage progression)
+and **FI** (the finished walkthrough). Do not run them close together. FK and FI share their
+strongest shots, so they want the widest spacing of the three.
 
 ---
 

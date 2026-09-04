@@ -133,6 +133,46 @@ PROJECTS = {
             (MOV, 44.0, 3.0, "AFTER", "shuffleboard under the wood ceiling"),
         ],
     ),
+
+    # Fishers Spa Retreat. There is NO true before for this job - no
+    # pre-demolition footage, no before photos on the project page, no
+    # beforeAfter array. The only genuine befores in the whole library are
+    # "geist three bath before.mp4" and three white-oak stills.
+    #
+    # So this is not sold as one. The pills read DEMO and DONE, because the
+    # opening state is our own demolition rather than how the homeowner lived
+    # with the room. Labelling it BEFORE would tell people their bathroom
+    # looked like a building site, which is the same class of error as pairing
+    # the Geist rooms by date or publishing a video-date gap as a job duration.
+    #
+    # Distinct from FA, which is the four-stage progression of this same job.
+    # This is a two-beat reveal: gutted, then done.
+    "spa-retreat": dict(
+        out="FK-fishers-spa-retreat-demo-to-done",
+        slug="spa-retreat-bathroom-fishers",
+        # Calmest family in the library and distinct from both existing spa
+        # cuts - FA runs Brisa de Nylon (1), FI runs Before _ After.
+        music=("Before _ After (1).mp3", 83.8),
+        labels=("DEMO", "DONE"),
+        ad={
+            "hook":     "We took it back to nothing.",
+            "beat":     "Then built a spa in it.",
+            "end_head": "Everything you see, we put there.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        # Both demo windows dodge the crew member visible around 4.5s and 6.0s.
+        # Crew in frame is still an open question with Eric, so no face here.
+        segments=[
+            (os.path.join(NEW, "spa retreat fishers 1.mp4"),  1.4, 2.8, "BEFORE", "studs and subfloor, window wall open"),
+            (os.path.join(NEW, "spa retreat fishers 1.mp4"),  8.6, 2.6, "BEFORE", "bare framing, tub still standing on end"),
+            (os.path.join(ARCH, "fishers spa finished 1.mp4"), 16.6, 3.4, "AFTER", "freestanding tub under the window"),
+            (os.path.join(ARCH, "fishers spa finished 1.mp4"),  0.6, 3.2, "AFTER", "oak vanity, oval mirrors, brass"),
+            (os.path.join(ARCH, "fishers spa finished 1.mp4"), 22.8, 3.2, "AFTER", "walk-in shower, rain head and handheld"),
+            (os.path.join(ARCH, "fishers spa finished 1.mp4"), 12.4, 2.8, "AFTER", "quartz run to the heated towel rail"),
+        ],
+    ),
 }
 
 
@@ -222,9 +262,16 @@ def plates(cfg, tag):
         y += lh
     V._down(img, beat)
 
-    # BEFORE / AFTER pills, centred under the wordmark
-    for label, bg, path in (("BEFORE", (188, 62, 62, 235), tb),
-                            ("AFTER", BRAND.GREEN + (235,), ta)):
+    # The two state pills, centred under the wordmark. Text is per project
+    # because "BEFORE" is not always honest: on the Westfield basement the
+    # opening state genuinely is the homeowner's before - an unfinished
+    # basement is how they lived with it. On a gutted bathroom it is not. That
+    # room was a finished, dated bathroom until we demolished it, so labelling
+    # our own demolition "BEFORE" tells people their bathroom looked like a
+    # building site. Same pill, honest words.
+    before_label, after_label = cfg.get("labels", ("BEFORE", "AFTER"))
+    for label, bg, path in ((before_label, (188, 62, 62, 235), tb),
+                            (after_label, BRAND.GREEN + (235,), ta)):
         img, d = V._layer()
         fnt = BRAND.font("ExtraBold", int(30 * Sx))
         wpx, _ = BRAND.pill(d, 0, -10_000, label, fnt, bg, BRAND.WHITE + (255,),
@@ -253,7 +300,11 @@ def build(key):
         spans.append((t, t + dur))
         t += dur - XFADE
     body = spans[-1][1]
+    # Segments still carry the literal words BEFORE/AFTER as their state, which
+    # is what splits the reel. Only the pill wording is per project.
     n_before = sum(1 for s in segs if s[3] == "BEFORE")
+    if n_before == 0 or n_before == len(segs):
+        sys.exit("%s needs both BEFORE and AFTER segments" % key)
     before_end = spans[n_before - 1][1]
     after_start = spans[n_before][0]
     hook_out = before_end - 0.8
