@@ -36,6 +36,18 @@ Last updated 2026-09-03.
 | **FH** | `double-shower-fishers` | 14.8s | Walkthrough. Two heads plainly on camera. Shortest cut - only 12.7s of source. | `CAPTIONS-F7-FI.md` |
 | **FI** | `spa-retreat-bathroom-fishers` | 17.6s | Finished walkthrough. Second asset from that job; FA is its process arc. | `CAPTIONS-F7-FI.md` |
 | **FJ** | *(one-off, no project page)* | 14.4s | Marble checkerboard going down. Fishers, per Eric. Named no project on the end card. | `CAPTIONS-F7-FI.md` |
+> **HOLD - FK AND FI ARE BOTH ON HOLD, 2026-09-04.** The three `spa retreat fishers*.mp4`
+> progress clips and the three `fishers spa finished*.mp4` clips do not look like the same
+> bathroom. Progress: light raised-panel vanity, chrome, divided-light windows over open water,
+> glass shower enclosure with a bench. Finished: dark recessed-panel vanity, brass, oval mirrors,
+> window with blinds over rooftops, walk-in shower with a linear drain. A just-installed vanity
+> does not get swapped, and the door profiles differ.
+>
+> If they are two jobs then **FK pairs one room's demolition with another room's finished
+> footage** - the Geist error again - and **FI is captioned as the spa retreat while showing a
+> different job**. Awaiting Eric. **FA is unaffected**: all five of its segments come from the
+> three progress clips, so it is internally consistent whatever the answer.
+
 | **FK** | `spa-retreat-bathroom-fishers` | 19.2s | **Demo → done.** Two-beat reveal: studs, then the finished room. **Pills read DEMO/DONE, not BEFORE/AFTER** — no true before exists for this job. Third asset from it. | `CAPTIONS-F7-FI.md` |
 
 **FA, FI and FK are all the same job.** Spread them widely. FK and FI share their strongest shots,
