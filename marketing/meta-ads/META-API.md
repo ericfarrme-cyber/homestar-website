@@ -40,40 +40,55 @@ Neither is a blocker. Both change the shape of the thing, so better known now th
 
 ---
 
-## Progress — paused 2026-09-04
+## Progress — 2026-09-04
+
+### IDs (none of these are secrets; only the token is)
+
+| | |
+|---|---|
+| App ID | `1077386074681616` |
+| Business portfolio ID | `1099391968256327` |
+| Facebook Page ID | `482409631622420` |
+| Instagram user ID | `17841470404585555` |
+| System user ID | `61593697727654` |
+
+### State
 
 | step | state |
 |---|---|
-| Developer account registered | **done** |
-| App created | **done** — "HomeStar Publishing", **App ID `1077386074681616`**, mode: In development, business: Eric Farr |
-| Use cases | **done** — "Manage messaging & content on Instagram" + "Manage everything on your Page" |
-| App Review required | **no** — Meta reported "No requirements identified" |
-| System user created | **done** — "HomeStar Publisher", **ID `61593697727654`**, Employee access |
-| Assets assigned | **not started** — paused with the picker open, nothing selected |
+| Developer account | **done** |
+| App "HomeStar Publishing" | **done** — in development, Eric Farr portfolio |
+| Use cases | **done** — Instagram content + Page management |
+| App Review | **not required** — Meta reported no requirements |
+| System user "HomeStar Publisher" | **done** — Employee access |
+| **Facebook Page assigned** | **done** — Partial access: **Content and Insights** |
+| **Instagram assigned** | **blocked** — attached to the system user, but "Nothing assigned yet" |
 | Token generated | **not started** |
 
-**Resume at:** Business settings → System users → HomeStar Publisher → **Assign assets**.
-Assign **two** things, each with full content permissions:
+### The Instagram blocker
 
-1. **Facebook Pages** → HomeStar Services and Contracting
-2. **Instagram accounts** → thehomestarservice
+`@thehomestarservice` is in the portfolio and attached to the system user, but carries a
+**"Login needed"** flag:
 
-Then **Generate token** against "HomeStar Publishing" with the five scopes listed below.
+> Log in for settings that let you give people, partners and **apps** access to manage the
+> @thehomestarservice Instagram profile
 
-### Two things that stop me mid-flow, by design
+With that flag set, every permission toggle in **Manage assignments** is greyed out and Save is
+inactive. It is not a permissions problem or a wrong-portfolio problem - Meta simply will not let
+apps be granted access to that profile until someone logs into Instagram from Business settings.
 
-Both came up and both are Eric's to do:
+**Eric has to do this**, at Business settings → Instagram accounts → @thehomestarservice → **Log in**.
+It needs Instagram credentials, which I do not handle.
 
-- **Meta re-prompts for the account password** before creating an app. I do not type passwords.
-- **The Non-discrimination policy** must be accepted on behalf of system users. It is a compliance
-  attestation about not discriminating on protected characteristics under fair housing and civil
-  rights law - not a formality, and not something to accept on someone else's behalf.
+Once logged in, the toggles unlock and Instagram needs **Content** on, matching the Page. Leave
+**Ads** off on both - nothing in this integration should be able to spend.
 
-### A correction to the advice below
+### Deliberate permission choices
 
-The system user was created as **Employee**, not Admin as originally written here. That is the better
-choice: the token's reach comes from the assets assigned to it, not from the role, so Employee
-confines it to exactly the Page and Instagram account and nothing else in the business portfolio.
+The Page was given **Content and Insights only**. Explicitly left off: Ads, Revenue, Creator content,
+Creator management, Messages and calls, Community activity. Content covers publishing and reading
+back what published; Insights is read-only performance. **Ads is the one that touches money and it
+stays off.**
 
 ## What you need to create
 
