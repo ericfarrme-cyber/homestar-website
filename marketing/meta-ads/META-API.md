@@ -62,26 +62,80 @@ Neither is a blocker. Both change the shape of the thing, so better known now th
 | App Review | **not required** — Meta reported no requirements |
 | System user "HomeStar Publisher" | **done** — Employee access |
 | **Facebook Page assigned** | **done** — Partial access: **Content and Insights** |
-| **Instagram assigned** | **blocked** — attached to the system user, but "Nothing assigned yet" |
-| Token generated | **not started** |
+| **System user's app role** | **done** — Partial access: **Develop app** (not Manage app) |
+| **Token wizard** | **staged** — app picked, Never, 5 scopes ticked. Awaiting Eric's click |
+| **Instagram assigned** | **blocked** — see below. May not matter; see the Page route |
+
+### The app-role gap (found and fixed 2026-09-04)
+
+The first run of **Generate token** died on:
+
+> **No permissions available.** Assign an app role to the system user or select another app to continue.
+
+Assigning a system user *assets* is not the same as giving it a role on the *app*. Both are needed
+and the second is easy to miss, because the system user's own **Installed apps** tab has no add
+button - it only fills in after a token exists. The grant lives on the other side:
+
+**Business settings → Accounts → Apps → HomeStar Publishing → Assign people → HomeStar Publisher
+(System user) → Develop app.**
+
+**Develop app**, deliberately, not **Manage app**. Manage app is full access and can rewrite the
+app's roles and settings. A credential whose whole job is to post reels has no business being able
+to re-permission itself.
+
+### Where the token wizard is parked
+
+Staged and verified, one click from done:
+
+| step | value |
+|---|---|
+| App | HomeStar Publishing |
+| Expiration | **Never** |
+| Permissions | `instagram_basic`, `instagram_content_publish`, `pages_manage_posts`, `pages_read_engagement`, `pages_show_list` |
+
+All five were confirmed **by name in the list**, not by trusting the "5 options selected" counter.
+
+**Expiration is Never on purpose.** 60 days is Meta's default and it would strand the scheduler in
+early November - failing the way these always fail, silently, with a post that simply never goes
+out. The cost of Never is a credential that does not self-revoke if it leaks; that is acceptable
+because it is scoped to Content and Insights on one Page with **no Ads access**, and **Revoke
+tokens** sits on the same screen.
+
+**Why it is parked rather than finished.** The final button carries this:
+
+> By clicking "Continue," you agree to **Meta Platform Terms** and **Developer Policies** as well as
+> all other applicable terms and policies. You also agree to add the missing permissions to the app.
+
+That is accepting legal terms on Eric's behalf, so it is his click - the same line I held at the
+Non-discrimination policy. Four of the five scopes are not yet on the app and Continue adds them.
 
 ### The Instagram blocker
 
 `@thehomestarservice` is in the portfolio and attached to the system user, but carries a
-**"Login needed"** flag:
+**"Login needed"** flag, and while it is set every permission toggle is greyed out and Save is dead.
 
-> Log in for settings that let you give people, partners and **apps** access to manage the
-> @thehomestarservice Instagram profile
+Eric logged in on 2026-09-04 and it failed, landing on:
 
-With that flag set, every permission toggle in **Manage assignments** is greyed out and Save is
-inactive. It is not a permissions problem or a wrong-portfolio problem - Meta simply will not let
-apps be granted access to that profile until someone logs into Instagram from Business settings.
+> **Sorry, something went wrong.** — at `business.facebook.com/page/instagram/oidclink/?code=...`
 
-**Eric has to do this**, at Business settings → Instagram accounts → @thehomestarservice → **Log in**.
-It needs Instagram credentials, which I do not handle.
+**Read the URL: the `code` parameter means the login itself succeeded.** Instagram authenticated him
+and issued an authorization code; Meta then failed to exchange it and write the link. That is a
+server-side fault on Meta's side, not a credential or permissions problem. Retrying the flow put the
+popup in a separate browser window that could not be driven, and the flag was still set afterwards -
+verified by reloading the settings page, not by trusting the redirect.
 
-Once logged in, the toggles unlock and Instagram needs **Content** on, matching the Page. Leave
-**Ads** off on both - nothing in this integration should be able to spend.
+**This may not need solving.** Instagram publishing through the Graph API normally flows through the
+**Facebook Page**, not through a separate Instagram asset grant:
+
+```
+GET /482409631622420?fields=instagram_business_account
+```
+
+If that returns the IG ID on the system user's token, then `POST /{ig-user-id}/media` and
+`/media_publish` work with the same token and the asset assignment is redundant. Meta's own dialog
+confirms the two are joined - *"the connected HomeStar Services and Contracting Facebook Page"*.
+The Page is already assigned with Content. **So this is one API call to settle, not a blocker to
+fight.** Test it first; only go back to the login flow if that call comes back empty.
 
 ### Deliberate permission choices
 
@@ -90,47 +144,34 @@ Creator management, Messages and calls, Community activity. Content covers publi
 back what published; Insights is read-only performance. **Ads is the one that touches money and it
 stays off.**
 
-## What you need to create
+Left off the token as well: `business_management`, `pages_manage_engagement` (posting comments and
+reactions), `pages_read_user_content` (reading other people's comments), and `read_insights`. If
+per-post insights are wanted later, `read_insights` is the one to add - it needs a new token.
 
-I cannot do any of this part — it involves creating an app and generating a credential.
+---
 
-### 1. Confirm the Instagram account is a Business account linked to the Page
+## What is left
 
-`thehomestarservice` almost certainly is already, since it appears in Business Suite alongside the
-Page. Worth confirming in **Instagram → Settings → Account type and tools**.
+### 1. Eric clicks Continue, then Generate token
 
-### 2. Create a Meta app
+The wizard is staged at **Business settings → Users → System users → HomeStar Publisher →
+Generate token**. If it has timed out, re-run it with the table above.
 
-**developers.facebook.com → My Apps → Create App → type: Business.** Name it something like
-"HomeStar Publishing". It does not need to be public and **does not need App Review** for our
-purposes — see below.
+On the last screen, **confirm it says the token never expires** before copying.
 
-### 3. Create a System User token, not a user token
+### 2. Eric puts it in the environment
 
-Business Manager → **Business settings → Users → System users → Add**. Give it Admin access, then
-**Assign assets**: the HomeStar Facebook Page and the Instagram account, both with full content
-permissions.
+```bash
+setx META_PAGE_TOKEN "paste-it-here"
+setx META_PAGE_ID "482409631622420"
+setx META_IG_USER_ID "17841470404585555"
+```
 
-Then **Generate new token**, select the app from step 2, and tick these scopes:
+Then open a **new** terminal - `setx` does not affect the one it ran in.
 
-| scope | for |
-|---|---|
-| `pages_show_list` | finding the Page |
-| `pages_read_engagement` | reading back what published |
-| `pages_manage_posts` | creating and scheduling Page posts |
-| `instagram_basic` | reading the IG account |
-| `instagram_content_publish` | publishing reels and stories to IG |
+### 3. I test the Page-to-Instagram route
 
-**Use a System User token rather than a personal one.** A user token expires in an hour, or sixty
-days if you exchange it. A System User token does not expire, which is the entire point if this is
-to run on a schedule.
-
-### 4. App Review is not required here
-
-`pages_manage_posts` and `instagram_content_publish` normally need App Review — but only for apps
-acting on assets belonging to *other* people. An app in Development mode, operated by someone with
-an admin role on the Page and the app, can act on its own assets without review. That is exactly our
-case.
+One call decides whether the Instagram blocker matters at all.
 
 ---
 
