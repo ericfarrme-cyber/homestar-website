@@ -40,6 +40,63 @@ SAFE_BOTTOM = 340
 
 LEFT = 72
 
+# The line under the headline is the town, not the project name.
+#
+# Project names are internal labels - "Zionsville main level", "Fishers full
+# gut walk-in" - and they read like filenames to anyone outside the business.
+# The town is the half doing commercial work: it answers "do they work near
+# me". Across thirty cards the towns cycling past also make the service area
+# look as wide as it actually is, which the project names buried.
+#
+# Keyed by the source photo's prefix, so a card cannot drift away from its
+# town when its photo is swapped. Cities follow the site: the Geist project
+# carries city:"Geist", and modern-farmhouse is slug
+# modern-farmhouse-bathroom-fishers.
+CITY_BY_PREFIX = {
+    "bathroom-green-tile": "Carmel",
+    "carmel-basement-bath": "Carmel",
+    "carmel-double-shower": "Carmel",
+    "fishers-bath": "Fishers",
+    "fishers-childrens-bath": "Fishers",
+    "fishers-double-shower": "Fishers",
+    "fishers-full-gut-walk-in": "Fishers",
+    "fishers-spa-retreat": "Fishers",
+    "fishers-wetroom": "Fishers",
+    "geist-three-bath": "Geist",
+    "geist-upper-level": "Geist",
+    "marble-master-bathroom-fishers": "Fishers",
+    "modern-farmhouse": "Fishers",
+    "noblesville-concrete": "Noblesville",
+    "noblesville-floor-to-ceiling-tile": "Noblesville",
+    "noblesville-laundry": "Noblesville",
+    "two-geist-childrens-bathrooms": "Geist",
+    "westfield-basement-masterpiece": "Westfield",
+    "westfield-basement": "Westfield",
+    "white-oak-primary-bath-fishers": "Fishers",
+    "zionsville-basement": "Zionsville",
+    "zionsville-jack-and-jill": "Zionsville",
+    "zionsville-kitchen-main-level": "Zionsville",
+}
+
+
+def city_for(src):
+    """Town for a source photo. Longest prefix wins, so -basement-masterpiece
+    beats -basement. Raises rather than guessing: a card captioned with the
+    wrong town is worse than a build that stops."""
+    stem = os.path.splitext(src)[0]
+    best = None
+    for prefix in CITY_BY_PREFIX:
+        if stem.startswith(prefix) and (best is None or len(prefix) > len(best)):
+            best = prefix
+    if best is None:
+        raise KeyError("no town mapped for %s - add it to CITY_BY_PREFIX" % src)
+    town = CITY_BY_PREFIX[best]
+    # Geist is a reservoir area, not an incorporated town, so "Geist, Indiana"
+    # overstates it. The reel captions already say "Near Geist"; match them.
+    if town == "Geist":
+        return "Near Geist, Indiana"
+    return town + ", Indiana"
+
 
 def font(name, size):
     return ImageFont.truetype(os.path.join(FONTS, name), size * S)
@@ -405,7 +462,7 @@ def build(card):
         d.text((LEFT * S, y), line, font=f_head, fill=BRAND.WHITE + (255,))
         y += line_h
 
-    d.text((LEFT * S, y + int(14 * S)), card["sub"], font=f_sub,
+    d.text((LEFT * S, y + int(14 * S)), city_for(card["src"]), font=f_sub,
            fill=BRAND.WHITE + (205,))
 
     out = canvas.convert("RGB").resize((W, H), Image.LANCZOS)
