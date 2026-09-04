@@ -27,5 +27,6 @@ marketing/meta-ads/renders/_*.mbtree
 # Meta API token - never commit this
 marketing/meta-ads/.token
 
-# Story cards are regenerated in seconds by build_stories.py
-marketing/meta-ads/renders/stories/
+# Story cards ARE committed - about 10 MB for 30, and Eric posts from this
+# folder by hand. Regenerable from build_stories.py, but a deliverable he
+# uses should not live only on one machine.
