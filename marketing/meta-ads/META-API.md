@@ -40,6 +40,41 @@ Neither is a blocker. Both change the shape of the thing, so better known now th
 
 ---
 
+## Progress — paused 2026-09-04
+
+| step | state |
+|---|---|
+| Developer account registered | **done** |
+| App created | **done** — "HomeStar Publishing", **App ID `1077386074681616`**, mode: In development, business: Eric Farr |
+| Use cases | **done** — "Manage messaging & content on Instagram" + "Manage everything on your Page" |
+| App Review required | **no** — Meta reported "No requirements identified" |
+| System user created | **done** — "HomeStar Publisher", **ID `61593697727654`**, Employee access |
+| Assets assigned | **not started** — paused with the picker open, nothing selected |
+| Token generated | **not started** |
+
+**Resume at:** Business settings → System users → HomeStar Publisher → **Assign assets**.
+Assign **two** things, each with full content permissions:
+
+1. **Facebook Pages** → HomeStar Services and Contracting
+2. **Instagram accounts** → thehomestarservice
+
+Then **Generate token** against "HomeStar Publishing" with the five scopes listed below.
+
+### Two things that stop me mid-flow, by design
+
+Both came up and both are Eric's to do:
+
+- **Meta re-prompts for the account password** before creating an app. I do not type passwords.
+- **The Non-discrimination policy** must be accepted on behalf of system users. It is a compliance
+  attestation about not discriminating on protected characteristics under fair housing and civil
+  rights law - not a formality, and not something to accept on someone else's behalf.
+
+### A correction to the advice below
+
+The system user was created as **Employee**, not Admin as originally written here. That is the better
+choice: the token's reach comes from the assets assigned to it, not from the role, so Employee
+confines it to exactly the Page and Instagram account and nothing else in the business portfolio.
+
 ## What you need to create
 
 I cannot do any of this part — it involves creating an app and generating a credential.
