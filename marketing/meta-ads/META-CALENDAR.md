@@ -112,15 +112,16 @@ as the mid-job reels, at a fraction of the effort.
 ## What I need from Eric
 
 1. **Approval of the cadence and the first six weeks**, or a redline of them.
-2. **Where the approval line sits.** Right now I build and hold, and you post. The alternative is I
-   schedule and you glance before it publishes. Either works; boosting and ad spend stay with you
-   regardless.
+2. ~~Where the approval line sits.~~ **Settled 2026-09-04: I schedule, Eric glances before it
+   publishes.** So the working loop is - I build the cut, write the caption, schedule it, and tell
+   him it is queued. He reviews it in the Planner and it goes at its time. Nothing publishes without
+   having sat in front of him first. Boosting and ad spend stay entirely his.
 3. **Crew in frame** — a standing yes or no. It affects several unbuilt clips.
-4. **The Meta Graph API**, if this is to run unattended. Browser automation of Meta is brittle: a
-   post card that opens a blank composer, a reschedule dialog that changes 9:00 to 9:01, a caption
-   field that renders at zero width, and captions lost between steps. All survivable while I watch;
-   none safe on a timer. A Meta app and a long-lived Page token would fix it, and I cannot create
-   either — that part is yours.
+4. **The Meta Graph API.** Setup steps are in `META-API.md` - about 20-30 minutes of your time,
+   once. It does not change the approval loop above; it makes the publishing step reliable, and adds
+   an automatic read-back check that would have caught the two reels that published with no caption.
+   Two things to know going in: **Instagram's API cannot schedule** (Facebook's can, so IG needs our
+   own timer), and **Instagram fetches the video from a public URL** rather than accepting an upload.
 
 ## Standing constraints
 
