@@ -6,7 +6,6 @@ footage. Four separate errors trace directly to that gap:
 - a 14-foot mantle claimed over a crop the mantle was not in
 - a reel built for the wrong Westfield basement
 - the Zionsville star mosaic floor overlooked in favour of a plain penny round
-- and the one below, which is the largest
 
 **A filename is a claim about a clip. A frame is evidence.** Every entry here was identified by
 looking at three frames — a quarter, half and three quarters through — via `identity_sheets.py`.
@@ -18,58 +17,41 @@ python identity_sheets.py --per 8
 
 ---
 
-## The finding that matters: two Fishers bathrooms filed as one
+## Corrected: the six Fishers spa clips are one job
 
-**`spa retreat fishers*.mp4` and `fishers spa finished*.mp4` are two different bathrooms.**
+**Eric confirmed 2026-09-04: `spa retreat fishers*.mp4` and `fishers spa finished*.mp4` are the
+same job, and the progress clips are the same room.** I raised them as two bathrooms. That was
+wrong, and the record is kept here rather than quietly deleted, because the reasoning is worth
+not repeating.
 
-| | `spa retreat fishers` (3 clips) | `fishers spa finished` (3 clips) |
+What I read as two rooms:
+
+| | progress clips | finished clips |
 |---|---|---|
-| Vanity | **light, raised panel** | **dark stained, recessed panel** |
-| Metal | **chrome** | **brass / gold** |
-| Mirrors | none fitted yet | oval, brass framed |
-| Window | divided lights, open water beyond | blinds, rooftops beyond |
-| Shower | glass enclosure **with a bench**, window inside it | walk-in, **linear drain**, no bench |
+| Vanity | light, raised panel | dark stained, recessed |
+| Metal | chrome | brass |
+| Shower | glass enclosure, bench | walk-in, linear drain |
 
-A just-installed vanity does not get swapped, and the door profiles differ. These are two jobs.
+What that was actually showing: the progress clip is shot in hard direct sun through an
+uncovered window, at a stage before the room was finished out. Colour and door profile both
+read differently under that light and at that angle.
 
-**Which is which.** The site's own project photos for `spa-retreat-bathroom-fishers`
-(`fishers-spa-retreat-1..6.jpg`) show the dark vanity, the brass, the oval mirrors and the
-freestanding tub under a shuttered window. That is the `fishers spa finished` room.
+**The evidence I underweighted was the fixture that does not change** - a chrome ladder towel
+rail, on the wall in the progress clip and beside the tub in the finished ones. Cabinet colour
+shifts with light and with stage. A towel rail does not.
 
-> **So `fishers spa finished*.mp4` IS the Spa Retreat. `spa retreat fishers*.mp4` is misnamed.**
+> **Rule this earns: identify a room by what cannot change** - ceiling shape, window position and
+> proportion, the fixtures already fitted. Not by finish colour, not by what is still missing, and
+> not by anything the light can alter. Colour is the least reliable evidence in a photograph and I
+> used it as the strongest.
 
-**Where the misnamed clips probably belong — needs Eric's confirmation.** They look like
-**White Oak Primary Bath, Fishers**, on four points of agreement:
+Nothing is re-attributed. **FA, FI and FK all stand**, and all three are the Spa Retreat.
 
-1. The white oak **before** stills show a vaulted ceiling, a dated jetted tub in a tiled deck and a
-   framed glass shower. The demo clip shows that same vaulted ceiling stripped to studs.
-2. `white-oak-primary-bath-fishers-2.jpg` shows a glass shower **with a bench**; so does the
-   progress clip.
-3. The progress vanity is light and blonde. "White oak" is light. The Spa Retreat's is dark.
-4. Both show divided-light windows onto open ground.
+### What is still true and still matters
 
-This is inference from matching frames, not fact. **Eric should confirm before anything is
-re-attributed**, because getting it wrong a second time is worse than the first.
-
-### What it breaks
-
-| cut | state |
-|---|---|
-| **FA** "spa retreat stages" | **Wrongly attributed.** Internally consistent — all five segments come from the three misnamed clips, so it is one real room — but the slug and caption say `spa-retreat-bathroom-fishers`, and it is not that job. |
-| **FI** "spa retreat finished" | **Correct.** Built from `fishers spa finished 1.mp4`, which matches the site photos. |
-| **FK** "demo to done" | **Invalid as built.** Pairs the misnamed room's demolition with the Spa Retreat's finished footage. Two rooms in one reel. Held. |
-
-### The opportunity it opens
-
-If the misnamed clips are the White Oak job, then that job has **a true before, demolition,
-waterproofing, tile and finished** — the most completely documented project in the library, and the
-only bathroom with a genuine pre-demolition record. It also already has a published reel (F4), so a
-real before/after would be its second asset rather than its first.
-
-And FK can be rebuilt honestly either way, because **the misnamed room has its own finished
-footage** in `spa retreat fishers.mp4` at 7–14s. Demo and done, one room, no borrowing.
-
----
+There is **no true before** for this job - no pre-demolition footage anywhere. The FK pills read
+**DEMO** and **DONE** for that reason, and that stays right: the opening state is our own
+demolition, not how the homeowner lived with the room.
 
 ## Rotation: the coded size is not the frame size
 
@@ -103,9 +85,9 @@ Low-resolution, use with care: `Messenger_creation_17323097` (640x368, unusable)
 | `noblesville bathroom 2.mp4` | 19.2s | Wall tile going up, hands in frame | Noblesville | **hands only** |
 | `noblesville bathroom 3.mp4` | 11.8s | Orange KERDI board, green membrane, tile | Noblesville | **yes** |
 | `noblesville bathroom.mp4` | 8.6s | Floor tile with levelling clips, glass block window | Noblesville | no |
-| `spa retreat fishers 1.mp4` | 11.4s | **Demolition** — studs, subfloor, vaulted ceiling | **misnamed, see above** | **yes 4.5–7s** |
-| `spa retreat fishers(1).mp4` | 12.2s | **Orange KERDI board**, floor tile with clips, chrome towel rail | **misnamed** | **yes 0s, 10–12s** |
-| `spa retreat fishers.mp4` | 14.4s | Near-finished — light vanity, glass shower with bench | **misnamed** | no |
+| `spa retreat fishers 1.mp4` | 11.4s | **Demolition** — studs, subfloor, vaulted ceiling | Fishers Spa Retreat | **yes 4.5–7s** |
+| `spa retreat fishers(1).mp4` | 12.2s | **Orange KERDI board**, floor tile with clips, chrome towel rail | Fishers Spa Retreat | **yes 0s, 10–12s** |
+| `spa retreat fishers.mp4` | 14.4s | Near-finished — light vanity, glass shower with bench | Fishers Spa Retreat | no |
 | `westfield basement.mp4` | 20.4s | Bare slab, framing, unfinished basement | Westfield luxury basement | distant |
 | `zionsville bath 3.mp4` | 22.5s | **Star mosaic floor**, white vanity, alcove tub | Zionsville jack and jill | no |
 | `zionsville bathroom.mp4` | 15.6s | Empty room, hardwood, **oval porthole window** | Zionsville jack and jill (before) | no |
@@ -125,9 +107,9 @@ Low-resolution, use with care: `Messenger_creation_17323097` (640x368, unusable)
 | `fishers full gut finished 2.mp4` | 25.0s | Wood vanity, beige tile, hex pan | Fishers full gut | no |
 | `fishers full gut finished.mp4` | 37.8s | Beige shower, niche, hex mosaic pan — **longest** | Fishers full gut | no |
 | `fishers full gut waterproofing.mp4` | 16.1s | **KERDI-BOARD legible** — 540x720 | Fishers full gut | no |
-| `fishers spa finished 1.mp4` | 38.4s | Dark vanity, brass ovals, tub under blinds | **Spa Retreat (true)** | no |
-| `fishers spa finished 3.mp4` | 10.3s | Rain head, lit niche, vertical tile | **Spa Retreat (true)** | no |
-| `fishers spa finished 4.mp4` | 35.8s | Same room — **native 1080x1920** | **Spa Retreat (true)** | no |
+| `fishers spa finished 1.mp4` | 38.4s | Dark vanity, brass ovals, tub under blinds | Fishers Spa Retreat | no |
+| `fishers spa finished 3.mp4` | 10.3s | Rain head, lit niche, vertical tile | Fishers Spa Retreat | no |
+| `fishers spa finished 4.mp4` | 35.8s | Same room — **native 1080x1920** | Fishers Spa Retreat | no |
 | `geist three bath before.mp4` | 26.5s | **True before** — dated shower, jetted tub, clutter | Geist three bath | no |
 | `geist three bath finished 2.mp4` | 17.6s | White vanity, LED mirrors, dark floor | Geist three bath | no |
 | `geist three bath finished 3.mp4` | 19.1s | Navy vanity, marble shower, brass | Geist three bath | no |
