@@ -69,6 +69,37 @@ weeks 7-8, plus anything new.
 
 ## Stories — what to use
 
+**Corrected 2026-09-04.** The nine formats below were written before the API was tested. Four of
+them can never be automated: **polls, question boxes, blog link stickers and countdowns all rely on
+interactive stickers, which Meta has never exposed to the API.** Those are phone-only, permanently.
+
+And a second limit that applies to all nine: **nothing on either platform can be scheduled through
+the API.** Facebook can schedule reels and feed posts; stories cannot be scheduled on Facebook or
+Instagram. So a story fires the moment something calls it, which needs either a person or the
+mini PC.
+
+**Eric's test, 2026-09-04:** posting a story to Facebook offers a one-tap share to Instagram. So
+crossposting is solved by hand and was never the problem - scheduling is.
+
+**Which means the labour worth removing is making the cards, not posting them.** `build_stories.py`
+produces finished 9:16 cards from the project photos; Eric posts them from his phone in about two
+minutes a week and taps share to Instagram. When the mini PC arrives it takes over the firing for
+the five plain formats. The four sticker formats stay manual forever, and that is fine - they are
+also the cheapest to make.
+
+| format | can the API post it | can anything schedule it |
+|---|---|---|
+| Detail crops | yes | only the mini PC |
+| Reel teasers | yes | only the mini PC |
+| Two-card before/afters | yes | only the mini PC |
+| Process stills | yes | only the mini PC |
+| The 5.0 rating card | yes | only the mini PC |
+| **Polls** | **no** | no |
+| **Question box** | **no** | no |
+| **Blog link stickers** | **no** | no |
+| **Countdown** | **no** | no |
+
+
 Stories are 24-hour, low-production and high-frequency. They should **not** be reels reposted. Nine
 formats, all buildable from what exists:
 

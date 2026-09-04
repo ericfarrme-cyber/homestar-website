@@ -26,3 +26,6 @@ marketing/meta-ads/renders/_*.mbtree
 
 # Meta API token - never commit this
 marketing/meta-ads/.token
+
+# Story cards are regenerated in seconds by build_stories.py
+marketing/meta-ads/renders/stories/
