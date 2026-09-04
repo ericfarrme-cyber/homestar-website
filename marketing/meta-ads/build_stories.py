@@ -324,7 +324,10 @@ def build(card):
 
     out = canvas.convert("RGB").resize((W, H), Image.LANCZOS)
     os.makedirs(OUT, exist_ok=True)
-    path = os.path.join(OUT, "%s-%s" % (card["key"], card["src"]))
+    # Always .jpg. Letting the output inherit the source extension produced a
+    # lone .jpeg among the cards, which any *.jpg glob then silently skipped.
+    stem = os.path.splitext(card["src"])[0]
+    path = os.path.join(OUT, "%s-%s.jpg" % (card["key"], stem))
     out.save(path, quality=92)
     return path
 
