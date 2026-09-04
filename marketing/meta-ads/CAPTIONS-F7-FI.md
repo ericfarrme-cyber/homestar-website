@@ -1,4 +1,4 @@
-# Captions — F7 through FI
+# Captions — F7 through FJ
 
 Twelve cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
@@ -297,6 +297,36 @@ you don't have to book." · end sub: *Schluter Pro Certified. Bathrooms in Hamil
 **Pairs with FA**, which is this job's process arc - studs, waterproofing, tile, finished. FA proves
 the room was built properly; this one shows what it is for. **Either order works**, unlike F8 and
 FG.
+
+---
+
+## FJ — `laundry-checker` (Fishers)
+
+**On screen:** "Checkerboard is unforgiving." · "Every corner meets three others." · "Get the
+layout wrong and you see it forever." · end sub: *Schluter Pro Certified. Tile and flooring across
+Hamilton County.*
+
+> Checkerboard is the least forgiving floor there is.
+>
+> Every other pattern hides a small error somewhere. This one does not. Each corner is a point where four tiles meet, and if the layout drifts by an eighth of an inch it reads as a wobble all the way down the run - and you look at it every day for as long as you own the house.
+>
+> So it gets set out before anything is bonded down. Centerline found first, the pattern dry-laid to the doorway, and the cuts balanced so the room does not end on a sliver against the wall. Levelling clips on every joint so no edge sits proud of its neighbor.
+>
+> This one is a laundry room, which is the last place most people expect to find a floor worth looking at. That is exactly why it works.
+>
+> Fishers, Indiana. Free in-home estimates: (317) 279-4798
+
+**Project confirmed by Eric 2026-09-04: Fishers.** The archive holds two laundry projects
+(`laundry-room-noblesville` and `laundry-room-geist`) and the filename named only a room type, so
+this sat unbuilt rather than guessed at - the same reason the Westfield mix-up is in this file.
+
+**No Schluter system claim in the body.** The end card carries the company credential, which is
+always true. But a laundry floor is not a wet area, no waterproofing is visible in the footage, and
+no project page states it for this job - so the caption talks about setting out and levelling, which
+is what the footage actually shows. Claiming the membrane here would be inventing it.
+
+**Eric's framing, 2026-09-04:** "a one off but a popular look with the checkers." So it is written as
+a craft piece rather than as a service we are touting - no offer, no upsell into laundry rooms.
 
 ---
 
