@@ -38,6 +38,9 @@ A = lambda n: os.path.join(ARCH, n)
 # Some projects ship their own finished walkthrough on the site at far higher
 # quality than anything in the archive. These are gitignored, so local only.
 S = lambda n: os.path.join(REPO, "public", "images", n)
+# Motion clips rendered from stills by build_stills.py, for jobs that were
+# photographed but never filmed.
+ST = lambda key, n: os.path.join(HERE, "_stills", key, "%02d.mp4" % n)
 
 PROJECTS = {
     # Every window below was chosen to contain NO PEOPLE. The crew appear in
@@ -393,6 +396,40 @@ PROJECTS = {
     #
     # 11.9s of source, all of it the same subject, so this runs short at 14.4s.
     # Marble checkerboard with levelling clips still in, grey walls unpainted.
+    # First Reel built entirely from photographs. This job has ten photos and
+    # no video anywhere in the library, so until now it could only ever be
+    # story cards. build_stills.py renders each still as a moving 1080x1920
+    # clip; from here down the pipeline is identical to a shot Reel.
+    #
+    # The beat is a project-level fact rather than a description of the frame
+    # under it, which is deliberate. The rule "a plate must describe the frame"
+    # exists to stop a plate claiming something not visible; a statement about
+    # who designed the job cannot mismatch a frame, and it is the most
+    # interesting thing about this project - the homeowners moved from Denver
+    # and kept their Denver designer, so it was built to her drawings with
+    # every selection routed back to her two time zones away.
+    "zionsville-basement": dict(
+        out="FM-zionsville-basement-bar",
+        slug="zionsville-basement-bar-wine-room",
+        music=("American Reveal.mp3", 113.0),
+        ad={
+            "hook":     "That backsplash isn't tile.",
+            "beat":     "Designed from Denver. Built in Zionsville.",
+            "end_head": "Dead storage under the stairs.\nNow the best corner in the house.",
+            "end_sub":  "Basement finishing in Zionsville and Boone County.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        # Rendered by: python build_stills.py zionsville-basement
+        segments=[
+            (ST("zionsville-basement", 1), 0.0, 3.0, "the slab - counter and backsplash, one stone"),
+            (ST("zionsville-basement", 2), 0.0, 3.2, "the bar under the tall windows"),
+            (ST("zionsville-basement", 3), 0.0, 2.8, "floating oak shelves, integrated LED"),
+            (ST("zionsville-basement", 4), 0.0, 2.8, "the media lounge under the dark feature wall"),
+            (ST("zionsville-basement", 5), 0.0, 3.2, "the wine room built under the stairs"),
+        ],
+    ),
+
     # The Geist three-bath has a before/after (F6) but no process cut, and
     # `geist three bath tile.mp4` is the best tile-setting footage in the
     # library after the Zionsville star floor. Found by inventorying every

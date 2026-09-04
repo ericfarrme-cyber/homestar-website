@@ -1,4 +1,4 @@
-# Captions — F7 through FL
+# Captions — F7 through FM
 
 Twelve cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
@@ -415,6 +415,55 @@ source window before trusting it.
 
 **No people in any frame** - the whole 9.5s tile clip is the wall. Audited at 0.7s across all 22
 frames.
+
+---
+
+## FM — `zionsville-basement-bar-wine-room` (built from photographs)
+
+**On screen:** "That backsplash isn't tile." · "Designed from Denver. Built in Zionsville." ·
+end head: *Dead storage under the stairs. Now the best corner in the house.* ·
+end sub: *Basement finishing in Zionsville and Boone County.*
+
+> This lower level was raw when the family bought the house. A walkout, tall windows on two elevations, a ceiling that rises with the stairwell, and nothing else.
+>
+> The bar is the centerpiece. The countertop is a polished black natural stone, and it is carried up the wall as a full-height slab backsplash instead of tile. That leaves nowhere to hide - the veining has to run continuously through the sink cutout, and the seams have to disappear.
+>
+> Above it, two floating stained-oak shelves with integrated lighting, shaker cabinetry, a beverage drawer and a glass-front wine refrigerator. The space under the stairs became a walk-in wine room: full-height black racking on three walls, a papered ceiling that follows the stair soffit, and warm cognac walls.
+>
+> Below-grade drainage for the bar sink and the guest bathroom was run by our own licensed plumbers. It is the part of a basement bar nobody thinks about, and the part that decides whether it works.
+>
+> The family moved here from Denver and kept their Denver designer, so this was built to Holly Johnson's drawings with every selection routed back to her two time zones away.
+>
+> Zionsville, Indiana. Free in-home estimates: (317) 279-4798
+
+**The first Reel built entirely from photographs.** This job has ten photos and no video anywhere
+in the library, so until now it could only ever be story cards. `build_stills.py` renders each
+still as a moving 1080x1920 clip - a push on a portrait frame, a travelling window on a landscape
+one - and `build_progress.py` then treats them as ordinary segments. Every plate, crossfade,
+loudness pass and audit is the same tested path a shot Reel uses.
+
+**The pan solves the crop problem rather than losing to it.** A 9:16 crop of a landscape photo
+keeps about a third of its width; letting the window travel across it uses the whole frame and
+turns the constraint into the movement.
+
+**The beat is a project fact, not a description of the frame, and that is deliberate.** The house
+rule - a plate must describe the frame under it - exists to stop a plate claiming something not
+visible. A statement about who designed the job cannot mismatch a frame. It is also the most
+interesting thing about this project.
+
+**Holly Johnson is credited** for the same reason Dovetail is credited on FB: a named design
+partnership is credibility HomeStar does not have to claim for itself.
+
+**No price band on the end card**, matching FB - there is no published basement band to quote.
+**Boone County, not Hamilton**, matching F7.
+
+**Caught on review:** the first cut opened on the wide bar panning right, which travelled off the
+bar onto windows and dining chairs while the hook was still on screen. A pan can walk away from
+its own subject - and that movement was mine, not the camera's. Reordered so the slab opens.
+
+**Open for Eric:** the shelf photo carries an antler mount among the decanters. It is the
+homeowners' own styling and it is in frame for about three seconds. Say if you would rather it
+were not.
 
 ---
 

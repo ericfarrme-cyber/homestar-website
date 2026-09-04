@@ -40,6 +40,8 @@ Last updated 2026-09-03.
 
 | **FL** | `three-bathroom-remodel-geist` | 15.0s | **Craft cut.** Navy crackle-glaze picket going on with levelling clips over orange Schluter board, then the finished wall. Companion to F6, which is this project's before/after. | `CAPTIONS-F7-FI.md` |
 
+| **FM** | `zionsville-basement-bar-wine-room` | 16.6s | **Built from photographs.** First cut with no video source at all - ten stills given motion by `build_stills.py`. Black slab bar, oak shelving, wine room under the stairs. Holly Johnson credited. | `CAPTIONS-F7-FI.md` |
+
 **FA, FI and FK are all the same job - confirmed by Eric 2026-09-04.** Spread them widely. FK and FI share their strongest shots,
 so those two want the most distance of the three.
 
