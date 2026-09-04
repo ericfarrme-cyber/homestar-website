@@ -183,12 +183,13 @@ STORIES = [
               "frame holds a waste bin and a drop cloth, which is why this "
               "shot was passed over the first time."),
 
-    dict(key="S19", src="noblesville-floor-to-ceiling-tile-4.jpg",
-         head="The mirror is\nthe light fixture.",
-         sub="Noblesville floor to ceiling tile",
-         note="Replaced the white oak tub, which was warm but ordinary. F9's "
-              "caption names both parts: 'a backlit mirror over a floating "
-              "vanity'."),
+    dict(key="S19", src="two-geist-childrens-bathrooms-6.jpg",
+         head="Shelves cut into\nthe wall. Nothing\nhanging off the head.",
+         sub="Geist children's bathrooms",
+         note="Eric spotted toiletries all over the counter in the backlit "
+              "mirror shot - a card selling finished work should not show "
+              "somebody's shampoo. Recessed shelves and a bench instead, and "
+              "the frame is clear of clutter. No shelf count claimed."),
 
     dict(key="S20", src="fishers-spa-retreat-2.jpg",
          head="Two oval mirrors, and\na wall that didn't need\nanything else.",
@@ -206,10 +207,18 @@ STORIES = [
          note="Dining room with the ceiling carried in a dark colour. The "
               "claim is offered as a design opinion, not as a fact."),
 
-    dict(key="S22", src="zionsville-kitchen-main-level-2.jpeg",
-         head="Three lanterns doing\nthe work of a\nwhole ceiling.",
+    dict(key="S22", src="zionsville-kitchen-main-level-1.jpeg",
+         head="We did the whole\nmain level. The kitchen\nis just where you look.",
          sub="Zionsville main level",
-         note="Sculptural pendant cluster. The count is visible in frame."),
+         mode="fit",
+         note="Eric's steer: less fixtures, more completed work. The lantern "
+              "cluster was a light fitting doing nothing to show the job. "
+              "This is the finished kitchen, and the project name carries the "
+              "scope claim - main level, not one room.\n"
+              "Letterboxed, not cropped: a 9:16 crop of this wide shot filled "
+              "the frame with the same pendants I had just been told to stop "
+              "featuring. The room is the subject, so the room needs the "
+              "width."),
 
     dict(key="S23", src="carmel-double-shower-2.jpg",
          head="A vanity that\ndisappears into\nthe dark.",
@@ -218,10 +227,13 @@ STORIES = [
               "by making the vanity the subject rather than the light."),
 
     dict(key="S24", src="fishers-full-gut-walk-in-2.jpg",
-         head="Sconces between\nthe mirrors.\nNot above them.",
+         head="Sconces above.\nAnd between.\nOne angle of light\nalways lies.",
          sub="Fishers full gut walk-in",
-         note="A real and visible layout decision - most vanities put the "
-              "light over the glass, which lights the top of your head."),
+         note="Copy fix - Eric caught it. The first version read 'Not above "
+              "them', and there are sconces above the mirrors as well as "
+              "between. The card was contradicting its own photograph. The "
+              "point still stands: light from a single direction throws "
+              "shadows, which is why this vanity has both."),
 
     dict(key="S25", src="bathroom-green-tile-7.jpg",
          head="Green tile is a\ncommitment.\nSo commit.",
@@ -239,11 +251,14 @@ STORIES = [
          note="FB's caption names integrated LED shelving, so the lighting "
               "claim is supported rather than inferred."),
 
-    dict(key="S28", src="fishers-wetroom-2.jpg",
-         head="A bench, because not\nevery shower is\na quick one.",
+    dict(key="S28", src="fishers-wetroom-7.jpg",
+         head="Most people tile\nthe walls.\nWe tiled the ceiling.",
          sub="Fishers wet room",
-         note="Built the raking-ceiling shot first and cut it - mostly blank "
-              "plaster, and it did not show the courses it claimed."),
+         note="Eric asked for the tiled shower ceiling. Tile is carried right "
+              "across the ceiling with the rain head mounted through it - "
+              "plainly visible, and genuinely uncommon. Third card in this "
+              "slot: the raking ceiling was blank plaster, the bench was "
+              "fine but ordinary."),
 
     dict(key="S29", src="fishers-double-shower-5.jpg",
          head="Pebble underfoot.\nGlass everywhere else.",
