@@ -18,6 +18,7 @@ reply box is a headline nobody reads.
     python build_stories.py S1 S4      build only those
 """
 
+import glob
 import os
 import sys
 
@@ -172,26 +173,96 @@ STORIES = [
          sub="Modern farmhouse",
          note="Patterned floor against a simple palette."),
 
-    dict(key="S18", src="fortville-pavilion-3.jpg",
-         head="Look up.\nThat's the whole point.",
-         sub="Fortville pavilion",
-         bias=0.15,
-         note="Exposed timber roof structure. Cropped upward because the "
-              "ceiling is the subject - the inverse of the S10 problem."),
-
-    dict(key="S19", src="white-oak-primary-bath-fishers-2.jpg",
-         head="White oak, and a tub\nput where the\nlight already was.",
-         sub="Fishers white oak primary bath",
-         note="Dropped the stamped concrete: flat overcast light, and the "
-              "stamping did not read at story size, so the headline claimed "
-              "something the photo could not show. White oak is named in "
-              "F4's caption and the project title."),
-
-    dict(key="S20", src="zionsville-kitchen-main-level-4.jpeg",
-         head="The shelf is part\nof the wall, not\nscrewed to it.",
+    dict(key="S18", src="zionsville-kitchen-main-level-6.jpeg",
+         head="A whole room built\nfor sitting still.",
          sub="Zionsville main level",
-         note="Built-in shelving in a recessed surround - visibly integral "
-              "rather than mounted. No material named."),
+         bias=0.02, zoom=1.30,
+         note="Replaced the Fortville pavilion - no exterior work, standing "
+              "rule from Eric. Floor-to-ceiling built-ins, dark walls, "
+              "sputnik fitting. Cropped hard to the top because the lower "
+              "frame holds a waste bin and a drop cloth, which is why this "
+              "shot was passed over the first time."),
+
+    dict(key="S19", src="noblesville-floor-to-ceiling-tile-4.jpg",
+         head="The mirror is\nthe light fixture.",
+         sub="Noblesville floor to ceiling tile",
+         note="Replaced the white oak tub, which was warm but ordinary. F9's "
+              "caption names both parts: 'a backlit mirror over a floating "
+              "vanity'."),
+
+    dict(key="S20", src="fishers-spa-retreat-2.jpg",
+         head="Two oval mirrors, and\na wall that didn't need\nanything else.",
+         sub="Fishers spa retreat",
+         note="Built the Westfield bar top first and cut it: the crop held no "
+              "brass tap, so the headline named something not in frame - the "
+              "mantle mistake again. Oval mirrors and sconces, both visible."),
+
+    # ---- third set -----------------------------------------------------
+    # Interiors only from here.
+
+    dict(key="S21", src="zionsville-kitchen-main-level-7.jpeg",
+         head="Dark ceilings make\na room feel bigger.\nNobody believes us.",
+         sub="Zionsville main level",
+         note="Dining room with the ceiling carried in a dark colour. The "
+              "claim is offered as a design opinion, not as a fact."),
+
+    dict(key="S22", src="zionsville-kitchen-main-level-2.jpeg",
+         head="Three lanterns doing\nthe work of a\nwhole ceiling.",
+         sub="Zionsville main level",
+         note="Sculptural pendant cluster. The count is visible in frame."),
+
+    dict(key="S23", src="carmel-double-shower-2.jpg",
+         head="A vanity that\ndisappears into\nthe dark.",
+         sub="Carmel double shower",
+         note="Dark cabinetry under a backlit mirror. Kept distinct from S19 "
+              "by making the vanity the subject rather than the light."),
+
+    dict(key="S24", src="fishers-full-gut-walk-in-2.jpg",
+         head="Sconces between\nthe mirrors.\nNot above them.",
+         sub="Fishers full gut walk-in",
+         note="A real and visible layout decision - most vanities put the "
+              "light over the glass, which lights the top of your head."),
+
+    dict(key="S25", src="bathroom-green-tile-7.jpg",
+         head="Green tile is a\ncommitment.\nSo commit.",
+         sub="Carmel green tile bath",
+         note="Interior of the green shower. Pairs with S2 - space them."),
+
+    dict(key="S26", src="zionsville-jack-and-jill-5.jpg",
+         head="An arch costs more.\nIt's also the only\nthing you'll notice.",
+         sub="Zionsville jack and jill",
+         note="Arched tiled alcove over the tub, plainly in frame."),
+
+    dict(key="S27", src="westfield-basement-masterpiece-3.jpg",
+         head="Lit shelves turn\nthe bottles into\nthe decoration.",
+         sub="Westfield luxury basement",
+         note="FB's caption names integrated LED shelving, so the lighting "
+              "claim is supported rather than inferred."),
+
+    dict(key="S28", src="fishers-wetroom-2.jpg",
+         head="A bench, because not\nevery shower is\na quick one.",
+         sub="Fishers wet room",
+         note="Built the raking-ceiling shot first and cut it - mostly blank "
+              "plaster, and it did not show the courses it claimed."),
+
+    dict(key="S29", src="fishers-double-shower-5.jpg",
+         head="Pebble underfoot.\nGlass everywhere else.",
+         sub="Fishers double shower",
+         note="The first version claimed two shower heads and only one was "
+              "visible. Materials in frame instead; the project name carries "
+              "the double-shower point without counting fixtures."),
+
+    dict(key="S30", src="geist-upper-level-9.jpg",
+         head="A staircase rebuilt\none tread at a time.",
+         sub="Geist upper level",
+         note="Built the range hood first and cut it - white on white with "
+              "kitchen clutter in the corner. F8's caption states this one "
+              "directly: 'A staircase rebuilt one tread at a time.'\n"
+              "Then built it against geist-upper-level-11 and caught THAT on "
+              "review: it is a sitting room with a sofa, no staircase in it. "
+              "The contact sheet sorts -10, -11, -12 ahead of -2, and I read "
+              "a grid position instead of a filename. Verify the file, not "
+              "the tile."),
 ]
 
 
@@ -328,6 +399,14 @@ def build(card):
     # lone .jpeg among the cards, which any *.jpg glob then silently skipped.
     stem = os.path.splitext(card["src"])[0]
     path = os.path.join(OUT, "%s-%s.jpg" % (card["key"], stem))
+
+    # Clear any earlier card for this key. Swapping a card's source photo
+    # leaves the previous render sitting in the folder under the same key, and
+    # a stale card in the folder Eric posts from is a card that gets posted.
+    for old in glob.glob(os.path.join(OUT, "%s-*" % card["key"])):
+        if os.path.basename(old) != os.path.basename(path):
+            os.remove(old)
+            print("       removed stale %s" % os.path.basename(old))
     out.save(path, quality=92)
     return path
 
