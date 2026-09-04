@@ -77,12 +77,15 @@ STORIES = [
          note="Brushed fixture close-up. No finish named - photo alone cannot "
               "prove brass over nickel."),
 
-    dict(key="S6", src="fishers-full-gut-walk-in-6.jpg",
-         head="Nobody photographs\nthe faucet.\nEverybody touches it.",
-         sub="Fishers full gut walk-in",
-         note="Replaced the Zionsville oval window: the window was small in "
-              "frame and the crop was mostly cabinet and door. No stone named "
-              "here - the photo cannot prove marble over quartz."),
+    dict(key="S6", src="marble-master-bathroom-fishers-4.jpg",
+         head="Anybody can\ntile a wall.\nLook inside the niche.",
+         sub="Fishers marble master bath",
+         note="Replaced the faucet card on Eric's note: a stock gooseneck on "
+              "plain marble showed nothing custom, and a card that displays "
+              "ordinary work argues against us. This is a waterjet marble "
+              "mosaic inside the niche with a solid marble shelf and mitred "
+              "returns - the detail most builders skip by running field tile "
+              "straight through."),
 
     dict(key="S7", src="geist-three-bath-2.jpg",
          head="The tile that\nmade the room.",
@@ -99,33 +102,53 @@ STORIES = [
               "needs the width to read as long. This is the exact plate/frame "
               "mismatch that has bitten the reels four times."),
 
-    dict(key="S9", src="fishers-spa-retreat-6.jpg",
-         head="A heated rail is\na small thing you\nnotice every day.",
-         sub="Fishers spa retreat",
-         note="FI caption names the heated towel rail."),
+    dict(key="S9", src="marble-master-bathroom-fishers-3.jpg",
+         head="Centered.\nNot cut to fit.",
+         sub="Fishers marble master bath",
+         note="Replaced the heated rail card - that photo was backlit by the "
+              "window behind it and blown out. Here the mosaic is set so the "
+              "pattern centres on the drain and the field cuts symmetrically "
+              "to all four walls. Claim is about setting out, not the drain, "
+              "so it does not repeat S1."),
 
-    dict(key="S10", src="fishers-wetroom-6.jpg",
-         head="The floor is the part\nthat has to be\nperfect.",
-         sub="Fishers wet room",
-         note="Mosaic field. Craft claim only."),
+    dict(key="S10", src="zionsville-jack-and-jill-2.jpg",
+         head="A star cut from marble.\nRepeated across\na whole floor.",
+         sub="Zionsville jack and jill",
+         bias=1.0, zoom=2.3,
+         note="Eric's call - the star-pattern marble mosaic beats the plain "
+              "penny round it replaced. Cropped hard to the bottom of the "
+              "frame because the floor is the subject; the default upward "
+              "bias would have framed the ceiling. F7 caption names it: "
+              "'A star-pattern marble mosaic floor.'"),
 ]
 
 
-def cover(path):
-    """Fill 1080x1920 without distorting - crop the overflow."""
+def cover(path, bias=0.35, zoom=1.0):
+    """Fill 1080x1920 without distorting - crop the overflow.
+
+    bias is where the crop sits vertically: 0 is the top of the photo, 1 the
+    bottom. The default leans upward because in a room shot the subject is
+    rarely on the floor. A card whose subject IS the floor needs the opposite,
+    which is what bias is for - the alternative is a headline about a mosaic
+    over a photo of a ceiling.
+
+    zoom > 1 takes a tighter region, for when the subject is a small part of
+    a wide shot.
+    """
     im = Image.open(path).convert("RGB")
     target = (W * S) / float(H * S)
-    ratio = im.width / float(im.height)
-    if ratio > target:
-        new_w = int(im.height * target)
-        im = im.crop(((im.width - new_w) // 2, 0,
-                      (im.width - new_w) // 2 + new_w, im.height))
-    else:
-        new_h = int(im.width / target)
-        # Bias the crop upward: in a room photo the subject is rarely at the
-        # very bottom, and the bottom is where the scrim goes anyway.
-        top = int((im.height - new_h) * 0.35)
-        im = im.crop((0, top, im.width, top + new_h))
+
+    box_w = min(im.width, im.height * target)
+    box_h = box_w / target
+    if box_h > im.height:
+        box_h = im.height
+        box_w = box_h * target
+
+    box_w, box_h = box_w / zoom, box_h / zoom
+    left = (im.width - box_w) / 2.0
+    top = (im.height - box_h) * min(1.0, max(0.0, bias))
+
+    im = im.crop((int(left), int(top), int(left + box_w), int(top + box_h)))
     return im.resize((W * S, H * S), Image.LANCZOS)
 
 
@@ -174,7 +197,9 @@ def build(card):
         return None
 
     fitted = card.get("mode") == "fit"
-    canvas = letterbox(src) if fitted else cover(src).convert("RGBA")
+    canvas = (letterbox(src) if fitted else
+              cover(src, card.get("bias", 0.35),
+                    card.get("zoom", 1.0)).convert("RGBA"))
 
     f_head = font("PlusJakartaSans-ExtraBold.ttf", 74)
     f_sub = font("PlusJakartaSans-Medium.ttf", 30)
