@@ -49,7 +49,7 @@ The ceiling is the only thing in that room we didn't touch. Look at the first sh
 
 Two months, start to finish. And this was one of three bathrooms we did in this house.
 
-Every shower goes over the complete Schluter system - Ditra on the floor, Kerdi on the walls, waterproofed before a single tile is set. 25-year warranty, standard, not an upgrade.
+Every shower goes over the complete Schluter system - Ditra on the floor, Kerdi on the walls, waterproofed before a single tile is set. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.
 
 Geist, Fishers. Free in-home estimates: (317) 279-4798
 

@@ -22,7 +22,7 @@ Boone County - $15K to $50K.*
 >
 > In: two vanities, so nobody waits. Black marble with a white vein running straight through it. A star-pattern marble mosaic floor. Oak cabinetry with matte black hardware, arched mirrors, and a sconce either side of each.
 >
-> New plumbing by our licensed plumber to support the second vanity, and the complete Schluter waterproofing system behind every tiled surface. 25-year warranty, standard, not an upgrade.
+> New plumbing by our licensed plumber to support the second vanity, and the complete Schluter waterproofing system behind every tiled surface. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.
 >
 > Zionsville, Indiana. Free in-home estimates: (317) 279-4798
 
@@ -266,7 +266,7 @@ for two." · end sub: *Schluter Pro Certified. Bathrooms in Hamilton County - $1
 >
 > So the layout was reconfigured and new plumbing run to support a genuine double: two heads, two sets of controls, and enough width that neither person is in the other's way. Frameless glass so it reads as part of the room rather than a box in the corner, stacked tile to the ceiling, and a pebble mosaic pan.
 >
-> Behind every tiled surface, the complete Schluter waterproofing system. 25-year warranty, standard, not an upgrade.
+> Behind every tiled surface, the complete Schluter waterproofing system. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.
 >
 > Fishers, Indiana. Free in-home estimates: (317) 279-4798
 
@@ -290,7 +290,7 @@ you don't have to book." · end sub: *Schluter Pro Certified. Bathrooms in Hamil
 >
 > A freestanding soaker sits under the window. The walk-in shower has a rain head and a handheld, twin lit niches, and a linear drain so the floor runs flat and unbroken to the glass. There is a heated towel rail, dimmable lighting, and an exhaust fan sized properly for the room - a spa bathroom that stays humid is just a humid bathroom.
 >
-> Every tiled surface sits on the complete Schluter system. 25-year warranty, standard.
+> Every tiled surface sits on the complete Schluter system. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.
 >
 > Fishers, Indiana. Free in-home estimates: (317) 279-4798
 
@@ -343,7 +343,7 @@ end sub: *Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.*
 >
 > There is a heated towel rail, a walk-in shower with a rain head and a handheld, and a linear drain so the floor runs flat and unbroken to the glass.
 >
-> Every tiled surface sits on the complete Schluter system. 25-year warranty, standard, not an upgrade.
+> Every tiled surface sits on the complete Schluter system. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.
 >
 > Fishers, Indiana. Free in-home estimates: (317) 279-4798
 

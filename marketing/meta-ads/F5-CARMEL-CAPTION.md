@@ -34,7 +34,7 @@ This Carmel homeowner didn't want the bathroom their neighbors had. They wanted 
 
 The tile runs full height in the shower and carries around the rest of the room as a wainscot, so the color reads from every angle instead of sitting on one feature wall.
 
-The part you can't see is the part that decides whether it lasts. Ditra on the floor, Kerdi on the walls - the complete Schluter system, waterproofed before a single tile was set. 25-year warranty, standard, not an upgrade.
+The part you can't see is the part that decides whether it lasts. Ditra on the floor, Kerdi on the walls - the complete Schluter system, waterproofed before a single tile was set. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.
 
 Carmel, Indiana. Free in-home estimates: (317) 279-4798
 

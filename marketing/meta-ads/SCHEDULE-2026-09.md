@@ -25,18 +25,21 @@ is the normal slot anyway.
 
 | week | Tue | Fri |
 |---|---|---|
-| **1** — 8 / 11 Sep | **FB** Westfield luxury basement *(before/after)* | **F9** Noblesville, membrane to finished |
-| **2** — 15 / 18 Sep | **F7** Zionsville jack & jill *(before/after)* | **F8** Geist upper level *(mid-job)* |
+| **1** — 8 / 11 Sep | **F7** Zionsville jack & jill *(before/after)* | **F9** Noblesville, membrane to finished |
+| **2** — 15 / 18 Sep | **FB** Westfield luxury basement *(before/after)* | **F8** Geist upper level *(mid-job)* |
 | **3** — 22 / 25 Sep | **FD** Fishers full gut *(full arc)* | **FO** Six floors *(ends on a question)* |
 | **4** — 29 Sep / 2 Oct | **F6** Geist three-bath *(before/after)* | **FE** Carmel double shower |
 | **5** — 6 / 9 Oct | **FM** Zionsville basement bar | **FP** What's under your tile |
 | **6** — 13 / 16 Oct | **FL** Geist navy picket *(craft)* | **FF** Fishers wet room |
 
+**Swapped on Eric's call 2026-09-04:** F7 opens, FB moves to week 2.
+
 **Why this order.** Opens on a before/after, which is the strongest format for a remodeler and the
 best thing to lead a cold audience with. Format alternates so it never reads as a slideshow:
 before/after → arc → before/after → mid-job → arc → comparison. City alternates so the service area
-looks as wide as it is. No project appears twice inside a fortnight - the closest pair is Geist
-three-bath on 29 Sep and 13 Oct, exactly two weeks.
+looks as wide as it is. No project appears twice inside a fortnight. Closest pairs after the swap: Geist three-bath on
+29 Sep and 13 Oct, and Zionsville jack & jill on 8 Sep with the Zionsville BASEMENT - a different
+job - on 6 Oct. Both fine.
 
 **Held back deliberately:** FA, FI and FK are all the Fishers spa retreat, and three cuts of one job
 inside six weeks would make a large body of work look small. FC and FG are second assets for jobs
@@ -81,10 +84,14 @@ on top of the four cards above - "which floor?" with two of the six from FO is a
 
 ## What has to be built before this runs
 
-1. **The 5.0 review card** for 20 Sep - the only Sunday slot with no asset yet.
-2. **The testimonial exported** for native upload on 4 Oct.
-3. **The warranty sweep.** Several captions compress HomeStar's 1-year workmanship warranty and
-   Schluter's 25-year manufacturer warranty into a bare "25-year warranty, standard". FN states it
-   correctly; the rest need correcting **before anything publishes**, not after.
+1. ~~The 5.0 review card for 20 Sep.~~ **Done 2026-09-04** - `build_review_card.py`, feed
+   (1080x1350) and story (1080x1920). Rating and review count are read from the site's own
+   structured data so the card cannot drift from what the site claims.
+2. ~~The warranty sweep.~~ **Done 2026-09-04** - six captions corrected. They read
+   *"Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year
+   workmanship warranty covers the job."* The published F4 was already correct: it says
+   "25-year **waterproofing** warranty", which scopes it properly.
+3. **The testimonial exported** for native upload on 4 Oct. **Still outstanding** - it lives on
+   YouTube and there is no local copy in the repo. Eric to supply the file.
 
 Everything else on this schedule exists and is ready.
