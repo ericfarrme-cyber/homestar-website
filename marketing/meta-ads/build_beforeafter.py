@@ -35,6 +35,8 @@ MOV = os.path.join(REPO, "public", "images", "westfield-basement-masterpiece-vid
 # phone clip because nobody had looked in public/images. Both these files are
 # gitignored (public/images/*.mp4|mov), so they are local-only sources.
 GEIST_MOV = os.path.join(REPO, "public", "images", "geist-three-bath-video.mp4")
+# Motion clips rendered from photographs by build_stills.py.
+ST = lambda key, n: os.path.join(HERE, "_stills", key, "%02d.mp4" % n)
 
 W, H, FPS = 1080, 1920, 30
 XFADE = 0.4
@@ -174,6 +176,43 @@ PROJECTS = {
             (os.path.join(ARCH, "fishers spa finished 1.mp4"),  0.6, 3.2, "AFTER", "oak vanity, oval mirrors, brass"),
             (os.path.join(ARCH, "fishers spa finished 1.mp4"), 22.8, 3.2, "AFTER", "walk-in shower, rain head and handheld"),
             (os.path.join(ARCH, "fishers spa finished 1.mp4"), 12.4, 2.8, "AFTER", "quartz run to the heated towel rail"),
+        ],
+    ),
+
+    # White Oak primary bath, Fishers. The ONLY project on the site carrying a
+    # real beforeAfter array - three pairs, each with a label HomeStar wrote.
+    # A genuine before, so the pills are the real BEFORE and AFTER rather than
+    # the DEMO/DONE the spa retreat needed.
+    #
+    # Built from photographs via build_stills.py; there is no video of this
+    # job. Second asset for this project after F4, which was a walkthrough.
+    #
+    # Two of the three pairs are used, and that is a privacy decision:
+    # before-1 has a man reflected in a mirror that spans the whole wall, so
+    # no horizontal crop removes him - it is cropped BELOW the mirror line
+    # instead, which still shows what the pair is about. before-5 crops clean
+    # of people but an automatic litter box dominates the tub deck, so it is
+    # left out. Every rendered clip was checked frame by frame before use.
+    #
+    # Copy is the project page's own result line: "The footprint is identical
+    # and the room is unrecognizable."
+    "white-oak": dict(
+        out="FN-white-oak-primary-beforeafter",
+        slug="white-oak-primary-bath-fishers",
+        music=("Brisa de Nylon.mp3", 48.8),
+        ad={
+            "hook":     "This is the bathroom the house came with.",
+            "beat":     "Same footprint. Every surface new.",
+            "end_head": "Identical layout.\nUnrecognizable room.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (ST("white-oak", 1), 0.0, 2.6, "BEFORE", "the vanity wall - dark cabinets, cultured-marble top"),
+            (ST("white-oak", 2), 0.0, 2.8, "BEFORE", "corner whirlpool in a tiled deck, framed obscure glass"),
+            (ST("white-oak", 3), 0.0, 3.0, "AFTER", "white oak vanity, quartz, champagne bronze"),
+            (ST("white-oak", 4), 0.0, 3.2, "AFTER", "freestanding soaker, clear frameless glass"),
         ],
     ),
 }
