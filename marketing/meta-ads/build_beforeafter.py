@@ -61,10 +61,13 @@ PROJECTS = {
             "cta":      "GET A FREE ESTIMATE",
             "badge_r":  "5.0 ★ GOOGLE",
         },
+        # The before clip was `20260116_142314.mp4` until Eric renamed the archive;
+        # this build sat broken until the path was moved on. Frames at 0.6/9.2/23.2
+        # were re-checked against the notes below to confirm it is the same take.
         segments=[
-            (os.path.join(ARCH, "20260116_142314.mp4"),  0.6, 2.4, "BEFORE", "doorway - framed shower, vaulted ceiling"),
-            (os.path.join(ARCH, "20260116_142314.mp4"),  9.2, 2.2, "BEFORE", "framed shower panning to the jetted tub"),
-            (os.path.join(ARCH, "20260116_142314.mp4"), 23.2, 1.8, "BEFORE", "white raised-panel double vanity"),
+            (os.path.join(ARCH, "geist three bath before.mp4"),  0.6, 2.4, "BEFORE", "doorway - framed shower, vaulted ceiling"),
+            (os.path.join(ARCH, "geist three bath before.mp4"),  9.2, 2.2, "BEFORE", "framed shower panning to the jetted tub"),
+            (os.path.join(ARCH, "geist three bath before.mp4"), 23.2, 1.8, "BEFORE", "white raised-panel double vanity"),
             (GEIST_MOV,  6.2, 3.4, "AFTER", "navy picket tile, brass shower fixtures"),
             (GEIST_MOV, 20.5, 3.0, "AFTER", "pendant over the tub"),
             (GEIST_MOV, 30.5, 3.2, "AFTER", "freestanding tub, wall-mount brass filler"),

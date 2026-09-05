@@ -23,3 +23,21 @@ Pending/
 # two-pass x264 stats files - scratch, regenerated every encode
 marketing/meta-ads/renders/_*.log
 marketing/meta-ads/renders/_*.mbtree
+
+# Silent masters. add_music() muxes the track with `-c:v copy`, so the video
+# bitstream in `--reels-video.mp4` is byte-identical to its `-music` twin -
+# checked across all 30 pairs, no exceptions. Tracking both stored every cut
+# twice to carry a ~400 KB AAC stream, ~349 MB in total.
+#
+# Untracking does NOT keep them on disk: checking out or merging this commit
+# deletes them from the working tree, ignore rules and all. That is fine - a
+# silent master is recovered from its `-music` twin losslessly in about a
+# second, because the video stream is a straight copy either way:
+#
+#     ffmpeg -i <cut>--reels-video-music.mp4 -c:v copy -an <cut>--reels-video.mp4
+#
+# Verified byte-identical. Worth having locally when swapping a music track
+# (MUSIC.md shows that happens), since re-muxing beats a `-crf 19` rebuild -
+# but it is derived, not a master, so git should not carry it.
+marketing/meta-ads/renders/*--reels-video.mp4
+marketing/meta-ads/renders/*--feed-video.mp4

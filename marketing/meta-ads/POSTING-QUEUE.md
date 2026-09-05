@@ -1,13 +1,30 @@
 # Posting queue
 
 Everything built and held for later. **Nothing below is scheduled.** Renders live in
-`marketing/meta-ads/renders/` and are committed to git, so they survive and are versioned.
+`marketing/meta-ads/renders/`. The `-music` masters, the `--reels-upload` copies and the voiceover
+cuts are committed, so they survive and are versioned. The silent `--reels-video` / `--feed-video`
+intermediates are **no longer tracked** - their video bitstream is byte-identical to the `-music`
+twin, so committing both stored every cut twice.
+
+**Merging that change deletes those silent files from your working tree** - untracking plus a
+gitignore rule does not keep a file on disk. Nothing is lost: any of them comes back losslessly
+from its `-music` twin in about a second, since the video stream is a copy either way.
+
+```
+ffmpeg -i <cut>--reels-video-music.mp4 -c:v copy -an <cut>--reels-video.mp4
+```
 
 Every cut is 1080x1920, H.264, music-only (no voiceover), with a `--reels-upload` copy under 10 MB
 for the browser upload path. Music is Eric's own Mureka, so these masters are also clear for
 YouTube Shorts and the website.
 
-Last updated 2026-09-03.
+**Not everything here rebuilds from the scripts.** F1, F2 and Z1 have no `PROJECTS` entry any more -
+`build_walkthrough.py` was rewritten in place as the cuts evolved and its slugs are now Z2 and F3, so
+those configs only exist in git history. No script writes the `--reels-upload` copies; the ffmpeg
+command was never recorded. The F4 voiceover cuts came from ElevenLabs and are not deterministic.
+Those files are the only copy of that work - treat them as originals, not as artifacts.
+
+Last updated 2026-09-04.
 
 ---
 
@@ -97,6 +114,17 @@ master rather than the source:
 `Pending/` is gitignored — raw client media never enters the repo.
 
 ## Corrected along the way
+
+**Renaming the archive silently broke F6.** `build_beforeafter.py` pointed at
+`Pending/Archive/20260116_142314.mp4`, which became `geist three bath before.mp4` in the rename -
+and `_RENAME-THESE.md` had listed that file under "Already sorted - leave these alone". The build
+had been dead since, and nothing surfaced it because the render was already committed and nobody
+re-ran the script. Repointed 2026-09-04, and the frames at 0.6/9.2/23.2s were checked against the
+segment notes to confirm it is the same take. `build_reel_beforeafter.py`, the superseded first F6
+cut, had the same dead path and was fixed too.
+
+**A committed render hides a broken builder.** The artifact being present is not evidence the
+script that made it still runs.
 
 **FB was built for the wrong project.** There are two Westfield basements on the site -
 `basement-finish-westfield` ("on a Budget") and `westfield-basement-masterpiece` ("Luxury

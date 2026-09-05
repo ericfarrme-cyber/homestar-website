@@ -34,7 +34,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 ARCH = os.path.join(REPO, "Pending", "Archive")
 
-BEFORE = os.path.join(ARCH, "20260116_142314.mp4")
+BEFORE = os.path.join(ARCH, "geist three bath before.mp4")
 AFTER = os.path.join(ARCH, "_upscaled", "navy-after-topaz-1080.mp4")
 
 OUT_DIR = os.path.join(HERE, "renders")
