@@ -16,7 +16,7 @@ Last updated 2026-09-04.
 | **Before/after pairs on the site** | 3 | **Corrected 2026-09-04.** One project carries a `beforeAfter` array - `white-oak-primary-bath-fishers` - and it holds 3 pairs, each with a written label. The earlier count of 4 came from counting code occurrences, not data. |
 | **YouTube videos** | 3 | 2 project walkthroughs + 1 client testimonial |
 | **Blog posts** | 26 | cost, permits, ROI, design ideas — link-sticker material |
-| **Google rating** | 5.0 from 78 | the single strongest trust asset and currently unused socially |
+| **Google rating** | 5.0 from 85 | the single strongest trust asset and currently unused socially |
 | **Raw archive footage** | ~50 clips | most already cut; the remainder is per-project surplus |
 | **Cloned voices** | 2 | Eric and Robb, both audio-eligible |
 
@@ -120,7 +120,7 @@ answers are genuinely useful for design conversations.
 **5. Question box.** "What's the one thing you'd change about your bathroom?" Answers become both
 content and lead signal.
 
-**6. The 5.0 rating.** 78 reviews at 5.0 and it has never been posted. One clean card, once a month.
+**6. The 5.0 rating.** 85 reviews at 5.0 and it has never been posted. One clean card, once a month.
 The most persuasive thing HomeStar owns and the least used.
 
 **7. Blog link stickers.** 26 posts. The cost, permits and ROI articles answer what people actually

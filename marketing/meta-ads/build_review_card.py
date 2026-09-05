@@ -26,7 +26,7 @@ OUT = os.path.join(HERE, "renders", "cards")
 FONTS = os.path.join(HERE, "fonts")
 
 SITE_RATING = "5.0"
-SITE_REVIEWS = "78"
+SITE_REVIEWS = "85"
 
 # Deliberately NOT claimed on this card: that every review is a five, that
 # they are all Hamilton County, or anything about competitors. A 5.0 average
