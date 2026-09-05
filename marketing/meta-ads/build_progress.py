@@ -35,6 +35,12 @@ FADE_IN, FADE_OUT = 1.2, 2.2
 
 G = lambda n: os.path.join(NEW, n)
 A = lambda n: os.path.join(ARCH, n)
+# Some projects ship their own finished walkthrough on the site at far higher
+# quality than anything in the archive. These are gitignored, so local only.
+S = lambda n: os.path.join(REPO, "public", "images", n)
+# Motion clips rendered from stills by build_stills.py, for jobs that were
+# photographed but never filmed.
+ST = lambda key, n: os.path.join(HERE, "_stills", key, "%02d.mp4" % n)
 
 PROJECTS = {
     # Every window below was chosen to contain NO PEOPLE. The crew appear in
@@ -390,6 +396,85 @@ PROJECTS = {
     #
     # 11.9s of source, all of it the same subject, so this runs short at 14.4s.
     # Marble checkerboard with levelling clips still in, grey walls unpainted.
+    # First Reel built entirely from photographs. This job has ten photos and
+    # no video anywhere in the library, so until now it could only ever be
+    # story cards. build_stills.py renders each still as a moving 1080x1920
+    # clip; from here down the pipeline is identical to a shot Reel.
+    #
+    # The beat is a project-level fact rather than a description of the frame
+    # under it, which is deliberate. The rule "a plate must describe the frame"
+    # exists to stop a plate claiming something not visible; a statement about
+    # who designed the job cannot mismatch a frame, and it is the most
+    # interesting thing about this project - the homeowners moved from Denver
+    # and kept their Denver designer, so it was built to her drawings with
+    # every selection routed back to her two time zones away.
+    "zionsville-basement": dict(
+        out="FM-zionsville-basement-bar",
+        slug="zionsville-basement-bar-wine-room",
+        music=("American Reveal.mp3", 113.0),
+        ad={
+            "hook":     "That backsplash isn't tile.",
+            "beat":     "Designed from Denver. Built in Zionsville.",
+            "end_head": "Dead storage under the stairs.\nNow the best corner in the house.",
+            "end_sub":  "Basement finishing in Zionsville and Boone County.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        # Rendered by: python build_stills.py zionsville-basement
+        segments=[
+            (ST("zionsville-basement", 1), 0.0, 3.0, "the slab - counter and backsplash, one stone"),
+            (ST("zionsville-basement", 2), 0.0, 3.2, "the bar under the tall windows"),
+            (ST("zionsville-basement", 3), 0.0, 2.8, "floating oak shelves, integrated LED"),
+            (ST("zionsville-basement", 4), 0.0, 2.8, "the media lounge under the dark feature wall"),
+            (ST("zionsville-basement", 5), 0.0, 3.2, "the wine room built under the stairs"),
+        ],
+    ),
+
+    # The Geist three-bath has a before/after (F6) but no process cut, and
+    # `geist three bath tile.mp4` is the best tile-setting footage in the
+    # library after the Zionsville star floor. Found by inventorying every
+    # clip by frame - see SOURCE-INVENTORY.md.
+    #
+    # Copy comes from the project page's own story block, which I had not been
+    # reading: "The navy crackle-glaze picket tile - hand-glazed with a finish
+    # that makes every tile one-of-a-kind - became the signature of the space."
+    # That sentence is HomeStar's claim about its own job, so "no two match"
+    # is stated rather than inferred from a video still.
+    "geist-tile": dict(
+        out="FL-geist-navy-picket-craft",
+        slug="three-bathroom-remodel-geist",
+        # The one track in the library never used. Arco has drive, which suits
+        # a craft cut; its sibling already carries FC, the Zionsville mosaic.
+        music=("Arco d_Avanguardia.mp3", 69.2),
+        ad={
+            "hook":     "No two of these tiles match.",
+            "beat":     "Hand-glazed. On purpose.",
+            "end_head": "Set one clip at a time.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        # No people anywhere in the tile clip - the whole 9.5s is the wall.
+        # The beat lands on the clips, so a clip-covered frame has to be under
+        # it; the last segment is the orange Schluter board it is bonded to.
+        # Order set by plate coverage, not chronology. First pass put the
+        # orange-board segment third, which dropped it under the beat - so
+        # "Hand-glazed. On purpose." was describing a sheet of waterproofing
+        # board. Moved to second, under the hook, where tile is still in frame.
+        segments=[
+            (A("geist three bath tile.mp4"), 0.4, 3.0, "navy picket up, green levelling clips still in"),
+            (A("geist three bath tile.mp4"), 7.4, 2.0, "the orange Schluter board it is bonded to"),
+            (A("geist three bath tile.mp4"), 4.4, 2.8, "clips across the whole wall, bench built in"),
+            # 6.5 +2.2, not 7.4 +3.2. The longer window pans off the tile onto
+            # the vanity at 9.0s, which put the beat over a window and a sink.
+            # _plate_coverage() checks which SEGMENTS a plate spans; it cannot
+            # see a shot change subject inside one. Sample the source before
+            # trusting a window on a moving camera.
+            (S("geist-three-bath-video.mp4"), 6.5, 2.2, "the same tile grouted, champagne bronze fixtures"),
+            (S("geist-three-bath-video.mp4"), 30.4, 3.4, "wall-mount filler running into the freestanding tub"),
+        ],
+    ),
+
     "laundry-checker": dict(
         out="FJ-checkerboard-floor",
         slug=None,

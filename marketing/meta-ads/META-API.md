@@ -63,8 +63,27 @@ Neither is a blocker. Both change the shape of the thing, so better known now th
 | System user "HomeStar Publisher" | **done** — Employee access |
 | **Facebook Page assigned** | **done** — Partial access: **Content and Insights** |
 | **System user's app role** | **done** — Partial access: **Develop app** (not Manage app) |
-| **Token wizard** | **staged** — app picked, Never, 5 scopes ticked. Awaiting Eric's click |
-| **Instagram assigned** | **blocked** — see below. May not matter; see the Page route |
+| **Token generated** | **done** — Never expires, all five scopes granted |
+| **Instagram assigned** | **not needed** — publishing routes through the Page. Proven, not assumed |
+
+### Settled 2026-09-04: the Instagram blocker was never on the critical path
+
+`meta_check.py` against the live token:
+
+```
+1. API version   v25.0 responds. Identity: HomeStar Publisher
+2. Granted scopes  instagram_basic, instagram_content_publish,
+                   pages_manage_posts, pages_read_engagement, pages_show_list
+3. The Page      readable. Page access token obtainable
+4. Instagram     Page returns 17841470404585555, matches, @thehomestarservice readable
+```
+
+**The "Login needed" flag does not block publishing.** Instagram access arrives through the Page,
+which was already assigned. The failed `oidclink` login cost nothing, and the flag can stay set.
+
+Worth keeping as a habit: the hypothesis was cheap to test and the alternative was fighting a broken
+Meta redirect for an afternoon. When something looks blocked, check whether the blocked thing is
+actually required.
 
 ### The app-role gap (found and fixed 2026-09-04)
 

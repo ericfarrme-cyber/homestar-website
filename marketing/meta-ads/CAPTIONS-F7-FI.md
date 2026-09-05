@@ -1,4 +1,4 @@
-# Captions — F7 through FI
+# Captions — F7 through FM
 
 Twelve cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
@@ -297,6 +297,194 @@ you don't have to book." · end sub: *Schluter Pro Certified. Bathrooms in Hamil
 **Pairs with FA**, which is this job's process arc - studs, waterproofing, tile, finished. FA proves
 the room was built properly; this one shows what it is for. **Either order works**, unlike F8 and
 FG.
+
+---
+
+## FJ — `laundry-checker` (Fishers)
+
+**On screen:** "Checkerboard is unforgiving." · "Every corner meets three others." · "Get the
+layout wrong and you see it forever." · end sub: *Schluter Pro Certified. Tile and flooring across
+Hamilton County.*
+
+> Checkerboard is the least forgiving floor there is.
+>
+> Every other pattern hides a small error somewhere. This one does not. Each corner is a point where four tiles meet, and if the layout drifts by an eighth of an inch it reads as a wobble all the way down the run - and you look at it every day for as long as you own the house.
+>
+> So it gets set out before anything is bonded down. Centerline found first, the pattern dry-laid to the doorway, and the cuts balanced so the room does not end on a sliver against the wall. Levelling clips on every joint so no edge sits proud of its neighbor.
+>
+> This one is a laundry room, which is the last place most people expect to find a floor worth looking at. That is exactly why it works.
+>
+> Fishers, Indiana. Free in-home estimates: (317) 279-4798
+
+**Project confirmed by Eric 2026-09-04: Fishers.** The archive holds two laundry projects
+(`laundry-room-noblesville` and `laundry-room-geist`) and the filename named only a room type, so
+this sat unbuilt rather than guessed at - the same reason the Westfield mix-up is in this file.
+
+**No Schluter system claim in the body.** The end card carries the company credential, which is
+always true. But a laundry floor is not a wet area, no waterproofing is visible in the footage, and
+no project page states it for this job - so the caption talks about setting out and levelling, which
+is what the footage actually shows. Claiming the membrane here would be inventing it.
+
+**Eric's framing, 2026-09-04:** "a one off but a popular look with the checkers." So it is written as
+a craft piece rather than as a service we are touting - no offer, no upsell into laundry rooms.
+
+---
+
+## FK — `spa-retreat-bathroom-fishers` (demo to done)
+
+**On screen:** DEMO/DONE pill · "We took it back to nothing." · "Then built a spa in it." ·
+end sub: *Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.*
+
+> We didn't photograph the old bathroom. We photographed the moment there was nothing left of it.
+>
+> Studs, subfloor, and a window with nothing around it.
+>
+> What went back in: a freestanding soaker under the window, warm oak cabinetry rather than white, quartz with almost no movement in it, brass instead of chrome, and twin oval mirrors to soften a room full of straight lines.
+>
+> There is a heated towel rail, a walk-in shower with a rain head and a handheld, and a linear drain so the floor runs flat and unbroken to the glass.
+>
+> Every tiled surface sits on the complete Schluter system. 25-year warranty, standard, not an upgrade.
+>
+> Fishers, Indiana. Free in-home estimates: (317) 279-4798
+
+**This is not sold as a before-and-after, because there is no before.** No pre-demolition footage
+exists for this job, the project page carries no before photos and no `beforeAfter` array, and the
+only genuine befores in the whole library are `geist three bath before.mp4` and three white-oak
+stills. The pills therefore read **DEMO** and **DONE**.
+
+Calling our own demolition "BEFORE" would tell people that homeowner's bathroom looked like a
+building site. It did not - it was a finished, dated bathroom until we took it apart. That is the
+same class of error as pairing the Geist rooms by shared date, or publishing a gap between video
+dates as a job duration. **FB is not a contradiction:** an unfinished basement genuinely is how the
+Westfield homeowner lived with that space, so BEFORE is honest there.
+
+The opening line makes the absence the hook rather than hiding it. It is also true, which the
+alternative was not.
+
+**No duration claimed** anywhere in the cut or the caption - nobody has told me how long this job
+took, and the footage cannot establish it.
+
+**Every specific detail traces to FI**, which is the finished walkthrough of this same job: the oak,
+the quartz, the brass, the oval mirrors, the heated towel rail, the rain head and handheld, the
+linear drain, and the Schluter system with its 25-year warranty.
+
+**No crew in frame.** Both demo segments dodge the man visible around 4.5s and 6.0s of
+`spa retreat fishers 1.mp4`, since crew-in-frame is still an open question. Audited at 0.7s across
+all 28 frames.
+
+**Sequencing:** this is the third cut from this one job, after **FA** (the four-stage progression)
+and **FI** (the finished walkthrough). Do not run them close together. FK and FI share their
+strongest shots, so they want the widest spacing of the three.
+
+---
+
+## FL — `three-bathroom-remodel-geist` (navy picket craft cut)
+
+**On screen:** "No two of these tiles match." · "Hand-glazed. On purpose." · "Set one clip at a
+time." · end sub: *Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.*
+
+> Every tile on this wall is slightly different from the one beside it. That is what a crackle glaze does - it is hand-applied, so no two come out the same.
+>
+> Which makes it unforgiving to set. The pattern is a picket, so every tile has a point that has to meet its neighbours, and a glaze that catches the light differently tile to tile will show any drift straight away. Levelling clips on every joint, and they stay in until the mortar has gone off.
+>
+> Under all of it is the complete Schluter system, which went into all three bathrooms on this job.
+>
+> This was the master of a three-bathroom remodel. The layout would not take the shower the family wanted, so we moved the entry door and reconfigured the linen closet to find the room for it.
+>
+> Geist, Fishers. Free in-home estimates: (317) 279-4798
+
+**First cut written from a project page's `story` block rather than from footage.** Those blocks
+carry several hundred words of specific detail per project and had gone unread until the source
+inventory turned them up. The hand-glazing, the one-of-a-kind finish, the moved door and the
+reconfigured linen closet are all HomeStar's own account of its own job - stated, not inferred
+from a video still.
+
+**Sits alongside F6**, which is this project's before/after. F6 is the room; this is the wall being
+built. Either order works, but do not run them in the same week.
+
+**Two plate/frame faults caught before publish.**
+
+1. The Schluter board segment was third, which dropped it under the beat - so "Hand-glazed. On
+   purpose." was describing a sheet of waterproofing board. Moved to second, under the hook.
+2. The finished window was 7.4s +3.2s, which **pans off the tile onto the vanity at 9.0s**. The
+   beat then sat over a window and a sink. Shortened to 6.5 +2.2, which holds on the tile.
+
+The second one matters beyond this cut: `_plate_coverage()` reports which **segments** a plate
+spans and cannot see a shot change subject **inside** a segment. On a moving camera, sample the
+source window before trusting it.
+
+**No people in any frame** - the whole 9.5s tile clip is the wall. Audited at 0.7s across all 22
+frames.
+
+---
+
+## FM — `zionsville-basement-bar-wine-room` (built from photographs)
+
+**On screen:** "That backsplash isn't tile." · "Designed from Denver. Built in Zionsville." ·
+end head: *Dead storage under the stairs. Now the best corner in the house.* ·
+end sub: *Basement finishing in Zionsville and Boone County.*
+
+> This lower level was raw when the family bought the house. A walkout, tall windows on two elevations, a ceiling that rises with the stairwell, and nothing else.
+>
+> The bar is the centerpiece. The countertop is a polished black natural stone, and it is carried up the wall as a full-height slab backsplash instead of tile. That leaves nowhere to hide - the veining has to run continuously through the sink cutout, and the seams have to disappear.
+>
+> Above it, two floating stained-oak shelves with integrated lighting, shaker cabinetry, a beverage drawer and a glass-front wine refrigerator. The space under the stairs became a walk-in wine room: full-height black racking on three walls, a papered ceiling that follows the stair soffit, and warm cognac walls.
+>
+> Below-grade drainage for the bar sink and the guest bathroom was run by our own licensed plumbers. It is the part of a basement bar nobody thinks about, and the part that decides whether it works.
+>
+> The family moved here from Denver and kept their Denver designer, so this was built to Holly Johnson's drawings with every selection routed back to her two time zones away.
+>
+> Zionsville, Indiana. Free in-home estimates: (317) 279-4798
+
+**The first Reel built entirely from photographs.** This job has ten photos and no video anywhere
+in the library, so until now it could only ever be story cards. `build_stills.py` renders each
+still as a moving 1080x1920 clip - a push on a portrait frame, a travelling window on a landscape
+one - and `build_progress.py` then treats them as ordinary segments. Every plate, crossfade,
+loudness pass and audit is the same tested path a shot Reel uses.
+
+**The pan solves the crop problem rather than losing to it.** A 9:16 crop of a landscape photo
+keeps about a third of its width; letting the window travel across it uses the whole frame and
+turns the constraint into the movement.
+
+**The beat is a project fact, not a description of the frame, and that is deliberate.** The house
+rule - a plate must describe the frame under it - exists to stop a plate claiming something not
+visible. A statement about who designed the job cannot mismatch a frame. It is also the most
+interesting thing about this project.
+
+**Holly Johnson is credited** for the same reason Dovetail is credited on FB: a named design
+partnership is credibility HomeStar does not have to claim for itself.
+
+**No price band on the end card**, matching FB - there is no published basement band to quote.
+**Boone County, not Hamilton**, matching F7.
+
+**Caught on review:** the first cut opened on the wide bar panning right, which travelled off the
+bar onto windows and dining chairs while the hook was still on screen. A pan can walk away from
+its own subject - and that movement was mine, not the camera's. Reordered so the slab opens.
+
+**Eric: "the pan is too fast, it glitches."** Three separate faults, and the one that mattered
+most was invisible as a cause:
+
+1. **Two shots were frozen.** `zoompan`'s `d` is output frames PER INPUT FRAME. Fed a looped
+   90-frame input with `d=90` it emitted 8100 frames - a 270-second clip where 3 seconds were
+   asked for. The builder took the first 3s, which is one ninetieth of the zoom. The slab and the
+   wine room were effectively still images, which is why the pans felt so violent: they were the
+   only thing moving.
+2. **Stutter.** `-loop 1` emits input frames at 25fps by default, so motion was computed in 25
+   steps per second and then padded to 30 by duplicating frames. Fixed with `-framerate 30` on
+   the input.
+3. **Speed.** The pans traversed the whole photograph - 18.8 to 21.4 output pixels per frame,
+   against the 2-4 a filmed pan sits at. Capped at 3.2, with smoothstep easing on pans and
+   pushes so nothing jerks into motion at a cut.
+
+**The check is why it survived.** The builder asserted the clips were 1080x1920 - which they were.
+It never asserted duration, and duration was the broken thing; a 270-second clip passed a
+dimensions check happily. Same trap as the meta descriptions and the caption-less reels: the tag
+was verified, not the value. It now asserts both, and the reel is verified by counting identical
+consecutive frames rather than by watching it.
+
+**Open for Eric:** the shelf photo carries an antler mount among the decanters. It is the
+homeowners' own styling and it is in frame for about three seconds. Say if you would rather it
+were not.
 
 ---
 
