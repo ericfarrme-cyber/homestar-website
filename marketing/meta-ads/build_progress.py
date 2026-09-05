@@ -508,10 +508,16 @@ PROJECTS = {
             "cta":      "GET A FREE ESTIMATE",
             "badge_r":  "5.0 ★ GOOGLE",
         },
+        # REORDERED after the virality predictor scored v1: hook 34, sustain 98.
+        # Sustain of 98 says the content holds anyone who starts watching. A
+        # hook of 34 says almost nobody starts. v1 opened on beige hexagon -
+        # low contrast, and the first three seconds are the whole game on a
+        # reel. Now it opens on the black-and-white basketweave against deep
+        # green tile, which is the highest-contrast frame in the set.
         segments=[
+            (ST("six-floors", 3), 0.0, 2.2, "black and white basketweave"),
             (ST("six-floors", 1), 0.0, 2.4, "hexagon mosaic, pierced bronze drain"),
             (ST("six-floors", 2), 0.0, 2.2, "star-pattern marble mosaic"),
-            (ST("six-floors", 3), 0.0, 2.2, "black and white basketweave"),
             (ST("six-floors", 4), 0.0, 2.4, "waterjet marble centred on the drain"),
             (ST("six-floors", 5), 0.0, 2.2, "pebble pan"),
             (ST("six-floors", 6), 0.0, 2.4, "mosaic field"),
