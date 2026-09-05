@@ -63,10 +63,17 @@ def _smoothstep(u):
     return "(%s)*(%s)*(3-2*(%s))" % (u, u, u)
 
 
-# (image, seconds, movement, focus, note). `focus` is where along the
-# photograph the pan sits, 0 left to 1 right - the pan no longer crosses the
-# whole frame, so it has to be told which part of it matters. Notes are for
-# the plate-coverage report and must describe what is on screen.
+# Each entry is a dict:
+#   src    photograph in public/images
+#   dur    seconds
+#   move   push | pull | pan-l | pan-r
+#   focus  where along the photo a pan sits, 0 left to 1 right. A pan no
+#          longer crosses the whole frame, so it must be told what matters.
+#   rect   optional (x0, y0, x1, y1) as fractions, applied BEFORE any motion.
+#          This is how a person reflected in a mirror, or a litter box on a
+#          tub deck, gets left out of the frame entirely rather than cropped
+#          around and hoped about.
+#   note   for the plate-coverage report; must describe what is on screen.
 SETS = {
     # Zionsville basement bar and wine room. Photographs only - there is no
     # video of this job anywhere in the library.
@@ -81,11 +88,40 @@ SETS = {
         # First pass led on the wide bar panning right, which travelled off
         # the bar onto windows and dining chairs while the hook was still up.
         # A pan can walk away from its own subject - my movement, my mistake.
-        ("zionsville-basement-4.jpg", 3.0, "push",  0.50, "the slab - counter and backsplash, one stone"),
-        ("zionsville-basement-1.jpg", 3.2, "pan-l", 0.28, "the bar under the tall windows"),
-        ("zionsville-basement-3.jpg", 2.8, "pan-l", 0.45, "floating oak shelves, integrated LED"),
-        ("zionsville-basement-8.jpg", 2.8, "pan-r", 0.55, "the media lounge under the dark feature wall"),
-        ("zionsville-basement-6.jpg", 3.2, "push",  0.50, "the wine room built under the stairs"),
+        dict(src="zionsville-basement-4.jpg", dur=3.0, move="push",  focus=0.50, note="the slab - counter and backsplash, one stone"),
+        dict(src="zionsville-basement-1.jpg", dur=3.2, move="pan-l", focus=0.28, note="the bar under the tall windows"),
+        dict(src="zionsville-basement-3.jpg", dur=2.8, move="pan-l", focus=0.45, note="floating oak shelves, integrated LED"),
+        dict(src="zionsville-basement-8.jpg", dur=2.8, move="pan-r", focus=0.55, note="the media lounge under the dark feature wall"),
+        dict(src="zionsville-basement-6.jpg", dur=3.2, move="push",  focus=0.50, note="the wine room built under the stairs"),
+    ],
+
+    # White Oak primary bath, Fishers. The only project on the site carrying a
+    # real beforeAfter array - three pairs, each with a label HomeStar wrote.
+    #
+    # Only two pairs are used, and that is a people decision rather than a
+    # taste one:
+    #
+    #   before-1  a man is reflected in the mirror, and the mirror spans the
+    #             whole wall - no horizontal crop removes him. Cropped BELOW
+    #             the mirror line instead, which still shows exactly what the
+    #             pair is about: dark cabinets and a cultured-marble top.
+    #   before-5  crops clean of people, but an automatic litter box sits on
+    #             the tub deck and dominates the frame. Left out; Eric can
+    #             say if he wants it in.
+    #   before-2  clean.
+    "white-oak": [
+        dict(src="white-oak-primary-bath-fishers-before-1.jpg", dur=2.6, move="pan-r",
+             focus=0.50, rect=(0.30, 0.66, 1.00, 1.00),
+             note="BEFORE the vanity wall - dark cabinets, cultured-marble top"),
+        dict(src="white-oak-primary-bath-fishers-before-2.jpg", dur=2.8, move="push",
+             focus=0.50,
+             note="BEFORE corner whirlpool in a tiled deck, framed obscure glass"),
+        dict(src="white-oak-primary-bath-fishers-1.jpg", dur=3.0, move="pan-l",
+             focus=0.45,
+             note="AFTER white oak vanity, quartz, champagne bronze"),
+        dict(src="white-oak-primary-bath-fishers-2.jpg", dur=3.2, move="push",
+             focus=0.50,
+             note="AFTER freestanding soaker, clear frameless glass"),
     ],
 }
 
@@ -95,7 +131,7 @@ def probe(path):
         return im.width, im.height
 
 
-def filter_for(path, dur, move, focus=0.5):
+def filter_for(path, dur, move, focus=0.5, rect=None):
     """Filter chain and input arguments for one still.
 
     Returns (chain, input_args). The two movements need DIFFERENT inputs:
@@ -110,6 +146,12 @@ def filter_for(path, dur, move, focus=0.5):
             frozen. zoompan gets exactly one input frame.
     """
     w, h = probe(path)
+    pre = ""
+    if rect:
+        x0, y0, x1, y1 = rect
+        cw, ch = int(round((x1 - x0) * w)), int(round((y1 - y0) * h))
+        pre = "crop=%d:%d:%d:%d," % (cw, ch, int(round(x0 * w)), int(round(y0 * h)))
+        w, h = cw, ch
     frames = max(2, int(round(dur * FPS)))
     src_aspect = w / float(h)
 
@@ -120,7 +162,7 @@ def filter_for(path, dur, move, focus=0.5):
         win_w = W * S
         if big_w <= win_w:
             # Not actually wide enough to pan; fall back to a push.
-            return filter_for(path, dur, "push", focus)
+            return filter_for(path, dur, "push", focus, rect)
         available = big_w - win_w
 
         # Travel only as far as the speed cap allows, centred on `focus`.
@@ -133,7 +175,7 @@ def filter_for(path, dur, move, focus=0.5):
         expr = ("%d+(%d)*(%s)" % (x0, span, eased)) if move == "pan-r" \
             else ("%d+(%d)*(1-(%s))" % (x0, span, eased))
         chain = (
-            "scale=%d:%d:flags=lanczos,"
+            pre + "scale=%d:%d:flags=lanczos,"
             "crop=%d:%d:x='min(max(%s,0),%d)':y=0,"
             "scale=%d:%d:flags=lanczos,setsar=1,format=yuv420p"
             % (big_w, big_h, win_w, H * S, expr, available, W, H)
@@ -163,7 +205,7 @@ def filter_for(path, dur, move, focus=0.5):
         z = "1+%.6f*(%s)" % (ZOOM, eased)
 
     chain = (
-        "scale=%d:%d:flags=lanczos,crop=%d:%d,"
+        pre + "scale=%d:%d:flags=lanczos,crop=%d:%d,"
         "zoompan=z='%s':d=%d:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
         ":s=%dx%d:fps=%d,setsar=1,format=yuv420p"
         % (big_w, big_h, c_w, c_h, z, frames, W, H, FPS)
@@ -179,12 +221,14 @@ def render(key):
     os.makedirs(out_dir, exist_ok=True)
 
     made = []
-    for i, (name, dur, move, focus, note) in enumerate(SETS[key], 1):
+    for i, c in enumerate(SETS[key], 1):
+        name, dur, move = c["src"], c["dur"], c["move"]
+        focus, rect, note = c.get("focus", 0.5), c.get("rect"), c["note"]
         src = os.path.join(IMAGES, name)
         if not os.path.exists(src):
             sys.exit("missing photo: %s" % src)
         dst = os.path.join(out_dir, "%02d.mp4" % i)
-        chain, in_args = filter_for(src, dur, move, focus)
+        chain, in_args = filter_for(src, dur, move, focus, rect)
         cmd = ([FF, "-y", "-hide_banner", "-loglevel", "error"] + in_args +
                ["-i", src,
                 "-filter_complex", "[0:v]" + chain + "[v]",
@@ -203,7 +247,8 @@ def render(key):
         got = int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3))
         assert abs(got - dur) < 0.25,             "%s is %.1fs, wanted %.1fs" % (os.path.basename(dst), got, dur)
         made.append(dst)
-        print("  %2d  %-34s %4.1fs  %-6s f=%.2f  %s" % (i, name, dur, move, focus, note))
+        print("  %2d  %-40s %4.1fs  %-6s%s  %s"
+              % (i, name, dur, move, "  cropped" if rect else "", note))
 
     print("")
     print("%d clips in %s" % (len(made), out_dir))

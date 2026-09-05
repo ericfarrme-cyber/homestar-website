@@ -1,4 +1,4 @@
-# Captions — F7 through FM
+# Captions — F7 through FN
 
 Twelve cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
@@ -485,6 +485,54 @@ consecutive frames rather than by watching it.
 **Open for Eric:** the shelf photo carries an antler mount among the decanters. It is the
 homeowners' own styling and it is in frame for about three seconds. Say if you would rather it
 were not.
+
+---
+
+## FN — `white-oak-primary-bath-fishers` (true before/after, from photographs)
+
+**On screen:** BEFORE/AFTER pill · "This is the bathroom the house came with." · "Same footprint.
+Every surface new." · end head: *Identical layout. Unrecognizable room.* · end sub: *Schluter Pro
+Certified. Bathrooms in Hamilton County - $15K to $50K.*
+
+> The layout was worth keeping, so we kept it. The vanity stayed on its wall, the tub stayed in the window bay, the shower stayed in the corner. Everything between them changed.
+>
+> Out: a long dark-stained vanity under a one-piece cultured-marble top with integrated oval sinks. A corner whirlpool tub sitting in a tiled deck, taking the best light in the room and a large share of its floor. A framed shower with obscure glass, closed off behind a half wall so the far corner read as a solid block.
+>
+> In: a white oak double vanity under quartz with soft grey veining, two framed mirrors where there had been one builder mirror, three sconces where there had been two small fixtures, and champagne bronze instead of chrome. The whirlpool and its deck came out, and a freestanding soaker went back into the same bay on a wall-mounted filler - which gave back the floor the deck had been holding. The framed enclosure became clear frameless glass, so the shower reads as part of the room rather than a separate box.
+>
+> Inside it, large-format porcelain over the complete Schluter system, a full-width bench, two recessed niches, and a hexagon mosaic pan chosen for grip as much as for looks.
+>
+> The work carries our 1-year workmanship warranty. The waterproofing carries Schluter's 25-year manufacturer warranty.
+>
+> The footprint is identical. The room is unrecognizable.
+>
+> Fishers, Indiana. Free in-home estimates: (317) 279-4798
+
+**The only true before/after on the site.** `white-oak-primary-bath-fishers` is the one project
+carrying a `beforeAfter` array, with three pairs and labels HomeStar wrote. So the pills are the
+real **BEFORE** and **AFTER**, unlike FK, where the opening state was our own demolition.
+
+**Built from photographs.** There is no video of this job. Second asset for this project after F4,
+which was a walkthrough.
+
+**Two of the three pairs are used, on privacy grounds.**
+
+- `before-1` has a man reflected in the mirror, and that mirror spans the whole wall - crops were
+  tested at every horizontal position and he is in all of them. Cropped **below the mirror line**
+  instead, which still shows what the pair is about: dark cabinets and a cultured-marble top.
+  Verified on the rendered clip, not on the source.
+- `before-5` crops clean of people but an automatic litter box dominates the tub deck. Left out.
+  **Eric can call it back in** - it tells the "we took the deck out" story better than anything.
+- `before-2` is clean.
+
+These stills are already public on the project page. A Reel reaches further than a gallery someone
+chooses to open, and a stranger's face is worth the extra care either way.
+
+**The warranty is stated correctly here, and it has not been elsewhere.** The project page is
+precise: *"The work carries our 1-year workmanship warranty, and the waterproofing carries
+Schluter's 25-year manufacturer warranty."* Earlier captions compress those into a bare "25-year
+warranty, standard", which reads as HomeStar's own guarantee on the whole job. **Worth sweeping the
+back catalogue for.**
 
 ---
 
