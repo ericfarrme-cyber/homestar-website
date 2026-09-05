@@ -496,6 +496,8 @@ PROJECTS = {
     "six-floors": dict(
         out="FO-six-floors",
         slug=None,
+        # Demo of the ident integrated as the end-card reveal.
+        animated_end=True,
         # Arco rejected by Eric. It is the brightest family in the library and
         # he has now turned it down twice. Quiet Neon is the one he approved by
         # name on the Carmel double.
@@ -667,6 +669,68 @@ def plates(cfg, tag):
 
 
 
+def animate_endcard(plate_path, out_mp4, dur):
+    """Reveal the end card with the laser line from the ident.
+
+    The static end card works, but it arrives all at once and reads as the
+    video stopping rather than finishing. This is the `level` ident applied to
+    the card itself: a green line sweeps the width, the card appears behind it
+    as it passes, then the line exits and the card holds for the rest of the
+    time it already had.
+
+    Integrating it this way rather than appending the ident as a separate clip
+    matters for two reasons - the reel does not get 1.6s longer, and the
+    wordmark is not shown twice in a row.
+
+    Works off the finished plate, so it needs no knowledge of the card's
+    internal layout and cannot drift if that layout changes.
+    """
+    from PIL import Image, ImageDraw, ImageFilter
+
+    plate = Image.open(plate_path).convert("RGB")
+    ground = Image.new("RGB", plate.size, BRAND.NAVY)
+    w, h = plate.size
+    frames = int(round(dur * FPS))
+    tmp = os.path.join(HERE, "_endanim")
+    os.makedirs(tmp, exist_ok=True)
+
+    # The sweep waits for the crossfade out of the last shot to finish. The
+    # first version started at t=0 and the line was already two thirds across
+    # while the previous shot was still dissolving, so both were happening at
+    # once and neither read. Now the card arrives as clean navy, then the line
+    # crosses it.
+    SWEEP_START, SWEEP_END, LINE_OUT = 0.34, 1.02, 1.20
+
+    for i in range(frames):
+        t = i / float(FPS)
+        p_sweep = min(1.0, max(0.0, (t - SWEEP_START) / (SWEEP_END - SWEEP_START)))
+        p_sweep = p_sweep * p_sweep * (3 - 2 * p_sweep)   # smoothstep
+        edge = int(w * p_sweep)
+
+        mask = Image.new("L", (w, h), 0)
+        if edge > 0:
+            ImageDraw.Draw(mask).rectangle([0, 0, edge, h], fill=255)
+            mask = mask.filter(ImageFilter.GaussianBlur(9))
+        frame = Image.composite(plate, ground, mask)
+
+        # The line itself, riding the leading edge until it leaves the frame.
+        if SWEEP_START <= t < LINE_OUT:
+            x = int(w * min(1.0, (t - SWEEP_START) / (LINE_OUT - SWEEP_START)))
+            d = ImageDraw.Draw(frame)
+            d.rectangle([max(0, x - 3), 0, x, h], fill=BRAND.GREEN)
+        frame.save(os.path.join(tmp, "%04d.png" % i))
+
+    subprocess.run([FF, "-y", "-hide_banner", "-loglevel", "error",
+                    "-framerate", str(FPS), "-i", os.path.join(tmp, "%04d.png"),
+                    "-c:v", "libx264", "-preset", "slow", "-crf", "16",
+                    "-pix_fmt", "yuv420p", "-r", str(FPS), out_mp4], check=True)
+    for f in os.listdir(tmp):
+        os.remove(os.path.join(tmp, f))
+    os.rmdir(tmp)
+    return out_mp4
+
+
+
 def _plate_coverage(segs, hook_out, beat_in, beat_out):
     """Print which segments each text plate is actually on screen over.
 
@@ -731,8 +795,17 @@ def build(key):
         prev = f"x{i}"
 
     n = len(segs)
-    for src, dur in ((logo, body), (hook_p, body), (beat_p, body), (end_p, END_DUR)):
-        cmd += ["-loop", "1", "-t", f"{dur:.2f}", "-i", src]
+    end_src, end_is_video = end_p, False
+    if cfg.get("animated_end"):
+        end_src = os.path.join(OUT_DIR, cfg["out"] + "--endcard.mp4")
+        animate_endcard(end_p, end_src, END_DUR)
+        end_is_video = True
+
+    for src, dur in ((logo, body), (hook_p, body), (beat_p, body), (end_src, END_DUR)):
+        if src == end_src and end_is_video:
+            cmd += ["-i", src]
+        else:
+            cmd += ["-loop", "1", "-t", f"{dur:.2f}", "-i", src]
     parts.append(f"[{n}:v]format=rgba,fade=t=in:st=0.25:d=0.7:alpha=1[lg]")
     parts.append(f"[{n+1}:v]format=rgba,fade=t=in:st=0.30:d={HOOK_FADE_IN}:alpha=1,"
                  f"fade=t=out:st={hook_out:.2f}:d={HOOK_FADE_OUT}:alpha=1[hk]")
