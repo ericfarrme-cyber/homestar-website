@@ -1,4 +1,4 @@
-# Captions — F7 through FN
+# Captions — F7 through FO
 
 Twelve cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
@@ -533,6 +533,42 @@ precise: *"The work carries our 1-year workmanship warranty, and the waterproofi
 Schluter's 25-year manufacturer warranty."* Earlier captions compress those into a bare "25-year
 warranty, standard", which reads as HomeStar's own guarantee on the whole job. **Worth sweeping the
 back catalogue for.**
+
+---
+
+## FO — six floors, six jobs (no single project)
+
+**On screen:** "Six bathrooms. Six floors." · "Which one would you pick?" · end head: *Six rooms.
+One standard.* · end sub: *Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.*
+
+> Six bathrooms across Hamilton and Boone County. Six completely different floors.
+>
+> A hexagon mosaic with a pierced bronze drain set into it. A star cut from marble and repeated across a whole room. Black and white basketweave against deep green tile. A waterjet marble mosaic laid so the pattern centres on the drain and cuts symmetrically to all four walls. A pebble pan. A field of small mosaic.
+>
+> The floor is the one surface in a bathroom you are in contact with every single day, and it is usually the last thing anyone picks. We would argue it should be one of the first.
+>
+> Which one would you pick?
+>
+> Hamilton and Boone County, Indiana. Free in-home estimates: (317) 279-4798
+
+**The first cut that belongs to no project.** Every other reel follows one job from start to
+finish. This is a comparison across six, and `slug` is deliberately `None` - no project page is
+cited and no single client's room is presented as the subject.
+
+**The first that ends on a question rather than a claim.** Nothing else in the queue invites a
+reply, and a bathroom floor is the most argued-about choice in the room. It is also the first that
+cannot exhaust a project, because it does not belong to one.
+
+**No blanket waterproofing claim.** Six jobs would each need checking against their own project
+page, so the end card carries "Schluter Pro Certified" as a company credential - always true -
+rather than asserting the complete system across all six.
+
+**Hamilton AND Boone County**, because one of the six is Zionsville, which sits outside Hamilton.
+The house sign-off is a city, and no single city is true here.
+
+**Plate mismatch is structurally impossible on this one** - every segment is a floor, so any plate
+lands on the subject whatever the timing does. Worth noting because it is the exception; every
+other cut needed the coverage report.
 
 ---
 

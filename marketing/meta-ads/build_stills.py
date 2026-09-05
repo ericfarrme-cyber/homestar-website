@@ -123,6 +123,33 @@ SETS = {
              focus=0.50,
              note="AFTER freestanding soaker, clear frameless glass"),
     ],
+
+    # Six floors, six jobs, one reel. Structurally unlike everything else in
+    # the queue: every other cut is one project, start to finish. This one is
+    # a comparison, and it ends on a question rather than a claim - nothing
+    # else built so far invites a reply.
+    #
+    # No blanket waterproofing claim in the copy. The end card carries
+    # "Schluter Pro Certified" as a company credential, which is always true,
+    # rather than asserting the complete system on six jobs individually.
+    "six-floors": [
+        dict(src="fishers-full-gut-walk-in-4.jpg", dur=2.4, move="push", focus=0.50,
+             note="hexagon mosaic with the pierced bronze drain - Fishers"),
+        dict(src="zionsville-jack-and-jill-2.jpg", dur=2.2, move="push", focus=0.50,
+             rect=(0.0, 0.52, 1.0, 1.0),
+             note="star-pattern marble mosaic - Zionsville"),
+        dict(src="bathroom-green-tile-5.jpg", dur=2.2, move="push", focus=0.50,
+             rect=(0.0, 0.45, 1.0, 1.0),
+             note="black and white basketweave pan - Carmel"),
+        dict(src="marble-master-bathroom-fishers-3.jpg", dur=2.4, move="push", focus=0.50,
+             rect=(0.0, 0.30, 1.0, 1.0),
+             note="waterjet marble mosaic, pattern centred on the drain - Fishers"),
+        dict(src="fishers-double-shower-5.jpg", dur=2.2, move="push", focus=0.50,
+             rect=(0.06, 0.52, 1.0, 1.0),
+             note="pebble pan - Fishers"),
+        dict(src="fishers-wetroom-6.jpg", dur=2.4, move="push", focus=0.50,
+             note="mosaic field - Fishers"),
+    ],
 }
 
 

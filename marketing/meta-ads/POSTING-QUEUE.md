@@ -61,6 +61,8 @@ Last updated 2026-09-04.
 
 | **FN** | `white-oak-primary-bath-fishers` | 13.6s | **True before/after, from photographs.** The only project on the site with a real `beforeAfter` array. Two of three pairs used - see the caption note on the mirror reflection. Second asset after F4. | `CAPTIONS-F7-FI.md` |
 
+| **FO** | *(no single project)* | 15.0s | **Comparison cut.** Six floors from six jobs, ending on a question rather than a claim. Belongs to no project, so it cannot exhaust one. | `CAPTIONS-F7-FI.md` |
+
 **FA, FI and FK are all the same job - confirmed by Eric 2026-09-04.** Spread them widely. FK and FI share their strongest shots,
 so those two want the most distance of the three.
 

@@ -475,6 +475,40 @@ PROJECTS = {
         ],
     ),
 
+    # Six floors from six different jobs. Structurally unlike everything else
+    # in the queue - every other cut follows one project from start to finish.
+    # This is a comparison, and it ends on a question rather than a claim.
+    # Nothing else built so far invites a reply, and a bathroom floor is the
+    # most argued-about choice in the room.
+    #
+    # No blanket waterproofing claim: the end card carries "Schluter Pro
+    # Certified" as a company credential, which is always true, rather than
+    # asserting the complete system across six jobs individually.
+    #
+    # slug is None on purpose - this belongs to no single project, so no
+    # project page is cited and no one job is credited.
+    "six-floors": dict(
+        out="FO-six-floors",
+        slug=None,
+        music=("Arco d_Avanguardia (1).mp3", 138.5),
+        ad={
+            "hook":     "Six bathrooms. Six floors.",
+            "beat":     "Which one would you pick?",
+            "end_head": "Six rooms. One standard.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (ST("six-floors", 1), 0.0, 2.4, "hexagon mosaic, pierced bronze drain"),
+            (ST("six-floors", 2), 0.0, 2.2, "star-pattern marble mosaic"),
+            (ST("six-floors", 3), 0.0, 2.2, "black and white basketweave"),
+            (ST("six-floors", 4), 0.0, 2.4, "waterjet marble centred on the drain"),
+            (ST("six-floors", 5), 0.0, 2.2, "pebble pan"),
+            (ST("six-floors", 6), 0.0, 2.4, "mosaic field"),
+        ],
+    ),
+
     "laundry-checker": dict(
         out="FJ-checkerboard-floor",
         slug=None,
