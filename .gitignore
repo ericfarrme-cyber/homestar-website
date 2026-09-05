@@ -36,7 +36,10 @@ marketing/meta-ads/renders/_*.mbtree
 #
 #     ffmpeg -i <cut>--reels-video-music.mp4 -c:v copy -an <cut>--reels-video.mp4
 #
-# Verified byte-identical. Worth having locally when swapping a music track
+# The recovered file is not byte-identical to the one git held - ffmpeg
+# rewrites the container, so muxer tags and faststart layout differ - but the
+# H.264 stream inside is bit-for-bit the same, checked on all 34. The picture
+# is exact; only the wrapper is new. Worth having locally when swapping a track
 # (MUSIC.md shows that happens), since re-muxing beats a `-crf 19` rebuild -
 # but it is derived, not a master, so git should not carry it.
 marketing/meta-ads/renders/*--reels-video.mp4
