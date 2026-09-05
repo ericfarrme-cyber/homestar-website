@@ -669,55 +669,129 @@ def plates(cfg, tag):
 
 
 
-def animate_endcard(plate_path, out_mp4, dur):
-    """Reveal the end card with the laser line from the ident.
+def _endcard_bands(plate):
+    """Find the card's elements by looking at it, not by knowing its layout.
 
-    The static end card works, but it arrives all at once and reads as the
-    video stopping rather than finishing. This is the `level` ident applied to
-    the card itself: a green line sweeps the width, the card appears behind it
-    as it passes, then the line exits and the card holds for the rest of the
-    time it already had.
+    Returns (ground, bands). ground is the card with every element removed,
+    rebuilt row by row from the left edge so any vertical gradient survives.
+    bands are (y0, y1) spans of actual content, top to bottom - on the current
+    card that is the rule, the headline, the sub line, the CTA and the
+    wordmark, in reading order.
 
-    Integrating it this way rather than appending the ident as a separate clip
-    matters for two reasons - the reel does not get 1.6s longer, and the
-    wordmark is not shown twice in a row.
+    Doing it this way means the animation cannot drift out of step if the card
+    layout ever changes.
+    """
+    from PIL import Image
+    w, h = plate.size
+    px = plate.load()
 
-    Works off the finished plate, so it needs no knowledge of the card's
-    internal layout and cannot drift if that layout changes.
+    ground = Image.new("RGB", (w, h))
+    gp = ground.load()
+    for y in range(h):
+        c = px[5, y]
+        for x in range(w):
+            gp[x, y] = c
+
+    rows = []
+    for y in range(h):
+        n = 0
+        bg = px[5, y]
+        for x in range(0, w, 3):
+            r, g, b = px[x, y]
+            if abs(r - bg[0]) + abs(g - bg[1]) + abs(b - bg[2]) > 34:
+                n += 1
+        rows.append(n)
+
+    bands, start, gap = [], None, 0
+    for y, n in enumerate(rows):
+        if n > 2:
+            if start is None:
+                start = y
+            gap = 0
+        elif start is not None:
+            gap += 1
+            if gap > 26:
+                bands.append((start, y - gap))
+                start = None
+    if start is not None:
+        bands.append((start, h - 1))
+    return ground, bands
+
+
+def animate_endcard(plate_path, out_mp4, dur, style="cascade"):
+    """Bring the end card in rather than cutting to it.
+
+    style="cascade" is the brand-native one. The card assembles in reading
+    order, led by the green rule - the mark that already sits above every
+    hook, every beat and every story card. Nothing new is introduced: the only
+    animated device is the brand's own atom doing what it already does, and
+    the stagger walks the eye down the card in the order it should be read.
+
+    style="laser" was the first attempt: a green line sweeping the width. It
+    is kept for comparison and is not recommended. A full-height vertical line
+    appears nowhere else in the brand, so it reads as a transition effect
+    rather than a brand behaviour, and on a muted scroll it looks like a
+    loading bar. It also delays the legibility of the one thing the card
+    exists to say.
     """
     from PIL import Image, ImageDraw, ImageFilter
 
     plate = Image.open(plate_path).convert("RGB")
-    ground = Image.new("RGB", plate.size, BRAND.NAVY)
     w, h = plate.size
     frames = int(round(dur * FPS))
     tmp = os.path.join(HERE, "_endanim")
     os.makedirs(tmp, exist_ok=True)
 
-    # The sweep waits for the crossfade out of the last shot to finish. The
-    # first version started at t=0 and the line was already two thirds across
-    # while the previous shot was still dissolving, so both were happening at
-    # once and neither read. Now the card arrives as clean navy, then the line
-    # crosses it.
-    SWEEP_START, SWEEP_END, LINE_OUT = 0.34, 1.02, 1.20
+    ground, bands = _endcard_bands(plate)
+
+    def smooth(x):
+        x = min(1.0, max(0.0, x))
+        return x * x * (3 - 2 * x)
+
+    # Starts after the crossfade out of the last shot has finished, so the two
+    # are never happening at once.
+    START = 0.34
+    if style == "cascade":
+        # Per band: (begin, end, rise in px). The rule wipes rather than rises.
+        timing = [(0.00, 0.28, 0), (0.14, 0.56, 18), (0.42, 0.72, 12),
+                  (0.64, 0.94, 12), (0.86, 1.16, 0)]
 
     for i in range(frames):
-        t = i / float(FPS)
-        p_sweep = min(1.0, max(0.0, (t - SWEEP_START) / (SWEEP_END - SWEEP_START)))
-        p_sweep = p_sweep * p_sweep * (3 - 2 * p_sweep)   # smoothstep
-        edge = int(w * p_sweep)
+        t = i / float(FPS) - START
+        frame = ground.copy()
 
-        mask = Image.new("L", (w, h), 0)
-        if edge > 0:
-            ImageDraw.Draw(mask).rectangle([0, 0, edge, h], fill=255)
-            mask = mask.filter(ImageFilter.GaussianBlur(9))
-        frame = Image.composite(plate, ground, mask)
+        if style == "laser":
+            p = smooth(min(1.0, max(0.0, t / 0.68)))
+            edge = int(w * p)
+            if edge > 0:
+                mask = Image.new("L", (w, h), 0)
+                ImageDraw.Draw(mask).rectangle([0, 0, edge, h], fill=255)
+                frame = Image.composite(plate, ground,
+                                        mask.filter(ImageFilter.GaussianBlur(9)))
+            if 0 <= t < 0.86:
+                x = int(w * min(1.0, t / 0.86))
+                ImageDraw.Draw(frame).rectangle([max(0, x - 3), 0, x, h],
+                                                fill=BRAND.GREEN)
+        else:
+            for idx, (y0, y1) in enumerate(bands):
+                b0, b1, rise = timing[idx] if idx < len(timing) else (0.9, 1.2, 10)
+                p = smooth((t - b0) / (b1 - b0)) if b1 > b0 else 1.0
+                if p <= 0:
+                    continue
+                band = plate.crop((0, y0, w, y1 + 1))
+                if idx == 0:
+                    # The rule draws out from the left, as it does in the ident.
+                    band = band.crop((0, 0, max(1, int(band.width * p)),
+                                      band.height))
+                    frame.paste(band, (0, y0))
+                    continue
+                dy = int((1 - p) * rise)
+                strip = ground.crop((0, y0, w, y1 + 1)).convert("RGBA")
+                over = band.convert("RGBA")
+                over.putalpha(int(255 * p))
+                strip.alpha_composite(over)
+                frame.paste(strip.convert("RGB"), (0, y0 + dy))
 
-        # The line itself, riding the leading edge until it leaves the frame.
-        if SWEEP_START <= t < LINE_OUT:
-            x = int(w * min(1.0, (t - SWEEP_START) / (LINE_OUT - SWEEP_START)))
-            d = ImageDraw.Draw(frame)
-            d.rectangle([max(0, x - 3), 0, x, h], fill=BRAND.GREEN)
         frame.save(os.path.join(tmp, "%04d.png" % i))
 
     subprocess.run([FF, "-y", "-hide_banner", "-loglevel", "error",
@@ -728,7 +802,6 @@ def animate_endcard(plate_path, out_mp4, dur):
         os.remove(os.path.join(tmp, f))
     os.rmdir(tmp)
     return out_mp4
-
 
 
 def _plate_coverage(segs, hook_out, beat_in, beat_out):
@@ -798,7 +871,8 @@ def build(key):
     end_src, end_is_video = end_p, False
     if cfg.get("animated_end"):
         end_src = os.path.join(OUT_DIR, cfg["out"] + "--endcard.mp4")
-        animate_endcard(end_p, end_src, END_DUR)
+        animate_endcard(end_p, end_src, END_DUR,
+                        cfg.get("end_style", "cascade"))
         end_is_video = True
 
     for src, dur in ((logo, body), (hook_p, body), (beat_p, body), (end_src, END_DUR)):
