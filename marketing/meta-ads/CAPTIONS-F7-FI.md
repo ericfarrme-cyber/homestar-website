@@ -461,6 +461,27 @@ partnership is credibility HomeStar does not have to claim for itself.
 bar onto windows and dining chairs while the hook was still on screen. A pan can walk away from
 its own subject - and that movement was mine, not the camera's. Reordered so the slab opens.
 
+**Eric: "the pan is too fast, it glitches."** Three separate faults, and the one that mattered
+most was invisible as a cause:
+
+1. **Two shots were frozen.** `zoompan`'s `d` is output frames PER INPUT FRAME. Fed a looped
+   90-frame input with `d=90` it emitted 8100 frames - a 270-second clip where 3 seconds were
+   asked for. The builder took the first 3s, which is one ninetieth of the zoom. The slab and the
+   wine room were effectively still images, which is why the pans felt so violent: they were the
+   only thing moving.
+2. **Stutter.** `-loop 1` emits input frames at 25fps by default, so motion was computed in 25
+   steps per second and then padded to 30 by duplicating frames. Fixed with `-framerate 30` on
+   the input.
+3. **Speed.** The pans traversed the whole photograph - 18.8 to 21.4 output pixels per frame,
+   against the 2-4 a filmed pan sits at. Capped at 3.2, with smoothstep easing on pans and
+   pushes so nothing jerks into motion at a cut.
+
+**The check is why it survived.** The builder asserted the clips were 1080x1920 - which they were.
+It never asserted duration, and duration was the broken thing; a 270-second clip passed a
+dimensions check happily. Same trap as the meta descriptions and the caption-less reels: the tag
+was verified, not the value. It now asserts both, and the reel is verified by counting identical
+consecutive frames rather than by watching it.
+
 **Open for Eric:** the shelf photo carries an antler mount among the decanters. It is the
 homeowners' own styling and it is in frame for about three seconds. Say if you would rather it
 were not.
