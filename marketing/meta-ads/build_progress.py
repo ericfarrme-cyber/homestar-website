@@ -130,7 +130,13 @@ PROJECTS = {
     # rather than asserting it.
     #
     # People-free windows, mapped at 1s:
-    #   spa retreat fishers 1.mp4    clear 0.8-3.5, 6.5-7.5, 8.6-11.4
+    #   spa retreat fishers 1.mp4    clear 1.5-3.8 ONLY (corrected 2026-09-04)
+    #     The earlier note said 0.8-3.5 and it was wrong. A man is at the left
+    #     edge through 1.3s and walks back in at about 3.9s. FA shipped with
+    #     him in its opening frames on the strength of that note, and FP was
+    #     built with the same error before it was caught on the 0.7s audit.
+    #     Windows in these comments are only as good as the sheet they came
+    #     from; re-check the frames, not the note.
     #   spa retreat fishers(1).mp4   clear 2.6-8.5
     #   spa retreat fishers.mp4      clear throughout
     "spa-retreat-progress": dict(
@@ -146,7 +152,7 @@ PROJECTS = {
             "badge_r":  "5.0 ★ GOOGLE",
         },
         segments=[
-            (G("spa retreat fishers 1.mp4"),   1.0, 2.8, "stripped to studs, plumbing roughed in"),
+            (G("spa retreat fishers 1.mp4"),   1.6, 2.2, "stripped to studs, plumbing roughed in"),
             (G("spa retreat fishers(1).mp4"),  3.2, 3.4, "waterproofing board up, seams taped"),
             (G("spa retreat fishers(1).mp4"),  6.0, 2.6, "floor tile going down over it"),
             (G("spa retreat fishers.mp4"),     7.6, 3.4, "tub in, filler set, floors still papered"),
@@ -490,7 +496,10 @@ PROJECTS = {
     "six-floors": dict(
         out="FO-six-floors",
         slug=None,
-        music=("Arco d_Avanguardia (1).mp3", 138.5),
+        # Arco rejected by Eric. It is the brightest family in the library and
+        # he has now turned it down twice. Quiet Neon is the one he approved by
+        # name on the Carmel double.
+        music=("Quiet Neon.mp3", 69.2),
         ad={
             "hook":     "Six bathrooms. Six floors.",
             "beat":     "Which one would you pick?",
@@ -506,6 +515,42 @@ PROJECTS = {
             (ST("six-floors", 4), 0.0, 2.4, "waterjet marble centred on the drain"),
             (ST("six-floors", 5), 0.0, 2.2, "pebble pan"),
             (ST("six-floors", 6), 0.0, 2.4, "mosaic field"),
+        ],
+    ),
+
+    # The layers nobody sees, across SIX different jobs - the companion to FO.
+    # Same idea: content about how HomeStar works rather than about one
+    # bathroom, so it cannot exhaust a project.
+    #
+    # The argument is the sequence. Every project page claims the complete
+    # Schluter system and every finished photo hides it under tile. Showing
+    # the same order on six unrelated jobs is the difference between claiming
+    # a standard and demonstrating one.
+    #
+    # People-free windows taken from the notes already in this file:
+    #   spa retreat fishers 1.mp4    clear 0.8-3.5
+    #   noblesville bathroom 3.mp4   the window F9 uses
+    #   laundry tile.mp4             no crew anywhere
+    #   geist three bath tile.mp4    no crew anywhere, whole clip is the wall
+    "under-the-tile": dict(
+        out="FP-whats-under-your-tile",
+        slug=None,
+        music=("Brisa de Nylon (1).mp3", 59.2),
+        ad={
+            "hook":     "None of this survives into the finished photos.",
+            "beat":     "All of it decides whether the finish lasts.",
+            "end_head": "Six jobs. Same order, every time.",
+            "end_sub":  "Schluter Pro Certified. Bathrooms in Hamilton County - $15K to $50K.",
+            "cta":      "GET A FREE ESTIMATE",
+            "badge_r":  "5.0 ★ GOOGLE",
+        },
+        segments=[
+            (G("spa retreat fishers 1.mp4"),        1.6, 2.2, "stripped back to framing"),
+            (A("fishers full gut waterproofing.mp4"), 12.4, 2.4, "waterproofing board, label still readable"),
+            (G("noblesville bathroom 3.mp4"),        5.6, 2.4, "membrane taped up the shower wall"),
+            (A("laundry tile.mp4"),                  4.0, 2.4, "tile going down, levelling clips on every joint"),
+            (A("geist three bath tile.mp4"),         4.4, 2.4, "clips on the walls too, until the mortar goes off"),
+            (A("carmel double finished.mp4"),        2.0, 2.8, "and then none of it is visible again"),
         ],
     ),
 

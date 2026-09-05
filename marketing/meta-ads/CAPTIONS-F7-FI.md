@@ -1,4 +1,4 @@
-# Captions — F7 through FO
+# Captions — F7 through FP
 
 Twelve cuts, all built and held. House rules followed throughout: no hashtags, plain hyphens rather
 than em dashes, no pricing in the caption (the end card carries the band where there is one), and
@@ -569,6 +569,52 @@ The house sign-off is a city, and no single city is true here.
 **Plate mismatch is structurally impossible on this one** - every segment is a floor, so any plate
 lands on the subject whatever the timing does. Worth noting because it is the exception; every
 other cut needed the coverage report.
+
+---
+
+## FP — what's under your tile (six jobs, no single project)
+
+**On screen:** "None of this survives into the finished photos." · "All of it decides whether the
+finish lasts." · end head: *Six jobs. Same order, every time.* · end sub: *Schluter Pro Certified.
+Bathrooms in Hamilton County - $15K to $50K.*
+
+> Every one of these is a different bathroom, and every one of them was built in the same order.
+>
+> Stripped back to framing. Waterproofing board, with the label still readable on it. Membrane taped up the shower wall and detailed into the corners. Then tile, with a levelling clip on every joint, and the clips stay in until the mortar has gone off.
+>
+> Then it all disappears. The last shot is the only one that ends up in a photograph.
+>
+> Anyone can show you a finished bathroom. The question worth asking a contractor is what went on underneath it, and whether they did it the same way on the job before yours.
+>
+> Hamilton County, Indiana. Free in-home estimates: (317) 279-4798
+
+**The companion to FO, and the same idea: content about how HomeStar works rather than about one
+bathroom, so it cannot exhaust a project.** `slug` is `None`.
+
+**The argument is the sequence.** Every project page claims the complete Schluter system and every
+finished photo hides it under tile. Showing the same order on six unrelated jobs is the difference
+between claiming a standard and demonstrating one - and it is an argument a competitor with one
+good bathroom cannot make.
+
+**Deliberately worded away from F9**, which is the closest existing cut and already uses "You'll
+never see this part again." These two must not sound like the same reel.
+
+### A crew member was in FA, and this is how it was found
+
+The builder carries a comment mapping the people-free windows in
+`spa retreat fishers 1.mp4`. It said **clear 0.8-3.5**. That was wrong: a man is at the left edge
+through 1.3s and walks back in at about 3.9s. The true window is **1.5-3.8**.
+
+**FA was built on that note at 1.0 +2.8, so FA has had someone in its opening frames the entire
+time it has been queued.** FP inherited the same error, and the 0.7s audit caught it here - the
+same audit that caught the face in FF.
+
+Both are now 1.6 +2.2 and re-verified by zooming the left edge specifically, because that is the
+check that failed. Nothing published is affected: F4 is the only live reel and it is a different
+job.
+
+**The note in the builder now says what it should have said originally** - a window in a comment is
+only as good as the sheet it came from, and the frames get re-checked rather than the note.
 
 ---
 

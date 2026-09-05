@@ -43,7 +43,7 @@ Last updated 2026-09-04.
 | **F7** | `jack-and-jill-zionsville` | 19.0s | **Before/after.** Both sides native 4K. "Two kids. One bathroom." | `CAPTIONS-F7-FI.md` |
 | **F8** | `geist-upper-level-remodel` | 18.0s | **Mid-job.** Trim, panelling, oak staircase. Zero people in frame. | `CAPTIONS-F7-FI.md` |
 | **F9** | `floor-to-ceiling-tile-noblesville` | 19.0s | **Full arc.** Membrane → tile → finished room. Rebuilt once the finished footage was named. | `CAPTIONS-F7-FI.md` — **needs a refresh**, it describes the old waterproofing-only cut |
-| **FA** | `spa-retreat-bathroom-fishers` | 17.4s | **Whole job in order:** studs → waterproofing → tile → finished. | `CAPTIONS-F7-FI.md` |
+| **FA** | `spa-retreat-bathroom-fishers` | 16.8s | **Whole job in order:** studs → waterproofing → tile → finished. | `CAPTIONS-F7-FI.md` |
 | **FB** | `westfield-basement-masterpiece` | 19.6s | **Before/after.** Bare slab → finished luxury lower level. Dovetail credit. | `CAPTIONS-F7-FI.md` |
 | **FC** | `jack-and-jill-zionsville` | 17.4s | **Craft cut.** Star marble mosaic going down, then grouted. Second asset from that job. | `CAPTIONS-F7-FI.md` |
 | **FD** | `fishers-full-gut-walk-in` | 18.8s | **Full arc.** Studs and Kerdi-Board → finished walk-in. Matches the new project page. | `CAPTIONS-F7-FI.md` |
@@ -62,6 +62,8 @@ Last updated 2026-09-04.
 | **FN** | `white-oak-primary-bath-fishers` | 13.6s | **True before/after, from photographs.** The only project on the site with a real `beforeAfter` array. Two of three pairs used - see the caption note on the mirror reflection. Second asset after F4. | `CAPTIONS-F7-FI.md` |
 
 | **FO** | *(no single project)* | 15.0s | **Comparison cut.** Six floors from six jobs, ending on a question rather than a claim. Belongs to no project, so it cannot exhaust one. | `CAPTIONS-F7-FI.md` |
+
+| **FP** | *(no single project)* | 16.0s | **Process cut across six jobs.** Studs, board, membrane, clips, then gone. Companion to FO; belongs to no project. | `CAPTIONS-F7-FI.md` |
 
 **FA, FI and FK are all the same job - confirmed by Eric 2026-09-04.** Spread them widely. FK and FI share their strongest shots,
 so those two want the most distance of the three.
