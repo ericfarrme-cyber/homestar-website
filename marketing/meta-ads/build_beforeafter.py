@@ -387,8 +387,14 @@ def build(key):
         prev = f"x{i}"
 
     n = len(segs)
+    end_src, end_is_video = end_p, False
+    if cfg.get("animated_end"):
+        end_src = os.path.join(OUT_DIR, cfg["out"] + "--endcard.mp4")
+        animate_endcard(end_p, end_src, END_DUR, cfg.get("end_style", "cascade"))
+        end_is_video = True
+
     for src, dur in ((logo, body), (hook_p, body), (beat_p, body),
-                     (tb_p, body), (ta_p, body), (end_p, END_DUR)):
+                     (tb_p, body), (ta_p, body), (end_src, END_DUR)):
         if src == end_src and end_is_video:
             cmd += ["-i", src]
         else:
