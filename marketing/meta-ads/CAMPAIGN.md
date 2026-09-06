@@ -82,7 +82,7 @@ Meta fields: **Primary text** (shows ~125 chars before "See more"), **Headline**
 > **Description:** Whole-home renovation
 
 ### 02 — Major projects, master craftsmanship
-> **Primary:** Some jobs are a weekend and a coat of paint. This is not that company. A 14-foot red oak mantle cut to fit one wall. A marble mosaic laid so the pattern centres on the drain. Hand-glazed picket tile where no two pieces match, set one levelling clip at a time. Waterproofing you can still read the label on, behind tile nobody will ever see again. If you are planning something significant — a whole floor, a gut renovation, three bathrooms at once — that is the work we are built for. Fishers, Indiana. Free in-home estimates across Hamilton County.
+> **Primary:** The bigger the project, the more there is to get right — and those are the ones we are proudest of. A 14-foot red oak mantle cut to fit one wall. A marble mosaic laid so the pattern centres on the drain. Hand-glazed picket tile where no two pieces match, set one levelling clip at a time. Waterproofing you can still read the label on, behind tile nobody will ever see again. Whole floors, gut renovations, three bathrooms running on one schedule. If you are planning something substantial, we would love to walk it with you. Fishers, Indiana. Free in-home estimates across Hamilton County.
 > **Headline:** Major Projects. Master Craftsmanship.
 > **Description:** Whole-home · Multi-room · Hamilton County
 
