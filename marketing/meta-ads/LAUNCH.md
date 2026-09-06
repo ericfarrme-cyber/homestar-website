@@ -1577,3 +1577,27 @@ The three options, plainly:
 2. **Account-wide Instagram Feed exclusion** — videos run as proper ads with
    full tracking, but the eight live ads lose Instagram Feed.
 3. **Wait** — Meta's Placements notice says this system is mid-change.
+
+---
+
+## Correction, 2026-09-06 - ad 02 renamed and rewritten
+
+Everything above is the record of what was launched and stays as written; this
+note is the amendment rather than an edit to the log.
+
+Ad **02 In-house trades** claimed HomeStar employs its own licensed plumbers
+and electricians. That claim has been retired across the campaign, the reel
+captions and the website. It pigeonholes the business into using its own
+people on every job, which removes the freedom to bring in a specialist sub
+when the work deserves one - and on premium work that is often the better
+answer.
+
+The ad is now **02 One contractor, one schedule**, and argues accountability
+instead of employment: one schedule across every trade, one contractor
+answerable for all of it, plumbing by licensed plumbers and electrical by
+licensed electricians. New copy is in CAMPAIGN.md.
+
+**Anything already live carrying the old claim needs replacing in Ads Manager**,
+including the dark post running as the who-we-are creative. Editing an ad's
+primary text usually resets its social proof, so duplicate the ad, edit the
+duplicate, and switch the original off once the replacement is live.

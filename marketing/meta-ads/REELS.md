@@ -156,3 +156,26 @@ if the spend looks loose after a few days.
 `utm_campaign=reel-boost-v1` / `-v2` separates these from the main campaign's
 `hamilton-2026-08` in GA, so the Reels experiment can be judged on its own. The
 pixel handles Meta-side attribution and the Lead event.
+
+---
+
+## Correction, 2026-09-06
+
+The caption recorded above for the 27 August Geist reel asserts that HomeStar's
+plumbing and electrical are on its own payroll. **That claim has been retired**
+across the campaign, the captions and the website - it pigeonholes the business
+into using its own people on every job and removes the freedom to bring in a
+specialist when the work deserves one. See the correction note in
+`CAMPAIGN.md`.
+
+**This one is still live on Facebook and needs editing there.** It is an
+ordinary Page post, so an edit preserves its likes, comments and reach; only
+an "Edited" marker is added. Suggested replacement:
+
+> Three bathrooms in one Geist home, built by one contractor on one schedule.
+>
+> On a multi-room job the trades usually run on their own calendars and nobody owns the gap between them. We hold the schedule and the warranty across all of it, so three bathrooms stay one project instead of becoming three.
+>
+> All plumbing by licensed plumbers, all electrical by licensed electricians.
+>
+> Whole-home and multi-room renovations across Hamilton County, Indiana. Schluter Pro Certified. Free in-home estimates: (317) 279-4798

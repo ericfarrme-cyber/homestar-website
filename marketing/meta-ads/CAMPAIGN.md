@@ -35,7 +35,7 @@ enough creative to actually scale rather than fatigue in a week.
 | **01b** | Four rooms shouldn't mean four schedules | Zionsville great room | The only still in the library that shows kitchen, great room and landing in one frame — it proves multi-room scope without a caption. |
 | **01c** | Kitchen, baths, basement — one project | Zionsville kitchen | Names the rooms explicitly for people who don't know "whole-home" is a service. |
 | **V1** | **Three bathrooms. One house. One contractor.** | Geist walkthrough video | The strongest asset in the set. Three visibly different bathrooms in 18s is multi-room proof that a still cannot make. |
-| 02 | In-house trades | Zionsville lower level | The sharpest wedge you have. Almost no remodeler in Hamilton County can say it. |
+| 02 | One contractor, one schedule | Zionsville lower level | Accountability across the whole scope. Reframed 2026-09-06 - see the note below. |
 | 03 | Basement square footage | Zionsville media lounge | Sells the idea before the service, so it reaches people who weren't shopping yet. |
 | 04 | 25-year waterproofing | Geist blue-tile bath | Names the exact fear — water behind tile — and answers it with a certification. |
 | 05 | Price transparency | Zionsville wet bar | Rare in this trade, and it qualifies leads before they cost you a truck roll. |
@@ -67,7 +67,7 @@ Meta fields: **Primary text** (shows ~125 chars before "See more"), **Headline**
 > **Description:** Whole-home renovation
 
 ### 01b — Whole-home, schedules
-> **Primary:** A four-room renovation usually means four trades, four schedules and nobody who owns the whole thing. We run it differently: our licensed plumbers and electricians are on our payroll, so your project moves on one calendar with one person accountable for it. Kitchens, baths, basements and flooring across Hamilton County.
+> **Primary:** A four-room renovation usually means four trades, four schedules and nobody who owns the whole thing. We run it differently: every trade works to one calendar, and one person is accountable for the lot. Plumbing by licensed plumbers, electrical by licensed electricians. Kitchens, baths, basements and flooring across Hamilton County.
 > **Headline:** Four Rooms, One Schedule
 > **Description:** Multi-room renovation
 
@@ -77,13 +77,13 @@ Meta fields: **Primary text** (shows ~125 chars before "See more"), **Headline**
 > **Description:** Design to final inspection
 
 ### V1 — Whole-home video  *(lead creative)*
-> **Primary:** Three bathrooms in one Geist home, built by one contractor on one schedule. Most remodelers would subcontract the plumbing and the electrical and hope the dates line up — ours are on our own payroll, which is why a multi-room project doesn't turn into three separate jobs. Whole-home and multi-room renovations across Hamilton County.
+> **Primary:** Three bathrooms in one Geist home, built by one contractor on one schedule. On most multi-room jobs the trades run on their own calendars and nobody owns the whole thing — we hold the schedule and the warranty across all of it, so it doesn't turn into three separate jobs. Whole-home and multi-room renovations across Hamilton County.
 > **Headline:** Three Bathrooms, One Contractor
 > **Description:** Whole-home renovation
 
-### 02 — In-house trades
-> **Primary:** Most remodelers subcontract your plumber and your electrician, then hope the two schedules line up. We don't. HomeStar employs its own licensed plumbers and licensed electricians, so your project runs on one schedule, with one point of contact, and one warranty behind all of it. Family-owned in Fishers. Free in-home estimates across Hamilton County.
-> **Headline:** Our Licensed Trades Are In-House
+### 02 — One contractor, one schedule
+> **Primary:** On most remodels the plumber answers to one calendar, the electrician to another, and nobody owns the gap between them. We run every trade to a single schedule and stand behind all of it — plumbing by licensed plumbers, electrical by licensed electricians, and one contractor you can call about any of it. We pick the trade that fits the work, which on the specialist jobs means the best in the trade rather than whoever happens to be free. Family-owned in Fishers. Free in-home estimates across Hamilton County.
+> **Headline:** One Contractor. One Schedule.
 > **Description:** Free estimate · Hamilton County
 
 ### 03 — Basement square footage
@@ -102,7 +102,7 @@ Meta fields: **Primary text** (shows ~125 chars before "See more"), **Headline**
 > **Description:** Itemized · No surprises
 
 ### 06 — Who we are
-> **Primary:** HomeStar Services & Contracting is a family-owned remodeling company in Fishers, Indiana. Eric Farr and Robb Rice founded it after 20 years of friendship, and they still walk every estimate personally. We do kitchens, bathrooms, basements and whole-home renovations across Hamilton County — and unlike most remodelers, our plumbers and electricians are on our payroll rather than subcontracted. 5.0 on Google.
+> **Primary:** HomeStar Services & Contracting is a family-owned remodeling company in Fishers, Indiana. Eric Farr and Robb Rice founded it after 20 years of friendship, and they still walk every estimate personally. Bathrooms — walk-in showers, wet rooms, heated floors, custom vanities. Kitchens — layout changes, cabinetry, stone counters, full gut renovations. Basements — bars, wine rooms, media rooms, guest suites, home gyms. Whole homes — multi-room projects run on one schedule. Fishers, Carmel, Zionsville, Noblesville, Westfield and Geist. 5.0 on Google from 85 reviews.
 > **Headline:** A Fishers Remodeler, Owner-Run
 > **Description:** Family-owned · Hamilton County
 
@@ -130,7 +130,7 @@ Meta fields: **Primary text** (shows ~125 chars before "See more"), **Headline**
   delivery.
 - **Budget split to start:** whole-home is the focal, so put 45% of spend on the
   01 / 01b / 01c / V1 set in one ad set and let Meta pick the winner. Give 02
-  (in-house trades) and 06 (who we are) 35% between them as the trust plays,
+  (one contractor, one schedule) and 06 (who we are) 35% between them as the trust plays,
   and split the rest across 03/04/05/07.
 - **Lead with V1.** Video is the cheapest reach on Reels and it is the only
   creative that proves multi-room scope by showing it.
@@ -241,3 +241,32 @@ because hard-cropping a landscape interior to 9:16 destroys the room.
   render; the build prints the slack per concept and warns on overrun.
 - The cartoon star mascot is deliberately not used. It reads playful-handyman
   and undercuts a $150K basement. The wordmark is used instead.
+
+---
+
+## Correction, 2026-09-06 - the in-house trades claim
+
+Ads 01, 02, 05, 06 and the V1 video all asserted, in one form or another, that
+HomeStar's plumbers and electricians are **on its own payroll** rather than
+subcontracted. That has been removed everywhere.
+
+**Eric's reasoning, and it is the right call:** the claim pigeonholes the
+business into using its own people on every job. It removes the freedom to
+bring in a specialist sub when a specialist is what the work deserves - which
+on a premium job is often exactly what you want.
+
+**What replaces it:** the claim is now about the standard and the
+accountability, both of which are true whoever is holding the tools.
+
+- All plumbing by licensed plumbers, all electrical by licensed electricians.
+- One schedule across every trade, and one contractor answerable for all of it.
+- On specialist work, the trade is chosen to fit the job rather than by who
+  happens to be free.
+
+That last line turns using a sub from something to be hidden into a reason to
+hire them, which is a stronger position than the one it replaces.
+
+**Also swept:** two reel captions, four places on the website, and the
+`REELS.md` record. One live organic post from 27 August still carries the old
+claim and needs editing on Facebook - it is an ordinary Page post, so editing
+preserves its likes and comments.

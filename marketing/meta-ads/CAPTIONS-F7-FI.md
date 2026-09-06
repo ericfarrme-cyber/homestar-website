@@ -22,7 +22,7 @@ Boone County - $15K to $50K.*
 >
 > In: two vanities, so nobody waits. Black marble with a white vein running straight through it. A star-pattern marble mosaic floor. Oak cabinetry with matte black hardware, arched mirrors, and a sconce either side of each.
 >
-> New plumbing by our licensed plumber to support the second vanity, and the complete Schluter waterproofing system behind every tiled surface. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.
+> New plumbing by a licensed plumber to support the second vanity, and the complete Schluter waterproofing system behind every tiled surface. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.
 >
 > Zionsville, Indiana. Free in-home estimates: (317) 279-4798
 
@@ -430,7 +430,7 @@ end sub: *Basement finishing in Zionsville and Boone County.*
 >
 > Above it, two floating stained-oak shelves with integrated lighting, shaker cabinetry, a beverage drawer and a glass-front wine refrigerator. The space under the stairs became a walk-in wine room: full-height black racking on three walls, a papered ceiling that follows the stair soffit, and warm cognac walls.
 >
-> Below-grade drainage for the bar sink and the guest bathroom was run by our own licensed plumbers. It is the part of a basement bar nobody thinks about, and the part that decides whether it works.
+> Below-grade drainage for the bar sink and the guest bathroom was run by licensed plumbers. It is the part of a basement bar nobody thinks about, and the part that decides whether it works.
 >
 > The family moved here from Denver and kept their Denver designer, so this was built to Holly Johnson's drawings with every selection routed back to her two time zones away.
 >
