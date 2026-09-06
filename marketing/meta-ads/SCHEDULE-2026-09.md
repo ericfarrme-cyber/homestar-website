@@ -52,9 +52,9 @@ already running. FH, FJ, F5 are the reserve for weeks 7-8.
 | date | post | note |
 |---|---|---|
 | **13 Sep** | Carousel: Geist three-bath, 6 photos | Follows the F8 mid-job reel from the Friday |
-| **20 Sep** | **The 5.0 from 85 reviews** | **Needs building.** The most persuasive asset HomeStar owns and it has never been posted once |
+| **20 Sep** | **The 5.0 from 85 reviews** | **Built** - `renders/cards/review-5-0-feed.jpg` (1080x1350) and `review-5-0-story.jpg`. Reads 5.0, 85 reviews, the six towns, the phone number. The most persuasive asset HomeStar owns and it has never been posted once |
 | **27 Sep** | Carousel: Westfield luxury basement, 8 photos | Dovetail credited, as in FB |
-| **4 Oct** | **Client testimonial, posted natively** | Currently only a YouTube link, and Meta suppresses outbound links |
+| **4 Oct** | **Client testimonial, posted natively** | **Blocked - needs the source video file from Eric.** It exists only as YouTube `k6XhQcUEHh0`, and Meta suppresses outbound links, so it has to be uploaded natively rather than linked |
 | **11 Oct** | Carousel: Zionsville jack & jill, 8 photos | Star mosaic floor leads |
 | **18 Oct** | Carousel: Fishers full gut walk-in, 6 photos | The pierced bronze drain leads |
 
