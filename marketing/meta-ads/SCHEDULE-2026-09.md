@@ -84,9 +84,13 @@ already running. FH, FJ, F5 are the reserve for weeks 7-8.
 
 Four a week from the 30 cards, spaced so no project repeats inside a week and the towns rotate.
 
+**Week 1 only, shifted one day at the front.** F7 moved to Mon 7 Sep, so week 1 runs Mon reel,
+Tue story, Wed story, Thu story, Fri reel, Sat story. Still seven touches; it is the Monday story
+that moved to Tuesday, not an extra post. Weeks 2-6 are unchanged: stories Mon, Wed, Thu, Sat.
+
 | week | Mon | Wed | Thu | Sat |
 |---|---|---|---|---|
-| **1** | S8 Westfield mantle | S1 Fishers drain | S13 Noblesville | S25 Carmel green tile |
+| **1** | S8 Westfield mantle **← Tue 8 Sep this week, not Mon** | S1 Fishers drain | S13 Noblesville | S25 Carmel green tile |
 | **2** | S10 Zionsville star floor | S30 Geist staircase | S3 Fishers linear drain | S16 Geist panelling |
 | **3** | S24 Fishers sconces | S6 Zionsville slab | S28 Fishers tiled ceiling | S21 Zionsville ceilings |
 | **4** | S7 Geist blue tile | S4 Carmel two tiles | S27 Westfield lit shelves | S19 Geist shelves |
