@@ -17,7 +17,7 @@ not merely sent. Independently re-audited with `meta_verify.py`.
 |---|---|---|---|
 | **Mon 7 Sep 09:00** | F7 Zionsville jack & jill | 851 ch, verified | `..._122173088258632361` |
 | Fri 11 Sep 09:00 | F9 Noblesville waterproofing | 848 ch, verified | `..._122173088378` |
-| Tue 15 Sep 09:00 | FB Westfield basement | 714 ch, verified | `..._122173088486` |
+| **Mon 14 Sep 09:00** | FB Westfield basement | 714 ch, verified | `..._122173088486632361` |
 | Fri 18 Sep 09:00 | F8 Geist upper level | 627 ch, verified | `..._122173088600` |
 
 Stopped at two weeks deliberately. Scheduling all six removes the ability to react to what week 1
@@ -36,32 +36,34 @@ Stories are Eric's to post from the phone. Week 1 cards were sent to him on 6 Se
 
 | surface | when | why |
 |---|---|---|
-| **Reel** | Tue + Fri, 9:00 AM | Reach. Crossposts FB + IG as one action |
+| **Reel** | Mon + Fri, 9:00 AM | Reach. Crossposts FB + IG as one action |
 | **Feed** | Sun, 11:00 AM | Depth. Carousels hold attention longer than one image |
-| **Stories** | Mon, Wed, Thu, Sat | Frequency. Two minutes a week from the phone |
+| **Stories** | Tue, Wed, Thu, Sat | Frequency. Two minutes a week from the phone |
 
-Seven touches a week. Note **Mon 7 Sep is Labor Day** — the week opens on the Tuesday reel, which
-is the normal slot anyway.
+Seven touches a week, one per day, and **every week is identical** — Eric's call on 6 Sep. Reels
+moved from Tuesdays to Mondays so the story days could be Tue/Wed/Thu/Sat without a reel and a
+story colliding on the same day. Mon 7 Sep is Labor Day; the reel still goes, since it publishes
+itself.
 
-## Reels — Tuesdays and Fridays, 9:00 AM
+## Reels — Mondays and Fridays, 9:00 AM
 
-| week | Tue | Fri |
+| week | Mon | Fri |
 |---|---|---|
-| **1** — **7** / 11 Sep | **F7** Zionsville jack & jill *(before/after)* — **moved to Mon 7 Sep on Eric's call, 6 Sep** | **F9** Noblesville, membrane to finished |
-| **2** — 15 / 18 Sep | **FB** Westfield luxury basement *(before/after)* | **F8** Geist upper level *(mid-job)* |
-| **3** — 22 / 25 Sep | **FD** Fishers full gut *(full arc)* | **FO** Six floors *(ends on a question)* |
-| **4** — 29 Sep / 2 Oct | **F6** Geist three-bath *(before/after)* | **FE** Carmel double shower |
-| **5** — 6 / 9 Oct | **FM** Zionsville basement bar | **FP** What's under your tile |
-| **6** — 13 / 16 Oct | **FL** Geist navy picket *(craft)* | **FF** Fishers wet room |
+| **1** — 7 / 11 Sep | **F7** Zionsville jack & jill *(before/after)* | **F9** Noblesville, membrane to finished |
+| **2** — 14 / 18 Sep | **FB** Westfield luxury basement *(before/after)* | **F8** Geist upper level *(mid-job)* |
+| **3** — 21 / 25 Sep | **FD** Fishers full gut *(full arc)* | **FO** Six floors *(ends on a question)* |
+| **4** — 28 Sep / 2 Oct | **F6** Geist three-bath *(before/after)* | **FE** Carmel double shower |
+| **5** — 5 / 9 Oct | **FM** Zionsville basement bar | **FP** What's under your tile |
+| **6** — 12 / 16 Oct | **FL** Geist navy picket *(craft)* | **FF** Fishers wet room |
 
 **Swapped on Eric's call 2026-09-04:** F7 opens, FB moves to week 2.
 
 **Why this order.** Opens on a before/after, which is the strongest format for a remodeler and the
 best thing to lead a cold audience with. Format alternates so it never reads as a slideshow:
 before/after → arc → before/after → mid-job → arc → comparison. City alternates so the service area
-looks as wide as it is. No project appears twice inside a fortnight. Closest pairs after the swap: Geist three-bath on
-29 Sep and 13 Oct, and Zionsville jack & jill on 8 Sep with the Zionsville BASEMENT - a different
-job - on 6 Oct. Both fine.
+looks as wide as it is. No project appears twice inside a fortnight. Closest pairs: Geist three-bath on
+28 Sep and 12 Oct, and Zionsville jack & jill on 7 Sep with the Zionsville BASEMENT - a different
+job - on 5 Oct. Both fine.
 
 **Held back deliberately:** FA, FI and FK are all the Fishers spa retreat, and three cuts of one job
 inside six weeks would make a large body of work look small. FC and FG are second assets for jobs
@@ -80,17 +82,16 @@ already running. FH, FJ, F5 are the reserve for weeks 7-8.
 | **11 Oct** | Carousel: Zionsville jack & jill, 8 photos | Star mosaic floor leads |
 | **18 Oct** | Carousel: Fishers full gut walk-in, 6 photos | The pierced bronze drain leads |
 
-## Stories — Mon, Wed, Thu, Sat
+## Stories — Tue, Wed, Thu, Sat
 
 Four a week from the 30 cards, spaced so no project repeats inside a week and the towns rotate.
 
-**Week 1 only, shifted one day at the front.** F7 moved to Mon 7 Sep, so week 1 runs Mon reel,
-Tue story, Wed story, Thu story, Fri reel, Sat story. Still seven touches; it is the Monday story
-that moved to Tuesday, not an extra post. Weeks 2-6 are unchanged: stories Mon, Wed, Thu, Sat.
+Story days are **Tue, Wed, Thu, Sat** in every week. The reels sit on Mon and Fri, so no day ever
+carries two posts and no day is empty.
 
-| week | Mon | Wed | Thu | Sat |
+| week | Tue | Wed | Thu | Sat |
 |---|---|---|---|---|
-| **1** | S8 Westfield mantle **← Tue 8 Sep this week, not Mon** | S1 Fishers drain | S13 Noblesville | S25 Carmel green tile |
+| **1** | S8 Westfield mantle | S1 Fishers drain | S13 Noblesville | S25 Carmel green tile |
 | **2** | S10 Zionsville star floor | S30 Geist staircase | S3 Fishers linear drain | S16 Geist panelling |
 | **3** | S24 Fishers sconces | S6 Zionsville slab | S28 Fishers tiled ceiling | S21 Zionsville ceilings |
 | **4** | S7 Geist blue tile | S4 Carmel two tiles | S27 Westfield lit shelves | S19 Geist shelves |
