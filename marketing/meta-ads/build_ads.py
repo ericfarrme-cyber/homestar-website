@@ -498,12 +498,16 @@ ADS = [
         "layout": "scrim",
         "photo": "team-founders.jpg",
         "fy": 0.28,
-        # "with a licensed crew of their own" retired 2026-09-06. The claim was
-        # baked into the rendered plate, not just the caption, so fixing the ad
-        # text alone would have left it on screen. See the correction note in
-        # CAMPAIGN.md - it pigeonholes the business into never using a
-        # specialist sub.
-        "headline": "HomeStar is two friends from Fishers who still walk every job.",
+        # Was "with a licensed crew of their own". The problem was never the
+        # word LICENSED - HomeStar is a licensed contractor and that is a real
+        # credential worth stating. The problem was "of their own", which
+        # promises the crew is exclusively HomeStar's employees and rules out
+        # bringing in a specialist sub. Three words removed, credential kept.
+        #
+        # This was also the smallest change that would do, which matters: the
+        # ad is performing, and rewriting a winner further than necessary is
+        # its own risk.
+        "headline": "HomeStar is two friends from Fishers with a licensed crew of their own.",
         "h_px": 54,
         "sub": "Kitchens, baths, basements and whole-home renovations across Hamilton County — and Eric or Robb walks every estimate personally.",
         "cta": "MEET THE TEAM",
