@@ -510,19 +510,34 @@ const FORM_ORIGIN="https://homestar-project-manager.vercel.app";
 function LeadForm(){
   useEffect(()=>{
     /* The estimate form is a cross-origin iframe, so nothing on this page can
-       observe a submit directly — the form app has to tell us. It already posts
-       "homestar-form-height"; on submit it must also post
-       { type: "homestar-form-submitted" }. Until it does, no Lead event fires
-       and paid campaigns can only optimise for Landing Page Views. */
-    let counted=false;
+       observe what happens inside it — the form app has to tell us. It posts
+       "homestar-form-height" continuously and "homestar-form-submitted" on a
+       successful submit (verified end-to-end against Meta on 6 Sep 2026). It
+       must also post "homestar-form-started" on first field focus; until it
+       does, FormStart never fires and paid campaigns have no event dense
+       enough to optimise against. */
+    let counted=false,started=false;
     const handler=(e)=>{
       if(!e.data)return;
       /* Height stays origin-agnostic so a domain change can't silently freeze
-         the iframe at its default height. The Lead event is origin-checked,
-         because a forged one would corrupt conversion data and ad spend. */
+         the iframe at its default height. Everything that feeds ad delivery is
+         origin-checked, because a forged event would corrupt the data Meta
+         optimises against and spend real money against it. */
       if(e.data.type==="homestar-form-height"){
         const iframe=document.getElementById("homestar-lead-form");
         if(iframe)iframe.style.height=e.data.height+"px";
+      }
+      /* FormStart, not Lead, is what paid campaigns optimise against. Meta
+         needs ~50 conversions per ad set per week to leave the learning phase;
+         at ~$3 a landing page view and a sub-1% site conversion rate, hitting
+         that on Lead would cost roughly $21K/week/ad set. A first field focus
+         is perhaps 10-20x more frequent and still carries real intent, which
+         is the combination the algorithm needs. Lead remains the number we
+         report against — optimise on the dense signal, judge on the real one. */
+      if(e.data.type==="homestar-form-started"&&e.origin===FORM_ORIGIN&&!started){
+        started=true;
+        if(window.fbq)window.fbq("trackCustom","FormStart",{content_name:"Estimate request"});
+        if(window.gtag)window.gtag("event","form_start",{form:"estimate"});
       }
       if(e.data.type==="homestar-form-submitted"&&e.origin===FORM_ORIGIN&&!counted){
         counted=true;  /* one Lead per mount, not one per re-render of the form */
@@ -535,7 +550,34 @@ function LeadForm(){
       }
     };
     window.addEventListener("message",handler);
-    return()=>window.removeEventListener("message",handler);
+
+    /* FormReached is diagnostic and must never become an optimisation target:
+       it fires for nearly anyone who scrolls, so optimising on it would buy the
+       same cheap bounces as Landing Page Views. Its job is to separate "never
+       got to the form" from "got there and gave up" — indistinguishable today,
+       and they need opposite fixes. It lives here rather than in the form app
+       because whether the iframe is on screen is a fact only the parent can see. */
+    let io=null;
+    const node=document.getElementById("homestar-lead-form");
+    if(node&&typeof IntersectionObserver!=="undefined"){
+      let reached=false;
+      /* Deliberately not a percentage threshold: the form is 800px and grows
+         taller as it posts its height, so on a phone it can never be 50%
+         visible and the event would silently never fire. A negative bottom
+         margin fires once the form has come ~120px into view, which holds at
+         any iframe height. */
+      io=new IntersectionObserver((entries)=>{
+        entries.forEach((entry)=>{
+          if(!entry.isIntersecting||reached)return;
+          reached=true;
+          if(window.fbq)window.fbq("trackCustom","FormReached",{content_name:"Estimate request"});
+          if(window.gtag)window.gtag("event","view_form",{form:"estimate"});
+          if(io)io.disconnect();
+        });
+      },{rootMargin:"0px 0px -120px 0px",threshold:0});
+      io.observe(node);
+    }
+    return()=>{window.removeEventListener("message",handler);if(io)io.disconnect();};
   },[]);
   return <iframe id="homestar-lead-form" src="https://homestar-project-manager.vercel.app/?form=lead&company=homestar" width="100%" height="800" frameBorder="0" style={{maxWidth:700,margin:"0 auto",display:"block",border:"none"}} scrolling="no"/>;
 }

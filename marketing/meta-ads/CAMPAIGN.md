@@ -31,7 +31,7 @@ enough creative to actually scale rather than fatigue in a week.
 
 | # | Angle | Photo | Why it should win |
 |---|-------|-------|-------------------|
-| **01** | **One contractor, one schedule, one warranty** | Geist upper level | The focal. Highest ticket, and the in-house-trades fact is what makes the promise credible rather than a slogan. |
+| **01** | **One contractor, one schedule, one warranty** | Geist upper level | The focal. Highest ticket, and one accountable contractor across every trade is what makes the promise credible rather than a slogan. |
 | **01b** | Four rooms shouldn't mean four schedules | Zionsville great room | The only still in the library that shows kitchen, great room and landing in one frame — it proves multi-room scope without a caption. |
 | **01c** | Kitchen, baths, basement — one project | Zionsville kitchen | Names the rooms explicitly for people who don't know "whole-home" is a service. |
 | **V1** | **Three bathrooms. One house. One contractor.** | Geist walkthrough video | The strongest asset in the set. Three visibly different bathrooms in 18s is multi-room proof that a still cannot make. |
@@ -62,7 +62,7 @@ Meta fields: **Primary text** (shows ~125 chars before "See more"), **Headline**
 (~40 chars), **Description** (~30 chars).
 
 ### 01 — Whole-home  *(focal)*
-> **Primary:** Renovating more than one room? Most contractors hand off the trades and hope the schedules line up. Because our plumbers and electricians are in-house, your kitchen, bathrooms, basement and flooring run as one project — one schedule, one point of contact, one warranty. Hamilton County, IN.
+> **Primary:** Renovating more than one room? Most contractors hand off the trades and hope the schedules line up. We run it differently: every trade works to one calendar, and one contractor is answerable for all of it — plumbing by licensed plumbers, electrical by licensed electricians. Your kitchen, bathrooms, basement and flooring run as one project, with one point of contact and one warranty. Hamilton County, IN.
 > **Headline:** One Contractor. One Warranty.
 > **Description:** Whole-home renovation
 
@@ -254,6 +254,15 @@ subcontracted. That has been removed everywhere.
 business into using its own people on every job. It removes the freedom to
 bring in a specialist sub when a specialist is what the work deserves - which
 on a premium job is often exactly what you want.
+
+**To be precise about what was wrong, because it is easy to over-correct:**
+the problem was never the word *licensed*. HomeStar is a licensed contractor,
+all plumbing is done by licensed plumbers and all electrical by licensed
+electricians, and every one of those is worth saying. The problem was
+**exclusivity** - "on our payroll", "of their own", "we don't subcontract" -
+which promises something that removes the freedom to bring in a specialist.
+
+Keep the credential. Drop the promise about who employs whom.
 
 **What replaces it:** the claim is now about the standard and the
 accountability, both of which are true whoever is holding the tools.
