@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/build-route-heads.mjs",
+    "build": "node scripts/check-public.mjs && vite build && node scripts/build-route-heads.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

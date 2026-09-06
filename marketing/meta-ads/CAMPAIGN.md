@@ -35,7 +35,7 @@ enough creative to actually scale rather than fatigue in a week.
 | **01b** | Four rooms shouldn't mean four schedules | Zionsville great room | The only still in the library that shows kitchen, great room and landing in one frame — it proves multi-room scope without a caption. |
 | **01c** | Kitchen, baths, basement — one project | Zionsville kitchen | Names the rooms explicitly for people who don't know "whole-home" is a service. |
 | **V1** | **Three bathrooms. One house. One contractor.** | Geist walkthrough video | The strongest asset in the set. Three visibly different bathrooms in 18s is multi-room proof that a still cannot make. |
-| 02 | One contractor, one schedule | Zionsville lower level | Accountability across the whole scope. Reframed 2026-09-06 - see the note below. |
+| 02 | Major projects, master craftsmanship | Zionsville lower level | The slogan, evidenced. Four specific pieces of craft rather than a claim about staffing. |
 | 03 | Basement square footage | Zionsville media lounge | Sells the idea before the service, so it reaches people who weren't shopping yet. |
 | 04 | 25-year waterproofing | Geist blue-tile bath | Names the exact fear — water behind tile — and answers it with a certification. |
 | 05 | Price transparency | Zionsville wet bar | Rare in this trade, and it qualifies leads before they cost you a truck roll. |
@@ -81,10 +81,10 @@ Meta fields: **Primary text** (shows ~125 chars before "See more"), **Headline**
 > **Headline:** Three Bathrooms, One Contractor
 > **Description:** Whole-home renovation
 
-### 02 — One contractor, one schedule
-> **Primary:** On most remodels the plumber answers to one calendar, the electrician to another, and nobody owns the gap between them. We run every trade to a single schedule and stand behind all of it — plumbing by licensed plumbers, electrical by licensed electricians, and one contractor you can call about any of it. We pick the trade that fits the work, which on the specialist jobs means the best in the trade rather than whoever happens to be free. Family-owned in Fishers. Free in-home estimates across Hamilton County.
-> **Headline:** One Contractor. One Schedule.
-> **Description:** Free estimate · Hamilton County
+### 02 — Major projects, master craftsmanship
+> **Primary:** Some jobs are a weekend and a coat of paint. This is not that company. A 14-foot red oak mantle cut to fit one wall. A marble mosaic laid so the pattern centres on the drain. Hand-glazed picket tile where no two pieces match, set one levelling clip at a time. Waterproofing you can still read the label on, behind tile nobody will ever see again. If you are planning something significant — a whole floor, a gut renovation, three bathrooms at once — that is the work we are built for. Fishers, Indiana. Free in-home estimates across Hamilton County.
+> **Headline:** Major Projects. Master Craftsmanship.
+> **Description:** Whole-home · Multi-room · Hamilton County
 
 ### 03 — Basement square footage
 > **Primary:** The cheapest square footage you will ever add is already under your house. The foundation, walls and roof exist — you're only paying to finish the inside. Finished basements in Hamilton County run $45K–$200K, recoup 70–75% at resale, and add 600–1,500+ sq ft. We handle design, permits, licensed trades and inspections.
@@ -130,7 +130,7 @@ Meta fields: **Primary text** (shows ~125 chars before "See more"), **Headline**
   delivery.
 - **Budget split to start:** whole-home is the focal, so put 45% of spend on the
   01 / 01b / 01c / V1 set in one ad set and let Meta pick the winner. Give 02
-  (one contractor, one schedule) and 06 (who we are) 35% between them as the trust plays,
+  (major projects, master craftsmanship) and 06 (who we are) 35% between them as the trust plays,
   and split the rest across 03/04/05/07.
 - **Lead with V1.** Video is the cheapest reach on Reels and it is the only
   creative that proves multi-room scope by showing it.
@@ -263,8 +263,17 @@ accountability, both of which are true whoever is holding the tools.
 - On specialist work, the trade is chosen to fit the job rather than by who
   happens to be free.
 
-That last line turns using a sub from something to be hidden into a reason to
-hire them, which is a stronger position than the one it replaces.
+**Ad 02 was rewritten twice.** The first replacement still argued about who
+holds the tools, just more carefully - accountability rather than payroll.
+Eric's call was to leave that territory entirely and build the ad on the
+existing slogan, **Major Projects. Master Craftsmanship.**
+
+That is the better ad, and not only because it sidesteps the problem. The
+staffing argument asks a homeowner to care about an org chart. The craft
+argument shows them a 14-foot mantle, a mosaic centred on its drain and
+hand-glazed tile where no two pieces match - four things a competitor cannot
+say because they have not done them. It is evidence rather than assertion, and
+every item in it traces to a real job in the portfolio.
 
 **Also swept:** two reel captions, four places on the website, and the
 `REELS.md` record. One live organic post from 27 August still carries the old
