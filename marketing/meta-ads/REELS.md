@@ -168,9 +168,18 @@ into using its own people on every job and removes the freedom to bring in a
 specialist when the work deserves one. See the correction note in
 `CAMPAIGN.md`.
 
-**This one is still live on Facebook and needs editing there.** It is an
-ordinary Page post, so an edit preserves its likes, comments and reach; only
-an "Edited" marker is added. Suggested replacement:
+**Edited on Facebook 2026-09-06 and verified.** The claim is gone from the live
+post. Likes, comments and reach are unaffected - the post ID never changed.
+
+**Worth recording, because it will come up again:** the edit was refused on the
+feed post with *"(#200) Viewer does not have permission to edit content"*. That
+post is a **reel**, and a reel keeps its text as a  on the
+underlying video object rather than a  on the feed post. Writing to
+the video object worked, and reading back afterwards showed the new text on
+BOTH objects.  handles ordinary posts; reels need the video id
+from the permalink.
+
+The text now live:
 
 > Three bathrooms in one Geist home, built by one contractor on one schedule.
 >
