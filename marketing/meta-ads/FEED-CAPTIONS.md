@@ -17,7 +17,7 @@ panel, so the number is legible while swiping rather than buried in the caption.
 |---|---|---|---|
 | 1 | Opener — "What a remodel actually costs." | `bathroom-green-tile-3` | Carmel |
 | 2 | **Bathrooms $15K – $50K** | `bathroom-green-tile-1` | Carmel |
-| 3 | **Kitchens from $25K** | `zionsville-kitchen-main-level-1` | Zionsville |
+| 3 | **Kitchens from $40K** | `zionsville-kitchen-main-level-1` | Zionsville |
 | 4 | **Basements $45K – $200K** | `westfield-basement-masterpiece-6` | Westfield |
 | 5 | What moves the number — scope, not taste | `noblesville-floor-to-ceiling-tile-1` | Noblesville |
 | 6 | Every estimate itemized | `carmel-double-shower-2` | Carmel |
@@ -26,7 +26,7 @@ panel, so the number is legible while swiping rather than buried in the caption.
 
 > Most contractors won't give you a number until they're standing in your kitchen. Here are ours, in public.
 >
-> Bathrooms $15K–$50K, and most homeowners invest $20K–$35K. Kitchens from $25K. Basements $45K–$200K, at $55–$75 a square foot, recouping 70–75% at resale.
+> Bathrooms $15K–$50K, and most homeowners invest $20K–$35K. Kitchens from $40K. Basements $45K–$200K, at $55–$75 a square foot, recouping 70–75% at resale.
 >
 > What moves a number is scope, not taste. Moving plumbing, tiling floor to ceiling, and the waterproofing behind it. Your tile choice barely registers next to any of that.
 >

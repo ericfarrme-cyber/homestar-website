@@ -27,10 +27,13 @@ FONTS = os.path.join(HERE, "fonts")
 OUT = os.path.join(HERE, "renders", "cost-carousel")
 
 W, H = 1080, 1350
+PANEL = 430                 # fixed on every slide - see build()
+COUNTER = 56                # strip reserved at the panel foot for "n / 6"
+MARGIN = 96
 NAVY = (27, 42, 74)
 GREEN = (92, 184, 50)
 WHITE = (255, 255, 255)
-MUTED = (188, 199, 216)
+MUTED = (176, 189, 209)
 
 SLIDES = [
     dict(photo="bathroom-green-tile-3.jpg", bias=0.45,
@@ -43,7 +46,7 @@ SLIDES = [
          sub="Most homeowners invest $20K–$35K."),
     dict(photo="zionsville-kitchen-main-level-1.jpeg", bias=0.50,
          eyebrow="KITCHENS",
-         head="From $25K",
+         head="From $40K",
          sub="Layout changes, cabinetry, stone, full gut renovations."),
     dict(photo="westfield-basement-masterpiece-6.jpg", bias=0.45,
          eyebrow="BASEMENTS",
@@ -52,7 +55,7 @@ SLIDES = [
     dict(photo="noblesville-floor-to-ceiling-tile-1.jpg", bias=0.40,
          eyebrow="WHAT MOVES THE NUMBER",
          head="Scope, not taste.",
-         sub="Moving plumbing, tiling floor to ceiling, and what goes on behind it."),
+         sub="Moving plumbing, tiling floor to ceiling, and the waterproofing behind it."),
     dict(photo="carmel-double-shower-2.jpg", bias=0.45,
          eyebrow="BEFORE YOU SPEND A SATURDAY",
          head="Every estimate\nitemized.",
@@ -79,74 +82,94 @@ def cover(path, size, bias=0.45):
     return im.resize((tw, th), Image.LANCZOS)
 
 
-def tracked(d, xy, s, f, fill, tracking):
-    x, y = xy
-    for ch in s:
-        d.text((x, y), ch, font=f, fill=fill)
-        x += d.textlength(ch, font=f) + tracking
+def centred(d, y, s, f, fill, tracking=0.0):
+    """Draw one line centred on the canvas. Returns the advance height."""
+    width = d.textlength(s, font=f) + tracking * max(len(s) - 1, 0)
+    x = (W - width) / 2
+    if tracking:
+        for ch in s:
+            d.text((x, y), ch, font=f, fill=fill)
+            x += d.textlength(ch, font=f) + tracking
+    else:
+        d.text((x, y), s, font=f, fill=fill)
 
 
-def band_height(slide, d):
-    """Size the panel to its own content.
+def fit_head(d, text, max_w):
+    """Largest size at which every line of the headline fits the column.
 
-    A fixed band left a lot of dead navy under the one-line slides, which read
-    as a mistake rather than as space. Measuring first keeps the photo as large
-    as it can be on every slide while the panel stays visually consistent.
+    Two-line headlines start smaller. At the single-line size they overran the
+    fixed panel, which pushed the eyebrow up onto the green seam and dropped the
+    sub onto the slide counter.
     """
-    head_px = 92 if "\n" in slide["head"] else 104
-    lines = slide["head"].count("\n") + 1
-    fs = font("Medium", 34)
-    sub_lines, line = 1, ""
-    for wd in slide["sub"].split():
-        trial = (line + " " + wd).strip()
-        if d.textlength(trial, font=fs) > W - 168 and line:
-            sub_lines += 1
-            line = wd
+    lines = text.split("\n")
+    start = 112 if len(lines) == 1 else 88
+    for px in range(start, 58, -2):
+        f = font("ExtraBold", px)
+        if all(d.textlength(ln, font=f) <= max_w for ln in lines):
+            return f, lines
+    return font("ExtraBold", 58), lines
+
+
+def wrap(d, text, f, max_w):
+    out, line = [], ""
+    for word in text.split():
+        trial = (line + " " + word).strip()
+        if d.textlength(trial, font=f) > max_w and line:
+            out.append(line)
+            line = word
         else:
             line = trial
-    return 46 + 56 + int(head_px * 1.06) * lines + 14 + 46 * sub_lines + 44
+    if line:
+        out.append(line)
+    return out
 
 
 def build(slide, idx):
-    probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
-    photo_h = H - band_height(slide, probe)
+    """One slide.
+
+    The panel is a fixed height on every slide and the copy is centred inside
+    it, vertically and horizontally. An earlier version sized the panel to its
+    own content, which meant the navy block changed height as you swiped and
+    the set read as unbalanced. A constant panel with the type optically
+    centred inside it holds still, which is what makes a carousel feel
+    considered rather than assembled.
+    """
+    photo_h = H - PANEL
     card = Image.new("RGB", (W, H), NAVY)
     card.paste(cover(os.path.join(IMG, slide["photo"]), (W, photo_h), slide["bias"]), (0, 0))
     d = ImageDraw.Draw(card)
 
-    # A hairline of green where the photo meets the panel: the same seam the
-    # rest of the ad set uses, so the carousel reads as part of the family.
+    # The green seam the rest of the ad set uses, so this reads as family.
     d.rectangle([0, photo_h - 6, W, photo_h], fill=GREEN)
 
-    x, y = 84, photo_h + 46
-    tracked(d, (x, y), slide["eyebrow"], font("ExtraBold", 25), GREEN, 3.2)
-    y += 56
+    col = W - MARGIN * 2
+    f_eye = font("ExtraBold", 25)
+    f_head, head_lines = fit_head(d, slide["head"], col)
+    f_sub = font("Medium", 33)
+    sub_lines = wrap(d, slide["sub"], f_sub, col)
+    f_num = font("Bold", 24)
 
-    head_px = 92 if "\n" in slide["head"] else 104
-    fh = font("ExtraBold", head_px)
-    for line in slide["head"].split("\n"):
-        d.text((x, y), line, font=fh, fill=WHITE)
-        y += int(head_px * 1.06)
+    eye_h, head_lh, sub_lh = 40, int(f_head.size * 1.04), 44
+    block = eye_h + 26 + head_lh * len(head_lines) + 20 + sub_lh * len(sub_lines)
 
-    y += 14
-    fs = font("Medium", 34)
-    words, line = slide["sub"].split(), ""
-    for wd in words:
-        trial = (line + " " + wd).strip()
-        if d.textlength(trial, font=fs) > W - 2 * x and line:
-            d.text((x, y), line, font=fs, fill=MUTED)
-            y += 46
-            line = wd
-        else:
-            line = trial
-    if line:
-        d.text((x, y), line, font=fs, fill=MUTED)
+    # Centre the block in the panel, less the counter's reserved strip so the
+    # type sits optically centred rather than mathematically centred. Assert it
+    # actually fits: a silent overflow is what put the eyebrow on the seam.
+    avail = PANEL - COUNTER
+    assert block <= avail, "panel overflow on slide %d: %d > %d" % (idx, block, avail)
+    y = photo_h + (avail - block) / 2
 
-    # Slide counter, so a swiper always knows how much is left.
-    fc = font("Bold", 26)
-    tag = "%d / %d" % (idx, len(SLIDES))
-    d.text((W - 84 - d.textlength(tag, font=fc), photo_h + 50), tag, font=fc, fill=MUTED)
+    centred(d, y, slide["eyebrow"], f_eye, GREEN, tracking=3.4)
+    y += eye_h + 26
+    for ln in head_lines:
+        centred(d, y, ln, f_head, WHITE)
+        y += head_lh
+    y += 20
+    for ln in sub_lines:
+        centred(d, y, ln, f_sub, MUTED)
+        y += sub_lh
 
+    centred(d, H - 52, "%d / %d" % (idx, len(SLIDES)), f_num, MUTED, tracking=1.6)
     return card
 
 

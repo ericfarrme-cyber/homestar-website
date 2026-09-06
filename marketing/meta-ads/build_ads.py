@@ -491,7 +491,7 @@ ADS = [
         "fy": 0.46,
         "headline": "Most contractors won't put a number on it. Here's ours.",
         "h_px": 54,
-        "sub": "Bathrooms $15K–$50K. Kitchens from $25K. Basements $45K–$200K. Published, itemized, and permitted.",
+        "sub": "Bathrooms $15K–$50K. Kitchens from $40K. Basements $45K–$200K. Published, itemized, and permitted.",
         "cta": "SEE REAL 2026 PRICING",
         "badge_l": "HAMILTON COUNTY, IN",
         "badge_r": "LICENSED & INSURED",

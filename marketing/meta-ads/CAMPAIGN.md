@@ -97,7 +97,7 @@ Meta fields: **Primary text** (shows ~125 chars before "See more"), **Headline**
 > **Description:** Schluter Pro Certified
 
 ### 05 — Price transparency
-> **Primary:** Most contractors won't give you a number until they're standing in your kitchen. Here are ours, in public: bathrooms $15K–$50K. Kitchens from $25K. Basements $45K–$200K. Every estimate is itemized, every permit is pulled and paid, and every trade is licensed. If your budget doesn't fit, we'll tell you on the phone instead of wasting your Saturday.
+> **Primary:** Most contractors won't give you a number until they're standing in your kitchen. Here are ours, in public: bathrooms $15K–$50K. Kitchens from $40K. Basements $45K–$200K. Every estimate is itemized, every permit is pulled and paid, and every trade is licensed. If your budget doesn't fit, we'll tell you on the phone instead of wasting your Saturday.
 > **Headline:** Real 2026 Remodeling Prices
 > **Description:** Itemized · No surprises
 
