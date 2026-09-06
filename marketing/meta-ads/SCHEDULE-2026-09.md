@@ -15,7 +15,7 @@ not merely sent. Independently re-audited with `meta_verify.py`.
 
 | when | reel | caption | post id |
 |---|---|---|---|
-| Tue 8 Sep 09:00 | F7 Zionsville jack & jill | 851 ch, verified | `..._122173088258` |
+| **Mon 7 Sep 09:00** | F7 Zionsville jack & jill | 851 ch, verified | `..._122173088258632361` |
 | Fri 11 Sep 09:00 | F9 Noblesville waterproofing | 848 ch, verified | `..._122173088378` |
 | Tue 15 Sep 09:00 | FB Westfield basement | 714 ch, verified | `..._122173088486` |
 | Fri 18 Sep 09:00 | F8 Geist upper level | 627 ch, verified | `..._122173088600` |
@@ -47,7 +47,7 @@ is the normal slot anyway.
 
 | week | Tue | Fri |
 |---|---|---|
-| **1** — 8 / 11 Sep | **F7** Zionsville jack & jill *(before/after)* | **F9** Noblesville, membrane to finished |
+| **1** — **7** / 11 Sep | **F7** Zionsville jack & jill *(before/after)* — **moved to Mon 7 Sep on Eric's call, 6 Sep** | **F9** Noblesville, membrane to finished |
 | **2** — 15 / 18 Sep | **FB** Westfield luxury basement *(before/after)* | **F8** Geist upper level *(mid-job)* |
 | **3** — 22 / 25 Sep | **FD** Fishers full gut *(full arc)* | **FO** Six floors *(ends on a question)* |
 | **4** — 29 Sep / 2 Oct | **F6** Geist three-bath *(before/after)* | **FE** Carmel double shower |
