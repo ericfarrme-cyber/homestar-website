@@ -60,7 +60,7 @@ CONCEPTS = [
      "05-price-transparency"),
 
     ("06", "Who we are", "Eric &amp; Robb", False,
-     "HomeStar is two friends from Fishers with a licensed crew of their own.",
+     "HomeStar is two friends from Fishers who still walk every job.",
      "HomeStar Services &amp; Contracting is a family-owned remodeling company in Fishers, Indiana. Eric Farr and Robb Rice founded it after 20 years of friendship, and they still walk every estimate personally. We do kitchens, bathrooms, basements and whole-home renovations across Hamilton County — and unlike most remodelers, our plumbers and electricians are on our payroll rather than subcontracted. 5.0 on Google.",
      "A Fishers Remodeler, Owner-Run", "Family-owned · Hamilton County",
      "Rewritten. The first version opened “Two friends of 20 years” — which only lands if you already know the brand. This one names the company, the place and the difference before asking for trust.",

@@ -498,7 +498,12 @@ ADS = [
         "layout": "scrim",
         "photo": "team-founders.jpg",
         "fy": 0.28,
-        "headline": "HomeStar is two friends from Fishers with a licensed crew of their own.",
+        # "with a licensed crew of their own" retired 2026-09-06. The claim was
+        # baked into the rendered plate, not just the caption, so fixing the ad
+        # text alone would have left it on screen. See the correction note in
+        # CAMPAIGN.md - it pigeonholes the business into never using a
+        # specialist sub.
+        "headline": "HomeStar is two friends from Fishers who still walk every job.",
         "h_px": 54,
         "sub": "Kitchens, baths, basements and whole-home renovations across Hamilton County — and Eric or Robb walks every estimate personally.",
         "cta": "MEET THE TEAM",

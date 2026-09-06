@@ -19,6 +19,9 @@ import imageio_ffmpeg
 from PIL import Image, ImageFilter
 
 import build_ads as BRAND
+# Same animated end card the progress builder uses - one implementation,
+# so the two families of reel cannot drift apart visually.
+from build_progress import animate_endcard
 import build_video_ads as V
 
 FF = imageio_ffmpeg.get_ffmpeg_exe()
@@ -41,7 +44,16 @@ ST = lambda key, n: os.path.join(HERE, "_stills", key, "%02d.mp4" % n)
 W, H, FPS = 1080, 1920, 30
 XFADE = 0.4
 END_DUR = 3.6
-HOOK_FADE_IN, HOOK_FADE_OUT = 0.80, 0.75
+# The hook used to fade in over 0.80s starting at 0.30s, so it was not fully
+# legible until about 1.10s. The hook window on a reel is roughly the first
+# three seconds, which meant more than a third of it was spent making the
+# sentence appear. The one metric the virality predictor actually varied on
+# was hook strength - 33 to 37 across our cuts, against sustain in the 90s.
+# People who start watching stay; the problem is getting them to start.
+#
+# The proposition is now readable almost immediately. Still a fade, just a
+# quick one.
+HOOK_FADE_IN, HOOK_FADE_OUT = 0.35, 0.75
 BEAT_FADE_IN, BEAT_FADE_OUT = 0.75, 0.85
 MUSIC_LUFS = -20
 FADE_IN, FADE_OUT = 1.2, 2.2
@@ -53,6 +65,7 @@ FADE_IN, FADE_OUT = 1.2, 2.2
 PROJECTS = {
     "geist": dict(
         out="F6-geist-three-bath-beforeafter",
+        animated_end=True,
         slug="three-bathroom-remodel-geist",
         music=("Quiet Neon.mp3", 70.5),
         ad={
@@ -84,6 +97,7 @@ PROJECTS = {
     # frame at the right edge just after.
     "zionsville": dict(
         out="F7-zionsville-jack-and-jill-beforeafter",
+        animated_end=True,
         slug="jack-and-jill-zionsville",
         music=("Before _ After.mp3", 92.5),
         ad={
@@ -117,6 +131,7 @@ PROJECTS = {
     # the bar so that the beat, which names the mantle, lands over the mantle.
     "westfield-luxury": dict(
         out="FB-westfield-luxury-basement-beforeafter",
+        animated_end=True,
         slug="westfield-basement-masterpiece",
         # American Reveal has the steadiest 20s window in the library - spread 0.7 dB
         # against 1.1-1.7 for every other track. Least likely to lurch under a reveal.
@@ -154,6 +169,7 @@ PROJECTS = {
     # This is a two-beat reveal: gutted, then done.
     "spa-retreat": dict(
         out="FK-fishers-spa-retreat-demo-to-done",
+        animated_end=True,
         slug="spa-retreat-bathroom-fishers",
         # Calmest family in the library and distinct from both existing spa
         # cuts - FA runs Brisa de Nylon (1), FI runs Before _ After.
@@ -198,6 +214,7 @@ PROJECTS = {
     # and the room is unrecognizable."
     "white-oak": dict(
         out="FN-white-oak-primary-beforeafter",
+        animated_end=True,
         slug="white-oak-primary-bath-fishers",
         music=("Brisa de Nylon.mp3", 48.8),
         ad={
@@ -372,10 +389,13 @@ def build(key):
     n = len(segs)
     for src, dur in ((logo, body), (hook_p, body), (beat_p, body),
                      (tb_p, body), (ta_p, body), (end_p, END_DUR)):
-        cmd += ["-loop", "1", "-t", f"{dur:.2f}", "-i", src]
+        if src == end_src and end_is_video:
+            cmd += ["-i", src]
+        else:
+            cmd += ["-loop", "1", "-t", f"{dur:.2f}", "-i", src]
 
     parts.append(f"[{n}:v]format=rgba,fade=t=in:st=0.25:d=0.7:alpha=1[lg]")
-    parts.append(f"[{n+1}:v]format=rgba,fade=t=in:st=0.30:d={HOOK_FADE_IN}:alpha=1,"
+    parts.append(f"[{n+1}:v]format=rgba,fade=t=in:st=0.06:d={HOOK_FADE_IN}:alpha=1,"
                  f"fade=t=out:st={hook_out:.2f}:d={HOOK_FADE_OUT}:alpha=1[hk]")
     parts.append(f"[{n+2}:v]format=rgba,fade=t=in:st={beat_in:.2f}:d={BEAT_FADE_IN}:alpha=1,"
                  f"fade=t=out:st={beat_out - BEAT_FADE_OUT:.2f}:d={BEAT_FADE_OUT}:alpha=1[bt]")

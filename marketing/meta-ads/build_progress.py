@@ -28,7 +28,16 @@ OUT_DIR = os.path.join(HERE, "renders")
 W, H, FPS = 1080, 1920, 30
 XFADE = 0.4
 END_DUR = 3.6
-HOOK_FADE_IN, HOOK_FADE_OUT = 0.80, 0.75
+# The hook used to fade in over 0.80s starting at 0.30s, so it was not fully
+# legible until about 1.10s. The hook window on a reel is roughly the first
+# three seconds, which meant more than a third of it was spent making the
+# sentence appear. The one metric the virality predictor actually varied on
+# was hook strength - 33 to 37 across our cuts, against sustain in the 90s.
+# People who start watching stay; the problem is getting them to start.
+#
+# The proposition is now readable almost immediately. Still a fade, just a
+# quick one.
+HOOK_FADE_IN, HOOK_FADE_OUT = 0.35, 0.75
 BEAT_FADE_IN, BEAT_FADE_OUT = 0.75, 0.85
 MUSIC_LUFS = -20
 FADE_IN, FADE_OUT = 1.2, 2.2
@@ -53,6 +62,7 @@ PROJECTS = {
     #   geist upper level(1).mp4  clear 0-1.8, 4.0-10.6
     "geist-progress": dict(
         out="F8-geist-upper-level-progress",
+        animated_end=True,
         slug="geist-upper-level-remodel",
         music=("Brisa de Nylon.mp3", 48.8),
         ad={
@@ -93,6 +103,7 @@ PROJECTS = {
     # People: noblesville bathroom 2 has a hand in frame 8-10s. Avoided.
     "noblesville-progress": dict(
         out="F9-noblesville-waterproofing-to-finished",
+        animated_end=True,
         slug="floor-to-ceiling-tile-noblesville",
         music=("Before _ After (1).mp3", 83.8),
         ad={
@@ -141,6 +152,7 @@ PROJECTS = {
     #   spa retreat fishers.mp4      clear throughout
     "spa-retreat-progress": dict(
         out="FA-spa-retreat-fishers-stages",
+        animated_end=True,
         slug="spa-retreat-bathroom-fishers",
         music=("Brisa de Nylon (1).mp3", 59.2),
         ad={
@@ -171,6 +183,7 @@ PROJECTS = {
     # +0.1 dBTP in the source; loudnorm pulls that well clear, as verified on FB.
     "zionsville-craft": dict(
         out="FC-zionsville-mosaic-craft",
+        animated_end=True,
         slug="jack-and-jill-zionsville",
         music=("Arco d_Avanguardia (1).mp3", 138.5),
         ad={
@@ -204,6 +217,7 @@ PROJECTS = {
     # clip. Nothing after 34s is used.
     "fishers-fullgut": dict(
         out="FD-fishers-full-gut-walk-in",
+        animated_end=True,
         slug="fishers-full-gut-walk-in",
         music=("Before _ After.mp3", 92.5),
         ad={
@@ -237,6 +251,7 @@ PROJECTS = {
     # Native 4K at 39 Mbps, so nothing needs upscaling. No people in frame.
     "carmel-double": dict(
         out="FE-carmel-double-shower",
+        animated_end=True,
         slug="double-shower-carmel",
         # Arco was too bold over this room. Quiet Neon instead - cool and minimal,
         # which suits charcoal cabinetry, black fixtures and a backlit mirror
@@ -268,6 +283,7 @@ PROJECTS = {
     # vertical tile runs floor to ceiling "including the shower ceiling".
     "wet-room": dict(
         out="FF-fishers-wet-room-walkthrough",
+        animated_end=True,
         slug="wet-room-bathroom-fishers",
         music=("Brisa de Nylon.mp3", 48.8),
         ad={
@@ -310,6 +326,7 @@ PROJECTS = {
     # job read as deliberate.
     "geist-finished": dict(
         out="FG-geist-upper-level-finished",
+        animated_end=True,
         slug="geist-upper-level-remodel",
         music=("Brisa de Nylon.mp3", 48.8),
         ad={
@@ -339,6 +356,7 @@ PROJECTS = {
     # Bright and clean, matching light oak, white quartz and a lot of daylight.
     "fishers-double": dict(
         out="FH-fishers-double-shower",
+        animated_end=True,
         slug="double-shower-fishers",
         # Eric rejected American Reveal here. Measured, it is the brightest track
         # in the library (0.292 on a high-frequency-energy ratio, against 0.10-0.19
@@ -372,6 +390,7 @@ PROJECTS = {
     # than the Carmel bath it was wrong for, and the only track left unused.
     "spa-finished": dict(
         out="FI-fishers-spa-retreat-finished",
+        animated_end=True,
         slug="spa-retreat-bathroom-fishers",
         # Arco was rejected here too, and the numbers agree - 1.72 onsets/second
         # and 0.188 brightness. Before / After is the calmest track in the library
@@ -416,6 +435,7 @@ PROJECTS = {
     # every selection routed back to her two time zones away.
     "zionsville-basement": dict(
         out="FM-zionsville-basement-bar",
+        animated_end=True,
         slug="zionsville-basement-bar-wine-room",
         music=("American Reveal.mp3", 113.0),
         ad={
@@ -448,6 +468,7 @@ PROJECTS = {
     # is stated rather than inferred from a video still.
     "geist-tile": dict(
         out="FL-geist-navy-picket-craft",
+        animated_end=True,
         slug="three-bathroom-remodel-geist",
         # The one track in the library never used. Arco has drive, which suits
         # a craft cut; its sibling already carries FC, the Zionsville mosaic.
@@ -495,9 +516,9 @@ PROJECTS = {
     # project page is cited and no one job is credited.
     "six-floors": dict(
         out="FO-six-floors",
+        animated_end=True,
         slug=None,
         # Demo of the ident integrated as the end-card reveal.
-        animated_end=True,
         # Arco rejected by Eric. It is the brightest family in the library and
         # he has now turned it down twice. Quiet Neon is the one he approved by
         # name on the Carmel double.
@@ -542,6 +563,7 @@ PROJECTS = {
     #   geist three bath tile.mp4    no crew anywhere, whole clip is the wall
     "under-the-tile": dict(
         out="FP-whats-under-your-tile",
+        animated_end=True,
         slug=None,
         music=("Brisa de Nylon (1).mp3", 59.2),
         ad={
@@ -564,6 +586,7 @@ PROJECTS = {
 
     "laundry-checker": dict(
         out="FJ-checkerboard-floor",
+        animated_end=True,
         slug=None,
         music=("Before _ After.mp3", 92.5),
         ad={
@@ -881,7 +904,7 @@ def build(key):
         else:
             cmd += ["-loop", "1", "-t", f"{dur:.2f}", "-i", src]
     parts.append(f"[{n}:v]format=rgba,fade=t=in:st=0.25:d=0.7:alpha=1[lg]")
-    parts.append(f"[{n+1}:v]format=rgba,fade=t=in:st=0.30:d={HOOK_FADE_IN}:alpha=1,"
+    parts.append(f"[{n+1}:v]format=rgba,fade=t=in:st=0.06:d={HOOK_FADE_IN}:alpha=1,"
                  f"fade=t=out:st={hook_out:.2f}:d={HOOK_FADE_OUT}:alpha=1[hk]")
     parts.append(f"[{n+2}:v]format=rgba,fade=t=in:st={beat_in:.2f}:d={BEAT_FADE_IN}:alpha=1,"
                  f"fade=t=out:st={beat_out - BEAT_FADE_OUT:.2f}:d={BEAT_FADE_OUT}:alpha=1[bt]")
