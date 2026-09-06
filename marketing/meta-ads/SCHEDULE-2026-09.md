@@ -8,6 +8,28 @@ boosting and ad spend stay entirely Eric's.
 
 **FN is excluded** — Eric turned it down. **F4 is already published** (3 Sep).
 
+## Scheduled as of 2026-09-06
+
+Weeks 1 and 2 are queued on the Page and each caption was read back from Meta after scheduling,
+not merely sent. Independently re-audited with `meta_verify.py`.
+
+| when | reel | caption | post id |
+|---|---|---|---|
+| Tue 8 Sep 09:00 | F7 Zionsville jack & jill | 851 ch, verified | `..._122173088258` |
+| Fri 11 Sep 09:00 | F9 Noblesville waterproofing | 848 ch, verified | `..._122173088378` |
+| Tue 15 Sep 09:00 | FB Westfield basement | 714 ch, verified | `..._122173088486` |
+| Fri 18 Sep 09:00 | F8 Geist upper level | 627 ch, verified | `..._122173088600` |
+
+Stopped at two weeks deliberately. Scheduling all six removes the ability to react to what week 1
+actually does, and editing a queued reel's caption is awkward — reels store text as `description`
+on the video object, not `message` on the post.
+
+**Note for the next run:** `meta_verify.py` did not list F8 immediately after scheduling; it
+appeared seconds later. Scheduled posts take a moment to show up in `scheduled_posts`. Re-run
+before concluding anything is missing.
+
+Stories are Eric's to post from the phone. Week 1 cards were sent to him on 6 Sep: S8, S1, S13, S25.
+
 ---
 
 ## The cadence
