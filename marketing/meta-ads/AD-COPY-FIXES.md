@@ -54,9 +54,21 @@ Headline stays: One Contractor. One Warranty.
 
 ## 01b Four rooms, one schedule
 
+**This one needs the IMAGE swapped too, not just the text.** The claim was baked into
+the creative itself, so replacing the caption alone leaves it on screen. Re-rendered
+2026-09-06 — upload these in place of the current ones:
+
+- `renders/01b-whole-home-schedules--feed.jpg` (1080x1350)
+- `renders/01b-whole-home-schedules--square.jpg` (1080x1080)
+- `renders/01b-whole-home-schedules--reels.jpg` (1080x1920)
+
+The image sub-line now reads *"Every trade works to one calendar, with one contractor
+accountable for all of it — not whoever happens to show up."* Headline and photo are
+unchanged, and the reels version still clears Meta's 1500px safe zone with 97px slack.
+
 Currently: "...our licensed plumbers and electricians are on our payroll..."
 
-Replace with:
+Replace the primary text with:
 
 A four-room renovation usually means four trades, four schedules and nobody who owns the whole thing. We run it differently: every trade works to one calendar, and one person is accountable for the lot. Plumbing by licensed plumbers, electrical by licensed electricians. Kitchens, baths, basements and flooring across Hamilton County.
 

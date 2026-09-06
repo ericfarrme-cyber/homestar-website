@@ -425,7 +425,12 @@ ADS = [
         "fy": 0.50,
         "headline": "Renovating four rooms shouldn't mean four schedules.",
         "h_px": 58,
-        "sub": "Our plumbers and electricians are on our payroll. That's why a multi-room project runs on one calendar instead of whoever shows up.",
+        # Was "Our plumbers and electricians are on our payroll." Retired
+        # 2026-09-06 with the rest of the exclusivity language: it promised
+        # something that removes the freedom to bring in a specialist sub when
+        # a specialist is what the work deserves. The accountability point is
+        # the part that was actually doing the persuading, and it survives.
+        "sub": "Every trade works to one calendar, with one contractor accountable for all of it — not whoever happens to show up.",
         "cta": "GET A FREE ESTIMATE",
         "badge_l": "HAMILTON COUNTY, IN",
         "badge_r": "5.0 ★ GOOGLE",
