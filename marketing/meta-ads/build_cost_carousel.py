@@ -2,9 +2,9 @@
 
 Six 1080x1350 slides for the Sunday feed. The premise is that no remodeler in
 Hamilton County publishes prices, so doing it is both a differentiator and a
-filter: HomeStar walks every estimate personally, and the scarcest thing the
-business has is a Saturday. A homeowner who reads the bands and rules
-themselves out has saved everyone a truck roll.
+filter: HomeStar walks every estimate personally, so an enquiry that was never
+going to fit is expensive. A homeowner who reads the bands and rules themselves
+out has saved everyone a visit.
 
 Every number here is copied from what the website already publishes. Do not
 invent per-project costs - the site gives category ranges, not job prices, and
@@ -14,6 +14,10 @@ Photo choices deliberately favour Carmel and Noblesville. Across the six-week
 plan Zionsville is mentioned 12 times and Geist 11, against 4 each for Carmel
 and Noblesville, so a mixed-project post is the cheapest way to start
 rebalancing without burning a hero project on a single slot.
+
+LAYOUT: full-bleed photograph, copy over a gradient scrim (variant B of three
+Eric reviewed on 2026-09-06). See the scrim and eyebrow notes in build() - both
+encode a failure the other treatments do not have.
 
     python build_cost_carousel.py
 """
@@ -27,13 +31,12 @@ FONTS = os.path.join(HERE, "fonts")
 OUT = os.path.join(HERE, "renders", "cost-carousel")
 
 W, H = 1080, 1350
-PANEL = 430                 # fixed on every slide - see build()
-COUNTER = 56                # strip reserved at the panel foot for "n / 6"
 MARGIN = 96
 NAVY = (27, 42, 74)
+NAVY_DEEP = (14, 23, 43)
 GREEN = (92, 184, 50)
 WHITE = (255, 255, 255)
-MUTED = (176, 189, 209)
+MUTED = (214, 223, 236)
 
 SLIDES = [
     dict(photo="bathroom-green-tile-3.jpg", bias=0.45,
@@ -43,7 +46,7 @@ SLIDES = [
     dict(photo="bathroom-green-tile-1.jpg", bias=0.45,
          eyebrow="BATHROOMS",
          head="$15K – $50K",
-         sub="Most homeowners invest $20K–$35K."),
+         sub="Most land around $35K, depending on size and finishes."),
     dict(photo="zionsville-kitchen-main-level-1.jpeg", bias=0.50,
          eyebrow="KITCHENS",
          head="From $40K",
@@ -57,7 +60,7 @@ SLIDES = [
          head="Scope, not taste.",
          sub="Moving plumbing, tiling floor to ceiling, and the waterproofing behind it."),
     dict(photo="carmel-double-shower-2.jpg", bias=0.45,
-         eyebrow="BEFORE YOU SPEND A SATURDAY",
+         eyebrow="HOW WE QUOTE",
          head="Every estimate\nitemized.",
          sub="Eric or Robb walks every one personally.  (317) 279-4798"),
 ]
@@ -82,10 +85,17 @@ def cover(path, size, bias=0.45):
     return im.resize((tw, th), Image.LANCZOS)
 
 
-def centred(d, y, s, f, fill, tracking=0.0):
-    """Draw one line centred on the canvas. Returns the advance height."""
-    width = d.textlength(s, font=f) + tracking * max(len(s) - 1, 0)
-    x = (W - width) / 2
+def scrim(w, h, rgb, a_top, a_bottom, ease=1.8):
+    """Vertical alpha ramp."""
+    g = Image.new("RGBA", (1, h))
+    px = g.load()
+    for y in range(h):
+        t = (y / max(h - 1, 1)) ** ease
+        px[0, y] = rgb + (int(a_top + (a_bottom - a_top) * t),)
+    return g.resize((w, h), Image.BILINEAR)
+
+
+def left(d, x, y, s, f, fill, tracking=0.0):
     if tracking:
         for ch in s:
             d.text((x, y), ch, font=f, fill=fill)
@@ -94,20 +104,22 @@ def centred(d, y, s, f, fill, tracking=0.0):
         d.text((x, y), s, font=f, fill=fill)
 
 
-def fit_head(d, text, max_w):
-    """Largest size at which every line of the headline fits the column.
+def centred(d, y, s, f, fill, tracking=0.0):
+    """Kept for build_cost_variants.py, which renders the rejected treatments."""
+    width = d.textlength(s, font=f) + tracking * max(len(s) - 1, 0)
+    x = (W - width) / 2
+    left(d, x, y, s, f, fill, tracking)
 
-    Two-line headlines start smaller. At the single-line size they overran the
-    fixed panel, which pushed the eyebrow up onto the green seam and dropped the
-    sub onto the slide counter.
-    """
+
+def fit_head(d, text, max_w):
+    """Largest size at which every line of the headline fits the column."""
     lines = text.split("\n")
     start = 112 if len(lines) == 1 else 88
-    for px in range(start, 58, -2):
+    for px in range(start, 54, -2):
         f = font("ExtraBold", px)
         if all(d.textlength(ln, font=f) <= max_w for ln in lines):
             return f, lines
-    return font("ExtraBold", 58), lines
+    return font("ExtraBold", 54), lines
 
 
 def wrap(d, text, f, max_w):
@@ -125,52 +137,44 @@ def wrap(d, text, f, max_w):
 
 
 def build(slide, idx):
-    """One slide.
+    card = cover(os.path.join(IMG, slide["photo"]), (W, H), slide["bias"]).convert("RGBA")
 
-    The panel is a fixed height on every slide and the copy is centred inside
-    it, vertically and horizontally. An earlier version sized the panel to its
-    own content, which meant the navy block changed height as you swiped and
-    the set read as unbalanced. A constant panel with the type optically
-    centred inside it holds still, which is what makes a carousel feel
-    considered rather than assembled.
-    """
-    photo_h = H - PANEL
-    card = Image.new("RGB", (W, H), NAVY)
-    card.paste(cover(os.path.join(IMG, slide["photo"]), (W, photo_h), slide["bias"]), (0, 0))
+    # Two scrim passes. A long soft ramp keeps the photograph open through the
+    # middle of the frame; a shorter, harder one underneath guarantees the
+    # smallest type has something to sit on. With a single ramp the eyebrow
+    # disappeared into the tile, which is the failure mode overlays are prone to.
+    card.alpha_composite(scrim(W, 900, NAVY_DEEP, 0, 200, ease=1.5), (0, H - 900))
+    card.alpha_composite(scrim(W, 460, NAVY_DEEP, 0, 226, ease=1.2), (0, H - 460))
     d = ImageDraw.Draw(card)
 
-    # The green seam the rest of the ad set uses, so this reads as family.
-    d.rectangle([0, photo_h - 6, W, photo_h], fill=GREEN)
-
     col = W - MARGIN * 2
-    f_eye = font("ExtraBold", 25)
+    f_eye, f_sub = font("ExtraBold", 25), font("Medium", 33)
     f_head, head_lines = fit_head(d, slide["head"], col)
-    f_sub = font("Medium", 33)
     sub_lines = wrap(d, slide["sub"], f_sub, col)
-    f_num = font("Bold", 24)
+    lh = int(f_head.size * 1.04)
+    block = 40 + 26 + lh * len(head_lines) + 20 + 44 * len(sub_lines)
+    y = H - 96 - block
+    assert y > 380, "copy block too tall on slide %d" % idx
 
-    eye_h, head_lh, sub_lh = 40, int(f_head.size * 1.04), 44
-    block = eye_h + 26 + head_lh * len(head_lines) + 20 + sub_lh * len(sub_lines)
-
-    # Centre the block in the panel, less the counter's reserved strip so the
-    # type sits optically centred rather than mathematically centred. Assert it
-    # actually fits: a silent overflow is what put the eyebrow on the seam.
-    avail = PANEL - COUNTER
-    assert block <= avail, "panel overflow on slide %d: %d > %d" % (idx, block, avail)
-    y = photo_h + (avail - block) / 2
-
-    centred(d, y, slide["eyebrow"], f_eye, GREEN, tracking=3.4)
-    y += eye_h + 26
+    # The green rule carries the brand; the eyebrow itself is white. Green type
+    # this small has nothing like enough contrast against a photograph - on the
+    # teal tile it vanished completely - and an accent colour survives as a
+    # shape where it dies as text.
+    d.rectangle([MARGIN, y - 30, MARGIN + 76, y - 23], fill=GREEN)
+    left(d, MARGIN, y, slide["eyebrow"], f_eye, WHITE, 3.4)
+    y += 66
     for ln in head_lines:
-        centred(d, y, ln, f_head, WHITE)
-        y += head_lh
+        left(d, MARGIN, y, ln, f_head, WHITE)
+        y += lh
     y += 20
     for ln in sub_lines:
-        centred(d, y, ln, f_sub, MUTED)
-        y += sub_lh
+        left(d, MARGIN, y, ln, f_sub, MUTED)
+        y += 44
 
-    centred(d, H - 52, "%d / %d" % (idx, len(SLIDES)), f_num, MUTED, tracking=1.6)
-    return card
+    f_c = font("Bold", 24)
+    tag = "%d / %d" % (idx, len(SLIDES))
+    left(d, W - MARGIN - d.textlength(tag, font=f_c), H - 78, tag, f_c, (170, 184, 205))
+    return card.convert("RGB")
 
 
 def main():

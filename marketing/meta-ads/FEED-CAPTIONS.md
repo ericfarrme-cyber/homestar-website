@@ -20,17 +20,17 @@ panel, so the number is legible while swiping rather than buried in the caption.
 | 3 | **Kitchens from $40K** | `zionsville-kitchen-main-level-1` | Zionsville |
 | 4 | **Basements $45K – $200K** | `westfield-basement-masterpiece-6` | Westfield |
 | 5 | What moves the number — scope, not taste | `noblesville-floor-to-ceiling-tile-1` | Noblesville |
-| 6 | Every estimate itemized | `carmel-double-shower-2` | Carmel |
+| 6 | Every estimate itemized (eyebrow: HOW WE QUOTE) | `carmel-double-shower-2` | Carmel |
 
 **Caption:**
 
 > Most contractors won't give you a number until they're standing in your kitchen. Here are ours, in public.
 >
-> Bathrooms $15K–$50K, and most homeowners invest $20K–$35K. Kitchens from $40K. Basements $45K–$200K, at $55–$75 a square foot, recouping 70–75% at resale.
+> Bathrooms $15K–$50K, with most landing around $35K depending on size and finishes. Kitchens from $40K. Basements $45K–$200K, at $55–$75 a square foot, recouping 70–75% at resale.
 >
 > What moves a number is scope, not taste. Moving plumbing, tiling floor to ceiling, and the waterproofing behind it. Your tile choice barely registers next to any of that.
 >
-> Every estimate is itemized, every permit pulled and paid, every trade licensed. And if your budget doesn't fit, we'll tell you on the phone instead of spending your Saturday.
+> Every estimate is itemized, every permit pulled and paid, every trade licensed. And if your budget doesn't fit, we'll say so on the phone rather than booking a visit.
 >
 > Hamilton County, Indiana. Free in-home estimates: (317) 279-4798
 
