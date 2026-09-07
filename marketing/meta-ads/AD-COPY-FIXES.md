@@ -1,5 +1,16 @@
 # Live ad copy still carrying the in-house claim
 
+**Re-checked 2026-09-07 in the public Ad Library: all four are still running the
+claim, unchanged.** Five instances across the four ads - "on our payroll rather
+than subcontracted", "Our Licensed Trades Are In-House", "employs its own
+licensed plumbers", "Because our plumbers and electricians are in-house", "our
+licensed plumbers and electricians are on our payroll". These are spending money
+right now on a claim that was retired.
+
+Meta also raised an **audience saturation** warning on this campaign the same
+day, which raises the stakes: the people seeing these ads are increasingly the
+same people seeing them again.
+
 Status 2026-09-06. Four **live** ads still assert that HomeStar's plumbers and
 electricians are on its own payroll. The website, the reels and CAMPAIGN.md
 were swept; the ad creatives in Ads Manager were not.
