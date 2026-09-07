@@ -10,7 +10,7 @@ boosting and ad spend stay entirely Eric's.
 
 ## Scheduled as of 2026-09-06
 
-Weeks 1 and 2 are queued on the Page and each caption was read back from Meta after scheduling,
+Weeks 1 to 4 are queued on the Page and each caption was read back from Meta after scheduling,
 not merely sent. Independently re-audited with `meta_verify.py`.
 
 | when | reel | caption | post id |
@@ -19,9 +19,13 @@ not merely sent. Independently re-audited with `meta_verify.py`.
 | Fri 11 Sep 09:00 | F9 Noblesville waterproofing | 848 ch, verified | `..._122173088378` |
 | **Mon 14 Sep 09:00** | FB Westfield basement | 714 ch, verified | `..._122173088486632361` |
 | Fri 18 Sep 09:00 | F8 Geist upper level | 627 ch, verified | `..._122173088600` |
+| Mon 21 Sep 09:00 | FD Fishers full gut | 940 ch, verified | `..._122173106438` |
+| Fri 25 Sep 09:00 | FO Six floors | 678 ch, verified | `..._122173106528` |
+| Mon 28 Sep 09:00 | F6 Geist three-bath | 1285 ch, verified | `..._122173106684` |
+| Fri 2 Oct 09:00 | FE Carmel double shower | 662 ch, verified | `..._122173106756` |
 
-Stopped at two weeks deliberately. Scheduling all six removes the ability to react to what week 1
-actually does, and editing a queued reel's caption is awkward — reels store text as `description`
+Stopped at four weeks. Scheduling all six removes the ability to react to what the early weeks
+actually do, and editing a queued reel's caption is awkward — reels store text as `description`
 on the video object, not `message` on the post.
 
 **Note for the next run:** `meta_verify.py` did not list F8 immediately after scheduling; it
