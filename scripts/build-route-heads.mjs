@@ -187,7 +187,10 @@ function metaFor(clean) {
   // /blog/<slug>  — App.jsx BlogPost
   if (seg[0] === 'blog' && seg[1]) {
     const post = (BLOG || []).find((x) => x.slug === seg[1]);
-    if (post) return { title: post.title + SUFFIX, description: post.excerpt };
+    // Mirrors App.jsx BlogPost: a post may override the reader-facing title and
+    // excerpt with a length-disciplined seoTitle/metaDesc, and the short suffix
+    // travels with seoTitle so the saved characters are not spent again.
+    if (post) return { title: post.seoTitle ? post.seoTitle + ' | HomeStar' : post.title + SUFFIX, description: post.metaDesc || post.excerpt };
   }
   // /guide/<slug>  — App.jsx GuidePage
   if (seg[0] === 'guide' && seg[1]) {
