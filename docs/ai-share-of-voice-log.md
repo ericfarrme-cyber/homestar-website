@@ -462,3 +462,72 @@ storefront listing. Google requires the listed address be staffed during stated 
 mailbox or unstaffed desk violates this and risks suspension of a profile currently producing ~8
 leads/week. Only viable if a genuinely staffed location is ever taken on — a business decision, not
 an SEO tactic.
+
+---
+
+# ✅ 2026-09-07 — FULL 3-RUN PROTOCOL (12 logged-out runs)
+
+**Method note:** run through the in-app browser, which carries no ChatGPT session. Logged-out state
+verified on every run — the page renders "Log in / Sign up for free" and the closing
+"Log in for advice and recommendations tailored to you." Location was never granted; ChatGPT
+inferred Fishers from IP, which is what a real local prospect gets. Protocol-valid.
+
+| Query | Appeared | Positions | Avg pos | vs last check |
+|---|---|---|---|---|
+| Bathroom, Fishers | 3/3 | 3, 1, 3 | ~2.3 | ⬇️ was ~1.0 (14 Aug) |
+| Basement, Fishers | 3/3 | 1, 1, 4 | ~2.0 | ⬆️ appearances, ⬇️ position |
+| Kitchen, Fishers | **2/3** | absent, 3, 1 | ~2.0 | ⬇️ was 3/3 |
+| **Whole-home, Fishers/Hamilton Co.** | **3/3** | **2, 4, 2** | ~2.7 | ⬆️⬆️⬆️ **was 1/3** |
+
+**Share of voice: 11/12**, against 12/12 on 14 August. Flat-to-slightly-down overall, but the
+distribution changed a lot: the category that was broken is fixed and two that were strong slipped.
+
+## 🟢 The whole-home gatekeeper problem is fixed
+
+This was the standing regression: 0/3 on 5 Aug, 1/3 on 26 Aug. It is now **3/3, twice at #2**, and
+HomeStar is named in the closing interview shortlist in two of three runs — *"I would interview
+Nicholas Design Build, Worthington, and HomeStar first."* Whole-home is the highest-ticket category
+and the one the ads are built on, so this is the most valuable movement in the set.
+
+## 🔴 Still zero map packs — unchanged since 14 August
+
+Every run renders four or five Google business cards above the prose answer. **HomeStar was in none
+of them, in any of the twelve runs.** The cards showed MJ Woodstone, Indy Renovation, Church Bath
+and Tile, Chateau, The HomeWright, MJ Brown, AY Remodeling and Chapman Custom Baths. This is a
+listings problem, not a website problem, and the website work cannot fix it.
+
+## 🔴 Houzz is the citation source, and this is the mechanism
+
+Competitors are cited *through Houzz* repeatedly and by name: "Houzz lists them at 5.0 with 77
+reviews" (HomeWright), "Houzz currently shows a 5.0 rating with 122 reviews" (Everything Home),
+"Houzz lists it at 4.8/5 with 62 reviews and 8 verified hires" (Chateau), "Best of Houzz winner".
+
+HomeStar has **5 Houzz reviews**. The competitors ChatGPT ranks above us have 62, 77 and 122. This
+is no longer an inference — the model is reading Houzz profiles and quoting their review counts as
+evidence. It is the clearest evidence yet for the standing Houzz priority.
+
+## Moat evidence — our own content being quoted
+
+- *"They also say their bathroom installers are Schluter Pro Certified, which is a meaningful plus
+  for waterproofing."* — our claim, repeated as a reason to hire us.
+- *"The 80 reviews make its 5.0 rating more compelling than contractors with only a handful of
+  reviews."* — review volume now working **for** us rather than against.
+- BBB accreditation and A rating cited unprompted in the kitchen category.
+
+## Review count is stale in the model
+
+ChatGPT reports **5.0 / 80 reviews** consistently. Google and the site both show **85**. Roughly a
+month of lag between a review landing and the model repeating the number. Not actionable directly,
+but it means review growth pays out on a delay — another argument for starting Houzz now rather
+than later.
+
+## Competitors observed this round
+
+Consistent: MJ Woodstone (bath, kitchen), The HomeWright (everything), Chateau (higher-end),
+Building Concepts (basement specialist), MJ Brown.
+**New since August:** Nicholas Design Build (leads whole-home twice), Everything Home,
+Worthington Design & Remodeling, Benjamin Design Build, Home Redemption Construction, Indy
+Renovation, Chapman Custom Baths, Church Bath and Tile.
+
+The whole-home leader is now Nicholas Design Build — Fishers-based, design-build, cited for
+structural reconfiguration. That is the closest competitor to HomeStar's actual positioning.
