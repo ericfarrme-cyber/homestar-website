@@ -52,7 +52,10 @@ import { createElement } from 'react';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const ORIGIN = 'https://www.thehomestarservice.com';
-const SUFFIX = ' | HomeStar Services & Contracting';
+// Short by design. Google shows roughly 60 characters of a title; the full
+// company name spent 33 of them on every page and pushed 207 of 244 routes
+// past the cut, so pages that ranked were presenting themselves truncated.
+const SUFFIX = ' | HomeStar';
 
 const indexPath = join(dist, 'index.html');
 if (!existsSync(indexPath)) {
@@ -149,7 +152,8 @@ function prerenderBody(routePath) {
    hardcoded title and description inside their component rather than deriving them
    from data. Rather than copy those strings into this file — which would silently
    drift the moment someone edits the component — read them back out of App.jsx on
-   every build. The pattern is: useCanonical("<slug>") followed by a literal
+   every build. App.jsx wraps both in fitTitle()/fitDesc(), so the wrapper call is
+   optional in the patterns below. The pattern is: useCanonical("<slug>") followed by a literal
    document.title= and a literal setAttribute("content", …). Anything computed from
    a variable or template simply will not match, so this only ever picks up the
    genuinely static ones. */
@@ -162,8 +166,8 @@ const LITERAL_META = (() => {
     while ((m = re.exec(src))) {
       const slug = m[1];
       const win = src.slice(m.index, m.index + 2500);
-      const t = win.match(/document\.title\s*=\s*"((?:[^"\\]|\\.)*)"/);
-      const d = win.match(/setAttribute\(\s*"content"\s*,\s*"((?:[^"\\]|\\.)*)"\s*\)/);
+      const t = win.match(/document\.title\s*=\s*(?:fitTitle\(\s*)?"((?:[^"\\]|\\.)*)"/);
+      const d = win.match(/setAttribute\(\s*"content"\s*,\s*(?:fitDesc\(\s*)?"((?:[^"\\]|\\.)*)"\s*\)/);
       if (t && d) out[slug] = { title: JSON.parse(`"${t[1]}"`), description: JSON.parse(`"${d[1]}"`) };
     }
   } catch { /* leave empty — those routes keep the generic fallback */ }
@@ -173,6 +177,85 @@ const LITERAL_META = (() => {
 /* ── Route -> {title, description} ────────────────────────────────────────────
    Each branch mirrors the formula in the corresponding App.jsx component. Keep
    them in step; a mismatch here ships a title that disagrees with the page. */
+/* ── Length discipline ───────────────────────────────────────────────────────
+   Google truncates titles around 60 characters and descriptions around 155.
+   Every branch above composes its own strings, so rather than police each one
+   these clamp whatever comes back. A title that still will not fit drops the
+   brand suffix before it starts losing words - the page's own subject is worth
+   more in a result than the company name. Descriptions cut at a sentence end
+   where one is available, because a description that stops mid-clause reads as
+   broken and is the thing that was suppressing clicks. */
+const TITLE_MAX = 60;
+const DESC_MAX = 155;
+// A complete sentence slightly over the target reads better than a cut one.
+const DESC_HARD = 165;
+
+/* The brand is worth keeping in a title - roughly a third of all clicks come
+   from people typing the company name - so it is the last thing dropped, not
+   the first. Overlong titles give up the redundant state abbreviation before
+   they give up "HomeStar", because a neighbourhood title already names its
+   city and loses nothing by trusting it. */
+function fitTitle(t) {
+  if (!t || t.length <= TITLE_MAX) return t;
+  const brand = / \| HomeStar$/.test(t) ? ' | HomeStar' : '';
+  const base = brand ? t.slice(0, -brand.length) : t;
+
+  const noState = base.replace(/,\s*IN\b/g, '');
+  if (brand && noState.length + brand.length <= TITLE_MAX) return noState + brand;
+  if (base.length <= TITLE_MAX) return base;
+  if (noState.length <= TITLE_MAX) return noState;
+
+  const cut = noState.slice(0, TITLE_MAX);
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[\s,;:\-\u2014]+$/, '');
+}
+
+/* A description cut mid-clause ("...flooring, lighting, plumbing, and") reads
+   as broken and is exactly what suppresses a click. Prefer to end on a real
+   sentence; failing that end on a clause and mark the cut, so it reads as an
+   excerpt rather than a bug. */
+const DANGLING = /\s+(?:and|or|but|from|to|with|for|by|in|on|at|of|the|a|an|plus)$/i;
+
+function fitDesc(d) {
+  if (!d || d.length <= DESC_MAX) return d;
+  const window = d.slice(0, DESC_MAX + 1);
+
+  const stop = Math.max(window.lastIndexOf('. '), window.lastIndexOf('? '), window.lastIndexOf('! '));
+  if (stop >= 60) return window.slice(0, stop + 1);
+
+  const clause = window.lastIndexOf(', ');
+  let cut = clause >= 100 ? window.slice(0, clause) : window.slice(0, window.lastIndexOf(' '));
+  cut = cut.replace(/[\s,;:\-\u2014]+$/, '').replace(DANGLING, '');
+  return cut.replace(/[\s,;:]+$/, '') + '\u2026';
+}
+
+/* Composing a description from parts that fit beats writing one long line and
+   cutting it. Each part is dropped whole if it would overflow, so what ships is
+   always complete sentences - and the ordering below is the priority: what the
+   page is, then the proof, then the ask. */
+function pack(parts, max = DESC_MAX) {
+  let out = '';
+  for (const part of parts) {
+    const piece = String(part == null ? '' : part).trim();
+    if (!piece) continue;
+    // The first part is what the page is about and is never optional. If it
+    // alone overruns, clamp it rather than drop it - dropping it is how seven
+    // project pages ended up describing themselves as "Schluter Pro Certified"
+    // and nothing else. A whole sentence a little over the target still beats
+    // a cut one, so allow DESC_HARD before cutting.
+    if (!out) {
+      out = piece.length <= DESC_HARD ? piece : fitDesc(piece);
+      continue;
+    }
+    const next = out + ' ' + piece;
+    if (next.length <= max) out = next;
+  }
+  return out;
+}
+
+function sentences(t) {
+  return String(t == null ? '' : t).match(/[^.!?]+[.!?]+/g) || [];
+}
+
 function metaFor(clean) {
   if (LITERAL_META[clean]) return LITERAL_META[clean];
   if (!SEO) return null;
@@ -182,7 +265,7 @@ function metaFor(clean) {
   // /projects/<slug>  — App.jsx ProjectPage
   if (seg[0] === 'projects' && seg[1]) {
     const p = (PROJECTS || []).find((x) => x.slug === seg[1]);
-    if (p) return { title: p.title + SUFFIX, description: `${p.desc} Schluter Pro Certified. Free estimates. (317) 279-4798` };
+    if (p) return { title: p.title + SUFFIX, description: pack([...sentences(p.desc), 'Schluter Pro Certified.', 'Free estimates: (317) 279-4798']) };
   }
   // /blog/<slug>  — App.jsx BlogPost
   if (seg[0] === 'blog' && seg[1]) {
@@ -216,7 +299,7 @@ function metaFor(clean) {
     const hood = Object.entries(NEIGHBORHOODS || {}).find(
       ([k, h]) => `remodeling-${k}-${String(h.city).toLowerCase().replace(/ /g, '-')}-in` === clean
     )?.[1];
-    if (hood) return { title: `Home Remodeling in ${hood.name}, ${hood.city}, IN${SUFFIX}`, description: `Expert home remodeling in ${hood.name}, ${hood.city}, Indiana. ${String(hood.character).split('.')[0]}. Schluter Pro Certified. Free estimates. (317) 279-4798` };
+    if (hood) return { title: `Home Remodeling in ${hood.name}, ${hood.city}, IN${SUFFIX}`, description: pack([`Expert home remodeling in ${hood.name}, ${hood.city}, Indiana.`, sentences(hood.character)[0], 'Schluter Pro Certified.', 'Free estimates: (317) 279-4798']) };
     // Neighborhood x service  — App.jsx HoodServicePage (line ~5704).
     // Slug is `${svc.slug}-${hoodKey}-${city}-in`. NOTE the title suffix here is the
     // short " | HomeStar", not the full company suffix — matching the component exactly.
@@ -229,7 +312,7 @@ function metaFor(clean) {
         const h = hit[1];
         return {
           title: `${svc.name} in ${h.name}, ${h.city}, IN | HomeStar`,
-          description: `Expert ${svc.name.toLowerCase()} in ${h.name}, ${h.city}, Indiana. Schluter Pro Certified. Licensed plumbers & electricians. 25-year warranty. Free estimates. (317) 279-4798`,
+          description: pack([`Expert ${svc.name.toLowerCase()} in ${h.name}, ${h.city}, Indiana.`, 'Schluter Pro Certified.', '25-year waterproofing warranty.', 'Licensed trades.', 'Free estimates: (317) 279-4798']),
         };
       }
     }
@@ -246,7 +329,14 @@ function metaFor(clean) {
       const tpl = (SVC_CITY_TPL || {})[svcKey] || (SVC_CITY_TPL || {})['bathroom-remodeling'];
       if (svcData && cityData && tpl && svcData.highlights && svcData.highlights[0]) {
         const pageTitle = `${svcData.service} in ${cityData.city}, IN`;
-        return { title: pageTitle + SUFFIX, description: `${tpl.adj} ${svcData.service.toLowerCase()} in ${cityData.city}, Indiana. ${String(svcData.highlights[0].desc).split('.')[0]}. Free estimates. (317) 279-4798` };
+        // Take the first highlight sentence that actually fits rather than always
+        // the first one - several services open with a long clause-list sentence
+        // that ate the whole budget and left the description cut mid-list.
+        const lead = `${tpl.adj} ${svcData.service.toLowerCase()} in ${cityData.city}, Indiana.`;
+        const tail = 'Free estimates: (317) 279-4798';
+        const room = DESC_MAX - lead.length - tail.length - 2;
+        const hi = svcData.highlights.flatMap((h) => sentences(h.desc)).find((x) => x.length <= room);
+        return { title: pageTitle + SUFFIX, description: pack([lead, hi, tail]) };
       }
     }
   }
@@ -313,7 +403,8 @@ for (const loc of locs) {
     attrSub(canonical)
   );
 
-  const meta = metaFor(clean);
+  const raw = metaFor(clean);
+  const meta = raw && { ...raw, title: fitTitle(raw.title), description: fitDesc(raw.description) };
   if (meta && meta.title && meta.description) {
     html = html.replace(/<title>[\s\S]*?<\/title>/i, () => `<title>${escapeText(meta.title)}</title>`);
     html = html.replace(

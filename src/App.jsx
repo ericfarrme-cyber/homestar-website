@@ -1,5 +1,37 @@
 import { useState, useEffect, useRef } from "react";
 
+/* ─── Head length discipline ───────────────────────
+   The prerendered HTML in dist/ is clamped by scripts/build-route-heads.mjs, but
+   these components overwrite document.title and the description on hydration. A
+   crawler that renders the page would see the unclamped value and the clamp in
+   the build would count for nothing, so the same rules live on both sides. Keep
+   these in sync with the copies in scripts/build-route-heads.mjs. */
+const TITLE_MAX = 60, DESC_MAX = 155, DESC_HARD = 165;
+const DANGLING = /\s+(?:and|or|but|from|to|with|for|by|in|on|at|of|the|a|an|plus)$/i;
+
+function fitTitle(t) {
+  if (!t || t.length <= TITLE_MAX) return t;
+  const brand = / \| HomeStar$/.test(t) ? " | HomeStar" : "";
+  const base = brand ? t.slice(0, -brand.length) : t;
+  const noState = base.replace(/,\s*IN/g, "");
+  if (brand && noState.length + brand.length <= TITLE_MAX) return noState + brand;
+  if (base.length <= TITLE_MAX) return base;
+  if (noState.length <= TITLE_MAX) return noState;
+  const cut = noState.slice(0, TITLE_MAX);
+  return cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,;:\-—]+$/, "");
+}
+
+function fitDesc(d) {
+  if (!d || d.length <= DESC_HARD) return d;
+  const window = d.slice(0, DESC_MAX + 1);
+  const stop = Math.max(window.lastIndexOf(". "), window.lastIndexOf("? "), window.lastIndexOf("! "));
+  if (stop >= 60) return window.slice(0, stop + 1);
+  const clause = window.lastIndexOf(", ");
+  let cut = clause >= 100 ? window.slice(0, clause) : window.slice(0, window.lastIndexOf(" "));
+  cut = cut.replace(/[\s,;:\-—]+$/, "").replace(DANGLING, "");
+  return cut.replace(/[\s,;:]+$/, "") + "…";
+}
+
 /* ─── Brand Tokens ────────────────────────────────── */
 const C = {
   navy: "#1B2A4A", navyMid: "#243556", navyLight: "#2E4068", navyDark: "#111D35",
@@ -1708,9 +1740,9 @@ function BlogPostPage({post}){
        characters. Several posts were ranking on page one and serving a chopped
        title with a description that stopped mid-sentence. Where a post supplies
        these, they win, and the shorter suffix goes with them. */
-    document.title=post.seoTitle?post.seoTitle+" | HomeStar":post.title+" | HomeStar Services & Contracting";
+    document.title=fitTitle(post.seoTitle?post.seoTitle+" | HomeStar":post.title+" | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content",post.metaDesc||post.excerpt);
+    if(meta)meta.setAttribute("content",fitDesc(post.metaDesc||post.excerpt));
   },[post]);
 
   /* Find related posts (same category, different post) */
@@ -2546,9 +2578,9 @@ function NeighborhoodPage({hood}){
   useCanonical(hoodSlug);
 
   useEffect(()=>{
-    document.title=`Home Remodeling in ${hood.name}, ${hood.city}, IN | HomeStar Services & Contracting`;
+    document.title=fitTitle(`Home Remodeling in ${hood.name}, ${hood.city}, IN | HomeStar`);
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content",`Expert home remodeling in ${hood.name}, ${hood.city}, Indiana. ${hood.character.split(".")[0]}. Schluter Pro Certified. Free estimates. (317) 279-4798`);
+    if(meta)meta.setAttribute("content",fitDesc(`Expert home remodeling in ${hood.name}, ${hood.city}, Indiana. ${hood.character.split(".")[0]}. Schluter Pro Certified. Free estimates. (317) 279-4798`));
     window.scrollTo(0,0);
   },[hood]);
 
@@ -2783,9 +2815,9 @@ function CityPage({data}){
   useCanonical(citySlug);
 
   useEffect(()=>{
-    document.title=data.title+" | HomeStar Services & Contracting";
+    document.title=fitTitle(data.title+" | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content",data.metaDesc);
+    if(meta)meta.setAttribute("content",fitDesc(data.metaDesc));
   },[data]);
 
   useJobberForm();
@@ -3413,9 +3445,9 @@ function ServicePage({data,slug}){
   useCanonical(slug);
 
   useEffect(()=>{
-    document.title=data.title+" | HomeStar Services & Contracting";
+    document.title=fitTitle(data.title+" | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content",data.metaDesc);
+    if(meta)meta.setAttribute("content",fitDesc(data.metaDesc));
   },[data]);
 
   useJobberForm();
@@ -3896,9 +3928,9 @@ function ServiceCityPage({svcData,cityData,svcKey}){
   const metaDesc=`${tpl.adj} ${svcData.service.toLowerCase()} in ${city}, Indiana. ${svcData.highlights[0].desc.split(".")[0]}. Free estimates. (317) 279-4798`;
 
   useEffect(()=>{
-    document.title=pageTitle+" | HomeStar Services & Contracting";
+    document.title=fitTitle(pageTitle+" | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content",metaDesc);
+    if(meta)meta.setAttribute("content",fitDesc(metaDesc));
   },[city]);
 
   useJobberForm();
@@ -4166,9 +4198,9 @@ function ProjectPage({project}){
   const story=project.story||PROJECT_STORIES[project.slug];
 
   useEffect(()=>{
-    document.title=project.title+" | HomeStar Services & Contracting";
+    document.title=fitTitle(project.title+" | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content",project.desc+" Schluter Pro Certified. Free estimates. (317) 279-4798");
+    if(meta)meta.setAttribute("content",fitDesc(project.desc+" Schluter Pro Certified. Free estimates. (317) 279-4798"));
     window.scrollTo(0,0);
   },[project]);
 
@@ -4578,9 +4610,9 @@ function TeamPage(){
   const[faqOpen,setFaqOpen]=useState(null);
   useCanonical("team");
   useEffect(()=>{
-    document.title="Meet the HomeStar Team | Remodeling Experts in Fishers, Indiana";
+    document.title=fitTitle("Meet the HomeStar Team | Remodeling Experts in Fishers, Indiana");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content","Meet the people behind HomeStar Services & Contracting — co-founders Eric Farr and Robb Rice, Director of Operations Kristina W. and Project Coordinator Summer S. Schluter Pro Certified remodeling in Fishers, Carmel, Westfield and Hamilton County, Indiana. (317) 279-4798");
+    if(meta)meta.setAttribute("content",fitDesc("Meet the people behind HomeStar Services & Contracting — co-founders Eric Farr and Robb Rice, Director of Operations Kristina W. and Project Coordinator Summer S. Schluter Pro Certified remodeling in Fishers, Carmel, Westfield and Hamilton County, Indiana. (317) 279-4798"));
     window.scrollTo(0,0);
   },[]);
 
@@ -4757,9 +4789,9 @@ function AuthorPage({author}){
   useCanonical("about/"+author.slug);
 
   useEffect(()=>{
-    document.title=author.name+" — "+author.role+" | HomeStar Services & Contracting";
+    document.title=fitTitle(author.name+" — "+author.role+" | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content",`${author.name}, ${author.role} of HomeStar Services & Contracting. Schluter Pro Certified home remodeling in Hamilton County, Indiana.`);
+    if(meta)meta.setAttribute("content",fitDesc(`${author.name}, ${author.role} of HomeStar Services & Contracting. Schluter Pro Certified home remodeling in Hamilton County, Indiana.`));
     window.scrollTo(0,0);
   },[author]);
 
@@ -5045,9 +5077,9 @@ function GuidePage({guide}){
   useCanonical("guide/"+slug);
 
   useEffect(()=>{
-    document.title=guide.title+" | HomeStar Services & Contracting";
+    document.title=fitTitle(guide.title+" | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content",guide.metaDesc);
+    if(meta)meta.setAttribute("content",fitDesc(guide.metaDesc));
     window.scrollTo(0,0);
   },[guide]);
 
@@ -5213,9 +5245,9 @@ function BasementCostCalculator(){
   useCanonical("tools/basement-cost-calculator");
 
   useEffect(()=>{
-    document.title="Basement Finishing Cost Calculator | Hamilton County, IN | HomeStar";
+    document.title=fitTitle("Basement Finishing Cost Calculator | Hamilton County, IN | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content","Free basement finishing cost calculator for Fishers, Carmel, Westfield & Hamilton County, Indiana. Estimate your basement cost by square footage, finish level, bathroom, wet bar & more. Built by a local licensed contractor.");
+    if(meta)meta.setAttribute("content",fitDesc("Free basement finishing cost calculator for Fishers, Carmel, Westfield & Hamilton County, Indiana. Estimate your basement cost by square footage, finish level, bathroom, wet bar & more. Built by a local licensed contractor."));
     window.scrollTo(0,0);
   },[]);
 
@@ -5428,9 +5460,9 @@ function ClientPortalPage(){
   const P=PORTAL_PAGE;
   useCanonical("client-portal");
   useEffect(()=>{
-    document.title="The HomeStar Client Portal | Your Project, In Your Pocket";
+    document.title=fitTitle("The HomeStar Client Portal | Your Project, In Your Pocket");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content","Every HomeStar client gets a private project portal — live phase status, selections with real-time allowance tracking, progress photos, e-signed change orders and a line-by-line final reconciliation. Unused allowance money is credited back to you. Interior designers get access too. Fishers, Indiana. (317) 279-4798");
+    if(meta)meta.setAttribute("content",fitDesc("Every HomeStar client gets a private project portal — live phase status, selections with real-time allowance tracking, progress photos, e-signed change orders and a line-by-line final reconciliation. Unused allowance money is credited back to you. Interior designers get access too. Fishers, Indiana. (317) 279-4798"));
     window.scrollTo(0,0);
   },[]);
 
@@ -5568,9 +5600,9 @@ function DesignBuildPage(){
   const[faqOpen,setFaqOpen]=useState(null);
   useCanonical("design-build-fishers-in");
   useEffect(()=>{
-    document.title="Design-Build in Fishers, Indiana — Three Ways to Design It | HomeStar Services & Contracting";
+    document.title=fitTitle("Design-Build in Fishers, Indiana — Three Ways to Design It | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content","Design-build remodeling in Fishers and Hamilton County, Indiana. Use our in-house design team, bring your own designer or architect, or take an introduction to a firm we have built for. Most design-build companies offer only their own designer. Three projects with Dovetail Group. Free in-home estimates. (317) 279-4798");
+    if(meta)meta.setAttribute("content",fitDesc("Design-build remodeling in Fishers and Hamilton County, Indiana. Use our in-house design team, bring your own designer or architect, or take an introduction to a firm we have built for. Most design-build companies offer only their own designer. Three projects with Dovetail Group. Free in-home estimates. (317) 279-4798"));
     window.scrollTo(0,0);
   },[]);
 
@@ -5683,9 +5715,9 @@ function DesignerCollaborationPage(){
   const D=DESIGNER_PAGE;
   useCanonical("working-with-your-designer");
   useEffect(()=>{
-    document.title="Working With Your Designer or Architect | HomeStar Services & Contracting";
+    document.title=fitTitle("Working With Your Designer or Architect | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content","HomeStar builds to outside interior designers' and architects' drawings across Hamilton County, Indiana. Three completed projects with Dovetail Group. Licensed plumbers and electricians in-house, Schluter Pro Certified waterproofing, faithful execution of your designer's specifications. (317) 279-4798");
+    if(meta)meta.setAttribute("content",fitDesc("HomeStar builds to outside interior designers' and architects' drawings across Hamilton County, Indiana. Three completed projects with Dovetail Group. Licensed plumbers and electricians, Schluter Pro Certified waterproofing, faithful execution of your designer's specifications. (317) 279-4798"));
     window.scrollTo(0,0);
   },[]);
 
@@ -5852,9 +5884,9 @@ function SequencePlanner(){
   useCanonical("tools/renovation-sequence-planner");
 
   useEffect(()=>{
-    document.title="Renovation Sequence Planner | What Order to Remodel | HomeStar";
+    document.title=fitTitle("Renovation Sequence Planner | What Order to Remodel | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content","Free renovation sequence planner for Hamilton County, Indiana. Choose your rooms and get the real construction order a general contractor would build them in — what happens when, what's unusable during each phase, and how the plan changes if you're living in the house.");
+    if(meta)meta.setAttribute("content",fitDesc("Free renovation sequence planner for Hamilton County, Indiana. Choose your rooms and get the real construction order a general contractor would build them in — what happens when, what's unusable during each phase, and how the plan changes if you're living in the house."));
     window.scrollTo(0,0);
   },[]);
 
@@ -6022,9 +6054,9 @@ function KitchenCostCalculator(){
   useCanonical("tools/kitchen-cost-calculator");
 
   useEffect(()=>{
-    document.title="Kitchen Remodel Cost Calculator | Hamilton County, IN | HomeStar";
+    document.title=fitTitle("Kitchen Remodel Cost Calculator | Hamilton County, IN | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content","Free kitchen remodel cost calculator for Fishers, Carmel, Westfield & Hamilton County, Indiana. Estimate your kitchen cost by size, finish tier, island, appliance package, layout change & lighting. Built by a local licensed general contractor.");
+    if(meta)meta.setAttribute("content",fitDesc("Free kitchen remodel cost calculator for Fishers, Carmel, Westfield & Hamilton County, Indiana. Estimate your kitchen cost by size, finish tier, island, appliance package, layout change & lighting. Built by a local licensed general contractor."));
     window.scrollTo(0,0);
   },[]);
 
@@ -6184,9 +6216,9 @@ function CostCalculator(){
   useCanonical("tools/remodel-cost-calculator");
 
   useEffect(()=>{
-    document.title="Remodel Cost Calculator | HomeStar Services & Contracting";
+    document.title=fitTitle("Remodel Cost Calculator | HomeStar");
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content","Get an instant estimate for your bathroom, kitchen, basement, or deck project in Hamilton County, Indiana. Free remodel cost calculator from HomeStar Services & Contracting.");
+    if(meta)meta.setAttribute("content",fitDesc("Get an instant estimate for your bathroom, kitchen, basement, or deck project in Hamilton County, Indiana. Free remodel cost calculator from HomeStar Services & Contracting."));
     window.scrollTo(0,0);
   },[]);
 
@@ -6308,9 +6340,9 @@ function HoodServicePage({hood,svc}){
   const[faqOpen,setFaqOpen]=useState(null);
 
   useEffect(()=>{
-    document.title=`${svc.name} in ${hood.name}, ${hood.city}, IN | HomeStar`;
+    document.title=fitTitle(`${svc.name} in ${hood.name}, ${hood.city}, IN | HomeStar`);
     const meta=document.querySelector('meta[name="description"]');
-    if(meta)meta.setAttribute("content",`Expert ${svc.name.toLowerCase()} in ${hood.name}, ${hood.city}, Indiana. Schluter Pro Certified. Licensed plumbers & electricians. 25-year warranty. Free estimates. (317) 279-4798`);
+    if(meta)meta.setAttribute("content",fitDesc(`Expert ${svc.name.toLowerCase()} in ${hood.name}, ${hood.city}, Indiana. Schluter Pro Certified. Licensed plumbers & electricians. 25-year warranty. Free estimates. (317) 279-4798`));
     window.scrollTo(0,0);
   },[hood,svc]);
 
