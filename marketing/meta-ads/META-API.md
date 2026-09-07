@@ -239,3 +239,57 @@ The Page ID and IG user ID are not secrets and can live in the repo; only the to
 
 Boosting, ad spend and budget stay manual and stay yours. The API makes publishing reliable; it does
 not make spending decisions, and nothing here should be wired to a card.
+
+---
+
+## Settled 2026-09-07: Instagram scheduling now runs itself
+
+Constraint 1 above - Instagram's API cannot schedule - stopped being theoretical.
+The eight reels queued through 2 October were queued on the Page alone, and
+Instagram received none of them. The account went quiet from 3 to 7 September
+before anyone noticed. F7 was published by hand and is live at
+https://www.instagram.com/reel/Dc_MZrPAFAv/
+
+The gap is now closed by three pieces:
+
+| piece | what it does |
+|---|---|
+| `ig-queue.json` | the queue: code, local publish time, video URL, caption |
+| `ig_publish.py` | publishes whatever is due; refuses to double-post |
+| `.github/workflows/instagram-reels.yml` | fires it twice daily, 09:05 Eastern |
+
+**The video is served from the repository itself.** Constraint 2 says Instagram
+fetches from a public URL rather than accepting an upload. This repo is public
+and the reel renders are already committed, so the queue points at
+`raw.githubusercontent.com` and nothing has to be copied, hosted or cleaned up.
+Tested 2026-09-07: Instagram accepts it, even though raw serves mp4 as
+`application/octet-stream` rather than `video/mp4`.
+
+**Duplicate protection reads Instagram, not a state file.** Before publishing,
+the script pulls recent media and compares caption openings. A state file would
+have to be committed back by the workflow and can drift from reality; the account
+cannot. This is what makes it safe for two crons to run every day.
+
+### What it needs
+
+One repository secret: `META_PAGE_TOKEN`, under Settings > Secrets and variables
+> Actions. Use the same value as `.token`. It is a system-user token that does
+not expire, so this is a one-time step.
+
+### Moving it to the mini PC
+
+The script has no GitHub dependency - the workflow only supplies a token and a
+clock. To run it on the mini PC instead, set `META_PAGE_TOKEN` in the machine
+environment and give Task Scheduler a daily 09:00 task running:
+
+    python marketing/meta-ads/ig_publish.py
+
+Then disable the workflow. Running both is harmless but pointless: whichever
+fires first publishes, and the other finds the reel already up and stops.
+
+### Adding reels to the queue
+
+Regenerate `ig-queue.json` rather than hand-editing captions into it, so
+Instagram cannot drift from what Facebook is running. `--dry-run` reports what
+would happen and publishes nothing; `--force CODE` publishes one entry
+immediately, which is how a missed reel gets caught up.

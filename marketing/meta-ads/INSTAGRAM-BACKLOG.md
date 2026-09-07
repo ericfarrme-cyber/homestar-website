@@ -1,5 +1,11 @@
 # Instagram backlog - the seven reels Facebook has and Instagram does not
 
+> **Superseded 2026-09-07, same day.** These seven are now published automatically
+> by `ig_publish.py` from `ig-queue.json`, on the schedule below. Nothing here
+> needs doing by hand **once `META_PAGE_TOKEN` is added as a repository secret** -
+> until then the automation cannot run, and this sheet is the fallback. It is also
+> the reference if a reel ever has to be posted manually. See META-API.md.
+
 **Why this exists.** Facebook's API can schedule a reel; Instagram's cannot. The eight
 reels queued through 2 October were therefore queued on the Page only, and Instagram got
 nothing. F7 was published to Instagram by hand on 2026-09-07 and is live at

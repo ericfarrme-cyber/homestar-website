@@ -1,0 +1,61 @@
+{
+  "_comment": "Instagram publish queue. Facebook's API can schedule a reel; Instagram's cannot, so these are published by ig_publish.py at the time named here. Times are local to the timezone field so daylight saving is handled at run time rather than baked into a UTC cron. Regenerate with the queue builder rather than editing captions here, so Instagram cannot drift from Facebook.",
+  "reels": [
+    {
+      "code": "F9",
+      "description": "Noblesville, membrane to finished",
+      "publish_at_local": "2026-09-11T09:00:00",
+      "timezone": "America/New_York",
+      "video_url": "https://raw.githubusercontent.com/ericfarrme-cyber/homestar-website/main/marketing/meta-ads/renders/F9-noblesville-waterproofing-to-finished--reels-upload.mp4",
+      "caption": "The most important part of your bathroom is the part you will never see again.\n\nBefore a single tile goes on, the whole wet area gets waterproofed - membrane bonded to the substrate, seams sealed, corners detailed. Ditra on the floor, Kerdi on the walls. That is the Schluter system, and it is what the 25-year warranty is actually written against.\n\nThen the tile. Levelling clips on every joint so no edge sits proud of its neighbour, and a laser line so the courses run true across a room that is tiled floor to ceiling.\n\nAnd then this. A freestanding tub under a beaded chandelier, a backlit mirror over a floating vanity, and light running the length of the shower niche.\n\nThe last shot is the one people share. The first two are the reason it still looks like that in twenty years.\n\nNoblesville, Indiana. Free in-home estimates: (317) 279-4798"
+    },
+    {
+      "code": "FB",
+      "description": "Westfield luxury basement (before/after)",
+      "publish_at_local": "2026-09-14T09:00:00",
+      "timezone": "America/New_York",
+      "video_url": "https://raw.githubusercontent.com/ericfarrme-cyber/homestar-website/main/marketing/meta-ads/renders/FB-westfield-luxury-basement-beforeafter--reels-upload.mp4",
+      "caption": "An unfinished basement is the cheapest square footage you will ever add to a house. No foundation, no roof, no addition. The space is already there.\n\nThis one was bare concrete and studs. It is now a full custom bar with a kegerator, a beverage fridge and integrated LED shelving, a games area, a home gym, a media room, and lounge seating around the fireplace.\n\nThe ceiling is tongue-and-groove with stained red oak beam wraps. Above the fireplace sits a 14-foot custom stained red oak mantle - the crown jewel of the room, and the thing every visitor looks at first.\n\nDesigned by Dovetail Group. Built by HomeStar as one of their preferred contractors.\n\nWestfield, Indiana. Free in-home estimates: (317) 279-4798"
+    },
+    {
+      "code": "F8",
+      "description": "Geist upper level (mid-job)",
+      "publish_at_local": "2026-09-18T09:00:00",
+      "timezone": "America/New_York",
+      "video_url": "https://raw.githubusercontent.com/ericfarrme-cyber/homestar-website/main/marketing/meta-ads/renders/F8-geist-upper-level-progress--reels-upload.mp4",
+      "caption": "Nobody posts the middle of a job. This is the middle of a job.\n\nEvery baluster wrapped by hand before a brush comes out. Floors papered end to end. Applied wall panelling with the glue still showing. A staircase rebuilt one tread at a time.\n\nNone of it photographs well. All of it is the difference between a room that looks right on handover day and one that still looks right in ten years.\n\nThis is a whole upper level near Geist - multiple bathrooms, every one of them on the complete Schluter waterproofing system, all plumbing and electrical by licensed trades.\n\nNear Geist, Indiana. Free in-home estimates: (317) 279-4798"
+    },
+    {
+      "code": "FD",
+      "description": "Fishers full gut (full arc)",
+      "publish_at_local": "2026-09-21T09:00:00",
+      "timezone": "America/New_York",
+      "video_url": "https://raw.githubusercontent.com/ericfarrme-cyber/homestar-website/main/marketing/meta-ads/renders/FD-fishers-full-gut-walk-in--reels-upload.mp4",
+      "caption": "You can still read the manufacturer's name on the walls.\n\nThat is the only stage of a bathroom where the waterproofing is visible at all. Schluter Kerdi-Board, bonded and sealed at every seam and every fastener, over a sloped pan. All of it installed before a single tile went on, and all of it invisible forever afterwards.\n\nThis was a full gut. Everything out, back to the studs, and a fresh start on the layout so the shower could be a walk-in rather than a box in the corner.\n\nWhat went back in: a dark stained double vanity on furniture legs under a marble top, champagne bronze widespread faucets, and two octagonal framed mirrors lit by exposed-bulb sconces. In the shower, textured white wall tile, a handheld on a slide bar, and a hexagon marble mosaic floor finished with a decorative square drain instead of a plain grate.\n\nThe full project is on our site under Projects.\n\nFishers, Indiana. Free in-home estimates: (317) 279-4798"
+    },
+    {
+      "code": "FO",
+      "description": "Six floors (ends on a question)",
+      "publish_at_local": "2026-09-25T09:00:00",
+      "timezone": "America/New_York",
+      "video_url": "https://raw.githubusercontent.com/ericfarrme-cyber/homestar-website/main/marketing/meta-ads/renders/FO-six-floors--reels-upload.mp4",
+      "caption": "Six bathrooms across Hamilton and Boone County. Six completely different floors.\n\nA hexagon mosaic with a pierced bronze drain set into it. A star cut from marble and repeated across a whole room. Black and white basketweave against deep green tile. A waterjet marble mosaic laid so the pattern centres on the drain and cuts symmetrically to all four walls. A pebble pan. A field of small mosaic.\n\nThe floor is the one surface in a bathroom you are in contact with every single day, and it is usually the last thing anyone picks. We would argue it should be one of the first.\n\nWhich one would you pick?\n\nHamilton and Boone County, Indiana. Free in-home estimates: (317) 279-4798"
+    },
+    {
+      "code": "F6",
+      "description": "Geist three-bath (before/after)",
+      "publish_at_local": "2026-09-28T09:00:00",
+      "timezone": "America/New_York",
+      "video_url": "https://raw.githubusercontent.com/ericfarrme-cyber/homestar-website/main/marketing/meta-ads/renders/F6-geist-three-bath-beforeafter--reels-upload.mp4",
+      "caption": "The shower they wanted didn't fit. So we moved the door.\n\nThat was the whole problem with this Geist master bath. An awkward entry door and a linen closet were eating the space, and no amount of finish selection was going to fix it. Reconfigure those two things and suddenly there's room for the shower.\n\nOut: a framed shower behind sliding glass, a corner jetted tub sunk in a tiled deck, and a white raised-panel vanity with a hutch parked on the counter.\n\nIn: navy crackle-glaze picket tile - hand-glazed, so no two tiles are identical - a freestanding soaker set where the morning light lands, double vanities with backlit mirrors, a custom storage tower as the anchor of the room, champagne bronze against matte black, herringbone floor tile, and heated floors for February.\n\nThe ceiling is the only thing in that room we didn't touch. Look at the first shot and the last one.\n\nTwo months, start to finish. And this was one of three bathrooms we did in this house.\n\nEvery shower goes over the complete Schluter system - Ditra on the floor, Kerdi on the walls, waterproofed before a single tile is set. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.\n\nGeist, Fishers. Free in-home estimates: (317) 279-4798"
+    },
+    {
+      "code": "FE",
+      "description": "Carmel double shower",
+      "publish_at_local": "2026-10-02T09:00:00",
+      "timezone": "America/New_York",
+      "video_url": "https://raw.githubusercontent.com/ericfarrme-cyber/homestar-website/main/marketing/meta-ads/renders/FE-carmel-double-shower--reels-upload.mp4",
+      "caption": "The shower is the whole point of this room.\nEverything else is deliberately quiet so it can be. Charcoal cabinetry, a countertop with almost no movement in it, matte black tapware, and a backlit mirror that runs the length of the vanity. Nothing competing.\n\nThen the shower: large-format tile floor to ceiling, a hexagon mosaic pan, a rain head and a handheld, and a half wall so the glass stays short and the room stays open.\n\nBehind the tile is the complete Schluter system. It is the part that decides whether a shower this size is still perfect in twenty years, and it is the part nobody photographs.\n\nCarmel, Indiana. Free in-home estimates: (317) 279-4798"
+    }
+  ]
+}

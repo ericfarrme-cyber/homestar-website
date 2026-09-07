@@ -45,8 +45,12 @@ marketing/meta-ads/renders/_*.mbtree
 marketing/meta-ads/renders/*--reels-video.mp4
 marketing/meta-ads/renders/*--feed-video.mp4
 
-# Meta API token - never commit this
+# Meta API tokens - never commit these. The glob rather than the single filename
+# because the Page token is derived from the system-user one at runtime, and a
+# second credential appearing next to the first must not depend on someone
+# remembering to add a line here.
 marketing/meta-ads/.token
+marketing/meta-ads/.*token*
 
 # Story cards ARE committed - about 10 MB for 30, and Eric posts from this
 # folder by hand. Regenerable from build_stories.py, but a deliverable he

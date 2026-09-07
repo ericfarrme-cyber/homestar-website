@@ -1,0 +1,65 @@
+# Publish queued reels to Instagram at 9am Eastern.
+#
+# Facebook's API can hold a scheduled reel; Instagram's cannot. Every reel we
+# queue on the Page therefore needs something of ours to fire at the right minute
+# for Instagram, and this is it. See marketing/meta-ads/ig_publish.py.
+#
+# Two crons rather than one because GitHub schedules in UTC and Eastern moves:
+# 13:05 UTC is 9:05am EDT, 14:05 UTC is 9:05am EST. Both run year round, so one
+# of them is always the right hour and the other is an hour off. That is harmless
+# - ig_publish.py decides for itself what is due, and refuses to post a reel that
+# is already on the account, so the second run finds nothing to do.
+#
+# GitHub also runs scheduled jobs late under load, sometimes by a good few
+# minutes. The script's GRACE_HOURS window absorbs that; it publishes something
+# up to 8 hours late but never later, so a queue left unattended cannot suddenly
+# dump a month of stale reels onto the account.
+
+name: Instagram reels
+
+on:
+  schedule:
+    - cron: "5 13 * * *"   # 09:05 Eastern during daylight saving
+    - cron: "5 14 * * *"   # 09:05 Eastern outside it
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Report what would publish, without publishing"
+        type: boolean
+        default: true
+      force:
+        description: "Publish this queue code regardless of its scheduled time (e.g. F9)"
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: instagram-reels        # never let two runs publish the same reel
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Publish anything due
+        env:
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+        working-directory: marketing/meta-ads
+        run: |
+          if [ -z "$META_PAGE_TOKEN" ]; then
+            echo "::error::META_PAGE_TOKEN is not set. Add it under"
+            echo "::error::Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          ARGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ -n "${{ inputs.force }}" ]; then ARGS="$ARGS --force ${{ inputs.force }}"; fi
+          python ig_publish.py $ARGS
