@@ -531,3 +531,51 @@ Renovation, Chapman Custom Baths, Church Bath and Tile.
 
 The whole-home leader is now Nicholas Design Build — Fishers-based, design-build, cited for
 structural reconfiguration. That is the closest competitor to HomeStar's actual positioning.
+
+## Extended to 6 runs per category — same day, 12 more logged-out runs
+
+Eric asked for more runs for clarity. Full set is now **24 runs, 6 per category**, which is a much
+better read than 3 — three of the four categories changed verdict once the sample doubled.
+
+| Query | Appeared | Positions (6 runs) | Avg pos when present |
+|---|---|---|---|
+| Bathroom, Fishers | **5/6** | 3, 1, 3, 1, 3, — | ~2.2 |
+| Basement, Fishers | **5/6** | 1, 1, 4, —, 1, 3 | ~2.0 |
+| Kitchen, Fishers | **4/6** | —, 3, 1, 4, —, 3 | ~2.75 |
+| Whole-home | **5/6** | 2, 4, 2, 2, 3, — | ~2.6 |
+
+**Share of voice: 19/24 (79%), average position ~2.4 when present.**
+
+The 3-run read said bathroom 3/3 and kitchen 2/3. At six runs it is 5/6 and 4/6. The direction was
+right but the precision was not — worth remembering before reacting to a single 3-run swing.
+
+## The misses are not random — they cluster by phrasing
+
+| Missed query | What surfaced instead |
+|---|---|
+| "best rated bath remodel **company** near Fishers IN" | Superior Bath System, Baths By Bee, Re-Bath |
+| "who can finish my basement in Fishers Indiana" | Home Redemption, Nicholas Design Build, NKM, CMH |
+| "best kitchen remodeler in Fishers Indiana" | MJ Woodstone, Nicholas Design Build, HomeWright |
+| "recommend a kitchen contractor in Fishers IN" | Nicholas Design Build, MJ Woodstone, ACo |
+| "best **design build firm** Hamilton County" | Everything Home, Worthington, Nicholas, Bender |
+
+Two readable patterns:
+
+1. **The bath miss is an intent collision, not a ranking loss.** "Bath remodel company" pulls the
+   tub-liner and one-day-bath brands. HomeStar should not want that query; the buyer behind it is
+   shopping for a $9K insert, not a $35K remodel. Ignore it.
+2. **"Design build" is a real gap.** HomeStar is absent from the design-build framing and from two
+   of the three kitchen phrasings, while Nicholas Design Build now leads whole-home and kitchen
+   almost everywhere. The site describes design-build capability but does not own the phrase.
+
+## Nicholas Design Build is the competitor that matters now
+
+Across 24 runs it is at or near the top of bathroom, kitchen and whole-home. Fishers-based,
+design-build, cited for structural reconfiguration and layout change — the closest positioning to
+HomeStar's own, and currently beating it on the highest-value framings. MJ Woodstone still leads
+narrow bath/kitchen queries; Building Concepts still owns basement-specialist queries.
+
+## Verdict
+
+Kitchen is the weakest category at 4/6 and the one to work. Whole-home has gone from broken to
+solid and should be protected. Bathroom and basement are healthy at 5/6.
