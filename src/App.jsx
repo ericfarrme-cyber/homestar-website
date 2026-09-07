@@ -1534,7 +1534,7 @@ function DesignSection(){
               <p style={{color:"rgba(255,255,255,.75)",fontSize:14.5,lineHeight:1.75,margin:0}}>Three completed projects with <a href="https://dovetailgroupindy.com/" target="_blank" rel="noopener noreferrer" style={{color:"#fff",fontWeight:700}}>Dovetail Group</a> of Carmel, and a Zionsville lower level built to the drawings of <a href="https://www.hollyjohnsonrealestate.com" target="_blank" rel="noopener noreferrer" style={{color:"#fff",fontWeight:700}}>Holly Johnson</a> — the homeowners' own designer, working with us from Denver.</p>
             </div>
             <div style={{display:"flex",flexDirection:"column",gap:12}}>
-              <a href="/working-with-your-designer" className="btn-g" style={{textAlign:"center",textDecoration:"none"}}>How We Work With Designers {I.arrow}</a>
+              <a href="/design-build-fishers-in" className="btn-g" style={{textAlign:"center",textDecoration:"none"}}>Design-Build: The Three Routes {I.arrow}</a>
               <a href="/blog/designer-vs-design-build-vs-general-contractor" style={{color:C.green,fontWeight:700,fontSize:14,textDecoration:"none",textAlign:"center"}}>Designer vs. design-build vs. GC — which do you need? →</a>
             </div>
           </div>
@@ -2157,7 +2157,7 @@ function Footer({isCity}){
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Guides & Resources</h4>
-            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"2026 Basement Cost Report",h:"/guide/basement-finishing-cost-report-2026"},{l:"2026 Kitchen Cost Report",h:"/guide/kitchen-remodeling-cost-report-2026"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Basement Cost Calculator",h:"/tools/basement-cost-calculator"},{l:"Kitchen Cost Calculator",h:"/tools/kitchen-cost-calculator"},{l:"Renovation Sequence Planner",h:"/tools/renovation-sequence-planner"},{l:"Renovation Sequencing Guide",h:"/guide/renovation-sequencing-guide"},{l:"Working With Your Designer",h:"/working-with-your-designer"},{l:"The Client Portal",h:"/client-portal"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
+            {[{l:"Bathroom Remodeling Guide",h:"/guide/bathroom-remodeling-hamilton-county"},{l:"Kitchen Remodeling Guide",h:"/guide/kitchen-remodeling-hamilton-county"},{l:"Basement Finishing Guide",h:"/guide/basement-finishing-hamilton-county"},{l:"2026 Basement Cost Report",h:"/guide/basement-finishing-cost-report-2026"},{l:"2026 Kitchen Cost Report",h:"/guide/kitchen-remodeling-cost-report-2026"},{l:"Outdoor Living Guide",h:"/guide/outdoor-living-hamilton-county"},{l:"Hiring a Contractor",h:"/guide/hiring-contractor-indiana"},{l:"Insurance Restoration",h:"/guide/insurance-restoration-hamilton-county"},{l:"Cost Calculator",h:"/tools/remodel-cost-calculator"},{l:"Basement Cost Calculator",h:"/tools/basement-cost-calculator"},{l:"Kitchen Cost Calculator",h:"/tools/kitchen-cost-calculator"},{l:"Renovation Sequence Planner",h:"/tools/renovation-sequence-planner"},{l:"Renovation Sequencing Guide",h:"/guide/renovation-sequencing-guide"},{l:"Design-Build in Fishers",h:"/design-build-fishers-in"},{l:"Working With Your Designer",h:"/working-with-your-designer"},{l:"The Client Portal",h:"/client-portal"}].map(l=><a key={l.l} href={l.h} style={{display:"block",color:"rgba(255,255,255,.35)",fontSize:12,textDecoration:"none",marginBottom:9,transition:"color .2s"}} onMouseEnter={e=>e.currentTarget.style.color=C.green} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,.35)"}>{l.l}</a>)}
           </div>
           <div>
             <h4 style={{color:"#fff",fontWeight:700,fontSize:13,marginBottom:16,letterSpacing:".03em"}}>Service Areas</h4>
@@ -5539,6 +5539,140 @@ function ClientPortalPage(){
   );
 }
 
+/* Design-build service page.
+
+   Built 2026-09-07 after the AI sweep found HomeStar absent from every
+   "design build firm" query while Nicholas Design Build — whose NAME carries the
+   category — led whole-home almost everywhere. Before this page, exactly one
+   built page carried "design-build" in its title and it was a neutral blog
+   comparison that never claimed the category. The material was all on the
+   homepage at #design, an anchor that cannot rank on its own.
+
+   The argument is the three paths, because that is the true differentiator:
+   most design-build firms give you one designer, theirs. */
+const DESIGN_BUILD_FAQ=[
+  {q:"What is design-build, and how is it different from hiring a designer and a contractor separately?",a:"Design-build means one company is responsible for both the design and the construction, under one contract. The alternative is to hire a designer, have them produce drawings, then bid those drawings to builders — which gives you specialist design talent and an independent set of eyes on the build, at the cost of holding two contracts and owning the gap between them. HomeStar works both ways, which is unusual: we design in-house when you want a single contract, and we build to an outside designer's drawings when one is already engaged."},
+  {q:"Do I have to use HomeStar's designer?",a:"No, and this is the main way we differ from most design-build firms. There are three routes: our in-house design-build team, your own designer or architect, or an introduction to a design firm we have already built for. Most design-build companies offer exactly one — their own designer. If their aesthetic is not yours, your options are to compromise or start over."},
+  {q:"Is design-build cheaper than hiring a designer and contractor separately?",a:"Usually somewhat, because you are paying one company rather than two and there is no coordination overhead between them. But cheaper is not automatically better value. On a large or design-led project, a separate designer gives you specialist talent and an independent review of the builder's work, which can be worth more than the fee difference. On a smaller, well-understood scope, design-build is normally the more efficient choice."},
+  {q:"Which design firms has HomeStar built for?",a:"We have completed three projects with Dovetail Group, including a luxury basement in Westfield where we were brought in as one of their preferred contractors. Completed collaborations are published on our project pages crediting and linking the design firm."},
+  {q:"Can you handle a whole-home renovation in phases?",a:"Yes, and we have. One Zionsville family had us finish their lower level first — a wet bar, a wine room built in beneath the stairs, and a media lounge — then brought the same crews back for the entire main floor: kitchen, butler's bar, dining room, study and great room. Same homeowners, same designer, same crews across both phases, with the full-height stone slab detail from the basement carried upstairs in light marble."},
+  {q:"What does a design-build project cost in Hamilton County?",a:"We publish our bands rather than guarding them. Bathrooms run $15,000 to $50,000, with most landing around $35,000 depending on size and finishes. Kitchens start at $40,000 and typically run $50,000 to $100,000. Basement finishing runs $45,000 to $200,000+. Every estimate is itemized, every permit is pulled and paid, and Eric or Robb walks every estimate personally."},
+];
+
+function DesignBuildPage(){
+  const[faqOpen,setFaqOpen]=useState(null);
+  useCanonical("design-build-fishers-in");
+  useEffect(()=>{
+    document.title="Design-Build in Fishers, Indiana — Three Ways to Design It | HomeStar Services & Contracting";
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta)meta.setAttribute("content","Design-build remodeling in Fishers and Hamilton County, Indiana. Use our in-house design team, bring your own designer or architect, or take an introduction to a firm we have built for. Most design-build companies offer only their own designer. Three projects with Dovetail Group. Free in-home estimates. (317) 279-4798");
+    window.scrollTo(0,0);
+  },[]);
+
+  const paths=[
+    {t:"Our in-house design-build team",
+     d:"One contract, one point of contact, from first sketch to final inspection. We produce the drawings and 3D renderings, price them, pull the permits and build it. This is the fastest route when you can picture the finished room but do not want to manage two companies to get there.",
+     best:"Best when you want a single contract and a single number."},
+    {t:"Your own designer or architect",
+     d:"Already working with someone? We build to their drawings and finish schedules. We read the floor plans, elevations and cut sheets before pricing anything, flag in writing whatever will not build as drawn, and bring substitutions back to the designer for approval rather than choosing one ourselves. Three completed projects with Dovetail Group ran exactly this way.",
+     best:"Best when the design talent is already engaged and the drawings exist."},
+    {t:"An introduction to a firm we have built for",
+     d:"If the project needs a designer and you do not have one, we will introduce you to a firm we have actually worked with rather than a name off a list. You hold that relationship directly — we are not marking it up or standing between you.",
+     best:"Best when the project needs design help and you are starting cold."},
+  ];
+
+  return(
+    <div style={{overflowX:"hidden"}}>
+      <style>{css}</style>
+      <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Design-Build in Fishers"}]}/>
+      <FaqSchema faqs={DESIGN_BUILD_FAQ}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:"Design-Build Remodeling",serviceType:"Design-build residential remodeling",provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"85"}},areaServed:["Fishers","Carmel","Noblesville","Westfield","Zionsville","Geist"].map(c=>({"@type":"City",name:c})),description:"Design-build remodeling in Fishers and Hamilton County, Indiana, with three routes to design: an in-house team, the homeowner's own designer or architect, or an introduction to a partner firm."})}}/>
+      <Nav/>
+
+      <section className="sec" style={{background:C.navy,paddingTop:100}}>
+        <div className="sec-in">
+          <div className="lab" style={{color:C.greenLight}}>Design-Build · Hamilton County, Indiana</div>
+          <h1 className="display" style={{color:"#fff",fontSize:"clamp(30px,5vw,50px)",lineHeight:1.1,margin:"10px 0 18px",maxWidth:900}}>Design-build in Fishers, three ways to design it.</h1>
+          <p style={{color:"rgba(255,255,255,.72)",fontSize:17,lineHeight:1.8,maxWidth:760,margin:0}}>Most design-build companies offer exactly one way to design your project: their designer. If that aesthetic is not yours, your options are to compromise or start over. We keep the design decision and the construction decision separate, so you are never forced to accept one in order to get the other.</p>
+          <div style={{display:"flex",gap:12,flexWrap:"wrap",marginTop:28}}>
+            <a href="/#estimate" className="btn-g" style={{textDecoration:"none"}}>Request a Free Estimate {I.arrow}</a>
+            <a href="tel:+13172794798" style={{display:"inline-flex",alignItems:"center",gap:10,padding:"16px 32px",borderRadius:12,background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.18)",color:"#fff",fontWeight:700,fontSize:15,textDecoration:"none"}}>{I.phone} (317) 279-4798</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec">
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:44}}>
+            <div className="lab">The three routes</div>
+            <h2 className="ttl">Design your way, built by one team</h2>
+            <p className="sub" style={{margin:"0 auto"}}>Whichever route you take, the construction side does not change — the same crews, the same schedule, the same warranty, and the same project portal for you and your designer to watch it in.</p>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:18}}>
+            {paths.map((p,i)=>(
+              <div key={p.t} style={{background:"#fff",border:`1px solid ${C.sand}`,borderRadius:14,padding:"26px 24px"}}>
+                <div style={{width:34,height:34,borderRadius:9,background:C.greenMuted,color:C.green,display:"grid",placeItems:"center",fontWeight:800,fontSize:15,marginBottom:14}}>{i+1}</div>
+                <h3 className="display" style={{color:C.navy,fontSize:19,fontWeight:700,margin:"0 0 10px"}}>{p.t}</h3>
+                <p style={{color:C.grayDark,fontSize:15,lineHeight:1.75,margin:"0 0 14px"}}>{p.d}</p>
+                <p style={{color:C.green,fontSize:13.5,fontWeight:700,margin:0}}>{p.best}</p>
+              </div>
+            ))}
+          </div>
+          <p style={{color:C.grayDark,fontSize:15.5,lineHeight:1.8,textAlign:"center",maxWidth:760,margin:"30px auto 0"}}>Already have a designer? <a href="/working-with-your-designer" style={{color:C.green,fontWeight:700}}>How we work with outside designers and architects →</a></p>
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}}>
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:40}}>
+            <div className="lab">Proof, not adjectives</div>
+            <h2 className="ttl">Projects that ran this way</h2>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(300px,1fr))",gap:18}}>
+            <div style={{background:"#fff",border:`1px solid ${C.sand}`,borderRadius:14,padding:"26px 24px"}}>
+              <h3 className="display" style={{color:C.navy,fontSize:18,fontWeight:700,margin:"0 0 10px"}}>A whole home in two phases — Zionsville</h3>
+              <p style={{color:C.grayDark,fontSize:15,lineHeight:1.75,margin:0}}>We finished the lower level first: a wet bar under soaring ceilings, a wine room built in beneath the stairs, a media lounge and a guest bath. When it was done the same family brought us back for the entire main floor — kitchen, butler's bar, dining room, study and great room. Same homeowners, same designer, same crews, and the full-height stone slab detail carried upstairs in light marble. <a href="/projects/zionsville-kitchen-main-level" style={{color:C.green,fontWeight:700}}>See phase two →</a></p>
+            </div>
+            <div style={{background:"#fff",border:`1px solid ${C.sand}`,borderRadius:14,padding:"26px 24px"}}>
+              <h3 className="display" style={{color:C.navy,fontSize:18,fontWeight:700,margin:"0 0 10px"}}>Three projects with Dovetail Group</h3>
+              <p style={{color:C.grayDark,fontSize:15,lineHeight:1.75,margin:0}}>We have completed three projects built to <a href="https://dovetailgroupindy.com/" target="_blank" rel="noopener noreferrer" style={{color:C.green,fontWeight:600}}>Dovetail Group's</a> drawings, including a luxury basement in Westfield where we were brought in as one of their preferred contractors. Be wary of a contractor who resists working alongside a designer — it usually means they intend to substitute their own preferences for the design you paid for.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec">
+        <div className="sec-in" style={{maxWidth:860}}>
+          <div style={{textAlign:"center",marginBottom:36}}>
+            <div className="lab">Questions</div>
+            <h2 className="ttl">Design-build, answered plainly</h2>
+          </div>
+          {DESIGN_BUILD_FAQ.map((f,i)=>(
+            <div key={f.q} style={{background:"#fff",borderRadius:12,overflow:"hidden",border:`1px solid ${faqOpen===i?C.green:C.sand}`,marginBottom:10,transition:"border-color .3s"}}>
+              <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} style={{width:"100%",textAlign:"left",padding:"18px 22px",background:"none",border:"none",cursor:"pointer",fontFamily:"inherit",fontSize:15.5,fontWeight:700,color:C.navy,display:"flex",justifyContent:"space-between",gap:14,alignItems:"center"}}>
+                {f.q}<span style={{color:C.green,fontSize:20,flex:"none"}}>{faqOpen===i?"−":"+"}</span>
+              </button>
+              {faqOpen===i&&<div style={{padding:"0 22px 20px",color:C.grayDark,fontSize:15,lineHeight:1.8}}>{f.a}</div>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="sec" style={{background:C.cream}} id="estimate">
+        <div className="sec-in">
+          <div style={{textAlign:"center",marginBottom:34}}>
+            <div className="lab">Start here</div>
+            <h2 className="ttl">Tell us what you are planning</h2>
+            <p className="sub" style={{margin:"0 auto"}}>Eric or Robb walks every estimate personally. If your budget does not fit, we will say so on the phone rather than booking a visit.</p>
+          </div>
+          <LeadForm/>
+        </div>
+      </section>
+      <Footer/>
+    </div>
+  );
+}
+
 function DesignerCollaborationPage(){
   const[faqOpen,setFaqOpen]=useState(null);
   const D=DESIGNER_PAGE;
@@ -5553,7 +5687,7 @@ function DesignerCollaborationPage(){
   const steps=[
     {n:"Pre-construction drawing review",d:"Before we price anything we read the floor plans, elevations, finish schedule and fixture cut sheets, and walk the actual space against them. Anything that will not build as drawn gets flagged here — in writing, with alternatives that preserve the design intent — rather than becoming a change order in week six."},
     {n:"3D renderings as a shared language",d:"We produce 3D renderings of the space as we intend to build it. For a designer this is the fastest way to confirm we have read the drawings correctly; for the homeowner it is the moment everyone confirms they are picturing the same room. Disagreements are cheap here and expensive after demolition."},
-    {n:"One schedule across every trade",d:"Our plumbers and electricians are HomeStar employees, not subcontractors. A designer's schedule survives contact with reality only if someone controls the trades — we are not waiting on an outside sub to free up before the tile can start."},
+    {n:"One schedule across every trade",d:"Every trade works to one calendar, with one contractor accountable for all of it — plumbing by licensed plumbers, electrical by licensed electricians. A designer's schedule survives contact with reality only if someone owns it end to end, rather than each trade arriving whenever it happens to be free."},
     {n:"Faithful execution of the specification",d:"Specified finishes, fixtures and layouts get built as drawn. Where an item is discontinued or back-ordered we bring the substitution to the designer for approval rather than choosing one ourselves and revealing it at walkthrough."},
     {n:"Waterproofing behind the design",d:"Every bathroom we build uses the complete Schluter system — Ditra for floors, Kerdi for walls — with a 25-year manufacturer's warranty. That sits behind the designer's tile selection, never in place of it. It is the layer nobody sees and the one that decides whether the design still looks right in a decade."},
     {n:"Public credit on the finished project",d:"Completed collaborations are published on our project pages crediting and linking the design firm. Our three Dovetail Group projects all carry that credit."},
@@ -6316,7 +6450,7 @@ export function resolveRoute(rawPath){
   const path=String(rawPath||"").replace(/^\//,"").replace(/\/$/,"");
   const r={cityPage:null,servicePage:null,serviceCityPage:null,blogPost:null,neighborhoodPage:null,
     projectPage:null,authorPage:null,guidePage:null,calcPage:false,basementCalcPage:false,
-    kitchenCalcPage:false,seqPlannerPage:false,designerPage:false,portalPage:false,teamPage:false,
+    kitchenCalcPage:false,seqPlannerPage:false,designerPage:false,designBuildPage:false,portalPage:false,teamPage:false,
     hoodSvcPage:null};
 
   /* Blog posts */
@@ -6344,6 +6478,7 @@ export function resolveRoute(rawPath){
   if(path==="tools/basement-cost-calculator"){r.basementCalcPage=true;return r;}
   if(path==="tools/kitchen-cost-calculator"){r.kitchenCalcPage=true;return r;}
   if(path==="tools/renovation-sequence-planner"){r.seqPlannerPage=true;return r;}
+  if(path==="design-build-fishers-in"){r.designBuildPage=true;return r;}
   if(path==="working-with-your-designer"){r.designerPage=true;return r;}
   if(path==="client-portal"){r.portalPage=true;return r;}
   if(path==="team"){r.teamPage=true;return r;}
@@ -6390,7 +6525,7 @@ export default function HomestarSite({ssrPath}){
       : (typeof window!=="undefined" ? window.location.pathname : "/")
   ));
   const{cityPage,servicePage,serviceCityPage,blogPost,neighborhoodPage,projectPage,authorPage,
-    guidePage,calcPage,basementCalcPage,kitchenCalcPage,seqPlannerPage,designerPage,portalPage,
+    guidePage,calcPage,basementCalcPage,kitchenCalcPage,seqPlannerPage,designerPage,designBuildPage,portalPage,
     teamPage,hoodSvcPage}=route;
   useCanonical("");
 
@@ -6435,6 +6570,10 @@ export default function HomestarSite({ssrPath}){
 
   if(seqPlannerPage){
     return <SequencePlanner/>;
+  }
+
+  if(designBuildPage){
+    return <DesignBuildPage/>;
   }
 
   if(designerPage){
