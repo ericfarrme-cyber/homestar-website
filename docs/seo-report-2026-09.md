@@ -82,3 +82,63 @@ authority is not.
    Profile and Bing Places, and no amount of on-site work touches it.
 4. **Houzz.** Competitors are being cited *through Houzz* by name and review count — 62, 77 and 122
    reviews against HomeStar's 5. See the AI log entry for the verbatim quotes.
+
+---
+
+# Addendum, same day — three findings that change the action list
+
+## 1. The indexing queue is the wrong instrument
+
+Checked before submitting anything. 222 pages indexed, 72 not, and the bucket that
+matters is **28 "Crawled – currently not indexed" with validation already FAILED**.
+"Discovered – currently not indexed" is zero and the sitemap was last read 3 Sep, so
+discovery works. Google has seen these pages and declined them.
+
+Root cause measured on the prerendered HTML: the nine `home-remodeling-<city>` pages
+are **93–96% identical to one another**, ~1,400 words apiece with the town swapped.
+Around 165 of the 240 sitemap URLs are programmatic location or service-by-city pages.
+
+Re-submitting cannot overturn a quality judgement — the failed validation is that
+attempt, already made. Full detail in `indexing-health-log.txt`. **No URLs were
+submitted this session**, deliberately.
+
+The fix is differentiation, and it should start with the six towns where HomeStar has
+actually built something: Carmel, Zionsville, Noblesville, Westfield, Geist, Fishers.
+Fortville, McCordsville and Pendleton have no projects behind them and are the honest
+candidates for consolidation instead.
+
+## 2. Google Business Profile exists and is verified — Bing is the gap
+
+`business.google.com/locations` shows **HomeStar Services and Contracting, Verified**,
+covering Carmel, Fishers and eight further areas. So the zero-map-pack finding is not a
+missing Google listing.
+
+ChatGPT's business cards are not Google's. The 2026-08-14 entry in the AI log already
+diagnosed the **Bing listing as unmanaged and mis-located**, and that is the surface
+those cards come from. Bing Places is the actionable item, not GBP.
+
+Not verified this session: the GBP *category* set. The profile page bounced to an
+account chooser and signing in on Eric's behalf was not appropriate. Worth checking,
+because ChatGPT labels competitors by category — "Bathroom remodeler", "Kitchen
+remodeler", "General contractor" — and a profile categorised only as a general
+contractor will not surface in bathroom-remodeler cards.
+
+## 3. "Design-build" is unclaimed, and the content to claim it already exists
+
+Searched every built page. **Exactly one page carries "design-build" in its title, and
+it is a blog comparison** — *Designer vs. Design-Build vs. General Contractor*. That
+page explains the category neutrally and never asserts HomeStar is one. There is no
+service page, no URL containing the phrase, and the strongest material lives at
+`#design` — a homepage anchor, which cannot rank on its own.
+
+Meanwhile ChatGPT's whole-home leader is **Nicholas Design Build**, whose name carries
+the category for free. HomeStar's name does not, so the site has to.
+
+The material is already written and it is better than a generic claim. The homepage
+section *"Design Your Way, Built By One Team"* offers **three paths**: HomeStar's
+in-house design-build team, the homeowner's own designer or architect, or an
+introduction to a firm HomeStar has built for. Most design-build firms require you to
+use their designer — offering all three is a real differentiator, and there is proof
+behind it: three completed projects with Dovetail Group, preferred-contractor status on
+the Westfield basement, and the Zionsville job that ran basement then whole main floor
+with the same designer and crews across both phases.

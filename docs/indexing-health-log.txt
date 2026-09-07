@@ -288,3 +288,59 @@ INDEXING ACTIONS:
  Google has never read a sitemap containing it. The manual index request is currently the
  ONLY route by which Google knows /team exists. ERIC MUST RESUBMIT THE SITEMAP MANUALLY.
  Not retried by automation: two documented attempts have already failed on this control.
+
+================================================================================
+2026-09-07 — WHY THE QUEUE CANNOT BE WORKED AS WRITTEN
+================================================================================
+Checked GSC before submitting anything. Current state:
+
+  Indexed                                        222
+  Not indexed                                     72
+    Crawled - currently not indexed               28   <-- validation FAILED
+    Alternate page with proper canonical tag      32   (expected, not a fault)
+    Page with redirect                             9   (expected)
+    Excluded by 'noindex'                          1
+    Duplicate without user-selected canonical      1
+    Duplicate, Google chose different canonical    1
+    Discovered - currently not indexed             0
+    Not found (404)                                0
+
+The sitemap is being read (last update 2026-09-03), so the old "Google has never
+read a sitemap containing it" blocker is resolved. Discovery is NOT the problem:
+"Discovered - currently not indexed" is zero.
+
+The 42-URL queue was built on the assumption that these pages need submitting.
+They do not. 28 pages sit in "Crawled - currently not indexed", which means
+Google fetched them and decided against indexing, and a validation attempt has
+already FAILED. Re-requesting indexing does not overturn a quality judgement -
+it just spends quota and fails again, which is what the failed validation is.
+
+ROOT CAUSE FOUND - the location pages are near-duplicates of each other.
+Measured on the prerendered HTML that Google actually receives:
+
+  home-remodeling-carmel-in        1524 words   baseline
+  home-remodeling-fishers-in       1648 words   96% identical
+  home-remodeling-zionsville-in    1518 words   96% identical
+  home-remodeling-westfield-in     1435 words   96% identical
+  home-remodeling-noblesville-in   1402 words   96% identical
+  home-remodeling-geist-in         1401 words   96% identical
+  home-remodeling-fortville-in     1405 words   95% identical
+  home-remodeling-mccordsville-in  1277 words   94% identical
+  home-remodeling-pendleton-in     1286 words   93% identical
+
+Nine pages, ~1,400 words each, 93-96% the same text with the town name swapped.
+The sitemap holds roughly 165 programmatic location and service-by-city pages of
+240 total, so this pattern is the bulk of the site.
+
+WHAT TO DO INSTEAD OF SUBMITTING
+1. Do not re-submit the 28. The control has failed twice; a third attempt fails.
+2. Differentiate or consolidate. A location page earns indexing when it contains
+   something true only of that town - a real project in it, local permit detail,
+   named neighbourhoods, actual prices from jobs there. HomeStar has real work in
+   Carmel, Zionsville, Noblesville, Westfield, Geist and Fishers; those six can be
+   made genuinely distinct. Fortville, McCordsville and Pendleton have no projects
+   behind them and are the weakest candidates.
+3. Only then request validation, once per changed cluster.
+
+Not a single URL was submitted this session. Spending quota on a control that has
+already failed twice would have looked like progress and produced none.
