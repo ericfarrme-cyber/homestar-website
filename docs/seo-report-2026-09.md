@@ -94,18 +94,24 @@ matters is **28 "Crawled – currently not indexed" with validation already FAIL
 "Discovered – currently not indexed" is zero and the sitemap was last read 3 Sep, so
 discovery works. Google has seen these pages and declined them.
 
-Root cause measured on the prerendered HTML: the nine `home-remodeling-<city>` pages
-are **93–96% identical to one another**, ~1,400 words apiece with the town swapped.
-Around 165 of the 240 sitemap URLs are programmatic location or service-by-city pages.
+Root cause measured on the prerendered HTML. **The first measurement here was wrong**
+and is corrected below: the nine `home-remodeling-<city>` pages are 54% similar, not
+93–96% — that figure came from `quick_ratio`, which compares character counts rather
+than sequences. Re-measured with `SequenceMatcher.ratio` on main content, the real
+duplication sits elsewhere: **flooring-by-city at 91% across ten pages, and the 72
+service-by-city pages at 82%**, all shorter than the hubs. The city hubs are the
+strongest programmatic pages on the site, not the weakest. Around 165 of the 240
+sitemap URLs are programmatic location or service-by-city pages.
 
 Re-submitting cannot overturn a quality judgement — the failed validation is that
 attempt, already made. Full detail in `indexing-health-log.txt`. **No URLs were
 submitted this session**, deliberately.
 
-The fix is differentiation, and it should start with the six towns where HomeStar has
-actually built something: Carmel, Zionsville, Noblesville, Westfield, Geist, Fishers.
-Fortville, McCordsville and Pendleton have no projects behind them and are the honest
-candidates for consolidation instead.
+The fix is differentiation of the **service-by-city** pages, and only where HomeStar has
+actually built that service in that town — about ten combinations qualify. The component
+already filters projects by city, so this is per-combination copy rather than two dozen
+rewrites. Flooring and painting by city are secondary services with no project proof and
+the highest duplication in the set; consolidation is the honest answer there.
 
 ## 2. Google Business Profile exists and is verified — Bing is the gap
 

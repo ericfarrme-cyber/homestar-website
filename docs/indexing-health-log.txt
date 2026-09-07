@@ -344,3 +344,43 @@ WHAT TO DO INSTEAD OF SUBMITTING
 
 Not a single URL was submitted this session. Spending quota on a control that has
 already failed twice would have looked like progress and produced none.
+
+--------------------------------------------------------------------------------
+2026-09-07 (later) — CORRECTION: the 93-96% duplication figure was WRONG
+--------------------------------------------------------------------------------
+The earlier entry today reported the city pages as 93-96% identical. That number
+came from difflib's quick_ratio, which compares character multisets rather than
+sequences and badly overstates similarity. Re-measured with SequenceMatcher.ratio
+on main content only (nav, footer and scripts stripped):
+
+  CLUSTER                        PAGES  AVG WORDS  MEDIAN SIMILARITY
+  city hub (home-remodeling-*)       9      1238      54%
+  bathroom x city                   24       761      82%
+  basement x city                   24       895      82%
+  kitchen x city                    24       954      82%
+  neighborhood (remodeling-*)       42       812      67%
+  painting x city                   10      1055      76%
+  flooring x city                   10      1035      91%
+
+The city hubs are the LEAST duplicated programmatic pages on the site, not the
+most, and they share only 32% of their vocabulary. Rewriting them - which is what
+the earlier entry recommended and what Eric approved - would have been effort
+spent on the strongest pages in the set.
+
+The duplication is in the service-by-city and flooring/painting-by-city clusters:
+72 service-by-city pages at 82% and ten flooring pages at 91%, all of them
+shorter than the hubs. Those match the "crawled - currently not indexed" profile
+far better: thin, templated, and near-identical to a sibling.
+
+REVISED PLAN
+- Leave the city hubs alone. They are fine.
+- Differentiate service-by-city ONLY where HomeStar has actually built that
+  service in that town. Roughly ten combinations qualify. The component already
+  filters PROJECTS by city and falls back to generic ones when none match, so the
+  fix is per-combination copy, not twenty-four page rewrites.
+- Flooring and painting by city are secondary services at 91% and 76% similarity
+  with no project proof behind them. Consolidation is the honest answer there,
+  not more words. That is Eric's call, not a mechanical fix.
+
+Lesson recorded: quick_ratio is a screening heuristic, not a measurement. It was
+used to justify a plan and the plan was wrong.
