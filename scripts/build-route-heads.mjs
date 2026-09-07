@@ -189,6 +189,14 @@ const TITLE_MAX = 60;
 const DESC_MAX = 155;
 // A complete sentence slightly over the target reads better than a cut one.
 const DESC_HARD = 165;
+// Stopping at the first sentence is only worth it when that sentence uses most
+// of the space. Often it does not: the design-build page opens with a
+// 64-character line and follows it with a 119-character one, so ending at the
+// first full stop spent 64 of 155 characters and left the differentiator out of
+// the search result entirely. Below this floor, an excerpt that runs the full
+// width beats a short complete sentence.
+const DESC_FLOOR = 95;
+
 
 /* The brand is worth keeping in a title - roughly a third of all clicks come
    from people typing the company name - so it is the last thing dropped, not
@@ -220,7 +228,7 @@ function fitDesc(d) {
   const window = d.slice(0, DESC_MAX + 1);
 
   const stop = Math.max(window.lastIndexOf('. '), window.lastIndexOf('? '), window.lastIndexOf('! '));
-  if (stop >= 60) return window.slice(0, stop + 1);
+  if (stop + 1 >= DESC_FLOOR) return window.slice(0, stop + 1);
 
   const clause = window.lastIndexOf(', ');
   let cut = clause >= 100 ? window.slice(0, clause) : window.slice(0, window.lastIndexOf(' '));
@@ -335,7 +343,17 @@ function metaFor(clean) {
         const lead = `${tpl.adj} ${svcData.service.toLowerCase()} in ${cityData.city}, Indiana.`;
         const tail = 'Free estimates: (317) 279-4798';
         const room = DESC_MAX - lead.length - tail.length - 2;
-        const hi = svcData.highlights.flatMap((h) => sentences(h.desc)).find((x) => x.length <= room);
+        // The most substantive sentence that fits, not merely the first - several
+        // services open with a short lead-in that reads as a stranded fragment.
+        // Sentences opening on a demonstrative ("This means...") are held back:
+        // they read fine in the page body, where the antecedent is the sentence
+        // above, and badly in a search result, where there is no sentence above.
+        const fits = svcData.highlights
+          .flatMap((h) => sentences(h.desc))
+          .filter((x) => x.length <= room)
+          .sort((a, b) => b.length - a.length);
+        const standalone = fits.filter((x) => !/^(?:This|That|These|Those|It|They)\b/.test(x.trim()));
+        const hi = standalone[0] || fits[0];
         return { title: pageTitle + SUFFIX, description: pack([lead, hi, tail]) };
       }
     }

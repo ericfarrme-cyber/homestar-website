@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
    crawler that renders the page would see the unclamped value and the clamp in
    the build would count for nothing, so the same rules live on both sides. Keep
    these in sync with the copies in scripts/build-route-heads.mjs. */
-const TITLE_MAX = 60, DESC_MAX = 155, DESC_HARD = 165;
+const TITLE_MAX = 60, DESC_MAX = 155, DESC_HARD = 165, DESC_FLOOR = 95;
 const DANGLING = /\s+(?:and|or|but|from|to|with|for|by|in|on|at|of|the|a|an|plus)$/i;
 
 function fitTitle(t) {
@@ -25,7 +25,7 @@ function fitDesc(d) {
   if (!d || d.length <= DESC_HARD) return d;
   const window = d.slice(0, DESC_MAX + 1);
   const stop = Math.max(window.lastIndexOf(". "), window.lastIndexOf("? "), window.lastIndexOf("! "));
-  if (stop >= 60) return window.slice(0, stop + 1);
+  if (stop + 1 >= DESC_FLOOR) return window.slice(0, stop + 1);
   const clause = window.lastIndexOf(", ");
   let cut = clause >= 100 ? window.slice(0, clause) : window.slice(0, window.lastIndexOf(" "));
   cut = cut.replace(/[\s,;:\-—]+$/, "").replace(DANGLING, "");
