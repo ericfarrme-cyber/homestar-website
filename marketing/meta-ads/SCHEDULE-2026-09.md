@@ -95,14 +95,18 @@ carries two posts and no day is empty.
 
 | week | Tue | Wed | Thu | Sat |
 |---|---|---|---|---|
-| **1** | S8 Westfield mantle | S1 Fishers drain | S13 Noblesville | S25 Carmel green tile |
+| **1** | S8 Westfield mantle | S1 Fishers drain | S9 Noblesville shower | S25 Carmel green tile |
 | **2** | S10 Zionsville star floor | S30 Geist staircase | S3 Fishers linear drain | S16 Geist panelling |
 | **3** | S24 Fishers sconces | S6 Zionsville slab | S28 Fishers tiled ceiling | S21 Zionsville ceilings |
 | **4** | S7 Geist blue tile | S4 Carmel two tiles | S27 Westfield lit shelves | S19 Geist shelves |
-| **5** | S11 Zionsville wine wall | S9 Noblesville light | S29 Fishers pebble | S14 Geist ladder |
+| **5** | S11 Zionsville wine wall | S13 Noblesville tile | S29 Fishers pebble | S14 Geist ladder |
 | **6** | S12 Zionsville slab wide | S2 Carmel patterns | S26 Zionsville arch | S5 Fishers fixtures |
 
 Reserve: S15, S17, S18, S20, S22, S23.
+
+**Swapped 2026-09-10 on Eric's call:** S9 and S13 traded slots. Both are the Noblesville
+floor-to-ceiling tile job; he wanted the shower rather than the wider tile shot on the day. A
+straight swap, so the same two cards still run and they stay four weeks apart.
 
 **Space the pairs.** S6 and S12 are the same room and the same stone - three weeks apart above.
 S2 and S25 are the same shower - weeks 1 and 6. S8, S15 and S27 are all Westfield.
