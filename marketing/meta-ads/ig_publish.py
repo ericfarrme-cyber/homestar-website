@@ -77,14 +77,38 @@ def eastern_to_utc(naive_local):
 
 
 # ── graph ───────────────────────────────────────────────────────────────────
+# A real Meta system-user token is around 200 characters. Anything much shorter is
+# a placeholder or a bad paste, not a credential.
+MIN_PLAUSIBLE_TOKEN = 50
+
+
 def load_token():
-    token = os.environ.get("META_PAGE_TOKEN")
-    if token:
-        return token.strip()
     path = os.path.join(HERE, ".token")
+    env = (os.environ.get("META_PAGE_TOKEN") or "").strip()
+    from_file = ""
     if os.path.exists(path):
         with open(path) as fh:
-            return fh.read().strip()
+            from_file = fh.read().strip()
+
+    # The environment wins, because that is how the GitHub workflow supplies it - but
+    # only if it looks like a token at all. On 2026-09-11 META_PAGE_TOKEN was set to a
+    # 13-character placeholder on Eric's machine, which shadowed a perfectly good
+    # .token and failed with Meta's useless "Cannot parse access token". Falling back
+    # with a loud warning beats failing: on an unattended box a stray environment
+    # variable should not silently cost a reel.
+    if env and len(env) < MIN_PLAUSIBLE_TOKEN:
+        print("WARNING: META_PAGE_TOKEN is set but only %d characters - too short to be a"
+              % len(env))
+        print("         Meta token. Ignoring it. Unset it to silence this warning.")
+        if from_file:
+            print("         Using %s instead." % path)
+            return from_file
+        sys.exit("No usable token: the environment variable is malformed and %s is missing." % path)
+
+    if env:
+        return env
+    if from_file:
+        return from_file
     sys.exit("No token. Set META_PAGE_TOKEN or write %s" % path)
 
 
