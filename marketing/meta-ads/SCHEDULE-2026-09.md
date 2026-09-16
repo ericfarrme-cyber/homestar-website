@@ -81,7 +81,8 @@ already running. FH, FJ, F5 are the reserve for weeks 7-8.
 |---|---|---|
 | **13 Sep** | Carousel: Geist three-bath, 6 photos | Follows the F8 mid-job reel from the Friday |
 | **20 Sep** | **The 5.0 from 85 reviews** | **Built** - `renders/cards/review-5-0-feed.jpg` (1080x1350) and `review-5-0-story.jpg`. Reads 5.0, 85 reviews, the six towns, the phone number. The most persuasive asset HomeStar owns and it has never been posted once |
-| **27 Sep** | Carousel: Westfield luxury basement, 8 photos | Dovetail credited, as in FB |
+| **27 Sep** | **Carousel: Westfield wet bar basement, 8 photos** | **New 2026-09-15.** The Hackman job, shot professionally and never posted. Order: bar wide, island, bar sink, floating shelves, fireplace built-in, play door, vanity, tiled shower. Caption leads with the slab cut, not the finishes. Links to `/projects/westfield-basement-wet-bar` |
+| ~~27 Sep~~ | ~~Carousel: Westfield luxury basement, 8 photos~~ | Moved to week 7 — two Westfield basements a fortnight apart would read as one job. Dovetail credited when it runs |
 | **4 Oct** | **Client testimonial, posted natively** | **Blocked - needs the source video file from Eric.** It exists only as YouTube `k6XhQcUEHh0`, and Meta suppresses outbound links, so it has to be uploaded natively rather than linked |
 | **11 Oct** | Carousel: Zionsville jack & jill, 8 photos | Star mosaic floor leads |
 | **18 Oct** | Carousel: Fishers full gut walk-in, 6 photos | The pierced bronze drain leads |
@@ -97,12 +98,22 @@ carries two posts and no day is empty.
 |---|---|---|---|---|
 | **1** | S8 Westfield mantle | S1 Fishers drain | S9 Noblesville shower | S25 Carmel green tile |
 | **2** | S30 Geist staircase | S10 Zionsville star floor | S3 Fishers linear drain | S16 Geist panelling |
-| **3** | S24 Fishers sconces | S6 Zionsville slab | S28 Fishers tiled ceiling | S21 Zionsville ceilings |
-| **4** | S7 Geist blue tile | S4 Carmel two tiles | S27 Westfield lit shelves | S19 Geist shelves |
-| **5** | S11 Zionsville wine wall | S13 Noblesville tile | S29 Fishers pebble | S14 Geist ladder |
+| **3** | S24 Fishers sconces | S6 Zionsville slab | **S31 Westfield wet bar** | S21 Zionsville ceilings |
+| **4** | S7 Geist blue tile | **S32 Westfield play door** | S27 Westfield lit shelves | S19 Geist shelves |
+| **5** | S11 Zionsville wine wall | S13 Noblesville tile | **S33 Westfield basement bath** | S14 Geist ladder |
 | **6** | S12 Zionsville slab wide | S2 Carmel patterns | S26 Zionsville arch | S5 Fishers fixtures |
 
-Reserve: S15, S17, S18, S20, S22, S23.
+Reserve: S15, S17, S18, S20, S22, S23, and now S28, S4 and S29, displaced 2026-09-15 by the three
+Westfield wet bar cards. One new card a week, never two in the same week, so the job does not read
+as the only project we have.
+
+**Added 2026-09-15 — the Westfield wet bar basement (S31, S32, S33).** Built from the professional
+shoot of the Hackman job: S31 the bar sink ("This sink meant cutting the floor open"), S32 the
+under-stair play door, S33 the fluted oak double vanity. The case study is live at
+`/projects/westfield-basement-wet-bar`, so every card has somewhere to send people.
+
+**No reel for this project yet.** There is no walkthrough video — 63 stills and nothing moving.
+A reel needs footage from the site; until Eric shoots one, this job runs as a carousel and stories.
 
 **Swapped 2026-09-10 on Eric's call:** S9 and S13 traded slots. Both are the Noblesville
 floor-to-ceiling tile job; he wanted the shower rather than the wider tile shot on the day. A

@@ -335,6 +335,28 @@ STORIES = [
               "The contact sheet sorts -10, -11, -12 ahead of -2, and I read "
               "a grid position instead of a filename. Verify the file, not "
               "the tile."),
+
+    dict(key="S31", src="westfield-basement-wet-bar-5.jpg",
+         head="This sink meant\ncutting the floor\nopen.",
+         sub="Westfield basement wet bar",
+         note="Scope of work names it: saw-cut and remove roughly 15 linear "
+              "feet of slab, trench a 2in drain line to a sewage ejector basin "
+              "in the storage room, repair the concrete flush. The sink and "
+              "faucet are the frame; the reason is underneath it."),
+
+    dict(key="S32", src="westfield-basement-wet-bar-12.jpg",
+         head="The kids got\ntheir own door.",
+         sub="Westfield basement",
+         note="Cedar awning and window box over the under-stair door. Visible "
+              "in frame and on the project page - no claim beyond what the "
+              "photo shows."),
+
+    dict(key="S33", src="westfield-basement-wet-bar-13.jpg",
+         head="Nobody expects\nthis in a basement.",
+         sub="Westfield basement bath",
+         note="Fluted white oak double vanity, brass fixtures, arched mirrors. "
+              "All in frame. The full bath with tiled shower is in the signed "
+              "scope of work."),
 ]
 
 
