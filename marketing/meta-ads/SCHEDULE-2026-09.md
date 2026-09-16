@@ -81,9 +81,15 @@ Page's scheduled posts and `ig-queue.json` were moved, and each caption travelle
 reel rather than staying on the date.
 
 **Rescored 2026-09-16.** FD carries Opalite, F8 Halfway There — Eric's picks from the new library.
-The repo files are the new scores, so Instagram publishes them. **The Facebook posts were
-scheduled with the old beds and keep them** unless the posts are deleted and re-uploaded; the
-video Meta holds is a copy, not a link to the repo.
+Both Page posts were deleted and re-uploaded with the rescored files, so Facebook and Instagram
+now carry the same bed. Meta holds a copy of a scheduled video, not a link to the repo, so a
+rescore after scheduling always means delete and re-upload — swapping the repo file alone changes
+Instagram only. New posts created first, old ones deleted after, so the slot was never empty, and
+`meta_publish.py` read each caption back from Meta and confirmed it identical.
+
+FO (25 Sep), F6 (28 Sep) and FE (2 Oct) are still scheduled with their original beds. Their new
+scores sit in `renders/previews/` awaiting the same treatment, and FE's preview also carries the
+trimmed end card.
 
 ## Feed — Sundays, 11:00 AM
 
