@@ -41,7 +41,8 @@ Free in-home estimates: (317) 279-4798
 ## What is deliberately not claimed
 
 - No client name, no street. The site and every caption say the town only.
-- No price. The case study page carries ~$132,000; a feed caption that leads with a number gets
-  read as a quote rather than a range.
+- **No price, and no job total — Eric's instruction, 2026-09-15.** Do not add one back. The case
+  study page carries ~$132,000 and that is where a number belongs: someone reading the page has
+  the scope in front of them, while a number in a feed caption gets read as a quote.
 - Nothing about waterproofing systems or warranties — the scope of work for this job does not
   name a membrane, and the bathroom shower is the only tiled wet area.
