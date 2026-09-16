@@ -39,12 +39,12 @@ MUSIC_LUFS = -20
 
 # reel -> (file stem, track, start seconds, why this pairing)
 PAIRINGS = {
-    "F8": ("F8-geist-upper-level-progress", "Foundations.mp3", 51.8,
-           "Mid-job progress cut. Foundations builds rather than arrives, which "
-           "suits a reel that ends before the room is finished."),
-    "FD": ("FD-fishers-full-gut-walk-in", "Key Handover.mp3", 117.2,
-           "Full arc, gut to finished. Key Handover is the steadiest window in "
-           "the library (0.8 dB spread) and lands where the reel does."),
+    "F8": ("F8-geist-upper-level-progress", "Halfway There.mp3", 146.5,
+           "Mid-job progress cut - the reel ends before the room is finished, "
+           "and so does the title. Eric picked this track 2026-09-16."),
+    "FD": ("FD-fishers-full-gut-walk-in", "Opalite.mp3", 217.8,
+           "Full arc, gut to finished. Opalite's best window is its last "
+           "stretch, which arrives rather than builds. Eric's pick, 2026-09-16."),
     "FO": ("FO-six-floors", "Open House.mp3", 50.5,
            "Six floors in a row, ends on a question. Open House is even and "
            "unfussy so the cuts carry the rhythm, not the track."),
