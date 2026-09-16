@@ -54,8 +54,8 @@ itself.
 | week | Mon | Fri |
 |---|---|---|
 | **1** — 7 / 11 Sep | **F7** Zionsville jack & jill *(before/after)* | **F9** Noblesville, membrane to finished |
-| **2** — 14 / 18 Sep | **FB** Westfield luxury basement *(before/after)* | **F8** Geist upper level *(mid-job)* |
-| **3** — 21 / 25 Sep | **FD** Fishers full gut *(full arc)* | **FO** Six floors *(ends on a question)* |
+| **2** — 14 / 18 Sep | **FB** Westfield luxury basement *(before/after)* | **FD** Fishers full gut *(full arc)* |
+| **3** — 21 / 25 Sep | **F8** Geist upper level *(mid-job)* | **FO** Six floors *(ends on a question)* |
 | **4** — 28 Sep / 2 Oct | **F6** Geist three-bath *(before/after)* | **FE** Carmel double shower |
 | **5** — 5 / 9 Oct | **FM** Zionsville basement bar | **FP** What's under your tile |
 | **6** — 12 / 16 Oct | **FL** Geist navy picket *(craft)* | **FF** Fishers wet room |
@@ -73,7 +73,17 @@ job - on 5 Oct. Both fine.
 inside six weeks would make a large body of work look small. FC and FG are second assets for jobs
 already running. FH, FJ, F5 are the reserve for weeks 7-8.
 
-**F8 runs before FG, always.** FG's caption refers back to it.
+**F8 runs before FG, always.** FG's caption refers back to it. The 2026-09-16 swap keeps that —
+F8 moved to 21 Sep, FG is still weeks 7-8.
+
+**Swapped 2026-09-16 on Eric's call:** FD takes Friday 18 Sep, F8 takes Monday 21 Sep. Both the
+Page's scheduled posts and `ig-queue.json` were moved, and each caption travelled with its own
+reel rather than staying on the date.
+
+**Rescored 2026-09-16.** FD carries Opalite, F8 Halfway There — Eric's picks from the new library.
+The repo files are the new scores, so Instagram publishes them. **The Facebook posts were
+scheduled with the old beds and keep them** unless the posts are deleted and re-uploaded; the
+video Meta holds is a copy, not a link to the repo.
 
 ## Feed — Sundays, 11:00 AM
 
