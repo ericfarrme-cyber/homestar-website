@@ -337,7 +337,7 @@ STORIES = [
               "the tile."),
 
     dict(key="S31", src="westfield-basement-wet-bar-2.jpg",
-         bias=0.45,
+         mode="fit",
          head="A full kitchen,\none floor down.",
          sub="Westfield basement",
          note="The room, not a fixture close-up: Eric's call on 2026-09-15 - "
