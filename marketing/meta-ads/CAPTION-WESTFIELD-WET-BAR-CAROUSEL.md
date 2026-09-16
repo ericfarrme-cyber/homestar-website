@@ -7,7 +7,7 @@ the one that has to stop the scroll, and the last is the one that has to make th
 |---|---|---|
 | 1 | `westfield-basement-wet-bar-1.jpg` | Bar wide. Whole room in one frame |
 | 2 | `westfield-basement-wet-bar-2.jpg` | Island and stools — reads as a place people sit, not a showroom |
-| 3 | `westfield-basement-wet-bar-5.jpg` | Bar sink. The frame the caption is about |
+| 3 | `westfield-basement-wet-bar-3.jpg` | Sink wall with the counter run — the room, not a fixture close-up (Eric's call, 2026-09-15) |
 | 4 | `westfield-basement-wet-bar-4.jpg` | Floating shelves on stacked tile — the detail shot |
 | 5 | `westfield-basement-wet-bar-8.jpg` | Fireplace built-in. Second room, different mood |
 | 6 | `westfield-basement-wet-bar-11.jpg` | Play door. The frame people comment on |

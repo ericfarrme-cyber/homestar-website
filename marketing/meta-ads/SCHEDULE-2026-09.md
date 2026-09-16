@@ -98,7 +98,7 @@ carries two posts and no day is empty.
 |---|---|---|---|---|
 | **1** | S8 Westfield mantle | S1 Fishers drain | S9 Noblesville shower | S25 Carmel green tile |
 | **2** | S30 Geist staircase | S10 Zionsville star floor | S3 Fishers linear drain | S16 Geist panelling |
-| **3** | S24 Fishers sconces | S6 Zionsville slab | **S31 Westfield wet bar** | S21 Zionsville ceilings |
+| **3** | S24 Fishers sconces | S6 Zionsville slab | **S31 Westfield basement kitchen** | S21 Zionsville ceilings |
 | **4** | S7 Geist blue tile | **S32 Westfield play door** | S27 Westfield lit shelves | S19 Geist shelves |
 | **5** | S11 Zionsville wine wall | S13 Noblesville tile | **S33 Westfield basement bath** | S14 Geist ladder |
 | **6** | S12 Zionsville slab wide | S2 Carmel patterns | S26 Zionsville arch | S5 Fishers fixtures |

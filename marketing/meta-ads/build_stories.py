@@ -336,20 +336,23 @@ STORIES = [
               "a grid position instead of a filename. Verify the file, not "
               "the tile."),
 
-    dict(key="S31", src="westfield-basement-wet-bar-5.jpg",
-         head="This sink meant\ncutting the floor\nopen.",
-         sub="Westfield basement wet bar",
-         note="Scope of work names it: saw-cut and remove roughly 15 linear "
-              "feet of slab, trench a 2in drain line to a sewage ejector basin "
-              "in the storage room, repair the concrete flush. The sink and "
-              "faucet are the frame; the reason is underneath it."),
+    dict(key="S31", src="westfield-basement-wet-bar-2.jpg",
+         bias=0.45,
+         head="A full kitchen,\none floor down.",
+         sub="Westfield basement",
+         note="The room, not a fixture close-up: Eric's call on 2026-09-15 - "
+              "the kitchen sells the job, a faucet does not. Tried the wide "
+              "bar shot (-1) first and a 9:16 crop cut the island off it; this "
+              "frame keeps island, stools, counter, sink and tile wall "
+              "together. Ovens and refrigerator are out of frame here but in "
+              "the gallery. The signed scope calls it a wet bar with sink."),
 
-    dict(key="S32", src="westfield-basement-wet-bar-12.jpg",
+    dict(key="S32", src="westfield-basement-wet-bar-11.jpg",
          head="The kids got\ntheir own door.",
          sub="Westfield basement",
-         note="Cedar awning and window box over the under-stair door. Visible "
-              "in frame and on the project page - no claim beyond what the "
-              "photo shows."),
+         note="Wider frame than the awning close-up - Eric asked to see the "
+              "door in its wall. Cedar awning, window box and the under-stair "
+              "door all visible; no claim beyond the photo."),
 
     dict(key="S33", src="westfield-basement-wet-bar-13.jpg",
          head="Nobody expects\nthis in a basement.",
