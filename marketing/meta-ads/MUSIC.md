@@ -24,7 +24,15 @@ silent, which is exactly the trap Quiet Neon sets.
 | `Before _ After.mp3` | 168s | -12.5 | -0.2 | **92.5s** | -12.6 dB | 1.3 | -1.0 dB |
 | `Brisa de Nylon (1).mp3` | 188s | -11.7 | -0.2 | **59.2s** | -12.7 dB | 1.3 | -1.6 dB |
 | `Brisa de Nylon.mp3` | 183s | -11.1 | -0.2 | **48.8s** | -12.2 dB | 1.2 | -2.0 dB |
+| `Foundations.mp3` | 178s | -11.8 | -0.1 | **51.8s** | -12.9 dB | 1.8 | -2.6 dB |
+| `Glass Veranda.mp3` | 232s | -11.7 | -0.2 | **73.2s** | -12.7 dB | 1.1 | -5.5 dB |
+| `Halfway There.mp3` | 228s | -10.3 | 0.6 | **146.5s** | -10.6 dB | 1.3 | -14.8 dB |
+| `Key Handover.mp3` | 174s | -11.2 | -0.0 | **117.2s** | -12.2 dB | 0.8 | -3.6 dB |
+| `Opalite.mp3` | 265s | -10.9 | 0.2 | **217.8s** | -12.4 dB | 1.0 | -5.8 dB |
+| `Open House.mp3` | 183s | -11.8 | 0.0 | **50.5s** | -11.7 dB | 0.9 | -8.6 dB |
 | `Quiet Neon.mp3` | 171s | -12.2 | -0.2 | **69.2s** | -12.5 dB | 1.7 | -11.9 dB |
+| `Resonance Shift.mp3` | 212s | -11.0 | 0.3 | **97.2s** | -10.8 dB | 0.8 | -12.8 dB |
+| `Where Are You Now.mp3` | 218s | -10.9 | 0.3 | **142.0s** | -10.5 dB | 1.1 | -13.5 dB |
 
 ## How to use
 
