@@ -564,8 +564,61 @@ function useCanonical(path){
 function useJobberForm(){} /* Legacy — replaced by LeadForm component */
 
 const FORM_ORIGIN="https://homestar-project-manager.vercel.app";
+const FORM_SRC=FORM_ORIGIN+"/?form=lead&company=homestar";
+
+/* Ad attribution. Meta only credits a lead that follows an ad click inside its
+   window, and HomeStar's leads mostly don't: people see an ad, remember the
+   name, and come back days later. In Sep 2026 six estimate requests said
+   "Facebook" while Ads Manager credited zero. So the site keeps the tags an ad
+   click arrives with and hands them to the form, which saves them on the lead -
+   the business's own record, not Meta's attribution model.
+
+   Kept for 30 days and overwritten by a newer tagged visit, so it answers "which
+   ad last brought this person here". Only these keys are kept; nothing else from
+   the URL is stored or forwarded. */
+const ATTR_KEYS=["utm_source","utm_medium","utm_campaign","utm_content","utm_term","fbclid","gclid"];
+const ATTR_STORE="hs_attr";
+const ATTR_TTL=30*24*3600*1000;
+
+function captureAttribution(){
+  if(typeof window==="undefined")return null;
+  try{
+    const q=new URLSearchParams(window.location.search);
+    const found={};
+    ATTR_KEYS.forEach(k=>{const v=q.get(k);if(v)found[k]=v.slice(0,200);});
+    if(Object.keys(found).length){
+      const rec={...found,landing:window.location.pathname.slice(0,200),ts:Date.now()};
+      localStorage.setItem(ATTR_STORE,JSON.stringify(rec));
+      return rec;
+    }
+    const saved=JSON.parse(localStorage.getItem(ATTR_STORE)||"null");
+    if(saved&&Date.now()-saved.ts<ATTR_TTL)return saved;
+  }catch(e){/* private mode or blocked storage - attribution is a nicety, never a blocker */}
+  return null;
+}
+
+/* Runs on every page, not just the one with the form: an ad usually lands on a
+   service page and the visitor reaches the form later. */
+if(typeof window!=="undefined")captureAttribution();
+
+function formSrcWithAttribution(){
+  const a=captureAttribution();
+  if(!a)return FORM_SRC;
+  const q=new URLSearchParams();
+  ATTR_KEYS.forEach(k=>{if(a[k])q.set(k,a[k]);});
+  if(a.landing)q.set("landing",a.landing);
+  return FORM_SRC+"&"+q.toString();
+}
 
 function LeadForm(){
+  /* Set after mount rather than in the markup, so the prerendered HTML and the
+     first client render agree; only a visitor who arrived from a tagged link
+     pays for the one extra iframe load. */
+  useEffect(()=>{
+    const src=formSrcWithAttribution();
+    const iframe=document.getElementById("homestar-lead-form");
+    if(iframe&&src!==FORM_SRC)iframe.src=src;
+  },[]);
   useEffect(()=>{
     /* The estimate form is a cross-origin iframe, so nothing on this page can
        observe what happens inside it — the form app has to tell us. It posts
@@ -637,7 +690,7 @@ function LeadForm(){
     }
     return()=>{window.removeEventListener("message",handler);if(io)io.disconnect();};
   },[]);
-  return <iframe id="homestar-lead-form" src="https://homestar-project-manager.vercel.app/?form=lead&company=homestar" width="100%" height="800" frameBorder="0" style={{maxWidth:700,margin:"0 auto",display:"block",border:"none"}} scrolling="no"/>;
+  return <iframe id="homestar-lead-form" src={FORM_SRC} width="100%" height="800" frameBorder="0" style={{maxWidth:700,margin:"0 auto",display:"block",border:"none"}} scrolling="no"/>;
 }
 
 function FaqSchema({faqs}){
