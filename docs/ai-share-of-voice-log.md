@@ -15,6 +15,60 @@ runs of a query; that's the point, it tests robustness rather than one exact str
 
 ---
 
+# 2026-09-19 — RUN #5 FULL SWEEP (12 logged-out runs, in-app browser)
+
+`playwright-incognito` timed out on every navigation this run. The in-app browser pane has no
+ChatGPT session, so it is logged-out by the same test, and it worked; the protocol is unchanged.
+Re-loading thehomestarservice.com between queries clears a hang that ChatGPT's page hits after
+several prefilled queries in a row.
+
+| Query | 2026-08-05 | 2026-08-26 | **2026-09-19** | Positions this run | Verdict |
+|---|---|---|---|---|---|
+| Bathroom, Fishers | 3/3 @ ~2.3 | 3/3 @ ~1.7 | **3/3 @ 1.0** | **1, 1, 1** | **best recorded** |
+| Basement, Fishers | 3/3 @ ~5.7 | 2/3 @ ~1.0 | **2/3 @ 1.0** | 1, absent, 1 | holding |
+| Kitchen, Fishers | 0/3 | 3/3 (last, 3, 4) | **1/3 @ 2.0** | 2, absent, absent | **regressed** |
+| Whole-home, Hamilton Co. | 0/3 (absent) | 1/3 @ 3 | **2/3 @ ~1.5** | 2, 1, absent | **improved** |
+
+## Bathroom is now the anchor category — first in all three runs
+Named first in every phrasing, always justified by the Google listing: *"5.0/5 from 85 reviews"*.
+Competitors named above HomeStar in bathroom this run: none.
+
+## 🔴 Kitchen went backwards: 3/3 in August to 1/3 now
+Present once (position 2, behind MJ Woodstone). Absent from the other two. Every firm placed above
+HomeStar in the two absent runs was justified from **Houzz**: MJ Woodstone, Nicholas Design Build
+(15 reviews), ACo (17), The HomeWright (77), Everything Home (71-122 across profiles). Chateau
+(321 reviews) and MJ Brown (55) came from general listings. Nothing about the kitchen pages
+changed since August, which points at competitors' review volume rather than at our content.
+
+## 🟢 The whole-home pillar is being read back verbatim — and it is quoting the retired claim
+Whole-home run 2 placed HomeStar first and cited our own site by name:
+*"Its site says it uses its own licensed plumbers and electricians and reports 100+ completed
+projects."* Source chip: HomeStar Services & Contracting.
+
+That is the **payroll/in-house claim Eric retired from the ads**, still live on the site, now being
+repeated to prospects by ChatGPT as the reason to call us. It is simultaneously the single
+best-performing piece of content we have in AI answers and a claim we stopped making in paid copy.
+The same claim appears in Meta's auto-generated business summary behind the "06 Who we are" ad
+(noted in AD-COPY-FIXES.md the same day). Eric parked the rewrite: "It's fine for now."
+**Whoever picks that up must decide what replaces it, because removing it silently costs the one
+citation that moved whole-home from absent to first.**
+
+## Houzz remains the ranking mechanism, unchanged across three sweeps
+Firms cited via Houzz outranked HomeStar in kitchen (all runs) and whole-home run 3. HomeStar is
+still cited from its Google listing, HomeAdvisor and its own site — never from Houzz, because there
+is nothing there to cite. Review counts on the competing Houzz profiles this run: Everything Home
+122, ACo 17, Nicholas 15, The HomeWright 77, Worthington 49.
+
+## Google Search side, same day
+Search Console, 28 days to 18 Sep: **152 clicks, 33.1K impressions, CTR 0.5%, average position
+13.3**. Indexing: **212 indexed, 83 not indexed** — 41 "Crawled - currently not indexed" (validation
+**Failed**), 31 "Alternate page with proper canonical", 9 redirects, 1 noindex. The new case study
+`/projects/westfield-basement-wet-bar` was "Discovered - currently not indexed"; indexing requested
+and confirmed added to the priority crawl queue. Technical checks all pass: key pages 200, canonicals
+correct, 242 URLs in the sitemap, robots.txt explicitly allows GPTBot and the other AI crawlers.
+
+---
+
 # ✅ 2026-08-26 (later) — FULL CATEGORY SWEEP: basement, bathroom, whole-home (9 more logged-out runs)
 
 Eric named basement, bathroom and whole-home as the three categories of concern. Ran the 3-run
