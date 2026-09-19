@@ -64,3 +64,6 @@ marketing/meta-ads/renders/*--endcard.mp4
 
 # Agent worktrees must never sit inside public/ - Vite deploys that folder
 public/**/.claude/
+
+# Local run log for the Instagram scheduled task (Task Scheduler \HomeStar\InstagramReels).
+marketing/meta-ads/ig_publish.log
