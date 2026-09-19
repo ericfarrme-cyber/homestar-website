@@ -5228,7 +5228,14 @@ function GuidePage({guide}){
             </div>
             <div style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:10}}>
               {cities.map(c=>{
-                const svcSlug=guide.serviceSlug==="decks-outdoor-living"?"deck-builder":guide.serviceSlug;
+                // City pages exist for eight service slugs only. A guide naming a
+                // service without them linked to URLs that were never built —
+                // /whole-home-renovation-fishers-in and eight siblings. The catch-all
+                // rewrite hid that by answering 200 with the homepage, which is also
+                // how Google ended up crawling nine copies of the homepage.
+                const svcSlug=guide.serviceSlug==="decks-outdoor-living"?"deck-builder"
+                  :guide.serviceSlug==="whole-home-renovation"?"home-remodeling"
+                  :guide.serviceSlug;
                 return <a key={c} href={`/${svcSlug}-${c.toLowerCase().replace(/ /g,"-")}-in`} style={{padding:"10px 20px",borderRadius:50,background:"#fff",border:`1px solid ${C.sand}`,color:C.navy,fontWeight:600,fontSize:13,textDecoration:"none",transition:"all .3s"}}
                   onMouseEnter={e=>{e.currentTarget.style.borderColor=C.green;e.currentTarget.style.color=C.green}}
                   onMouseLeave={e=>{e.currentTarget.style.borderColor=C.sand;e.currentTarget.style.color=C.navy}}>
