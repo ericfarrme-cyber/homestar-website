@@ -84,3 +84,15 @@ Replace the primary text with:
 A four-room renovation usually means four trades, four schedules and nobody who owns the whole thing. We run it differently: every trade works to one calendar, and one person is accountable for the lot. Plumbing by licensed plumbers, electrical by licensed electricians. Kitchens, baths, basements and flooring across Hamilton County.
 
 Headline stays: Four Rooms, One Schedule
+
+## 2026-09-19 — the website still carries the retired claims (parked by Eric)
+
+Meta's auto-generated business summary behind the "06 Who we are" ad (Ad sources: Summaries /
+Website highlights, on by default) scrapes the site and showed "In-House Licensed Trades — our own
+licensed plumbers and electricians" and "25-Year Waterproofing Warranty" as HomeStar's own. It is
+quoting the site accurately: `src/App.jsx` line ~68 (Whole-Home card: "We employ our own licensed
+plumbers and electricians"), the homepage meta and og descriptions in `index.html` ("25-year
+waterproofing warranty"), and several "100% waterproof" lines. Fix the site and the summary
+regenerates on its own — no ad edit, no learning reset. Eric: "It's fine for now." Revisit together
+with the three remaining ad copies. The same summary reported 5.0 from 86 Google reviews, so the
+27 Sep card claiming 85 is safe.
