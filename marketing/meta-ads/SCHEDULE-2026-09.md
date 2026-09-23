@@ -20,7 +20,7 @@ not merely sent. Independently re-audited with `meta_verify.py`.
 | **Mon 14 Sep 09:00** | FB Westfield basement | 714 ch, verified | `..._122173088486632361` |
 | Fri 18 Sep 09:00 | F8 Geist upper level | 627 ch, verified | `..._122173088600` |
 | Mon 21 Sep 09:00 | FD Fishers full gut | 940 ch, verified | `..._122173106438` |
-| Fri 25 Sep 09:00 | FO Six floors | 678 ch, verified | `..._122173106528` |
+| ~~Fri 25 Sep 09:00~~ | ~~FO Six floors~~ | **Killed 2026-09-23 on Eric's call - "I dont like the 6 floor. Remove that entirely."** Scheduled Facebook post deleted, removed from `ig-queue.json`. Slot empty. |
 | Mon 28 Sep 09:00 | F6 Geist three-bath | 1285 ch, verified | `..._122173106684` |
 | Fri 2 Oct 09:00 | FE Carmel double shower | 662 ch, verified | `..._122173106756` |
 
@@ -55,7 +55,7 @@ itself.
 |---|---|---|
 | **1** — 7 / 11 Sep | **F7** Zionsville jack & jill *(before/after)* | **F9** Noblesville, membrane to finished |
 | **2** — 14 / 18 Sep | **FB** Westfield luxury basement *(before/after)* | **FD** Fishers full gut *(full arc)* |
-| **3** — 21 / 25 Sep | **F8** Geist upper level *(mid-job)* | **FO** Six floors *(ends on a question)* |
+| **3** — 21 / 25 Sep | **F8** Geist upper level *(mid-job)* | ~~**FO** Six floors~~ - killed, slot empty |
 | **4** — 28 Sep / 2 Oct | **F6** Geist three-bath *(before/after)* | **FE** Carmel double shower |
 | **5** — 5 / 9 Oct | **FM** Zionsville basement bar | **FP** What's under your tile |
 | **6** — 12 / 16 Oct | **FL** Geist navy picket *(craft)* | **FF** Fishers wet room |
@@ -87,7 +87,7 @@ rescore after scheduling always means delete and re-upload — swapping the repo
 Instagram only. New posts created first, old ones deleted after, so the slot was never empty, and
 `meta_publish.py` read each caption back from Meta and confirmed it identical.
 
-FO (25 Sep), F6 (28 Sep) and FE (2 Oct) are still scheduled with their original beds. Their new
+F6 (28 Sep) and FE (2 Oct) are still scheduled with their original beds. (FO was killed on 23 Sep.) Their new
 scores sit in `renders/previews/` awaiting the same treatment, and FE's preview also carries the
 trimmed end card.
 
@@ -166,3 +166,8 @@ on top of the four cards above - "which floor?" with two of the six from FO is a
    YouTube and there is no local copy in the repo. Eric to supply the file.
 
 Everything else on this schedule exists and is ready.
+
+**2026-09-23 - FO retired.** Eric: "I dont like the 6 floor. Remove that entirely." The scheduled
+Facebook reel (`..._122173106528632361`, Fri 25 Sep 09:00) was deleted and FO was dropped from
+`ig-queue.json`, so neither platform will publish it. The render and its rescored preview stay on
+disk but are not to be rebuilt or rescheduled. Friday 25 Sep now has no reel.
