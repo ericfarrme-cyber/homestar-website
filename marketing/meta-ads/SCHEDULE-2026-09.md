@@ -96,8 +96,8 @@ trimmed end card.
 | date | post | note |
 |---|---|---|
 | **13 Sep** | Carousel: Geist three-bath, 6 photos | Follows the F8 mid-job reel from the Friday |
-| **20 Sep** | **Carousel: Westfield wet bar basement, 8 photos** | **Moved up 2026-09-15 on Eric's call.** The Hackman job, shot professionally and never posted, and the case study is already live at `/projects/westfield-basement-wet-bar`. Order and caption: `CAPTION-WESTFIELD-WET-BAR-CAROUSEL.md` |
-| **27 Sep** | **The 5.0 from 85 reviews** | **Built** - `renders/cards/review-5-0-feed.jpg` (1080x1350) and `review-5-0-story.jpg`. Moved back a week from 20 Sep, which also buys time to confirm the review count against Google before it goes out claiming 85 |
+| ~~20 Sep~~ | ~~Carousel: Westfield wet bar basement~~ | **Never posted - the slot passed with nothing created.** Found 2026-09-23. Moved to Sun 27 Sep on Eric's call. |
+| **27 Sep** | **Carousel: Westfield wet bar basement, 8 photos** | Order and caption: `CAPTION-WESTFIELD-WET-BAR-CAROUSEL.md`. Case study live at `/projects/westfield-basement-wet-bar`. No job price on the post - standing instruction. |
 | ~~27 Sep~~ | ~~Carousel: Westfield luxury basement, 8 photos~~ | Moved to week 7 — two Westfield basements a fortnight apart would read as one job. Dovetail credited when it runs |
 | **4 Oct** | **Client testimonial, posted natively** | **Blocked - needs the source video file from Eric.** It exists only as YouTube `k6XhQcUEHh0`, and Meta suppresses outbound links, so it has to be uploaded natively rather than linked |
 | **11 Oct** | Carousel: Zionsville jack & jill, 8 photos | Star mosaic floor leads |
@@ -114,7 +114,7 @@ carries two posts and no day is empty.
 |---|---|---|---|---|
 | **1** | S8 Westfield mantle | S1 Fishers drain | S9 Noblesville shower | S25 Carmel green tile |
 | **2** | S30 Geist staircase *(posted 15 Sep)* | **S32 Westfield play door** | **S31 Westfield basement kitchen** | **S33 Westfield basement bath** |
-| **3** | S24 Fishers sconces | S6 Zionsville slab | S10 Zionsville star floor | S21 Zionsville ceilings |
+| **3** | S24 Fishers sconces *(posted 22 Sep)* | S6 Zionsville slab *(posted 23 Sep)* | **S33 Westfield basement bath (re-run)** | S21 Zionsville ceilings |
 | **4** | S7 Geist blue tile | S3 Fishers linear drain | S27 Westfield lit shelves | S19 Geist shelves |
 | **5** | S11 Zionsville wine wall | S13 Noblesville tile | S16 Geist panelling | S14 Geist ladder |
 | **6** | S12 Zionsville slab wide | S2 Carmel patterns | S26 Zionsville arch | S5 Fishers fixtures |
@@ -171,3 +171,16 @@ Everything else on this schedule exists and is ready.
 Facebook reel (`..._122173106528632361`, Fri 25 Sep 09:00) was deleted and FO was dropped from
 `ig-queue.json`, so neither platform will publish it. The render and its rescored preview stay on
 disk but are not to be rebuilt or rescheduled. Friday 25 Sep now has no reel.
+
+**2026-09-23 - S33 re-runs on Thu 24 Sep.** Eric asked for the basement bathroom card again
+("yes re-run s33 tomorrow"). S33 first ran Sat 19 Sep; stories expire in 24 hours, so a five-day
+gap is a fresh impression for nearly everyone. S10 Zionsville star floor moves to the next free
+Thursday rather than being dropped.
+
+**2026-09-23 - feed slot corrections.**
+- The Westfield wet bar carousel was scheduled for Sun 20 Sep and never went out. The Page's last
+  album of any kind was 20 Aug, and nothing was ever created for the 20 Sep slot. Rescheduled to
+  **Sun 27 Sep, 11:00**.
+- **The "5.0 from 85 reviews" card is pulled** - Eric, 2026-09-23: "Remove the 5.0 star post for
+  now." The renders stay in `renders/cards/` but it is off the calendar with no new date. The
+  review count was never confirmed against Google either, so it would have needed checking first.

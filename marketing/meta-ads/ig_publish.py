@@ -192,6 +192,62 @@ def publish(entry):
     return True
 
 
+
+def publish_carousel(entry):
+    """A carousel is containers-then-container: one per photo, then one for the set.
+
+    Instagram will not accept a carousel of one, and it caps them at ten. Both
+    are checked here rather than discovered halfway through uploading.
+    """
+    urls = entry["image_urls"]
+    if not 2 <= len(urls) <= 10:
+        print("    carousel needs 2-10 photos, got %d - skipping" % len(urls))
+        return False
+
+    for url in urls:
+        ok, info = reachable(url)
+        if not ok:
+            print("    photo not reachable (%s) - skipping the whole carousel" % info)
+            return False
+    print("    all %d photos reachable" % len(urls))
+
+    children = []
+    for i, url in enumerate(urls, 1):
+        item = call(IG_USER_ID + "/media", {
+            "image_url": url,
+            "is_carousel_item": "true",
+        }, post=True)
+        children.append(item["id"])
+        print("    %d/%d container %s" % (i, len(urls), item["id"]))
+
+    container = call(IG_USER_ID + "/media", {
+        "media_type": "CAROUSEL",
+        "children": ",".join(children),
+        "caption": entry["caption"],
+    }, post=True)
+    cid = container.get("id")
+    print("    carousel container %s" % cid)
+
+    for attempt in range(POLL_ATTEMPTS):
+        time.sleep(POLL_SECONDS)
+        status = call(cid, {"fields": "status_code,status"}).get("status_code")
+        if status == "FINISHED":
+            break
+        if status in ("ERROR", "EXPIRED"):
+            print("    container %s - not publishing" % status)
+            return False
+        if attempt % 6 == 5:
+            print("    still %s" % status)
+    else:
+        print("    container never finished - not publishing")
+        return False
+
+    published = call(IG_USER_ID + "/media_publish", {"creation_id": cid}, post=True)
+    info = call(published["id"], {"fields": "permalink,timestamp"})
+    print("    PUBLISHED %s" % info.get("permalink"))
+    return True
+
+
 # ── main ────────────────────────────────────────────────────────────────────
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
@@ -200,10 +256,13 @@ def main():
     args = ap.parse_args()
 
     with open(QUEUE, encoding="utf-8") as fh:
-        reels = json.load(fh)["reels"]
+        queue = json.load(fh)
+    reels = queue["reels"]
+    carousels = queue.get("carousels", [])
 
     now = dt.datetime.now(dt.timezone.utc).replace(tzinfo=None)
-    print("now %sZ - %d reels in the queue" % (now.strftime("%Y-%m-%d %H:%M"), len(reels)))
+    print("now %sZ - %d reels, %d carousels in the queue"
+          % (now.strftime("%Y-%m-%d %H:%M"), len(reels), len(carousels)))
 
     published = 0
     for entry in reels:
@@ -231,7 +290,35 @@ def main():
         if publish(entry):
             published += 1
 
-    print("published %d reel(s)" % published)
+    for entry in carousels:
+        local = dt.datetime.fromisoformat(entry["publish_at_local"])
+        due_utc = eastern_to_utc(local)
+        age = (now - due_utc).total_seconds() / 3600.0
+        forced = args.force and args.force.upper() == entry["code"]
+
+        if not forced:
+            if age < 0:
+                print("  %-26s %s  not yet (in %.1f h)"
+                      % (entry["code"], entry["publish_at_local"][:10], -age))
+                continue
+            if age > GRACE_HOURS:
+                print("  %-26s %s  missed by %.1f h - left alone"
+                      % (entry["code"], entry["publish_at_local"][:10], age))
+                continue
+
+        print("  %-26s %s  DUE%s" % (entry["code"], entry["publish_at_local"][:10],
+                                     " (forced)" if forced else ""))
+        if already_posted(entry["caption"]):
+            print("    already on Instagram - skipping")
+            continue
+        if args.dry_run:
+            print("    dry run - would publish %d photos, %d-char caption"
+                  % (len(entry["image_urls"]), len(entry["caption"])))
+            continue
+        if publish_carousel(entry):
+            published += 1
+
+    print("published %d item(s)" % published)
 
 
 if __name__ == "__main__":
