@@ -34,14 +34,6 @@
       "caption": "Nobody posts the middle of a job. This is the middle of a job.\n\nEvery baluster wrapped by hand before a brush comes out. Floors papered end to end. Applied wall panelling with the glue still showing. A staircase rebuilt one tread at a time.\n\nNone of it photographs well. All of it is the difference between a room that looks right on handover day and one that still looks right in ten years.\n\nThis is a whole upper level near Geist - multiple bathrooms, every one of them on the complete Schluter waterproofing system, all plumbing and electrical by licensed trades.\n\nNear Geist, Indiana. Free in-home estimates: (317) 279-4798"
     },
     {
-      "code": "F6",
-      "description": "Geist three-bath (before/after)",
-      "publish_at_local": "2026-09-28T09:00:00",
-      "timezone": "America/New_York",
-      "video_url": "https://raw.githubusercontent.com/ericfarrme-cyber/homestar-website/main/marketing/meta-ads/renders/F6-geist-three-bath-beforeafter--reels-upload.mp4",
-      "caption": "The shower they wanted didn't fit. So we moved the door.\n\nThat was the whole problem with this Geist master bath. An awkward entry door and a linen closet were eating the space, and no amount of finish selection was going to fix it. Reconfigure those two things and suddenly there's room for the shower.\n\nOut: a framed shower behind sliding glass, a corner jetted tub sunk in a tiled deck, and a white raised-panel vanity with a hutch parked on the counter.\n\nIn: navy crackle-glaze picket tile - hand-glazed, so no two tiles are identical - a freestanding soaker set where the morning light lands, double vanities with backlit mirrors, a custom storage tower as the anchor of the room, champagne bronze against matte black, herringbone floor tile, and heated floors for February.\n\nThe ceiling is the only thing in that room we didn't touch. Look at the first shot and the last one.\n\nTwo months, start to finish. And this was one of three bathrooms we did in this house.\n\nEvery shower goes over the complete Schluter system - Ditra on the floor, Kerdi on the walls, waterproofed before a single tile is set. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.\n\nGeist, Fishers. Free in-home estimates: (317) 279-4798"
-    },
-    {
       "code": "FE",
       "description": "Carmel double shower",
       "publish_at_local": "2026-10-02T09:00:00",
@@ -54,7 +46,7 @@
     {
       "code": "CAROUSEL-WESTFIELD-WETBAR",
       "description": "Westfield wet bar basement, 8 photos",
-      "publish_at_local": "2026-09-27T11:00:00",
+      "publish_at_local": "2026-09-28T09:00:00",
       "timezone": "America/New_York",
       "image_urls": [
         "https://raw.githubusercontent.com/ericfarrme-cyber/homestar-website/main/public/images/westfield-basement-wet-bar-1.jpg",
@@ -67,6 +59,17 @@
         "https://raw.githubusercontent.com/ericfarrme-cyber/homestar-website/main/public/images/westfield-basement-wet-bar-14.jpg"
       ],
       "caption": "Putting a sink in a basement is not a plumbing detail. It is a decision about the floor.\n\nThis Westfield basement had 1,754 unfinished square feet and no drain line under the slab. So\nbefore any of this existed, we saw-cut about fifteen feet of concrete, trenched a new line to a\nsewage ejector basin in the storage room, and repaired the floor flush. Everything you see here\nsits on top of that one day of noise and dust.\n\nWhat it became: a wet bar with quartz counters, stacked gloss tile to the ceiling and a\nfull-height refrigerator. A black built-in running nearly fifteen feet around a linear fireplace.\nA guest bedroom, an exercise room, finished storage, and a full bath with a fluted white oak\ndouble vanity and a tiled shower.\n\nAnd under the stairs, a door with a cedar awning and a window box, because the kids were going to\nclaim that space anyway.\n\nRoughly ten to twelve weeks, start to finish.\n\n📍 Fishers | Carmel | Noblesville | Westfield | Zionsville\nFree in-home estimates: (317) 279-4798\n\n#basementfinishing #WestfieldIndiana #homeremodeling #HamiltonCountyIndiana #wetbar"
+    }
+  ],
+  "parked": [
+    {
+      "code": "F6",
+      "description": "Geist three-bath (before/after)",
+      "publish_at_local": "2026-09-30T09:00:00",
+      "timezone": "America/New_York",
+      "video_url": "https://raw.githubusercontent.com/ericfarrme-cyber/homestar-website/main/marketing/meta-ads/renders/F6-geist-three-bath-beforeafter--reels-upload.mp4",
+      "caption": "The shower they wanted didn't fit. So we moved the door.\n\nThat was the whole problem with this Geist master bath. An awkward entry door and a linen closet were eating the space, and no amount of finish selection was going to fix it. Reconfigure those two things and suddenly there's room for the shower.\n\nOut: a framed shower behind sliding glass, a corner jetted tub sunk in a tiled deck, and a white raised-panel vanity with a hutch parked on the counter.\n\nIn: navy crackle-glaze picket tile - hand-glazed, so no two tiles are identical - a freestanding soaker set where the morning light lands, double vanities with backlit mirrors, a custom storage tower as the anchor of the room, champagne bronze against matte black, herringbone floor tile, and heated floors for February.\n\nThe ceiling is the only thing in that room we didn't touch. Look at the first shot and the last one.\n\nTwo months, start to finish. And this was one of three bathrooms we did in this house.\n\nEvery shower goes over the complete Schluter system - Ditra on the floor, Kerdi on the walls, waterproofed before a single tile is set. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.\n\nGeist, Fishers. Free in-home estimates: (317) 279-4798",
+      "parked_note": "Pulled 2026-09-28 on Eric's call - the Geist three-bath job has been over-used across reels, stories and a carousel. Built and captioned, ready to reschedule when the rotation has moved on. Needs its audio decided first: scheduled with the original bed, rescore to 'Where Are You Now' sits in renders/previews/."
     }
   ]
 }

@@ -184,3 +184,15 @@ Thursday rather than being dropped.
 - **The "5.0 from 85 reviews" card is pulled** - Eric, 2026-09-23: "Remove the 5.0 star post for
   now." The renders stay in `renders/cards/` but it is off the calendar with no new date. The
   review count was never confirmed against Google either, so it would have needed checking first.
+
+**2026-09-28 - F6 parked.** Eric: "Lets use F6 another time, we've really overdone that job."
+The Geist three-bath had already carried a 6-photo carousel (13 Sep) on top of the Geist upper
+level reel (F8, 21 Sep) and a run of Geist story cards, so the reel would have been the fourth
+Geist piece in three weeks. The scheduled Facebook post for Wed 30 Sep was deleted and F6 moved
+to a `parked` list in `ig-queue.json` rather than removed, so it can be rescheduled whole when
+the rotation has moved on. Its audio is still undecided - it was scheduled with the original bed
+and the "Where Are You Now" rescore is in `renders/previews/`.
+
+**Wednesday 30 Sep is now empty.** FE (Carmel double shower) stays on Fri 2 Oct. After FE the
+reel pipeline is empty - the Westfield wet bar job has 63 stills and no moving footage, so the
+next reel needs either new filming or a different job.
