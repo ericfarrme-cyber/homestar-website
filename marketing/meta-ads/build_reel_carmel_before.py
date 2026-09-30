@@ -42,6 +42,7 @@ FF = imageio_ffmpeg.get_ffmpeg_exe()
 DL = r"C:\Users\ericf\Downloads\Carmel Whole Home Remodel"
 V1 = os.path.join(DL, "20260929_114817_920.mp4")   # truck arriving, 9.1s
 V2 = os.path.join(DL, "20260929_114821_670.mp4")   # the long walk-in, 137.8s
+V4 = os.path.join(DL, "20260929_114939_017.mp4")   # back hall and laundry, 43.3s
 V5 = os.path.join(DL, "20260929_114954_996.mp4")   # primary bath, 55.2s
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -54,35 +55,84 @@ W, H, FPS = 1080, 1920, 30
 XFADE = 0.6
 
 MUSIC = os.path.join(os.path.expanduser("~"), "Downloads", "Coming Up.mp3")
-MUSIC_START = 0.0
 MUSIC_LUFS = -20
 FADE_IN, FADE_OUT = 1.2, 2.2
 
-# (source, start, duration, note)
-SEGMENTS = [
-    (V1,   1.00, 3.60, "truck at the kerb, walking up"),
-    (V2,  19.80, 3.60, "front door, the hello mat, stepping in"),
-    (V2,  30.40, 3.60, "entry, oak stair, carpet runner"),
-    (V2,  41.00, 4.60, "great room, fireplace, carpet - held longest of the walk"),
-    (V2, 109.40, 4.20, "kitchen A - island, hood, oak and laminate"),
-    (V2, 131.60, 3.80, "kitchen B - wide, pendant over the island"),
-    (V5,   2.60, 4.60, "primary bath wide - carpet to the tub deck"),
-    (V5,  27.20, 4.00, "the fibreglass shower - brass handheld, framed glass"),
+# ── beat lock ────────────────────────────────────────────────────────────────
+# `beat_map.py` measured Coming Up at 129.2 BPM, one bar = 1.858s, and wrote
+# every downbeat to _beatmaps/. Cuts are taken from that grid rather than from
+# round numbers, so every change of shot lands on a downbeat by construction.
+#
+# The music starts at the track's first clean downbeat (1.927s) so that video
+# time 0 IS a downbeat - otherwise the whole grid sits at an offset and nothing
+# lines up.
+BEATMAP = os.path.join(HERE, "_beatmaps", "Coming Up.json")
+MUSIC_START = 1.927
+
+# Bars per shot. 2 is the base hold; the kitchen gets 3 because it is the room
+# the reel is really about, and a longer hold still lands on the grid.
+SHOT_BARS = [2, 2, 2, 3, 2, 2, 2]
+
+# (source, start, note) - the hold is no longer chosen here, the music sets it.
+SHOTS = [
+    (V1,   1.00, "truck at the kerb, walking up"),
+    (V2,  19.80, "front door, the hello mat, stepping in"),
+    (V2,  30.40, "entry, oak stair, carpet runner"),
+    (V2, 132.00, "kitchen, under-cabinet lights on - three bars, the hero shot"),
+    # The walk-in is 23-27s: through the doorway, the room opening up, window
+    # and washer coming into view. Past 28s the camera has settled on the
+    # counter and it is just a close-up of cabinet doors.
+    (V4,  23.00, "walking into the laundry - blue walls, white laminate"),
+    (V5,   2.60, "primary bath wide - carpet to the tub deck"),
+    (V5,  27.20, "the fibreglass shower - brass handheld, framed glass"),
 ]
+
+
+def beat_locked_segments():
+    """Turn the bar counts into cut times taken from the measured downbeats.
+
+    xfade means the visible cut sits at the cumulative boundary, and the
+    builder's arithmetic is  cumulative = sum(durations) - n*XFADE.  So each
+    duration is its musical hold plus one XFADE, which puts every boundary
+    exactly on a downbeat.
+    """
+    m = json.load(open(BEATMAP, encoding="utf-8"))
+    downs = [d for d in m["downbeats"] if d >= MUSIC_START - 1e-6]
+    if len(downs) < sum(SHOT_BARS) + 1:
+        sys.exit("beat map does not reach far enough for %d bars" % sum(SHOT_BARS))
+
+    cuts, idx = [0.0], 0
+    for bars in SHOT_BARS:
+        idx += bars
+        cuts.append(round(downs[idx] - MUSIC_START, 3))
+
+    segs = []
+    for i, (src, ss, note) in enumerate(SHOTS):
+        hold = cuts[i + 1] - cuts[i]
+        segs.append((src, ss, round(hold + XFADE, 3), note, round(cuts[i], 3), round(hold, 3)))
+    return segs, cuts, m
+
+
+SEG_FULL, CUTS, BEATMAP_DATA = beat_locked_segments()
+SEGMENTS = [(s, ss, dur, note) for s, ss, dur, note, _, _ in SEG_FULL]
 
 AD = {
     "hook":     "The last day this house looks like this.",
-    "beat":     "That is carpet. In the bathroom.",
+    # Was "That is carpet. In the bathroom." - Eric pulled it 2026-09-29 as a
+    # joke at the homeowner's expense. This one respects the house, which is
+    # genuinely well built, and still names the job.
+    "beat":     "Good bones. Every finish original.",
     "end_head": "Whole home. Carmel.",
     "end_sub":  "Every surface. Follow to see what it becomes.",
     "cta":      "GET A FREE ESTIMATE",
     "badge_r":  "5.0 \u2605 GOOGLE",
 }
 
-# The hook has to clear before the door opens. The beat has to sit ON the carpet
-# shot and be gone before the shower - a line about carpet over a picture of a
-# shower is the kind of mismatch nobody can unsee once they notice it.
-HOOK_OUT, BEAT_IN, BEAT_OUT = 5.80, 20.20, 23.80
+# Hook and beat are anchored to the grid too: the hook clears on the cut into
+# the entry, and the line rides the whole three-bar kitchen hold.
+HOOK_OUT = CUTS[2] - 0.10
+BEAT_IN = CUTS[3] + 0.45
+BEAT_OUT = CUTS[4] - 0.75
 HOOK_FADE_IN, HOOK_FADE_OUT = 0.80, 0.75
 BEAT_FADE_IN, BEAT_FADE_OUT = 0.75, 0.85
 END_DUR = 3.4
@@ -219,7 +269,11 @@ print(f"wrote {os.path.basename(OUT)}")
 print(f"  dimensions : {dims.group(1)}x{dims.group(2)}" if dims else "  dimensions : ?")
 print(f"  duration   : {secs:.2f}s  (expected {expected:.2f}s)")
 print(f"  size       : {os.path.getsize(OUT)/1048576:.1f} MB")
-for i, (src, ss, dur_, note) in enumerate(SEGMENTS, 1):
-    print(f"  {i}. {os.path.basename(src)[-10:-4]}  {ss:6.1f}s +{dur_:.1f}s   {note}")
+print(f"  beat lock  : {BEATMAP_DATA['bpm']} BPM, bar {BEATMAP_DATA['bar_seconds']}s, "
+      f"music from {MUSIC_START}s")
+for i, (src, ss, dur_, note, cut, hold) in enumerate(SEG_FULL, 1):
+    bars = SHOT_BARS[i - 1]
+    print(f"  {i}. {os.path.basename(src)[-10:-4]}  src {ss:6.1f}s  "
+          f"cut@{cut:6.3f}s  hold {hold:.3f}s ({bars} bars)  {note}")
 add_music(secs)
 print(f"wrote {os.path.basename(OUT_MUSIC)} with Coming Up @ {MUSIC_START:.1f}s")
