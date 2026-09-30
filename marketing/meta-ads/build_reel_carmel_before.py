@@ -71,7 +71,14 @@ MUSIC_START = 1.927
 
 # Bars per shot. 2 is the base hold; the kitchen gets 3 because it is the room
 # the reel is really about, and a longer hold still lands on the grid.
-SHOT_BARS = [2, 2, 2, 3, 2, 2, 2]
+# The kitchen cannot take three bars: its only Robb-free window is 132.0s to the
+# end of a 137.75s clip, and a three-bar hold plus the crossfade needs 6.31s.
+# Asking for more than the clip holds does not error - ffmpeg quietly returns a
+# short segment, the xfade offsets downstream stop matching the material, and
+# whole shots vanish from the finished reel. `check_source_bounds` now refuses
+# that instead of letting it through. The three-bar hero hold moves to the
+# primary bath, which has 55 seconds to give.
+SHOT_BARS = [2, 2, 2, 2, 2, 3, 2]
 
 # (source, start, note) - the hold is no longer chosen here, the music sets it.
 SHOTS = [
@@ -116,17 +123,62 @@ def beat_locked_segments():
 SEG_FULL, CUTS, BEATMAP_DATA = beat_locked_segments()
 SEGMENTS = [(s, ss, dur, note) for s, ss, dur, note, _, _ in SEG_FULL]
 
+
+def check_source_bounds():
+    """Refuse to ask a clip for more footage than it has.
+
+    ffmpeg does not complain when `-ss X -t Y` runs off the end - it hands back
+    whatever is left. The xfade chain then has less material than its absolute
+    offsets assume, and later shots silently disappear. That is exactly how the
+    laundry and the bathroom fell out of a build that reported success.
+    """
+    import re as _re
+    bad = []
+    for src, ss, dur, note in SEGMENTS:
+        err = subprocess.run([FF, "-hide_banner", "-i", src],
+                             capture_output=True, text=True).stderr
+        m = _re.search(r"Duration: (\d+):(\d+):([\d.]+)", err)
+        if not m:
+            continue
+        total = int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3))
+        if ss + dur > total - 0.05:
+            bad.append("  %s wants %.2f-%.2fs but the clip is %.2fs  (%s)"
+                       % (os.path.basename(src), ss, ss + dur, total, note))
+    if bad:
+        sys.exit("segments run past the end of their source:\n" + "\n".join(bad))
+
+
+check_source_bounds()
+
 AD = {
     "hook":     "The last day this house looks like this.",
-    # Was "That is carpet. In the bathroom." - Eric pulled it 2026-09-29 as a
-    # joke at the homeowner's expense. This one respects the house, which is
-    # genuinely well built, and still names the job.
     "beat":     "Good bones. Every finish original.",
     "end_head": "Whole home. Carmel.",
     "end_sub":  "Every surface. Follow to see what it becomes.",
     "cta":      "GET A FREE ESTIMATE",
     "badge_r":  "5.0 \u2605 GOOGLE",
 }
+
+# ── the scope, on screen ─────────────────────────────────────────────────────
+# vidIQ's outlier search found the biggest performer in this category by a wide
+# margin - 2.6M views at 326x the creator's own median, from a 3,900-follower
+# account - was a POV walkthrough of a house in progress with hard facts on
+# screen rather than in the caption. Eric will not publish the client's price,
+# so these are scope facts instead: scale, what is being done, and the two
+# things every owner of a 1990s house recognises on sight.
+#
+# Each rides a shot by index, so they move with the beat grid automatically.
+# One line per shot, matched to what is actually on screen - the wallpaper line
+# rides the stair wall that still has the damask on it. The separate "beat"
+# plate is gone: it used to sit on the kitchen, which is where a spec line now
+# lives, and two lower-thirds fading over each other is unreadable.
+SPECS = [
+    (2, "Wallpaper out. Popcorn ceilings gone."),
+    (3, "Full kitchen. Reconfigured."),
+    (4, "4,000 square feet. Every room."),
+    (5, "Master bath. Full gut."),
+    (6, "Good bones. Every finish original."),
+]
 
 # Hook and beat are anchored to the grid too: the hook clears on the cut into
 # the entry, and the line rides the whole three-bar kitchen hold.
@@ -152,13 +204,13 @@ def make_logo_plate():
     return LOGO_PNG
 
 
-def make_beat_plate():
-    from PIL import ImageDraw as _D
+def make_text_plate(text, out_png):
+    """The lower-third lockup used for the beat line, for any text."""
     img, d = V._layer()
     Sx = BRAND.S
     pad = int(56 * Sx)
     inner = V.W * Sx - pad * 2
-    f, lines, tr = BRAND.fit_lines(d, AD["beat"], "ExtraBold", inner,
+    f, lines, tr = BRAND.fit_lines(d, text, "ExtraBold", inner,
                                    max_px=int(58 * Sx), min_px=int(36 * Sx), max_lines=2)
     lh = int(f.size * 1.06)
     y = (V.H - V.SAFE_BOTTOM) * Sx - int(40 * Sx) - lh * len(lines)
@@ -170,14 +222,28 @@ def make_beat_plate():
     for ln in lines:
         V._shadowed(d, (pad, y), ln, f, tr, Sx)
         y += lh
-    return V._down(img, BEAT_PNG)
+    return V._down(img, out_png)
+
+
+def spec_plates():
+    """One lower-third per scope fact, timed to the shot it rides."""
+    out = []
+    for n, (shot, text) in enumerate(SPECS):
+        png = os.path.join(HERE, "_carmel_spec%d.png" % n)
+        make_text_plate(text, png)
+        # Land just after the cut and clear before the next one, so the plate
+        # never straddles a dissolve.
+        t_in = CUTS[shot] + 0.35
+        t_out = CUTS[shot + 1] - 0.70
+        out.append((png, t_in, t_out))
+    return out
 
 
 def build():
     make_logo_plate()
     V.plate_hook(AD, HOOK_PNG)
-    make_beat_plate()
     V.plate_endcard(AD, END_PNG)
+    specs = spec_plates()
 
     cmd = [FF, "-y", "-hide_banner", "-loglevel", "error"]
     for src, ss, dur, _ in SEGMENTS:
@@ -203,7 +269,8 @@ def build():
     n = len(SEGMENTS)
     cmd += ["-loop", "1", "-t", f"{body:.2f}", "-i", LOGO_PNG]
     cmd += ["-loop", "1", "-t", f"{body:.2f}", "-i", HOOK_PNG]
-    cmd += ["-loop", "1", "-t", f"{body:.2f}", "-i", BEAT_PNG]
+    for png, _, _ in specs:
+        cmd += ["-loop", "1", "-t", f"{body:.2f}", "-i", png]
     cmd += ["-loop", "1", "-t", f"{END_DUR:.2f}", "-i", END_PNG]
 
     parts.append(f"[{n}:v]format=rgba,fade=t=in:st=0.25:d=0.7:alpha=1[lg]")
@@ -211,17 +278,22 @@ def build():
         f"[{n+1}:v]format=rgba,"
         f"fade=t=in:st=0.30:d={HOOK_FADE_IN}:alpha=1,"
         f"fade=t=out:st={HOOK_OUT:.2f}:d={HOOK_FADE_OUT}:alpha=1[hk]")
-    parts.append(
-        f"[{n+2}:v]format=rgba,"
-        f"fade=t=in:st={BEAT_IN:.2f}:d={BEAT_FADE_IN}:alpha=1,"
-        f"fade=t=out:st={BEAT_OUT:.2f}:d={BEAT_FADE_OUT}:alpha=1[bt]")
+    for k, (_, t_in, t_out) in enumerate(specs):
+        parts.append(
+            f"[{n+2+k}:v]format=rgba,"
+            f"fade=t=in:st={t_in:.2f}:d=0.45:alpha=1,"
+            f"fade=t=out:st={t_out:.2f}:d=0.45:alpha=1[sp{k}]")
 
     parts.append(f"[{prev}][lg]overlay=0:0[v1]")
     parts.append(f"[v1][hk]overlay=0:0[v2]")
-    parts.append(f"[v2][bt]overlay=0:0[v3]")
-    parts.append(f"[{n+3}:v]scale={W}:{H},fps={FPS},format=yuv420p,setsar=1[ec]")
+    last = "v2"
+    for k in range(len(specs)):
+        parts.append(f"[{last}][sp{k}]overlay=0:0[v{3+k}]")
+        last = f"v{3+k}"
+    end_idx = n + 2 + len(specs)
+    parts.append(f"[{end_idx}:v]scale={W}:{H},fps={FPS},format=yuv420p,setsar=1[ec]")
     parts.append(
-        f"[v3][ec]xfade=transition=fade:duration=0.5:offset={body - 0.5:.3f}[vout]")
+        f"[{last}][ec]xfade=transition=fade:duration=0.5:offset={body - 0.5:.3f}[vout]")
 
     cmd += ["-filter_complex", ";".join(parts), "-map", "[vout]",
             "-c:v", "libx264", "-preset", "slow", "-crf", "19",
