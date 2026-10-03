@@ -42,3 +42,9 @@ https://www.thehomestarservice.com/whole-home-renovation
 https://www.thehomestarservice.com/guide/renovation-sequencing-guide
 https://www.thehomestarservice.com/tools/renovation-sequence-planner
 # 9 home-remodeling-{city}-in pages also resubmitted after multi-room rewrite
+
+# 2026-10-03 - treated and submitted to IndexNow (HTTP 200). These three are not
+# re-submissions of the failed set; they are pages whose content changed.
+DONE 2026-10-03 https://www.thehomestarservice.com/bathroom-remodeling-zionsville-in
+DONE 2026-10-03 https://www.thehomestarservice.com/basement-finishing-zionsville-in
+DONE 2026-10-03 https://www.thehomestarservice.com/bathroom-remodeling-geist-in
