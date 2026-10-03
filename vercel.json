@@ -414,6 +414,876 @@
       "source": "/painting-services-pendleton-in/",
       "destination": "/painting-services",
       "permanent": true
+    },
+    {
+      "source": "/remodeling-hamilton-proper-fishers-in",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-hamilton-proper-fishers-in/",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-geist-reservoir-fishers-in",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-geist-reservoir-fishers-in/",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-estates-at-geist-fishers-in",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-estates-at-geist-fishers-in/",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-admirals-pointe-fishers-in",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-admirals-pointe-fishers-in/",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-saxon-woods-fishers-in",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-saxon-woods-fishers-in/",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-thorpe-creek-fishers-in",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-thorpe-creek-fishers-in/",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-cambridge-fishers-in",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-cambridge-fishers-in/",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-canal-place-fishers-in",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-canal-place-fishers-in/",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-brooks-school-fishers-in",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-brooks-school-fishers-in/",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-olio-road-fishers-in",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-olio-road-fishers-in/",
+      "destination": "/home-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-laurelwood-carmel-in",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-laurelwood-carmel-in/",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-116th-street-carmel-in",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-116th-street-carmel-in/",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-jacksons-grant-carmel-in",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-jacksons-grant-carmel-in/",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-reserve-at-springmill-carmel-in",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-reserve-at-springmill-carmel-in/",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-laurel-lakes-carmel-in",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-laurel-lakes-carmel-in/",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-village-of-westclay-carmel-in",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-village-of-westclay-carmel-in/",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-bridgewater-club-carmel-in",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-bridgewater-club-carmel-in/",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-springmill-carmel-in",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-springmill-carmel-in/",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-brookshire-carmel-in",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-brookshire-carmel-in/",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-smokey-ridge-carmel-in",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-smokey-ridge-carmel-in/",
+      "destination": "/home-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-promontory-zionsville-in",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-promontory-zionsville-in/",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-holliday-farms-zionsville-in",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-holliday-farms-zionsville-in/",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-bradley-ridge-zionsville-in",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-bradley-ridge-zionsville-in/",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-eagle-creek-zionsville-in",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-eagle-creek-zionsville-in/",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-traders-point-zionsville-in",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-traders-point-zionsville-in/",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-rural-zionsville-zionsville-in",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-rural-zionsville-zionsville-in/",
+      "destination": "/home-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-chatham-hills-westfield-in",
+      "destination": "/home-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-chatham-hills-westfield-in/",
+      "destination": "/home-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-centennial-westfield-in",
+      "destination": "/home-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-centennial-westfield-in/",
+      "destination": "/home-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-bridgewater-westfield-westfield-in",
+      "destination": "/home-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-bridgewater-westfield-westfield-in/",
+      "destination": "/home-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-harmony-westfield-in",
+      "destination": "/home-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-harmony-westfield-in/",
+      "destination": "/home-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-grand-park-westfield-in",
+      "destination": "/home-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-grand-park-westfield-in/",
+      "destination": "/home-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-bear-slide-noblesville-in",
+      "destination": "/home-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-bear-slide-noblesville-in/",
+      "destination": "/home-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-morse-reservoir-noblesville-in",
+      "destination": "/home-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-morse-reservoir-noblesville-in/",
+      "destination": "/home-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-finch-creek-noblesville-in",
+      "destination": "/home-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-finch-creek-noblesville-in/",
+      "destination": "/home-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-prairie-lakes-noblesville-in",
+      "destination": "/home-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-prairie-lakes-noblesville-in/",
+      "destination": "/home-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-downtown-fortville-fortville-in",
+      "destination": "/home-remodeling-fortville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-downtown-fortville-fortville-in/",
+      "destination": "/home-remodeling-fortville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-buck-creek-fortville-in",
+      "destination": "/home-remodeling-fortville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-buck-creek-fortville-in/",
+      "destination": "/home-remodeling-fortville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-mccordsville-proper-mccordsville-in",
+      "destination": "/home-remodeling-mccordsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-mccordsville-proper-mccordsville-in/",
+      "destination": "/home-remodeling-mccordsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-geist-mccordsville-mccordsville-in",
+      "destination": "/home-remodeling-mccordsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-geist-mccordsville-mccordsville-in/",
+      "destination": "/home-remodeling-mccordsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-downtown-pendleton-pendleton-in",
+      "destination": "/home-remodeling-pendleton-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-downtown-pendleton-pendleton-in/",
+      "destination": "/home-remodeling-pendleton-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-south-pendleton-pendleton-in",
+      "destination": "/home-remodeling-pendleton-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-south-pendleton-pendleton-in/",
+      "destination": "/home-remodeling-pendleton-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-pendleton-heights-pendleton-in",
+      "destination": "/home-remodeling-pendleton-in",
+      "permanent": true
+    },
+    {
+      "source": "/remodeling-pendleton-heights-pendleton-in/",
+      "destination": "/home-remodeling-pendleton-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-hamilton-proper-fishers-in",
+      "destination": "/bathroom-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-hamilton-proper-fishers-in/",
+      "destination": "/bathroom-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-geist-reservoir-fishers-in",
+      "destination": "/bathroom-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-geist-reservoir-fishers-in/",
+      "destination": "/bathroom-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-estates-at-geist-fishers-in",
+      "destination": "/bathroom-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-estates-at-geist-fishers-in/",
+      "destination": "/bathroom-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-admirals-pointe-fishers-in",
+      "destination": "/bathroom-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-admirals-pointe-fishers-in/",
+      "destination": "/bathroom-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-laurelwood-carmel-in",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-laurelwood-carmel-in/",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-jacksons-grant-carmel-in",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-jacksons-grant-carmel-in/",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-reserve-at-springmill-carmel-in",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-reserve-at-springmill-carmel-in/",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-laurel-lakes-carmel-in",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-laurel-lakes-carmel-in/",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-village-of-westclay-carmel-in",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-village-of-westclay-carmel-in/",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-bridgewater-club-carmel-in",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-bridgewater-club-carmel-in/",
+      "destination": "/bathroom-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-promontory-zionsville-in",
+      "destination": "/bathroom-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-promontory-zionsville-in/",
+      "destination": "/bathroom-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-holliday-farms-zionsville-in",
+      "destination": "/bathroom-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-holliday-farms-zionsville-in/",
+      "destination": "/bathroom-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-bradley-ridge-zionsville-in",
+      "destination": "/bathroom-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-bradley-ridge-zionsville-in/",
+      "destination": "/bathroom-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-chatham-hills-westfield-in",
+      "destination": "/bathroom-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-chatham-hills-westfield-in/",
+      "destination": "/bathroom-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-bear-slide-noblesville-in",
+      "destination": "/bathroom-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/bathroom-remodeling-bear-slide-noblesville-in/",
+      "destination": "/bathroom-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-hamilton-proper-fishers-in",
+      "destination": "/kitchen-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-hamilton-proper-fishers-in/",
+      "destination": "/kitchen-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-geist-reservoir-fishers-in",
+      "destination": "/kitchen-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-geist-reservoir-fishers-in/",
+      "destination": "/kitchen-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-estates-at-geist-fishers-in",
+      "destination": "/kitchen-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-estates-at-geist-fishers-in/",
+      "destination": "/kitchen-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-admirals-pointe-fishers-in",
+      "destination": "/kitchen-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-admirals-pointe-fishers-in/",
+      "destination": "/kitchen-remodeling-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-laurelwood-carmel-in",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-laurelwood-carmel-in/",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-jacksons-grant-carmel-in",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-jacksons-grant-carmel-in/",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-reserve-at-springmill-carmel-in",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-reserve-at-springmill-carmel-in/",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-laurel-lakes-carmel-in",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-laurel-lakes-carmel-in/",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-village-of-westclay-carmel-in",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-village-of-westclay-carmel-in/",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-bridgewater-club-carmel-in",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-bridgewater-club-carmel-in/",
+      "destination": "/kitchen-remodeling-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-promontory-zionsville-in",
+      "destination": "/kitchen-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-promontory-zionsville-in/",
+      "destination": "/kitchen-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-holliday-farms-zionsville-in",
+      "destination": "/kitchen-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-holliday-farms-zionsville-in/",
+      "destination": "/kitchen-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-bradley-ridge-zionsville-in",
+      "destination": "/kitchen-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-bradley-ridge-zionsville-in/",
+      "destination": "/kitchen-remodeling-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-chatham-hills-westfield-in",
+      "destination": "/kitchen-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-chatham-hills-westfield-in/",
+      "destination": "/kitchen-remodeling-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-bear-slide-noblesville-in",
+      "destination": "/kitchen-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/kitchen-remodeling-bear-slide-noblesville-in/",
+      "destination": "/kitchen-remodeling-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-hamilton-proper-fishers-in",
+      "destination": "/basement-finishing-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-hamilton-proper-fishers-in/",
+      "destination": "/basement-finishing-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-geist-reservoir-fishers-in",
+      "destination": "/basement-finishing-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-geist-reservoir-fishers-in/",
+      "destination": "/basement-finishing-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-estates-at-geist-fishers-in",
+      "destination": "/basement-finishing-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-estates-at-geist-fishers-in/",
+      "destination": "/basement-finishing-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-admirals-pointe-fishers-in",
+      "destination": "/basement-finishing-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-admirals-pointe-fishers-in/",
+      "destination": "/basement-finishing-fishers-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-laurelwood-carmel-in",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-laurelwood-carmel-in/",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-jacksons-grant-carmel-in",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-jacksons-grant-carmel-in/",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-reserve-at-springmill-carmel-in",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-reserve-at-springmill-carmel-in/",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-laurel-lakes-carmel-in",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-laurel-lakes-carmel-in/",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-village-of-westclay-carmel-in",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-village-of-westclay-carmel-in/",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-bridgewater-club-carmel-in",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-bridgewater-club-carmel-in/",
+      "destination": "/basement-finishing-carmel-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-promontory-zionsville-in",
+      "destination": "/basement-finishing-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-promontory-zionsville-in/",
+      "destination": "/basement-finishing-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-holliday-farms-zionsville-in",
+      "destination": "/basement-finishing-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-holliday-farms-zionsville-in/",
+      "destination": "/basement-finishing-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-bradley-ridge-zionsville-in",
+      "destination": "/basement-finishing-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-bradley-ridge-zionsville-in/",
+      "destination": "/basement-finishing-zionsville-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-chatham-hills-westfield-in",
+      "destination": "/basement-finishing-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-chatham-hills-westfield-in/",
+      "destination": "/basement-finishing-westfield-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-bear-slide-noblesville-in",
+      "destination": "/basement-finishing-noblesville-in",
+      "permanent": true
+    },
+    {
+      "source": "/basement-finishing-bear-slide-noblesville-in/",
+      "destination": "/basement-finishing-noblesville-in",
+      "permanent": true
     }
   ]
 }

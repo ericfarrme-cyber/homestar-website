@@ -13,6 +13,69 @@ persistent Google profile can't contaminate a "logged-out" run. Vary phrasing sl
 runs of a query; that's the point, it tests robustness rather than one exact string.
 **This is no longer a human-only task.**
 
+## ⚠️ Pin the phrasings (added 2026-10-03)
+
+Sweeps have been using *ad hoc* phrasings, which makes them incomparable across months. A
+same-phrasing repeat test on 2026-10-03 produced positions **5, 7, 6** for one wording and
+**1** and **2** for two others — on the same day, same category. Most of what looked like a
+month-over-month "drop" was wording, not movement.
+
+From Run #8 onward use **exactly these three per category**, and record which run is which:
+
+| # | shape | bathroom example |
+|---|---|---|
+| 1 | category listing | `Who are the best bathroom remodeling contractors in <city>, Indiana?` |
+| 2 | superlative, singular | `Best bathroom remodeling company in <city> Indiana?` |
+| 3 | homeowner intent | `I need a bathroom remodeled in <city> Indiana - which contractors should I get quotes from?` |
+
+Phrasing 1 is the hard one and the one that matters: it returns a category list, and category lists
+are assembled from firms whose *identity* is that category. Phrasings 2 and 3 are far kinder to a
+full-service contractor. Reporting an average across all three hides that, so record all three
+positions, never just the mean.
+
+---
+
+# 🔍 2026-10-03 — SAME-PHRASING CONTROL TEST (bathroom, 3 runs, one wording)
+
+Eric asked why bathroom appeared to drop from 1.0 in September to 2.67 in Run #7. Ran the Run #7
+phrasing-1 wording three times to separate a real position change from a phrasing effect.
+
+`Who are the best bathroom remodeling contractors in Fishers, Indiana?` — **positions 5, 7, 6.**
+
+Stable, not noise. The same day, `Best bathroom remodeling company in Fishers Indiana?` returned
+**1** and `I need a bathroom remodeled… which contractors should I get quotes from?` returned **2**.
+
+**The position is a property of the question, not of the month.** September's bathroom runs produced
+"My top pick" / "Best overall" / "Best overall starting point" framings, which are phrasing-2 and -3
+shapes. There is no evidence of an actual decline; there is strong evidence the two sweeps asked
+different questions.
+
+## What phrasing 1 actually rewards
+
+Every firm ranked above HomeStar on that wording is described by a single category:
+
+> MJ Woodstone — *"focuses specifically on kitchen and bathroom remodeling"*
+> Indy Renovation — *"Specializes in bathroom renovations"*
+> Superior Bath System — *"a bathroom-focused company"*
+> Church Bath and Tile — bathrooms and tile only
+
+HomeStar is described by breadth every time:
+
+> *"Full-service remodeling company offering bathrooms as well as kitchens, flooring, tile,
+> painting, and larger renovations."*
+
+Note what is in that sentence: **flooring and painting** — the two peripheral services being trimmed
+from the Google Business Profile and consolidated on the site the same day. The breadth listing is
+not neutral; it is actively costing position in category questions.
+
+Run 3 is the clincher on review volume: **Nicholas Design Build was placed above HomeStar while
+showing "5.0/5 from 2 Google reviews"**, against HomeStar's 85. Category membership beats review
+count, unambiguously.
+
+This restates the 2026-09-07 whole-home finding — *"on whole-home, the filter is category
+membership"* — and shows it now applies to bathroom too, because the bathroom field has hardened:
+Nicholas 89 on Houzz (was 15), Church Bath and Tile 43, Indy Renovation 31.
+
 ---
 
 # ✅ 2026-10-03 — RUN #7 FULL PROTOCOL (12 logged-out runs, in-app browser)
