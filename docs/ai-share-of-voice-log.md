@@ -15,6 +15,93 @@ runs of a query; that's the point, it tests robustness rather than one exact str
 
 ---
 
+# ✅ 2026-10-03 — RUN #7 FULL PROTOCOL (12 logged-out runs, in-app browser)
+
+The proper sweep. Three phrasings per query, logged out, in-app browser (both playwright servers
+failed to connect again). Run #6 earlier the same day was a single pass and should be read only as
+the first column below. One query hung on "Searching the web" and was re-issued after reloading
+thehomestarservice.com — the documented fix, still works.
+
+**Bing Places was claimed hours before this sweep but is still "Pending publish", so none of this
+reflects it.** This is the pre-Bing baseline.
+
+| Query | 2026-09-19 | **2026-10-03 positions** | present | avg | **in the final shortlist** |
+|---|---|---|---|---|---|
+| Bathroom, Fishers | 3/3 @ 1.0 | 5, 1, 2 | **3/3** | 2.67 | **2/3** |
+| Kitchen, Fishers | 1/3 @ 2.0 | 4, 2, 5 | **3/3** | 3.67 | **0/3** |
+| Basement, Fishers | 2/3 @ 1.0 | 2, 1, 2 | **3/3** | 1.67 | **2/3** |
+| Whole-home, Hamilton Co. | 2/3 @ ~1.5 | 3, 4, absent | **2/3** | 3.50 | **1/3** |
+
+**Presence is up: 11 of 12 runs, against 8 of 12 in September.** Average positions are flat to
+slightly worse. The metric that matters is the last column.
+
+## The shortlist gate, now measured properly
+
+Every answer ends with a "if it were my project / my shortlist" paragraph naming three or four
+firms to actually call. That is the recommendation; the list above it is a longlist.
+**HomeStar makes it in 5 of 12 runs.**
+
+Run #6 overstated this — it read as 1-of-4 off single runs. The real figure is better and the
+variance is enormous: bathroom alone went position 5-and-excluded, 1-and-shortlisted,
+2-and-shortlisted across three phrasings of the same question within hours. Single runs are noise.
+The protocol exists for exactly this reason and should not be skipped again.
+
+## 🔴 Kitchen is the one category that never converts — 0 of 3
+
+Present in all three runs and shortlisted in none. The reason is stated outright in run 3:
+
+> *"HomeStar Services and Contracting — worth getting a competitive bid … I'd choose them if: you
+> want a local contractor who can coordinate the various trades **without necessarily going with
+> the most design-oriented firm**."*
+
+Every firm placed above HomeStar in kitchen is framed as design-led — Everything Home
+(design-heavy), Chateau (cabinetry), MJ Woodstone (craftsmanship), The HomeWright (design-build).
+HomeStar is positioned as the competent non-design option. That is a positioning problem, not a
+review-count problem.
+
+## 🔴 Whole-home run 3: absent entirely, and the reason is instructive
+
+Six firms named, HomeStar not among them. The winner's citation:
+
+> *"Nicholas Design Build … says it has completed **100+ remodeling projects in Fishers**,
+> including an **$887,500 whole-home remodel with an addition**."*
+
+Nicholas is making the *same* claim HomeStar makes — 100+ projects — but bound to a town, a scope
+and a number. HomeStar's version is unqualified, so it reads as boilerplate next to a specific
+one. And run 2 said the quiet part plainly:
+
+> *"Nicholas is particularly notable because it **explicitly specializes in whole-home projects
+> rather than simply offering whole-home remodeling among many services**."*
+
+**Specialisation beats breadth.** That single sentence explains kitchen 0/3, the bathroom variance
+and the whole-home absence at once.
+
+**The fix is additive, not a rewrite.** Eric's instruction of 2026-10-03 stands: the "100+
+completed projects", licensed plumbers and in-house electricians copy is not to be altered. Nothing
+above requires altering it — it requires putting specifics *beside* it.
+
+## 🟢 The design-build page is being read
+
+HomeStar is now described as a *"full-service design-build contractor"* in whole-home run 2.
+Before `/design-build-fishers-in` shipped, the whole-home pillar was being read as a general
+contractor. The page is landing.
+
+## 🟢 Basement is the strongest category on record
+
+3/3, average 1.67, and run 2 opened with HomeStar as the single answer:
+
+> *"If you want one company to call first for a basement finish in Fishers, I'd put HomeStar
+> Services and Contracting on your shortlist."*
+
+Cited from Yellow Pages, of all places — worth noting that the citation sources are widening
+beyond Google and the site itself.
+
+## Houzz, unchanged across five sweeps
+Competing Houzz review counts this run: Everything Home 122, Nicholas 89 (up from 15 — recount or
+a different profile), The HomeWright 77, Chateau 62, Worthington 49, ACo 17. HomeStar: 5.
+
+---
+
 # ⚠️ 2026-10-03 — RUN #6 SINGLE-PASS SWEEP (4 logged-out runs, in-app browser)
 
 **This is not a protocol entry.** One run per query, not three. The protocol exists because a

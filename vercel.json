@@ -234,6 +234,186 @@
       "source": "/services/flooring-services",
       "destination": "/flooring-services",
       "permanent": true
+    },
+    {
+      "source": "/flooring-services-fishers-in",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-fishers-in/",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-carmel-in",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-carmel-in/",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-noblesville-in",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-noblesville-in/",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-westfield-in",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-westfield-in/",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-zionsville-in",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-zionsville-in/",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-fortville-in",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-fortville-in/",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-mccordsville-in",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-mccordsville-in/",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-geist-in",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-geist-in/",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-pendleton-in",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/flooring-services-pendleton-in/",
+      "destination": "/flooring-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-fishers-in",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-fishers-in/",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-carmel-in",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-carmel-in/",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-noblesville-in",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-noblesville-in/",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-westfield-in",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-westfield-in/",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-zionsville-in",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-zionsville-in/",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-fortville-in",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-fortville-in/",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-mccordsville-in",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-mccordsville-in/",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-geist-in",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-geist-in/",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-pendleton-in",
+      "destination": "/painting-services",
+      "permanent": true
+    },
+    {
+      "source": "/painting-services-pendleton-in/",
+      "destination": "/painting-services",
+      "permanent": true
     }
   ]
 }
