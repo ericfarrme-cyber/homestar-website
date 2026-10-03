@@ -228,3 +228,65 @@ signal on pages that can actually carry unique content and project proof.
 `/bathroom-remodeling-zionsville-in` appears in the not-indexed list. That snapshot predates
 today's content change; it should be re-inspected after the next crawl rather than treated as a
 failure of the new copy.
+
+---
+
+# Addendum 2026-10-03 (later) — items 1-3 executed
+
+## Item 1 — service-by-city differentiation is complete, at 14
+
+Not because 63 pages were written, but because **the proof-backed set is exhausted.** Audited every
+service x city combination against the PROJECTS array: there are now **zero combinations where
+HomeStar has a completed project in that town and the page lacks unique content.**
+
+| | |
+|---|---|
+| combinations with project proof | 14 |
+| of those, with unique copy | **14** |
+| remaining combinations | 49, none with a project in that town for that service |
+
+Writing the other 49 would mean inventing local detail for towns where the work has not been done —
+which is precisely what produced the 82% duplication and the rejections in the first place. The
+September rule was right and it has now been followed to its end.
+
+**Recommendation for those 49:** the same treatment flooring and painting just received.
+Consolidate into the city hub or the service hub rather than maintaining thin variants.
+
+## Item 2 — flooring and painting by city, consolidated
+
+36 permanent redirects (Vercel emits 308, which Google treats as 301 for consolidation). Nine
+flooring and nine painting city pages now resolve to their service hub. Sitemap **242 -> 224**.
+Verified live: `/flooring-services-carmel-in`, `/painting-services-fishers-in` and
+`/flooring-services-geist-in` all 308 to the correct hub.
+
+This also aligns the site with the Google Business Profile, where Eric is trimming the same
+peripheral services.
+
+## Item 3 — the bathroom head terms
+
+The bathroom hub was **the only page in SERVICE_PAGES without a `quickAnswer` block** — basement,
+kitchen and whole-home all had one. It is also the largest head-term target on the site:
+
+| query | impressions | position |
+|---|---|---|
+| bathroom remodeling | 639 | 22.7 |
+| bathroom remodeler | 455 | 17.6 |
+| bathroom remodel | 297 | 9.6 |
+| **total** | **1,391** | |
+
+Added one, written with the specificity Run #7 showed ChatGPT rewards — named towns, named project
+types, the Kerdi-versus-cement-board distinction stated as a material fact. Verified live.
+
+**Kitchen positioning.** Run #7 put HomeStar in all three kitchen answers and none of the three
+shortlists, with the reason stated outright: *"a local contractor who can coordinate the various
+trades without necessarily going with the most design-oriented firm."* Appended the three-paths
+design-build sentence the whole-home page already carries.
+
+Both edits are additive. The protected copy — 100+ completed projects, licensed plumbers, licensed
+electricians — is byte-identical and was verified so after the change.
+
+## Still outstanding and still the biggest item
+
+**The neighbourhood tier.** 87 pages in the sitemap, ~57 of the 68 index rejections, and not
+covered by items 1-3 so not touched. Until it is redirected, indexed-page count is likely to keep
+falling. This remains Eric's decision.
