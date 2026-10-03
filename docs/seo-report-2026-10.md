@@ -290,3 +290,63 @@ electricians — is byte-identical and was verified so after the change.
 **The neighbourhood tier.** 87 pages in the sitemap, ~57 of the 68 index rejections, and not
 covered by items 1-3 so not touched. Until it is redirected, indexed-page count is likely to keep
 falling. This remains Eric's decision.
+
+---
+
+# Addendum 2026-10-03 (evening) — the job mix, and the positioning change it justified
+
+Eric asked whether cutting flooring and painting would help the four core categories grow. The PM
+hub answers it. Across **32 HomeStar jobs** (the 13 `company=hcc` rows are Hamilton County Concrete
+and Patios, the sister business, and are excluded — an unfiltered first pass wrongly showed decks at
+27% of jobs):
+
+| category | jobs | share | share of contract value |
+|---|---|---|---|
+| **bathroom** | **20** | **62%** | **48%** |
+| basement | 5 | 16% | 24% |
+| kitchen | 2 | 6% | 7% |
+| whole-home | 2 | 6% | 8% |
+| **core four** | **29** | **91%** | **87%** |
+| flooring / painting / decks | 2 | 6% | **2.8%** |
+
+Flooring, painting and decks are **2.8% of contract value**. They were occupying two GBP categories,
+four homepage tiles, eighteen city pages and a line in every city page's service list — and, per
+Run #7, the clause in ChatGPT's own description of HomeStar that sorts it below specialists.
+
+Average bathroom contract: **$35,873** across 20 jobs. The site's published range
+($20,000-$35,000 for most) is accurate and slightly conservative.
+
+## What changed
+
+- Homepage services grid: **8 tiles -> 4**
+- `ServiceCityLinks`: flooring/painting/decks removed. It had been generating internal links
+  straight into the 301s added earlier the same day.
+- Per-city service lists trimmed on **9 city pages**
+- Bathroom specialism stated as a fact in two places: *"more than half of every project we take on
+  is a bathroom"* (62%, rounded down, no pricing)
+
+The four pages themselves still exist and still rank for nothing; they are simply no longer part of
+what the site says HomeStar **is**.
+
+## Google Business Profile description — for Eric to paste (720 of 750 chars)
+
+> HomeStar Services & Contracting is a Schluter Pro Certified remodeling contractor based in
+> Fishers, Indiana, serving Hamilton County homeowners. More than half of every project we take on
+> is a bathroom - full gut renovations, custom walk-in tile showers, wet rooms and shared
+> children's baths. We also finish basements, remodel kitchens, and take on whole-home renovations.
+> Every shower is built on the complete Schluter waterproofing system, Kerdi on the walls and Ditra
+> underfoot, carrying a 25-year manufacturer warranty. Plumbing and electrical are performed by our
+> own licensed trades, not subcontractors, and every project carries a 1-year workmanship warranty.
+> Owners Eric and Robb walk every estimate personally.
+
+Leads with the specialism, keeps the four core categories, keeps the licensed-trades claim verbatim,
+drops flooring/painting/decks entirely.
+
+## The tension to watch
+
+Whole-home is a breadth claim and it is the category where HomeStar most often reaches the AI
+shortlist. The goal is not fewest services, it is a **coherent identity**: bathrooms, basements,
+kitchens and whole-home all require licensed plumbing, licensed electrical, permits and inspections.
+Flooring, painting and decks do not, which is why listing them read as "general contractor" rather
+than "remodeler". Nicholas Design Build offers everything HomeStar does and still reads as one
+thing. That, not narrowness, is the target.
