@@ -15,6 +15,77 @@ runs of a query; that's the point, it tests robustness rather than one exact str
 
 ---
 
+# ⚠️ 2026-10-03 — RUN #6 SINGLE-PASS SWEEP (4 logged-out runs, in-app browser)
+
+**This is not a protocol entry.** One run per query, not three. The protocol exists because a
+single run is noise — position moves between runs of the identical query. Treat the positions
+below as a signal to re-test, not as a measurement comparable to Runs #1–#5. `playwright` and
+`playwright-incognito` both failed to connect this session; the in-app browser pane carries no
+ChatGPT session, so the runs are logged-out by the same test Run #5 used.
+
+| Query | 2026-08-26 | 2026-09-19 (3 runs) | **2026-10-03 (1 run)** | In the final shortlist? |
+|---|---|---|---|---|
+| Bathroom, Fishers | 3/3 @ ~1.7 | 3/3 @ 1.0 | **present @ 5** | only under "bathroom + other renovations" |
+| Kitchen, Fishers | 3/3 (last, 3, 4) | 1/3 @ 2.0 | **present @ 4** | only under "smaller or more straightforward" |
+| Basement, Fishers | 2/3 @ ~1.0 | 2/3 @ 1.0 | **present @ 2** | **no — absent from the 3-bid list** |
+| Whole-home, Hamilton Co. | 1/3 @ 3 | 2/3 @ ~1.5 | **present @ 3** | **yes — named in the $250k+ interview list** |
+
+## 🔴 The new finding: presence is no longer the problem — the shortlist gate is
+
+HomeStar appeared in all four answers. In three of them it was then **left out of the paragraph
+that tells the reader who to actually call.** ChatGPT now ends these answers with a "how I'd narrow
+it down" section, and that section is the real recommendation; everything above it is a longlist.
+
+- Bathroom: the narrowing table routes full custom master baths to Nicholas, MJ Woodstone and
+  Booher. HomeStar appears on one row only — "bathroom + other home renovations".
+- Kitchen: *"For a smaller or more straightforward renovation, Home Redemption or HomeStar may be
+  worth comparing."* The gut-remodel row goes to Nicholas, MJ Woodstone and Everything Home.
+- Basement: HomeStar is listed second, then omitted entirely from "I'd get 3 bids" — which names
+  Preferred Custom Remodeling, Home Redemption and Building Concepts.
+- Whole-home: the exception. Named in the $250k+ interview shortlist.
+
+**That routing is backwards from the business.** HomeStar walks every estimate and the recent work
+is a 1,754 sq ft basement, a 4,000 sq ft whole home and full guts — yet three of four categories
+file it under *small or adjacent* work.
+
+## 🔴 Review volume is not the lever
+
+HomeStar carries **5.0 from 85** Google reviews. Placed above it in bathroom: MJ Woodstone (21
+reviews) and Indy Renovation (31). In kitchen: Nicholas Design Build (15 on Houzz). More Google
+reviews will not move this. What separates them is a **category label and a specialisation
+sentence**, not review count.
+
+## 🔴 The category label, visible in the business cards
+
+Every answer renders a business card above the text, and the card carries a category:
+MJ Woodstone *"Bathroom remodeler"*, Nicholas Design Build *"Remodeler"*, Home Redemption
+*"Contractor"*. The 2026-09-07 addendum flagged that **HomeStar's GBP category set was never
+verified** and that a profile categorised only as a general contractor will not surface in
+bathroom-remodeler cards. That check is still outstanding and is now the single most actionable
+item in this log.
+
+## 🟢 The design-build page shipped, and whole-home is the one category that improved
+
+`/design-build-fishers-in` is live (1,018 words, Service + FAQPage + HomeAndConstructionBusiness
+schema) — it did not exist when the 2026-09-07 addendum said "design-build is unclaimed". Whole-home
+is also the only category where HomeStar made the real shortlist this run. One run cannot establish
+cause, but it is the predicted direction and worth a protocol re-test.
+
+## 🟢 Still cited from our own site — still the retired claim
+
+Whole-home cited HomeStar from its own site: *"in-house licensed plumbing and electrical
+capabilities and one point of contact. Their site reports 100+ completed projects and a 1-year
+workmanship warranty."* Same payroll/in-house claim Eric retired from the ads, still the sentence
+that earns the citation. The Run #5 warning stands: whoever removes it must decide what replaces
+it.
+
+## Houzz, unchanged across four sweeps
+Kitchen placed Nicholas (15 reviews), ACo (17) and Everything Home (122) above HomeStar, **all
+cited via Houzz**. HomeStar is still never cited from Houzz because there is still nothing there to
+cite — 5 reviews against a realistic target of ~15.
+
+---
+
 # 2026-09-19 — RUN #5 FULL SWEEP (12 logged-out runs, in-app browser)
 
 `playwright-incognito` timed out on every navigation this run. The in-app browser pane has no
