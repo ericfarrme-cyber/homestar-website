@@ -166,3 +166,65 @@ Coverage is now 14 of 63 service-by-city combinations with unique content.
 - Which pages gained or lost more than three positions — no prior-month data in a comparable format.
 - Whether the design-build page caused the whole-home improvement — one AI run cannot establish that.
 - Bing Places and GBP category state — both need Eric's login.
+
+---
+
+# Addendum 2026-10-03 — the indexing regression, and what is causing it
+
+Pulled from the live Page Indexing report (GSC data current to 28 Sep, so today's
+content changes are not reflected).
+
+## The trend is down, and accelerating
+
+| date | indexed | not indexed | "Crawled - currently not indexed" |
+|---|---|---|---|
+| 2026-09-07 | 222 | 72 | 28 |
+| 2026-09-19 | 212 | 83 | 41 |
+| **2026-10-03** | **185** | **109** | **68** |
+
+**Indexed pages have fallen 37 in under a month — down 17%.** The quality-judgement bucket has
+grown 143% in the same window. This is not drift; Google is actively removing pages from the index
+faster than it is adding them.
+
+## The cause: the neighbourhood tier
+
+Of the 68 "Crawled - currently not indexed" URLs, roughly **57 are service x neighbourhood x city
+pages**:
+
+```
+/kitchen-remodeling-jacksons-grant-carmel-in
+/kitchen-remodeling-holliday-farms-zionsville-in
+/kitchen-remodeling-village-of-westclay-carmel-in
+/basement-finishing-bradley-ridge-zionsville-in
+/basement-finishing-reserve-at-springmill-carmel-in
+/remodeling-olio-road-fishers-in
+/remodeling-brooks-school-fishers-in
+/remodeling-116th-street-carmel-in
+...
+```
+
+The sitemap carries **87 of these**, 36% of its 242 URLs. About two thirds of the tier has now been
+rejected. These are a level below the service-by-city pages that September measured at 82%
+duplication — same template, narrower slice, even less unique content, and no project proof for
+most of them.
+
+Three more are leftovers that should not exist at all: `/portfolio-items/kitchen-one/`,
+`/portfolio-items/painting-one/` and `/portfolio-items/kyle-kitchen-before/` — demo-content slugs
+from a previous platform.
+
+## Why this matters beyond the pages themselves
+
+"Crawled - currently not indexed" at this scale is a judgement about the site, not only about those
+URLs. Google spent crawl budget on 87 near-identical pages, declined most of them, and the rest of
+the domain sits at average position 15 with 0.6% CTR. The strike zone - 168 non-brand queries at
+position 8-25, 16,593 impressions, near-zero clicks - is what that looks like from the query side.
+
+**The neighbourhood-page decision Eric deferred in September (~75 redirects) is now forced by the
+data.** The recommendation is to 301 the neighbourhood tier into its parent service-by-city page
+and drop it from the sitemap, taking the submitted set from 242 to ~155 and concentrating the
+signal on pages that can actually carry unique content and project proof.
+
+## One page to re-check
+`/bathroom-remodeling-zionsville-in` appears in the not-indexed list. That snapshot predates
+today's content change; it should be re-inspected after the next crawl rather than treated as a
+failure of the new copy.
