@@ -3512,6 +3512,106 @@ const SERVICE_PAGES = {
   },
 };
 
+
+/* ─── Client Portal demo ──────────────────────────────
+   Shown on the long, multi-trade services - basements and whole-home - where
+   the real objection is not price but losing control of the money and the
+   schedule over several months.
+
+   Every figure, name and date below is INVENTED. Nothing here is read from a
+   job. Putting a real project on a marketing page would expose a client's
+   name, address and contract value, which is a worse risk than a competitor
+   seeing a layout they already understand.
+
+   It shows the client's view only - schedule, allowances, documents. It does
+   not show how budgets are built, production recipes, crew scheduling or
+   margins, which is the part that is actually proprietary and which no
+   prospect cares about anyway. */
+const PORTAL_DEMO = {
+  phases: [
+    { name: "Demolition",            state: "done",    note: "Completed Mar 4" },
+    { name: "Framing & rough-in",    state: "done",    note: "Completed Mar 21" },
+    { name: "Electrical & plumbing", state: "current", note: "Inspection booked Apr 2" },
+    { name: "Drywall & paint",       state: "todo",    note: "Starts Apr 8" },
+    { name: "Flooring & trim",       state: "todo",    note: "Starts Apr 22" },
+    { name: "Final walkthrough",     state: "todo",    note: "Target May 6" },
+  ],
+  allowances: [
+    { item: "Tile",            budget: 6000, actual: 5240 },
+    { item: "Plumbing fixtures", budget: 4500, actual: 4500 },
+    { item: "Lighting",        budget: 3200, actual: 2615 },
+    { item: "Cabinetry",       budget: 9000, actual: 9180 },
+  ],
+};
+
+function PortalDemo({service}){
+  const a = PORTAL_DEMO.allowances;
+  const credited = a.reduce((t,r)=>t + Math.max(0, r.budget - r.actual), 0);
+  const money = n => "$" + n.toLocaleString("en-US");
+  return (
+    <section className="sec" style={{background:C.navy}}>
+      <div className="sec-in">
+        <div style={{textAlign:"center",marginBottom:36}}>
+          <div className="lab" style={{color:C.green}}>THE CLIENT PORTAL</div>
+          <h2 className="ttl" style={{color:"#fff"}}>You can see where your {service} actually is</h2>
+          <p style={{color:"rgba(255,255,255,.6)",fontSize:16,lineHeight:1.7,maxWidth:620,margin:"14px auto 0"}}>
+            Every HomeStar project runs on our client portal — the schedule, the budget, every
+            allowance and every document in one place. No chasing anyone for an update, and
+            anything left in an allowance is credited back to you.
+          </p>
+        </div>
+
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(300px,1fr))",gap:20,maxWidth:980,margin:"0 auto"}}>
+          {/* Schedule */}
+          <div style={{background:"#fff",borderRadius:16,padding:"26px 24px"}}>
+            <div style={{fontSize:12,fontWeight:700,letterSpacing:".06em",color:C.gray,marginBottom:18}}>SCHEDULE</div>
+            {PORTAL_DEMO.phases.map(ph=>(
+              <div key={ph.name} style={{display:"flex",alignItems:"flex-start",gap:12,marginBottom:14}}>
+                <div style={{width:10,height:10,borderRadius:"50%",marginTop:5,flexShrink:0,
+                  background: ph.state==="done" ? C.green : ph.state==="current" ? C.navy : C.sand,
+                  border: ph.state==="current" ? `3px solid ${C.green}` : "none"}}/>
+                <div>
+                  <div style={{color:C.navy,fontWeight:ph.state==="current"?700:600,fontSize:14.5}}>{ph.name}</div>
+                  <div style={{color:C.gray,fontSize:12.5}}>{ph.note}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Allowances */}
+          <div style={{background:"#fff",borderRadius:16,padding:"26px 24px"}}>
+            <div style={{fontSize:12,fontWeight:700,letterSpacing:".06em",color:C.gray,marginBottom:18}}>ALLOWANCES</div>
+            {a.map(r=>{
+              const under = r.budget - r.actual;
+              return (
+                <div key={r.item} style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:13}}>
+                  <div style={{color:C.navy,fontWeight:600,fontSize:14.5}}>{r.item}</div>
+                  <div style={{textAlign:"right",fontVariantNumeric:"tabular-nums"}}>
+                    <div style={{color:C.navy,fontSize:14}}>{money(r.actual)} <span style={{color:C.gray,fontSize:12.5}}>of {money(r.budget)}</span></div>
+                    {under>0 && <div style={{color:C.green,fontSize:12,fontWeight:700}}>{money(under)} back to you</div>}
+                    {under<0 && <div style={{color:C.gray,fontSize:12}}>{money(-under)} over — approved first</div>}
+                  </div>
+                </div>
+              );
+            })}
+            <div style={{borderTop:`1px solid ${C.sand}`,marginTop:16,paddingTop:14,display:"flex",justifyContent:"space-between"}}>
+              <div style={{color:C.navy,fontWeight:700,fontSize:14.5}}>Credited back so far</div>
+              <div style={{color:C.green,fontWeight:800,fontSize:16,fontVariantNumeric:"tabular-nums"}}>{money(credited)}</div>
+            </div>
+          </div>
+        </div>
+
+        <p style={{textAlign:"center",color:"rgba(255,255,255,.4)",fontSize:12,marginTop:22}}>
+          Sample project shown for illustration. Figures and dates are examples, not a real client.
+        </p>
+        <div style={{textAlign:"center",marginTop:18}}>
+          <a href="/client-portal" className="btn-g" style={{fontSize:15,padding:"15px 32px"}}>See how the portal works {I.arrow}</a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ServicePage({data,slug}){
   const[faqOpen,setFaqOpen]=useState(null);
   /* A project has one primary `cat`, but genuinely multi-room jobs also carry a secondary
@@ -3695,6 +3795,10 @@ function ServicePage({data,slug}){
           )}
         </div>
       </section>
+
+      {(slug==="basement-finishing"||slug==="whole-home-renovation")&&(
+        <PortalDemo service={slug==="basement-finishing"?"basement":"renovation"}/>
+      )}
 
       {/* Projects */}
       <section id="service-projects" className="sec" style={{background:"#fff"}}>
