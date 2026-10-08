@@ -48,3 +48,9 @@ https://www.thehomestarservice.com/tools/renovation-sequence-planner
 DONE 2026-10-03 https://www.thehomestarservice.com/bathroom-remodeling-zionsville-in
 DONE 2026-10-03 https://www.thehomestarservice.com/basement-finishing-zionsville-in
 DONE 2026-10-03 https://www.thehomestarservice.com/bathroom-remodeling-geist-in
+
+# 2026-10-08 - new Noblesville primary bath case study published, plus the
+# Noblesville bathroom hub whose copy now cites two builds in the town.
+# Submitted to api.indexnow.org and bing.com/indexnow (both HTTP 200).
+DONE 2026-10-08 https://www.thehomestarservice.com/projects/curbless-primary-bath-noblesville
+DONE 2026-10-08 https://www.thehomestarservice.com/bathroom-remodeling-noblesville-in
