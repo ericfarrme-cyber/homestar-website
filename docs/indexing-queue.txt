@@ -54,3 +54,8 @@ DONE 2026-10-03 https://www.thehomestarservice.com/bathroom-remodeling-geist-in
 # Submitted to api.indexnow.org and bing.com/indexnow (both HTTP 200).
 DONE 2026-10-08 https://www.thehomestarservice.com/projects/curbless-primary-bath-noblesville
 DONE 2026-10-08 https://www.thehomestarservice.com/bathroom-remodeling-noblesville-in
+
+# 2026-10-09 - both resubmitted after the heated floor (Schluter DITRA-HEAT) was
+# confirmed and added to the copy. Both endpoints HTTP 200.
+DONE 2026-10-09 https://www.thehomestarservice.com/projects/curbless-primary-bath-noblesville
+DONE 2026-10-09 https://www.thehomestarservice.com/bathroom-remodeling-noblesville-in
