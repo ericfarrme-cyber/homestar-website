@@ -59,3 +59,9 @@ DONE 2026-10-08 https://www.thehomestarservice.com/bathroom-remodeling-noblesvil
 # confirmed and added to the copy. Both endpoints HTTP 200.
 DONE 2026-10-09 https://www.thehomestarservice.com/projects/curbless-primary-bath-noblesville
 DONE 2026-10-09 https://www.thehomestarservice.com/bathroom-remodeling-noblesville-in
+
+# 2026-11-13 - new Noblesville travertine primary bath case study, plus the
+# Noblesville bathroom hub whose copy now draws on three builds in the town.
+# Submitted to api.indexnow.org and bing.com/indexnow (both HTTP 200).
+DONE 2026-11-13 https://www.thehomestarservice.com/projects/travertine-primary-bath-noblesville
+DONE 2026-11-13 https://www.thehomestarservice.com/bathroom-remodeling-noblesville-in
