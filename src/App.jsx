@@ -1251,9 +1251,11 @@ const FAQS = [
 const AREAS = ["Carmel", "Fishers", "Geist", "Noblesville", "Zionsville", "Brownsburg", "Pendleton", "McCordsville", "Fortville", "Westfield"];
 
 /* ─── Styles ──────────────────────────────────────── */
+/* The Google Fonts @import that used to sit here is now a <link> in
+   index.html. It cannot live in this string: renderToString escapes
+   the <style> contents, which made the rule invalid in the prerendered
+   HTML and delayed every font to after hydration. */
 const css = `
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Bricolage+Grotesque:wght@400;600;700;800&display=swap');
-
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;color:${C.text};overflow-x:hidden;-webkit-font-smoothing:antialiased}
