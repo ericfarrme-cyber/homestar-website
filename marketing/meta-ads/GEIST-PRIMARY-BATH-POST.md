@@ -2,8 +2,12 @@
 
 **Status:** built, not posted. Posting is Eric's click.
 **Project page:** `/projects/glass-half-wall-primary-bath-geist`
-**PMHub job:** "Master Bathroom", id `p3md1esze` (client surname is spelled *Herrman* in PMHub;
-the Drive folder says "Herman Master"). Surname stays out of filenames, captions and the page.
+**PMHub job:** "Master Bathroom", id `p3md1esze`. Client is **Herrman** (confirmed by Eric
+2026-11-14; the Drive folder misspells it "Herman Master"). Surname stays out of filenames,
+captions and the page.
+**Site placement:** #14 in `PROJECTS`, not the top - Eric: a smaller bathroom, not one of the
+best pieces, so it sits among the mid-portfolio baths and stays out of the "related" strip.
+**Post on:** Monday 2026-11-16 (reminder set).
 **Cards:** `renders/carousel/geist-primary-bath-01.jpg` … `-06.jpg`, 1080x1350 (4:5)
 **Builder:** `build_geist_primary_bath.py` — grade, framing and badges for both the cards and the
 website images live there.
