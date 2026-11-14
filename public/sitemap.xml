@@ -22,7 +22,10 @@
   <url><loc>https://www.thehomestarservice.com/painting-services</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://www.thehomestarservice.com/decks-outdoor-living</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
 
-  <!-- Service-City Combos (54) -->
+  <!-- Service-City Combos (48). Flooring, painting and most deck city pages are
+       absent on purpose: they 301 to their parent service page under rules in
+       vercel.json, following the 2026-10-03 demotion. Only deck cities with a
+       real project behind them (Fishers, Noblesville, Fortville) stay listed. -->
   <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/bathroom-remodeling-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -51,14 +54,8 @@
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-geist-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/kitchen-remodeling-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/deck-builder-fishers-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/deck-builder-carmel-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/deck-builder-noblesville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/deck-builder-westfield-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/deck-builder-zionsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://www.thehomestarservice.com/deck-builder-fortville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/deck-builder-mccordsville-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/deck-builder-geist-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thehomestarservice.com/deck-builder-pendleton-in</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Blog Posts (10) -->
   <url><loc>https://www.thehomestarservice.com/blog/bathroom-tile-failure-prevention</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>

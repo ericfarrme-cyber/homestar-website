@@ -416,6 +416,66 @@
       "permanent": true
     },
     {
+      "source": "/deck-builder-carmel-in",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/deck-builder-carmel-in/",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/deck-builder-geist-in",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/deck-builder-geist-in/",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/deck-builder-mccordsville-in",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/deck-builder-mccordsville-in/",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/deck-builder-pendleton-in",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/deck-builder-pendleton-in/",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/deck-builder-westfield-in",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/deck-builder-westfield-in/",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/deck-builder-zionsville-in",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
+      "source": "/deck-builder-zionsville-in/",
+      "destination": "/decks-outdoor-living",
+      "permanent": true
+    },
+    {
       "source": "/remodeling-hamilton-proper-fishers-in",
       "destination": "/home-remodeling-fishers-in",
       "permanent": true
