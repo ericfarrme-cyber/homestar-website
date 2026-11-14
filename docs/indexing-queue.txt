@@ -75,3 +75,9 @@ DONE 2026-11-14 https://www.thehomestarservice.com/deck-builder-fortville-in
 # 2026-11-14 - new Kerdi-Board vs Kerdi membrane post, chosen off the GSC query
 # cluster (~200 impressions the old post does not answer). Both endpoints 200.
 DONE 2026-11-14 https://www.thehomestarservice.com/blog/kerdi-board-vs-kerdi-membrane
+
+# 2026-11-14 - three Schluter-cluster posts (niches, curbless, drains), each with
+# first-party build photography. Both endpoints 200.
+DONE 2026-11-14 https://www.thehomestarservice.com/blog/why-shower-niches-leak
+DONE 2026-11-14 https://www.thehomestarservice.com/blog/curbless-shower-what-it-takes
+DONE 2026-11-14 https://www.thehomestarservice.com/blog/linear-vs-centre-shower-drain
