@@ -50,7 +50,7 @@ In: a drop-in soaking tub in a tiled deck on a wall-mounted filler, glazed handm
 
 Two details worth zooming in on. The old tub's wood front panel couldn't be saved when the jetted tub came out, so the new deck is tiled to match the surround. And inside the shower there's a small shave-shelf niche framed into the knee wall, about fifteen inches off the floor.
 
-Under the tile, every wet surface is on the complete Schluter system - Kerdi on the shower walls, Ditra on the floor - and all plumbing was done by a licensed plumber. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.
+Under the tile, the shower is built on Schluter Kerdi-Board - substrate and waterproofing in one panel, seams banded, every fastener sealed before a tile went on - and all plumbing was done by a licensed plumber. Schluter's 25-year manufacturer warranty covers the waterproofing, and our own 1-year workmanship warranty covers the job.
 
 Geist. Free in-home estimates: (317) 279-4798
 
@@ -69,7 +69,7 @@ line is labour), so materials were client-supplied and there is no order acknowl
 | Jetted tub removed; front panel unsalvageable; deck front tiled | Change order "Additional Tile Labor" (approved): "Tile front of tub (original had to be removed to remove old jacuzzi tub, wood paneling could not be salvaged)" |
 | Shave-shelf niche, knee wall, ~15" off floor | Change order "Shave shelf niche" (approved); visible in clip `054310` |
 | Niche lined in wall tile | Change order: niche changed from mosaic to the wall tile (progress shot IMG_3848 shows the earlier mosaic) |
-| Schluter Kerdi walls, Kerdi drain, Ditra floor | Scope; Kerdi-Board visible in progress shots IMG_3800 / IMG_3803 |
+| Kerdi-**Board** on the shower walls, seams banded, fasteners sealed | Progress shots IMG_3800, IMG_3803, f7adf5f4: `Schluter-KERDI-BOARD` and `ANSI A118.10` legible. **The scope says "Kerdi membrane" - the photos show board**, same correction as Couch (`e7afcc9`) and Adams (`2832b50`). Ditra and the Kerdi drain are in the scope but not in any photo, so neither is claimed. |
 | Licensed plumber | Scope: "All plumbing work performed by licensed plumber" |
 | Round mosaic floor | Visible in clips `054328` / `054331` — **not hexagon**; the thumbnails suggested hex, full-res frames show mixed-size rounds |
 | Almond tub/tile, 4" stall, frosted framed door, molded top, plate mirror, sage | Visible in the Insta360 befores |

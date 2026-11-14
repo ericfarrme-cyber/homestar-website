@@ -274,16 +274,18 @@ def build_cards(outdir, prefix):
 
 
 def build_web(outdir):
+    # 1600px long edge: the site-wide ceiling set in f2f3592 after the homepage
+    # shipped 11.9 MB and cards failed to load. Nothing displays above ~800 CSS px.
     os.makedirs(outdir, exist_ok=True)
     out = []
     for i, rel in enumerate(GALLERY, 1):
         p = os.path.join(outdir, f"{SLUG}-{i}.jpg")
-        fit(crop(rel, .5, .5, 1.0, 4 / 3), 2048, 1536).save(p, quality=84, optimize=True, progressive=True)
+        fit(crop(rel, .5, .5, 1.0, 4 / 3), 1600, 1200).save(p, quality=84, optimize=True, progressive=True)
         out.append(p)
     for i, (key, b, a) in enumerate(WEB_PAIRS, 1):
         for tag, fr in (("before", b), ("after", a)):
             p = os.path.join(outdir, f"{SLUG}-{tag}-{i}.jpg")
-            fit(crop(*fr, aspect=3 / 4), 1536, 2048).save(p, quality=84, optimize=True, progressive=True)
+            fit(crop(*fr, aspect=3 / 4), 1200, 1600).save(p, quality=84, optimize=True, progressive=True)
             out.append(p)
     return out
 
