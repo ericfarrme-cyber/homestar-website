@@ -605,8 +605,23 @@ const PROJECTS = [
 ];
 
 /* ─── SEO Helpers ─────────────────────────────────── */
+/* Passing null means "this component does not own the canonical" - the hook
+   still runs, so hook order is stable, but it leaves the tag alone. That
+   matters because the ROOT component renders on every route and used to set
+   the homepage canonical unconditionally; React runs parent effects after
+   child effects, so the root's write landed last and overwrote the canonical
+   every page component had just set correctly.
+
+   Confirmed in GSC URL Inspection on 2026-11-14 for
+   /projects/white-oak-primary-bath-fishers:
+     User-declared canonical:   https://www.thehomestarservice.com/
+     Google-selected canonical: Inspected URL
+   Google renders the JS, read the homepage canonical, and indexed that page
+   only by overriding us. scripts/build-route-heads.mjs had already fixed the
+   served HTML; this is the same bug reintroduced on the client. */
 function useCanonical(path){
   useEffect(()=>{
+    if(path===null||path===undefined)return;
     let link=document.querySelector('link[rel="canonical"]');
     if(!link){link=document.createElement("link");link.rel="canonical";document.head.appendChild(link);}
     link.href="https://www.thehomestarservice.com"+(path?"/"+path:"");
@@ -6813,14 +6828,20 @@ export default function HomestarSite({ssrPath}){
   /* Resolved once, synchronously, from the SSR path at build time or the real URL
      in the browser. Both paths run the same resolver, so the prerendered HTML and
      the client's first render agree. */
-  const[route]=useState(()=>resolveRoute(
+  const[rawPath]=useState(()=>
     typeof ssrPath==="string" ? ssrPath
       : (typeof window!=="undefined" ? window.location.pathname : "/")
-  ));
+  );
+  const[route]=useState(()=>resolveRoute(rawPath));
   const{cityPage,servicePage,serviceCityPage,blogPost,neighborhoodPage,projectPage,authorPage,
     guidePage,calcPage,basementCalcPage,kitchenCalcPage,seqPlannerPage,designerPage,designBuildPage,portalPage,
     teamPage,hoodSvcPage}=route;
-  useCanonical("");
+  /* Only the homepage declares the homepage canonical. Every other route sets
+     its own, and the root must not stamp over it. Keyed off the path rather
+     than off the route flags because a path that matches no page type (an old
+     WordPress URL, a typo) should keep whatever the served HTML declared
+     rather than be told it is the homepage. */
+  useCanonical(rawPath.replace(/^\/+|\/+$/g,"")===""?"":null);
 
   useEffect(()=>{
     const handleHash=()=>{
