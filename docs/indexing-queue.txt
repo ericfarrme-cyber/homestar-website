@@ -65,3 +65,9 @@ DONE 2026-10-09 https://www.thehomestarservice.com/bathroom-remodeling-noblesvil
 # Submitted to api.indexnow.org and bing.com/indexnow (both HTTP 200).
 DONE 2026-11-13 https://www.thehomestarservice.com/projects/travertine-primary-bath-noblesville
 DONE 2026-11-13 https://www.thehomestarservice.com/bathroom-remodeling-noblesville-in
+
+# 2026-11-14 - three deck-by-city pages treated with unique, project-backed copy
+# while chasing "Crawled - currently not indexed". Submitted, both endpoints 200.
+DONE 2026-11-14 https://www.thehomestarservice.com/deck-builder-fishers-in
+DONE 2026-11-14 https://www.thehomestarservice.com/deck-builder-noblesville-in
+DONE 2026-11-14 https://www.thehomestarservice.com/deck-builder-fortville-in
