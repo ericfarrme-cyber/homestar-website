@@ -42,7 +42,7 @@ Everything else in the room is quiet, and that wall is what the eye goes to.
 | Shower pan | Travertine Roman **3" hexagon mosaic**, matte, **15 sq ft** | VT order + scope |
 | Shower niche | Adex Mosaics Light Smoke **1" hex, gloss** — matte everywhere else, gloss in the niche | VT order |
 | Grout | TEC Power Grout, Sterling on the floor, Dove Gray in the shower | VT selection |
-| Waterproofing | Schluter-**Kerdi** on the shower walls, Schluter-**Ditra** under the floor | scope |
+| Waterproofing | Schluter **Kerdi-Board** on the shower walls (confirmed from the build photos — the panel branding and ANSI A118.10 marking are legible), Schluter-**Ditra** under the floor | scope |
 | Heated floor | **No** — Ditra is the uncoupling membrane, not DITRA-HEAT, and the electrical scope has no mat | scope |
 | Edge trim | Schluter-style jolly edge trim, greige | VT selection |
 | Accent wall | **Wallpaper**, vanity wall to ceiling, **roughly 64 sq ft** | change order, confirmed |
@@ -185,7 +185,7 @@ handheld, real. That is the point of them.
 shower wall tile and 15 sq ft of shower pan — **230 sq ft of tile in one bathroom**, 256 sq ft
 ordered to cover it. Roughly 64 sq ft of wallpaper on the vanity wall. About five weeks on site.
 
-**Systems:** Schluter-Kerdi on the shower walls and transitions, Schluter-Ditra under the floor,
+**Systems:** Schluter Kerdi-Board on the shower walls and transitions, Schluter-Ditra under the floor,
 an integrated Schluter-Kerdi drain flange, a framed recessed niche, a framed half wall carrying
 both the shower glass and the drop-in tub, a pressure-balanced anti-scald valve with a
 3-function diverter, a new high-CFM quiet fan, GFCI-protected 20A circuits, relocated sconce
@@ -221,3 +221,16 @@ second one is a fact.
   60-inch. Publish "drop-in soaking tub" and no number until one of them is confirmed.
 - **Before photography.** The only before frames are ~1 MP phone screenshots (R15–R21). Fine at
   9:16 in a reel, too small to sit beside the 28 MP finished stills on the website.
+
+## Correction, 2026-11-14
+
+The scope of work says "Schluter-Kerdi waterproofing membrane on all shower walls". The
+build photos say otherwise: R06 and R07 show **Kerdi-Board** panels with the Schluter
+branding and the ANSI A118.10 marking still legible, washered fasteners, and banded seams.
+Board and membrane are different products — the board is substrate and waterproofing in
+one, the membrane is a sheet bonded over a separate substrate — so this matters when the
+copy names one.
+
+Corrected on the case study and in the Kerdi blog post, both of which had followed the
+scope. Same lesson as the tile: the paperwork is what was specified, the photographs are
+what was built.
