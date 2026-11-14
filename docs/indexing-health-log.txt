@@ -488,3 +488,45 @@ evidence available about whether the content rule in this file is sufficient on
 its own or whether these pages need links and authority as well. Do not read the
 December drop in the headline number as proof the rule works - most of that drop
 is already banked and has nothing to do with content.
+
+--------------------------------------------------------------------------------
+2026-11-14: stop expanding the programmatic layer. Decision and evidence.
+--------------------------------------------------------------------------------
+
+basement-finishing-westfield-in is the controlled experiment and it failed:
+
+  unique CITY_SVC_CONTENT copy    yes, since 2026-07-05
+  project proof in that town      yes, basement projects exist in Westfield
+  internal links                  15 (measured on the built output)
+  crawled after treatment         yes, 2026-07-09
+  indexed                         no
+
+That page satisfies every rule this file has ever set and Google still declines
+it. The reason is not content, proof, or links. It is that a service-by-city
+page sits between /basement-finishing and /home-remodeling-westfield-in, both of
+which cover the same ground better, and Google indexes the strongest version of
+a topic rather than all of them.
+
+So: do not write copy for the remaining twelve. Westfield says it will not work.
+Do not redirect them either - they cost nothing, they serve anyone who lands on
+one, and insurance-restoration in particular is kept on Eric's instruction
+because occasional large insurance referrals come through.
+
+Where the effort goes instead is settled by the same measurement.
+blog/schluter-vs-cement-board-waterproofing earns 112 clicks and 13,506
+impressions in 90 days - more impressions than the homepage - on FOUR inbound
+internal links. One genuinely technical post with almost no internal support
+beats fifty programmatic pages with plenty of it.
+
+ONE THING FIXED TODAY AS A RESULT
+
+Related posts were selected by BLOG array order within a category, not by
+relevance - whichever two posts sat nearest the top of the array. Measured: the
+site's best post had 4 inbound links while two posts added that morning had 12
+each, purely for being inserted at the top. Posts can now declare `related`
+explicitly, and the five Schluter-cluster posts now point at each other.
+Everything else keeps the old behaviour.
+
+  schluter-vs-cement-board   4 -> 6 inbound
+  kerdi-board-vs-membrane    3 -> 6
+  why-shower-niches-leak     5 -> 7
