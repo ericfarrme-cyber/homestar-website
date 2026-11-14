@@ -1378,9 +1378,16 @@ const AREAS = ["Carmel", "Fishers", "Geist", "Noblesville", "Zionsville", "Brown
 
 /* ─── Styles ──────────────────────────────────────── */
 /* The Google Fonts @import that used to sit here is now a <link> in
-   index.html. It cannot live in this string: renderToString escapes
-   the <style> contents, which made the rule invalid in the prerendered
-   HTML and delayed every font to after hydration. */
+   index.html, and every <style> that carries this string is rendered
+   with dangerouslySetInnerHTML. Both exist for the same reason:
+   renderToString HTML-escapes the children of <style>, and <style> is a
+   raw-text element, so browsers never decode the entities. Written as
+   <style>{css}</style> the prerendered HTML carried
+   font-family:&#x27;Plus Jakarta Sans&#x27; and .team-row&gt;div, which
+   the CSS parser discards -- so first paint fell back to the UA default
+   serif and the team rows lost their layout until hydration replaced
+   the node. dangerouslySetInnerHTML writes the string verbatim.
+   Do not change these back to <style>{css}</style>. */
 const css = `
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -2037,7 +2044,7 @@ function BlogPostPage({post}){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Blog",url:"/#blog"},{name:post.title}]}/>
       {post.faq&&post.faq.length>0&&<FaqSchema faqs={post.faq}/>}
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"BlogPosting",headline:post.title,description:post.excerpt,datePublished:post.date,...(post.images&&post.images[0]?{image:"https://www.thehomestarservice.com"+post.images[0].src}:{}),author:{"@type":"Person",name:(post.author?post.author==="robb-rice":BLOG.findIndex(b=>b.slug===post.slug)%2===1)?"Robb Rice":"Eric Farr",url:"https://www.thehomestarservice.com/about/"+((post.author?post.author==="robb-rice":BLOG.findIndex(b=>b.slug===post.slug)%2===1)?"robb-rice":"eric-farr")},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
@@ -2922,7 +2929,7 @@ function NeighborhoodPage({hood}){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:`${hood.city}, IN`,url:"/"+hood.citySlug},{name:hood.name}]}/>
       <FaqSchema faqs={hood.faq}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:`Expert home remodeling in ${hood.name}, ${hood.city}, Indiana.`,url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",areaServed:{"@type":"Place",name:`${hood.name}, ${hood.city}, IN`},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"85"}})}}/>
@@ -3128,7 +3135,7 @@ function CityPage({data}){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       {/* Schema.org for this city */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:data.metaDesc,url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:data.city,addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:data.lat,longitude:data.lng},areaServed:{"@type":"City",name:data.city},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"85"},priceRange:"$$"})}}/>
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Service Areas",url:"/#areas"},{name:`${data.city}, IN`}]}/>
@@ -3859,7 +3866,7 @@ function ServicePage({data,slug}){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:data.service,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"85"}},areaServed:data.cities.map(c=>({"@type":"City",name:c})),description:data.metaDesc})}}/>
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Services",url:"/#services"},{name:data.service}]}/>
       <FaqSchema faqs={data.faq}/>
@@ -4373,7 +4380,7 @@ function ServiceCityPage({svcData,cityData,svcKey}){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":tpl.schemaType||"Service",name:`${svcData.service} in ${city}, IN`,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:city,addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"85"}},areaServed:{"@type":"City",name:city},description:metaDesc})}}/>
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:svcData.service,url:"/"+SERVICE_SLUG_MAP[svcKey]},{name:`${city}, IN`}]}/>
       <FaqSchema faqs={cityFaqs}/>
@@ -4644,7 +4651,7 @@ function ProjectPage({project}){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Projects",url:"/#projects"},{name:project.title}]}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Article",headline:project.title,description:project.desc,author:{"@type":"Organization",name:"HomeStar Services & Contracting"},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"},image:project.images[0]?.src})}}/>
 
@@ -5054,7 +5061,7 @@ function TeamPage(){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Our Team"}]}/>
       <FaqSchema faqs={TEAM_FAQ}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({
@@ -5232,7 +5239,7 @@ function AuthorPage({author}){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"About",url:"/#about"},{name:author.name}]}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Person",name:author.name,jobTitle:author.role,worksFor:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"},knowsAbout:["bathroom remodeling","kitchen remodeling","basement finishing","Schluter waterproofing system","home renovation"],email:author.email})}}/>
 
@@ -5523,7 +5530,7 @@ function GuidePage({guide}){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Guides",url:"/#guides"},{name:guide.title}]}/>
       <FaqSchema faqs={guide.faq}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Article",headline:guide.title,description:guide.metaDesc,author:{"@type":"Person",name:"Eric Farr",url:"https://www.thehomestarservice.com/about/eric-farr"},publisher:{"@type":"Organization",name:"HomeStar Services & Contracting",url:"https://www.thehomestarservice.com"}})}}/>
@@ -5725,7 +5732,7 @@ function BasementCostCalculator(){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Tools",url:"/tools/basement-cost-calculator"},{name:"Basement Cost Calculator"}]}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"WebApplication",name:"Hamilton County Basement Finishing Cost Calculator",applicationCategory:"HomeImprovement",operatingSystem:"Web",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},provider:{"@type":"Organization",name:"HomeStar Services & Contracting"}})}}/>
       <FaqSchema faqs={calcFaq}/>
@@ -5908,7 +5915,7 @@ function ClientPortalPage(){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"The Client Portal"}]}/>
       <FaqSchema faqs={P.faq}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:"HomeStar Client Project Portal",serviceType:"Remodeling project management and client communication",provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"85"}},areaServed:["Fishers","Carmel","Noblesville","Westfield","Zionsville","Geist"].map(c=>({"@type":"City",name:c})),description:"A private project portal given to every HomeStar remodeling client, covering estimate, selections with allowance tracking, construction phase status, change orders and final reconciliation."})}}/>
@@ -6060,7 +6067,7 @@ function DesignBuildPage(){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Design-Build in Fishers"}]}/>
       <FaqSchema faqs={DESIGN_BUILD_FAQ}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:"Design-Build Remodeling",serviceType:"Design-build residential remodeling",provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"85"}},areaServed:["Fishers","Carmel","Noblesville","Westfield","Zionsville","Geist"].map(c=>({"@type":"City",name:c})),description:"Design-build remodeling in Fishers and Hamilton County, Indiana, with three routes to design: an in-house team, the homeowner's own designer or architect, or an introduction to a partner firm."})}}/>
@@ -6172,7 +6179,7 @@ function DesignerCollaborationPage(){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Working With Your Designer or Architect"}]}/>
       <FaqSchema faqs={D.faq}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:"Designer & Architect Collaboration — Remodeling Construction Services",serviceType:"General contracting for interior designers and architects",provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798",url:"https://www.thehomestarservice.com",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"85"}},areaServed:["Fishers","Carmel","Noblesville","Westfield","Zionsville","Fortville","McCordsville","Geist","Pendleton"].map(c=>({"@type":"City",name:c})),description:"HomeStar Services & Contracting builds to outside interior designers' and architects' drawings across Hamilton County, Indiana, with licensed plumbers and electricians in-house and Schluter Pro Certified waterproofing."})}}/>
@@ -6375,7 +6382,7 @@ function SequencePlanner(){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Tools",url:"/tools/renovation-sequence-planner"},{name:"Renovation Sequence Planner"}]}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"WebApplication",name:"Renovation Sequence Planner — Hamilton County, Indiana",applicationCategory:"HomeImprovement",operatingSystem:"Web",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},provider:{"@type":"Organization",name:"HomeStar Services & Contracting"}})}}/>
       <FaqSchema faqs={planFaq}/>
@@ -6543,7 +6550,7 @@ function KitchenCostCalculator(){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Tools",url:"/tools/kitchen-cost-calculator"},{name:"Kitchen Cost Calculator"}]}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"WebApplication",name:"Hamilton County Kitchen Remodeling Cost Calculator",applicationCategory:"HomeImprovement",operatingSystem:"Web",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},provider:{"@type":"Organization",name:"HomeStar Services & Contracting"}})}}/>
       <FaqSchema faqs={calcFaq}/>
@@ -6684,7 +6691,7 @@ function CostCalculator(){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:"Tools",url:"/tools/remodel-cost-calculator"},{name:"Cost Calculator"}]}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"WebApplication",name:"Hamilton County Remodel Cost Calculator",applicationCategory:"HomeImprovement",operatingSystem:"Web",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},provider:{"@type":"Organization",name:"HomeStar Services & Contracting"}})}}/>
 
@@ -6798,7 +6805,7 @@ function HoodServicePage({hood,svc}){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <BreadcrumbSchema items={[{name:"Home",url:"/"},{name:`${hood.city}, IN`,url:"/"+hood.citySlug},{name:hood.name,url:`/remodeling-${hoodKey}-${citySlug}-in`},{name:svc.name}]}/>
       <FaqSchema faqs={faq}/>
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Service",name:`${svc.name} in ${hood.name}, ${hood.city}, Indiana`,provider:{"@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",telephone:"+1-317-279-4798"},areaServed:{"@type":"Place",name:`${hood.name}, ${hood.city}, IN`}})}}/>
@@ -7093,7 +7100,7 @@ export default function HomestarSite({ssrPath}){
 
   return(
     <div style={{overflowX:"hidden"}}>
-      <style>{css}</style>
+      <style dangerouslySetInnerHTML={{ __html: css }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",name:"HomeStar Services & Contracting",description:"Schluter Pro Certified design-build remodeler based in Fishers, serving Hamilton County, Indiana. Four specialties, each run to the same depth: bathroom remodeling - more than half of every project we take - plus basement finishing, kitchen remodeling and whole-home renovation. Licensed plumbers and electricians in-house, 3D renderings before demolition, and a client portal on every project with unused allowance credited back.",url:"https://www.thehomestarservice.com",telephone:"+1-317-279-4798",address:{"@type":"PostalAddress",addressLocality:"Fishers",addressRegion:"IN",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},areaServed:[{name:"Fishers"},{name:"Carmel"},{name:"Geist"},{name:"Westfield"},{name:"Noblesville"},{name:"Zionsville"},{name:"Brownsburg"},{name:"Pendleton"},{name:"McCordsville"},{name:"Fortville"}].map(c=>({"@type":"City",...c})),serviceArea:{"@type":"GeoCircle",geoMidpoint:{"@type":"GeoCoordinates",latitude:39.9568,longitude:-86.0131},geoRadius:"40000"},aggregateRating:{"@type":"AggregateRating",ratingValue:"5.0",reviewCount:"85"},openingHours:["Mo-Fr 08:00-17:00"],priceRange:"$$",sameAs:["https://www.facebook.com/people/HomeStar-Services-and-Contracting/61568970834535/","https://www.instagram.com/thehomestarservice/","https://www.bbb.org/us/in/fishers/profile/general-contractor/homestar-services-and-contracting-inc-0382-90065629","https://www.angi.com/companylist/us/in/carmel/homestar-services-and-contracting-construction-contracting-thehomestarservicecom-reviews-149521817.htm","https://directory.bagi.com/directory/Details/homestar-services-and-contracting-4883083","https://www.houzz.com/professionals/general-contractors/homestar-services-and-contracting-inc-pfvwus-pf~634607625"],founder:[{"@type":"Person",name:"Robb Rice"},{"@type":"Person",name:"Eric Farr"}],memberOf:{"@type":"Organization",name:"Builders Association of Greater Indianapolis (BAGI)",url:"https://bagi.com"},hasOfferCatalog:{"@type":"OfferCatalog",name:"Home Remodeling Services",itemListElement:SVC.map((s,i)=>({"@type":"Offer",itemOffered:{"@type":"Service",name:s.title,description:s.desc}}))}})}}/>
       <Nav/>
       <Hero/>

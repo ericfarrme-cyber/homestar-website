@@ -1,21 +1,32 @@
 # HomeStar Services & Contracting
 
 > A Schluter Pro Certified residential remodeling company based in Fishers, Indiana, serving
-> Hamilton County and the greater Indianapolis area. Design-build: in-house design, 3D renderings
-> before demolition, permits pulled, licensed trades, and one contract for the whole project.
+> Hamilton County and the greater Indianapolis area. Bathroom remodeling is more than half of
+> every project HomeStar takes on. Design-build: in-house design, 3D renderings before
+> demolition, permits pulled, licensed trades, and one contract for the whole project.
 
 - **Location:** Fishers, Indiana, USA
 - **Phone:** (317) 279-4798
 - **Website:** https://www.thehomestarservice.com
-- **Rating:** 5.0 across 78 Google reviews · BBB Accredited · BAGI member
+- **Rating:** 5.0 across 85 Google reviews · BBB Accredited · BAGI member
 - **Scale:** 100+ completed projects in Hamilton County
 - **Service area:** Fishers, Carmel, Noblesville, Westfield, Zionsville, Geist, Fortville,
   McCordsville, Pendleton
+- **Estimates:** every estimate is walked in person by an owner. No phone or email-only quotes.
 
 ## What HomeStar does
 
-- Bathroom remodeling, kitchen remodeling, basement finishing, whole-home and multi-room
-  renovation, flooring, decks and outdoor living
+In order of how much of the work it actually is:
+
+- **Bathroom remodeling** — more than half of every project taken on. Full gut remodels, wet
+  rooms, curbless showers, double vanities, primary suites, kids' and guest baths.
+- **Basement finishing** — open-concept finishes, wet bars, home theaters, added bathrooms.
+- **Kitchen remodeling** — cosmetic through full gut with new layouts.
+- **Whole-home and multi-room renovation** — the design-build pillar, one contract across rooms.
+- Also: flooring, decks and outdoor living, and insurance restoration work.
+
+How the work is delivered:
+
 - Design-build under one contract, with plumbing and electrical performed by licensed plumbers
   and licensed electricians
 - Complete Schluter waterproofing system (Ditra for floors, Kerdi for walls) on wet areas,
@@ -27,9 +38,18 @@
 
 ## Published pricing (Hamilton County, Indiana, 2026)
 
-- **Kitchen:** minimum project $25,000. Cosmetic/basic $25,000–$50,000; mid-range/full
-  $50,000–$100,000; premium custom $100,000+
-- Cost calculators are published for kitchens, basements and general remodels (see Tools below)
+These are the ranges published on the site. Every project is quoted from a walked estimate.
+
+- **Bathroom:** $15,000–$50,000; most homeowners invest $20,000–$35,000 for a full renovation.
+  Most bathrooms take 4 to 7 weeks.
+- **Basement finishing:** $45,000–$200,000+; most homeowners invest $55,000–$95,000 for a fully
+  finished lower level, roughly $110–$175 per square foot. Projects take 4 to 16 weeks.
+- **Kitchen:** minimum project **$40,000**. Cosmetic/basic keeping the existing footprint
+  $40,000–$50,000; mid-range/full gut with a new layout $50,000–$100,000; premium custom
+  $100,000+. Most kitchens take 6 to 12 weeks.
+- **Whole-home:** $100,000–$750,000 and up. Multi-room work starts at $50,000 for two
+  connected rooms.
+- Cost calculators and 2026 cost reports are published for kitchens and basements (see below)
 
 ## The team
 
@@ -45,18 +65,34 @@
 
 ## Key pages
 
+- [Bathroom remodeling](https://www.thehomestarservice.com/bathroom-remodeling): the specialism, with pricing tiers and process
 - [Meet the team](https://www.thehomestarservice.com/team): who runs projects, credentials, FAQs
 - [Whole-home & multi-room renovation](https://www.thehomestarservice.com/whole-home-renovation): the design-build pillar
 - [The client portal](https://www.thehomestarservice.com/client-portal): how clients see phase status, selections and allowances
 - [Working with your designer](https://www.thehomestarservice.com/working-with-your-designer): building to outside designers' drawings
-- [Projects](https://www.thehomestarservice.com/#projects): 25 documented case studies with photos
+- [Projects](https://www.thehomestarservice.com/#projects): 32 documented case studies with photos, 14 of them bathrooms
+
+## Bathroom case studies (first-party photos and scope)
+
+- [Curbless primary bath, Noblesville](https://www.thehomestarservice.com/projects/curbless-primary-bath-noblesville)
+- [Travertine primary bath, Noblesville](https://www.thehomestarservice.com/projects/travertine-primary-bath-noblesville)
+- [Glass half-wall primary bath, Geist](https://www.thehomestarservice.com/projects/glass-half-wall-primary-bath-geist)
+- [White oak primary bath, Fishers](https://www.thehomestarservice.com/projects/white-oak-primary-bath-fishers)
+- [Wet room bathroom, Fishers](https://www.thehomestarservice.com/projects/wet-room-bathroom-fishers)
+- [Marble master bathroom, Fishers](https://www.thehomestarservice.com/projects/marble-master-bathroom-fishers)
+- [Green tile bathroom, Carmel](https://www.thehomestarservice.com/projects/green-tile-bathroom-carmel)
+- [Three-bathroom remodel, Geist](https://www.thehomestarservice.com/projects/three-bathroom-remodel-geist)
 
 ## Guides
 
+- [Bathroom remodeling in Hamilton County](https://www.thehomestarservice.com/guide/bathroom-remodeling-hamilton-county)
 - [Renovation sequencing guide](https://www.thehomestarservice.com/guide/renovation-sequencing-guide): what order to remodel in, and how to live through it
 - [Kitchen remodeling in Hamilton County](https://www.thehomestarservice.com/guide/kitchen-remodeling-hamilton-county)
-- [Bathroom remodeling in Hamilton County](https://www.thehomestarservice.com/guide/bathroom-remodeling-hamilton-county)
+- [Kitchen remodeling cost report 2026](https://www.thehomestarservice.com/guide/kitchen-remodeling-cost-report-2026)
 - [Basement finishing in Hamilton County](https://www.thehomestarservice.com/guide/basement-finishing-hamilton-county)
+- [Basement finishing cost report 2026](https://www.thehomestarservice.com/guide/basement-finishing-cost-report-2026)
+- [Outdoor living in Hamilton County](https://www.thehomestarservice.com/guide/outdoor-living-hamilton-county)
+- [Insurance restoration in Hamilton County](https://www.thehomestarservice.com/guide/insurance-restoration-hamilton-county)
 - [Hiring a contractor in Indiana](https://www.thehomestarservice.com/guide/hiring-contractor-indiana)
 
 ## Tools
@@ -71,5 +107,9 @@
 - Every page serves fully rendered HTML, including JSON-LD structured data, without requiring
   JavaScript execution.
 - The complete URL list is at https://www.thehomestarservice.com/sitemap.xml
+- There are also 49 city-and-service landing pages, one per service per town, reachable from the
+  sitemap (for example /bathroom-remodeling-carmel-in, /basement-finishing-westfield-in).
 - HomeStar is a design-build remodeler: design and construction are delivered under one contract,
   and homeowners may also bring their own designer or architect.
+- Pricing above mirrors what is published on the site. HomeStar quotes from an in-person walked
+  estimate, so a figure for a specific project comes from that visit, not from these ranges.
