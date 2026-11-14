@@ -384,3 +384,65 @@ REVISED PLAN
 
 Lesson recorded: quick_ratio is a screening heuristic, not a measurement. It was
 used to justify a plan and the plan was wrong.
+
+================================================================================
+2026-11-14  BASELINE, TO RE-READ ON OR AFTER 2026-12-12
+================================================================================
+
+Four things changed on the site today. Writing the numbers down so the follow-up
+is a measurement rather than an impression.
+
+BASELINE AT THE TIME OF THE CHANGES
+
+  Indexed / not indexed          141 / 93
+    page with redirect            28   (apex->www plus the demoted service-city pages)
+    alternate w/ proper canonical 28   (mostly dead WordPress /portfolio-items/ URLs)
+    crawled - currently not idx   32   (the real problem; all service-city combos)
+    discovered - not indexed       4
+    duplicate, no user canonical   0
+  Clicks, 90 days                537   (homepage 294 + one blog post 112 = 76%)
+  Core Web Vitals                "No data" - not enough traffic for a CrUX sample
+  Homepage image weight          4.83 MB, down from 11.91 MB the same day
+
+  The Schluter cluster, 90 days:
+    kerdi board vs cement board   13 clicks / 721 impressions
+    cement board vs kerdi board    1 / 199
+    kerdi board                    0 / 182
+    kerdi board vs membrane        0 / 131
+    cement board vs schluter       1 / 105
+    schluter kerdi board           1 /  80
+    kerdi board vs kerdi membrane  1 /  70
+    kerdi board vs durock          1 /  56
+
+  The cost queries, which are NOT being chased - 11,773 impressions, 0 clicks:
+    average bathroom remodel cost hamilton   0 / 4,036
+    small bathroom remodel cost hamilton     0 / 3,929
+    full bathroom remodel cost hamilton      0 / 3,808
+  Those rank deep against national aggregators and the title/meta are already
+  strong, so the lever there is authority, not more words.
+
+WHAT CHANGED
+
+  1. Canonical. The root component called useCanonical("") on every route and
+     React runs parent effects last, so the homepage canonical overwrote every
+     page's own. Confirmed in URL Inspection before the fix: user-declared
+     canonical on /projects/white-oak-primary-bath-fishers was the homepage and
+     Google indexed it only by overriding us.
+  2. Image weight. 71.9 MB library -> 42.4 MB; logo-mascot.png was 6553x5557 at
+     1.2 MB rendering at 40x40.
+  3. Fonts. The @import lived in a string that renderToString HTML-escapes, so
+     the rule was invalid in every prerendered page and the font was not fetched
+     until after hydration. Now a <link> in index.html.
+  4. Four posts added to the Schluter cluster, all with first-party photography.
+
+WHAT TO LOOK FOR ON THE RE-READ
+
+  - "Crawled - currently not indexed" should fall if the canonical fix was part
+    of why those 32 were refused. If it has not moved, the cause was thin content
+    rather than conflicting signals, and the answer is the content rule already
+    in this file, not more technical work.
+  - Core Web Vitals may start reporting now the homepage is a third of its weight.
+    If it is still "No data", traffic is the constraint, not performance.
+  - The Schluter cluster queries above are the ones the four new posts target.
+    Impressions moving there is the signal that the cluster approach works; clicks
+    will lag impressions by a good while.
