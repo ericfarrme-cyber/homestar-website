@@ -71,3 +71,7 @@ DONE 2026-11-13 https://www.thehomestarservice.com/bathroom-remodeling-noblesvil
 DONE 2026-11-14 https://www.thehomestarservice.com/deck-builder-fishers-in
 DONE 2026-11-14 https://www.thehomestarservice.com/deck-builder-noblesville-in
 DONE 2026-11-14 https://www.thehomestarservice.com/deck-builder-fortville-in
+
+# 2026-11-14 - new Kerdi-Board vs Kerdi membrane post, chosen off the GSC query
+# cluster (~200 impressions the old post does not answer). Both endpoints 200.
+DONE 2026-11-14 https://www.thehomestarservice.com/blog/kerdi-board-vs-kerdi-membrane
