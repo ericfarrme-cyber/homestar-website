@@ -446,3 +446,45 @@ WHAT TO LOOK FOR ON THE RE-READ
   - The Schluter cluster queries above are the ones the four new posts target.
     Impressions moving there is the signal that the cluster approach works; clicks
     will lag impressions by a good while.
+
+--------------------------------------------------------------------------------
+2026-11-14, later: the full 32, and why the number is misleading
+--------------------------------------------------------------------------------
+
+Pulled the whole "Crawled - currently not indexed" list rather than the ten-URL
+sample Search Console shows by default. The grouping changes the reading:
+
+   9  neighbourhood-SERVICE combos   already 308 -> city page (since 2026-10-03)
+   4  neighbourhood pages            already 308 -> city page
+   3  flooring-services city pages   already 308 -> parent service page
+   2  dead WordPress /portfolio-items/  404
+   1  terms-and-conditions.html      legal page, no action
+  ---
+  19  already dealt with
+
+   6  insurance-restoration city pages   live, no project proof, kept on
+                                         Eric's instruction - occasional large
+                                         insurance referrals
+   4  kitchen-remodeling city pages      live, untreated
+   3  basement-finishing city pages      live
+  ---
+  13  genuinely live and unresolved
+
+Every crawl date on the 19 is between May 29 and Jun 30 2026, and the redirects
+that retired them landed 2026-10-03. Google has not re-crawled them since. So
+most of that 93-page "not indexed" total is Search Console describing a site
+that no longer exists, and the number should fall on its own without anyone
+doing anything.
+
+ONE REAL FINDING, which does not have that excuse:
+
+  basement-finishing-westfield-in got its unique CITY_SVC_CONTENT copy on
+  2026-07-05 (e0f81ec) and Google crawled it on 2026-07-09, four days later,
+  and still declined to index it.
+
+That is the one case where the treatment was in place, was seen, and did not
+work. It is worth more attention than the other twelve, because it is the only
+evidence available about whether the content rule in this file is sufficient on
+its own or whether these pages need links and authority as well. Do not read the
+December drop in the headline number as proof the rule works - most of that drop
+is already banked and has nothing to do with content.
